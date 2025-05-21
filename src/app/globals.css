@@ -112,7 +112,7 @@
     /* Using more distinct theme colors for better visibility */
     background: linear-gradient(125deg, hsl(var(--background)) 0%, hsl(var(--secondary)) 50%, hsl(var(--primary)) 100%);
     background-size: 300% 300%;
-    animation: gradientBG 30s ease-in-out infinite;
+    animation: gradientBG 15s ease-in-out infinite; /* Updated duration from 30s to 15s */
     z-index: 0;
   }
 }
