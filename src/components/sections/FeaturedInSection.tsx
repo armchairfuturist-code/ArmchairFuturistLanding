@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 
 const logos = [
@@ -18,19 +19,21 @@ export default function FeaturedInSection() {
         <p className="text-center text-base text-muted-foreground mb-8">
           Trusted by leaders and innovators.
         </p>
-        <div className="flex flex-wrap justify-center items-start gap-x-6 gap-y-8 md:gap-x-8 md:gap-y-10">
-          {logos.map((logo, index) => (
-            <div key={index} className="flex flex-col items-center w-32 text-center">
-              <Image
-                src={logo.src}
-                alt={logo.alt}
-                width={64} 
-                height={64}
-                className="rounded-full object-cover shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 border border-border/50"
-              />
-              <p className="mt-2 text-sm font-medium text-muted-foreground">{logo.title}</p>
-            </div>
-          ))}
+        <div className="overflow-x-auto py-4">
+          <div className="inline-flex gap-x-6 md:gap-x-8 pr-4">
+            {logos.map((logo, index) => (
+              <div key={index} className="flex flex-col items-center w-32 text-center flex-shrink-0">
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={64}
+                  height={64}
+                  className="rounded-full object-cover shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 border border-border/50 grayscale hover:grayscale-0"
+                />
+                <p className="mt-2 text-sm font-medium text-muted-foreground">{logo.title}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
