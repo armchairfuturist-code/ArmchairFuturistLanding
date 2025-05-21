@@ -72,7 +72,7 @@ export default function AdvisoryServicesSection() {
             <Card key={service.title} className="flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300">
               <CardHeader className="items-center text-center">
                 <div className="p-3 rounded-full bg-accent/10 mb-3">{service.icon}</div>
-                <CardTitle className="text-2xl font-semibold text-primary">{service.title}</CardTitle>
+                <CardTitle className="text-xl font-semibold text-primary">{service.title}</CardTitle> {/* Changed from text-2xl to text-xl */}
               </CardHeader>
               <CardContent className="flex-grow flex flex-col">
                 <div className="mb-4">

@@ -3,17 +3,17 @@ import { AlertTriangle, Users, Lightbulb } from "lucide-react";
 
 const challenges = [
   {
-    icon: <AlertTriangle className="h-6 w-6 text-destructive" />,
+    icon: <AlertTriangle className="h-6 w-6 text-muted-foreground" />, /* Changed from text-destructive */
     title: "AI Tools Without Behavior Change",
     description: "Investing in cutting-edge AI tools often yields no ROI if underlying behaviors and workflows don't adapt.",
   },
   {
-    icon: <Users className="h-6 w-6 text-primary" />,
+    icon: <Users className="h-6 w-6 text-muted-foreground" />, /* Changed from text-primary */
     title: "Struggles with Culture Shift",
     description: "Leaders find it challenging to shift organizational culture towards embracing new technologies and agile adoption.",
   },
   {
-    icon: <Lightbulb className="h-6 w-6 text-accent" />,
+    icon: <Lightbulb className="h-6 w-6 text-muted-foreground" />, /* Changed from text-accent */
     title: "Internal Resistance to Transformation",
     description: "Significant transformation initiatives can face internal resistance, slowing progress and diluting impact.",
   },
@@ -36,7 +36,7 @@ export default function ChallengeSection() {
           {challenges.map((challenge, index) => (
             <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow duration-300">
               <CardHeader className="flex flex-row items-start gap-4 space-y-0 pb-2">
-                <div className="p-2 bg-muted rounded-md">{challenge.icon}</div>
+                <div className="p-2 bg-muted/50 rounded-md">{challenge.icon}</div> {/* Adjusted icon background for better contrast with muted icon */}
                 <CardTitle className="text-xl font-semibold">{challenge.title}</CardTitle>
               </CardHeader>
               <CardContent>
@@ -47,9 +47,13 @@ export default function ChallengeSection() {
         </div>
 
         <div className="mt-16 text-center">
-          <p className="text-xl font-medium text-foreground/90 bg-background/70 p-6 rounded-lg shadow-md inline-block">
-            "You’re not alone. Change is complex. <span className="text-accent">Let's decode it together.</span>"
-          </p>
+          <Card className="inline-block bg-card shadow-md">
+            <CardContent className="p-6">
+              <p className="text-xl font-medium text-foreground/90">
+                "You’re not alone. Change is complex. <span className="text-accent">Let's decode it together.</span>"
+              </p>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>

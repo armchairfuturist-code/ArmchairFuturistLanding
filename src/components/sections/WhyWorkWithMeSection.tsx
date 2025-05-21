@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Card, CardContent } from "@/components/ui/card"; // Added Card and CardContent
 import { Brain, Users, Settings2, Target } from 'lucide-react';
 
 const capabilities = [
@@ -63,9 +64,13 @@ export default function WhyWorkWithMeSection() {
         </div>
 
         <div className="mt-16 text-center">
-          <p className="text-xl font-semibold text-foreground/90 bg-secondary p-6 rounded-lg shadow-md inline-block">
-            “I don’t push pre-packaged solutions. <span className="text-accent">I co-create lasting ones.</span>”
-          </p>
+          <Card className="inline-block bg-card shadow-md"> {/* Changed to use Card */}
+            <CardContent className="p-6">
+              <p className="text-xl font-semibold text-foreground/90">
+                “I don’t push pre-packaged solutions. <span className="text-accent">I co-create lasting ones.</span>”
+              </p>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>
