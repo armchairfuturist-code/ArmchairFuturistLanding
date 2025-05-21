@@ -68,8 +68,8 @@ export default function AboutMeSection() {
             </div>
 
             {/* Credentials Subsection - Moved here */}
-            <div className="mt-6"> {/* Adjusted margin */}
-              <div className="flex flex-wrap justify-start items-center gap-x-6 gap-y-4">
+            <div className="mt-6">
+              <div className="grid grid-cols-2 gap-x-6 gap-y-4">
                 {certificationsData.map((cert) => (
                   <CertificationItem key={cert.id} certification={cert} />
                 ))}
