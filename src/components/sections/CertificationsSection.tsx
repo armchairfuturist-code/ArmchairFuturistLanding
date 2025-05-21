@@ -13,7 +13,7 @@ const certificationsData: Certification[] = [
 ];
 
 const CertificationItem: React.FC<{ certification: Certification }> = ({ certification }) => (
-  <div className="flex flex-col items-center text-center p-4 bg-secondary rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 min-h-[240px] justify-between">
+  <div className="flex flex-col items-center text-center p-4 bg-secondary rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
     <div className="mb-3">
       {certification.imageSrc ? (
         <Image
@@ -31,16 +31,15 @@ const CertificationItem: React.FC<{ certification: Certification }> = ({ certifi
       )}
       <p className="text-sm text-muted-foreground font-medium">{certification.name}</p>
     </div>
-    {/* Removed the "Verify Credential" button block */}
-     <div className="h-[36px] sm:h-[28px]"></div> {/* Placeholder for consistent height if no button */}
+    {/* Placeholder div removed */}
   </div>
 );
 
 export default function CertificationsSection() {
   return (
-    <section className="py-8 md:py-16 bg-secondary"> {/* Reduced padding */}
+    <section className="py-6 md:py-10 bg-secondary"> {/* Further reduced padding */}
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-10"> {/* Reduced bottom margin */}
+        <div className="text-center mb-8"> {/* Further reduced bottom margin */}
           <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
             Credentials
           </h2>
