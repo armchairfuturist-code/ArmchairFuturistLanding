@@ -31,15 +31,10 @@ export default function Header() {
               {item.label}
             </Link>
           ))}
-           <Button asChild variant="outline" size="sm">
+           <Button asChild size="sm">
             <a href="https://cal.com/alex-myers/discovery" target="_blank" rel="noopener noreferrer">
               Schedule a Call
             </a>
-          </Button>
-           <Button asChild size="sm">
-            <Link href="/ai-introduction">
-              AI Email Intro
-            </Link>
           </Button>
         </nav>
 
@@ -66,15 +61,10 @@ export default function Header() {
                     {item.label}
                   </Link>
                 ))}
-                 <Button asChild variant="outline" className="w-full">
+                 <Button asChild className="w-full">
                   <a href="https://cal.com/alex-myers/discovery" target="_blank" rel="noopener noreferrer">
                     Schedule a Call
                   </a>
-                </Button>
-                <Button asChild className="w-full">
-                  <Link href="/ai-introduction">
-                    AI Email Intro
-                  </Link>
                 </Button>
               </div>
             </SheetContent>
