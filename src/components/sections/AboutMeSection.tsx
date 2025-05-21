@@ -13,17 +13,17 @@ const certificationsData: Certification[] = [
 ];
 
 const CertificationItem: React.FC<{ certification: Certification }> = ({ certification }) => (
-  <div className="flex items-center gap-4 p-2.5 rounded-md hover:bg-secondary/50 transition-colors duration-150 w-full">
+  <div className="flex items-center gap-3 p-2 rounded-md hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors duration-150">
     {certification.imageSrc ? (
       <Image
         src={certification.imageSrc}
         alt={`${certification.name} badge`}
-        width={48}
-        height={48}
-        className="object-contain shrink-0 rounded-sm" // Added slight rounding to image for polish
+        width={40}
+        height={40}
+        className="object-contain shrink-0 rounded-sm"
       />
     ) : (
-      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground">
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground">
         <span className="font-semibold">{certification.issuerInitials}</span>
       </div>
     )}
@@ -35,8 +35,7 @@ export default function AboutMeSection() {
   return (
     <section id="about-me" className="py-12 md:py-24 bg-sectionBlue scroll-mt-20">
       <div className="container mx-auto px-4 md:px-6">
-        {/* Existing About Me Content */}
-        <div className="grid lg:grid-cols-5 gap-12 items-center">
+        <div className="grid lg:grid-cols-5 gap-12 items-start"> {/* Changed items-center to items-start */}
           <div className="lg:col-span-3">
             <Image
               src="/Standing-Photoroom.png"
@@ -75,19 +74,14 @@ export default function AboutMeSection() {
                 <p className="text-right mt-2 text-sm text-muted-foreground">- Alex Myers</p>
               </CardContent>
             </Card>
-          </div>
-        </div>
 
-        {/* Credentials Subsection - Minimal Vertical List */}
-        <div className="mt-12 md:mt-16">
-          <div className="text-center mb-6 md:mb-8">
-            {/* Intentionally empty after removing paragraph */}
-          </div>
-          <div className="max-w-lg mx-auto"> {/* Constrain width and center the list block */}
-            <div className="flex flex-col gap-1"> {/* Stack items vertically, reduced gap */}
-              {certificationsData.map((cert) => (
-                <CertificationItem key={cert.id} certification={cert} />
-              ))}
+            {/* Credentials Subsection - Restyled for horizontal flow within this column */}
+            <div className="mt-8 md:mt-10">
+              <div className="flex flex-wrap justify-start items-center gap-x-6 gap-y-4">
+                {certificationsData.map((cert) => (
+                  <CertificationItem key={cert.id} certification={cert} />
+                ))}
+              </div>
             </div>
           </div>
         </div>
