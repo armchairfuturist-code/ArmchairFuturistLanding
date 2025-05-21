@@ -13,14 +13,14 @@ const certificationsData: Certification[] = [
 ];
 
 const CertificationItem: React.FC<{ certification: Certification }> = ({ certification }) => (
-  <div className="flex flex-col items-center text-center p-4 bg-card rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 min-h-[220px] justify-between">
+  <div className="flex flex-col items-center text-center p-4 bg-secondary rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 min-h-[240px] justify-between">
     <div className="mb-3">
       {certification.imageSrc ? (
         <Image
           src={certification.imageSrc}
           alt={`${certification.name} badge`}
-          width={80}
-          height={80}
+          width={100}
+          height={100}
           className="mx-auto mb-4 object-contain"
         />
       ) : (
