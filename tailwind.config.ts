@@ -10,9 +10,9 @@ export default {
   theme: {
   	extend: {
       fontFamily: {
-        sans: ['var(--font-sans)', 'sans-serif'],
+        sans: ['var(--font-sans)', 'sans-serif'], // Will use Open Sans
         mono: ['var(--font-mono)', 'monospace'],
-        heading: ['var(--font-heading)', 'sans-serif'], // Changed from anton to heading
+        heading: ['var(--font-heading)', 'sans-serif'], // Will use Montserrat
       },
   		colors: {
   			background: 'hsl(var(--background))',
@@ -33,7 +33,7 @@ export default {
   				DEFAULT: 'hsl(var(--secondary))',
   				foreground: 'hsl(var(--secondary-foreground))'
   			},
-        sectionBlue: 'hsl(var(--section-blue-background))', // New blue color
+        sectionBlue: 'hsl(var(--section-blue-background))', 
   			muted: {
   				DEFAULT: 'hsl(var(--muted))',
   				foreground: 'hsl(var(--muted-foreground))'

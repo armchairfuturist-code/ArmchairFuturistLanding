@@ -1,14 +1,15 @@
 import type {Metadata} from 'next';
-import { Inter, Oswald, Geist_Mono } from 'next/font/google'; // Added Oswald, removed Anton
+import { Open_Sans, Montserrat, Geist_Mono } from 'next/font/google'; // Added Montserrat, Open_Sans, removed Oswald, Inter
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { cn } from '@/lib/utils';
 
-const inter = Inter({
+// Configure Open Sans for body text
+const openSans = Open_Sans({
   subsets: ['latin'],
-  variable: '--font-sans',
+  variable: '--font-sans', // Standard variable for sans-serif body text
 });
 
 const geistMono = Geist_Mono({
@@ -16,10 +17,10 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
-// Added Oswald font definition for headings
-const oswald = Oswald({
+// Configure Montserrat for headings
+const montserrat = Montserrat({
   subsets: ['latin'],
-  weight: ['400', '500', '700'], // Oswald offers various weights
+  weight: ['400', '500', '600', '700'], // Montserrat offers various weights
   variable: '--font-heading',
 });
 
@@ -35,7 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={cn(inter.variable, geistMono.variable, oswald.variable, "font-sans antialiased flex flex-col min-h-screen")}>
+      <body className={cn(openSans.variable, geistMono.variable, montserrat.variable, "font-sans antialiased flex flex-col min-h-screen")}>
         <Header />
         <main className="flex-grow">
           {children}
