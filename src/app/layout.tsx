@@ -1,14 +1,15 @@
 import type {Metadata} from 'next';
-import { Open_Sans, Montserrat, Geist_Mono } from 'next/font/google'; // Added Montserrat, Open_Sans, removed Oswald, Inter
+import { Roboto, Montserrat, Geist_Mono } from 'next/font/google'; // Added Roboto, removed Open_Sans
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { cn } from '@/lib/utils';
 
-// Configure Open Sans for body text
-const openSans = Open_Sans({
+// Configure Roboto for body text
+const roboto = Roboto({
   subsets: ['latin'],
+  weight: ['400', '500', '700'], // Roboto offers various weights
   variable: '--font-sans', // Standard variable for sans-serif body text
 });
 
@@ -20,7 +21,7 @@ const geistMono = Geist_Mono({
 // Configure Montserrat for headings
 const montserrat = Montserrat({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'], // Montserrat offers various weights
+  weight: ['400', '500', '600', '700'], 
   variable: '--font-heading',
 });
 
@@ -36,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={cn(openSans.variable, geistMono.variable, montserrat.variable, "font-sans antialiased flex flex-col min-h-screen")}>
+      <body className={cn(roboto.variable, geistMono.variable, montserrat.variable, "font-sans antialiased flex flex-col min-h-screen")}>
         <Header />
         <main className="flex-grow">
           {children}
