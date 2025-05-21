@@ -81,9 +81,9 @@ export default function AboutMeSection() {
         {/* Credentials Subsection - Minimal Vertical List */}
         <div className="mt-12 md:mt-16">
           <div className="text-center mb-6 md:mb-8">
-            <h3 className="text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
+            {/* <h3 className="text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
               Credentials
-            </h3>
+            </h3> */}
             <p className="mt-3 text-base text-foreground/70 max-w-xl mx-auto">
               Committed to continuous learning in key domains.
             </p>
