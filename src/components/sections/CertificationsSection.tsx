@@ -31,15 +31,8 @@ const CertificationItem: React.FC<{ certification: Certification }> = ({ certifi
       )}
       <p className="text-sm text-muted-foreground font-medium">{certification.name}</p>
     </div>
-    {certification.link ? (
-      <Button asChild variant="link" size="sm" className="text-accent hover:text-accent/80">
-        <Link href={certification.link} target="_blank" rel="noopener noreferrer">
-          Verify Credential <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
-        </Link>
-      </Button>
-    ) : (
-      <div className="h-[36px] sm:h-[28px]"></div> /* Placeholder for consistent height */
-    )}
+    {/* Removed the "Verify Credential" button block */}
+     <div className="h-[36px] sm:h-[28px]"></div> {/* Placeholder for consistent height if no button */}
   </div>
 );
 
