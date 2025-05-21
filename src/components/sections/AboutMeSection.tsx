@@ -8,11 +8,11 @@ export default function AboutMeSection() {
         <div className="grid lg:grid-cols-5 gap-12 items-center">
           <div className="lg:col-span-2">
             <Image
-              src="/Standing.jpg"
+              src="/Standing.png" // Changed from Standing.jpg to Standing.png
               alt="Alex Myers standing"
               width={375} 
               height={500} 
-              className="rounded-xl w-full h-auto border-0"
+              className="rounded-xl w-full h-auto border-0" // Removed shadow-lg, kept rounded-xl and border-0
             />
           </div>
           <div className="lg:col-span-3 space-y-6">
