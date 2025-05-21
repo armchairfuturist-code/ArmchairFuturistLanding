@@ -10,24 +10,23 @@ const logos = [
 
 export default function FeaturedInSection() {
   return (
-    <section className="py-10 md:py-12 bg-background">
+    <section className="py-8 md:py-10 bg-background"> {/* Reduced padding */}
       <div className="container mx-auto px-4 md:px-6">
-        <h2 className="text-center text-2xl font-semibold text-foreground/90 mb-2">
+        <h2 className="text-center text-xl font-semibold text-foreground/90 mb-2"> {/* Slightly smaller heading */}
           Organizations I’ve Partnered With
         </h2>
-        <p className="text-center text-muted-foreground mb-10">Trusted by leaders and innovators.</p>
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-10">
+        <p className="text-center text-sm text-muted-foreground mb-8">Trusted by leaders and innovators.</p> {/* Slightly smaller text & less margin */}
+        <div className="flex flex-wrap justify-center items-center gap-6 md:gap-8"> {/* Reduced gap */}
           {logos.map((logo, index) => (
             <div key={index} className="flex justify-center items-center">
-              <div className="w-20 h-20 p-2 rounded-full bg-background flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 border border-border/50">
-                <Image
-                  src={logo.src}
-                  alt={logo.alt}
-                  width={60}
-                  height={60}
-                  className="object-contain max-w-full max-h-full"
-                />
-              </div>
+              {/* Image itself is now circular */}
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                width={64} // Adjusted size for the circular image
+                height={64}
+                className="rounded-full object-cover shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 border border-border/50"
+              />
             </div>
           ))}
         </div>
