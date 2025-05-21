@@ -39,7 +39,7 @@ const thoughtLeadershipItems = [
 
 export default function ThoughtLeadershipSection() {
   return (
-    <section className="py-12 md:py-24 bg-background">
+    <section id="thought-leadership" className="py-12 md:py-24 bg-background scroll-mt-20">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">

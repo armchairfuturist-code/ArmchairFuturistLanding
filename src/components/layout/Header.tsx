@@ -5,8 +5,9 @@ import { Menu, BotMessageSquare } from 'lucide-react';
 
 export default function Header() {
   const navItems = [
-    { href: '/', label: 'Home' },
-    { href: '/ai-introduction', label: 'AI Email Intro' },
+    { href: '/#advisory-services', label: 'Services' },
+    { href: '/#about-me', label: 'About' },
+    { href: '/#thought-leadership', label: 'Insights' },
     // Future nav items can be added here
   ];
 
@@ -34,6 +35,11 @@ export default function Header() {
             <a href="https://cal.com/alex-myers/discovery" target="_blank" rel="noopener noreferrer">
               Schedule a Call
             </a>
+          </Button>
+           <Button asChild size="sm">
+            <Link href="/ai-introduction">
+              AI Email Intro
+            </Link>
           </Button>
         </nav>
 
@@ -64,6 +70,11 @@ export default function Header() {
                   <a href="https://cal.com/alex-myers/discovery" target="_blank" rel="noopener noreferrer">
                     Schedule a Call
                   </a>
+                </Button>
+                <Button asChild className="w-full">
+                  <Link href="/ai-introduction">
+                    AI Email Intro
+                  </Link>
                 </Button>
               </div>
             </SheetContent>

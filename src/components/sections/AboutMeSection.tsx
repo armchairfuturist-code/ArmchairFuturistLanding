@@ -3,7 +3,7 @@ import { Card, CardContent } from '@/components/ui/card';
 
 export default function AboutMeSection() {
   return (
-    <section className="py-12 md:py-24 bg-background">
+    <section id="about-me" className="py-12 md:py-24 bg-background scroll-mt-20">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid lg:grid-cols-5 gap-12 items-center">
           <div className="lg:col-span-2">
