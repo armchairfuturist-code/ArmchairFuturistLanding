@@ -3,16 +3,16 @@ import { Card, CardContent } from '@/components/ui/card';
 
 export default function AboutMeSection() {
   return (
-    <section id="about-me" className="py-12 md:py-24 bg-background scroll-mt-20">
+    <section id="about-me" className="py-12 md:py-24 bg-sectionBlue scroll-mt-20">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid lg:grid-cols-5 gap-12 items-center">
           <div className="lg:col-span-2">
             <Image
-              src="/Standing.jpg" // Changed image source
-              alt="Alex Myers" // Updated alt text
+              src="/Standing.jpg"
+              alt="Alex Myers standing"
               width={375} 
               height={500} 
-              className="rounded-xl shadow-lg object-cover w-full h-auto aspect-[3/4]" // Kept aspect ratio for zoom and shadow
+              className="rounded-xl shadow-lg object-cover w-full h-auto aspect-[3/4]"
             />
           </div>
           <div className="lg:col-span-3 space-y-6">

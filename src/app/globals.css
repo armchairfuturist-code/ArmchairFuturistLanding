@@ -16,16 +16,17 @@
 
 @layer base {
   :root {
-    --background: 220 17% 96%; /* Soft Grey, e.g., #F5F7FA */
-    --foreground: 220 15% 25%; /* Dark Grey, e.g., #333B4F */
+    --background: 220 17% 96%; /* Soft Grey, e.g., #F4F5F7 */
+    --foreground: 220 15% 25%; /* Dark Grey, e.g., #3A4150 */
     --card: 0 0% 100%; /* White */
     --card-foreground: 220 15% 25%;
     --popover: 0 0% 100%;
     --popover-foreground: 220 15% 25%;
     --primary: 208 100% 32%; /* Blue #0057A3 */
     --primary-foreground: 0 0% 98%; /* Almost White */
-    --secondary: 210 30% 92%; /* Light Desaturated Blue, e.g., #E9EFF5 */
+    --secondary: 210 30% 92%; /* Light Desaturated Blue, e.g., #E8EDF4 */
     --secondary-foreground: 208 100% 32%; /* Primary Blue */
+    --section-blue-background: 208 50% 70%; /* New Blue for section backgrounds #99BADD */
     --muted: 210 25% 88%; /* Slightly Darker Light Blue/Grey, e.g., #DCE5ED */
     --muted-foreground: 220 9% 46%; /* Accent Slate #6B7280 */
     --accent: 220 9% 46%; /* Accent Slate #6B7280 */
@@ -64,6 +65,7 @@
     --primary-foreground: 210 100% 98%; 
     --secondary: 221 20% 35%; /* #475569 */
     --secondary-foreground: 215 20% 90%;
+    --section-blue-background: 208 40% 25%; /* Dark theme for New Blue #26384D */
     --muted: 221 20% 35%;
     --muted-foreground: 215 19% 65%; /* Lighter Slate #94A3B8 */
     --accent: 215 19% 65%; /* Lighter Slate #94A3B8 */
