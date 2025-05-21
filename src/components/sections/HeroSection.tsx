@@ -5,8 +5,9 @@ import { ArrowRight, CalendarDays, Mic } from 'lucide-react';
 
 export default function HeroSection() {
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-background to-secondary">
-      <div className="container px-4 md:px-6">
+    <section className="relative w-full py-12 md:py-24 lg:py-32 overflow-hidden">
+      <div className="animated-hero-bg"></div>
+      <div className="container relative z-10 px-4 md:px-6">
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:gap-16 items-center">
           <div className="flex flex-col justify-center space-y-6">
             <div className="space-y-4">
@@ -33,12 +34,12 @@ export default function HeroSection() {
             </div>
           </div>
           <Image
-            src="/hero-alex-myers.png" /* Updated image path */
+            src="/hero-alex-myers.png" 
             alt="Alex Myers - Armchair Futurist"
             width={600}
             height={600}
             className="mx-auto aspect-square overflow-hidden rounded-xl object-cover sm:w-full lg:order-last shadow-2xl"
-            priority /* Add priority to hint Next.js for LCP optimization */
+            priority 
           />
         </div>
       </div>
