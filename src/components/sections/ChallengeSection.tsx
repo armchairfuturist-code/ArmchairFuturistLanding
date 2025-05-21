@@ -3,17 +3,17 @@ import { AlertTriangle, Users, Lightbulb } from "lucide-react";
 
 const challenges = [
   {
-    icon: <AlertTriangle className="h-6 w-6 text-muted-foreground" />, /* Changed from text-destructive */
+    icon: <AlertTriangle className="h-6 w-6 text-muted-foreground" />,
     title: "AI Tools Without Behavior Change",
     description: "Investing in cutting-edge AI tools often yields no ROI if underlying behaviors and workflows don't adapt.",
   },
   {
-    icon: <Users className="h-6 w-6 text-muted-foreground" />, /* Changed from text-primary */
+    icon: <Users className="h-6 w-6 text-muted-foreground" />,
     title: "Struggles with Culture Shift",
     description: "Leaders find it challenging to shift organizational culture towards embracing new technologies and agile adoption.",
   },
   {
-    icon: <Lightbulb className="h-6 w-6 text-muted-foreground" />, /* Changed from text-accent */
+    icon: <Lightbulb className="h-6 w-6 text-muted-foreground" />,
     title: "Internal Resistance to Transformation",
     description: "Significant transformation initiatives can face internal resistance, slowing progress and diluting impact.",
   },
@@ -36,7 +36,7 @@ export default function ChallengeSection() {
           {challenges.map((challenge, index) => (
             <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow duration-300">
               <CardHeader className="flex flex-row items-start gap-4 space-y-0 pb-2">
-                <div className="p-2 bg-muted/50 rounded-md">{challenge.icon}</div> {/* Adjusted icon background for better contrast with muted icon */}
+                <div className="p-2 bg-muted/50 rounded-md">{challenge.icon}</div>
                 <CardTitle className="text-xl font-semibold">{challenge.title}</CardTitle>
               </CardHeader>
               <CardContent>

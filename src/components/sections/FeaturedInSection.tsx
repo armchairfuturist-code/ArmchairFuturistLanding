@@ -12,10 +12,10 @@ export default function FeaturedInSection() {
   return (
     <section className="py-8 md:py-10 bg-background">
       <div className="container mx-auto px-4 md:px-6">
-        <h2 className="text-center text-2xl font-semibold text-foreground/90 mb-2"> {/* Increased from text-xl */}
+        <h2 className="text-center text-2xl font-semibold text-foreground/90 mb-2">
           Organizations I’ve Partnered With
         </h2>
-        <p className="text-center text-base text-muted-foreground mb-8"> {/* Increased from text-sm */}
+        <p className="text-center text-base text-muted-foreground mb-8">
           Trusted by leaders and innovators.
         </p>
         <div className="flex flex-wrap justify-center items-start gap-x-6 gap-y-8 md:gap-x-8 md:gap-y-10">
@@ -28,7 +28,7 @@ export default function FeaturedInSection() {
                 height={64}
                 className="rounded-full object-cover shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 border border-border/50"
               />
-              <p className="mt-2 text-sm font-medium text-muted-foreground">{logo.title}</p> {/* Increased from text-xs */}
+              <p className="mt-2 text-sm font-medium text-muted-foreground">{logo.title}</p>
             </div>
           ))}
         </div>
