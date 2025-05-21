@@ -12,7 +12,7 @@ export default function AboutMeSection() {
               alt="Alex Myers standing"
               width={375} 
               height={500} 
-              className="rounded-xl shadow-lg object-cover w-full h-auto aspect-[3/4] border-0"
+              className="rounded-xl shadow-lg w-full h-auto border-0"
             />
           </div>
           <div className="lg:col-span-3 space-y-6">
