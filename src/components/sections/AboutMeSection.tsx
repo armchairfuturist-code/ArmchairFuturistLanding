@@ -8,11 +8,11 @@ export default function AboutMeSection() {
         <div className="grid lg:grid-cols-5 gap-12 items-center">
           <div className="lg:col-span-2">
             <Image
-              src="/Alex_Standing.png" // Updated image path
-              alt="Alex Myers standing" // Updated alt text
-              width={400}
-              height={500}
-              className="rounded-xl shadow-2xl object-cover w-full h-auto aspect-[4/5]"
+              src="/Alex_Standing.png"
+              alt="Alex Myers standing"
+              width={375} // Adjusted for 3/4 aspect ratio
+              height={500} // Kept height, adjusted width
+              className="rounded-xl shadow-lg object-cover w-full h-auto aspect-[3/4]" // Changed aspect ratio and shadow
             />
           </div>
           <div className="lg:col-span-3 space-y-6">
