@@ -38,9 +38,9 @@ const CertificationItem: React.FC<{ certification: Certification }> = ({ certifi
 
 export default function CertificationsSection() {
   return (
-    <section className="py-12 md:py-24 bg-secondary">
+    <section className="py-8 md:py-16 bg-secondary"> {/* Reduced padding */}
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-12">
+        <div className="text-center mb-10"> {/* Reduced bottom margin */}
           <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
             Credentials
           </h2>
