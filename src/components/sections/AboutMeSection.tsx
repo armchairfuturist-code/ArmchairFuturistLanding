@@ -35,7 +35,7 @@ export default function AboutMeSection() {
   return (
     <section id="about-me" className="py-12 md:py-24 bg-sectionBlue scroll-mt-20">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid lg:grid-cols-5 gap-12 items-start"> {/* Changed items-center to items-start */}
+        <div className="grid lg:grid-cols-5 gap-12 items-start">
           <div className="lg:col-span-3">
             <Image
               src="/Standing-Photoroom.png"
@@ -66,6 +66,16 @@ export default function AboutMeSection() {
                 real, lasting impact.
               </p>
             </div>
+
+            {/* Credentials Subsection - Moved here */}
+            <div className="mt-6"> {/* Adjusted margin */}
+              <div className="flex flex-wrap justify-start items-center gap-x-6 gap-y-4">
+                {certificationsData.map((cert) => (
+                  <CertificationItem key={cert.id} certification={cert} />
+                ))}
+              </div>
+            </div>
+            
             <Card className="bg-secondary border-primary/20 shadow-lg">
               <CardContent className="p-6">
                 <blockquote className="text-lg font-medium text-primary italic">
@@ -75,14 +85,6 @@ export default function AboutMeSection() {
               </CardContent>
             </Card>
 
-            {/* Credentials Subsection - Restyled for horizontal flow within this column */}
-            <div className="mt-8 md:mt-10">
-              <div className="flex flex-wrap justify-start items-center gap-x-6 gap-y-4">
-                {certificationsData.map((cert) => (
-                  <CertificationItem key={cert.id} certification={cert} />
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </div>
