@@ -8,7 +8,7 @@ export default function AboutMeSection() {
         <div className="grid lg:grid-cols-5 gap-12 items-center">
           <div className="lg:col-span-3"> {/* Changed from lg:col-span-2 */}
             <Image
-              src="/Standing.png"
+              src="/Standing-Photoroom.png"
               alt="Alex Myers standing"
               width={600} // Increased from 375
               height={800} // Increased from 500
