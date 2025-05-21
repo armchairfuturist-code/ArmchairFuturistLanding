@@ -1,11 +1,11 @@
 import Image from 'next/image';
 
 const logos = [
-  { src: "https://placehold.co/150x60.png", alt: "Gen AI Academy", dataAiHint: "modern tech logo" },
-  { src: "https://placehold.co/150x60.png", alt: "Aragon.org", dataAiHint: "blockchain organization logo" },
-  { src: "https://placehold.co/150x60.png", alt: "Culminate Strategy Group", dataAiHint: "consulting firm logo" },
-  { src: "https://placehold.co/150x60.png", alt: "Techstars Accelerator", dataAiHint: "startup accelerator logo" },
-  { src: "https://placehold.co/150x60.png", alt: "Launch by NTT Data", dataAiHint: "corporate innovation logo" },
+  { src: "/thegenaiacademy.png", alt: "The GenAI Academy" },
+  { src: "/aragon.png", alt: "Aragon Association" },
+  { src: "/culminate.png", alt: "Culminate Strategy Group" },
+  { src: "/techstars.png", alt: "Techstars" },
+  { src: "/launch.png", alt: "Launch by NTT Data" },
 ];
 
 export default function FeaturedInSection() {
@@ -22,10 +22,9 @@ export default function FeaturedInSection() {
               <Image
                 src={logo.src}
                 alt={logo.alt}
-                width={150}
-                height={60}
+                width={150} // You might want to adjust these based on actual logo dimensions
+                height={60}  // or remove them to let natural dimensions take effect with object-contain
                 className="object-contain"
-                data-ai-hint={logo.dataAiHint}
               />
             </div>
           ))}
