@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -10,9 +11,9 @@ export default {
   theme: {
   	extend: {
       fontFamily: {
-        sans: ['var(--font-sans)', 'sans-serif'], // Will use Open Sans
+        sans: ['var(--font-sans)', 'sans-serif'],
         mono: ['var(--font-mono)', 'monospace'],
-        heading: ['var(--font-heading)', 'sans-serif'], // Will use Montserrat
+        heading: ['var(--font-heading)', 'sans-serif'],
       },
   		colors: {
   			background: 'hsl(var(--background))',
@@ -88,11 +89,16 @@ export default {
   				to: {
   					height: '0'
   				}
-  			}
+  			},
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        }
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
+  			'accordion-up': 'accordion-up 0.2s ease-out',
+        marquee: 'marquee 40s linear infinite',
   		}
   	}
   },

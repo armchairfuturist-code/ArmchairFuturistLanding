@@ -19,10 +19,11 @@ export default function FeaturedInSection() {
         <p className="text-center text-base text-muted-foreground mb-8">
           Trusted by leaders and innovators.
         </p>
-        <div className="overflow-x-auto py-4">
-          <div className="inline-flex gap-x-6 md:gap-x-8 pr-4">
-            {logos.map((logo, index) => (
-              <div key={index} className="flex flex-col items-center w-32 text-center flex-shrink-0">
+        <div className="overflow-hidden py-4 w-full">
+          <div className="flex animate-marquee whitespace-nowrap gap-x-6 md:gap-x-8">
+            {/* Render logos twice for seamless scroll */}
+            {[...logos, ...logos].map((logo, index) => (
+              <div key={`${logo.alt}-${index}`} className="flex flex-col items-center w-32 text-center flex-shrink-0">
                 <Image
                   src={logo.src}
                   alt={logo.alt}
@@ -30,7 +31,7 @@ export default function FeaturedInSection() {
                   height={64}
                   className="rounded-full object-cover shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 border border-border/50 grayscale hover:grayscale-0"
                 />
-                <p className="mt-2 text-sm font-medium text-muted-foreground">{logo.title}</p>
+                <p className="mt-3 text-sm font-medium text-muted-foreground">{logo.title}</p>
               </div>
             ))}
           </div>
