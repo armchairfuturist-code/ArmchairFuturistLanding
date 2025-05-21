@@ -6,16 +6,16 @@ export default function AboutMeSection() {
     <section id="about-me" className="py-12 md:py-24 bg-sectionBlue scroll-mt-20">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid lg:grid-cols-5 gap-12 items-center">
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-3"> {/* Changed from lg:col-span-2 */}
             <Image
-              src="/Standing.png" // Changed from Standing.jpg to Standing.png
+              src="/Standing.png"
               alt="Alex Myers standing"
-              width={375} 
-              height={500} 
-              className="rounded-xl w-full h-auto border-0" // Removed shadow-lg, kept rounded-xl and border-0
+              width={600} // Increased from 375
+              height={800} // Increased from 500
+              className="rounded-xl w-full h-auto border-0"
             />
           </div>
-          <div className="lg:col-span-3 space-y-6">
+          <div className="lg:col-span-2 space-y-6"> {/* Changed from lg:col-span-3 */}
             <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
               About Me
             </h2>
