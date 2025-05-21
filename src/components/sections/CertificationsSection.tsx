@@ -1,7 +1,7 @@
 import type { Certification } from '@/types';
 import Link from 'next/link';
-import { Badge } from '@/components/ui/badge';
 import { ExternalLink, Award } from 'lucide-react';
+import { Button } from '@/components/ui/button'; // Import the actual Button component
 
 const certificationsData: Certification[] = [
   { id: "ccmp", name: "Certified Change Management Professional", issuerInitials: "CCMP", link: "https://www.ccmprofessional.org/" }, // Replace with actual link
@@ -27,17 +27,10 @@ const CertificationItem: React.FC<{ certification: Certification }> = ({ certifi
         </Link>
       </Button>
     ) : (
-      <div className="h-[28px]"></div> // Placeholder for consistent height
+      <div className="h-[36px] sm:h-[28px]"></div> /* Adjusted placeholder height for consistency with Button line height */
     )}
   </div>
 );
-
-// Dummy Button component if not available globally or for specific styling
-const Button: React.FC<React.PropsWithChildren<{ asChild?: boolean; variant?: string; size?: string; className?: string } & React.AnchorHTMLAttributes<HTMLAnchorElement>>> = ({ children, asChild, className, ...props }) => {
-  const Comp = asChild && props.href ? 'a' : 'button'; // Simplified logic for example
-  return <Comp className={className} {...props}>{children}</Comp>;
-};
-
 
 export default function CertificationsSection() {
   return (

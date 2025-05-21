@@ -33,12 +33,12 @@ export default function HeroSection() {
             </div>
           </div>
           <Image
-            src="https://placehold.co/600x600.png"
+            src="/hero-alex-myers.png" /* Updated image path */
             alt="Alex Myers - Armchair Futurist"
             width={600}
             height={600}
             className="mx-auto aspect-square overflow-hidden rounded-xl object-cover sm:w-full lg:order-last shadow-2xl"
-            data-ai-hint="professional portrait"
+            priority /* Add priority to hint Next.js for LCP optimization */
           />
         </div>
       </div>
