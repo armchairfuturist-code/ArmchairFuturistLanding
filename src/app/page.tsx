@@ -4,7 +4,7 @@ import ChallengeSection from '@/components/sections/ChallengeSection';
 import WhyWorkWithMeSection from '@/components/sections/WhyWorkWithMeSection';
 import AdvisoryServicesSection from '@/components/sections/AdvisoryServicesSection';
 import AboutMeSection from '@/components/sections/AboutMeSection';
-import CertificationsSection from '@/components/sections/CertificationsSection';
+// import CertificationsSection from '@/components/sections/CertificationsSection'; // Removed
 import ThoughtLeadershipSection from '@/components/sections/ThoughtLeadershipSection';
 import ConnectSection from '@/components/sections/ConnectSection';
 
@@ -17,7 +17,7 @@ export default function HomePage() {
       <WhyWorkWithMeSection />
       <AdvisoryServicesSection />
       <AboutMeSection />
-      <CertificationsSection />
+      {/* <CertificationsSection /> */} {/* Removed */}
       <ThoughtLeadershipSection />
       <ConnectSection />
     </div>
