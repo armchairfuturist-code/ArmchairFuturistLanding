@@ -1,7 +1,7 @@
 import type { Certification } from '@/types';
 import Link from 'next/link';
 import { ExternalLink, Award } from 'lucide-react';
-import { Button } from '@/components/ui/button'; // Import the actual Button component
+import { Button } from '@/components/ui/button';
 
 const certificationsData: Certification[] = [
   { id: "ccmp", name: "Certified Change Management Professional", issuerInitials: "CCMP", link: "https://www.ccmprofessional.org/" }, // Replace with actual link
@@ -38,7 +38,7 @@ export default function CertificationsSection() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-            Certifications & Credentials
+            Credentials
           </h2>
           <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto">
             Demonstrating a commitment to expertise and continuous learning in key domains.
