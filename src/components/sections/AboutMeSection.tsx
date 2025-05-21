@@ -1,9 +1,8 @@
 
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
-import type { Certification } from '@/types'; // Ensure this type is available
+import type { Certification } from '@/types'; 
 
-// Copied from the former CertificationsSection.tsx
 const certificationsData: Certification[] = [
   { id: "ccmp", name: "Certified Change Management Professional", issuerInitials: "CCMP", link: "https://www.ccmprofessional.org/", imageSrc: "/CCMP.png" },
   { id: "flta", name: "Certified Futurist & Long-Term Analyst", issuerInitials: "FLTA", imageSrc: "/Futurist.jpg" },
@@ -46,7 +45,7 @@ export default function AboutMeSection() {
             />
           </div>
           <div className="lg:col-span-2 space-y-6">
-            <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
+            <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
               About Me
             </h2>
             <div className="prose prose-lg text-foreground/80 max-w-none">
@@ -66,8 +65,7 @@ export default function AboutMeSection() {
                 real, lasting impact.
               </p>
             </div>
-
-            {/* Credentials Subsection - Moved here */}
+            
             <div className="mt-6">
               <div className="grid grid-cols-2 gap-x-6 gap-y-4">
                 {certificationsData.map((cert) => (

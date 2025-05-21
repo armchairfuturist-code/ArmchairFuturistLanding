@@ -6,7 +6,7 @@ export default function ConnectSection() {
   return (
     <section className="py-16 md:py-24 bg-gradient-to-br from-primary to-primary/90 text-primary-foreground">
       <div className="container mx-auto px-4 md:px-6 text-center">
-        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-6">
+        <h2 className="font-heading text-3xl font-bold tracking-tight sm:text-4xl mb-6">
           Let’s Talk About the Future — <span className="text-accent">Your Future.</span>
         </h2>
         <p className="max-w-2xl mx-auto text-lg text-primary-foreground/80 mb-10">

@@ -12,7 +12,7 @@ export default {
       fontFamily: {
         sans: ['var(--font-sans)', 'sans-serif'],
         mono: ['var(--font-mono)', 'monospace'],
-        anton: ['var(--font-anton)', 'sans-serif'], // Added Anton font family
+        heading: ['var(--font-heading)', 'sans-serif'], // Changed from anton to heading
       },
   		colors: {
   			background: 'hsl(var(--background))',

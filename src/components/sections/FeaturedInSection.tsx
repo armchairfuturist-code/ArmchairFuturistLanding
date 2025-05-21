@@ -12,7 +12,7 @@ export default function FeaturedInSection() {
   return (
     <section className="py-8 md:py-10 bg-background">
       <div className="container mx-auto px-4 md:px-6">
-        <h2 className="text-center text-2xl font-semibold text-foreground/90 mb-2">
+        <h2 className="font-heading text-center text-2xl font-semibold text-foreground/90 mb-2">
           Organizations I’ve Partnered With
         </h2>
         <p className="text-center text-base text-muted-foreground mb-8">

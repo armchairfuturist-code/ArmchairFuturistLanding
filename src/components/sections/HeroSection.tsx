@@ -11,7 +11,7 @@ export default function HeroSection() {
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:gap-16 items-center">
           <div className="flex flex-col justify-center space-y-6">
             <div className="space-y-4">
-              <h1 className="font-anton text-4xl tracking-tighter sm:text-5xl xl:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/80 to-accent">
+              <h1 className="font-heading text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/80 to-accent">
                 Shape the Future. Deliver Real Results.
               </h1>
               <p className="max-w-[600px] text-foreground/80 md:text-xl">

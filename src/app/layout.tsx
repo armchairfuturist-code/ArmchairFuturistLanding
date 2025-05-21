@@ -1,6 +1,5 @@
 import type {Metadata} from 'next';
-import { Inter, Anton } from 'next/font/google'; // Added Anton
-import { Geist_Mono } from 'next/font/google';
+import { Inter, Oswald, Geist_Mono } from 'next/font/google'; // Added Oswald, removed Anton
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import Header from '@/components/layout/Header';
@@ -17,11 +16,11 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
-// Added Anton font definition
-const anton = Anton({
+// Added Oswald font definition for headings
+const oswald = Oswald({
   subsets: ['latin'],
-  weight: ['400'], // Anton typically comes in 400 weight
-  variable: '--font-anton',
+  weight: ['400', '500', '700'], // Oswald offers various weights
+  variable: '--font-heading',
 });
 
 export const metadata: Metadata = {
@@ -36,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={cn(inter.variable, geistMono.variable, anton.variable, "font-sans antialiased flex flex-col min-h-screen")}>
+      <body className={cn(inter.variable, geistMono.variable, oswald.variable, "font-sans antialiased flex flex-col min-h-screen")}>
         <Header />
         <main className="flex-grow">
           {children}
