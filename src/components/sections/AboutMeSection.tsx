@@ -8,12 +8,11 @@ export default function AboutMeSection() {
         <div className="grid lg:grid-cols-5 gap-12 items-center">
           <div className="lg:col-span-2">
             <Image
-              src="https://placehold.co/400x500.png"
-              alt="Alex Myers"
+              src="/Alex_Standing.png" // Updated image path
+              alt="Alex Myers standing" // Updated alt text
               width={400}
               height={500}
               className="rounded-xl shadow-2xl object-cover w-full h-auto aspect-[4/5]"
-              data-ai-hint="professional candid photo"
             />
           </div>
           <div className="lg:col-span-3 space-y-6">
