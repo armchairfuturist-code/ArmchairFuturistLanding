@@ -19,8 +19,13 @@ export default function ConnectSection() {
               Schedule a Discovery Call
             </a>
           </Button>
-          <Button asChild variant="outline" size="lg" className="border-primary-foreground/50 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground shadow-lg transition-transform duration-200 hover:scale-105">
-            <a href="mailto:alex@alexmyers.co?subject=Speaking Invitation Request"> {/* Replace with actual email or contact form link */}
+          <Button
+            asChild
+            variant="secondary"
+            size="lg"
+            className="shadow-lg transition-transform duration-200 hover:scale-105"
+          >
+            <a href="mailto:alex@alexmyers.co?subject=Speaking Invitation Request">
               <Mic className="mr-2 h-5 w-5" />
               Invite Me to Speak
             </a>
