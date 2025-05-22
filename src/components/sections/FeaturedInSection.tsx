@@ -18,19 +18,17 @@ export default function FeaturedInSection() {
         <h2 className="font-heading text-center text-2xl font-semibold text-foreground/90 mb-8">
           Organizations I’ve Partnered With
         </h2>
-        {/* <p className="text-center text-base text-muted-foreground mb-8">
-          Trusted by leaders and innovators.
-        </p> */}
+        
         <div className="overflow-hidden py-4 w-full">
-          <div className="flex animate-marquee whitespace-nowrap gap-x-6 md:gap-x-8">
+          <div className="flex animate-marquee whitespace-nowrap gap-x-10 md:gap-x-12">
             {/* Render logos twice for seamless scroll */}
             {[...logos, ...logos].map((logo, index) => (
-              <div key={`${logo.alt}-${index}`} className="flex flex-col items-center w-32 text-center flex-shrink-0">
+              <div key={`${logo.alt}-${index}`} className="flex flex-col items-center text-center flex-shrink-0">
                 <Image
                   src={logo.src}
                   alt={logo.alt}
-                  width={64}
-                  height={64}
+                  width={96}
+                  height={96}
                   className="rounded-full object-cover shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 border border-border/50 grayscale hover:grayscale-0"
                 />
               </div>
@@ -41,4 +39,3 @@ export default function FeaturedInSection() {
     </section>
   );
 }
-
