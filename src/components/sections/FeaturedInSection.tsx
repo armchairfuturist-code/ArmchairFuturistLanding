@@ -2,13 +2,13 @@
 import Image from 'next/image';
 
 const logos = [
-  { src: "/thegenaiacademy.jpg", alt: "The GenAI Academy logo", title: "The GenAI Academy" },
-  { src: "/aragonp.jpg", alt: "Aragon.org logo", title: "Aragon.org" },
-  { src: "/culminate.jpg", alt: "Culminate Strategy Group logo", title: "Culminate Strategy Group" },
-  { src: "/techstars.jpg", alt: "Techstars logo", title: "Techstars" },
-  { src: "/launch.jpg", alt: "Launch by NTT Data logo", title: "Launch by NTT Data" },
-  { src: "/kemin.jpg", alt: "Kemin logo", title: "Kemin" },
-  { src: "/shiftdsm.jpg", alt: "Shift DSM logo", title: "Shift DSM" },
+  { src: "/thegenaiacademy.jpg", alt: "The GenAI Academy logo" },
+  { src: "/aragonp.jpg", alt: "Aragon.org logo" },
+  { src: "/culminate.jpg", alt: "Culminate Strategy Group logo" },
+  { src: "/techstars.jpg", alt: "Techstars logo" },
+  { src: "/launch.jpg", alt: "Launch by NTT Data logo" },
+  { src: "/kemin.jpg", alt: "Kemin logo" },
+  { src: "/shiftdsm.jpg", alt: "Shift DSM logo" },
 ];
 
 export default function FeaturedInSection() {
@@ -33,7 +33,6 @@ export default function FeaturedInSection() {
                   height={64}
                   className="rounded-full object-cover shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 border border-border/50 grayscale hover:grayscale-0"
                 />
-                <p className="mt-3 text-sm font-medium text-muted-foreground">{logo.title}</p>
               </div>
             ))}
           </div>
@@ -42,3 +41,4 @@ export default function FeaturedInSection() {
     </section>
   );
 }
+
