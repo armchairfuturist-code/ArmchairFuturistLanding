@@ -15,12 +15,12 @@ export default function FeaturedInSection() {
   return (
     <section className="py-8 md:py-10 bg-background">
       <div className="container mx-auto px-4 md:px-6">
-        <h2 className="font-heading text-center text-2xl font-semibold text-foreground/90 mb-2">
+        <h2 className="font-heading text-center text-2xl font-semibold text-foreground/90 mb-8">
           Organizations I’ve Partnered With
         </h2>
-        <p className="text-center text-base text-muted-foreground mb-8">
+        {/* <p className="text-center text-base text-muted-foreground mb-8">
           Trusted by leaders and innovators.
-        </p>
+        </p> */}
         <div className="overflow-hidden py-4 w-full">
           <div className="flex animate-marquee whitespace-nowrap gap-x-6 md:gap-x-8">
             {/* Render logos twice for seamless scroll */}
@@ -42,4 +42,3 @@ export default function FeaturedInSection() {
     </section>
   );
 }
-
