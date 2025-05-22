@@ -1,18 +1,34 @@
 
+"use client";
+
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { CalendarDays, Mic } from 'lucide-react';
+import { useEffect, useRef } from 'react';
 
 export default function HeroSection() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        // Autoplay was prevented.
+        console.error("Video autoplay was prevented:", error);
+        // You could add a fallback here, like showing a static image or a play button.
+      });
+    }
+  }, []);
+
   return (
     <section className="relative w-full py-12 md:py-24 lg:py-32 overflow-hidden">
       <video
+        ref={videoRef}
         autoPlay
         loop
         muted
         playsInline // Essential for autoplay on many mobile devices
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
-        src="/header.mp4" // Assumes header.mp4 is in the public folder
+        src="/header.mp4" 
       >
         Your browser does not support the video tag.
       </video>
@@ -21,7 +37,7 @@ export default function HeroSection() {
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:gap-16 items-center">
           <div className="flex flex-col justify-center space-y-6">
             <div className="space-y-4">
-              <h1 className="font-heading text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/80 to-accent">
+              <h1 className="font-heading text-4xl tracking-tighter sm:text-5xl xl:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/80 to-accent">
                 Shape the Future. Deliver Real Results.
               </h1>
               <p className="max-w-[600px] text-primary-foreground/90 md:text-xl">
