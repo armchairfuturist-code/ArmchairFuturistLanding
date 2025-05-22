@@ -12,9 +12,8 @@ export default function HeroSection() {
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.play().catch(error => {
-        // Autoplay was prevented.
         console.error("Video autoplay was prevented:", error);
-        // You could add a fallback here, like showing a static image or a play button.
+        // Fallback for autoplay prevention can be added here if needed
       });
     }
   }, []);
@@ -26,14 +25,14 @@ export default function HeroSection() {
         autoPlay
         loop
         muted
-        playsInline // Essential for autoplay on many mobile devices
+        playsInline
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
-        src="/header.mp4" 
+        src="/header.mp4"
       >
         Your browser does not support the video tag.
       </video>
-      <div className="absolute top-0 left-0 w-full h-full bg-black/30 z-[1]"></div> {/* Optional: dark overlay for text contrast */}
-      <div className="container relative z-10 px-4 md:px-6"> {/* Ensure content is above video */}
+      <div className="absolute top-0 left-0 w-full h-full bg-black/30 z-[1]"></div>
+      <div className="container relative z-10 px-4 md:px-6">
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:gap-16 items-center">
           <div className="flex flex-col justify-center space-y-6">
             <div className="space-y-4">
@@ -45,23 +44,19 @@ export default function HeroSection() {
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg transition-transform duration-200 hover:scale-105">
-                <a href="https://cal.com/alex-myers/discovery" target="_blank" rel="noopener noreferrer">
+              <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg transition-transform duration-200 hover:scale-105"><a href="https://cal.com/alex-myers/discovery" target="_blank" rel="noopener noreferrer">
                   <CalendarDays className="mr-2 h-5 w-5" />
                   Schedule a Discovery Call
-                </a>
-              </Button>
+                </a></Button>
               <Button
                 asChild
                 variant="outline"
                 size="lg"
                 className="shadow-lg transition-transform duration-200 hover:scale-105 border-primary-foreground/70 text-primary-foreground hover:bg-primary-foreground/10"
-              >
-                <a href="mailto:alex@alexmyers.co?subject=Speaking Invitation Request">
+              ><a href="mailto:alex@alexmyers.co?subject=Speaking Invitation Request">
                   <Mic className="mr-2 h-5 w-5" />
                   Invite Me to Speak
-                </a>
-              </Button>
+                </a></Button>
             </div>
           </div>
           <Image
