@@ -43,6 +43,14 @@ export default function AboutMeSection() {
               height={800}
               className="rounded-xl w-full h-auto border-0"
             />
+            <Card className="bg-secondary border-primary/20 shadow-lg mt-8">
+              <CardContent className="p-6">
+                <blockquote className="text-lg font-medium text-primary italic">
+                  "The future is not something to be passively awaited, but actively created. My role is to empower you with the insights and frameworks to build that future, today."
+                </blockquote>
+                <p className="text-right mt-2 text-sm text-muted-foreground">- Alex Myers</p>
+              </CardContent>
+            </Card>
           </div>
           <div className="lg:col-span-2 space-y-6">
             <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
@@ -73,16 +81,6 @@ export default function AboutMeSection() {
                 ))}
               </div>
             </div>
-            
-            <Card className="bg-secondary border-primary/20 shadow-lg">
-              <CardContent className="p-6">
-                <blockquote className="text-lg font-medium text-primary italic">
-                  "The future is not something to be passively awaited, but actively created. My role is to empower you with the insights and frameworks to build that future, today."
-                </blockquote>
-                <p className="text-right mt-2 text-sm text-muted-foreground">- Alex Myers</p>
-              </CardContent>
-            </Card>
-
           </div>
         </div>
       </div>
