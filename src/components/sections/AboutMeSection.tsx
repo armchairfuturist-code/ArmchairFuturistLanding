@@ -39,11 +39,11 @@ export default function AboutMeSection() {
             <Image
               src="/Standing-Photoroom.png"
               alt="Alex Myers standing"
-              width={750}
-              height={1000}
+              width={1200}
+              height={1600}
               className="rounded-xl w-full h-auto border-0"
             />
-             <Card className="bg-secondary border-primary/20 shadow-lg mt-8">
+            <Card className="bg-secondary border-primary/20 shadow-lg mt-8">
               <CardContent className="p-6">
                 <blockquote className="text-lg font-medium text-primary italic">
                   "The future is not something to be passively awaited, but actively created. My role is to empower you with the insights and frameworks to build that future, today."
