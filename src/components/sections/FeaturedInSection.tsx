@@ -7,6 +7,8 @@ const logos = [
   { src: "/culminate.jpg", alt: "Culminate Strategy Group logo", title: "Culminate Strategy Group" },
   { src: "/techstars.jpg", alt: "Techstars logo", title: "Techstars" },
   { src: "/launch.jpg", alt: "Launch by NTT Data logo", title: "Launch by NTT Data" },
+  { src: "/kemin.jpg", alt: "Kemin logo", title: "Kemin" },
+  { src: "/shiftdsm.jpg", alt: "Shift DSM logo", title: "Shift DSM" },
 ];
 
 export default function FeaturedInSection() {
@@ -40,3 +42,4 @@ export default function FeaturedInSection() {
     </section>
   );
 }
+
