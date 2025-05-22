@@ -1,5 +1,5 @@
 import type {Metadata} from 'next';
-import { Roboto, Montserrat, Geist_Mono } from 'next/font/google'; // Added Roboto, removed Open_Sans
+import { Roboto, Montserrat, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import Header from '@/components/layout/Header';
@@ -9,8 +9,8 @@ import { cn } from '@/lib/utils';
 // Configure Roboto for body text
 const roboto = Roboto({
   subsets: ['latin'],
-  weight: ['400', '500', '700'], // Roboto offers various weights
-  variable: '--font-sans', // Standard variable for sans-serif body text
+  weight: ['400', '500', '700'], 
+  variable: '--font-sans', 
 });
 
 const geistMono = Geist_Mono({
@@ -28,6 +28,9 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: 'Armchair Futurist - Alex Myers',
   description: 'Alex Myers – the Armchair Futurist: Advisor to leaders navigating AI, change, and the future of work with grounded, human-first strategy.',
+  icons: {
+    icon: '/favicon.ico', // This tells Next.js to look for public/favicon.ico
+  },
 };
 
 export default function RootLayout({
