@@ -56,7 +56,7 @@ export default function HeroSection() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="shadow-lg transition-transform duration-200 hover:scale-105 border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/20 hover:text-primary-foreground"
+                className="shadow-lg transition-transform duration-200 hover:scale-105 border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/20 hover:text-primary"
               >
                 <a href="mailto:alex@alexmyers.co?subject=Speaking Invitation Request">
                   <Mic className="mr-2 h-5 w-5" />
@@ -78,4 +78,3 @@ export default function HeroSection() {
     </section>
   );
 }
-
