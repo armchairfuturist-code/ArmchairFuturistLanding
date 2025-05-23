@@ -21,13 +21,6 @@ export default function Header() {
           <span className="font-bold sm:inline-block font-heading">
             The Armchair Futurist
           </span>
-          <Image
-            src="/header.webp"
-            alt="Header logo"
-            width={24}
-            height={24}
-            className="rounded-full object-cover"
-          />
         </Link>
         
         <nav className="hidden md:flex gap-6 items-center">
@@ -57,22 +50,11 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side="right" className="w-[240px] sm:w-[300px]">
               <div className="flex flex-col space-y-4 p-4">
-                <Link href="/" className="flex items-center space-x-2 mb-4">
-                  <Image
-                    src="/Hero.webp" // This remains the profile headshot
-                    alt="Alex Myers logo"
-                    width={32}
-                    height={32}
-                    className="rounded-full object-cover"
-                  />
-                  <span className="font-bold font-heading">The Armchair Futurist</span>
-                  <Image
-                    src="/header.webp"
-                    alt="Header logo"
-                    width={24}
-                    height={24}
-                    className="rounded-full object-cover"
-                  />
+                <Link href="/" className="flex items-center space-y-2 mb-4"> {/* Adjusted space-x-2 to space-y-2 for vertical stacking, or could wrap to flex-col */}
+                  <div className="flex items-center space-x-2">
+                    <BotMessageSquare className="h-8 w-8 text-primary" /> {/* Increased icon size for mobile menu logo */}
+                    <span className="font-bold font-heading text-base">The Armchair Futurist</span>
+                  </div>
                 </Link>
                 {navItems.map((item) => (
                   <Link
