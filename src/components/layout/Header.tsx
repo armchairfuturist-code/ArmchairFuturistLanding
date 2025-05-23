@@ -6,7 +6,8 @@ import { Menu, BotMessageSquare } from 'lucide-react';
 
 export default function Header() {
   const navItems = [
-    { href: '/#how-we-help', label: 'How We Help' }, // Updated link and label
+    { href: '/#how-we-help', label: 'How I Help' },
+    { href: '/#services', label: 'Services' }, // Added Services link
     { href: '/#about-me', label: 'About' },
     { href: '/#thought-leadership', label: 'Insights' },
   ];
