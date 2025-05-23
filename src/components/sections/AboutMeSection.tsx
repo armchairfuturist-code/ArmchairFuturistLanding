@@ -68,14 +68,6 @@ export default function AboutMeSection() {
               height={1600}
               className="rounded-xl w-full h-auto border-0"
             />
-            <Card className="bg-secondary border-primary/20 shadow-lg mt-8">
-              <CardContent className="p-6">
-                <blockquote className="text-lg font-medium text-primary italic">
-                  "The future is not something to be passively awaited, but actively created. My role is to empower you with the insights and frameworks to build that future, today."
-                </blockquote>
-                <p className="text-right mt-2 text-sm text-muted-foreground">- Alex Myers</p>
-              </CardContent>
-            </Card>
           </div>
           <div className="lg:col-span-2 space-y-6">
             <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
@@ -83,19 +75,19 @@ export default function AboutMeSection() {
             </h2>
             <div className="prose prose-lg text-foreground/80 max-w-none">
               <p>
-                “I’m a certified futurist who doesn’t believe in hype. I help people shape change, not just talk about it.”
-                This is the core of my philosophy as the "Armchair Futurist." My work is grounded in practical application,
-                translating complex future trends and AI advancements into actionable strategies for leaders and organizations.
+                I operate at the intersection of technology and culture, guiding organizations through profound technological shifts by building authentic, enduring partnerships.
               </p>
               <p>
-                As the founder of Alex Myers Consulting (Portugal, 2023), I bring a wealth of experience in AI, human capital,
-                and systems design. My journey includes hosting the "Mission Driven You" podcast, where I explore purpose-driven
-                careers and the evolving landscape of work.
+                My leverage: Systems thinking. An intuitive grasp of group dynamics. The ability to pose questions that catalyze real change.
               </p>
               <p>
-                My approach is built on deep expertise combined with an authentic desire to partner. I don't offer one-size-fits-all
-                solutions; instead, I work collaboratively to understand your unique challenges and co-create strategies that deliver
-                real, lasting impact.
+                The challenge facing leaders today runs deeper than AI adoption—it's building hybrid competence in both organizational design and AI system engineering. Firms that fail here will struggle to compound AI gains or safeguard their culture as automation accelerates.
+              </p>
+              <p>
+                I work with leaders confronting uncertainty around actually useful AI adoption. My mission: help you understand the full consequences of your innovations—technical and cultural—and architect for anti-fragility: teams that grow stronger and more adaptive in an increasingly complex world.
+              </p>
+              <p>
+                This approach is grounded in deep understanding of both the technology itself and the human psychology of transformative change. The result is earned confidence in your chosen direction, anchored in trust and a clear line to tangible outcomes.
               </p>
             </div>
             
@@ -130,11 +122,17 @@ export default function AboutMeSection() {
                 ))}
               </div>
             </div>
-           
+            <Card className="bg-secondary border-primary/20 shadow-lg">
+              <CardContent className="p-6">
+                <blockquote className="text-lg font-medium text-primary italic">
+                  "The future is not something to be passively awaited, but actively created. My role is to empower you with the insights and frameworks to build that future, today."
+                </blockquote>
+                <p className="text-right mt-2 text-sm text-muted-foreground">- Alex Myers</p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
     </section>
   );
 }
-
