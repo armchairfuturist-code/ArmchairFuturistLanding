@@ -10,13 +10,40 @@ export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch(error => {
-        console.error("Video autoplay was prevented:", error);
-        // Autoplay was prevented.
-      });
+    const videoElement = videoRef.current;
+    if (videoElement) {
+      // Attempt to play the video
+      const playPromise = videoElement.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          console.error("Video autoplay was prevented:", error);
+          // Autoplay was prevented, browser might require user interaction.
+        });
+      }
+
+      // Fallback for ensuring loop if the 'loop' attribute isn't enough
+      const handleVideoEnd = () => {
+        if (videoElement) { // Check again in case component unmounted
+          videoElement.currentTime = 0; // Reset to start
+          const replayPromise = videoElement.play();
+           if (replayPromise !== undefined) {
+            replayPromise.catch(error => {
+              console.error("Video replay on ended was prevented:", error);
+            });
+          }
+        }
+      };
+
+      videoElement.addEventListener('ended', handleVideoEnd);
+
+      // Cleanup function to remove event listener
+      return () => {
+        if (videoElement) {
+          videoElement.removeEventListener('ended', handleVideoEnd);
+        }
+      };
     }
-  }, []);
+  }, []); // Empty dependency array ensures this runs once on mount and cleans up on unmount
 
   return (
     <section className="relative w-full py-12 md:py-24 lg:py-32 overflow-hidden">
@@ -25,7 +52,7 @@ export default function HeroSection() {
         autoPlay
         loop
         muted
-        playsInline // Important for iOS
+        playsInline 
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
         src="/header.mp4"
       >
@@ -76,4 +103,3 @@ export default function HeroSection() {
     </section>
   );
 }
-
