@@ -37,20 +37,20 @@ const servicesData = [
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="py-12 md:py-24 bg-background scroll-mt-20">
+    <section id="services" className="py-12 md:py-24 bg-secondary scroll-mt-20"> {/* Changed bg-background to bg-secondary */}
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
             Services
           </h2>
           <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto">
-            Explore the ways we can work together to transform your organization through effective AI adoption and strategic organizational design.
+            Explore the ways I can work together to transform your organization through effective AI adoption and strategic organizational design.
           </p>
         </div>
 
         <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {servicesData.map((service) => (
-            <Card key={service.title} className="flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-xl">
+            <Card key={service.title} className="flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-xl bg-card"> {/* Added bg-card to ensure cards contrast with bg-secondary */}
               <CardHeader className="items-start pt-6 pb-4 px-6">
                 <div className="p-3 rounded-full bg-primary/10 mb-4">
                   {service.icon}
