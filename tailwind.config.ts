@@ -34,7 +34,7 @@ export default {
   				DEFAULT: 'hsl(var(--secondary))',
   				foreground: 'hsl(var(--secondary-foreground))'
   			},
-        sectionBlue: 'hsl(var(--section-blue-background))', 
+        sectionBlue: 'hsl(var(--section-blue-background))',
   			muted: {
   				DEFAULT: 'hsl(var(--muted))',
   				foreground: 'hsl(var(--muted-foreground))'
@@ -93,12 +93,22 @@ export default {
         marquee: {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-50%)' },
+        },
+        'pulse-subtle': {
+          '0%, 100%': { opacity: '0.6' },
+          '50%': { opacity: '0.3' },
+        },
+        'pulse-very-subtle': {
+          '0%, 100%': { opacity: '0.4' },
+          '50%': { opacity: '0.2' },
         }
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
         marquee: 'marquee 40s linear infinite',
+        'pulse-slow': 'pulse-subtle 7s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'pulse-slower': 'pulse-very-subtle 9s cubic-bezier(0.4, 0, 0.6, 1) infinite',
   		}
   	}
   },
