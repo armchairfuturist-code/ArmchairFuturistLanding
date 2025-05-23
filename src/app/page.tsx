@@ -1,10 +1,10 @@
+
 import HeroSection from '@/components/sections/HeroSection';
 import FeaturedInSection from '@/components/sections/FeaturedInSection';
 import ChallengeSection from '@/components/sections/ChallengeSection';
 import WhyWorkWithMeSection from '@/components/sections/WhyWorkWithMeSection';
-import AdvisoryServicesSection from '@/components/sections/AdvisoryServicesSection';
+// import AdvisoryServicesSection from '@/components/sections/AdvisoryServicesSection'; // Removed
 import AboutMeSection from '@/components/sections/AboutMeSection';
-// import CertificationsSection from '@/components/sections/CertificationsSection'; // Removed
 import ThoughtLeadershipSection from '@/components/sections/ThoughtLeadershipSection';
 import ConnectSection from '@/components/sections/ConnectSection';
 
@@ -14,10 +14,9 @@ export default function HomePage() {
       <HeroSection />
       <FeaturedInSection />
       <ChallengeSection />
-      <WhyWorkWithMeSection />
-      <AdvisoryServicesSection />
+      <WhyWorkWithMeSection /> {/* This section now incorporates "How We Help" and "Why This Matters" */}
+      {/* <AdvisoryServicesSection /> */} {/* Removed */}
       <AboutMeSection />
-      {/* <CertificationsSection /> */} {/* Removed */}
       <ThoughtLeadershipSection />
       <ConnectSection />
     </div>

@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from 'next/image';
@@ -12,7 +13,6 @@ export default function HeroSection() {
     if (videoRef.current) {
       videoRef.current.play().catch(error => {
         console.error("Video autoplay was prevented:", error);
-        // Fallback for autoplay prevention can be added here if needed
       });
     }
   }, []);
@@ -24,7 +24,7 @@ export default function HeroSection() {
         autoPlay
         loop
         muted
-        playsInline
+        playsInline // Important for iOS
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
         src="/header.mp4"
       >
@@ -37,10 +37,10 @@ export default function HeroSection() {
           <div className="flex flex-col justify-center space-y-6">
             <div className="space-y-4">
               <h1 className="font-heading text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none hero-text-shadow">
-                <span className="text-hero-title-1">Shape the Future.</span> <span className="text-hero-title-2">Deliver Real Results.</span>
+                <span className="text-hero-title-1">Is Your Team Truly Prepared for the AI Revolution?</span> <span className="text-hero-title-2 block mt-1">Beyond the Hype, Lies a Critical Mindset Shift.</span>
               </h1>
               <p className="max-w-[600px] text-primary-foreground/90 md:text-xl hero-text-shadow">
-                Alex Myers – the Armchair Futurist: Advisor to leaders navigating AI, change, and the future of work with grounded, human-first strategy.
+                Artificial Intelligence is transforming business at breakneck speed. Yet, while AI tools evolve rapidly, many organizations struggle to convert individual AI productivity gains into sustained organizational performance. The missing link? People — their mindsets, emotions, and readiness to embrace profound change.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">

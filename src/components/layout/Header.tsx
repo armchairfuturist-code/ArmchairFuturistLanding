@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -5,10 +6,9 @@ import { Menu, BotMessageSquare } from 'lucide-react';
 
 export default function Header() {
   const navItems = [
-    { href: '/#advisory-services', label: 'Services' },
+    { href: '/#how-we-help', label: 'How We Help' }, // Updated link and label
     { href: '/#about-me', label: 'About' },
     { href: '/#thought-leadership', label: 'Insights' },
-    // Future nav items can be added here
   ];
 
   return (
@@ -16,7 +16,7 @@ export default function Header() {
       <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
         <Link href="/" className="mr-6 flex items-center space-x-2">
           <BotMessageSquare className="h-6 w-6 text-primary" />
-          <span className="font-bold sm:inline-block">
+          <span className="font-bold sm:inline-block font-heading">
             Armchair Futurist
           </span>
         </Link>
@@ -50,7 +50,7 @@ export default function Header() {
               <div className="flex flex-col space-y-4 p-4">
                 <Link href="/" className="flex items-center space-x-2 mb-4">
                   <BotMessageSquare className="h-6 w-6 text-primary" />
-                  <span className="font-bold">Armchair Futurist</span>
+                  <span className="font-bold font-heading">Armchair Futurist</span>
                 </Link>
                 {navItems.map((item) => (
                   <Link
