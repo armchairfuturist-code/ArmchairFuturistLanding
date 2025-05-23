@@ -20,7 +20,7 @@ const servicesData = [
   },
   {
     icon: <Presentation className="h-8 w-8 text-primary" />,
-    title: "Public Speaking & Thought Leadership",
+    title: "Speaking & Thought Leadership",
     description: "Inspiring talks that ignite action and spark breakthrough conversations on AI, organizational design, and the future of work.",
   },
   {
@@ -54,18 +54,18 @@ export default function ServicesSection() {
               key={service.title} 
               className="group relative overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 rounded-xl bg-card"
             >
-              <CardHeader className="items-center text-center pt-6 px-6 pb-6 cursor-pointer"> {/* Changed items-start to items-center and added text-center */}
+              <CardHeader className="items-center text-center pt-6 px-6 pb-6 cursor-pointer">
                 <div className="p-3 rounded-full bg-primary/10 mb-4">
                   {service.icon}
                 </div>
-                <CardTitle className="text-xl font-semibold text-primary font-heading text-center"> {/* Added text-center */}
+                <CardTitle className="text-xl font-semibold text-primary font-heading text-center">
                   {service.title}
                 </CardTitle>
               </CardHeader>
               <CardContent 
                 className="px-6 max-h-0 opacity-0 invisible group-hover:max-h-48 group-hover:opacity-100 group-hover:visible group-hover:pb-6 group-hover:pt-2 transition-all duration-500 ease-in-out"
               >
-                <p className="text-base text-muted-foreground text-center"> {/* Added text-center */}
+                <p className="text-base text-muted-foreground text-center">
                   {service.description}
                 </p>
               </CardContent>
@@ -76,3 +76,4 @@ export default function ServicesSection() {
     </section>
   );
 }
+
