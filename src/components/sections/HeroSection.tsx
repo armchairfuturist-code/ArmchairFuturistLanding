@@ -4,48 +4,17 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { CalendarDays, Mic } from 'lucide-react';
-import { useEffect, useRef } from 'react';
 
 export default function HeroSection() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch(error => {
-        console.error("Video autoplay was prevented:", error);
-        // Optionally, you could show a play button here if autoplay fails
-      });
-
-      const handleVideoEnd = () => {
-        if (videoRef.current) {
-          videoRef.current.currentTime = 0;
-          videoRef.current.play().catch(error => {
-            console.error("Video loop play was prevented:", error);
-          });
-        }
-      };
-
-      videoRef.current.addEventListener('ended', handleVideoEnd);
-
-      return () => {
-        if (videoRef.current) {
-          // eslint-disable-next-line react-hooks/exhaustive-deps
-          videoRef.current.removeEventListener('ended', handleVideoEnd);
-        }
-      };
-    }
-  }, []);
-
   return (
     <section className="relative w-full bg-background text-foreground overflow-hidden">
-      {/* Removed video background, implementing new image-based hero */}
-      
+      {/* The main container for the hero content and image, using Next.js App Router conventions */}
       <div className="container mx-auto px-4 md:px-6 min-h-[80vh] lg:min-h-[75vh] grid lg:grid-cols-2 items-center gap-x-8 gap-y-12 py-12 md:py-24">
         
         {/* Left Column: Text Content */}
         <div className="flex flex-col justify-center space-y-6 text-center lg:text-left relative z-10 order-last lg:order-first">
           <div className="space-y-4">
-            <h1 className="font-heading text-4xl font-bold tracking-tight sm:text-5xl xl:text-6xl/none hero-text-shadow">
+            <h1 className="font-heading text-4xl font-bold tracking-tight sm:text-5xl xl:text-6xl/none">
               <span className="text-hero-title-1">Shape the Future.</span> <span className="text-hero-title-2 block mt-1">Deliver Real Results.</span>
             </h1>
             <p className="max-w-[600px] text-foreground/80 md:text-xl lg:mx-0 mx-auto">
@@ -73,7 +42,7 @@ export default function HeroSection() {
         </div>
 
         {/* Right Column: Image with Fade Effect */}
-        <div className="relative w-full h-[400px] xs:h-[450px] sm:h-[500px] md:h-[550px] lg:h-[calc(75vh-6rem)] order-first lg:order-last">
+        <div className="relative w-full h-[400px] xs:h-[450px] sm:h-[500px] md:h-[550px] lg:h-[calc(75vh-6rem)] order-first lg:order-last overflow-hidden"> {/* Added overflow-hidden */}
           {/* Subtle lighting elements */}
           <div className="absolute inset-0 z-0">
             <div className="absolute top-1/2 left-1/3 w-2/3 h-2/3 bg-primary/10 rounded-full blur-[120px] transform -translate-x-1/2 -translate-y-1/2 animate-pulse-slow opacity-70 dark:opacity-40"></div>
@@ -81,17 +50,17 @@ export default function HeroSection() {
           </div>
 
           <div
-            className="relative w-full h-full z-[5]"
+            className="relative w-full h-full z-[5]" // This div takes full width/height of its parent
             style={{
-              maskImage: 'linear-gradient(to left, black 75%, transparent 45%)',
-              WebkitMaskImage: 'linear-gradient(to left, black 75%, transparent 45%)', // For Safari
+              maskImage: 'linear-gradient(to left, black 90%, transparent 70%)', // Relaxed mask
+              WebkitMaskImage: 'linear-gradient(to left, black 90%, transparent 70%)', 
             }}
           >
             <Image
               src="/hero.webp" 
               alt="Alex Myers - Armchair Futurist"
               fill
-              className="object-cover object-center" // Changed from object-right to object-center
+              className="object-cover object-center" 
               priority
             />
           </div>
