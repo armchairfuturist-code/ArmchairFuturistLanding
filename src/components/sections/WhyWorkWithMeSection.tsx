@@ -94,9 +94,12 @@ export default function WhyWorkWithMeSection() {
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 mb-16">
+        <div className="flex flex-wrap justify-center items-start gap-8 mb-16">
           {howIHelpData.map((item) => (
-            <Card key={item.title} className="flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card 
+              key={item.title} 
+              className="flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33333%-1.33333rem)]"
+            >
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
                   {item.icon}
