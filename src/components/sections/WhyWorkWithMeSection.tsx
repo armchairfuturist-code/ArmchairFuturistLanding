@@ -1,60 +1,71 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Users, BrainCircuit, ScanSearch, GraduationCap, Crown, TrendingUp, ShieldCheck, DollarSign, Zap, UserMinus, UserCog, UserCheck, UserRoundSearch, HeartHandshake, FlaskConical, ClipboardList } from 'lucide-react';
+import { Users, BrainCircuit, ScanSearch, GraduationCap, Crown, TrendingUp, ShieldCheck, DollarSign, Zap, UserMinus, UserCog, UserCheck, UserRoundSearch, HeartHandshake, FlaskConical, ClipboardList, ChevronDown } from 'lucide-react';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const howIHelpData = [
   {
-    icon: <Users className="h-8 w-8 text-primary" />,
-    title: "Cultivating the Four Essential Mindsets for AI Success",
+    icon: <BrainCircuit className="h-5 w-5 text-primary mr-3 shrink-0" />,
+    title: "Psychometric Insight for AI Adoption",
     content: "I guide your organization in understanding and fostering these key mindset segments, identified through AI-driven language analysis and developmental psychology:",
     subPoints: [
       { icon: <UserMinus className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Resistant (5-10%):</strong> Those deeply skeptical or obstructive toward AI change. I help leaders manage this group with compassion and accountability, minimizing disruption without stalling progress." },
       { icon: <UserCog className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Reluctant (70-75%):</strong> The cautious majority who need evidence, time, and peer support to embrace AI. I design tailored communications and training to build their confidence and desire." },
       { icon: <UserCheck className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Resilient (15%):</strong> Adaptable employees who quickly move to experimentation once given direction. I empower them as change agents and champions." },
       { icon: <UserRoundSearch className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Results (5%):</strong> Natural second order thinkers who thrive on ambiguity and lead AI experimentation. Identifying and liberating these “needle-in-the-haystack” talents accelerates pilot success and creates momentum." },
-    ]
+    ],
+    keyBenefit: "Accelerate adoption by tailoring strategies to your team's unique psychological profiles."
   },
   {
-    icon: <BrainCircuit className="h-8 w-8 text-primary" />,
+    icon: <Users className="h-5 w-5 text-primary mr-3 shrink-0" />, // Changed from BrainCircuit to Users for this item
     title: "Embedding Second Order Thinking and Emotional Intelligence (EQ)",
     content: "I help leaders and teams evolve from first order (linear, control-driven) to second order thinking—holistic, adaptive, and emotionally mature approaches essential for navigating AI’s complexity. This shift enables:",
     subPoints: [
-      { text: "Embracing uncertainty and iterative experimentation rather than rigid playbooks." },
-      { text: "Anticipating AI’s ripple effects on workflows, morale, and strategy." },
-      { text: "Leading with psychological safety, fostering innovation and ethical AI use." },
-    ]
+      { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Embracing uncertainty and iterative experimentation rather than rigid playbooks." },
+      { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Anticipating AI’s ripple effects on workflows, morale, and strategy." },
+      { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Leading with psychological safety, fostering innovation and ethical AI use." },
+    ],
+    keyBenefit: "Build sustainable internal momentum and overcome resistance through holistic strategies." // Example benefit
   },
   {
-    icon: <ScanSearch className="h-8 w-8 text-primary" />,
+    icon: <ScanSearch className="h-5 w-5 text-primary mr-3 shrink-0" />,
     title: "Leveraging AI-Powered Psychological Assessment for Precision Change Management",
     content: "Using AI to analyze language from existing employee communications, I provide frictionless, data-driven insights into mindset distributions across your workforce. This enables:",
     subPoints: [
-      { text: "Targeted interventions tailored to each mindset segment." },
-      { text: "Avoiding the “lowest common denominator” approach that slows adoption." },
-      { text: "Annual rescoring to track psychological growth and adapt strategies dynamically." },
-    ]
+      { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Targeted interventions tailored to each mindset segment." },
+      { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Avoiding the “lowest common denominator” approach that slows adoption." },
+      { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Annual rescoring to track psychological growth and adapt strategies dynamically." },
+    ],
+    keyBenefit: "Get objective, customized solutions that truly fit your organization's context and goals." // Example benefit
   },
   {
-    icon: <GraduationCap className="h-8 w-8 text-primary" />,
-    title: "Designing AI Adoption as an Organizational Learning Challenge, Not Just a Technical Rollout",
+    icon: <GraduationCap className="h-5 w-5 text-primary mr-3 shrink-0" />,
+    title: "Designing AI Adoption as an Organizational Learning Challenge",
     content: "I help you:",
     subPoints: [
-      { text: "Build pilot teams from the Resilient and Results segments to rapidly test and refine AI tools." },
-      { text: "Showcase quick wins to convert Reluctant employees and reduce resistance." },
-      { text: "Manage Resistant employees with clear expectations and compassionate accountability." },
-      { text: "Avoid “talent hoarding” by enabling high performers to spread innovation cross-functionally." },
-      { text: "Integrate AI into workflows with user-centric design and hybrid models bridging legacy systems." },
-    ]
+      { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Build pilot teams from the Resilient and Results segments to rapidly test and refine AI tools." },
+      { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Showcase quick wins to convert Reluctant employees and reduce resistance." },
+      { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Manage Resistant employees with clear expectations and compassionate accountability." },
+      { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Avoid “talent hoarding” by enabling high performers to spread innovation cross-functionally." },
+      { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Integrate AI into workflows with user-centric design and hybrid models bridging legacy systems." },
+    ],
+    keyBenefit: "Unlock real organizational performance by focusing on learning and adaptation." // Example benefit
   },
   {
-    icon: <Crown className="h-8 w-8 text-primary" />,
+    icon: <Crown className="h-5 w-5 text-primary mr-3 shrink-0" />,
     title: "Partnering Leadership, Lab, and Crowd for Sustainable AI Transformation",
     content: "I emphasize the triad of:",
     subPoints: [
       { icon: <Crown className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Leadership:</strong> Setting a vivid AI vision, modeling AI use, and creating safe spaces for experimentation." },
       { icon: <FlaskConical className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Lab:</strong> Centralized teams that rapidly build, benchmark, and iterate AI solutions informed by frontline insights." },
       { icon: <Users className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Crowd:</strong> Empowered employees who discover and share AI use cases, fueling decentralized innovation." },
-    ]
+    ],
+    keyBenefit: "Foster a culture of innovation by aligning leadership, expert teams, and empowered employees." // Example benefit
   }
 ];
 
@@ -94,33 +105,38 @@ export default function WhyWorkWithMeSection() {
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center items-start gap-8 mb-16">
-          {howIHelpData.map((item) => (
-            <Card 
-              key={item.title} 
-              className="flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33333%-1.33333rem)]"
-            >
-              <CardHeader>
-                <div className="flex items-center gap-3 mb-2">
-                  {item.icon}
-                  <CardTitle className="text-xl font-semibold text-primary">{item.title}</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent className="flex-grow">
-                <p className="text-muted-foreground mb-4">{item.content}</p>
-                {item.subPoints && item.subPoints.length > 0 && (
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    {item.subPoints.map((subPoint, i) => (
-                      <li key={i} className="flex items-start">
-                        {subPoint.icon || <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />}
-                        <span dangerouslySetInnerHTML={{ __html: subPoint.text }} />
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </CardContent>
-            </Card>
-          ))}
+        <div className="max-w-3xl mx-auto mb-16">
+          <Accordion type="single" collapsible className="w-full">
+            {howIHelpData.map((item, index) => (
+              <AccordionItem key={index} value={`item-${index}`} className="border-b-2 border-primary/10 last:border-b-0">
+                <AccordionTrigger className="text-lg font-semibold hover:no-underline py-6 text-left [&[data-state=open]>svg.lucide-chevron-down]:text-accent">
+                  <div className="flex items-center">
+                    {item.icon}
+                    <span>{item.title}</span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="pt-2 pb-6 text-base text-foreground/80">
+                  <p className="mb-4">{item.content}</p>
+                  {item.subPoints && item.subPoints.length > 0 && (
+                    <ul className="space-y-3">
+                      {item.subPoints.map((subPoint, i) => (
+                        <li key={i} className="flex items-start">
+                          {subPoint.icon || <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />}
+                          <span dangerouslySetInnerHTML={{ __html: subPoint.text }} />
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                   {item.keyBenefit && (
+                    <div className="mt-4 flex items-start gap-2 p-3 bg-secondary/50 rounded-md border border-primary/20">
+                        <HeartHandshake className="h-5 w-5 text-accent mt-1 shrink-0" />
+                        <p className="text-sm font-medium text-primary">{item.keyBenefit}</p>
+                    </div>
+                   )}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
 
         <div className="text-center mb-12 mt-16 md:mt-24">
@@ -143,7 +159,6 @@ export default function WhyWorkWithMeSection() {
            </Card>
           ))}
         </div>
-
       </div>
     </section>
   );
