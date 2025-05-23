@@ -16,12 +16,12 @@ export default function ConnectSection() {
           <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg transition-transform duration-200 hover:scale-105">
              <a href="https://cal.com/alex-myers/discovery" target="_blank" rel="noopener noreferrer">
               <CalendarDays className="mr-2 h-5 w-5" />
-              Schedule your AI Workforce Readiness & Mindset Transformation consultation today
+              Schedule a Discovery Call
             </a>
           </Button>
           <Button
             asChild
-            variant="secondary" // Using secondary for better contrast as per previous request
+            variant="secondary"
             size="lg"
             className="shadow-lg transition-transform duration-200 hover:scale-105"
           >
