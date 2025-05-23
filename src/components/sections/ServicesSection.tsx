@@ -37,7 +37,7 @@ const servicesData = [
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="py-12 md:py-24 bg-secondary scroll-mt-20"> {/* Changed bg-background to bg-secondary */}
+    <section id="services" className="py-12 md:py-24 bg-secondary scroll-mt-20">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
@@ -50,8 +50,11 @@ export default function ServicesSection() {
 
         <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {servicesData.map((service) => (
-            <Card key={service.title} className="flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-xl bg-card"> {/* Added bg-card to ensure cards contrast with bg-secondary */}
-              <CardHeader className="items-start pt-6 pb-4 px-6">
+            <Card 
+              key={service.title} 
+              className="group relative overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 rounded-xl bg-card"
+            >
+              <CardHeader className="items-start pt-6 px-6 pb-6 cursor-pointer"> {/* Added cursor-pointer and consistent pb */}
                 <div className="p-3 rounded-full bg-primary/10 mb-4">
                   {service.icon}
                 </div>
@@ -59,7 +62,9 @@ export default function ServicesSection() {
                   {service.title}
                 </CardTitle>
               </CardHeader>
-              <CardContent className="flex-grow px-6 pb-6">
+              <CardContent 
+                className="px-6 max-h-0 opacity-0 invisible group-hover:max-h-48 group-hover:opacity-100 group-hover:visible group-hover:pb-6 group-hover:pt-2 transition-all duration-500 ease-in-out"
+              >
                 <p className="text-base text-muted-foreground">
                   {service.description}
                 </p>
