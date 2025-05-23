@@ -1,13 +1,14 @@
 
 import Link from 'next/link';
+import Image from 'next/image'; // Added Image import
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, BotMessageSquare } from 'lucide-react';
+import { Menu } from 'lucide-react'; // Removed BotMessageSquare import
 
 export default function Header() {
   const navItems = [
     { href: '/#how-we-help', label: 'How I Help' },
-    { href: '/#services', label: 'Services' }, // Added Services link
+    { href: '/#services', label: 'Services' },
     { href: '/#about-me', label: 'About' },
     { href: '/#thought-leadership', label: 'Insights' },
   ];
@@ -16,7 +17,13 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
         <Link href="/" className="mr-6 flex items-center space-x-2">
-          <BotMessageSquare className="h-6 w-6 text-primary" />
+          <Image
+            src="/Hero.webp" // Using Hero.webp
+            alt="Alex Myers logo"
+            width={32} // Increased size slightly for better visibility
+            height={32}
+            className="rounded-full object-cover"
+          />
           <span className="font-bold sm:inline-block font-heading">
             Armchair Futurist
           </span>
@@ -50,7 +57,13 @@ export default function Header() {
             <SheetContent side="right" className="w-[240px] sm:w-[300px]">
               <div className="flex flex-col space-y-4 p-4">
                 <Link href="/" className="flex items-center space-x-2 mb-4">
-                  <BotMessageSquare className="h-6 w-6 text-primary" />
+                  <Image
+                    src="/Hero.webp" // Using Hero.webp in mobile menu as well
+                    alt="Alex Myers logo"
+                    width={32}
+                    height={32}
+                    className="rounded-full object-cover"
+                  />
                   <span className="font-bold font-heading">Armchair Futurist</span>
                 </Link>
                 {navItems.map((item) => (
