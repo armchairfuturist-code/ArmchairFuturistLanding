@@ -4,18 +4,49 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { CalendarDays, Mic } from 'lucide-react';
-// Removed useEffect and useRef as video is no longer used
+import { useEffect, useRef } from 'react';
 
 export default function HeroSection() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.error("Video autoplay was prevented:", error);
+        // Optionally, you could show a play button here if autoplay fails
+      });
+
+      const handleVideoEnd = () => {
+        if (videoRef.current) {
+          videoRef.current.currentTime = 0;
+          videoRef.current.play().catch(error => {
+            console.error("Video loop play was prevented:", error);
+          });
+        }
+      };
+
+      videoRef.current.addEventListener('ended', handleVideoEnd);
+
+      return () => {
+        if (videoRef.current) {
+          // eslint-disable-next-line react-hooks/exhaustive-deps
+          videoRef.current.removeEventListener('ended', handleVideoEnd);
+        }
+      };
+    }
+  }, []);
+
   return (
     <section className="relative w-full bg-background text-foreground overflow-hidden">
+      {/* Removed video background, implementing new image-based hero */}
+      
       <div className="container mx-auto px-4 md:px-6 min-h-[80vh] lg:min-h-[75vh] grid lg:grid-cols-2 items-center gap-x-8 gap-y-12 py-12 md:py-24">
         
         {/* Left Column: Text Content */}
         <div className="flex flex-col justify-center space-y-6 text-center lg:text-left relative z-10 order-last lg:order-first">
           <div className="space-y-4">
-            <h1 className="font-heading text-4xl font-bold tracking-tight sm:text-5xl xl:text-6xl/none">
-              <span className="text-primary">Shape the Future.</span> <span className="text-accent block mt-1">Deliver Real Results.</span>
+            <h1 className="font-heading text-4xl font-bold tracking-tight sm:text-5xl xl:text-6xl/none hero-text-shadow">
+              <span className="text-hero-title-1">Shape the Future.</span> <span className="text-hero-title-2 block mt-1">Deliver Real Results.</span>
             </h1>
             <p className="max-w-[600px] text-foreground/80 md:text-xl lg:mx-0 mx-auto">
               Artificial Intelligence is transforming business at breakneck speed. Yet, while AI tools evolve rapidly, many organizations struggle to convert individual AI productivity gains into sustained organizational performance. The missing link? People — their mindsets, emotions, and readiness to embrace profound change.
@@ -30,9 +61,8 @@ export default function HeroSection() {
             </Button>
             <Button
               asChild
-              variant="secondary" // Changed for better contrast on light bg
               size="lg"
-              className="shadow-lg transition-transform duration-200 hover:scale-105"
+              className="bg-black/20 text-primary-foreground border-2 border-primary-foreground hover:bg-primary-foreground hover:text-primary shadow-lg transition-transform duration-200 hover:scale-105"
             >
               <a href="mailto:alex@alexmyers.co?subject=Speaking Invitation Request">
                 <Mic className="mr-2 h-5 w-5" />
@@ -53,15 +83,15 @@ export default function HeroSection() {
           <div
             className="relative w-full h-full z-[5]"
             style={{
-              maskImage: 'linear-gradient(to left, black 55%, transparent 20%)',
-              WebkitMaskImage: 'linear-gradient(to left, black 55%, transparent 20%)', // For Safari
+              maskImage: 'linear-gradient(to left, black 75%, transparent 45%)',
+              WebkitMaskImage: 'linear-gradient(to left, black 75%, transparent 45%)', // For Safari
             }}
           >
             <Image
-              src="/hero.webp" // Ensure hero.webp is in your public folder
+              src="/hero.webp" 
               alt="Alex Myers - Armchair Futurist"
               fill
-              className="object-cover object-right" 
+              className="object-cover object-center" // Changed from object-right to object-center
               priority
             />
           </div>
