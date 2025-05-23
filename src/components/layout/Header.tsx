@@ -21,6 +21,13 @@ export default function Header() {
           <span className="font-bold sm:inline-block font-heading">
             The Armchair Futurist
           </span>
+          <Image
+            src="/header.webp"
+            alt="Header logo"
+            width={24}
+            height={24}
+            className="rounded-full object-cover"
+          />
         </Link>
         
         <nav className="hidden md:flex gap-6 items-center">
@@ -52,13 +59,20 @@ export default function Header() {
               <div className="flex flex-col space-y-4 p-4">
                 <Link href="/" className="flex items-center space-x-2 mb-4">
                   <Image
-                    src="/Hero.webp"
+                    src="/Hero.webp" // This remains the profile headshot
                     alt="Alex Myers logo"
                     width={32}
                     height={32}
                     className="rounded-full object-cover"
                   />
                   <span className="font-bold font-heading">The Armchair Futurist</span>
+                  <Image
+                    src="/header.webp"
+                    alt="Header logo"
+                    width={24}
+                    height={24}
+                    className="rounded-full object-cover"
+                  />
                 </Link>
                 {navItems.map((item) => (
                   <Link
