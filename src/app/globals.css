@@ -38,6 +38,11 @@
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
 
+    /* Hero specific text colors */
+    --hero-title-color-1: 0 0% 100%; /* White */
+    --hero-title-color-2: 208 100% 92%; /* Very Pale Blue */
+
+
     /* Sidebar specific variables - retained as they might be intentionally distinct */
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -76,6 +81,10 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
 
+    /* Hero specific text colors - Dark theme */
+    --hero-title-color-1: 0 0% 100%; /* White */
+    --hero-title-color-2: 208 100% 95%; /* Very Pale Blue, slightly brighter for dark theme */
+
     /* Sidebar specific variables - dark theme, retained */
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -97,3 +106,14 @@
   }
 }
 
+@layer utilities {
+  .hero-text-shadow {
+    text-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.5);
+  }
+  .text-hero-title-1 {
+    color: hsl(var(--hero-title-color-1));
+  }
+  .text-hero-title-2 {
+    color: hsl(var(--hero-title-color-2));
+  }
+}
