@@ -93,12 +93,22 @@ export default {
         marquee: {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-50%)' },
-        }
+        },
+        'pulse-subtle': {
+          '0%, 100%': { opacity: '0.3' },
+          '50%': { opacity: '0.1' },
+        },
+        'pulse-very-subtle': {
+          '0%, 100%': { opacity: '0.2' },
+          '50%': { opacity: '0.05' },
+        },
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
         marquee: 'marquee 40s linear infinite',
+        'pulse-slow': 'pulse-subtle 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'pulse-slower': 'pulse-very-subtle 10s cubic-bezier(0.4, 0, 0.6, 1) infinite',
   		}
   	}
   },
