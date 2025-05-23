@@ -1,59 +1,59 @@
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Users, BrainCircuit, ScanSearch, GraduationCap, Crown, TrendingUp, ShieldCheck, DollarSign, Zap, UserMinus, UserCog, UserCheck, UserRoundSearch, HeartHandshake, FlaskConical, ClipboardList } from 'lucide-react';
 
-const howWeHelpData = [
+const howIHelpData = [
   {
     icon: <Users className="h-8 w-8 text-primary" />,
     title: "Cultivating the Four Essential Mindsets for AI Success",
-    content: "We guide your organization in understanding and fostering these key mindset segments, identified through AI-driven language analysis and developmental psychology:",
+    content: "I guide your organization in understanding and fostering these key mindset segments, identified through AI-driven language analysis and developmental psychology:",
     subPoints: [
-      { icon: <UserMinus className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Resistant (5-10%):</strong> Those deeply skeptical. We help leaders manage this group with compassion and accountability." },
-      { icon: <UserCog className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Reluctant (70-75%):</strong> The cautious majority. We design tailored communications and training to build confidence." },
-      { icon: <UserCheck className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Resilient (15%):</strong> Adaptable employees who quickly experiment. We empower them as change agents." },
-      { icon: <UserRoundSearch className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Results (5%):</strong> Natural second order thinkers. Identifying and liberating these talents accelerates success." },
+      { icon: <UserMinus className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Resistant (5-10%):</strong> Those deeply skeptical or obstructive toward AI change. I help leaders manage this group with compassion and accountability, minimizing disruption without stalling progress." },
+      { icon: <UserCog className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Reluctant (70-75%):</strong> The cautious majority who need evidence, time, and peer support to embrace AI. I design tailored communications and training to build their confidence and desire." },
+      { icon: <UserCheck className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Resilient (15%):</strong> Adaptable employees who quickly move to experimentation once given direction. I empower them as change agents and champions." },
+      { icon: <UserRoundSearch className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Results (5%):</strong> Natural second order thinkers who thrive on ambiguity and lead AI experimentation. Identifying and liberating these “needle-in-the-haystack” talents accelerates pilot success and creates momentum." },
     ]
   },
   {
     icon: <BrainCircuit className="h-8 w-8 text-primary" />,
     title: "Embedding Second Order Thinking and Emotional Intelligence (EQ)",
-    content: "We help leaders and teams evolve from first order (linear, control-driven) to second order thinking—holistic, adaptive, and emotionally mature approaches essential for navigating AI’s complexity. This shift enables:",
+    content: "I help leaders and teams evolve from first order (linear, control-driven) to second order thinking—holistic, adaptive, and emotionally mature approaches essential for navigating AI’s complexity. This shift enables:",
     subPoints: [
-      { text: "Embracing uncertainty and iterative experimentation." },
-      { text: "Anticipating AI’s ripple effects on workflows and strategy." },
+      { text: "Embracing uncertainty and iterative experimentation rather than rigid playbooks." },
+      { text: "Anticipating AI’s ripple effects on workflows, morale, and strategy." },
       { text: "Leading with psychological safety, fostering innovation and ethical AI use." },
     ]
   },
   {
     icon: <ScanSearch className="h-8 w-8 text-primary" />,
-    title: "Leveraging AI-Powered Psychological Assessment",
-    content: "Using AI to analyze language from existing employee communications, we provide frictionless, data-driven insights into mindset distributions. This enables:",
+    title: "Leveraging AI-Powered Psychological Assessment for Precision Change Management",
+    content: "Using AI to analyze language from existing employee communications, I provide frictionless, data-driven insights into mindset distributions across your workforce. This enables:",
     subPoints: [
       { text: "Targeted interventions tailored to each mindset segment." },
-      { text: "Avoiding the “lowest common denominator” approach." },
-      { text: "Annual rescoring to track psychological growth and adapt strategies." },
+      { text: "Avoiding the “lowest common denominator” approach that slows adoption." },
+      { text: "Annual rescoring to track psychological growth and adapt strategies dynamically." },
     ]
   },
   {
     icon: <GraduationCap className="h-8 w-8 text-primary" />,
-    title: "Designing AI Adoption as an Organizational Learning Challenge",
-    content: "Not just a technical rollout. We help you:",
+    title: "Designing AI Adoption as an Organizational Learning Challenge, Not Just a Technical Rollout",
+    content: "I help you:",
     subPoints: [
-      { text: "Build pilot teams from Resilient and Results segments for rapid testing." },
-      { text: "Showcase quick wins to convert Reluctant employees." },
-      { text: "Manage Resistant employees with clear expectations." },
-      { text: "Avoid “talent hoarding” by enabling high performers to spread innovation." },
-      { text: "Integrate AI into workflows with user-centric design." },
+      { text: "Build pilot teams from the Resilient and Results segments to rapidly test and refine AI tools." },
+      { text: "Showcase quick wins to convert Reluctant employees and reduce resistance." },
+      { text: "Manage Resistant employees with clear expectations and compassionate accountability." },
+      { text: "Avoid “talent hoarding” by enabling high performers to spread innovation cross-functionally." },
+      { text: "Integrate AI into workflows with user-centric design and hybrid models bridging legacy systems." },
     ]
   },
   {
     icon: <Crown className="h-8 w-8 text-primary" />,
-    title: "Partnering Leadership, Lab, and Crowd",
-    content: "We emphasize the triad for sustainable AI transformation:",
+    title: "Partnering Leadership, Lab, and Crowd for Sustainable AI Transformation",
+    content: "I emphasize the triad of:",
     subPoints: [
-      { icon: <Crown className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Leadership:</strong> Setting AI vision, modeling use, creating safe spaces." },
-      { icon: <FlaskConical className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Lab:</strong> Centralized teams building and iterating AI solutions." },
-      { icon: <Users className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Crowd:</strong> Empowered employees discovering and sharing AI use cases." },
+      { icon: <Crown className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Leadership:</strong> Setting a vivid AI vision, modeling AI use, and creating safe spaces for experimentation." },
+      { icon: <FlaskConical className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Lab:</strong> Centralized teams that rapidly build, benchmark, and iterate AI solutions informed by frontline insights." },
+      { icon: <Users className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Crowd:</strong> Empowered employees who discover and share AI use cases, fueling decentralized innovation." },
     ]
   }
 ];
@@ -87,15 +87,15 @@ export default function WhyWorkWithMeSection() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-            How We Help: Mindset-Centered AI Adoption Advisory
+            How I Help: Mindset-Centered AI Adoption Advisory
           </h2>
           <p className="mt-4 text-lg text-foreground/80 max-w-3xl mx-auto">
-            Our advisory offering addresses these challenges head-on by focusing on the people and mindsets that drive successful AI adoption, blending cutting-edge AI-powered psychological insights with proven change leadership.
+            My advisory offering addresses these challenges head-on by focusing on the people and mindsets that drive successful AI adoption, blending cutting-edge AI-powered psychological insights with proven change leadership.
           </p>
         </div>
 
         <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 mb-16">
-          {howWeHelpData.map((item) => (
+          {howIHelpData.map((item) => (
             <Card key={item.title} className="flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300">
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
