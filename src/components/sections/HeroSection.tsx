@@ -38,7 +38,7 @@ export default function HeroSection() {
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:gap-16 items-center">
           <div className="flex flex-col justify-center space-y-6">
             <div className="space-y-4">
-              <h1 className="font-heading text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none hero-text-shadow">
+              <h1 className="font-heading text-4xl tracking-tighter sm:text-5xl xl:text-6xl/none hero-text-shadow">
                 <span className="text-hero-title-1">Shape the Future.</span> <span className="text-hero-title-2 block mt-1">Deliver Real Results.</span>
               </h1>
               <p className="max-w-[600px] text-primary-foreground/90 md:text-xl hero-text-shadow">
@@ -56,7 +56,7 @@ export default function HeroSection() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="shadow-lg transition-transform duration-200 hover:scale-105 border-primary-foreground/70 text-primary-foreground hover:bg-primary-foreground/10"
+                className="shadow-lg transition-transform duration-200 hover:scale-105 border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/20 hover:text-primary-foreground"
               >
                 <a href="mailto:alex@alexmyers.co?subject=Speaking Invitation Request">
                   <Mic className="mr-2 h-5 w-5" />
@@ -78,3 +78,4 @@ export default function HeroSection() {
     </section>
   );
 }
+
