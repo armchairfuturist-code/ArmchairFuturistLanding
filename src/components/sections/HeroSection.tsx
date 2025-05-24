@@ -1,4 +1,3 @@
-
 "use client";
 import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
@@ -50,8 +49,8 @@ export default function HeroSection() {
       <div className="absolute top-0 left-0 w-full h-full bg-black/40 z-[1]" /> 
       
       <div className="container relative z-10 px-4 md:px-6 h-full flex items-center">
-        <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:gap-16 items-center w-full">
-          <div className="flex flex-col justify-center space-y-6 text-center lg:text-left">
+        <div className="grid gap-6 lg:grid-cols-5 lg:gap-12 xl:gap-16 items-center w-full">
+          <div className="lg:col-span-3 flex flex-col justify-center space-y-6 text-center lg:text-left">
             <div className="space-y-4">
               <h1 className="text-4xl font-heading tracking-tighter sm:text-5xl xl:text-6xl/none hero-text-shadow">
                 <span className="text-hero-title-1">Shape the Future.</span>{' '}
@@ -80,8 +79,8 @@ export default function HeroSection() {
               </Button>
             </div>
           </div>
-          <div className="flex justify-center items-center lg:order-last">
-            <div className="relative w-full max-w-md aspect-square"> {/* Container for consistent aspect ratio */}
+          <div className="lg:col-span-2 flex justify-center items-center lg:order-last">
+            <div className="relative w-full max-w-lg aspect-square"> {/* Increased max-w-md to max-w-lg */}
               <Image
                 src="/profile.webp" 
                 alt="Alex Myers - Armchair Futurist"
