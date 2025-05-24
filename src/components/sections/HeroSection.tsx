@@ -2,7 +2,6 @@
 import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { CalendarDays, Mic } from 'lucide-react';
-// Removed Image import as it's no longer used for profile.webp
 
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -62,7 +61,7 @@ export default function HeroSection() {
             </div>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
               <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg transition-transform duration-200 hover:scale-105">
-                <a href="https://cal.com/alex-myers/discovery" target="_blank" rel="noopener noreferrer">
+                <a href="https://calendar.app.google/nAHHwNMfhDvXGv7P7" target="_blank" rel="noopener noreferrer">
                   <CalendarDays className="mr-2 h-5 w-5" />
                   Schedule a Discovery Call
                 </a>
@@ -81,7 +80,6 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-      {/* profile.webp image block has been removed */}
     </section>
   );
 }

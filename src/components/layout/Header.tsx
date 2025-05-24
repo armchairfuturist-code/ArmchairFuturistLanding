@@ -34,7 +34,7 @@ export default function Header() {
             </Link>
           ))}
            <Button asChild size="sm">
-            <a href="https://cal.com/alex-myers/discovery" target="_blank" rel="noopener noreferrer">
+            <a href="https://calendar.app.google/nAHHwNMfhDvXGv7P7" target="_blank" rel="noopener noreferrer">
               Schedule a Call
             </a>
           </Button>
@@ -66,7 +66,7 @@ export default function Header() {
                   </Link>
                 ))}
                  <Button asChild className="w-full">
-                  <a href="https://cal.com/alex-myers/discovery" target="_blank" rel="noopener noreferrer">
+                  <a href="https://calendar.app.google/nAHHwNMfhDvXGv7P7" target="_blank" rel="noopener noreferrer">
                     Schedule a Call
                   </a>
                 </Button>
