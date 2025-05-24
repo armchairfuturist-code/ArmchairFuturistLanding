@@ -1,9 +1,8 @@
-
 "use client";
 import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { CalendarDays, Mic } from 'lucide-react';
-import Image from 'next/image';
+// Removed Image import as it's no longer used for profile.webp
 
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -35,7 +34,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full py-12 md:py-24 lg:py-32 overflow-hidden min-h-[80vh] lg:min-h-[75vh] flex flex-col">
+    <section className="relative w-full overflow-hidden min-h-[80vh] lg:min-h-[75vh] flex flex-col">
       <video
         ref={videoRef}
         autoPlay
@@ -49,21 +48,19 @@ export default function HeroSection() {
       </video>
       <div className="absolute top-0 left-0 w-full h-full bg-black/40 z-[1]" />
 
-      {/* This div will grow and push content to the bottom */}
-      <div className="container relative z-10 px-4 md:px-6 flex-grow flex items-end">
-        <div className="grid gap-6 lg:grid-cols-5 lg:gap-12 xl:gap-16 items-end w-full">
-          {/* Text Column */}
-          <div className="lg:col-span-3 flex flex-col justify-end space-y-6 text-center lg:text-left pb-8 md:pb-0">
+      <div className="relative z-10 h-full flex flex-col justify-end">
+        <div className="container mx-auto px-4 md:px-6 pt-12 md:pt-24 lg:pt-32 pb-16 md:pb-20 lg:pb-24">
+          <div className="max-w-3xl mx-auto text-center lg:text-left">
             <div className="space-y-4">
               <h1 className="font-heading text-4xl tracking-tighter sm:text-5xl xl:text-6xl/none hero-text-shadow">
                 <span className="text-hero-title-1">Shape the Future.</span>{' '}
                 <span className="block text-hero-title-2 mt-1 md:mt-2">Deliver Real Results.</span>
               </h1>
-              <p className="max-w-[600px] text-primary-foreground/90 md:text-xl hero-text-shadow mx-auto lg:mx-0">
+              <p className="text-primary-foreground/90 md:text-xl hero-text-shadow mx-auto lg:mx-0">
                 Artificial Intelligence is transforming business at breakneck speed. Yet, while AI tools evolve rapidly, many organizations struggle to convert individual AI productivity gains into sustained organizational performance. The missing link? People — their mindsets, emotions, and readiness to embrace profound change.
               </p>
             </div>
-            <div className="flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
               <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg transition-transform duration-200 hover:scale-105">
                 <a href="https://cal.com/alex-myers/discovery" target="_blank" rel="noopener noreferrer">
                   <CalendarDays className="mr-2 h-5 w-5" />
@@ -82,22 +79,9 @@ export default function HeroSection() {
               </Button>
             </div>
           </div>
-
-          {/* Image Column - Aligned to bottom-right of its column */}
-          <div className="lg:col-span-2 flex justify-center lg:justify-end items-end">
-            {/* This inner div controls the image's size and aspect ratio */}
-            <div className="relative w-full max-w-lg aspect-[3/4]">
-              <Image
-                src="/profile.webp"
-                alt="Alex Myers - Armchair Futurist"
-                fill
-                className="rounded-tl-xl object-cover shadow-2xl"
-                priority
-              />
-            </div>
-          </div>
         </div>
       </div>
+      {/* profile.webp image block has been removed */}
     </section>
   );
 }
