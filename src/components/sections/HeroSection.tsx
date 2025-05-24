@@ -80,8 +80,8 @@ export default function HeroSection() {
               </Button>
             </div>
           </div>
-          <div className="lg:col-span-2 flex justify-center items-center lg:order-last">
-            <div className="relative w-full max-w-lg aspect-square"> {/* Increased max-w-md to max-w-lg */}
+          <div className="lg:col-span-2 flex justify-center items-center lg:justify-end lg:items-end lg:order-last">
+            <div className="relative w-full max-w-lg aspect-[3/4]">
               <Image
                 src="/profile.webp" 
                 alt="Alex Myers - Armchair Futurist"
