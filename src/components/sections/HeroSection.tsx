@@ -1,4 +1,3 @@
-
 "use client";
 import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
@@ -41,16 +40,17 @@ export default function HeroSection() {
         autoPlay
         loop
         muted
-        playsInline 
+        playsInline
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
-        src="/header.mp4" 
+        src="/header.mp4"
       >
         Your browser does not support the video tag.
       </video>
-      <div className="absolute top-0 left-0 w-full h-full bg-black/40 z-[1]" /> 
-      
+      <div className="absolute top-0 left-0 w-full h-full bg-black/40 z-[1]" />
+
       <div className="container relative z-10 px-4 md:px-6 h-full flex items-center">
         <div className="grid gap-6 lg:grid-cols-5 lg:gap-12 xl:gap-16 items-center w-full">
+          {/* Text Column */}
           <div className="lg:col-span-3 flex flex-col justify-center space-y-6 text-center lg:text-left">
             <div className="space-y-4">
               <h1 className="text-4xl font-heading tracking-tighter sm:text-5xl xl:text-6xl/none hero-text-shadow">
@@ -80,10 +80,13 @@ export default function HeroSection() {
               </Button>
             </div>
           </div>
+
+          {/* Image Column */}
           <div className="lg:col-span-2 flex justify-center items-center lg:justify-end lg:items-end lg:order-last">
+            {/* This inner div controls the image's size and aspect ratio */}
             <div className="relative w-full max-w-lg aspect-[3/4]">
               <Image
-                src="/profile.webp" 
+                src="/profile.webp"
                 alt="Alex Myers - Armchair Futurist"
                 fill
                 className="rounded-xl object-cover shadow-2xl"
