@@ -1,3 +1,4 @@
+
 "use client";
 import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
@@ -34,7 +35,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full py-12 md:py-24 lg:py-32 overflow-hidden min-h-[80vh] lg:min-h-[75vh]">
+    <section className="relative w-full py-12 md:py-24 lg:py-32 overflow-hidden min-h-[80vh] lg:min-h-[75vh] flex flex-col">
       <video
         ref={videoRef}
         autoPlay
@@ -48,12 +49,13 @@ export default function HeroSection() {
       </video>
       <div className="absolute top-0 left-0 w-full h-full bg-black/40 z-[1]" />
 
-      <div className="container relative z-10 px-4 md:px-6 h-full flex items-center">
-        <div className="grid gap-6 lg:grid-cols-5 lg:gap-12 xl:gap-16 items-center w-full">
+      {/* This div will grow and push content to the bottom */}
+      <div className="container relative z-10 px-4 md:px-6 flex-grow flex items-end">
+        <div className="grid gap-6 lg:grid-cols-5 lg:gap-12 xl:gap-16 items-end w-full">
           {/* Text Column */}
-          <div className="lg:col-span-3 flex flex-col justify-center space-y-6 text-center lg:text-left">
+          <div className="lg:col-span-3 flex flex-col justify-end space-y-6 text-center lg:text-left pb-8 md:pb-0">
             <div className="space-y-4">
-              <h1 className="text-4xl font-heading tracking-tighter sm:text-5xl xl:text-6xl/none hero-text-shadow">
+              <h1 className="font-heading text-4xl tracking-tighter sm:text-5xl xl:text-6xl/none hero-text-shadow">
                 <span className="text-hero-title-1">Shape the Future.</span>{' '}
                 <span className="block text-hero-title-2 mt-1 md:mt-2">Deliver Real Results.</span>
               </h1>
@@ -81,15 +83,15 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Image Column */}
-          <div className="lg:col-span-2 flex justify-center items-center lg:justify-end lg:items-end lg:order-last">
+          {/* Image Column - Aligned to bottom-right of its column */}
+          <div className="lg:col-span-2 flex justify-center lg:justify-end items-end">
             {/* This inner div controls the image's size and aspect ratio */}
             <div className="relative w-full max-w-lg aspect-[3/4]">
               <Image
                 src="/profile.webp"
                 alt="Alex Myers - Armchair Futurist"
                 fill
-                className="rounded-xl object-cover shadow-2xl"
+                className="rounded-tl-xl object-cover shadow-2xl"
                 priority
               />
             </div>
