@@ -1,6 +1,10 @@
 
+"use client";
+import { useState } from 'react';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 interface Testimonial {
   imageSrc: string;
@@ -15,7 +19,7 @@ const testimonialsData: Testimonial[] = [
     imageSrc: "/Alexaragon.jpg",
     name: "Alex A.",
     title: "COO at Aragon.org",
-    text: "I have worked with Alex for the past two years at Aragon across several roles as the team lead. It's not every day you come across someone who combines a strong work ethic with an impressive attention to detail, but that's exactly what Alex does. He also has the ability to get on with anyone on the team and was a valuable asset throughout several Org changes which kept the team engaged and as informed as they could be. \n\nHe has an incredibly open-minded approach to challenges and his skill to build consensus in our team has been invaluable alongside being able to take initiatives and projects from ideation to completion with very little input. This was crucial in our small team as different projects would often pop up and Alex was the first to step up. Alex's dedication and insight enhanced our team dynamics and he was flexible with whatever task was thrown his way. His experience as an Agile coach only added to his skill set in the team helping all of our operations remain agile and efficient.\n\nHe would undoubtedly be a valuable asset to any team he joins. I look forward to what ever challenge he take on next.",
+    text: "I have worked with Alex for the past two years at Aragon across several roles as the team lead. It's not every day you come across someone who combines a strong work ethic with an impressive attention to detail, but that's exactly what Alex does. He also has the ability to get on with anyone on the team and was a valuable asset throughout several Org changes which kept the team engaged and as informed as they could be.\n\nHe has an incredibly open-minded approach to challenges and his skill to build consensus in our team has been invaluable alongside being able to take initiatives and projects from ideation to completion with very little input. This was crucial in our small team as different projects would often pop up and Alex was the first to step up. Alex's dedication and insight enhanced our team dynamics and he was flexible with whatever task was thrown his way. His experience as an Agile coach only added to his skill set in the team helping all of our operations remain agile and efficient.\n\nHe would undoubtedly be a valuable asset to any team he joins. I look forward to what ever challenge he take on next.",
   },
   {
     imageSrc: "/Karrie.jpg",
@@ -54,12 +58,21 @@ const testimonialsData: Testimonial[] = [
   }
 ];
 
+const PREVIEW_LINE_HEIGHT = 'max-h-28'; // Approx 4 lines, adjust as needed
+const EXPANDED_MAX_HEIGHT = 'max-h-[1000px]'; // Sufficiently large for full text
+
 export default function TestimonialsSection() {
-  const duplicatedTestimonials = testimonialsData.length > 0 ? [...testimonialsData, ...testimonialsData] : []; 
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+
+  const duplicatedTestimonials = testimonialsData.length > 0 ? [...testimonialsData, ...testimonialsData] : [];
 
   if (testimonialsData.length === 0) {
-    return null; 
+    return null;
   }
+
+  const toggleExpand = (index: number) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
 
   return (
     <section id="testimonials" className="py-12 md:py-24 bg-secondary scroll-mt-20">
@@ -68,35 +81,69 @@ export default function TestimonialsSection() {
           <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
             Testimonials
           </h2>
-          {/* The descriptive paragraph below the title has been removed. */}
         </div>
 
         <div className="overflow-hidden py-4 w-full">
-          <div className="flex animate-marquee whitespace-nowrap gap-x-6 md:gap-x-8">
-            {duplicatedTestimonials.map((testimonial, index) => (
-              <Card key={`${testimonial.name}-${index}`} className="w-80 md:w-96 flex-shrink-0 bg-card shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col">
-                <CardHeader className="flex flex-row items-center gap-4 p-4 md:p-6">
-                  <div className="relative h-14 w-14 md:h-16 md:w-16 shrink-0">
-                    <Image
-                      src={testimonial.imageSrc}
-                      alt={`Profile picture of ${testimonial.name}`}
-                      fill
-                      className="rounded-full object-cover border-2 border-primary/20"
-                      data-ai-hint={testimonial.dataAiHint || "profile person"}
-                    />
-                  </div>
-                  <div>
-                    <h3 className="text-base md:text-lg font-semibold text-primary">{testimonial.name}</h3>
-                    <p className="text-xs md:text-sm text-muted-foreground">{testimonial.title}</p>
-                  </div>
-                </CardHeader>
-                <CardContent className="p-4 md:p-6 pt-0 text-sm text-foreground/80 flex-grow">
-                  <p className="whitespace-normal leading-relaxed">"{testimonial.text.split('\n\n').map((paragraph, i) => (
-                    <span key={i} className="block mb-2 last:mb-0">{paragraph}</span>
-                  ))}"</p>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="flex items-start animate-marquee whitespace-nowrap gap-x-6 md:gap-x-8">
+            {duplicatedTestimonials.map((testimonial, index) => {
+              // Use original index for expansion state, even with duplicated items
+              const originalIndex = index % testimonialsData.length;
+              const isExpanded = expandedIndex === originalIndex;
+              
+              // Estimate if text is longer than preview height
+              // This is a rough estimate; more sophisticated logic might be needed for perfect accuracy
+              // A simpler way is to always show "Read More" if content is likely to be long.
+              const needsReadMore = testimonial.text.length > 200; // Adjust character count as needed
+
+              return (
+                <Card 
+                  key={`${testimonial.name}-${index}`} 
+                  className="w-80 md:w-96 flex-shrink-0 bg-card shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col"
+                >
+                  <CardHeader className="flex flex-row items-center gap-4 p-4 md:p-6">
+                    <div className="relative h-14 w-14 md:h-16 md:w-16 shrink-0">
+                      <Image
+                        src={testimonial.imageSrc}
+                        alt={`Profile picture of ${testimonial.name}`}
+                        fill
+                        className="rounded-full object-cover border-2 border-primary/20"
+                        data-ai-hint={testimonial.dataAiHint || "profile person"}
+                      />
+                    </div>
+                    <div>
+                      <h3 className="text-base md:text-lg font-semibold text-primary">{testimonial.name}</h3>
+                      <p className="text-xs md:text-sm text-muted-foreground">{testimonial.title}</p>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="p-4 md:p-6 pt-0 text-sm text-foreground/80 flex-grow flex flex-col">
+                    <div 
+                      className={`relative overflow-hidden transition-all duration-500 ease-in-out ${isExpanded ? EXPANDED_MAX_HEIGHT : PREVIEW_LINE_HEIGHT}`}
+                    >
+                      <p className="whitespace-normal leading-relaxed">
+                        {testimonial.text.split('\n\n').map((paragraph, i) => (
+                          <span key={i} className="block mb-2 last:mb-0">{paragraph}</span>
+                        ))}
+                      </p>
+                      {!isExpanded && needsReadMore && (
+                        <div className="absolute bottom-0 left-0 w-full h-8 bg-gradient-to-t from-card to-transparent pointer-events-none" />
+                      )}
+                    </div>
+                    {needsReadMore && (
+                       <Button 
+                        variant="link" 
+                        size="sm" 
+                        className="mt-2 self-start px-0 text-primary hover:text-accent"
+                        onClick={() => toggleExpand(originalIndex)}
+                        aria-expanded={isExpanded}
+                      >
+                        {isExpanded ? "Show Less" : "Read More"}
+                        {isExpanded ? <ChevronUp className="ml-1 h-4 w-4" /> : <ChevronDown className="ml-1 h-4 w-4" />}
+                      </Button>
+                    )}
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </div>
