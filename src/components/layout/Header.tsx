@@ -17,13 +17,6 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
         <Link href="/" className="mr-6 flex items-center space-x-2">
-          <Image
-            src="/profile.webp"
-            alt="Alex Myers profile"
-            width={32}
-            height={32}
-            className="rounded-full object-cover"
-          />
           <BotMessageSquare className="h-6 w-6 text-primary" />
           <span className="font-bold sm:inline-block font-heading">
             Alex Myers: The Armchair Futurist
@@ -59,13 +52,6 @@ export default function Header() {
               <div className="flex flex-col space-y-4 p-4">
                 <Link href="/" className="flex items-center space-y-2 mb-4">
                   <div className="flex items-center space-x-2">
-                     <Image
-                        src="/profile.webp"
-                        alt="Alex Myers profile"
-                        width={32}
-                        height={32}
-                        className="rounded-full object-cover"
-                      />
                     <BotMessageSquare className="h-8 w-8 text-primary" />
                     <span className="font-bold font-heading text-base">Alex Myers: The Armchair Futurist</span>
                   </div>
