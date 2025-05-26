@@ -22,7 +22,7 @@ export default function Header() {
             alt="Site Logo"
             width={32}
             height={32}
-            className="rounded-full object-cover"
+            className="rounded-full object-cover border border-border/50"
           />
           <span className="font-bold sm:inline-block font-heading">
             Alex Myers: The Armchair Futurist
@@ -63,7 +63,7 @@ export default function Header() {
                       alt="Site Logo"
                       width={32}
                       height={32}
-                      className="rounded-full object-cover"
+                      className="rounded-full object-cover border border-border/50"
                     />
                     <span className="font-bold font-heading text-base">Alex Myers: The Armchair Futurist</span>
                   </div>
