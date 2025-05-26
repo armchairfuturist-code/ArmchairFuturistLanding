@@ -44,6 +44,13 @@ const testimonialsData: Testimonial[] = [
     title: "Sr. Product Designer",
     text: "Alex possesses a rare combination of professionalism, compassion, and unwavering respect for both the job at hand and the individuals involved.\n\nAs an Agile Coach and People Operation at Aragon, Alex demonstrated an unparalleled ability to drive us to a leaner approach, fostering an environment of collaboration and efficiency. Alex's commitment to fostering a culture of continuous improvement and adaptability was truly commendable, making a significant impact on our team's success., and at a personal level, always allowing me to feel respected and understood.\n\nThe honest and fair approach to managing human resources challenges, coupled with a genuine concern for the well-being of the team, created a positive and inclusive workplace environment.\n\nAlex's dedication to cultivating a harmonious balance between agile methodologies and people-focused operations is truly commendable. I wholeheartedly recommend Alex for any organization seeking a professional who not only excels in their role but also brings a human touch to every aspect of their work.",
     dataAiHint: "profile person"
+  },
+  {
+    imageSrc: "/Evan.jpg",
+    name: "Evan H.",
+    title: "Head of Strategy",
+    text: "Alex was one of the most significant members of the Aragon team throughout 2022 and 2023. He is extraordinarily proactive, doesn't wait to be told what to do, and will always give his ear to bounce ideas off of - now matter how esoteric they might be! If anyone needs this kind of dynamic energy on their team, it is an absolute no brainer that they should speak with Alex.\n\nA little bit on our background working together - while he initially joined to help our teams with Agile, Scrum, etc., the reality was that we were in a small and constantly changing environment, so the needs of every contributor evolved as much. He took this as an opportunity to flexibly do a little bit of everything across the entire organization without getting comfortable doing just what he was hired for. When he eventually evolved into a more Human Resources-related role, he was a natural. (Note to HR professionals: there is also something nice about having someone with a background in Agile to better understand the culture of working rather than just culture in the abstract)\n\nHe also led the planning for several of our companywide offsites, and they were widely considered by attendees as some of the best ones we've had.",
+    dataAiHint: "profile person"
   }
 ];
 
@@ -99,3 +106,4 @@ export default function TestimonialsSection() {
     </section>
   );
 }
+
