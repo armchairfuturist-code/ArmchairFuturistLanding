@@ -18,16 +18,16 @@ const CertificationItem: React.FC<{ certification: Certification }> = ({ certifi
         <Image
           src={certification.imageSrc}
           alt={`${certification.name} badge`}
-          width={40}
-          height={40}
+          width={32} // Reduced size
+          height={32} // Reduced size
           className="object-contain shrink-0 rounded-sm"
         />
       ) : (
-        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground">
-          <span className="font-semibold">{certification.issuerInitials}</span>
+        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground"> {/* Adjusted size */}
+          <span className="font-semibold text-xs">{certification.issuerInitials}</span>
         </div>
       )}
-      <p className="text-sm text-foreground/80 text-center">{certification.name}</p>
+      <p className="text-xs text-foreground/80 text-center">{certification.name}</p> {/* Reduced text size */}
     </>
   );
 
@@ -37,7 +37,7 @@ const CertificationItem: React.FC<{ certification: Certification }> = ({ certifi
         href={certification.link}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex flex-col items-center gap-2 p-3 rounded-lg border-0 hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors duration-150"
+        className="flex flex-col items-center gap-2 p-1 rounded-lg border-0 hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors duration-150" // Reduced padding and gap
       >
         {content}
       </a>
@@ -45,7 +45,7 @@ const CertificationItem: React.FC<{ certification: Certification }> = ({ certifi
   }
 
   return (
-    <div className="flex flex-col items-center gap-2 p-3 rounded-lg border-0 hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors duration-150">
+    <div className="flex flex-col items-center gap-2 p-1 rounded-lg border-0 hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors duration-150"> {/* Reduced padding and gap */}
       {content}
     </div>
   );
@@ -68,7 +68,7 @@ export default function AboutMeSection() {
               height={1600}
               className="rounded-xl w-full max-w-md lg:max-w-full h-auto border-0"
             />
-            <div className="mt-8 w-full max-w-md lg:max-w-full grid grid-cols-2 gap-x-6 gap-y-4">
+            <div className="mt-4 w-full max-w-md lg:max-w-full grid grid-cols-2 gap-x-3 gap-y-1"> {/* Reduced margin-top and gaps */}
               {otherCertifications.map((cert) => (
                 <CertificationItem key={cert.id} certification={cert} />
               ))}
@@ -123,7 +123,6 @@ export default function AboutMeSection() {
                   <p className="text-base font-medium text-primary/90 text-center">{expertCertification.name}</p>
                 </a>
               )}
-              {/* The other certifications grid has been moved to the left column */}
             </div>
           </div>
         </div>
