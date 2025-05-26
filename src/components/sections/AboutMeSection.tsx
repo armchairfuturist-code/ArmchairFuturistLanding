@@ -1,6 +1,5 @@
 
 import Image from 'next/image';
-import { Card, CardContent } from '@/components/ui/card';
 import type { Certification } from '@/types'; 
 
 const certificationsData: Certification[] = [
@@ -60,15 +59,23 @@ export default function AboutMeSection() {
     <section id="about-me" className="py-12 md:py-24 bg-sectionBlue scroll-mt-20">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid lg:grid-cols-5 gap-12 items-start">
-          <div className="lg:col-span-3">
+          {/* Left Column: Image and other certifications */}
+          <div className="lg:col-span-3 flex flex-col items-center lg:items-start">
             <Image
               src="/Standing-Photoroom.png"
               alt="Alex Myers standing"
               width={1200}
               height={1600}
-              className="rounded-xl w-full h-auto border-0"
+              className="rounded-xl w-full max-w-md lg:max-w-full h-auto border-0"
             />
+            <div className="mt-8 w-full max-w-md lg:max-w-full grid grid-cols-2 gap-x-6 gap-y-4">
+              {otherCertifications.map((cert) => (
+                <CertificationItem key={cert.id} certification={cert} />
+              ))}
+            </div>
           </div>
+
+          {/* Right Column: Text and expert certification */}
           <div className="lg:col-span-2 space-y-6">
             <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
               About Me
@@ -116,11 +123,7 @@ export default function AboutMeSection() {
                   <p className="text-base font-medium text-primary/90 text-center">{expertCertification.name}</p>
                 </a>
               )}
-              <div className="grid grid-cols-2 gap-x-6 gap-y-4">
-                {otherCertifications.map((cert) => (
-                  <CertificationItem key={cert.id} certification={cert} />
-                ))}
-              </div>
+              {/* The other certifications grid has been moved to the left column */}
             </div>
           </div>
         </div>
