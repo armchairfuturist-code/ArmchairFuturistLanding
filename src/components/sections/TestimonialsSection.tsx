@@ -26,9 +26,16 @@ const testimonialsData: Testimonial[] = [
   },
   {
     imageSrc: "/tessa.jpg",
-    name: "Tessa M.", // Placeholder last initial, user can update
+    name: "Tessa M.",
     title: "Marketing Strategist",
     text: "Alex really made a huge difference in the operations at Aragon, ensuring every member of the team felt heard and seen — rare in many tech companies today.\n\nHe also ensured that each member was focused on their personal development and helped us adapt our skills as the organization’s needs shifted.\n\nHe would make a great addition to any project. ",
+    dataAiHint: "profile person"
+  },
+  {
+    imageSrc: "/Sepehr.jpg",
+    name: "Sepehr S.",
+    title: "Co-Founder & Technical Product Manager at Microflow",
+    text: "If you're looking for someone who makes a difference, look no further than Alex. As our HR guy at Aragon, he was nothing short of amazing. But it's not just his HR smarts that set him apart; it's his incredible positive energy. Alex has this way of making everyone feel upbeat and ready to tackle any challenge. His enthusiasm is just infectious! Alex's deep understanding of Scrum methodologies has been a game-changer for us. He's got this incredible ability to integrate Scrum tactics seamlessly into our HR functions, ramping up our team efficiency and cooperation. It's impressive how he applies these agile practices, streamlining our workflows and fostering a more dynamic team environment. Alex's mix of vibrant energy and expertise in Scrum hasn't just revolutionized our HR department; it's electrified our entire workplace atmosphere.",
     dataAiHint: "profile person"
   },
 ];
