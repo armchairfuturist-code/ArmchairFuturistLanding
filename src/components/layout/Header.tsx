@@ -19,7 +19,7 @@ export default function Header() {
         <Link href="/" className="mr-6 flex items-center space-x-2">
           <BotMessageSquare className="h-6 w-6 text-primary" />
           <span className="font-bold sm:inline-block font-heading">
-            The Armchair Futurist
+            Alex Myers: The Armchair Futurist
           </span>
         </Link>
         
@@ -53,7 +53,7 @@ export default function Header() {
                 <Link href="/" className="flex items-center space-y-2 mb-4"> {/* Adjusted space-x-2 to space-y-2 for vertical stacking, or could wrap to flex-col */}
                   <div className="flex items-center space-x-2">
                     <BotMessageSquare className="h-8 w-8 text-primary" /> {/* Increased icon size for mobile menu logo */}
-                    <span className="font-bold font-heading text-base">The Armchair Futurist</span>
+                    <span className="font-bold font-heading text-base">Alex Myers: The Armchair Futurist</span>
                   </div>
                 </Link>
                 {navItems.map((item) => (
