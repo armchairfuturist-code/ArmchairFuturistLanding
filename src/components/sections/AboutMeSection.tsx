@@ -66,10 +66,10 @@ export default function AboutMeSection() {
               alt="Alex Myers standing"
               width={1200}
               height={1600}
-              className="rounded-xl w-full max-w-md lg:max-w-full h-auto border-0"
+              className="rounded-xl w-full h-auto border-0"
             />
-            {/* Horizontal wrapping list for other certifications */}
-            <div className="mt-4 w-full max-w-md lg:max-w-full flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-2">
+            {/* Grid for other certifications, under the image */}
+            <div className="mt-4 w-full max-w-md lg:max-w-full grid grid-cols-2 gap-x-3 gap-y-1">
               {otherCertifications.map((cert) => (
                  <CertificationItem key={cert.id} certification={cert} />
               ))}
@@ -131,3 +131,5 @@ export default function AboutMeSection() {
     </section>
   );
 }
+
+    
