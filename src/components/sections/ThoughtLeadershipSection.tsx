@@ -6,7 +6,6 @@ import { Podcast, MessageCircle, ExternalLink } from 'lucide-react';
 
 const thoughtLeadershipItems = [
   {
-    // Icon removed from here as it's moved to the section title
     title: "Podcasts & Interviews",
     description: "Listen to insights on AI, future of work, and strategy.",
     items: [
@@ -32,7 +31,7 @@ export default function ThoughtLeadershipSection() {
             </h2>
           </div>
           <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto">
-            Sharing knowledge and experience through various platforms and engagements.
+            Listen to insights on AI, future of work, and strategy.
           </p>
         </div>
 
@@ -41,7 +40,7 @@ export default function ThoughtLeadershipSection() {
             <Card className="flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300">
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
-                  {/* Icon removed from here */}
+                  {/* Icon removed from here as it's moved to the section title */}
                   <CardTitle className="text-xl font-semibold">{podcastSection.title}</CardTitle>
                 </div>
                 <CardDescription>{podcastSection.description}</CardDescription>
