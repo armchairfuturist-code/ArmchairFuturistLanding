@@ -13,7 +13,7 @@ export default function TestimonialsSection() {
   const duplicatedTestimonials = [...testimonialsData, ...testimonialsData]; // Duplicate for seamless scroll
 
   return (
-    <section id="testimonials" className="py-12 md:py-24 bg-background scroll-mt-20">
+    <section id="testimonials" className="py-12 md:py-24 bg-secondary scroll-mt-20">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
