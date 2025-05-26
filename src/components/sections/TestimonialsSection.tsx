@@ -38,6 +38,13 @@ const testimonialsData: Testimonial[] = [
     text: "If you're looking for someone who makes a difference, look no further than Alex. As our HR guy at Aragon, he was nothing short of amazing. But it's not just his HR smarts that set him apart; it's his incredible positive energy. Alex has this way of making everyone feel upbeat and ready to tackle any challenge. His enthusiasm is just infectious! Alex's deep understanding of Scrum methodologies has been a game-changer for us. He's got this incredible ability to integrate Scrum tactics seamlessly into our HR functions, ramping up our team efficiency and cooperation. It's impressive how he applies these agile practices, streamlining our workflows and fostering a more dynamic team environment. Alex's mix of vibrant energy and expertise in Scrum hasn't just revolutionized our HR department; it's electrified our entire workplace atmosphere.",
     dataAiHint: "profile person"
   },
+  {
+    imageSrc: "/marco.jpg",
+    name: "Marco",
+    title: "Sr. Product Designer",
+    text: "Alex possesses a rare combination of professionalism, compassion, and unwavering respect for both the job at hand and the individuals involved.\n\nAs an Agile Coach and People Operation at Aragon, Alex demonstrated an unparalleled ability to drive us to a leaner approach, fostering an environment of collaboration and efficiency. Alex's commitment to fostering a culture of continuous improvement and adaptability was truly commendable, making a significant impact on our team's success., and at a personal level, always allowing me to feel respected and understood.\n\nThe honest and fair approach to managing human resources challenges, coupled with a genuine concern for the well-being of the team, created a positive and inclusive workplace environment.\n\nAlex's dedication to cultivating a harmonious balance between agile methodologies and people-focused operations is truly commendable. I wholeheartedly recommend Alex for any organization seeking a professional who not only excels in their role but also brings a human touch to every aspect of their work.",
+    dataAiHint: "profile person"
+  }
 ];
 
 export default function TestimonialsSection() {
