@@ -1,3 +1,4 @@
+
 "use client";
 import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
@@ -84,12 +85,12 @@ export default function HeroSection() {
 
             {/* Image Column */}
             <div className="lg:col-span-2 flex justify-center items-center lg:justify-end">
-              <div className="relative w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80">
+              <div className="relative w-56 h-56 md:w-72 md:h-72 lg:w-96 lg:h-96">
                 <Image
-                  src="/profile.webp" // Make sure profile.webp is in your public folder
+                  src="/profile.webp"
                   alt="Alex Myers Profile"
                   fill
-                  className="rounded-full object-cover shadow-xl"
+                  className="rounded-full object-cover shadow-xl border-4 border-primary-foreground"
                   priority
                 />
               </div>
