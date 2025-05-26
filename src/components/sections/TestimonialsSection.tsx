@@ -55,11 +55,10 @@ const testimonialsData: Testimonial[] = [
 ];
 
 export default function TestimonialsSection() {
-  // Duplicate for seamless scroll, ensure this matches the number of actual testimonials
   const duplicatedTestimonials = testimonialsData.length > 0 ? [...testimonialsData, ...testimonialsData] : []; 
 
   if (testimonialsData.length === 0) {
-    return null; // Or some placeholder if no testimonials exist
+    return null; 
   }
 
   return (
@@ -69,9 +68,7 @@ export default function TestimonialsSection() {
           <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
             Testimonials
           </h2>
-          <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto">
-            Hear directly from leaders I've partnered with.
-          </p>
+          {/* The descriptive paragraph below the title has been removed. */}
         </div>
 
         <div className="overflow-hidden py-4 w-full">
@@ -106,4 +103,3 @@ export default function TestimonialsSection() {
     </section>
   );
 }
-
