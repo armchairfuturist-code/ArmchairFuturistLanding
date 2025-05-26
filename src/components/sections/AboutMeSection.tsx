@@ -28,7 +28,7 @@ const CertificationItem: React.FC<{ certification: Certification }> = ({ certifi
           <span className="font-semibold">{certification.issuerInitials}</span>
         </div>
       )}
-      <p className="text-sm text-foreground/80">{certification.name}</p>
+      <p className="text-sm text-foreground/80 text-center">{certification.name}</p>
     </>
   );
 
@@ -38,7 +38,7 @@ const CertificationItem: React.FC<{ certification: Certification }> = ({ certifi
         href={certification.link}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center gap-3 p-2 rounded-md hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors duration-150"
+        className="flex flex-col items-center gap-2 p-3 rounded-lg border-0 hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors duration-150"
       >
         {content}
       </a>
@@ -46,7 +46,7 @@ const CertificationItem: React.FC<{ certification: Certification }> = ({ certifi
   }
 
   return (
-    <div className="flex items-center gap-3 p-2 rounded-md hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors duration-150">
+    <div className="flex flex-col items-center gap-2 p-3 rounded-lg border-0 hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors duration-150">
       {content}
     </div>
   );
@@ -81,7 +81,7 @@ export default function AboutMeSection() {
             <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
               About Me
             </h2>
-            <div className="prose prose-lg text-foreground/80 max-w-none font-rubik">
+            <div className="prose prose-lg text-foreground/80 max-w-none font-rubik text-center">
               <p>
                 I operate at the intersection of technology and culture, guiding organizations through profound technological shifts by building authentic, enduring partnerships.
               </p>
