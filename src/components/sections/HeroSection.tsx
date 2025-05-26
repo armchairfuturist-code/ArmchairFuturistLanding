@@ -1,3 +1,4 @@
+
 "use client";
 import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
@@ -50,11 +51,11 @@ export default function HeroSection() {
       <div className="container relative z-10 px-4 md:px-6 text-center">
         <div className="max-w-3xl mx-auto">
           <h1 className="font-heading tracking-tighter sm:text-5xl xl:text-6xl/none hero-text-shadow">
-            <span className="block text-hero-title-1 text-4xl md:text-5xl xl:text-6xl">Shape the Future.</span>
-            <span className="block text-hero-title-2 text-4xl md:text-5xl xl:text-6xl mt-1 md:mt-2">Deliver Real Results.</span>
+            <span className="block text-hero-title-1 text-4xl md:text-5xl xl:text-6xl">Stop Guessing About AI & Emerging Tech.</span>
+            <span className="block text-hero-title-2 text-4xl md:text-5xl xl:text-6xl mt-1 md:mt-2">Get Expert Guidance to Future-Proof Your Business.</span>
           </h1>
           <p className="mt-6 text-primary-foreground/90 md:text-xl max-w-2xl mx-auto hero-text-shadow">
-            Artificial Intelligence is transforming business at breakneck speed. Yet, while AI tools evolve rapidly, many organizations struggle to convert individual AI productivity gains into sustained organizational performance. The missing link? People — their mindsets, emotions, and readiness to embrace profound change.
+            The Armchair Futurist provides bespoke advisory services, translating complex technological change into clear, actionable strategies for forward-thinking leaders and organizations. Let's build your competitive advantage, together.
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center">
             <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg transition-transform duration-200 hover:scale-105">
