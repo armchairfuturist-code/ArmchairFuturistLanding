@@ -1,15 +1,15 @@
 import type {Metadata} from 'next';
-import { Roboto, Montserrat, Geist_Mono, Rubik } from 'next/font/google';
+import { Lato, Montserrat, Geist_Mono, Rubik } from 'next/font/google';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { cn } from '@/lib/utils';
 
-// Configure Roboto for body text
-const roboto = Roboto({
+// Configure Lato for body text
+const lato = Lato({
   subsets: ['latin'],
-  weight: ['400', '500', '700'], 
+  weight: ['300', '400', '700'], 
   variable: '--font-sans', 
 });
 
@@ -47,7 +47,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={cn(roboto.variable, geistMono.variable, montserrat.variable, rubik.variable, "font-sans antialiased flex flex-col min-h-screen")}>
+      <body className={cn(lato.variable, geistMono.variable, montserrat.variable, rubik.variable, "font-sans antialiased flex flex-col min-h-screen")}>
         <Header />
         <main className="flex-grow">
           {children}
