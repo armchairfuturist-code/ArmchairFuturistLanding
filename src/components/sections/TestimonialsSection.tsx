@@ -1,7 +1,7 @@
 
 import Image from 'next/image';
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"; // For potential use with initials if no image
+import type { AvatarImageProps } from '@radix-ui/react-avatar'; // Keep if needed elsewhere, or remove if only for placeholder
 
 interface Testimonial {
   imageSrc: string;
@@ -13,10 +13,17 @@ interface Testimonial {
 
 const testimonialsData: Testimonial[] = [
   {
-    imageSrc: "/Alexaragon.jpg",
+    imageSrc: "/Alexaragon.jpg", // Assuming this is in the public folder
     name: "Alex A.", 
     title: "COO at Aragon.org",
     text: "I have worked with Alex for the past two years at Aragon across several roles as the team lead. It's not every day you come across someone who combines a strong work ethic with an impressive attention to detail, but that's exactly what Alex does. He also has the ability to get on with anyone on the team and was a valuable asset throughout several Org changes which kept the team engaged and as informed as they could be. \n\nHe has an incredibly open-minded approach to challenges and his skill to build consensus in our team has been invaluable alongside being able to take initiatives and projects from ideation to completion with very little input. This was crucial in our small team as different projects would often pop up and Alex was the first to step up. Alex's dedication and insight enhanced our team dynamics and he was flexible with whatever task was thrown his way. His experience as an Agile coach only added to his skill set in the team helping all of our operations remain agile and efficient.\n\nHe would undoubtedly be a valuable asset to any team he joins. I look forward to what ever challenge he take on next.",
+  },
+  {
+    imageSrc: "/Karrie.jpg", // Assuming this is in the public folder
+    name: "Karrie S.", // Placeholder name, adjust if needed
+    title: "CEO at Culminate Strategy Group",
+    text: "Alex is one of the best change and program management professionals I've run across in transformation. He approaches each initiative with an eye toward the future technologies and how they impact the organization, productivity, and value creation. He's also just a high EQ leader who loves mentoring and coaching others into the next best version of themselves.",
+    dataAiHint: "profile person"
   },
 ];
 
