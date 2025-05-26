@@ -1,3 +1,4 @@
+
 import type {Metadata} from 'next';
 import { Lato, Montserrat, Geist_Mono, Rubik } from 'next/font/google';
 import './globals.css';
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
   title: 'Armchair Futurist - Alex Myers',
   description: 'Alex Myers – the Armchair Futurist: Advisor to leaders navigating AI, change, and the future of work with grounded, human-first strategy.',
   icons: {
-    icon: '/favicon.ico', // This tells Next.js to look for public/favicon.ico
+    icon: '/img.jpg', // Updated favicon path
   },
 };
 
