@@ -6,8 +6,8 @@ import { Podcast, MessageCircle, ExternalLink } from 'lucide-react';
 
 const thoughtLeadershipItems = [
   {
-    title: "Podcasts & Interviews",
-    description: "Listen to insights on AI, future of work, and strategy.",
+    title: "Podcasts & Interviews", // This title is now primarily used by the main section H2
+    description: "Listen to insights on AI, future of work, and strategy.", // This description is now primarily used by the main section P
     items: [
       { name: "Mission Driven You", link: "#" }, // Replace with actual links
       { name: "Marketing Quacks", link: "#" },
@@ -38,14 +38,8 @@ export default function ThoughtLeadershipSection() {
         {podcastSection && (
           <div className="max-w-lg mx-auto"> {/* Centering the single card */}
             <Card className="flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <CardHeader>
-                <div className="flex items-center gap-3 mb-2">
-                  {/* Icon removed from here as it's moved to the section title */}
-                  <CardTitle className="text-xl font-semibold">{podcastSection.title}</CardTitle>
-                </div>
-                <CardDescription>{podcastSection.description}</CardDescription>
-              </CardHeader>
-              <CardContent className="flex-grow">
+              {/* CardHeader has been removed as its content was redundant with the main section heading */}
+              <CardContent className="flex-grow p-6"> {/* Added p-6 to ensure padding for content */}
                 {podcastSection.items.length > 0 && (
                   <ul className="space-y-2 text-sm text-muted-foreground">
                     {podcastSection.items.map((item, itemIndex) => (
