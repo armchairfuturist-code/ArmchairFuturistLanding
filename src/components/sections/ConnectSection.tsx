@@ -25,7 +25,7 @@ export default function ConnectSection() {
             size="lg"
             className="shadow-lg transition-transform duration-200 hover:scale-105"
           >
-            <a href="mailto:alex@alexmyers.co?subject=Speaking Invitation Request">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe36EU0DrDTMYMsGp32-wD_HlF7M_IPH-IsqpU-hrtJTlPZAg/viewform?usp=header" target="_blank" rel="noopener noreferrer">
               <Mic className="mr-2 h-5 w-5" />
               Invite Me to Speak
             </a>
