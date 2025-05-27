@@ -60,16 +60,16 @@ export default function AboutMeSection() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid lg:grid-cols-5 gap-12 items-start">
           {/* Left Column: Image and other certifications */}
-          <div className="lg:col-span-3 flex flex-col items-center lg:items-start">
+          <div className="lg:col-span-3 flex flex-col items-center"> {/* Changed lg:items-start to items-center */}
             <Image
               src="/Standing-Photoroom.png"
               alt="Alex Myers standing"
               width={1200}
               height={1600}
-              className="rounded-xl w-full h-auto border-0"
+              className="rounded-xl w-full h-auto border-0 max-w-md md:max-w-lg"
             />
-            {/* Container for other certifications, under the image */}
-            <div className="mt-4 w-full flex flex-col space-y-1">
+            {/* Container for other certifications, to be centered */}
+            <div className="mt-4 w-full max-w-xs sm:max-w-sm flex flex-col space-y-1"> {/* Constrained width for centering */}
               {otherCertifications.map((cert) => (
                  <CertificationItem key={cert.id} certification={cert} />
               ))}
