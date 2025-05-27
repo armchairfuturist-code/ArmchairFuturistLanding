@@ -2,12 +2,12 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu } from 'lucide-react';
+import { Menu, BotMessageSquare } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Header() {
   const navItems = [
-    { href: '/#how-we-help', label: 'How I Help' },
+    { href: '/#how-i-work', label: 'How I Work' },
     { href: '/#services', label: 'Services' },
     { href: '/#about-me', label: 'About Alex' },
     { href: '/#thought-leadership', label: 'Insights' },

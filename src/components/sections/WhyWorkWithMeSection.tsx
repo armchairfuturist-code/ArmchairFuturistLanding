@@ -11,7 +11,7 @@ import {
 const howIHelpData = [
   {
     icon: <BrainCircuit className="h-5 w-5 text-primary mr-3 shrink-0" />,
-    title: "Psychometric Insight for AI Adoption",
+    title: "Cultivating the Four Essential Mindsets for AI Success",
     content: "I guide your organization in understanding and fostering these key mindset segments, identified through AI-driven language analysis and developmental psychology:",
     subPoints: [
       { icon: <UserMinus className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Resistant (5-10%):</strong> Those deeply skeptical or obstructive toward AI change. I help leaders manage this group with compassion and accountability, minimizing disruption without stalling progress." },
@@ -22,7 +22,7 @@ const howIHelpData = [
     keyBenefit: "Accelerate adoption by tailoring strategies to your team's unique psychological profiles."
   },
   {
-    icon: <Users className="h-5 w-5 text-primary mr-3 shrink-0" />, // Changed from BrainCircuit to Users for this item
+    icon: <Users className="h-5 w-5 text-primary mr-3 shrink-0" />, 
     title: "Embedding Second Order Thinking and Emotional Intelligence (EQ)",
     content: "I help leaders and teams evolve from first order (linear, control-driven) to second order thinking—holistic, adaptive, and emotionally mature approaches essential for navigating AI’s complexity. This shift enables:",
     subPoints: [
@@ -30,7 +30,7 @@ const howIHelpData = [
       { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Anticipating AI’s ripple effects on workflows, morale, and strategy." },
       { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Leading with psychological safety, fostering innovation and ethical AI use." },
     ],
-    keyBenefit: "Build sustainable internal momentum and overcome resistance through holistic strategies." // Example benefit
+    keyBenefit: "Build sustainable internal momentum and overcome resistance through holistic strategies." 
   },
   {
     icon: <ScanSearch className="h-5 w-5 text-primary mr-3 shrink-0" />,
@@ -41,11 +41,11 @@ const howIHelpData = [
       { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Avoiding the “lowest common denominator” approach that slows adoption." },
       { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Annual rescoring to track psychological growth and adapt strategies dynamically." },
     ],
-    keyBenefit: "Get objective, customized solutions that truly fit your organization's context and goals." // Example benefit
+    keyBenefit: "Get objective, customized solutions that truly fit your organization's context and goals."
   },
   {
     icon: <GraduationCap className="h-5 w-5 text-primary mr-3 shrink-0" />,
-    title: "Designing AI Adoption as an Organizational Learning Challenge",
+    title: "Designing AI Adoption as an Organizational Learning Challenge, Not Just a Technical Rollout",
     content: "I help you:",
     subPoints: [
       { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Build pilot teams from the Resilient and Results segments to rapidly test and refine AI tools." },
@@ -54,7 +54,7 @@ const howIHelpData = [
       { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Avoid “talent hoarding” by enabling high performers to spread innovation cross-functionally." },
       { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Integrate AI into workflows with user-centric design and hybrid models bridging legacy systems." },
     ],
-    keyBenefit: "Unlock real organizational performance by focusing on learning and adaptation." // Example benefit
+    keyBenefit: "Unlock real organizational performance by focusing on learning and adaptation."
   },
   {
     icon: <Crown className="h-5 w-5 text-primary mr-3 shrink-0" />,
@@ -65,7 +65,7 @@ const howIHelpData = [
       { icon: <FlaskConical className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Lab:</strong> Centralized teams that rapidly build, benchmark, and iterate AI solutions informed by frontline insights." },
       { icon: <Users className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Crowd:</strong> Empowered employees who discover and share AI use cases, fueling decentralized innovation." },
     ],
-    keyBenefit: "Foster a culture of innovation by aligning leadership, expert teams, and empowered employees." // Example benefit
+    keyBenefit: "Foster a culture of innovation by aligning leadership, expert teams, and empowered employees."
   }
 ];
 
@@ -94,11 +94,11 @@ const whyItMattersData = [
 
 export default function WhyWorkWithMeSection() {
   return (
-    <section id="how-we-help" className="py-12 md:py-24 bg-background scroll-mt-20">
+    <section id="how-i-work" className="py-12 md:py-24 bg-background scroll-mt-20">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-            How I Help: Mindset-Centered AI Adoption Advisory
+            How I Work: Mindset-Centered AI Adoption Advisory
           </h2>
           <p className="mt-4 text-lg text-foreground/80 max-w-3xl mx-auto">
             My advisory offering addresses these challenges head-on by focusing on the people and mindsets that drive successful AI adoption, blending cutting-edge AI-powered psychological insights with proven change leadership.
