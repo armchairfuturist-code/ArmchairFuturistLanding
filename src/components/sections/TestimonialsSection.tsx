@@ -20,6 +20,7 @@ const testimonialsData: Testimonial[] = [
     name: "Alex A.",
     title: "COO at Aragon.org",
     text: "I have worked with Alex for the past two years at Aragon across several roles as the team lead. It's not every day you come across someone who combines a strong work ethic with an impressive attention to detail, but that's exactly what Alex does. He also has the ability to get on with anyone on the team and was a valuable asset throughout several Org changes which kept the team engaged and as informed as they could be.\n\nHe has an incredibly open-minded approach to challenges and his skill to build consensus in our team has been invaluable alongside being able to take initiatives and projects from ideation to completion with very little input. This was crucial in our small team as different projects would often pop up and Alex was the first to step up. Alex's dedication and insight enhanced our team dynamics and he was flexible with whatever task was thrown his way. His experience as an Agile coach only added to his skill set in the team helping all of our operations remain agile and efficient.\n\nHe would undoubtedly be a valuable asset to any team he joins. I look forward to what ever challenge he take on next.",
+    dataAiHint: "profile person"
   },
   {
     imageSrc: "/Karrie.jpg",
@@ -62,6 +63,13 @@ const testimonialsData: Testimonial[] = [
     title: "Marketing Strategist",
     text: "Alex really made a huge difference in the operations at Aragon, ensuring every member of the team felt heard and seen — rare in many tech companies today.\n\nHe also ensured that each member was focused on their personal development and helped us adapt our skills as the organization’s needs shifted.\n\nHe would make a great addition to any project.",
     dataAiHint: "profile person"
+  },
+  {
+    imageSrc: "/jasper.jpg",
+    name: "Jasper",
+    title: "Sr. Manager - Launch by NTT Data",
+    text: "Alex has been one of the most engaging and positive SCRUM masters I have ever worked with. He makes sure that all stakeholders on his team are on board and feeling engaged. He raises risks when they come up and I just feel like nothing ever really goes unnoticed by him. He not only focuses on the business at hand but also focuses on the growth of everyone around him and elevates everyone. It has been a true pleasure working with him and I would choose to work with him again anyday.",
+    dataAiHint: "profile person"
   }
 ];
 
@@ -102,7 +110,7 @@ export default function TestimonialsSection() {
 
               return (
                 <Card 
-                  key={`${testimonial.name}-${index}`} 
+                  key={`${testimonial.name}-${index}-${originalIndex}`} // Ensure key is unique even with duplicates
                   className="w-80 md:w-96 flex-shrink-0 bg-card shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col"
                 >
                   <CardHeader className="flex flex-row items-center gap-4 p-4 md:p-6">
