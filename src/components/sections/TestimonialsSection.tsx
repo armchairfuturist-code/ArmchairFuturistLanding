@@ -32,7 +32,7 @@ const testimonialsData: Testimonial[] = [
     imageSrc: "/tessa.jpg",
     name: "Tessa M.",
     title: "Marketing Strategist",
-    text: "Alex really made a huge difference in the operations at Aragon, ensuring every member of the team felt heard and seen — rare in many tech companies today.\n\nHe also ensured that each member was focused on their personal development and helped us adapt our skills as the organization’s needs shifted.\n\nHe would make a great addition to any project. ",
+    text: "I had the pleasure of meeting Alex, a futurist and Analyst through Lunchclub. We talked about the future and Web3, and it was then that I realized I might have found myself a Web3 mentor. Alex is calm, patient, and is very generous with his knowledge. One important lesson I got from him was to TINKER. Just keep tinkering with the ecosystem and learn. And that's exactly what I ended up doing, thanks to his guidance. Alex is a great mentor and I would recommend him to anyone who wants to do a deep dive into Web3.",
     dataAiHint: "profile person"
   },
   {
@@ -150,4 +150,5 @@ export default function TestimonialsSection() {
     </section>
   );
 }
+
 
