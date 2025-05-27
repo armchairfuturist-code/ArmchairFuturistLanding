@@ -27,7 +27,7 @@ const CertificationItem: React.FC<{ certification: Certification }> = ({ certifi
           <span className="font-semibold text-xs">{certification.issuerInitials}</span>
         </div>
       )}
-      <p className="text-xs text-foreground/80 text-center">{certification.name}</p> 
+      <p className="text-xs text-foreground/80 text-left">{certification.name}</p> 
     </>
   );
 
@@ -37,7 +37,7 @@ const CertificationItem: React.FC<{ certification: Certification }> = ({ certifi
         href={certification.link}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex flex-col items-center gap-2 p-1 rounded-lg border-0 hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors duration-150" 
+        className="flex flex-row items-center gap-2 p-1 rounded-lg border-0 hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors duration-150" 
       >
         {content}
       </a>
@@ -45,7 +45,7 @@ const CertificationItem: React.FC<{ certification: Certification }> = ({ certifi
   }
 
   return (
-    <div className="flex flex-col items-center gap-2 p-1 rounded-lg border-0 hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors duration-150">
+    <div className="flex flex-row items-center gap-2 p-1 rounded-lg border-0 hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors duration-150">
       {content}
     </div>
   );
@@ -68,8 +68,8 @@ export default function AboutMeSection() {
               height={1600}
               className="rounded-xl w-full h-auto border-0"
             />
-            {/* Grid for other certifications, under the image */}
-            <div className="mt-4 w-full max-w-md lg:max-w-full grid grid-cols-2 gap-x-3 gap-y-1">
+            {/* Container for other certifications, under the image */}
+            <div className="mt-4 w-full flex flex-col space-y-1">
               {otherCertifications.map((cert) => (
                  <CertificationItem key={cert.id} certification={cert} />
               ))}
@@ -131,5 +131,4 @@ export default function AboutMeSection() {
     </section>
   );
 }
-
     
