@@ -55,6 +55,13 @@ const testimonialsData: Testimonial[] = [
     title: "Head of Strategy",
     text: "Alex was one of the most significant members of the Aragon team throughout 2022 and 2023. He is extraordinarily proactive, doesn't wait to be told what to do, and will always give his ear to bounce ideas off of - now matter how esoteric they might be! If anyone needs this kind of dynamic energy on their team, it is an absolute no brainer that they should speak with Alex.\n\nA little bit on our background working together - while he initially joined to help our teams with Agile, Scrum, etc., the reality was that we were in a small and constantly changing environment, so the needs of every contributor evolved as much. He took this as an opportunity to flexibly do a little bit of everything across the entire organization without getting comfortable doing just what he was hired for. When he eventually evolved into a more Human Resources-related role, he was a natural. (Note to HR professionals: there is also something nice about having someone with a background in Agile to better understand the culture of working rather than just culture in the abstract)\n\nHe also led the planning for several of our companywide offsites, and they were widely considered by attendees as some of the best ones we've had.",
     dataAiHint: "profile person"
+  },
+  {
+    imageSrc: "/Lia-Savillo.webp",
+    name: "Lia S.",
+    title: "Marketing Strategist",
+    text: "Alex really made a huge difference in the operations at Aragon, ensuring every member of the team felt heard and seen — rare in many tech companies today.\n\nHe also ensured that each member was focused on their personal development and helped us adapt our skills as the organization’s needs shifted.\n\nHe would make a great addition to any project.",
+    dataAiHint: "profile person"
   }
 ];
 
@@ -91,8 +98,6 @@ export default function TestimonialsSection() {
               const isExpanded = expandedIndex === originalIndex;
               
               // Estimate if text is longer than preview height
-              // This is a rough estimate; more sophisticated logic might be needed for perfect accuracy
-              // A simpler way is to always show "Read More" if content is likely to be long.
               const needsReadMore = testimonial.text.length > 200; // Adjust character count as needed
 
               return (
@@ -150,5 +155,3 @@ export default function TestimonialsSection() {
     </section>
   );
 }
-
-
