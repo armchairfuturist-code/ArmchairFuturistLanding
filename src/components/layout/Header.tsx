@@ -11,7 +11,7 @@ export default function Header() {
     { href: '/#services', label: 'Services' },
     { href: '/#about-me', label: 'About Alex' },
     { href: '/#thought-leadership', label: 'Insights' },
-    { href: '/#connect', label: 'Contact Me' },
+    { href: 'mailto:armchairfuturist@gmail.com', label: 'Contact Me' },
   ];
 
   return (
