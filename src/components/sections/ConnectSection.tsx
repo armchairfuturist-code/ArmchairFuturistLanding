@@ -4,7 +4,7 @@ import { CalendarDays, Mic } from 'lucide-react';
 
 export default function ConnectSection() {
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-primary to-primary/90 text-primary-foreground">
+    <section id="connect" className="py-16 md:py-24 bg-gradient-to-br from-primary to-primary/90 text-primary-foreground scroll-mt-20">
       <div className="container mx-auto px-4 md:px-6 text-center">
         <h2 className="font-heading text-3xl font-bold tracking-tight sm:text-4xl mb-6">
           Ready to Build an AI-Resilient Workforce That Delivers Impactful Outcomes?
@@ -14,7 +14,7 @@ export default function ConnectSection() {
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg transition-transform duration-200 hover:scale-105">
-             <a href="https://cal.com/alex-myers/discovery" target="_blank" rel="noopener noreferrer">
+             <a href="https://calendar.app.google/nAHHwNMfhDvXGv7P7" target="_blank" rel="noopener noreferrer">
               <CalendarDays className="mr-2 h-5 w-5" />
               Schedule a Discovery Call
             </a>

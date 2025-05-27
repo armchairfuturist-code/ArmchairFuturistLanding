@@ -11,6 +11,7 @@ export default function Header() {
     { href: '/#services', label: 'Services' },
     { href: '/#about-me', label: 'About Alex' },
     { href: '/#thought-leadership', label: 'Insights' },
+    { href: '/#connect', label: 'Contact Me' },
   ];
 
   return (
