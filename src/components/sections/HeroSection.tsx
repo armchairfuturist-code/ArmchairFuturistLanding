@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { CalendarDays, Mic, Mail } from 'lucide-react'; // Added Mail icon
+import { CalendarDays, Mic, Mail } from 'lucide-react';
 
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -56,7 +56,7 @@ export default function HeroSection() {
           <p className="mt-6 text-primary-foreground/90 md:text-xl max-w-2xl mx-auto hero-text-shadow">
             The Armchair Futurist provides bespoke advisory services, translating complex technological change into clear, actionable strategies for forward-thinking leaders and organizations. Let's build your competitive advantage, together.
           </p>
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:justify-center"> {/* Added sm:flex-wrap */}
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:justify-center">
             <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg transition-transform duration-200 hover:scale-105">
               <a href="https://calendar.app.google/nAHHwNMfhDvXGv7P7" target="_blank" rel="noopener noreferrer">
                 <CalendarDays className="mr-2 h-5 w-5" />
@@ -80,7 +80,7 @@ export default function HeroSection() {
             >
               <a href="mailto:alex@alexmyers.co">
                 <Mail className="mr-2 h-5 w-5" />
-                Let's Collaborate - Get in Touch
+                Get in Touch
               </a>
             </Button>
           </div>
