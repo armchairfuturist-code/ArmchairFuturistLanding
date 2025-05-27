@@ -70,10 +70,6 @@ export default function AboutMeSection() {
                 height={1600}
                 className="rounded-xl w-full h-auto border-0"
               />
-              <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-sm text-white px-2.5 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 shadow-md z-10">
-                <span>🇵🇹</span>
-                <span>Based in Portugal</span>
-              </div>
             </div>
             {/* Container for other certifications, to be centered */}
             <div className="mt-4 w-full max-w-xs sm:max-w-sm flex flex-col space-y-1">
