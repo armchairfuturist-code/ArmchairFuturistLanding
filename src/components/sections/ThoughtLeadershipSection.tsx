@@ -30,37 +30,37 @@ const thoughtLeadershipData: ThoughtLeadershipCategory[] = [
     items: [
       {
         name: "Mission Driven You",
-        link: "#",
+        link: "https://www.boomplay.com/episode/8956216",
         description: "Alex discussing how AI, blockchain, and mindfulness can empower humanity, exploring the intersection of technology and personal growth"
       },
       {
         name: "Mission Driven You (Psychedelics & Presence)",
-        link: "#",
+        link: "https://www.boomplay.com/episode/9501654",
         description: "Alex Myers joins Will Samson to delve into psychedelics, presence, and the search for meaning, addressing deeper human experiences and consciousness"
       },
       {
         name: "You Don't Need This Podcast",
-        link: "#",
+        link: "https://benmcdougal.com/still-united/",
         description: "with Ben McDougal and Alex Myers covers AI evolution, neurotech, web3, blockchain versus corporate networks, and thriving amidst information overload in a futuristic discussion"
       },
       {
         name: "Roundtable on Web3 Remote Work Challenges",
-        link: "#",
+        link: "https://x.com/i/spaces/1dRKZdVrpAvJB",
         description: "@Givepraise hosts a roundtable with Web3 HR experts on Web3 Remote Work Challenges"
       },
       {
         name: "DAOs, Life Extension, and Transhumanism",
-        link: "#",
+        link: "https://benmcdougal.com/united-we-are/",
         description: "Alex and Ben discuss the reasoning behind DAOs, and touch on life extension, nurturing AI, and the challenges with transhumanism"
       },
       {
         name: "Marketing Quacks Podcast",
-        link: "#",
+        link: "https://open.spotify.com/episode/6SKCP0oDBfJFBGetFME4Mq?si=fQh53kaTTKiNx2u_HpQm7w&nd=1&dlsi=32576c16b8454030",
         description: "discussing the impact of AI-generated content on the quality and integrity of the internet. Alex will discuss the implications of widespread AI content creation, exploring whether it enhances or undermines the information ecosystem online."
       },
       {
         name: "AI's Impact on Humanity: A Futurist Lens",
-        link: "#",
+        link: "https://open.spotify.com/episode/5ZzAJ9TnklmL8DbxlLjU2o?si=ee18521b2f8c4a26",
         description: "Sam and Alex discuss the impact of AI on humanity from a futurist lens"
       }
     ],
@@ -153,3 +153,4 @@ export default function ThoughtLeadershipSection() {
     </section>
   );
 }
+
