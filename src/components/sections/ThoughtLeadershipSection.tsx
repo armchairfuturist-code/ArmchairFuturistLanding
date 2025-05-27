@@ -1,3 +1,4 @@
+
 "use client"; 
 
 import type { FC } from 'react'; 
@@ -29,19 +30,39 @@ const thoughtLeadershipData: ThoughtLeadershipCategory[] = [
     items: [
       {
         name: "Mission Driven You",
-        link: "#", // Replace with actual link
-        description: "Alex discussing how AI, blockchain, and mindfulness can empower humanity, exploring the intersection of technology and personal growth. This is a longer description to test the read more functionality and see how it behaves with multiple lines of text that should be truncated initially."
+        link: "#",
+        description: "Alex discussing how AI, blockchain, and mindfulness can empower humanity, exploring the intersection of technology and personal growth"
       },
       {
-        name: "Marketing Quacks",
-        link: "#", // Replace with actual link
-        description: "Insights on modern marketing strategies and industry trends. This podcast delves into the nitty-gritty of digital marketing, SEO, content creation, and social media engagement, offering actionable tips for businesses of all sizes looking to make an impact."
+        name: "Mission Driven You (Psychedelics & Presence)",
+        link: "#",
+        description: "Alex Myers joins Will Samson to delve into psychedelics, presence, and the search for meaning, addressing deeper human experiences and consciousness"
       },
       {
-        name: "You Don’t Need This Podcast",
-        link: "#", // Replace with actual link
-        description: "Exploring unconventional ideas and thought-provoking discussions. A podcast that challenges norms, questions assumptions, and invites listeners to think differently about work, life, and everything in between. Short description here."
+        name: "You Don't Need This Podcast",
+        link: "#",
+        description: "with Ben McDougal and Alex Myers covers AI evolution, neurotech, web3, blockchain versus corporate networks, and thriving amidst information overload in a futuristic discussion"
       },
+      {
+        name: "Roundtable on Web3 Remote Work Challenges",
+        link: "#",
+        description: "@Givepraise hosts a roundtable with Web3 HR experts on Web3 Remote Work Challenges"
+      },
+      {
+        name: "DAOs, Life Extension, and Transhumanism",
+        link: "#",
+        description: "Alex and Ben discuss the reasoning behind DAOs, and touch on life extension, nurturing AI, and the challenges with transhumanism"
+      },
+      {
+        name: "Marketing Quacks Podcast",
+        link: "#",
+        description: "discussing the impact of AI-generated content on the quality and integrity of the internet. Alex will discuss the implications of widespread AI content creation, exploring whether it enhances or undermines the information ecosystem online."
+      },
+      {
+        name: "AI's Impact on Humanity: A Futurist Lens",
+        link: "#",
+        description: "Sam and Alex discuss the impact of AI on humanity from a futurist lens"
+      }
     ],
     cta: null, 
   },
@@ -113,7 +134,7 @@ export default function ThoughtLeadershipSection() {
                   onClick={togglePodcastListExpansion}
                   aria-expanded={isPodcastListExpanded}
                 >
-                  {isPodcastListExpanded ? "Show Less Podcasts" : "Show More Podcasts"}
+                  {isPodcastListExpanded ? "Show Less Podcasts" : `Show ${podcastSection.items.length - INITIAL_PODCASTS_TO_SHOW} More Podcast${podcastSection.items.length - INITIAL_PODCASTS_TO_SHOW !== 1 ? 's' : ''}`}
                   {isPodcastListExpanded ? <ChevronUp className="ml-2 h-4 w-4" /> : <ChevronDown className="ml-2 h-4 w-4" />}
                 </Button>
               )}
