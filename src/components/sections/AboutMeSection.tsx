@@ -1,6 +1,7 @@
 
 import Image from 'next/image';
 import type { Certification } from '@/types'; 
+import { Card, CardContent } from "@/components/ui/card";
 
 const certificationsData: Certification[] = [
   { id: "genaiExpert", name: "GenAI Academy Expert", issuerInitials: "GAIE", link: "https://thegenaiacademy.com/expert-hub/alex-myers/", imageSrc: "/expert.png" },
@@ -69,7 +70,7 @@ export default function AboutMeSection() {
                 height={1600}
                 className="rounded-xl w-full h-auto border-0"
               />
-              <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-sm text-white px-2.5 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 shadow-md">
+              <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-sm text-white px-2.5 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 shadow-md z-10">
                 <span>🇵🇹</span>
                 <span>Based in Portugal</span>
               </div>
