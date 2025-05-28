@@ -2,7 +2,7 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { BarChart3, UsersRound, GraduationCap, Presentation, MessageCircle, UserCheck } from 'lucide-react';
+import { BarChart3, UsersRound, GraduationCap, Presentation, MessageCircle, UserCheck, ChevronDown } from 'lucide-react';
 
 const servicesData = [
   {
@@ -93,14 +93,15 @@ export default function ServicesSection() {
                 <div className="p-3 rounded-full bg-primary/10 mb-4">
                   {service.icon}
                 </div>
-                <CardTitle className="text-xl font-semibold text-primary font-heading text-center">
-                  {service.title}
+                <CardTitle className="text-xl font-semibold text-primary font-heading text-center flex items-center justify-center gap-2">
+                  <span>{service.title}</span>
+                  <ChevronDown className="h-5 w-5 text-primary/70 transition-transform duration-300 group-hover:rotate-180" />
                 </CardTitle>
               </CardHeader>
               <CardContent 
-                className="px-6 max-h-0 opacity-0 invisible group-hover:max-h-48 group-hover:opacity-100 group-hover:visible group-hover:pb-6 group-hover:pt-2 transition-all duration-500 ease-in-out"
+                className="px-6 max-h-0 opacity-0 invisible group-hover:max-h-48 group-hover:opacity-100 group-hover:visible group-hover:pb-6 group-hover:pt-2 transition-all duration-500 ease-in-out text-center"
               >
-                <p className="text-base text-muted-foreground text-center">
+                <p className="text-base text-muted-foreground">
                   {service.description}
                 </p>
               </CardContent>
