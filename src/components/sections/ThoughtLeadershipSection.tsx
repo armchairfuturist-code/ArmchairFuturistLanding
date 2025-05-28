@@ -1,8 +1,7 @@
 
 "use client"; 
-
 import type { FC } from 'react'; 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
@@ -14,74 +13,79 @@ interface PodcastItemData {
   description: string;
 }
 
-interface ThoughtLeadershipCategory {
-  title: string;
-  description: string;
-  items: PodcastItemData[];
-  cta: { text: string; link: string } | null;
-  icon: JSX.Element;
-}
-
-const thoughtLeadershipData: ThoughtLeadershipCategory[] = [
+const podcastItemsData: PodcastItemData[] = [
   {
-    title: "Podcasts & Interviews",
-    description: "Listen to insights on AI, future of work, and strategy.",
-    icon: <Podcast className="h-8 w-8 text-primary" />,
-    items: [
-      {
-        name: "Mission Driven You",
-        link: "https://www.boomplay.com/episode/8956216",
-        description: "Alex discussing how AI, blockchain, and mindfulness can empower humanity, exploring the intersection of technology and personal growth"
-      },
-      {
-        name: "Mission Driven You (Psychedelics & Presence)",
-        link: "https://www.boomplay.com/episode/9501654",
-        description: "Alex Myers joins Will Samson to delve into psychedelics, presence, and the search for meaning, addressing deeper human experiences and consciousness"
-      },
-      {
-        name: "You Don't Need This Podcast",
-        link: "https://benmcdougal.com/still-united/",
-        description: "with Ben McDougal and Alex Myers covers AI evolution, neurotech, web3, blockchain versus corporate networks, and thriving amidst information overload in a futuristic discussion"
-      },
-      {
-        name: "Roundtable on Web3 Remote Work Challenges",
-        link: "https://x.com/i/spaces/1dRKZdVrpAvJB",
-        description: "@Givepraise hosts a roundtable with Web3 HR experts on Web3 Remote Work Challenges"
-      },
-      {
-        name: "DAOs, Life Extension, and Transhumanism",
-        link: "https://benmcdougal.com/united-we-are/",
-        description: "Alex and Ben discuss the reasoning behind DAOs, and touch on life extension, nurturing AI, and the challenges with transhumanism"
-      },
-      {
-        name: "Marketing Quacks Podcast",
-        link: "https://open.spotify.com/episode/6SKCP0oDBfJFBGetFME4Mq?si=fQh53kaTTKiNx2u_HpQm7w&nd=1&dlsi=32576c16b8454030",
-        description: "discussing the impact of AI-generated content on the quality and integrity of the internet. Alex will discuss the implications of widespread AI content creation, exploring whether it enhances or undermines the information ecosystem online."
-      },
-      {
-        name: "AI's Impact on Humanity: A Futurist Lens",
-        link: "https://open.spotify.com/episode/5ZzAJ9TnklmL8DbxlLjU2o?si=ee18521b2f8c4a26",
-        description: "Sam and Alex discuss the impact of AI on humanity from a futurist lens"
-      }
-    ],
-    cta: null, 
+    name: "Mission Driven You",
+    link: "https://www.boomplay.com/episode/8956216",
+    description: "Alex discussing how AI, blockchain, and mindfulness can empower humanity, exploring the intersection of technology and personal growth"
   },
+  {
+    name: "Mission Driven You (Psychedelics & Presence)",
+    link: "https://www.boomplay.com/episode/9501654",
+    description: "Alex Myers joins Will Samson to delve into psychedelics, presence, and the search for meaning, addressing deeper human experiences and consciousness"
+  },
+  {
+    name: "You Don't Need This Podcast",
+    link: "https://benmcdougal.com/still-united/",
+    description: "with Ben McDougal and Alex Myers covers AI evolution, neurotech, web3, blockchain versus corporate networks, and thriving amidst information overload in a futuristic discussion"
+  },
+  {
+    name: "Roundtable on Web3 Remote Work Challenges",
+    link: "https://x.com/i/spaces/1dRKZdVrpAvJB",
+    description: "@Givepraise hosts a roundtable with Web3 HR experts on Web3 Remote Work Challenges"
+  },
+  {
+    name: "DAOs, Life Extension, and Transhumanism",
+    link: "https://benmcdougal.com/united-we-are/",
+    description: "Alex and Ben discuss the reasoning behind DAOs, and touch on life extension, nurturing AI, and the challenges with transhumanism"
+  },
+  {
+    name: "Marketing Quacks Podcast",
+    link: "https://open.spotify.com/episode/6SKCP0oDBfJFBGetFME4Mq?si=fQh53kaTTKiNx2u_HpQm7w&nd=1&dlsi=32576c16b8454030",
+    description: "discussing the impact of AI-generated content on the quality and integrity of the internet. Alex will discuss the implications of widespread AI content creation, exploring whether it enhances or undermines the information ecosystem online."
+  },
+  {
+    name: "AI's Impact on Humanity: A Futurist Lens",
+    link: "https://open.spotify.com/episode/5ZzAJ9TnklmL8DbxlLjU2o?si=ee18521b2f8c4a26",
+    description: "Sam and Alex discuss the impact of AI on humanity from a futurist lens"
+  }
 ];
 
 const INITIAL_PODCASTS_TO_SHOW = 1;
 
 export default function ThoughtLeadershipSection() {
   const [isPodcastListExpanded, setIsPodcastListExpanded] = useState(false);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [isContentVisible, setIsContentVisible] = useState(false);
 
-  const podcastSection = thoughtLeadershipData.find(cat => cat.title === "Podcasts & Interviews");
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsContentVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 } 
+    );
 
-  if (!podcastSection) {
-    return null;
-  }
+    if (contentRef.current) {
+      observer.observe(contentRef.current);
+    }
+
+    return () => {
+      if (contentRef.current) {
+        observer.unobserve(contentRef.current);
+      }
+      observer.disconnect();
+    };
+  }, []);
 
   const podcastsToShow = isPodcastListExpanded 
-    ? podcastSection.items 
-    : podcastSection.items.slice(0, INITIAL_PODCASTS_TO_SHOW);
+    ? podcastItemsData 
+    : podcastItemsData.slice(0, INITIAL_PODCASTS_TO_SHOW);
 
   const togglePodcastListExpansion = () => {
     setIsPodcastListExpanded(!isPodcastListExpanded);
@@ -89,16 +93,21 @@ export default function ThoughtLeadershipSection() {
 
   return (
     <section id="thought-leadership" className="py-12 md:py-24 bg-background scroll-mt-20">
-      <div className="container mx-auto px-4 md:px-6">
+      <div
+        ref={contentRef}
+        className={`container mx-auto px-4 md:px-6 scroll-animate ${
+          isContentVisible ? 'is-visible' : ''
+        }`}
+      >
         <div className="text-center mb-12">
           <div className="flex justify-center items-center gap-3 mb-4">
-            {podcastSection.icon}
+            <Podcast className="h-8 w-8 text-primary" />
             <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-              {podcastSection.title}
+              Podcasts & Interviews
             </h2>
           </div>
           <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto">
-            {podcastSection.description}
+            Listen to insights on AI, future of work, and strategy.
           </p>
         </div>
 
@@ -126,7 +135,7 @@ export default function ThoughtLeadershipSection() {
                 </ul>
               )}
 
-              {podcastSection.items.length > INITIAL_PODCASTS_TO_SHOW && (
+              {podcastItemsData.length > INITIAL_PODCASTS_TO_SHOW && (
                 <Button 
                   variant="link" 
                   size="sm" 
@@ -134,16 +143,8 @@ export default function ThoughtLeadershipSection() {
                   onClick={togglePodcastListExpansion}
                   aria-expanded={isPodcastListExpanded}
                 >
-                  {isPodcastListExpanded ? "Show Less Podcasts" : `Show ${podcastSection.items.length - INITIAL_PODCASTS_TO_SHOW} More Podcast${podcastSection.items.length - INITIAL_PODCASTS_TO_SHOW !== 1 ? 's' : ''}`}
+                  {isPodcastListExpanded ? "Show Less Podcasts" : `Show ${podcastItemsData.length - INITIAL_PODCASTS_TO_SHOW} More Podcast${podcastItemsData.length - INITIAL_PODCASTS_TO_SHOW !== 1 ? 's' : ''}`}
                   {isPodcastListExpanded ? <ChevronUp className="ml-2 h-4 w-4" /> : <ChevronDown className="ml-2 h-4 w-4" />}
-                </Button>
-              )}
-
-              {podcastSection.cta && !isPodcastListExpanded && podcastSection.items.length <= INITIAL_PODCASTS_TO_SHOW && (
-                <Button asChild variant="outline" className="mt-6 w-full border-accent text-accent hover:bg-accent/10 hover:text-accent">
-                  <Link href={podcastSection.cta.link} target="_blank" rel="noopener noreferrer">
-                    {podcastSection.cta.text} <ExternalLink className="ml-2 h-4 w-4" />
-                  </Link>
                 </Button>
               )}
             </CardContent>
@@ -153,4 +154,3 @@ export default function ThoughtLeadershipSection() {
     </section>
   );
 }
-

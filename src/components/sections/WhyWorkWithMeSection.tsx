@@ -1,4 +1,6 @@
 
+"use client";
+import { useEffect, useRef, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Users, BrainCircuit, ScanSearch, GraduationCap, Crown, TrendingUp, ShieldCheck, DollarSign, Zap, UserMinus, UserCog, UserCheck, UserRoundSearch, HeartHandshake, FlaskConical, ClipboardList, ChevronDown } from 'lucide-react';
 import {
@@ -93,9 +95,42 @@ const whyItMattersData = [
 ];
 
 export default function WhyWorkWithMeSection() {
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [isContentVisible, setIsContentVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsContentVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 } 
+    );
+
+    if (contentRef.current) {
+      observer.observe(contentRef.current);
+    }
+
+    return () => {
+      if (contentRef.current) {
+        observer.unobserve(contentRef.current);
+      }
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <section id="how-i-work" className="py-12 md:py-24 bg-background scroll-mt-20">
-      <div className="container mx-auto px-4 md:px-6">
+      <div
+        ref={contentRef}
+        className={`container mx-auto px-4 md:px-6 scroll-animate ${
+          isContentVisible ? 'is-visible' : ''
+        }`}
+      >
         <div className="text-center mb-12">
           <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
             How I Work: Mindset-Centered AI Adoption Advisory

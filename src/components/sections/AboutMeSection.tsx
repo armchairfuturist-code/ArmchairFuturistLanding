@@ -1,7 +1,8 @@
 
+"use client";
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import type { Certification } from '@/types'; 
-import { Card, CardContent } from "@/components/ui/card";
 
 const certificationsData: Certification[] = [
   { id: "genaiExpert", name: "GenAI Academy Expert", issuerInitials: "GAIE", link: "https://thegenaiacademy.com/expert-hub/alex-myers/", imageSrc: "/expert.png" },
@@ -56,12 +57,44 @@ export default function AboutMeSection() {
   const expertCertification = certificationsData.find(c => c.id === 'genaiExpert');
   const otherCertifications = certificationsData.filter(c => c.id !== 'genaiExpert');
 
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [isContentVisible, setIsContentVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsContentVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 } 
+    );
+
+    if (contentRef.current) {
+      observer.observe(contentRef.current);
+    }
+
+    return () => {
+      if (contentRef.current) {
+        observer.unobserve(contentRef.current);
+      }
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <section id="about-me" className="py-12 md:py-24 bg-sectionBlue scroll-mt-20">
-      <div className="container mx-auto px-4 md:px-6">
+      <div
+        ref={contentRef}
+        className={`container mx-auto px-4 md:px-6 scroll-animate ${
+          isContentVisible ? 'is-visible' : ''
+        }`}
+      >
         <div className="grid lg:grid-cols-5 gap-12 items-start">
-          {/* Left Column: Image and other certifications */}
-          <div className="lg:col-span-3 flex flex-col items-center">
+          <div className="lg:col-span-3 flex flex-col items-center lg:items-start">
             <div className="relative w-full max-w-md md:max-w-lg">
               <Image
                 src="/Standing-Photoroom.png"
@@ -71,7 +104,6 @@ export default function AboutMeSection() {
                 className="rounded-xl w-full h-auto border-0"
               />
             </div>
-            {/* Container for other certifications, to be centered */}
             <div className="mt-4 w-full max-w-xs sm:max-w-sm flex flex-col space-y-1">
               {otherCertifications.map((cert) => (
                  <CertificationItem key={cert.id} certification={cert} />
@@ -79,7 +111,6 @@ export default function AboutMeSection() {
             </div>
           </div>
 
-          {/* Right Column: Text and expert certification */}
           <div className="lg:col-span-2 space-y-6">
             <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
               About Me
@@ -134,4 +165,3 @@ export default function AboutMeSection() {
     </section>
   );
 }
-    

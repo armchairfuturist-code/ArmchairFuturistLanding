@@ -8,6 +8,25 @@
   100% { transform: translateX(-50%); }
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scroll-animate {
+  opacity: 0;
+}
+
+.scroll-animate.is-visible {
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 0.1, 0.25, 1.0) forwards;
+}
+
 
 @layer base {
   :root {
@@ -37,11 +56,6 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
-
-    /* Hero specific text colors */
-    --hero-title-color-1: 0 0% 100%; /* White */
-    --hero-title-color-2: 208 100% 92%; /* Very Pale Blue */
-
 
     /* Sidebar specific variables - retained as they might be intentionally distinct */
     --sidebar-background: 0 0% 98%;
@@ -80,10 +94,6 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
-
-    /* Hero specific text colors - Dark theme */
-    --hero-title-color-1: 0 0% 100%; /* White */
-    --hero-title-color-2: 208 100% 95%; /* Very Pale Blue, slightly brighter for dark theme */
 
     /* Sidebar specific variables - dark theme, retained */
     --sidebar-background: 240 5.9% 10%;

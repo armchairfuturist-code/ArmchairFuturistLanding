@@ -1,6 +1,6 @@
 
 "use client";
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -78,6 +78,33 @@ const EXPANDED_MAX_HEIGHT = 'max-h-[1000px]'; // Sufficiently large for full tex
 
 export default function TestimonialsSection() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [isContentVisible, setIsContentVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsContentVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (contentRef.current) {
+      observer.observe(contentRef.current);
+    }
+
+    return () => {
+      if (contentRef.current) {
+        observer.unobserve(contentRef.current);
+      }
+      observer.disconnect();
+    };
+  }, []);
 
   const duplicatedTestimonials = testimonialsData.length > 0 ? [...testimonialsData, ...testimonialsData] : [];
 
@@ -91,7 +118,12 @@ export default function TestimonialsSection() {
 
   return (
     <section id="testimonials" className="py-12 md:py-24 bg-secondary scroll-mt-20">
-      <div className="container mx-auto px-4 md:px-6">
+      <div
+        ref={contentRef}
+        className={`container mx-auto px-4 md:px-6 scroll-animate ${
+          isContentVisible ? 'is-visible' : ''
+        }`}
+      >
         <div className="text-center mb-12">
           <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
             Testimonials
@@ -101,16 +133,13 @@ export default function TestimonialsSection() {
         <div className="overflow-hidden py-4 w-full">
           <div className="flex items-start animate-marquee whitespace-nowrap gap-x-6 md:gap-x-8">
             {duplicatedTestimonials.map((testimonial, index) => {
-              // Use original index for expansion state, even with duplicated items
               const originalIndex = index % testimonialsData.length;
               const isExpanded = expandedIndex === originalIndex;
-              
-              // Estimate if text is longer than preview height
-              const needsReadMore = testimonial.text.length > 200; // Adjust character count as needed
+              const needsReadMore = testimonial.text.length > 200; 
 
               return (
                 <Card 
-                  key={`${testimonial.name}-${index}-${originalIndex}`} // Ensure key is unique even with duplicates
+                  key={`${testimonial.name}-${index}-${originalIndex}`} 
                   className="w-80 md:w-96 flex-shrink-0 bg-card shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col"
                 >
                   <CardHeader className="flex flex-row items-center gap-4 p-4 md:p-6">
@@ -163,4 +192,3 @@ export default function TestimonialsSection() {
     </section>
   );
 }
-

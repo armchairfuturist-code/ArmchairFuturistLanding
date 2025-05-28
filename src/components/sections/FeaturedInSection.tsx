@@ -1,4 +1,6 @@
 
+"use client";
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
 const logos = [
@@ -12,16 +14,48 @@ const logos = [
 ];
 
 export default function FeaturedInSection() {
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [isContentVisible, setIsContentVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsContentVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (contentRef.current) {
+      observer.observe(contentRef.current);
+    }
+
+    return () => {
+      if (contentRef.current) {
+        observer.unobserve(contentRef.current);
+      }
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <section className="py-8 md:py-10 bg-background">
-      <div className="container mx-auto px-4 md:px-6">
+      <div
+        ref={contentRef}
+        className={`container mx-auto px-4 md:px-6 scroll-animate ${
+          isContentVisible ? 'is-visible' : ''
+        }`}
+      >
         <h2 className="font-heading text-center text-2xl font-semibold text-foreground/90 mb-8">
           Organizations I’ve Partnered With
         </h2>
         
         <div className="overflow-hidden py-4 w-full">
           <div className="flex animate-marquee whitespace-nowrap gap-x-10 md:gap-x-12">
-            {/* Render logos twice for seamless scroll */}
             {[...logos, ...logos].map((logo, index) => (
               <div key={`${logo.alt}-${index}`} className="flex flex-col items-center text-center flex-shrink-0">
                 <Image

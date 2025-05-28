@@ -1,4 +1,6 @@
 
+"use client";
+import { useEffect, useRef, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { EyeOff, LightbulbOff, UsersRound, TrendingDown, PlugZap } from "lucide-react";
 
@@ -11,17 +13,17 @@ const challenges = [
   {
     icon: <LightbulbOff className="h-6 w-6 text-muted-foreground" />,
     title: "Incomplete Organizational Innovation",
-    description: "AI adoption is not just about technology rollout. It demands rethinking workflows, incentives, and the nature of work itself. Most companies lack the internal muscle for this kind of organizational innovation.",
+    description: "AI adoption is not just about technology rollout. It demands rethinking workflows, incentives, and the nature of work itself. Most companies lack the internal muscle for this kind of organizational innovation, relying instead on generic consultants or outdated playbooks.",
   },
   {
     icon: <UsersRound className="h-6 w-6 text-muted-foreground" />,
     title: "Diverse Employee Responses to Change",
-    description: "People vary widely in their willingness and ability to adopt AI—from resistant skeptics to eager experimenters. Traditional change management treats everyone the same, slowing progress.",
+    description: "People vary widely in their willingness and ability to adopt AI—from resistant skeptics to eager experimenters. Traditional change management treats everyone the same, slowing progress and increasing friction.",
   },
   {
     icon: <TrendingDown className="h-6 w-6 text-muted-foreground" />,
     title: "Leadership and Culture Gaps",
-    description: "Many leaders remain stuck in first order thinking—linear, control-focused—hindering agile responses. EQ and second order thinking are rare but critical for leading AI transformation.",
+    description: "Many leaders remain stuck in first order thinking—linear, control-focused, and uncomfortable with uncertainty—hindering agile responses to AI’s evolving landscape. Emotional intelligence (EQ) and second order thinking are rare but critical for leading AI transformation.",
   },
   {
     icon: <PlugZap className="h-6 w-6 text-muted-foreground" />,
@@ -31,14 +33,46 @@ const challenges = [
 ];
 
 export default function ChallengeSection() {
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [isContentVisible, setIsContentVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsContentVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (contentRef.current) {
+      observer.observe(contentRef.current);
+    }
+
+    return () => {
+      if (contentRef.current) {
+        observer.unobserve(contentRef.current);
+      }
+      observer.disconnect();
+    };
+  }, []);
+  
   return (
     <section className="py-12 md:py-24 bg-secondary">
-      <div className="container mx-auto px-4 md:px-6">
+      <div
+        ref={contentRef}
+        className={`container mx-auto px-4 md:px-6 scroll-animate ${
+          isContentVisible ? 'is-visible' : ''
+        }`}
+      >
         <div className="text-center mb-12">
           <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
             The Challenge: Why AI Adoption Often Stalls Despite Promising Technology
           </h2>
-          {/* Optional: Add a short intro paragraph here if desired */}
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">

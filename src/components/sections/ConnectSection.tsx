@@ -1,11 +1,46 @@
 
+"use client";
+import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { CalendarDays, Mic } from 'lucide-react';
 
 export default function ConnectSection() {
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [isContentVisible, setIsContentVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsContentVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 } 
+    );
+
+    if (contentRef.current) {
+      observer.observe(contentRef.current);
+    }
+
+    return () => {
+      if (contentRef.current) {
+        observer.unobserve(contentRef.current);
+      }
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <section id="connect" className="py-16 md:py-24 bg-gradient-to-br from-primary to-primary/90 text-primary-foreground scroll-mt-20">
-      <div className="container mx-auto px-4 md:px-6 text-center">
+      <div
+        ref={contentRef}
+        className={`container mx-auto px-4 md:px-6 text-center scroll-animate ${
+          isContentVisible ? 'is-visible' : ''
+        }`}
+      >
         <h2 className="font-heading text-3xl font-bold tracking-tight sm:text-4xl mb-6">
           Ready to Build an AI-Resilient Workforce That Delivers Impactful Outcomes?
         </h2>

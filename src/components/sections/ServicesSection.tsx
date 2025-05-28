@@ -1,4 +1,6 @@
 
+"use client";
+import { useEffect, useRef, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BarChart3, UsersRound, GraduationCap, Presentation, MessageCircle, UserCheck } from 'lucide-react';
 
@@ -36,9 +38,42 @@ const servicesData = [
 ];
 
 export default function ServicesSection() {
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [isContentVisible, setIsContentVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsContentVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (contentRef.current) {
+      observer.observe(contentRef.current);
+    }
+
+    return () => {
+      if (contentRef.current) {
+        observer.unobserve(contentRef.current);
+      }
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <section id="services" className="py-12 md:py-24 bg-background scroll-mt-20"> {/* Changed from bg-secondary to bg-background */}
-      <div className="container mx-auto px-4 md:px-6">
+    <section id="services" className="py-12 md:py-24 bg-background scroll-mt-20">
+      <div
+        ref={contentRef}
+        className={`container mx-auto px-4 md:px-6 scroll-animate ${
+          isContentVisible ? 'is-visible' : ''
+        }`}
+      >
         <div className="text-center mb-12 md:mb-16">
           <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
             Services
