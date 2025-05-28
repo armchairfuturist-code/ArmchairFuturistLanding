@@ -154,14 +154,14 @@ export default function TestimonialsSection() {
                     </div>
                     <div>
                       <h3 className="text-base md:text-lg font-semibold text-primary">{testimonial.name}</h3>
-                      <p className="text-xs md:text-sm text-muted-foreground font-subheading">{testimonial.title}</p>
+                      <p className="text-xs md:text-sm text-muted-foreground font-sans">{testimonial.title}</p> {/* Ensure font-sans for Roboto */}
                     </div>
                   </CardHeader>
                   <CardContent className="p-4 md:p-6 pt-0 text-sm text-foreground/80 flex-grow flex flex-col">
                     <div 
                       className={`relative overflow-hidden transition-all duration-500 ease-in-out ${isExpanded ? EXPANDED_MAX_HEIGHT : PREVIEW_LINE_HEIGHT}`}
                     >
-                      <p className="whitespace-normal leading-relaxed font-subheading">
+                      <p className="whitespace-normal leading-relaxed font-sans"> {/* Ensure font-sans for Roboto */}
                         {testimonial.text.split('\n\n').map((paragraph, i) => (
                           <span key={i} className="block mb-2 last:mb-0">{paragraph}</span>
                         ))}

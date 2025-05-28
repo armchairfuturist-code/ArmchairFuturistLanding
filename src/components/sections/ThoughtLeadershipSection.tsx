@@ -2,7 +2,7 @@
 "use client"; 
 import type { FC } from 'react'; 
 import { useState, useRef, useEffect } from 'react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
 import { Podcast, MessageCircle, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
@@ -106,14 +106,14 @@ export default function ThoughtLeadershipSection() {
               Podcasts & Interviews
             </h2>
           </div>
-          <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto font-subheading">
+          <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto font-sans"> {/* Ensure font-sans for Roboto */}
             Listen to insights on AI, future of work, and strategy.
           </p>
         </div>
 
         <div className="max-w-2xl mx-auto">
           <Card className="flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <CardContent className="flex-grow p-6">
+            <CardContent className="flex-grow p-6"> {/* Added p-6 for padding */}
               {podcastsToShow.length > 0 && (
                 <ul className="space-y-6">
                   {podcastsToShow.map((item, itemIndex) => (
@@ -126,7 +126,7 @@ export default function ThoughtLeadershipSection() {
                         </Link>
                       </div>
                       <div className="ml-6">
-                        <p className="text-sm text-muted-foreground leading-relaxed font-subheading">
+                        <p className="text-sm text-muted-foreground leading-relaxed font-sans"> {/* Ensure font-sans for Roboto */}
                           {item.description}
                         </p>
                       </div>

@@ -11,15 +11,15 @@ export default {
   theme: {
   	extend: {
       fontFamily: {
-        sans: ['Futura', 'var(--font-sans)', 'sans-serif'], 
+        sans: ['var(--font-sans)', 'sans-serif'], // Will be Roboto
         mono: ['var(--font-mono)', 'monospace'],
-        heading: ['var(--font-heading)', 'sans-serif'],
-        rubik: ['var(--font-rubik)', 'sans-serif'],
-        subheading: ['var(--font-subheading)', 'sans-serif'],
+        heading: ['Futura', 'var(--font-sans)', 'sans-serif'], // Prioritize Futura, fallback to Roboto
       },
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
+        'hero-title-1': 'hsl(var(--hero-title-color-1))',
+        'hero-title-2': 'hsl(var(--hero-title-color-2))',
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'

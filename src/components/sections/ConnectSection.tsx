@@ -2,7 +2,7 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { CalendarDays, Mic } from 'lucide-react';
+import { CalendarDays, Mic, Mail } from 'lucide-react'; // Added Mail
 
 export default function ConnectSection() {
   const contentRef = useRef<HTMLDivElement>(null);
@@ -44,7 +44,7 @@ export default function ConnectSection() {
         <h2 className="font-heading text-3xl font-bold tracking-tight sm:text-4xl mb-6">
           Ready to Build an AI-Resilient Workforce That Delivers Impactful Outcomes?
         </h2>
-        <p className="max-w-2xl mx-auto text-lg text-primary-foreground/80 mb-10 font-subheading">
+        <p className="max-w-2xl mx-auto text-lg text-primary-foreground/80 mb-10 font-sans"> {/* Ensure font-sans for Roboto */}
           The future is not just about AI technology — it’s about unlocking human potential through the right mindsets and leadership.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">

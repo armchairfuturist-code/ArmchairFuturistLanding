@@ -115,7 +115,7 @@ export default function AboutMeSection() {
             <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
               About Me
             </h2>
-            <div className="prose prose-lg text-foreground/80 max-w-none font-rubik text-center space-y-4">
+            <div className="prose prose-lg text-foreground/80 max-w-none font-sans text-center space-y-4"> {/* Changed font-rubik to font-sans */}
               <p>
                 I operate at the intersection of technology and culture, guiding organizations through profound technological shifts by building authentic, enduring partnerships.
               </p>
@@ -165,4 +165,3 @@ export default function AboutMeSection() {
     </section>
   );
 }
-

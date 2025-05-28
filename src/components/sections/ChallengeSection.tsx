@@ -83,7 +83,7 @@ export default function ChallengeSection() {
                 <CardTitle className="text-xl font-semibold">{challenge.title}</CardTitle>
               </CardHeader>
               <CardContent className="flex-grow">
-                <p className="text-muted-foreground font-subheading">{challenge.description}</p>
+                <p className="text-muted-foreground font-sans">{challenge.description}</p> {/* Ensure font-sans for Roboto */}
               </CardContent>
             </Card>
           ))}
