@@ -140,7 +140,7 @@ export default function AboutMeSection() {
                   href={expertCertification.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mb-6 col-span-2 flex flex-col items-center gap-2 p-3 rounded-lg border border-primary/30 hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors duration-150 shadow-md hover:shadow-lg"
+                  className="mb-6 col-span-2 flex flex-col items-center gap-2 p-3 rounded-lg border border-primary/30 bg-card hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors duration-150 shadow-md hover:shadow-lg"
                 >
                   {expertCertification.imageSrc ? (
                     <Image
@@ -165,3 +165,4 @@ export default function AboutMeSection() {
     </section>
   );
 }
+
