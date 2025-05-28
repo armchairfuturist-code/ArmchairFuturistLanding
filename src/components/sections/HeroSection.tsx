@@ -104,18 +104,10 @@ export default function HeroSection() {
                 Invite Me to Speak
               </a>
             </Button>
-            <Button
-              asChild
-              size="lg"
-              className="text-primary-foreground border border-primary-foreground/70 hover:bg-primary-foreground/10 hover:border-primary-foreground hover:text-primary-foreground shadow-lg transition-transform duration-200 hover:scale-105"
-            >
-              <a href="mailto:armchairfuturist@gmail.com">
-                Get in Touch
-              </a>
-            </Button>
           </div>
         </div>
       </div>
     </section>
   );
 }
+
