@@ -11,7 +11,7 @@ export default {
   theme: {
   	extend: {
       fontFamily: {
-        sans: ['var(--font-sans)', 'sans-serif'],
+        sans: ['Futura', 'var(--font-sans)', 'sans-serif'], // Prioritize Futura, fallback to Lato/system sans-serif
         mono: ['var(--font-mono)', 'monospace'],
         heading: ['var(--font-heading)', 'sans-serif'],
         rubik: ['var(--font-rubik)', 'sans-serif'],
@@ -105,4 +105,3 @@ export default {
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
-
