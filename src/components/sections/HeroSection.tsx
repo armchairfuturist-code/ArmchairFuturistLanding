@@ -1,7 +1,8 @@
+
 "use client";
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { CalendarDays, Mic, Mail } from 'lucide-react';
+import { CalendarDays, Mic } from 'lucide-react'; // Mail icon removed as it's not used
 
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
