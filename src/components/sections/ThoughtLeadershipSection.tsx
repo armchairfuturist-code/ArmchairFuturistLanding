@@ -2,7 +2,7 @@
 "use client"; 
 import type { FC } from 'react'; 
 import { useState, useRef, useEffect } from 'react';
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
 import { Podcast, MessageCircle, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
@@ -106,7 +106,7 @@ export default function ThoughtLeadershipSection() {
               Podcasts & Interviews
             </h2>
           </div>
-          <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto">
+          <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto font-subheading">
             Listen to insights on AI, future of work, and strategy.
           </p>
         </div>
@@ -126,7 +126,7 @@ export default function ThoughtLeadershipSection() {
                         </Link>
                       </div>
                       <div className="ml-6">
-                        <p className="text-sm text-muted-foreground leading-relaxed">
+                        <p className="text-sm text-muted-foreground leading-relaxed font-subheading">
                           {item.description}
                         </p>
                       </div>

@@ -11,10 +11,11 @@ export default {
   theme: {
   	extend: {
       fontFamily: {
-        sans: ['Futura', 'var(--font-sans)', 'sans-serif'], // Prioritize Futura, fallback to Lato/system sans-serif
+        sans: ['Futura', 'var(--font-sans)', 'sans-serif'], 
         mono: ['var(--font-mono)', 'monospace'],
         heading: ['var(--font-heading)', 'sans-serif'],
         rubik: ['var(--font-rubik)', 'sans-serif'],
+        subheading: ['var(--font-subheading)', 'sans-serif'],
       },
   		colors: {
   			background: 'hsl(var(--background))',

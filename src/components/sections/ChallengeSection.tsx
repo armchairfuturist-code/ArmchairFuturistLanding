@@ -62,7 +62,7 @@ export default function ChallengeSection() {
   }, []);
   
   return (
-    <section className="py-12 md:py-24 bg-secondary">
+    <section className="py-12 md:py-24 bg-secondary scroll-mt-20">
       <div
         ref={contentRef}
         className={`container mx-auto px-4 md:px-6 scroll-animate ${
@@ -83,7 +83,7 @@ export default function ChallengeSection() {
                 <CardTitle className="text-xl font-semibold">{challenge.title}</CardTitle>
               </CardHeader>
               <CardContent className="flex-grow">
-                <p className="text-muted-foreground">{challenge.description}</p>
+                <p className="text-muted-foreground font-subheading">{challenge.description}</p>
               </CardContent>
             </Card>
           ))}

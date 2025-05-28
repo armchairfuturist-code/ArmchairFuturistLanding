@@ -1,6 +1,6 @@
 
 import type {Metadata} from 'next';
-import { Lato, Montserrat, Geist_Mono, Rubik } from 'next/font/google';
+import { Lato, Montserrat, Geist_Mono, Rubik, Roboto } from 'next/font/google';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import Header from '@/components/layout/Header';
@@ -33,11 +33,18 @@ const rubik = Rubik({
   variable: '--font-rubik',
 });
 
+// Configure Roboto for subheadings
+const roboto = Roboto({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+  variable: '--font-subheading',
+});
+
 export const metadata: Metadata = {
   title: 'Armchair Futurist - Alex Myers',
   description: 'Alex Myers – the Armchair Futurist: Advisor to leaders navigating AI, change, and the future of work with grounded, human-first strategy.',
   icons: {
-    icon: '/img.jpg', // Updated favicon path
+    icon: '/img.jpg',
   },
 };
 
@@ -48,7 +55,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={cn(lato.variable, geistMono.variable, montserrat.variable, rubik.variable, "font-sans antialiased flex flex-col min-h-screen")}>
+      <body className={cn(lato.variable, geistMono.variable, montserrat.variable, rubik.variable, roboto.variable, "font-sans antialiased flex flex-col min-h-screen")}>
         <Header />
         <main className="flex-grow">
           {children}

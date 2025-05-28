@@ -2,7 +2,7 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { CalendarDays, Mic } from 'lucide-react'; // Mail icon removed as it's not used
+import { CalendarDays, Mic } from 'lucide-react';
 
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -79,15 +79,15 @@ export default function HeroSection() {
           isContentVisible ? 'is-visible' : ''
         }`}
       >
-        <div className="flex flex-col items-center justify-center space-y-6 text-center">
+        <div className="flex flex-col items-center justify-center space-y-6 text-center lg:text-left">
           <h1 className="font-heading tracking-tighter sm:text-5xl xl:text-6xl/none hero-text-shadow">
             <span className="block text-hero-title-1 text-4xl md:text-5xl xl:text-6xl">Stop Guessing About AI & Emerging Tech.</span>
             <span className="block text-hero-title-2 text-4xl md:text-5xl xl:text-6xl mt-1 md:mt-2">Get Expert Guidance to Future-Proof Your Business.</span>
           </h1>
-          <p className="mt-6 text-primary-foreground/90 md:text-xl max-w-2xl mx-auto hero-text-shadow">
+          <p className="mt-6 text-primary-foreground/90 md:text-xl max-w-2xl mx-auto hero-text-shadow font-subheading">
             The Armchair Futurist provides bespoke advisory services, translating complex technological change into clear, actionable strategies for forward-thinking leaders and organizations. Let&apos;s build your competitive advantage, together.
           </p>
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:justify-center">
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start">
             <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg transition-transform duration-200 hover:scale-105">
               <a href="https://calendar.app.google/nAHHwNMfhDvXGv7P7" target="_blank" rel="noopener noreferrer">
                 <CalendarDays className="mr-2 h-5 w-5" />
@@ -110,4 +110,3 @@ export default function HeroSection() {
     </section>
   );
 }
-

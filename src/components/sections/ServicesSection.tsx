@@ -78,7 +78,7 @@ export default function ServicesSection() {
           <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
             Services
           </h2>
-          <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto">
+          <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto font-subheading">
             Explore the ways I can work together to transform your organization through effective AI adoption and strategic organizational design.
           </p>
         </div>
@@ -101,7 +101,7 @@ export default function ServicesSection() {
               <CardContent 
                 className="px-6 max-h-0 opacity-0 invisible group-hover:max-h-48 group-hover:opacity-100 group-hover:visible group-hover:pb-6 group-hover:pt-2 transition-all duration-500 ease-in-out text-center"
               >
-                <p className="text-base text-muted-foreground">
+                <p className="text-base text-muted-foreground font-subheading">
                   {service.description}
                 </p>
               </CardContent>

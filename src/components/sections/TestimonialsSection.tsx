@@ -73,8 +73,8 @@ const testimonialsData: Testimonial[] = [
   }
 ];
 
-const PREVIEW_LINE_HEIGHT = 'max-h-28'; // Approx 4 lines, adjust as needed
-const EXPANDED_MAX_HEIGHT = 'max-h-[1000px]'; // Sufficiently large for full text
+const PREVIEW_LINE_HEIGHT = 'max-h-28'; 
+const EXPANDED_MAX_HEIGHT = 'max-h-[1000px]'; 
 
 export default function TestimonialsSection() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
@@ -154,14 +154,14 @@ export default function TestimonialsSection() {
                     </div>
                     <div>
                       <h3 className="text-base md:text-lg font-semibold text-primary">{testimonial.name}</h3>
-                      <p className="text-xs md:text-sm text-muted-foreground">{testimonial.title}</p>
+                      <p className="text-xs md:text-sm text-muted-foreground font-subheading">{testimonial.title}</p>
                     </div>
                   </CardHeader>
                   <CardContent className="p-4 md:p-6 pt-0 text-sm text-foreground/80 flex-grow flex flex-col">
                     <div 
                       className={`relative overflow-hidden transition-all duration-500 ease-in-out ${isExpanded ? EXPANDED_MAX_HEIGHT : PREVIEW_LINE_HEIGHT}`}
                     >
-                      <p className="whitespace-normal leading-relaxed">
+                      <p className="whitespace-normal leading-relaxed font-subheading">
                         {testimonial.text.split('\n\n').map((paragraph, i) => (
                           <span key={i} className="block mb-2 last:mb-0">{paragraph}</span>
                         ))}

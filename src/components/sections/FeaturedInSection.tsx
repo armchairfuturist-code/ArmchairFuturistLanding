@@ -43,7 +43,7 @@ export default function FeaturedInSection() {
   }, []);
 
   return (
-    <section className="py-8 md:py-10 bg-background">
+    <section className="py-8 md:py-10 bg-background scroll-mt-20">
       <div
         ref={contentRef}
         className={`container mx-auto px-4 md:px-6 scroll-animate ${

@@ -2,7 +2,7 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Users, BrainCircuit, ScanSearch, GraduationCap, Crown, TrendingUp, ShieldCheck, DollarSign, Zap, UserMinus, UserCog, UserCheck, UserRoundSearch, HeartHandshake, FlaskConical, ClipboardList, ChevronDown } from 'lucide-react';
+import { Users, BrainCircuit, ScanSearch, GraduationCap, Crown, TrendingUp, ShieldCheck, DollarSign, Zap, UserMinus, UserCog, UserCheck, UserRoundSearch, HeartHandshake, FlaskConical, ClipboardList } from 'lucide-react';
 import {
   Accordion,
   AccordionContent,
@@ -135,7 +135,7 @@ export default function WhyWorkWithMeSection() {
           <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
             How I Work: Mindset-Centered AI Adoption Advisory
           </h2>
-          <p className="mt-4 text-lg text-foreground/80 max-w-3xl mx-auto">
+          <p className="mt-4 text-lg text-foreground/80 max-w-3xl mx-auto font-subheading">
             My advisory offering addresses these challenges head-on by focusing on the people and mindsets that drive successful AI adoption, blending cutting-edge AI-powered psychological insights with proven change leadership.
           </p>
         </div>
@@ -150,7 +150,7 @@ export default function WhyWorkWithMeSection() {
                     <span>{item.title}</span>
                   </div>
                 </AccordionTrigger>
-                <AccordionContent className="pt-2 pb-6 text-base text-foreground/80">
+                <AccordionContent className="pt-2 pb-6 text-base text-foreground/80 font-subheading">
                   <p className="mb-4">{item.content}</p>
                   {item.subPoints && item.subPoints.length > 0 && (
                     <ul className="space-y-3">
@@ -189,7 +189,7 @@ export default function WhyWorkWithMeSection() {
                <CardTitle className="text-lg font-semibold">{item.title}</CardTitle>
              </CardHeader>
              <CardContent className="text-center">
-               <p className="text-sm text-muted-foreground">{item.content}</p>
+               <p className="text-sm text-muted-foreground font-subheading">{item.content}</p>
              </CardContent>
            </Card>
           ))}
