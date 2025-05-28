@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, BotMessageSquare } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Header() {
@@ -26,7 +26,7 @@ export default function Header() {
             className="rounded-full object-cover border border-border/50"
           />
           <span className="font-bold sm:inline-block font-heading">
-            Alex Myers: The Armchair Futurist
+            The Armchair Futurist
           </span>
         </Link>
         
@@ -66,7 +66,7 @@ export default function Header() {
                       height={32}
                       className="rounded-full object-cover border border-border/50"
                     />
-                    <span className="font-bold font-heading text-base">Alex Myers: The Armchair Futurist</span>
+                    <span className="font-bold font-heading text-base">The Armchair Futurist</span>
                   </div>
                 </Link>
                 {navItems.map((item) => (
