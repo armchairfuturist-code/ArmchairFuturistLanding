@@ -112,10 +112,10 @@ export default function AboutMeSection() {
           </div>
 
           <div className="lg:col-span-2 space-y-6">
-            <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
+            <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl text-center lg:text-left">
               About Me
             </h2>
-            <div className="prose prose-lg text-foreground/80 max-w-none font-sans text-center space-y-4"> {/* Changed font-rubik to font-sans */}
+            <div className="prose prose-lg text-foreground/80 max-w-none font-sans text-center space-y-4">
               <p>
                 I operate at the intersection of technology and culture, guiding organizations through profound technological shifts by building authentic, enduring partnerships.
               </p>
@@ -155,7 +155,7 @@ export default function AboutMeSection() {
                       <span className="font-semibold">{expertCertification.issuerInitials}</span>
                     </div>
                   )}
-                  <p className="text-base font-medium text-primary/90 text-center">{expertCertification.name}</p>
+                  {/* Text removed as per request */}
                 </a>
               )}
             </div>
@@ -165,3 +165,4 @@ export default function AboutMeSection() {
     </section>
   );
 }
+
