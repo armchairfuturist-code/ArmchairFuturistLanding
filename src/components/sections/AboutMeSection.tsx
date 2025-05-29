@@ -101,7 +101,7 @@ export default function AboutMeSection() {
       >
         <div className="grid lg:grid-cols-5 gap-12 items-start">
           <div className="lg:col-span-3 flex flex-col items-center lg:items-start">
-            <div className="relative w-full">
+            <div className="relative w-full max-w-md md:max-w-lg">
               <Image
                 src="/Standing-Photoroom.png"
                 alt="Alex Myers standing"
@@ -110,11 +110,7 @@ export default function AboutMeSection() {
                 className="rounded-xl w-full h-auto border-0"
               />
             </div>
-            <div className="mt-4 w-full max-w-xs sm:max-w-sm flex flex-col space-y-1">
-              {otherCertifications.map((cert) => (
-                <CertificationItem key={cert.id} certification={cert} />
-              ))}
-            </div>
+            
           </div>
 
           <div className="lg:col-span-2 space-y-6">
@@ -131,12 +127,12 @@ export default function AboutMeSection() {
                   <Image
                     src={expertCertification.imageSrc}
                     alt={`${expertCertification.name} badge`}
-                    width={72} 
-                    height={72}
+                    width={80} 
+                    height={80}
                     className="object-contain shrink-0 rounded-md"
                   />
                 ) : (
-                  <div className="flex h-[72px] w-[72px] shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground">
+                  <div className="flex h-[80px] w-[80px] shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground">
                     <span className="font-semibold text-sm">{expertCertification.issuerInitials}</span>
                   </div>
                 )}
@@ -161,6 +157,13 @@ export default function AboutMeSection() {
               <p>
                 This approach is grounded in deep understanding of both the technology itself and the human psychology of transformative change. The result is earned confidence in your chosen direction, anchored in trust and a clear line to tangible outcomes.
               </p>
+            </div>
+            <div className="mt-8">
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-3">
+                {otherCertifications.map((cert) => (
+                  <CertificationItem key={cert.id} certification={cert} />
+                ))}
+              </div>
             </div>
           </div>
         </div>
