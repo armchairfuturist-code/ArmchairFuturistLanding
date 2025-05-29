@@ -101,7 +101,7 @@ export default function AboutMeSection() {
       >
         <div className="grid lg:grid-cols-5 gap-12 items-start">
           <div className="lg:col-span-3 flex flex-col items-center lg:items-start">
-            <div className="relative w-full max-w-md md:max-w-lg">
+            <div className="relative w-full">
               <Image
                 src="/Standing-Photoroom.png"
                 alt="Alex Myers standing"
@@ -110,7 +110,6 @@ export default function AboutMeSection() {
                 className="rounded-xl w-full h-auto border-0"
               />
             </div>
-            
           </div>
 
           <div className="lg:col-span-2 space-y-6">
@@ -141,7 +140,7 @@ export default function AboutMeSection() {
             <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl text-center">
               About Me
             </h2>
-            <div className="prose prose-lg text-foreground/80 max-w-none font-rubik text-center space-y-4">
+            <div className="prose prose-lg text-foreground/80 max-w-none font-rubik text-center lg:text-left space-y-4">
               <p>
                 I operate at the intersection of technology and culture, guiding organizations through profound technological shifts by building authentic, enduring partnerships.
               </p>
@@ -171,3 +170,4 @@ export default function AboutMeSection() {
     </section>
   );
 }
+
