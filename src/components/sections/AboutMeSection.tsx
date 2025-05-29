@@ -136,22 +136,23 @@ export default function AboutMeSection() {
                     href={expertCertification.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex flex-row items-center gap-2 p-2 rounded-md hover:bg-secondary/70 dark:hover:bg-secondary/50 transition-colors duration-150"
+                    className="flex flex-col items-center gap-1 p-2 rounded-md hover:bg-secondary/70 dark:hover:bg-secondary/50 transition-colors duration-150 bg-card"
+                    aria-label={expertCertification.name}
                   >
                     {expertCertification.imageSrc ? (
                       <Image
                         src={expertCertification.imageSrc}
                         alt={`${expertCertification.name} badge`}
-                        width={40} 
-                        height={40}
+                        width={56} 
+                        height={56}
                         className="object-contain shrink-0 rounded-md"
                       />
                     ) : (
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground">
+                      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground">
                         <span className="font-semibold text-sm">{expertCertification.issuerInitials}</span>
                       </div>
                     )}
-                    {/* Text for expert cert removed as per request */}
+                    {/* Text removed as per previous request */}
                   </a>
                 )}
                 {otherCertifications.map((cert) => (
@@ -165,4 +166,3 @@ export default function AboutMeSection() {
     </section>
   );
 }
-
