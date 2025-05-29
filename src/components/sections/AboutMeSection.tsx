@@ -39,7 +39,7 @@ const CertificationItem: React.FC<{ certification: Certification }> = ({ certifi
         href={certification.link}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex flex-row items-center gap-2 p-1 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors duration-150"
+        className="flex flex-row items-center gap-2 p-1 rounded-lg hover:bg-secondary/50 dark:hover:bg-secondary/30 transition-colors duration-150"
       >
         {content}
       </a>
@@ -47,7 +47,7 @@ const CertificationItem: React.FC<{ certification: Certification }> = ({ certifi
   }
 
   return (
-    <div className="flex flex-row items-center gap-2 p-1 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors duration-150">
+    <div className="flex flex-row items-center gap-2 p-1 rounded-lg hover:bg-secondary/50 dark:hover:bg-secondary/30 transition-colors duration-150">
       {content}
     </div>
   );
@@ -94,8 +94,8 @@ export default function AboutMeSection() {
         }`}
       >
         <div className="grid lg:grid-cols-5 gap-12 items-start">
-          <div className="lg:col-span-3 flex flex-col items-center lg:items-start">
-            <div className="relative w-full"> {/* Removed max-w-lg here */}
+          <div className="lg:col-span-3 flex flex-col items-center">
+            <div className="relative w-full">
               <Image
                 src="/Standing-Photoroom.png"
                 alt="Alex Myers standing"
@@ -103,11 +103,6 @@ export default function AboutMeSection() {
                 height={1600}
                 className="rounded-xl w-full h-auto border-0"
               />
-            </div>
-            <div className="mt-4 w-full max-w-xs sm:max-w-sm flex flex-col space-y-1">
-              {otherCertifications.map((cert) => (
-                 <CertificationItem key={cert.id} certification={cert} />
-              ))}
             </div>
           </div>
 
@@ -134,29 +129,35 @@ export default function AboutMeSection() {
             </div>
             
             <div className="mt-8 md:mt-10">
-              {expertCertification && (
-                <a
-                  key={expertCertification.id}
-                  href={expertCertification.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mb-6 col-span-2 flex flex-col items-center gap-2 p-3 rounded-lg bg-card hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors duration-150 shadow-md hover:shadow-lg"
-                >
-                  {expertCertification.imageSrc ? (
-                    <Image
-                      src={expertCertification.imageSrc}
-                      alt={`${expertCertification.name} badge`}
-                      width={80} 
-                      height={80}
-                      className="object-contain shrink-0 rounded-md"
-                    />
-                  ) : (
-                    <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground">
-                      <span className="font-semibold">{expertCertification.issuerInitials}</span>
-                    </div>
-                  )}
-                </a>
-              )}
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-3">
+                {expertCertification && (
+                  <a
+                    key={expertCertification.id}
+                    href={expertCertification.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-row items-center gap-2 p-2 rounded-md hover:bg-secondary/70 dark:hover:bg-secondary/50 transition-colors duration-150"
+                  >
+                    {expertCertification.imageSrc ? (
+                      <Image
+                        src={expertCertification.imageSrc}
+                        alt={`${expertCertification.name} badge`}
+                        width={40} 
+                        height={40}
+                        className="object-contain shrink-0 rounded-md"
+                      />
+                    ) : (
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground">
+                        <span className="font-semibold text-sm">{expertCertification.issuerInitials}</span>
+                      </div>
+                    )}
+                    {/* Text for expert cert removed as per request */}
+                  </a>
+                )}
+                {otherCertifications.map((cert) => (
+                  <CertificationItem key={cert.id} certification={cert} />
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -164,3 +165,4 @@ export default function AboutMeSection() {
     </section>
   );
 }
+
