@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import type { Certification } from '@/types';
-import { Card, CardContent } from "@/components/ui/card"; // Keep for potential future use, though current quote is removed.
 
 const certificationsData: Certification[] = [
   { id: "genaiExpert", name: "GenAI Academy Expert", issuerInitials: "GAIE", link: "https://thegenaiacademy.com/expert-hub/alex-myers/", imageSrc: "/expert.png" },
@@ -40,7 +39,7 @@ const CertificationItem: React.FC<{ certification: Certification }> = ({ certifi
         href={certification.link}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex flex-row items-center gap-2 p-1 rounded-lg border-0 hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors duration-150"
+        className="flex flex-row items-center gap-2 p-1 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors duration-150"
       >
         {content}
       </a>
@@ -48,7 +47,7 @@ const CertificationItem: React.FC<{ certification: Certification }> = ({ certifi
   }
 
   return (
-    <div className="flex flex-row items-center gap-2 p-1 rounded-lg border-0 hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors duration-150">
+    <div className="flex flex-row items-center gap-2 p-1 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors duration-150">
       {content}
     </div>
   );
@@ -96,7 +95,7 @@ export default function AboutMeSection() {
       >
         <div className="grid lg:grid-cols-5 gap-12 items-start">
           <div className="lg:col-span-3 flex flex-col items-center lg:items-start">
-            <div className="relative w-full max-w-md md:max-w-lg">
+            <div className="relative w-full"> {/* Removed max-w-lg here */}
               <Image
                 src="/Standing-Photoroom.png"
                 alt="Alex Myers standing"
@@ -141,7 +140,7 @@ export default function AboutMeSection() {
                   href={expertCertification.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mb-6 col-span-2 flex flex-col items-center gap-2 p-3 rounded-lg border border-primary/30 bg-card hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors duration-150 shadow-md hover:shadow-lg"
+                  className="mb-6 col-span-2 flex flex-col items-center gap-2 p-3 rounded-lg bg-card hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors duration-150 shadow-md hover:shadow-lg"
                 >
                   {expertCertification.imageSrc ? (
                     <Image
