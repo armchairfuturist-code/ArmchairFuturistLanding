@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import type { Certification } from '@/types';
+import { Card, CardContent } from "@/components/ui/card"; // Added Card import
 
 const certificationsData: Certification[] = [
   { id: "genaiExpert", name: "GenAI Academy Expert", issuerInitials: "GAIE", link: "https://thegenaiacademy.com/expert-hub/alex-myers/", imageSrc: "/expert.png" },
@@ -40,6 +41,7 @@ const CertificationItem: React.FC<{ certification: Certification }> = ({ certifi
         target="_blank"
         rel="noopener noreferrer"
         className="flex flex-row items-center gap-2 p-1 rounded-lg hover:bg-secondary/50 dark:hover:bg-secondary/30 transition-colors duration-150"
+        aria-label={certification.name}
       >
         {content}
       </a>
@@ -47,7 +49,10 @@ const CertificationItem: React.FC<{ certification: Certification }> = ({ certifi
   }
 
   return (
-    <div className="flex flex-row items-center gap-2 p-1 rounded-lg hover:bg-secondary/50 dark:hover:bg-secondary/30 transition-colors duration-150">
+    <div 
+        className="flex flex-row items-center gap-2 p-1 rounded-lg hover:bg-secondary/50 dark:hover:bg-secondary/30 transition-colors duration-150"
+        aria-label={certification.name}
+    >
       {content}
     </div>
   );
@@ -104,6 +109,11 @@ export default function AboutMeSection() {
                 className="rounded-xl w-full h-auto border-0"
               />
             </div>
+            <div className="mt-4 w-full max-w-xs sm:max-w-sm flex flex-col space-y-1 items-center">
+              {otherCertifications.map((cert) => (
+                <CertificationItem key={cert.id} certification={cert} />
+              ))}
+            </div>
           </div>
 
           <div className="lg:col-span-2 space-y-6">
@@ -128,7 +138,7 @@ export default function AboutMeSection() {
               </p>
             </div>
             
-            <div className="mt-8 md:mt-10">
+            <div className="mt-8">
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-3">
                 {expertCertification && (
                   <a
@@ -143,21 +153,18 @@ export default function AboutMeSection() {
                       <Image
                         src={expertCertification.imageSrc}
                         alt={`${expertCertification.name} badge`}
-                        width={56} 
-                        height={56}
+                        width={72} 
+                        height={72}
                         className="object-contain shrink-0 rounded-md"
                       />
                     ) : (
-                      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground">
+                      <div className="flex h-[72px] w-[72px] shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground">
                         <span className="font-semibold text-sm">{expertCertification.issuerInitials}</span>
                       </div>
                     )}
-                    {/* Text removed as per previous request */}
                   </a>
                 )}
-                {otherCertifications.map((cert) => (
-                  <CertificationItem key={cert.id} certification={cert} />
-                ))}
+                {/* Other certifications are now rendered under the main image in the left column */}
               </div>
             </div>
           </div>
