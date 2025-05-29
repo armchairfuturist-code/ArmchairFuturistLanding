@@ -95,7 +95,7 @@ export default function AboutMeSection() {
       >
         <div className="grid lg:grid-cols-5 gap-12 items-start">
           <div className="lg:col-span-3 flex flex-col items-center lg:items-start">
-            <div className="relative w-full max-w-lg md:max-w-xl lg:max-w-2xl"> {/* Increased max-width here */}
+            <div className="relative w-full max-w-md md:max-w-lg"> {/* Reverted max-width here */}
               <Image
                 src="/Standing-Photoroom.png"
                 alt="Alex Myers standing"
@@ -155,7 +155,7 @@ export default function AboutMeSection() {
                       <span className="font-semibold">{expertCertification.issuerInitials}</span>
                     </div>
                   )}
-                  {/* Text removed as per request */}
+                  {/* Text below the expert badge was previously removed, so this remains empty */}
                 </a>
               )}
             </div>
