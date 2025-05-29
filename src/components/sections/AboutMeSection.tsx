@@ -2,7 +2,8 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import type { Certification } from '@/types'; 
+import type { Certification } from '@/types';
+import { Card, CardContent } from "@/components/ui/card"; // Keep for potential future use, though current quote is removed.
 
 const certificationsData: Certification[] = [
   { id: "genaiExpert", name: "GenAI Academy Expert", issuerInitials: "GAIE", link: "https://thegenaiacademy.com/expert-hub/alex-myers/", imageSrc: "/expert.png" },
@@ -20,8 +21,8 @@ const CertificationItem: React.FC<{ certification: Certification }> = ({ certifi
         <Image
           src={certification.imageSrc}
           alt={`${certification.name} badge`}
-          width={32} 
-          height={32} 
+          width={32}
+          height={32}
           className="object-contain shrink-0 rounded-sm"
         />
       ) : (
@@ -29,7 +30,7 @@ const CertificationItem: React.FC<{ certification: Certification }> = ({ certifi
           <span className="font-semibold text-xs">{certification.issuerInitials}</span>
         </div>
       )}
-      <p className="text-xs text-foreground/80 text-left">{certification.name}</p> 
+      <p className="text-xs text-foreground/80 text-left">{certification.name}</p>
     </>
   );
 
@@ -39,7 +40,7 @@ const CertificationItem: React.FC<{ certification: Certification }> = ({ certifi
         href={certification.link}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex flex-row items-center gap-2 p-1 rounded-lg border-0 hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors duration-150" 
+        className="flex flex-row items-center gap-2 p-1 rounded-lg border-0 hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors duration-150"
       >
         {content}
       </a>
@@ -70,7 +71,7 @@ export default function AboutMeSection() {
           }
         });
       },
-      { threshold: 0.1 } 
+      { threshold: 0.1 }
     );
 
     if (contentRef.current) {
@@ -95,7 +96,7 @@ export default function AboutMeSection() {
       >
         <div className="grid lg:grid-cols-5 gap-12 items-start">
           <div className="lg:col-span-3 flex flex-col items-center lg:items-start">
-            <div className="relative w-full max-w-md md:max-w-lg"> {/* Reverted max-width here */}
+            <div className="relative w-full max-w-md md:max-w-lg">
               <Image
                 src="/Standing-Photoroom.png"
                 alt="Alex Myers standing"
@@ -112,7 +113,7 @@ export default function AboutMeSection() {
           </div>
 
           <div className="lg:col-span-2 space-y-6">
-            <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl text-center lg:text-left">
+            <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl text-center">
               About Me
             </h2>
             <div className="prose prose-lg text-foreground/80 max-w-none font-rubik text-center space-y-4">
@@ -155,7 +156,6 @@ export default function AboutMeSection() {
                       <span className="font-semibold">{expertCertification.issuerInitials}</span>
                     </div>
                   )}
-                  {/* Text below the expert badge was previously removed, so this remains empty */}
                 </a>
               )}
             </div>
@@ -165,4 +165,3 @@ export default function AboutMeSection() {
     </section>
   );
 }
-
