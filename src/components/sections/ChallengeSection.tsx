@@ -71,7 +71,7 @@ export default function ChallengeSection() {
       >
         <div className="text-center mb-12">
           <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-            The Challenge: Why AI Adoption Often Stalls Despite Promising Technology
+            The Challenge: Why AI Adoption Stalls Despite Promising Technology
           </h2>
         </div>
 
