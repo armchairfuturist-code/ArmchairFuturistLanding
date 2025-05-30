@@ -2,7 +2,7 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { CalendarDays, Mic } from 'lucide-react';
+import { CalendarDays, Mail, Mic } from 'lucide-react';
 
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -89,7 +89,7 @@ export default function HeroSection() {
             </span>
           </h1>
           <p className="mt-6 text-primary-foreground/90 md:text-xl max-w-2xl mx-auto hero-text-shadow font-sans">
-            Let's move beyond ineffective AI spending. I help you unlock real results by bridging the gap between technology and true human readiness. It's time to stop pretending old ways work and ensure your people's mindsets drive future value, not become obsolete.
+            Move beyond ineffective AI spending. I help you unlock real results by bridging the gap between technology and true human readiness. It's time to stop pretending old ways work and ensure your people's mindsets drive future value, not become obsolete.
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start">
             <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg transition-transform duration-200 hover:scale-105">
