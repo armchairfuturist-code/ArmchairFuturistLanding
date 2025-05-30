@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import type { Certification } from '@/types';
-import { Card, CardContent } from "@/components/ui/card";
 
 const certificationsData: Certification[] = [
   { id: "genaiExpert", name: "GenAI Academy Expert", issuerInitials: "GAIE", link: "https://thegenaiacademy.com/expert-hub/alex-myers/", imageSrc: "/expert.png" },
@@ -49,9 +48,9 @@ const CertificationItem: React.FC<{ certification: Certification }> = ({ certifi
   }
 
   return (
-    <div 
-        className="flex flex-row items-center gap-2 p-1 rounded-lg hover:bg-secondary/50 dark:hover:bg-secondary/30 transition-colors duration-150"
-        aria-label={certification.name}
+    <div
+      className="flex flex-row items-center gap-2 p-1 rounded-lg hover:bg-secondary/50 dark:hover:bg-secondary/30 transition-colors duration-150"
+      aria-label={certification.name}
     >
       {content}
     </div>
@@ -114,28 +113,30 @@ export default function AboutMeSection() {
 
           <div className="lg:col-span-2 space-y-6">
             {expertCertification && (
-              <a
-                key={expertCertification.id}
-                href={expertCertification.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block p-2 rounded-md hover:bg-secondary/70 dark:hover:bg-secondary/50 transition-colors duration-150 bg-card shadow-md mb-6"
-                aria-label={expertCertification.name}
-              >
-                {expertCertification.imageSrc ? (
-                  <Image
-                    src={expertCertification.imageSrc}
-                    alt={`${expertCertification.name} badge`}
-                    width={80} 
-                    height={80}
-                    className="object-contain shrink-0 rounded-md"
-                  />
-                ) : (
-                  <div className="flex h-[80px] w-[80px] shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground">
-                    <span className="font-semibold text-sm">{expertCertification.issuerInitials}</span>
-                  </div>
-                )}
-              </a>
+              <div className="flex justify-center"> {/* Centering div for the expert badge */}
+                <a
+                  key={expertCertification.id}
+                  href={expertCertification.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block p-2 rounded-md hover:bg-secondary/70 dark:hover:bg-secondary/50 transition-colors duration-150 bg-card shadow-md mb-6"
+                  aria-label={expertCertification.name}
+                >
+                  {expertCertification.imageSrc ? (
+                    <Image
+                      src={expertCertification.imageSrc}
+                      alt={`${expertCertification.name} badge`}
+                      width={80}
+                      height={80}
+                      className="object-contain shrink-0 rounded-md"
+                    />
+                  ) : (
+                    <div className="flex h-[80px] w-[80px] shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground">
+                      <span className="font-semibold text-sm">{expertCertification.issuerInitials}</span>
+                    </div>
+                  )}
+                </a>
+              </div>
             )}
             <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl text-center">
               About Me
@@ -170,4 +171,3 @@ export default function AboutMeSection() {
     </section>
   );
 }
-
