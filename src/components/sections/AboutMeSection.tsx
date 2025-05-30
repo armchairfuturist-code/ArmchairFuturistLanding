@@ -2,7 +2,7 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import type { Certification } from '@/types';
+import type { Certification } from '@/types'; // Assuming Certification type is defined here or imported
 
 const certificationsData: Certification[] = [
   { id: "genaiExpert", name: "GenAI Academy Expert", issuerInitials: "GAIE", link: "https://thegenaiacademy.com/expert-hub/alex-myers/", imageSrc: "/expert.png" },
@@ -99,8 +99,8 @@ export default function AboutMeSection() {
         }`}
       >
         <div className="grid lg:grid-cols-5 gap-12 items-start">
-          <div className="lg:col-span-3 flex flex-col items-center lg:items-start">
-            <div className="relative w-full">
+          <div className="lg:col-span-3 flex flex-col items-center">
+            <div className="relative w-full max-w-xl">
               <Image
                 src="/Standing-Photoroom.png"
                 alt="Alex Myers standing"
@@ -109,11 +109,18 @@ export default function AboutMeSection() {
                 className="rounded-xl w-full h-auto border-0"
               />
             </div>
+            <div className="mt-4 w-full max-w-xs sm:max-w-sm">
+              <div className="flex flex-col space-y-1">
+                {otherCertifications.map((cert) => (
+                  <CertificationItem key={cert.id} certification={cert} />
+                ))}
+              </div>
+            </div>
           </div>
 
           <div className="lg:col-span-2 space-y-6">
-            {expertCertification && (
-              <div className="flex justify-center"> {/* Centering div for the expert badge */}
+             {expertCertification && (
+              <div className="flex justify-center">
                 <a
                   key={expertCertification.id}
                   href={expertCertification.link}
@@ -143,27 +150,28 @@ export default function AboutMeSection() {
             </h2>
             <div className="prose prose-lg text-foreground/80 max-w-none font-rubik text-center lg:text-left space-y-4">
               <p>
-                I operate at the intersection of technology and culture, guiding organizations through profound technological shifts by building authentic, enduring partnerships.
+                My work inside organizations reveals a common AI paradox: executives champion it, while teams quietly feel the pressure, leading to "AI Theatre"—activity without real transformation. Many crave the feeling of change, not the profound shift itself.
               </p>
               <p>
-                My leverage: Systems thinking. An intuitive grasp of group dynamics. The ability to pose questions that catalyze real change.
+                The true antidote isn't buying more software; it's empowering the human capability already within your walls. I consistently find individuals—often unexpected—using AI to deliver remarkable 10x results. These are your hidden innovators, your future leaders.
               </p>
               <p>
-                The challenge facing leaders today runs deeper than AI adoption—it's building hybrid competence in both organizational design and AI system engineering. Firms that fail here will struggle to compound AI gains or safeguard their culture as automation accelerates.
+                The pivotal question I help leaders answer: Are you equipped to find, nurture, and scale these internal catalysts, or are your structures unintentionally hindering them?
               </p>
               <p>
-                I work with leaders confronting uncertainty around actually useful AI adoption. My mission: help you understand the full consequences of your innovations—technical and cultural—and architect for anti-fragility: teams that grow stronger and more adaptive in an increasingly complex world.
+                This is where my distinct approach makes the difference. As a systems-thinker, I map the cultural and process dynamics. As an Agile expert, I champion rapid, bottom-up innovation. As a Certified Futurist, I guide you to build resilient, adaptive organizations prepared for what's next.
               </p>
               <p>
-                This approach is grounded in deep understanding of both the technology itself and the human psychology of transformative change. The result is earned confidence in your chosen direction, anchored in trust and a clear line to tangible outcomes.
+                My mission is to shift you from "AI Theatre" to authentic, sustainable results. I achieve this by helping you:
               </p>
-            </div>
-            <div className="mt-8">
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-3">
-                {otherCertifications.map((cert) => (
-                  <CertificationItem key={cert.id} certification={cert} />
-                ))}
-              </div>
+              <ul className="list-disc pl-5 space-y-2">
+                <li>Uncover your "AI results mindset" innovators and their high-impact methods.</li>
+                <li>Architect the culture and strategy for genuine, team-driven AI adoption.</li>
+                <li>Build anti-fragile teams that thrive on AI-driven change, moving beyond hype to lasting value.</li>
+              </ul>
+              <p>
+                If you're ready for real, people-powered AI transformation, let's connect.
+              </p>
             </div>
           </div>
         </div>
