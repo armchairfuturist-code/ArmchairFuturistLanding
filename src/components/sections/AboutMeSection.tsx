@@ -164,9 +164,7 @@ export default function AboutMeSection() {
                 <li>Architect the culture and strategy for genuine, team-driven AI adoption.</li>
                 <li>Build anti-fragile teams that thrive on AI-driven change, moving beyond hype to lasting value.</li>
               </ul>
-              <p>
-                If you're ready for real, people-powered AI transformation, let's connect.
-              </p>
+              <p><strong>If you're ready for real, people-powered AI transformation, <a href="https://calendar.app.google/v2iqrJhw6AqGjE459" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">let's connect</a>.</strong></p>
             </div>
             
             {/* Other Certifications moved here */}
