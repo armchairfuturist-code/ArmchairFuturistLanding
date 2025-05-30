@@ -2,7 +2,7 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import type { Certification } from '@/types'; // Assuming Certification type is defined here or imported
+import type { Certification } from '@/types';
 
 const certificationsData: Certification[] = [
   { id: "genaiExpert", name: "GenAI Academy Expert", issuerInitials: "GAIE", link: "https://thegenaiacademy.com/expert-hub/alex-myers/", imageSrc: "/expert.png" },
@@ -99,41 +99,36 @@ export default function AboutMeSection() {
         }`}
       >
         <div className="grid lg:grid-cols-5 gap-12 items-start">
+          {/* Left Column: Image */}
           <div className="lg:col-span-3 flex flex-col items-center">
-            <div className="relative w-full">
+            <div className="relative w-full"> {/* Removed max-w constraints */}
               <Image
                 src="/Standing-Photoroom.png"
                 alt="Alex Myers standing"
-                width={1200}
+                width={1200} 
                 height={1600}
                 className="rounded-xl w-full h-auto border-0"
               />
             </div>
-            <div className="mt-4 w-full max-w-xs sm:max-w-sm">
-              <div className="flex flex-col space-y-1">
-                {otherCertifications.map((cert) => (
-                  <CertificationItem key={cert.id} certification={cert} />
-                ))}
-              </div>
-            </div>
           </div>
 
+          {/* Right Column: Text and All Credentials */}
           <div className="lg:col-span-2 space-y-6">
-            <div className="flex justify-center">
-             {expertCertification && (
+            {expertCertification && (
+              <div className="flex justify-center mb-6">
                 <a
                   key={expertCertification.id}
                   href={expertCertification.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block p-2 rounded-md hover:bg-secondary/70 dark:hover:bg-secondary/50 transition-colors duration-150 bg-card shadow-md mb-6"
+                  className="inline-block p-2 rounded-md hover:bg-secondary/70 dark:hover:bg-secondary/50 transition-colors duration-150 bg-card shadow-md"
                   aria-label={expertCertification.name}
                 >
                   {expertCertification.imageSrc ? (
                     <Image
                       src={expertCertification.imageSrc}
                       alt={`${expertCertification.name} badge`}
-                      width={80}
+                      width={80} 
                       height={80}
                       className="object-contain shrink-0 rounded-md"
                     />
@@ -143,8 +138,8 @@ export default function AboutMeSection() {
                     </div>
                   )}
                 </a>
-              )}
-            </div>
+              </div>
+            )}
             <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl text-center">
               About Me
             </h2>
@@ -173,9 +168,21 @@ export default function AboutMeSection() {
                 If you're ready for real, people-powered AI transformation, let's connect.
               </p>
             </div>
+            
+            {/* Other Certifications moved here */}
+            {otherCertifications.length > 0 && (
+              <div className="mt-8">
+                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-3">
+                  {otherCertifications.map((cert) => (
+                    <CertificationItem key={cert.id} certification={cert} />
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
     </section>
   );
 }
+
