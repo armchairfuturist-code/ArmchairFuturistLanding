@@ -100,7 +100,7 @@ export default function AboutMeSection() {
       >
         <div className="grid lg:grid-cols-5 gap-12 items-start">
           <div className="lg:col-span-3 flex flex-col items-center">
-            <div className="relative w-full max-w-xl">
+            <div className="relative w-full">
               <Image
                 src="/Standing-Photoroom.png"
                 alt="Alex Myers standing"
@@ -119,8 +119,8 @@ export default function AboutMeSection() {
           </div>
 
           <div className="lg:col-span-2 space-y-6">
+            <div className="flex justify-center">
              {expertCertification && (
-              <div className="flex justify-center">
                 <a
                   key={expertCertification.id}
                   href={expertCertification.link}
@@ -143,12 +143,12 @@ export default function AboutMeSection() {
                     </div>
                   )}
                 </a>
-              </div>
-            )}
+              )}
+            </div>
             <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl text-center">
               About Me
             </h2>
-            <div className="prose prose-lg text-foreground/80 max-w-none font-rubik text-center lg:text-left space-y-4">
+            <div className="prose prose-lg text-foreground/80 max-w-none font-rubik space-y-4">
               <p>
                 My work inside organizations reveals a common AI paradox: executives champion it, while teams quietly feel the pressure, leading to "AI Theatre"—activity without real transformation. Many crave the feeling of change, not the profound shift itself.
               </p>
