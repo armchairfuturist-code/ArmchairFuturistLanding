@@ -81,11 +81,11 @@ export default function HeroSection() {
       >
         <div className="flex flex-col items-center justify-center space-y-6 text-center lg:text-left">
           <h1 className="tracking-tighter sm:text-5xl xl:text-6xl/none hero-text-shadow">
-            <span className="block text-hero-title-1 text-4xl md:text-5xl xl:text-6xl font-heading">Stop Guessing About AI & Emerging Tech.</span>
-            <span className="block text-hero-title-2 text-4xl md:text-5xl xl:text-6xl mt-1 md:mt-2 font-heading">Get Expert Guidance to Future-Proof Your Business.</span>
+            <span className="block text-hero-title-1 text-4xl md:text-5xl xl:text-6xl font-heading">Don't Let AI Outpace Your People.</span>
+            <span className="block text-hero-title-2 text-4xl md:text-5xl xl:text-6xl mt-1 md:mt-2 font-heading">Bridge the Gap. Unlock Real Value.</span>
           </h1>
           <p className="mt-6 text-primary-foreground/90 md:text-xl max-w-2xl mx-auto hero-text-shadow font-sans">
-            Let's move beyond ineffective AI spending. I help you unlock real results by bridging the gap between technology and true human readiness. It's time to stop pretending old ways work and ensure your people's mindsets drive future value, not become obsolete.
+            Expert Strategy for Human-Centered AI Transformation.
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start">
             <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg transition-transform duration-200 hover:scale-105">
@@ -110,4 +110,3 @@ export default function HeroSection() {
     </section>
   );
 }
-
