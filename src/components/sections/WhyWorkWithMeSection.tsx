@@ -142,9 +142,9 @@ export default function WhyWorkWithMeSection() {
       >
         <div className="text-center mb-12">
           <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-            How I Work: Mindset-Centered AI Adoption Advisory
+            How I Work: Mindset-Centered AI Adoption
           </h2>
-          <p className="mt-4 text-lg text-foreground/80 max-w-3xl mx-auto font-subheading">
+          <p className="mt-4 text-lg text-foreground/80 max-w-3xl mx-auto font-sans">
             My human-centered approach to AI success prioritizes mindset, integrating AI-driven psychological insights with proven change leadership. This empowers your people to solve more vital problems and ensures customers feel a distinctly positive difference, ultimately forging a stronger, more adaptive culture that accelerates change without burnout.
           </p>
         </div>
@@ -198,7 +198,7 @@ export default function WhyWorkWithMeSection() {
                <CardTitle className="text-lg font-semibold">{item.title}</CardTitle>
              </CardHeader>
              <CardContent className="text-center">
-               <p className="text-sm text-muted-foreground font-subheading">{item.content}</p>
+               <p className="text-sm text-muted-foreground font-sans">{item.content}</p>
              </CardContent>
            </Card>
           ))}
@@ -207,3 +207,4 @@ export default function WhyWorkWithMeSection() {
     </section>
   );
 }
+
