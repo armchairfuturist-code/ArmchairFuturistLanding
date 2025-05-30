@@ -9,7 +9,7 @@ export default function Header() {
   const navItems = [
     { href: '/#how-i-work', label: 'How I Work' },
     { href: '/#services', label: 'Services' },
-    { href: '/#about-me', label: 'About Alex' },
+    { href: '/#about-me', label: 'Why Alex' },
     { href: '/#thought-leadership', label: 'Insights' },
     { href: 'mailto:armchairfuturist@gmail.com', label: 'Contact Me' },
   ];
