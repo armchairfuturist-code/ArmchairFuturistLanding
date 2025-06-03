@@ -1,6 +1,16 @@
+
+"use client";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useState, useEffect } from 'react';
 
 export default function PrivacyPolicyPage() {
+  const [currentDate, setCurrentDate] = useState('');
+
+  useEffect(() => {
+    setCurrentDate(new Date().toLocaleDateString());
+  }, []);
+
   return (
     <div className="container mx-auto py-12 px-4 md:px-6">
       <Card className="max-w-3xl mx-auto shadow-lg">
@@ -8,7 +18,7 @@ export default function PrivacyPolicyPage() {
           <CardTitle className="text-3xl font-bold text-primary">Privacy Policy</CardTitle>
         </CardHeader>
         <CardContent className="prose prose-lg max-w-none text-foreground/80">
-          <p><em>Last updated: {new Date().toLocaleDateString()}</em></p>
+          <p><em>Last updated: {currentDate || 'Loading...'}</em></p>
           <p>
             Welcome to Armchair Futurist ("us", "we", or "our"). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about our policy, or our practices with regards to your personal information, please contact us.
           </p>

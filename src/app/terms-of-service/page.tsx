@@ -1,6 +1,16 @@
+
+"use client";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useState, useEffect } from 'react';
 
 export default function TermsOfServicePage() {
+  const [currentDate, setCurrentDate] = useState('');
+
+  useEffect(() => {
+    setCurrentDate(new Date().toLocaleDateString());
+  }, []);
+
   return (
     <div className="container mx-auto py-12 px-4 md:px-6">
       <Card className="max-w-3xl mx-auto shadow-lg">
@@ -8,7 +18,7 @@ export default function TermsOfServicePage() {
           <CardTitle className="text-3xl font-bold text-primary">Terms of Service</CardTitle>
         </CardHeader>
         <CardContent className="prose prose-lg max-w-none text-foreground/80">
-          <p><em>Last updated: {new Date().toLocaleDateString()}</em></p>
+          <p><em>Last updated: {currentDate || 'Loading...'}</em></p>
           
           <h2>1. Agreement to Terms</h2>
           <p>
