@@ -1,6 +1,7 @@
 
 "use client";
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image'; // Added Image import
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BarChart3, UsersRound, GraduationCap, Presentation, MessageCircle, UserCheck, ChevronDown } from 'lucide-react';
 
@@ -78,9 +79,20 @@ export default function ServicesSection() {
           <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
             Services
           </h2>
-          <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto font-sans"> {/* Ensure font-sans for Roboto */}
+          <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto font-sans">
             Explore the ways I can work together to transform your organization through effective AI adoption and strategic organizational design.
           </p>
+        </div>
+
+        <div className="flex justify-center my-8 md:my-12">
+          <Image
+            src="/IMG_3458.png" 
+            alt="Services overview image showing strategic collaboration"
+            width={800} 
+            height={500} 
+            className="rounded-xl shadow-lg w-full max-w-3xl h-auto"
+            data-ai-hint="strategy collaboration" 
+          />
         </div>
 
         <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
@@ -101,7 +113,7 @@ export default function ServicesSection() {
               <CardContent 
                 className="px-6 max-h-0 opacity-0 invisible group-hover:max-h-48 group-hover:opacity-100 group-hover:visible group-hover:pb-6 group-hover:pt-2 transition-all duration-500 ease-in-out text-center"
               >
-                <p className="text-base text-muted-foreground font-sans"> {/* Ensure font-sans for Roboto */}
+                <p className="text-base text-muted-foreground font-sans">
                   {service.description}
                 </p>
               </CardContent>
