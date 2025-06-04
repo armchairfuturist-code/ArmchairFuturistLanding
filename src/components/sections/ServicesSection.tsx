@@ -1,4 +1,3 @@
-
 "use client";
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image'; // Added Image import
@@ -80,25 +79,25 @@ export default function ServicesSection() {
             Services
           </h2>
           <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto font-sans">
-            Explore the ways I can work together to transform your organization through effective AI adoption and strategic organizational design.
+            Explore ways I work with individuals, groups, teams and organizations to transform how to think about AI adoption, organizational design, and how outmoded mental models limit our potential.
           </p>
         </div>
 
         <div className="flex justify-center my-8 md:my-12">
           <Image
-            src="/IMG_3458.png" 
+            src="/IMG_3458.png"
             alt="Services overview image showing strategic collaboration"
-            width={800} 
-            height={500} 
+            width={800}
+            height={500}
             className="rounded-xl shadow-lg w-full max-w-3xl h-auto"
-            data-ai-hint="strategy collaboration" 
+            data-ai-hint="strategy collaboration"
           />
         </div>
 
         <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {servicesData.map((service) => (
-            <Card 
-              key={service.title} 
+            <Card
+              key={service.title}
               className="group relative overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 rounded-xl bg-card"
             >
               <CardHeader className="items-center text-center pt-6 px-6 pb-6 cursor-pointer">
@@ -110,7 +109,7 @@ export default function ServicesSection() {
                   <ChevronDown className="h-5 w-5 text-primary/70 transition-transform duration-300 group-hover:rotate-180" />
                 </CardTitle>
               </CardHeader>
-              <CardContent 
+              <CardContent
                 className="px-6 max-h-0 opacity-0 invisible group-hover:max-h-48 group-hover:opacity-100 group-hover:visible group-hover:pb-6 group-hover:pt-2 transition-all duration-500 ease-in-out text-center"
               >
                 <p className="text-base text-muted-foreground font-sans">
