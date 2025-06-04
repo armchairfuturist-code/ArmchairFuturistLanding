@@ -145,25 +145,26 @@ export default function AboutMeSection() {
             </h2>
             <div className="prose prose-lg text-foreground/80 max-w-none font-rubik space-y-4">
               <p>
-                My work inside organizations reveals a common AI paradox: executives champion it, while teams quietly feel the pressure, leading to "AI Theatre"—activity without real transformation. Many crave the feeling of change, not the profound shift itself.
+                Most organizations face an AI paradox: Executives champion AI, but teams feel the pressure—resulting in "AI Theatre": lots of activity, little real progress.
               </p>
               <p>
-                The true antidote isn't buying more software; it's empowering the human capability already within your walls. I consistently find individuals—often unexpected—using AI to deliver remarkable 10x results. These are your hidden innovators, your future leaders.
+                The answer isn’t more software. It’s continuous improvement—Kaizen—unlocking the untapped potential within your people. I regularly find unexpected employees using AI to deliver 10x results. These hidden innovators are your future leaders.
               </p>
-              <p>
-                The pivotal question I help leaders answer: Are you equipped to find, nurture, and scale these internal catalysts, or are your structures unintentionally hindering them?
-              </p>
-              <p>
-                This is where my distinct approach makes the difference. As a systems-thinker, I map the cultural and process dynamics. As an Agile expert, I champion rapid, bottom-up innovation. As a Certified Futurist, I guide you to build resilient, adaptive organizations prepared for what's next.
-              </p>
-              <p>
-                My mission is to shift you from "AI Theatre" to authentic, sustainable results. I achieve this by helping you:
-              </p>
+              
+              <p>My mission:</p>
               <ul className="list-disc pl-5 space-y-2">
-                <li>Uncover your "AI results mindset" innovators and their high-impact methods.</li>
-                <li>Architect the culture and strategy for genuine, team-driven AI adoption.</li>
-                <li>Build anti-fragile teams that thrive on AI-driven change, moving beyond hype to lasting value.</li>
+                <li>Help organizations and individual leaders identify and empower these internal catalysts</li>
+                <li>Remove barriers so innovation can flourish</li>
+                <li>Foster a culture of ongoing, team-driven AI adoption</li>
               </ul>
+
+              <p>My approach combines:</p>
+              <ul className="list-disc pl-5 space-y-2">
+                <li>Systems thinking to reveal cultural and process dynamics</li>
+                <li>Kaizen principles for steady, meaningful improvement</li>
+                <li>Futurist insight to prepare you for what’s next</li>
+              </ul>
+              
               <p><strong>If you're ready for real, people-powered AI transformation, <a href="https://calendar.app.google/v2iqrJhw6AqGjE459" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">let's connect</a>.</strong></p>
             </div>
             
