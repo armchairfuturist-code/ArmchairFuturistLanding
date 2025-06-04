@@ -145,20 +145,23 @@ export default function AboutMeSection() {
             </h2>
             <div className="prose prose-lg text-foreground/80 max-w-none font-rubik space-y-4">
               <p>
+                Throughout my career, I've been guiding individuals and teams through change, ensuring organisations grasp the broader consequences of their innovations, and crafting visions that steer teams towards meaningful progress. 
+              </p>
+              <p>
                 Most organizations face an AI paradox: Executives champion AI, but teams feel the pressure—resulting in "AI Theatre": lots of activity, little real progress.
               </p>
               <p>
                 The answer isn’t more software. It’s continuous improvement—Kaizen—unlocking the untapped potential within your people. I regularly find unexpected employees using AI to deliver 10x results. These hidden innovators are your future leaders.
               </p>
               
-              <p>My mission:</p>
+              <p><strong>My mission:</strong></p>
               <ul className="list-disc pl-5 space-y-2">
                 <li>Help organizations and individual leaders identify and empower these internal catalysts</li>
                 <li>Remove barriers so innovation can flourish</li>
                 <li>Foster a culture of ongoing, team-driven AI adoption</li>
               </ul>
 
-              <p>My approach combines:</p>
+              <p><strong>My approach combines:</strong></p>
               <ul className="list-disc pl-5 space-y-2">
                 <li>Systems thinking to reveal cultural and process dynamics</li>
                 <li>Kaizen principles for steady, meaningful improvement</li>
