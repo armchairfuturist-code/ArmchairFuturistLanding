@@ -36,11 +36,10 @@ export const metadata: Metadata = {
     siteName: 'Armchair Futurist',
     images: [
       {
-        url: '/img.jpg', // Path to your preview image (relative to /public)
+ url: '/floop.jpg', // Path to your preview image (relative to /public)
                          // Recommended dimensions: 1200x630px. 
-                         // Your img.jpg might be a profile picture; consider a dedicated preview image.
-        width: 1200,     // Example width, adjust if using a different image
-        height: 630,    // Example height, adjust if using a different image
+        width: 1200,
+        height: 630,
         alt: 'Alex Myers - The Armchair Futurist',
       },
     ],
@@ -50,8 +49,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image', // Use 'summary' if your image is small or square
     title: 'The Armchair Futurist - Alex Myers',
     description: 'Alex Myers – the Armchair Futurist: Advisor to leaders navigating AI, change, and the future of work with grounded, human-first strategy.',
-    // creator: '@YourTwitterHandle', // Optional: Your Twitter handle
-    images: ['/img.jpg'], // Path to your preview image. Next.js resolves this using metadataBase.
+ // creator: '@YourTwitterHandle', // Optional: Your Twitter handle
+ images: ['/floop.jpg'], // Path to your preview image. Next.js resolves this using metadataBase.
                            // Must be a suitable image for a large card.
   },
 };
