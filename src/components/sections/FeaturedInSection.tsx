@@ -59,13 +59,15 @@ export default function FeaturedInSection() {
           <div className="flex animate-marquee whitespace-nowrap gap-x-10 md:gap-x-12">
             {[...logos, ...logos].map((logo, index) => (
               <div key={`${logo.alt}-${index}`} className="flex flex-col items-center text-center flex-shrink-0">
-                <Image
-                  src={logo.src}
-                  alt={logo.alt}
-                  width={96}
-                  height={96}
-                  className="rounded-full object-cover shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 border border-border/50 grayscale hover:grayscale-0"
-                />
+                <div className="relative h-24 w-24 rounded-full overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 border border-border/50 grayscale hover:grayscale-0">
+                  <Image
+                    src={logo.src}
+                    alt={logo.alt}
+                    fill
+                    sizes="96px"
+                    className="object-cover"
+                  />
+                </div>
               </div>
             ))}
           </div>
