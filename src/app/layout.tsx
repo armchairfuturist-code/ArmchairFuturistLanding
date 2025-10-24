@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 });
 
 // Replace 'https://www.your-actual-domain.com' with your website's domain
-const siteUrl = 'https://www.your-actual-domain.com'; 
+const siteUrl = 'https://thearmchairfuturist.com'; 
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl), // Important: Set your site's base URL
@@ -31,13 +31,12 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'The Armchair Futurist - Alex Myers',
-    description: 'Alex Myers – the Armchair Futurist: Advisor to leaders navigating AI, change, and the future of work with grounded, human-first strategy.',
-    url: siteUrl, // The canonical URL of your site
+    description: 'Alex Myers – the Armchair Futurist...',
+    url: '/', // Can now be relative
     siteName: 'Armchair Futurist',
     images: [
       {
- url: '/floop.jpg', // Path to your preview image (relative to /public)
-                         // Recommended dimensions: 1200x630px. 
+        url: '/floop.jpg', // This will now correctly resolve to https://.../floop.jpg
         width: 1200,
         height: 630,
         alt: 'Alex Myers - The Armchair Futurist',
@@ -46,12 +45,10 @@ export const metadata: Metadata = {
     type: 'website',
   },
   twitter: {
-    card: 'summary_large_image', // Use 'summary' if your image is small or square
+    card: 'summary_large_image',
     title: 'The Armchair Futurist - Alex Myers',
-    description: 'Alex Myers – the Armchair Futurist: Advisor to leaders navigating AI, change, and the future of work with grounded, human-first strategy.',
- // creator: '@YourTwitterHandle', // Optional: Your Twitter handle
- images: ['/floop.jpg'], // Path to your preview image. Next.js resolves this using metadataBase.
-                           // Must be a suitable image for a large card.
+    description: 'Alex Myers – the Armchair Futurist...',
+    images: ['/floop.jpg'], // This will also resolve correctly
   },
 };
 
