@@ -6,4 +6,3 @@ export interface Certification {
   link?: string;
   imageSrc?: string; // Path to the certification image/logo
 }
-

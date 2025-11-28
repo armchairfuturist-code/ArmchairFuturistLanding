@@ -168,7 +168,7 @@ export default function AboutMeSection() {
                 <li>Futurist insight to prepare you for what’s next</li>
               </ul>
               
-              <p><strong>If you're ready for real, people-powered AI transformation, <a href="https://calendar.app.google/v2iqrJhw6AqGjE459" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">let's connect</a>.</strong></p>
+              <p><strong>If you're ready for real, people-powered AI transformation, <a href="https://calendar.app.google.com/v2iqrJhw6AqGjE459" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">let's connect</a>.</strong></p>
             </div>
             
             {/* Other Certifications moved here */}
@@ -187,4 +187,3 @@ export default function AboutMeSection() {
     </section>
   );
 }
-
