@@ -5,13 +5,13 @@ import Image from 'next/image';
 
 const logos = [
   { src: "/thegenaiacademy.jpg", alt: "The GenAI Academy logo" },
-  { src: "/p2p.png", alt: "P2P logo" },
   { src: "/aragonp.jpg", alt: "Aragon.org logo" },
   { src: "/culminate.jpg", alt: "Culminate Strategy Group logo" },
   { src: "/techstars.jpg", alt: "Techstars logo" },
   { src: "/launch.jpg", alt: "Launch by NTT Data logo" },
   { src: "/kemin.jpg", alt: "Kemin logo" },
   { src: "/shiftdsm.jpg", alt: "Shift DSM logo" },
+  { src: "/p2p.png", alt: "P2P logo" },
 ];
 
 export default function FeaturedInSection() {
