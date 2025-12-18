@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu } from 'lucide-react';
+import { Menu, Mail } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Header() {
@@ -11,8 +11,9 @@ export default function Header() {
     { href: '/#services', label: 'Services' },
     { href: '/#about-me', label: 'Why Alex' },
     { href: '/#thought-leadership', label: 'Insights' },
-    { href: 'mailto:armchairfuturist@gmail.com', label: 'Contact Me' },
   ];
+
+  const contactItem = { href: 'mailto:armchairfuturist@gmail.com', label: 'Contact Me' };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -40,6 +41,13 @@ export default function Header() {
               {item.label}
             </Link>
           ))}
+          <a
+            href={contactItem.href}
+            className="text-sm font-medium text-foreground/70 transition-colors hover:text-foreground"
+            aria-label={contactItem.label}
+          >
+            <Mail className="h-5 w-5" />
+          </a>
            <Button asChild size="sm">
             <a href="https://calendar.app.google/nAHHwNMfhDvXGv7P7" target="_blank" rel="noopener noreferrer">
               Schedule a Call
@@ -78,6 +86,12 @@ export default function Header() {
                     {item.label}
                   </Link>
                 ))}
+                 <Link
+                    href={contactItem.href}
+                    className="block text-sm font-medium text-foreground/90 transition-colors hover:text-primary"
+                  >
+                    {contactItem.label}
+                  </Link>
                  <Button asChild className="w-full">
                   <a href="https://calendar.app.google/nAHHwNMfhDvXGv7P7" target="_blank" rel="noopener noreferrer">
                     Schedule a Call
