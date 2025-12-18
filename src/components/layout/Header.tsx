@@ -86,12 +86,13 @@ export default function Header() {
                     {item.label}
                   </Link>
                 ))}
-                 <Link
+                 <a
                     href={contactItem.href}
-                    className="block text-sm font-medium text-foreground/90 transition-colors hover:text-primary"
+                    className="flex items-center gap-2 text-sm font-medium text-foreground/90 transition-colors hover:text-primary"
                   >
-                    {contactItem.label}
-                  </Link>
+                    <Mail className="h-4 w-4" />
+                    <span>{contactItem.label}</span>
+                  </a>
                  <Button asChild className="w-full">
                   <a href="https://calendar.app.google/nAHHwNMfhDvXGv7P7" target="_blank" rel="noopener noreferrer">
                     Schedule a Call
