@@ -1,5 +1,6 @@
 
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Roboto, Geist_Mono } from 'next/font/google'; // Import Roboto
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
@@ -61,6 +62,21 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={cn(roboto.variable, geistMono.variable, "font-sans antialiased flex flex-col min-h-screen")}>
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-18FCVPH408"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+        >
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-18FCVPH408');
+          `}
+        </Script>
         <FirebaseAnalytics />
         <Header />
         <main className="flex-grow">
