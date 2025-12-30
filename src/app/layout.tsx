@@ -1,17 +1,18 @@
 
-import type {Metadata} from 'next';
+import type { Metadata } from 'next';
 import { Roboto, Geist_Mono } from 'next/font/google'; // Import Roboto
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { cn } from '@/lib/utils';
+import FirebaseAnalytics from '@/components/analytics/FirebaseAnalytics';
 
 // Configure Roboto for body text
 const roboto = Roboto({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '700'], 
-  variable: '--font-sans', 
+  weight: ['300', '400', '500', '700'],
+  variable: '--font-sans',
 });
 
 const geistMono = Geist_Mono({
@@ -20,7 +21,7 @@ const geistMono = Geist_Mono({
 });
 
 // Replace 'https://www.your-actual-domain.com' with your website's domain
-const siteUrl = 'https://thearmchairfuturist.com'; 
+const siteUrl = 'https://thearmchairfuturist.com';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl), // Important: Set your site's base URL
@@ -60,6 +61,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={cn(roboto.variable, geistMono.variable, "font-sans antialiased flex flex-col min-h-screen")}>
+        <FirebaseAnalytics />
         <Header />
         <main className="flex-grow">
           {children}
