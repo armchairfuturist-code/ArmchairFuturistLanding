@@ -1,5 +1,6 @@
 
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import Script from 'next/script';
 import { Roboto, Geist_Mono } from 'next/font/google'; // Import Roboto
 import './globals.css';
@@ -77,7 +78,9 @@ export default function RootLayout({
             gtag('config', 'G-18FCVPH408');
           `}
         </Script>
-        <FirebaseAnalytics />
+        <Suspense fallback={null}>
+          <FirebaseAnalytics />
+        </Suspense>
         <Header />
         <main className="flex-grow">
           {children}
