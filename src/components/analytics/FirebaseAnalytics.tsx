@@ -29,13 +29,16 @@ export default function FirebaseAnalytics() {
         // Track initial page view
         const url = pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : '');
 
+        console.log('📊 Firebase Analytics: Attempting to log page_view for', url);
+
         logEvent(analytics, 'page_view', {
             page_path: url,
             page_title: document.title,
             page_location: window.location.href,
+            debug_mode: true // Enable debug mode to force immediate upload and visible network requests
         });
 
-        console.log('📊 Firebase Analytics: Page view tracked -', url);
+        console.log('✅ Firebase Analytics: Page view event sent to SDK queue');
     }, [pathname, searchParams]);
 
     // This component doesn't render anything
