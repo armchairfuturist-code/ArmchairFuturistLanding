@@ -29,7 +29,7 @@ const servicesPaths = [
     payload: ["Social Logic Map", "Friction Audit", "Strike Team ID"],
     idealFor: "Leadership teams who know they are slow but don't know why.",
     cta: "Schedule Systemic Review",
-    ctaLink: "https://calendar.app.google.com/v2iqrJhw6AqGjE459",
+    ctaLink: "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ00YbCp7nC3lquiFi9LfoqKg-Csj9Bl2W9gM3Xf1gYE_1JE3nSowo4K3xY9VMPklsxIqvrZwvCM",
     highlight: false
   },
   {
@@ -42,7 +42,7 @@ const servicesPaths = [
     payload: ["n8n Workflows", "Custom Agents", "GitHub Repos"],
     idealFor: "Moving a specific pilot from \"Idea\" to \"Production.\"",
     cta: "Apply for Sprint",
-    ctaLink: "https://calendar.app.google.com/v2iqrJhw6AqGjE459",
+    ctaLink: "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ00YbCp7nC3lquiFi9LfoqKg-Csj9Bl2W9gM3Xf1gYE_1JE3nSowo4K3xY9VMPklsxIqvrZwvCM",
     highlight: true,
     badge: "Highest ROI"
   },
@@ -55,7 +55,7 @@ const servicesPaths = [
     payload: ["Stack Optimization", "Agile Coaching", "Monthly Briefs"],
     idealFor: "Maintaining the velocity gained in the Sprints.",
     cta: "Discuss Retainer",
-    ctaLink: "https://calendar.app.google.com/v2iqrJhw6AqGjE459",
+    ctaLink: "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ00YbCp7nC3lquiFi9LfoqKg-Csj9Bl2W9gM3Xf1gYE_1JE3nSowo4K3xY9VMPklsxIqvrZwvCM",
     highlight: false
   },
   {
@@ -267,7 +267,7 @@ export default function ServicesSection() {
               Have a unique organizational context? <ArrowRight className="w-5 h-5 text-primary" />
             </div>
             <Button asChild size="lg" className="bg-white text-zinc-900 hover:bg-zinc-200 font-bold">
-              <a href="https://calendar.app.google.com/v2iqrJhw6AqGjE459" target="_blank" rel="noopener noreferrer">
+              <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ00YbCp7nC3lquiFi9LfoqKg-Csj9Bl2W9gM3Xf1gYE_1JE3nSowo4K3xY9VMPklsxIqvrZwvCM" target="_blank" rel="noopener noreferrer">
                 <Calculator className="w-4 h-4 mr-2" />
                 Submit Organizational Profile for Pricing Alignment
               </a>
