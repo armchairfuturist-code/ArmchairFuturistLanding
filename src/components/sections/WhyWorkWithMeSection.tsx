@@ -33,7 +33,7 @@ const howIHelpData: HowIHelpItem[] = [
     keyBenefit: "Accelerate adoption by tailoring strategies to your team's unique psychological profiles."
   },
   {
-    icon: <Users className="h-5 w-5 text-primary shrink-0" />, 
+    icon: <Users className="h-5 w-5 text-primary shrink-0" />,
     title: "Embedding Second Order Thinking and Emotional Intelligence (EQ)",
     content: "I help leaders and teams evolve from first order (linear, control-driven) to second order thinking—holistic, adaptive, and emotionally mature approaches essential for navigating AI’s complexity. This shift enables:",
     subPoints: [
@@ -41,7 +41,7 @@ const howIHelpData: HowIHelpItem[] = [
       { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Anticipating AI’s ripple effects on workflows, morale, and strategy." },
       { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Leading with psychological safety, fostering innovation and ethical AI use." },
     ],
-    keyBenefit: "Build sustainable internal momentum and overcome resistance through holistic strategies." 
+    keyBenefit: "Build sustainable internal momentum and overcome resistance through holistic strategies."
   },
   {
     icon: <ScanSearch className="h-5 w-5 text-primary shrink-0" />,
@@ -73,7 +73,7 @@ const howIHelpData: HowIHelpItem[] = [
     content: "I emphasize the triad of:",
     subPoints: [
       { icon: <Crown className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Leadership:</strong> Setting a vivid AI vision, modeling AI use, and creating safe spaces for experimentation." },
-      { icon: <FlaskConical className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Lab:</strong> Centralized teams that rapidly build, benchmark, and iterate AI solutions informed by frontline insights." },
+      { icon: <FlaskConical className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Lab:</strong> <em>Intentionally</em> silo teams to remove distractions and politics so they can rapidly build, benchmark, and iterate AI & Agent solutions for highest impact functions around the company." },
       { icon: <Users className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Crowd:</strong> Empowered employees who discover and share AI use cases, fueling decentralized innovation." },
     ],
     keyBenefit: "Foster a culture of innovation by aligning leadership, expert teams, and empowered employees."
@@ -117,7 +117,7 @@ export default function WhyWorkWithMeSection() {
           }
         });
       },
-      { threshold: 0.1 } 
+      { threshold: 0.1 }
     );
 
     if (contentRef.current) {
@@ -136,17 +136,31 @@ export default function WhyWorkWithMeSection() {
     <section id="how-i-work" className="py-12 md:py-24 bg-background scroll-mt-20">
       <div
         ref={contentRef}
-        className={`container mx-auto px-4 md:px-6 scroll-animate ${
-          isContentVisible ? 'is-visible' : ''
-        }`}
+        className={`container mx-auto px-4 md:px-6 scroll-animate ${isContentVisible ? 'is-visible' : ''
+          }`}
       >
         <div className="text-center mb-12">
           <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
             How I Work: Mindset-Centered AI Adoption
           </h2>
-          <p className="mt-4 text-lg text-foreground/80 max-w-3xl mx-auto font-sans">
-            My human-centered approach to AI success prioritizes mindset, integrating AI-driven psychological insights with proven change leadership. This empowers your people to solve more vital problems and ensures customers feel a distinctly positive difference, ultimately forging a stronger, more adaptive culture that accelerates change without burnout.
-          </p>
+          <div className="mt-6 text-lg text-foreground/80 max-w-3xl mx-auto font-sans text-left space-y-4">
+            <p>
+              AI gives you data. I give you momentum. I act as the bridge between insight and <em className="italic">human action</em>. My methodology is unapologetically human-centered:
+            </p>
+            <ul className="space-y-2 list-none">
+              <li>1️⃣ I integrate AI-powered psychological analysis to uncover the true barriers to action — not just trends.</li>
+              <li>2️⃣ I deploy battle-tested change leadership to shift mindsets, so your people move from “that’s interesting” to “we must act.”</li>
+              <li>3️⃣ I align outcomes that matter: teams solving high-stakes problems, customers feeling a measurable positive difference, and a culture that adapts fast...without burnout.</li>
+            </ul>
+
+            <h4 className="text-xl font-bold text-primary pt-4">Why I Don’t Do Free Work</h4>
+            <p>
+              Anyone can get AI to generate reports. But belief change can’t be tested for free.
+            </p>
+            <p>
+              When you invest in a paid discovery session, we diagnose your team’s resistance and readiness upfront. This ensures every strategy I design isn’t just smart — it’s adoptable. No RFPs. No speculative work. Just clarity-first partnerships built on mutual commitment. <strong>I work with one client at a time.</strong>
+            </p>
+          </div>
         </div>
 
         <div className="max-w-3xl mx-auto mb-16">
@@ -171,12 +185,12 @@ export default function WhyWorkWithMeSection() {
                       ))}
                     </ul>
                   )}
-                   {item.keyBenefit && (
+                  {item.keyBenefit && (
                     <div className="mt-4 flex items-start gap-2 p-3 bg-secondary/50 rounded-md border border-primary/20">
-                        <HeartHandshake className="h-5 w-5 text-accent mt-1 shrink-0" />
-                        <p className="text-sm font-medium text-primary">{item.keyBenefit}</p>
+                      <HeartHandshake className="h-5 w-5 text-accent mt-1 shrink-0" />
+                      <p className="text-sm font-medium text-primary">{item.keyBenefit}</p>
                     </div>
-                   )}
+                  )}
                 </AccordionContent>
               </AccordionItem>
             ))}
@@ -190,17 +204,17 @@ export default function WhyWorkWithMeSection() {
         </div>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {whyItMattersData.map((item) => (
-             <Card key={item.title} className="shadow-md hover:shadow-lg transition-shadow duration-300">
-             <CardHeader className="items-center text-center">
-               <div className="p-3 rounded-full bg-primary/10 mb-2">
-                 {item.icon}
-               </div>
-               <CardTitle className="text-lg font-semibold">{item.title}</CardTitle>
-             </CardHeader>
-             <CardContent className="text-center">
-               <p className="text-sm text-muted-foreground font-sans">{item.content}</p>
-             </CardContent>
-           </Card>
+            <Card key={item.title} className="shadow-md hover:shadow-lg transition-shadow duration-300">
+              <CardHeader className="items-center text-center">
+                <div className="p-3 rounded-full bg-primary/10 mb-2">
+                  {item.icon}
+                </div>
+                <CardTitle className="text-lg font-semibold">{item.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-sm text-muted-foreground font-sans">{item.content}</p>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>
