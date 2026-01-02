@@ -145,7 +145,7 @@ export default function WhyWorkWithMeSection() {
           </h2>
           <div className="mt-6 text-lg text-foreground/80 max-w-3xl mx-auto font-sans text-left space-y-4">
             <p>
-              AI gives you data. I give you momentum. I act as the bridge between insight and <em className="italic">human action</em>. My methodology is unapologetically human-centered:
+              Adoption has become easy. Impact and momentum has not. I act as the bridge between insight and <em className="italic">human action</em>. My methodology is unapologetically human-centered:
             </p>
             <ul className="space-y-2 list-none">
               <li>1️⃣ I integrate AI-powered psychological analysis to uncover the true barriers to action — not just trends.</li>
@@ -155,7 +155,7 @@ export default function WhyWorkWithMeSection() {
 
             <h4 className="text-xl font-bold text-primary pt-4">Why I Don’t Do Free Work</h4>
             <p>
-              Anyone can get AI to generate reports. But belief change can’t be tested for free.
+              Anyone can get AI to generate reports. But belief change can’t be tested for free. The differentiator is no longer who experiments with AI, but who redesigns how decisions and accountability actually work.
             </p>
             <p>
               When you invest in a paid discovery session, we diagnose your team’s resistance and readiness upfront. This ensures every strategy I design isn’t just smart — it’s adoptable. No RFPs. No speculative work. Just clarity-first partnerships built on mutual commitment. <strong>I work with one client at a time.</strong>

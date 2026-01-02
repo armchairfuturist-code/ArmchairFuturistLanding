@@ -60,19 +60,21 @@ export default function ChallengeSection() {
       observer.disconnect();
     };
   }, []);
-  
+
   return (
     <section className="py-12 md:py-24 bg-secondary scroll-mt-20">
       <div
         ref={contentRef}
-        className={`container mx-auto px-4 md:px-6 scroll-animate ${
-          isContentVisible ? 'is-visible' : ''
-        }`}
+        className={`container mx-auto px-4 md:px-6 scroll-animate ${isContentVisible ? 'is-visible' : ''
+          }`}
       >
         <div className="text-center mb-12">
           <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-            The Challenge: Why AI Adoption Stalls Despite Promising Technology
+            AI Adoption Stalls Due To Organisational Readiness, Not Technical Capability
           </h2>
+          <p className="mt-4 text-xl text-muted-foreground max-w-2xl mx-auto">
+            Incentives, workflows, decision rights, and risk tolerance often remain unchanged, meaning AI is layered onto existing processes rather than reshaping them.
+          </p>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
