@@ -94,9 +94,8 @@ export default function AboutMeSection() {
     <section id="about-me" className="py-12 md:py-24 bg-sectionBlue scroll-mt-20">
       <div
         ref={contentRef}
-        className={`container mx-auto px-4 md:px-6 scroll-animate ${
-          isContentVisible ? 'is-visible' : ''
-        }`}
+        className={`container mx-auto px-4 md:px-6 scroll-animate ${isContentVisible ? 'is-visible' : ''
+          }`}
       >
         <div className="grid lg:grid-cols-5 gap-12 items-start">
           {/* Left Column: Image */}
@@ -105,7 +104,7 @@ export default function AboutMeSection() {
               <Image
                 src="/Standing-Photoroom.png"
                 alt="Alex Myers standing"
-                width={1200} 
+                width={1200}
                 height={1600}
                 className="rounded-xl w-full h-auto border-0"
               />
@@ -128,7 +127,7 @@ export default function AboutMeSection() {
                     <Image
                       src={expertCertification.imageSrc}
                       alt={`${expertCertification.name} badge`}
-                      width={80} 
+                      width={80}
                       height={80}
                       className="object-contain shrink-0 rounded-md"
                     />
@@ -145,32 +144,36 @@ export default function AboutMeSection() {
             </h2>
             <div className="prose prose-lg text-foreground/80 max-w-none font-rubik space-y-4">
               <p>
-                Throughout my career, I've been guiding individuals and teams through change, ensuring organisations grasp the broader consequences of their innovations, and crafting visions that steer teams towards meaningful progress. 
+                For years, I’ve watched a recurring scene: well-intentioned leaders invest heavily in new technology, but the output remains flat because the organization’s "immune system" treats change as a threat. This results in "AI Theatre"—significant activity with zero meaningful ROI.
               </p>
               <p>
-                Most organizations face an AI paradox: Executives champion AI, but teams feel the pressure—resulting in "AI Theatre": lots of activity, little real progress.
+                The problem: Most organizations are still run like rigid machines designed for a world that no longer exists. We try to "roll out" AI like it’s a new photocopier, but AI isn't prescriptive; it’s a journey of constant experimentation.
               </p>
+
+              <p className="text-xl font-bold text-primary pt-4">How I help you stop running in place</p>
               <p>
-                The answer isn’t more software. It’s continuous improvement—Kaizen—unlocking the untapped potential within your people. I regularly find unexpected employees using AI to deliver 10x results. These hidden innovators are your future leaders.
+                The bottlenecks aren't technical; it’s linear mindsets attempting to manage an exponential reality. Most firms treat AI like a standard software rollout, but true adoption requires a culture of continuous experimentation and psychological readiness.
               </p>
-              
-              <p><strong>My mission:</strong></p>
-              <ul className="list-disc pl-5 space-y-2">
-                <li>Help organizations and individual leaders identify and empower these internal catalysts</li>
-                <li>Remove barriers so innovation can flourish</li>
-                <li>Foster a culture of ongoing, team-driven AI adoption</li>
+
+              <p className="font-bold text-lg text-primary">How I help you move beyond the "Theatre"</p>
+              <p>
+                I act as a Fractional Change Architect, helping you upgrade your organisation’s "operating system" to achieve 10x growth rather than incremental 10% improvements. My approach focuses on three human pillars:
+              </p>
+              <ul className="list-disc pl-5 space-y-3">
+                <li><strong>Identifying High-Readiness Innovators:</strong> A minority of individuals in your company is naturally wired for uncertainty. Using linguistic behavioral intelligence, I identify "Results" thinkers through their existing communication styles, bypassing friction and politics of traditional surveys.</li>
+                <li><strong>Bypassing Organisational Inertia:</strong> I help seed innovation at the "edge" of your company. By building rapid pilots with your high-readiness people, we secure early wins that justify further investment and stop "talent hoarding" in silos.</li>
+                <li><strong>From Linear to Adaptive Leadership:</strong> I coach leaders to move from "First-Order" (command-and-control) thinking to "Adaptive Intelligence" (EQ). While IQ handles repeatable work, the age of AI requires the emotional maturity to navigate complex, non-linear problem-solving.</li>
+                <li><strong>Aligning Transformational Purpose:</strong> I help craft an Impact-Driven Vision so aspirational that it aligns your team and attracts a wider community, ensuring you stay focused in a world of endless distractions.</li>
               </ul>
 
-              <p><strong>My approach combines:</strong></p>
-              <ul className="list-disc pl-5 space-y-2">
-                <li>Systems thinking to reveal cultural and process dynamics</li>
-                <li>Kaizen principles for steady, meaningful improvement</li>
-                <li>Futurist insight to prepare you for what’s next</li>
-              </ul>
-              
-              <p><strong>If you're ready for real, people-powered AI transformation, <a href="https://calendar.app.google.com/v2iqrJhw6AqGjE459" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">let's connect</a>.</strong></p>
+              <p className="font-bold text-lg text-primary pt-4">The Goal: Scale Through Autonomy</p>
+              <p>
+                By implementing distributed authority models and real-time performance dashboards, your teams can operate like independent, high-velocity squads. We stop over-planning for five years and start executing in real-time.
+              </p>
+
+              <p className="pt-6"><strong>If you are ready to stop running in place and empower the catalysts already sitting in your building, <a href="https://calendar.app.google.com/v2iqrJhw6AqGjE459" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">let’s talk</a>.</strong></p>
             </div>
-            
+
             {/* Other Certifications moved here */}
             {otherCertifications.length > 0 && (
               <div className="mt-8">
