@@ -30,8 +30,9 @@ const servicesPaths = [
     payload: ["Results Thinker ID", "2nd-Order Coaching", "Low-Friction Diagnostics"],
     idealFor: "Identifying psychological blocks & \"Internal Mavericks\" to lead change.",
     details: [
+      { title: "The Problem", text: "Most transformation efforts fail because they ignore the human element. You cannot automate corporate antibodies." },
       { title: "Bypassing Resistance Gates", text: "I identify the \"Results\" thinkers—the top 5% of your staff naturally wired for uncertainty—and empower them to lead the charge." },
-      { title: "Second-Order Leadership Coaching", text: "Coaching leaders to shift from \"Command-and-Control\" to \"Complexity\" thinking, essential for managing non-linear challenges." },
+      { title: "Second-Order Leadership Coaching", text: "Coaching leaders to shift from 'Command-and-Control' to 'Complexity' thinking, essential for managing non-linear challenges." },
       { title: "Low-Friction Diagnostics", text: "Using NLP analysis of neutral text to map team sentiment and readiness without the friction of endless surveys." }
     ],
     cta: "Schedule Diagnostic",
@@ -48,8 +49,9 @@ const servicesPaths = [
     payload: ["Autonomous Squads", "Role-Based Accountability", "Talent De-Siloing"],
     idealFor: "Replacing rigid reporting lines with dynamic, cross-functional networks.",
     details: [
-      { title: "Autonomous Innovation Units", text: "restructure teams into self-sufficient units that operate like internal startups, decoupled from central bureaucracy." },
-      { title: "Competence-Based Accountability", text: "Moving away from \"titles\" to \"roles,\" ensuring decisions are made by those with the most relevant data." },
+      { title: "The Reality", text: "As AI collapses job functions, old departmental silos become liabilities. Decisions must move to the edge." },
+      { title: "Autonomous Innovation Units", text: "Restructuring teams into self-sufficient units that operate like internal startups, decoupled from central bureaucracy." },
+      { title: "Competence-Based Accountability", text: "Moving away from 'titles' to 'roles,' ensuring decisions are made by those with the most relevant data." },
       { title: "Stopping Talent Hoarding", text: "Strategies to release high-performers from departmental silos to seed innovation across the enterprise." }
     ],
     cta: "Discuss Retainer",
@@ -58,7 +60,7 @@ const servicesPaths = [
   },
   {
     path: "PILLAR 3",
-    title: "AI Infusion Strategist",
+    title: "AI Infusion Lab",
     basePrice: 45000,
     maxPrice: 65000,
     priceNote: "10-Week Lab",
@@ -67,9 +69,10 @@ const servicesPaths = [
     payload: ["10-Week Transformation", "Human-Machine WF", "Tactical Prototyping"],
     idealFor: "Testing and validating new business models safely before core integration.",
     details: [
-      { title: "The 10-Week Transformation Lab", text: "A high-intensity program designed to launch disruptive initiatives at the \"Edge\" of your company." },
-      { title: "Human-Machine Collaboration", text: "Designing workflows where AI agents handle the rote \"output,\" allowing humans to focus on \"outcomes.\"" },
-      { title: "Tactical Prototyping (Vibe Coding)", text: "I step in to rapidly prototype functional concepts to provide the \"existence proof\" needed for buy-in." }
+      { title: "The Philosophy", text: "AI adoption is an experimental journey, not a software rollout. You cannot plan it; you must prototype it." },
+      { title: "The 10-Week Transformation Lab", text: "A high-intensity program designed to launch disruptive initiatives at the 'Edge' of your company." },
+      { title: "Human-Machine Collaboration", text: "Designing workflows where AI agents handle the rote 'output,' allowing humans to focus on 'outcomes.'" },
+      { title: "Tactical Prototyping (Vibe Coding)", text: "I step in to rapidly prototype functional concepts to provide the 'existence proof' needed for buy-in." }
     ],
     cta: "Apply for Lab",
     ctaLink: "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ00YbCp7nC3lquiFi9LfoqKg-Csj9Bl2W9gM3Xf1gYE_1JE3nSowo4K3xY9VMPklsxIqvrZwvCM",
@@ -78,15 +81,16 @@ const servicesPaths = [
   },
   {
     path: "PILLAR 4",
-    title: "Strategy Provocations",
-    basePrice: 18000,
-    maxPrice: 30000,
+    title: "Strategy Facilitation",
+    basePrice: 5670,
+    maxPrice: 9450,
     priceNote: "Single Event",
     duration: "1-2 Days",
     description: "Replacing Superficial Indicators with Value-Driven Data. Facilitated high-stakes sessions to break silos, force alignment, and resolve inertia.",
     payload: ["Strategy Provocations", "Value-Driven Data", "The \"Vibe\" Check"],
     idealFor: "Quarterly planning, breaking silos, and high-stakes leadership alignment.",
     details: [
+      { title: "The Issue", text: "Quarterly planning often degenerates into 'theater'—optimistic roadmaps that ignore systemic friction." },
       { title: "Strategy Provocations", text: "I don't just moderate; I challenge. We identify why tools don't communicate and why touchpoints are fragmented." },
       { title: "Value-Driven Data", text: "Shifting focus from Superficial Indicators (hours, features) to real value metrics (velocity, impact)." },
       { title: "The \"Vibe\" Check", text: "Creating Verified Collaborative Environments where politics, fear, and inertia are resolved." }
@@ -97,7 +101,7 @@ const servicesPaths = [
   },
   {
     path: "CUSTOM",
-    title: "Fractional Autonomy & Alignment Lead",
+    title: "Fractional Change Management & Agile Operations",
     basePrice: 0,
     priceNote: "Custom / Retainer",
     duration: "1 Month Minimum",
@@ -162,10 +166,10 @@ const ServiceCard = ({ service, pricingContext }: { service: typeof servicesPath
         <div className="mb-6">
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="text-xs font-bold text-primary flex items-center gap-1 hover:underline focus:outline-none mb-3"
+            className="w-full text-center py-3 px-4 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-sm font-bold text-primary hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors flex items-center justify-center gap-2 mb-3 shadow-sm hover:translate-y-0.5 hover:shadow-none"
           >
-            {isExpanded ? "Hide Details" : "View Details"}
-            <ArrowRight className={`w-3 h-3 transition-transform ${isExpanded ? 'rotate-90' : ''}`} />
+            {isExpanded ? "Hide Details" : "View Details & Context"}
+            <ArrowRight className={`w-4 h-4 transition-transform ${isExpanded ? 'rotate-90' : ''}`} />
           </button>
 
           <div className={`space-y-3 overflow-hidden transition-all duration-300 ${isExpanded ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
@@ -215,7 +219,7 @@ const getPriceDisplay = (service: typeof servicesPaths[0], context: PricingConte
       : `$${(adjusted / 1000).toFixed(1).replace('.0', '')}k*`; // Add asterisk for adjusted
   };
 
-  if (service.title === "The Systemic Friction Audit" || service.title === "The Systemic Architect") {
+  if (service.title === "Psychology-Led Adoption Strategy" || service.title === "Distributed Authority Strategist") {
     // Precise pricing for smaller amounts
     const adjusted = Math.round(service.basePrice * multiplier);
     return `$${adjusted.toLocaleString()}`;
