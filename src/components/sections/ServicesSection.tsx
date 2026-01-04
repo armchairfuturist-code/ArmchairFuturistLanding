@@ -16,6 +16,13 @@ import {
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { motion, useSpring, useTransform, useMotionValue, AnimatePresence } from 'framer-motion';
 
 type PricingContext = 'standard' | 'ppp' | 'agile';
 
@@ -118,91 +125,181 @@ const servicesPaths = [
   }
 ];
 
-const ServiceCard = ({ service, pricingContext }: { service: typeof servicesPaths[0], pricingContext: PricingContext }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+const RollingPrice = ({ value, context }: { value: number, context: PricingContext }) => {
+  const [displayValue, setDisplayValue] = useState(value);
+  const springValue = useSpring(value, { stiffness: 100, damping: 30 });
+  const rounded = useTransform(springValue, (latest) => Math.round(latest));
+
+  useEffect(() => {
+    springValue.set(value);
+  }, [value, springValue]);
+
+  useEffect(() => {
+    const unsubscribe = rounded.on("change", (v) => {
+      setDisplayValue(v);
+    });
+    return unsubscribe;
+  }, [rounded]);
+
+  if (value === 0) return <span>Custom</span>;
+
+  // Formatting logic mirrored from getPriceDisplay but tailored for numbers
+  const format = (val: number) => {
+    return context === 'standard'
+      ? `$${(val / 1000).toFixed(1).replace('.0', '')}k`
+      : `$${(val / 1000).toFixed(1).replace('.0', '')}k*`;
+  };
+
+  // For specific pillars with precise pricing
+  if (value % 1000 !== 0 && value < 13000) {
+    return <span>${displayValue.toLocaleString()}</span>;
+  }
+
+  return <span>{format(displayValue)}</span>;
+};
+
+const ServiceAccordionItem = ({ service, pricingContext }: { service: typeof servicesPaths[0], pricingContext: PricingContext }) => {
+  // Calculate adjusted price for the RollingComponent
+  let multiplier = 1;
+  if (pricingContext === 'ppp') multiplier = 0.6;
+  if (pricingContext === 'agile') multiplier = 0.85;
+
+  const basePriceAdjusted = Math.round(service.basePrice * multiplier);
+  const maxPriceAdjusted = service.maxPrice ? Math.round(service.maxPrice * multiplier) : null;
+
   return (
-    <div
-      className={`relative flex flex-col rounded-2xl border transition-all duration-300 hover:-translate-y-1 hover:shadow-xl bg-card
-                ${service.highlight
-          ? 'border-primary shadow-[0_0_20px_rgba(76,29,149,0.15)] ring-1 ring-primary/20 scale-105 z-10'
-          : 'border-border shadow-sm hover:border-primary/50'
-        }
-            `}
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0 }
+      }}
+      className="w-full"
     >
-      {service.highlight && (
-        <div className="absolute -top-4 inset-x-0 flex justify-center">
-          <span className="bg-primary text-primary-foreground text-sm px-4 py-1 rounded-full font-bold shadow-lg uppercase tracking-wider flex items-center gap-2">
-            <Rocket className="w-4 h-4" />
-            {service.badge}
-          </span>
-        </div>
-      )}
+      <AccordionItem value={service.title} className={`bg-card border rounded-xl px-2 mb-4 overflow-hidden shadow-sm transition-all hover:shadow-md 
+                ${service.highlight
+          ? 'border-primary/50 ring-1 ring-primary/10 shadow-[0_0_15px_rgba(76,29,149,0.05)]'
+          : 'border-border hover:border-primary/50'}
+                data-[state=open]:ring-1 data-[state=open]:ring-primary/20 data-[state=open]:shadow-lg relative group
+            `}>
+        {service.highlight && (
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+        )}
 
-      <div className="p-6 flex-1 flex flex-col">
-        <div className="mb-4">
-          <div className="flex justify-between items-start mb-2">
-            <h4 className="text-sm font-bold text-muted-foreground uppercase tracking-widest">{service.path}</h4>
-            <span className="text-xs font-mono bg-zinc-100 dark:bg-zinc-800 px-2 py-1 rounded text-zinc-500">{service.duration}</span>
-          </div>
-          <h3 className="font-heading text-xl font-bold text-foreground leading-tight min-h-[3.5rem]">
-            {service.title}
-          </h3>
-        </div>
-
-        <div className="mb-6 pb-6 border-b border-border">
-          <div className="flex items-baseline gap-1">
-            <span className="text-3xl font-bold text-primary transition-all duration-500">
-              {service.basePrice === 0 ? "Custom" : getPriceDisplay(service, pricingContext)}
-            </span>
-          </div>
-          <span className="text-sm text-muted-foreground">{service.priceNote}</span>
-        </div>
-
-        <p className="text-sm text-foreground/80 mb-6 flex-1">
-          {service.description}
-        </p>
-
-        {/* Details Toggle */}
-        <div className="mb-6">
-          <button
-            onClick={() => setIsExpanded(!isExpanded)}
-            className="w-full text-center py-3 px-4 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-sm font-bold text-primary hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors flex items-center justify-center gap-2 mb-3 shadow-sm hover:translate-y-0.5 hover:shadow-none"
-          >
-            {isExpanded ? "Hide Details" : "View Details & Context"}
-            <ArrowRight className={`w-4 h-4 transition-transform ${isExpanded ? 'rotate-90' : ''}`} />
-          </button>
-
-          <div className={`space-y-3 overflow-hidden transition-all duration-300 ${isExpanded ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
-            {service.details?.map((detail, i) => (
-              <div key={i} className="text-sm bg-muted/30 p-3 rounded-lg border border-border/50">
-                <span className="font-bold block text-foreground mb-1">{detail.title}</span>
-                <span className="text-muted-foreground text-xs leading-relaxed block">{detail.text}</span>
+        <AccordionTrigger className="px-4 py-6 hover:no-underline [&[data-state=open]>div>div>svg]:rotate-180">
+          <div className="flex flex-col md:flex-row w-full items-start md:items-center gap-4 text-left z-10">
+            {/* Column 1: Title & Badge */}
+            <div className="flex-1">
+              <div className="flex items-center gap-3 mb-1">
+                <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest">{service.path}</span>
+                {service.highlight && (
+                  <span className="bg-primary/10 text-primary text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider border border-primary/20 flex items-center gap-1 shadow-sm">
+                    <Rocket className="w-3 h-3" />
+                    {service.badge}
+                  </span>
+                )}
               </div>
-            ))}
+              <h3 className="font-heading text-xl md:text-2xl font-bold text-foreground leading-tight group-hover:text-primary transition-colors duration-300">
+                {service.title}
+              </h3>
+            </div>
+
+            {/* Column 2: Duration (Hidden on Mobile, shown in header on Desktop) */}
+            <div className="hidden md:flex items-center gap-2 px-6 border-l border-r border-border/50 h-10 min-w-[140px] justify-center">
+              <span className="text-sm font-semibold text-muted-foreground whitespace-nowrap">{service.duration}</span>
+            </div>
+
+            {/* Column 3: Price (Desktop) */}
+            <div className="hidden md:flex flex-col items-end min-w-[140px]">
+              <span className="text-xl font-bold text-primary tabular-nums">
+                {service.basePrice === 0 ? "Custom" : (
+                  <>
+                    <RollingPrice value={basePriceAdjusted} context={pricingContext} />
+                    {maxPriceAdjusted && (
+                      <> - <RollingPrice value={maxPriceAdjusted} context={pricingContext} /></>
+                    )}
+                  </>
+                )}
+              </span>
+              <span className="text-xs text-muted-foreground">{service.priceNote}</span>
+            </div>
           </div>
-        </div>
+        </AccordionTrigger>
 
-        <div className="bg-muted/50 rounded-lg p-3 mb-6">
-          <p className="text-xs font-semibold text-muted-foreground uppercase mb-2">Technical Payload:</p>
-          <ul className="space-y-1">
-            {service.payload.map((item, i) => (
-              <li key={i} className="text-xs font-mono text-foreground flex items-center gap-2">
-                <CheckCircle2 className="w-3 h-3 text-primary" />
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
+        <AccordionContent className="px-4 pb-6 pt-2">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 border-t border-border/50 pt-6">
 
-        <div className="mt-auto">
-          <Button asChild className={`w-full ${service.highlight ? 'bg-primary hover:bg-primary/90' : 'bg-secondary hover:bg-secondary/80 text-secondary-foreground'}`}>
-            <a href={service.ctaLink} target="_blank" rel="noopener noreferrer">
-              {service.cta} <ArrowRight className="w-4 h-4 ml-2" />
-            </a>
-          </Button>
-        </div>
-      </div>
-    </div>
+            {/* Mobile Only: Price & Duration Re-display */}
+            <div className="lg:hidden flex justify-between items-center bg-muted/30 p-4 rounded-lg border border-border/50">
+              <div className="flex flex-col">
+                <span className="text-xs text-muted-foreground uppercase tracking-widest font-bold">Duration</span>
+                <span className="text-sm font-semibold text-foreground">{service.duration}</span>
+              </div>
+              <div className="flex flex-col items-end">
+                <span className="text-xs text-muted-foreground uppercase tracking-widest font-bold">Investment</span>
+                <div className="text-right">
+                  <span className="block text-lg font-bold text-primary leading-none tabular-nums">
+                    {service.basePrice === 0 ? "Custom" : (
+                      <>
+                        <RollingPrice value={basePriceAdjusted} context={pricingContext} />
+                        {maxPriceAdjusted && (
+                          <> - <RollingPrice value={maxPriceAdjusted} context={pricingContext} /></>
+                        )}
+                      </>
+                    )}
+                  </span>
+                  <span className="text-[10px] text-muted-foreground">{service.priceNote}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Details Column */}
+            <div className="lg:col-span-2 space-y-6">
+              <p className="text-base md:text-lg text-foreground/90 font-sans leading-relaxed">
+                {service.description}
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {service.details?.map((detail, i) => (
+                  <div key={i} className="bg-muted/20 p-4 rounded-lg border border-border/30 hover:bg-muted/40 transition-colors">
+                    <h5 className="font-bold text-foreground text-sm mb-1.5 flex items-start gap-2">
+                      <div className="mt-1 min-w-[6px] min-h-[6px] rounded-full bg-primary" />
+                      {detail.title}
+                    </h5>
+                    <p className="text-xs text-muted-foreground ml-3.5 leading-base">{detail.text}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Payload & CTA Column */}
+            <div className="lg:col-span-1 flex flex-col h-full bg-muted/10 rounded-xl p-6 border border-border/50">
+              <div className="mb-6">
+                <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest mb-3 flex items-center gap-2">
+                  <Zap className="w-3 h-3" /> Technical Payload
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {service.payload.map((item, i) => (
+                    <div key={i} className="text-[11px] font-mono font-medium text-foreground px-2.5 py-1.5 bg-background border border-border/50 rounded-md shadow-sm flex items-center gap-2 hover:border-primary/30 transition-colors">
+                      <CheckCircle2 className="w-3 h-3 text-green-500 shrink-0" />
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-auto pt-6 border-t border-border/30">
+                <Button asChild size="lg" className={`w-full font-bold shadow-lg overflow-hidden group/btn relative ${service.highlight ? 'bg-primary hover:bg-primary/90' : 'bg-background text-foreground border-2 border-foreground/10 hover:border-primary hover:text-primary hover:bg-primary/5'}`}>
+                  <a href={service.ctaLink} target="_blank" rel="noopener noreferrer" className="relative z-10">
+                    {service.cta} <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
+                    {service.highlight && <div className="absolute inset-0 -z-10 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 translate-x-[-200%] group-hover/btn:animate-shimmer" />}
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </AccordionContent>
+      </AccordionItem>
+    </motion.div>
   );
 };
 
@@ -305,10 +402,26 @@ export default function ServicesSection() {
           )}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-24 justify-center">
-          {servicesPaths.map((service, index) => (
-            <ServiceCard key={service.title} service={service} pricingContext={pricingContext} />
-          ))}
+        <div className="max-w-5xl mx-auto mb-24 min-h-[600px]">
+          <Accordion type="single" collapsible className="w-full space-y-3">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={{
+                hidden: {},
+                visible: {
+                  transition: {
+                    staggerChildren: 0.1
+                  }
+                }
+              }}
+            >
+              {servicesPaths.map((service, index) => (
+                <ServiceAccordionItem key={service.title} service={service} pricingContext={pricingContext} />
+              ))}
+            </motion.div>
+          </Accordion>
         </div>
 
         {/* Architectural Variable Pricing Section */}
