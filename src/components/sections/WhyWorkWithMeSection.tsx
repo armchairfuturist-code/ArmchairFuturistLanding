@@ -147,19 +147,6 @@ export default function WhyWorkWithMeSection() {
             <p>
               Adoption has become easy. Impact and momentum has not. I act as the bridge between insight and <em className="italic">human action</em>. My methodology is unapologetically human-centered:
             </p>
-            <ul className="space-y-2 list-none">
-              <li>1️⃣ I integrate AI-powered psychological analysis to uncover the true barriers to action — not just trends.</li>
-              <li>2️⃣ I deploy battle-tested change leadership to shift mindsets, so your people move from “that’s interesting” to “we must act.”</li>
-              <li>3️⃣ I align outcomes that matter: teams solving high-stakes problems, customers feeling a measurable positive difference, and a culture that adapts fast...without burnout.</li>
-            </ul>
-
-            <h4 className="text-xl font-bold text-primary pt-4">Why I Don’t Do Free Work</h4>
-            <p>
-              Anyone can get AI to generate reports. But belief change can’t be tested for free. The differentiator is no longer who experiments with AI, but who redesigns how decisions and accountability actually work.
-            </p>
-            <p>
-              When you invest in a paid discovery session, we diagnose your team’s resistance and readiness upfront. This ensures every strategy I design isn’t just smart — it’s adoptable. No RFPs. No speculative work. Just clarity-first partnerships built on mutual commitment. <strong>I work with one client at a time.</strong>
-            </p>
           </div>
         </div>
 
@@ -195,6 +182,16 @@ export default function WhyWorkWithMeSection() {
               </AccordionItem>
             ))}
           </Accordion>
+        </div>
+
+        <div className="max-w-3xl mx-auto mb-12 text-center text-lg text-foreground/80 font-sans space-y-4">
+          <h4 className="text-xl font-bold text-primary">Why I Don’t Do Free Work</h4>
+          <p>
+            Anyone can get AI to generate reports. But belief change can’t be tested for free. The differentiator is no longer who experiments with AI, but who redesigns how decisions and accountability actually work.
+          </p>
+          <p>
+            When you invest in a paid discovery session, we diagnose your team’s resistance and readiness upfront. This ensures every strategy I design isn’t just smart — it’s adoptable. No RFPs. No speculative work. Just clarity-first partnerships built on mutual commitment. <strong>I work with one client at a time.</strong>
+          </p>
         </div>
 
         <div className="text-center mb-12 mt-16 md:mt-24">
