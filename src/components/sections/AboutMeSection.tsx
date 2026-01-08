@@ -88,14 +88,14 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ title, isOpen, onToggle, 
   }, [isOpen]);
 
   return (
-    <div className="border border-white/20 rounded-xl overflow-hidden backdrop-blur-sm bg-white/5 transition-all duration-300 hover:bg-white/10">
+    <div className="border-b border-white/20 last:border-0 transition-all duration-300">
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between p-4 md:p-5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-sectionBlue"
+        className="w-full flex items-center justify-between py-4 text-left focus:outline-none group"
         aria-expanded={isOpen}
       >
-        <h3 className="text-lg md:text-xl font-bold text-primary pr-4">{title}</h3>
-        <span className="text-primary shrink-0">
+        <h3 className="text-lg md:text-xl font-bold text-primary group-hover:text-primary/80 transition-colors">{title}</h3>
+        <span className="text-primary shrink-0 opacity-70 group-hover:opacity-100 transition-opacity">
           <ChevronIcon isOpen={isOpen} />
         </span>
       </button>
@@ -103,7 +103,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ title, isOpen, onToggle, 
         className="overflow-hidden transition-all duration-300 ease-out"
         style={{ height: `${height}px` }}
       >
-        <div ref={contentRef} className="p-4 md:p-5 pt-0 md:pt-0">
+        <div ref={contentRef} className="pb-4 pr-4">
           {children}
         </div>
       </div>
@@ -118,7 +118,7 @@ export default function AboutMeSection() {
   const contentRef = useRef<HTMLDivElement>(null);
   const [isContentVisible, setIsContentVisible] = useState(false);
 
-  // Accordion state - start with first one open
+  // Accordion state
   const [openAccordion, setOpenAccordion] = useState<number | null>(0);
 
   const toggleAccordion = (index: number) => {
@@ -151,62 +151,99 @@ export default function AboutMeSection() {
   }, []);
 
   return (
-    <section id="about-me" className="relative py-12 md:py-24 bg-sectionBlue scroll-mt-20 overflow-hidden">
+    <section id="about-me" className="relative py-12 md:py-24 bg-sectionBlue scroll-mt-20 overflow-hidden min-h-[800px] flex items-center">
+
+      {/* Blended Portrait Background - Desktop Only */}
+      {/* Positioned absolutely to the right, full height to merge with background */}
+      <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-[55%] pointer-events-none z-0">
+        <div className="relative h-full w-full">
+          <Image
+            src="/Standing-Photoroom.png"
+            alt="Alex Myers"
+            fill
+            className="object-contain object-bottom-right"
+            style={{
+              objectPosition: 'right bottom',
+              // Gradient mask to blend the left side into the background
+              maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.1) 5%, rgba(0,0,0,0.8) 20%, black 40%)',
+              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.1) 5%, rgba(0,0,0,0.8) 20%, black 40%)',
+            }}
+            priority
+            sizes="50vw"
+          />
+        </div>
+      </div>
+
       <div
         ref={contentRef}
-        className={`container mx-auto px-4 md:px-6 scroll-animate relative z-10 ${isContentVisible ? 'is-visible' : ''}`}
+        className={`container mx-auto px-4 md:px-6 relative z-10 w-full ${isContentVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
       >
-        {/* Main Layout Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
 
-          {/* Left Column - Content */}
-          <div className="space-y-6 order-2 lg:order-1">
-            {/* Expert Badge */}
-            {expertCertification && (
-              <div className="flex justify-center lg:justify-start">
-                <a
-                  key={expertCertification.id}
-                  href={expertCertification.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block p-2 rounded-md hover:bg-white/20 transition-colors duration-150 bg-white/10 backdrop-blur-sm shadow-md"
-                  aria-label={expertCertification.name}
-                >
-                  {expertCertification.imageSrc ? (
-                    <Image
-                      src={expertCertification.imageSrc}
-                      alt={`${expertCertification.name} badge`}
-                      width={80}
-                      height={80}
-                      className="object-contain shrink-0 rounded-md"
-                    />
-                  ) : (
-                    <div className="flex h-[80px] w-[80px] shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground">
-                      <span className="font-semibold text-sm">{expertCertification.issuerInitials}</span>
-                    </div>
-                  )}
-                </a>
+          {/* Left Column - Content (Spans 7 columns to be tight effectively) */}
+          <div className="lg:col-span-7 space-y-8">
+
+            {/* Header Section including Image for Mobile */}
+            <div className="flex flex-col">
+              {/* Expert Badge */}
+              {expertCertification && (
+                <div className="flex justify-center lg:justify-start mb-6">
+                  <a
+                    key={expertCertification.id}
+                    href={expertCertification.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block p-2 rounded-md hover:bg-white/20 transition-colors duration-150 bg-white/10 backdrop-blur-sm shadow-md"
+                    aria-label={expertCertification.name}
+                  >
+                    {expertCertification.imageSrc ? (
+                      <Image
+                        src={expertCertification.imageSrc}
+                        alt={`${expertCertification.name} badge`}
+                        width={80}
+                        height={80}
+                        className="object-contain shrink-0 rounded-md"
+                      />
+                    ) : (
+                      <div className="flex h-[80px] w-[80px] shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground">
+                        <span className="font-semibold text-sm">{expertCertification.issuerInitials}</span>
+                      </div>
+                    )}
+                  </a>
+                </div>
+              )}
+
+              {/* Mobile Image - Centered and Large, No Box */}
+              <div className="lg:hidden relative w-full h-[400px] mb-8 -mx-4 w-[calc(100%+2rem)]">
+                <div className="absolute inset-0 bg-gradient-to-b from-sectionBlue via-transparent to-transparent z-10 pointer-events-none h-20" />
+                <Image
+                  src="/Standing-Photoroom.png"
+                  alt="Alex Myers"
+                  fill
+                  className="object-contain object-bottom"
+                  priority
+                  sizes="100vw"
+                />
+                {/* Bottom fade for mobile to blend into content */}
+                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-sectionBlue to-transparent z-10" />
               </div>
-            )}
 
-            {/* Title */}
-            <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl text-center lg:text-left">
-              About Me
-            </h2>
+              <h2 className="font-heading text-4xl font-bold tracking-tight text-primary sm:text-5xl text-center lg:text-left mb-6">
+                About Me
+              </h2>
 
-            {/* Brief Intro - Always Visible */}
-            <div className="prose prose-lg text-foreground/80 max-w-none font-rubik">
-              <p>
-                For years, I've watched a recurring scene: well-intentioned leaders invest heavily in new technology, but the output remains flat because the organization's "immune system" treats change as a threat. This results in <strong>"AI Theatre"</strong>—significant activity with zero meaningful ROI.
-              </p>
-              <p>
-                The problem: Most organizations are still run like rigid machines designed for a world that no longer exists. We try to "roll out" AI like it's a new photocopier, but AI isn't prescriptive; it's a journey of constant experimentation.
-              </p>
+              <div className="prose prose-lg text-foreground/80 max-w-none font-rubik">
+                <p>
+                  For years, I've watched a recurring scene: well-intentioned leaders invest heavily in new technology, but the output remains flat because the organization's "immune system" treats change as a threat. This results in <strong>"AI Theatre"</strong>—significant activity with zero meaningful ROI.
+                </p>
+                <p>
+                  The problem: Most organizations are still run like rigid machines designed for a world that no longer exists. We try to "roll out" AI like it's a new photocopier, but AI isn't prescriptive; it's a journey of constant experimentation.
+                </p>
+              </div>
             </div>
 
-            {/* Accordion Sections */}
-            <div className="space-y-3 pt-2">
-              {/* Accordion 1 */}
+            {/* Accordion Sections - Styling simplified to remove "Box" look */}
+            <div className="space-y-2 pt-4">
               <AccordionItem
                 title="How I Help You Stop Running in Place"
                 isOpen={openAccordion === 0}
@@ -219,7 +256,6 @@ export default function AboutMeSection() {
                 </div>
               </AccordionItem>
 
-              {/* Accordion 2 */}
               <AccordionItem
                 title="How I Help You Move Beyond the 'Theatre'"
                 isOpen={openAccordion === 1}
@@ -262,7 +298,6 @@ export default function AboutMeSection() {
                 </div>
               </AccordionItem>
 
-              {/* Accordion 3 */}
               <AccordionItem
                 title="The Goal: Scale Through Autonomy"
                 isOpen={openAccordion === 2}
@@ -276,8 +311,8 @@ export default function AboutMeSection() {
               </AccordionItem>
             </div>
 
-            {/* CTA - Always Visible */}
-            <div className="pt-6">
+            {/* CTA */}
+            <div className="pt-8">
               <p className="text-lg font-rubik text-foreground/90">
                 <strong>If you are ready to stop running in place and empower the catalysts already sitting in your building, </strong>
                 <a
@@ -296,7 +331,7 @@ export default function AboutMeSection() {
 
             {/* Other Certifications */}
             {otherCertifications.length > 0 && (
-              <div className="pt-4">
+              <div className="pt-8">
                 <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-3">
                   {otherCertifications.map((cert) => (
                     <CertificationItem key={cert.id} certification={cert} />
@@ -304,33 +339,6 @@ export default function AboutMeSection() {
                 </div>
               </div>
             )}
-          </div>
-
-          {/* Right Column - Image */}
-          <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-            <div className="relative">
-              {/* Decorative background circle */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-3xl scale-110 opacity-50" />
-
-              {/* Image container with clipping */}
-              <div className="relative w-64 h-80 md:w-80 md:h-[420px] lg:w-96 lg:h-[500px] overflow-hidden rounded-2xl lg:rounded-3xl shadow-2xl">
-                {/* Gradient overlay for blend effect */}
-                <div className="absolute inset-0 bg-gradient-to-t from-sectionBlue/40 via-transparent to-transparent z-10 pointer-events-none" />
-
-                <Image
-                  src="/Standing-Photoroom.png"
-                  alt="Alex Myers - Fractional Change Architect"
-                  fill
-                  className="object-cover object-top"
-                  priority
-                  sizes="(max-width: 768px) 256px, (max-width: 1024px) 320px, 384px"
-                />
-              </div>
-
-              {/* Decorative elements */}
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl" />
-              <div className="absolute -top-4 -left-4 w-16 h-16 bg-primary/10 rounded-full blur-xl" />
-            </div>
           </div>
         </div>
       </div>
