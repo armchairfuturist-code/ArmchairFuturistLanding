@@ -91,30 +91,48 @@ export default function AboutMeSection() {
   }, []);
 
   return (
-    <section id="about-me" className="py-12 md:py-24 bg-sectionBlue scroll-mt-20">
+    <section id="about-me" className="relative py-12 md:py-24 bg-sectionBlue scroll-mt-20 overflow-hidden">
       <div
         ref={contentRef}
-        className={`container mx-auto px-4 md:px-6 scroll-animate ${isContentVisible ? 'is-visible' : ''
+        className={`container mx-auto px-4 md:px-6 scroll-animate relative z-10 ${isContentVisible ? 'is-visible' : ''
           }`}
       >
-        <div className="grid lg:grid-cols-5 gap-12 items-start">
-          {/* Left Column: Image */}
-          <div className="lg:col-span-3 flex flex-col items-center">
-            <div className="relative w-full"> {/* Removed max-w constraints */}
+        {/* Blended Portrait Background - Desktop Only */}
+        <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-[50%] pointer-events-none">
+          <div className="relative h-full overflow-hidden">
+            <Image
+              src="/Standing-Photoroom.png"
+              alt="Alex Myers"
+              width={1200}
+              height={1600}
+              className="absolute right-0 bottom-0 h-full w-auto object-contain object-bottom-right"
+              style={{
+                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.2) 10%, rgba(0,0,0,0.5) 20%, rgba(0,0,0,0.8) 35%, black 50%)',
+                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.2) 10%, rgba(0,0,0,0.5) 20%, rgba(0,0,0,0.8) 35%, black 50%)',
+              }}
+              priority
+            />
+          </div>
+        </div>
+
+        <div className="relative max-w-4xl">
+          {/* Mobile Portrait - Centered */}
+          <div className="lg:hidden flex justify-center mb-8">
+            <div className="relative w-64 h-80">
               <Image
                 src="/Standing-Photoroom.png"
-                alt="Alex Myers standing"
-                width={1200}
-                height={1600}
-                className="rounded-xl w-full h-auto border-0"
+                alt="Alex Myers"
+                width={400}
+                height={600}
+                className="rounded-xl w-full h-full object-cover"
               />
             </div>
           </div>
 
-          {/* Right Column: Text and All Credentials */}
-          <div className="lg:col-span-2 space-y-6">
+          {/* Content Container */}
+          <div className="space-y-6 lg:pr-12">
             {expertCertification && (
-              <div className="flex justify-center mb-6">
+              <div className="flex justify-center lg:justify-start mb-6">
                 <a
                   key={expertCertification.id}
                   href={expertCertification.link}
@@ -139,25 +157,27 @@ export default function AboutMeSection() {
                 </a>
               </div>
             )}
-            <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl text-center">
+
+            <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl text-center lg:text-left">
               About Me
             </h2>
+
             <div className="prose prose-lg text-foreground/80 max-w-none font-rubik space-y-4">
               <p>
-                For years, I’ve watched a recurring scene: well-intentioned leaders invest heavily in new technology, but the output remains flat because the organization’s "immune system" treats change as a threat. This results in "AI Theatre"—significant activity with zero meaningful ROI.
+                For years, I've watched a recurring scene: well-intentioned leaders invest heavily in new technology, but the output remains flat because the organization's "immune system" treats change as a threat. This results in "AI Theatre"—significant activity with zero meaningful ROI.
               </p>
               <p>
-                The problem: Most organizations are still run like rigid machines designed for a world that no longer exists. We try to "roll out" AI like it’s a new photocopier, but AI isn't prescriptive; it’s a journey of constant experimentation.
+                The problem: Most organizations are still run like rigid machines designed for a world that no longer exists. We try to "roll out" AI like it's a new photocopier, but AI isn't prescriptive; it's a journey of constant experimentation.
               </p>
 
               <p className="text-xl font-bold text-primary pt-4">How I help you stop running in place</p>
               <p>
-                The bottlenecks aren't technical; it’s linear mindsets attempting to manage an exponential reality. Most firms treat AI like a standard software rollout, but true adoption requires a culture of continuous experimentation and psychological readiness.
+                The bottlenecks aren't technical; it's linear mindsets attempting to manage an exponential reality. Most firms treat AI like a standard software rollout, but true adoption requires a culture of continuous experimentation and psychological readiness.
               </p>
 
               <p className="font-bold text-lg text-primary">How I help you move beyond the "Theatre"</p>
               <p>
-                I act as a Fractional Change Architect, helping you upgrade your organisation’s "operating system" to achieve 10x growth rather than incremental 10% improvements. My approach focuses on three human pillars:
+                I act as a Fractional Change Architect, helping you upgrade your organisation's "operating system" to achieve 10x growth rather than incremental 10% improvements. My approach focuses on three human pillars:
               </p>
               <ul className="list-disc pl-5 space-y-3">
                 <li><strong>Identifying High-Readiness Innovators:</strong> A minority of individuals in your company is naturally wired for uncertainty. Using linguistic behavioral intelligence, I identify "Results" thinkers through their existing communication styles, bypassing friction and politics of traditional surveys.</li>
@@ -171,10 +191,10 @@ export default function AboutMeSection() {
                 By implementing distributed authority models and real-time performance dashboards, your teams can operate like independent, high-velocity squads. We stop over-planning for five years and start executing in real-time.
               </p>
 
-              <p className="pt-6"><strong>If you are ready to stop running in place and empower the catalysts already sitting in your building, <a href="https://calendar.app.google.com/v2iqrJhw6AqGjE459" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">let’s talk</a>.</strong></p>
+              <p className="pt-6"><strong>If you are ready to stop running in place and empower the catalysts already sitting in your building, <a href="https://calendar.app.google.com/v2iqrJhw6AqGjE459" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">let's talk</a>.</strong></p>
             </div>
 
-            {/* Other Certifications moved here */}
+            {/* Other Certifications */}
             {otherCertifications.length > 0 && (
               <div className="mt-8">
                 <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-3">
