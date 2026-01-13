@@ -28,6 +28,33 @@ type PricingContext = 'standard' | 'ppp' | 'agile';
 
 const servicesPaths = [
   {
+    path: "CUSTOM",
+    title: "Fractional Change Management & AI Prototyping",
+    basePrice: 0,
+    priceNote: "Custom / Retainer",
+    duration: "1 Month Minimum",
+    description: "Support for leaders who need a 'Fractional Autonomy and Alignment Lead' to bridge the gap between high-level strategy and technical execution. Paid on an ad-hoc basis for specific systemic interventions and technical validation.",
+    payload: ["Rapid MVP & Agent Workflows", "Systemic Alignment", "Culture Coding", "Functional Prototyping"],
+    idealFor: "Organizations needing flexible, high-level strategic direction without full-time headcount.",
+    details: [
+      {
+        title: "Flexible Engagement",
+        text: "Designed for leaders who need an on-call strategist to unblock specific friction points in culture, hiring, or technical roadmap."
+      },
+      {
+        title: "Rapid Validation (The New Addition)",
+        text: "Go from concept to functional MVP in days. Prototype custom apps and multi-agent AI workflows to verify systemic fit before full-scale investment."
+      },
+      {
+        title: "Systemic Scope",
+        text: "Covers everything from conflict resolution and \"Human OS\" design to architectural review and AI-native organizational restructuring."
+      }
+    ],
+    cta: "Discuss Custom Role",
+    ctaLink: "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ00YbCp7nC3lquiFi9LfoqKg-Csj9Bl2W9gM3Xf1gYE_1JE3nSowo4K3xY9VMPklsxIqvrZwvCM",
+    highlight: false
+  },
+  {
     path: "PILLAR 1",
     title: "Psychology-Led Adoption Strategy",
     basePrice: 12500,
@@ -103,23 +130,6 @@ const servicesPaths = [
       { title: "The \"Vibe\" Check", text: "Creating Verified Collaborative Environments where politics, fear, and inertia are resolved." }
     ],
     cta: "Book Session",
-    ctaLink: "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ00YbCp7nC3lquiFi9LfoqKg-Csj9Bl2W9gM3Xf1gYE_1JE3nSowo4K3xY9VMPklsxIqvrZwvCM",
-    highlight: false
-  },
-  {
-    path: "CUSTOM",
-    title: "Fractional Change Management & Agile Operations",
-    basePrice: 0,
-    priceNote: "Custom / Retainer",
-    duration: "1 Month Minimum",
-    description: "Support anything within an organization as a 'fractional autonomy and alignment lead'. Paid on an ad-hoc basis for specific systemic interventions.",
-    payload: ["Ad-Hoc Support", "Systemic Alignment", "Culture Coding"],
-    idealFor: "Organizations needing flexible, high-level strategic direction without full-time headcount.",
-    details: [
-      { title: "Flexible Engagement", text: "Designed for leaders who need an on-call strategist to unblock specific friction points." },
-      { title: "Scope", text: "Can cover anything from conflict resolution to architectural review or hiring support." }
-    ],
-    cta: "Discuss Custom Role",
     ctaLink: "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ00YbCp7nC3lquiFi9LfoqKg-Csj9Bl2W9gM3Xf1gYE_1JE3nSowo4K3xY9VMPklsxIqvrZwvCM",
     highlight: false
   }
@@ -369,7 +379,7 @@ export default function ServicesSection() {
               <strong>I do not sell software implementations</strong>. I diagnose and resolve the <strong>Organisational Inertia</strong> that stifles them.
             </p>
             <p>
-              I operate as a <strong>Distributed Authority Strategist</strong>, <strong>Agile Coach</strong>, and <strong>Change Architect</strong>, helping you build a responsive "Human Operating System" where autonomy, experimentation, and AI are native traits. When needed, I step in tactically to "vibe code" and prototype—not to build the final product, but to demonstrate <em>what is possible</em> and unblock your internal teams.
+              I operate as a <strong>Distributed Authority Strategist</strong>, <strong>Agile Coach</strong>, and <strong>Change Architect</strong>, helping you build a responsive "Human Operating System" where autonomy, experimentation, and AI are native traits. I don’t just 'vibe code'; I build functional software prototypes to verify architectural assumptions and organizational alignment in real-time—unblocking your teams by proving what is actually possible.
             </p>
           </div>
         </div>
