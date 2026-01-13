@@ -42,7 +42,7 @@ const servicesPaths = [
         text: "Designed for leaders who need an on-call strategist to unblock specific friction points in culture, hiring, or technical roadmap."
       },
       {
-        title: "Rapid Validation (The New Addition)",
+        title: "Rapid Validation",
         text: "Go from concept to functional MVP in days. Prototype custom apps and multi-agent AI workflows to verify systemic fit before full-scale investment."
       },
       {
