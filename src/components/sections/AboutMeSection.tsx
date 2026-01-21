@@ -181,7 +181,7 @@ export default function AboutMeSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
 
           {/* Left Column - Content (Spans 7 columns to be tight effectively) */}
-          <div className="lg:col-span-7 space-y-8">
+          <div className="lg:col-span-7 space-y-4">
 
             {/* Header Section including Image for Mobile */}
             <div className="flex flex-col">
