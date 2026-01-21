@@ -236,9 +236,6 @@ export default function AboutMeSection() {
                 <p>
                   For years, I've watched a recurring scene: well-intentioned leaders invest heavily in new technology, but the output remains flat because the organization's "immune system" treats change as a threat. This results in <strong>"AI Theatre"</strong>—significant activity with zero meaningful ROI.
                 </p>
-                <p>
-                  The problem: Most organizations are still run like rigid machines designed for a world that no longer exists. We try to "roll out" AI like it's a new photocopier, but AI isn't prescriptive; it's a journey of constant experimentation.
-                </p>
               </div>
             </div>
 
