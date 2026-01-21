@@ -395,9 +395,27 @@ export default function ServicesSection() {
           />
         </div>
 
+        <div className="flex flex-col md:flex-row items-center justify-center gap-8 max-w-4xl mx-auto mb-8">
+          <div className="bg-card p-6 rounded-xl border border-border text-left">
+            <h4 className="font-bold text-primary mb-2">Engagement</h4>
+            <p className="text-sm text-foreground/80 italic">Retainers start at 1-month minimums.</p>
+          </div>
+          <span className="text-primary text-2xl hidden md:block">→</span>
+          <div className="bg-card p-6 rounded-xl border border-border text-left">
+            <h4 className="font-bold text-primary mb-2">Focus</h4>
+            <p className="text-sm text-foreground/80 italic">High-impact diagnosis, "Edge" incubation, and cultural alignment.</p>
+          </div>
+          <span className="text-primary text-2xl hidden md:block">→</span>
+          <div className="bg-card p-6 rounded-xl border border-border text-left">
+            <h4 className="font-bold text-primary mb-2">Goal</h4>
+            <p className="text-sm text-foreground/80 italic">To make myself obsolete by upgrading your internal team’s capability to handle the future alone.</p>
+          </div>
+        </div>
+
+
+
         {/* Pricing Context Toggle */}
         <div className="flex flex-col items-center mb-12">
-          <span className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4">Organizational Context Selector</span>
           <Tabs defaultValue="standard" className="w-[400px] md:w-auto" onValueChange={(val) => setPricingContext(val as PricingContext)}>
             <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 h-auto md:h-10">
               <TabsTrigger value="standard">Standard (Enterprise)</TabsTrigger>
@@ -485,27 +503,7 @@ export default function ServicesSection() {
           </p>
         </div>
 
-        {/* Engagement Model Footer */}
-        <div className="max-w-4xl mx-auto mt-16 text-center border-t border-border pt-12">
-          <h3 className="text-2xl font-bold text-foreground mb-4">How I Work: Fractional & Outcome-Based</h3>
-          <p className="text-lg text-foreground/80 font-sans max-w-2xl mx-auto mb-8">
-            I am not a "billable hours" contractor looking to fill a seat. I am a fractional partner paid primarily by outcomes.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left max-w-3xl mx-auto">
-            <div className="bg-card p-6 rounded-xl border border-border">
-              <h4 className="font-bold text-primary mb-2">Engagement</h4>
-              <p className="text-sm text-foreground/80">Retainers start at 1-month minimums.</p>
-            </div>
-            <div className="bg-card p-6 rounded-xl border border-border">
-              <h4 className="font-bold text-primary mb-2">Focus</h4>
-              <p className="text-sm text-foreground/80">High-impact diagnosis, "Edge" incubation, and cultural alignment.</p>
-            </div>
-            <div className="bg-card p-6 rounded-xl border border-border">
-              <h4 className="font-bold text-primary mb-2">Goal</h4>
-              <p className="text-sm text-foreground/80">To make myself obsolete by upgrading your internal team’s capability to handle the future alone.</p>
-            </div>
-          </div>
-        </div>
+
 
       </div>
     </section>
