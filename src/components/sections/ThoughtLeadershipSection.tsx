@@ -92,7 +92,7 @@ export default function ThoughtLeadershipSection() {
   };
 
   return (
-    <section id="thought-leadership" className="py-12 md:py-24 bg-background scroll-mt-20">
+    <section id="thought-leadership" className="py-8 md:py-12 bg-background scroll-mt-20">
       <div
         ref={contentRef}
         className={`container mx-auto px-4 md:px-6 scroll-animate ${
