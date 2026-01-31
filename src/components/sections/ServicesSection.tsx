@@ -29,30 +29,31 @@ type PricingContext = 'standard' | 'ppp' | 'agile';
 const servicesPaths = [
   {
     path: "CUSTOM",
-    title: "Fractional Change Management & AI Prototyping",
+    title: "AI-Native Execution & Autonomy Coaching",
     basePrice: 0,
-    priceNote: "Custom / Retainer",
-    duration: "1 Month Minimum",
-    description: "Support for leaders who need a 'Fractional Autonomy and Alignment Lead' to bridge the gap between high-level strategy and technical execution. Paid on an ad-hoc basis for specific systemic interventions and technical validation.",
-    payload: ["Rapid MVP & Agent Workflows", "Systemic Alignment", "Culture Coding", "Functional Prototyping"],
-    idealFor: "Organizations needing flexible, high-level strategic direction without full-time headcount.",
+    priceNote: "Custom / Prototype-led",
+    duration: "Rapid Onboarding",
+    description: "Moving busy founders beyond 'Digital Anchors.' I help you fire your rigid subscription builders (Wix/WP) and rebuild your brand on high-performance, AI-driven stacks that you actually own.",
+    payload: ["AI-Native Stacks", "Autonomy Coaching", "Prompt Engineering", "Ownership Migration"],
+    idealFor: "Entrepreneurs too busy to learn the 'how' but who need the 'result' of an adaptable, future-flexible system.",
     details: [
       {
-        title: "Flexible Engagement",
-        text: "Designed for leaders who need an on-call strategist to unblock specific friction points in culture, hiring, or technical roadmap."
+        title: "Stop the Convenience Tax",
+        text: "Quit paying monthly for logic you don't understand. We move your brand from digital silos to high-speed stacks with zero platform taxes and total ownership."
       },
       {
-        title: "Rapid Validation",
-        text: "Go from concept to functional MVP in days. Prototype custom apps and multi-agent AI workflows to verify systemic fit before full-scale investment."
+        title: "Interactive Autonomy",
+        text: "I don't just hand you a product. We work through mental models—teaching you (if you wish) to steer your own agentic workflows and keep your brand's engine running."
       },
       {
-        title: "Systemic Scope",
-        text: "Covers everything from conflict resolution and \"Human OS\" design to architectural review and AI-native organizational restructuring."
+        title: "Built for 2026",
+        text: "We don't build for today. We build adaptable, future-flexible systems so your personal technology stack evolves as fast as the AI landscape does."
       }
     ],
-    cta: "Discuss Custom Role",
-    ctaLink: "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ00YbCp7nC3lquiFi9LfoqKg-Csj9Bl2W9gM3Xf1gYE_1JE3nSowo4K3xY9VMPklsxIqvrZwvCM",
-    highlight: false
+    cta: "Schedule Free Strategy Session",
+    ctaLink: "https://thearmchairfuturist.com",
+    highlight: true,
+    badge: "New: Digital Autonomy"
   },
   {
     path: "PILLAR 1",
@@ -369,17 +370,17 @@ export default function ServicesSection() {
       >
         <div className="text-center mb-12 max-w-4xl mx-auto">
           <h2 className="font-heading text-4xl md:text-5xl font-bold tracking-tight text-primary mb-8">
-            The Bottleneck Isn't the Code. It’s the Culture.
+            Clear Thinking is the New Code.
           </h2>
           <div className="text-xl text-foreground/80 font-sans leading-relaxed space-y-6">
             <p>
-              The era of buying off-the-shelf SaaS to solve unique problems is ending. Your teams will soon be building their own agent-driven solutions. But powerful tools in a rigid, fear-based structure only create faster chaos.
+              The real "language" of today isn't a specific programming syntax; it's the ability to articulate exactly what you want a system to do and steering AI to execute it.
             </p>
             <p>
-              <strong>I do not sell software implementations</strong>. I diagnose and resolve the <strong>Organisational Inertia</strong> that stifles them.
+              I help founders and entrepreneurs move beyond templates and "Digital Anchors." We aren’t just building a website; we are transforming how you operate. 
             </p>
             <p>
-              I operate as a <strong>Distributed Authority Strategist</strong>, <strong>Agile Coach</strong>, and <strong>Change Architect</strong>, helping you build a responsive "Human Operating System" where autonomy, experimentation, and AI are native traits. I don’t just 'vibe code'; I build functional software prototypes to verify architectural assumptions and organizational alignment in real-time—unblocking your teams by proving what is actually possible.
+              <strong>My Promise:</strong> Don't just hire a developer who will charge you 10x the actual cost. Partner with an operator who executes with you as your needs evolve. If you aren't happy with our initial prototyping and ideation discussions, I will happily refund you.
             </p>
           </div>
         </div>
