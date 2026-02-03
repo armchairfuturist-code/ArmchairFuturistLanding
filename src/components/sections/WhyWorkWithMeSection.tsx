@@ -1,9 +1,28 @@
-
 "use client";
 import { useEffect, useRef, useState } from 'react';
-import type { FC } from 'react'; // Added FC import
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Users, BrainCircuit, ScanSearch, GraduationCap, Crown, TrendingUp, ShieldCheck, DollarSign, Zap, UserMinus, UserCog, UserCheck, UserRoundSearch, HeartHandshake, FlaskConical, ClipboardList, ChevronDown } from 'lucide-react';
+import { 
+  Users, 
+  BrainCircuit, 
+  ScanSearch, 
+  GraduationCap, 
+  Crown, 
+  TrendingUp, 
+  ShieldCheck, 
+  DollarSign, 
+  Zap, 
+  UserMinus, 
+  UserCog, 
+  UserCheck, 
+  UserRoundSearch, 
+  HeartHandshake, 
+  FlaskConical, 
+  ClipboardList, 
+  ChevronDown,
+  MonitorCheck,
+  Code2,
+  Workflow
+} from 'lucide-react';
 import {
   Accordion,
   AccordionContent,
@@ -21,85 +40,49 @@ interface HowIHelpItem {
 
 const howIHelpData: HowIHelpItem[] = [
   {
+    icon: <MonitorCheck className="h-5 w-5 text-primary shrink-0" />,
+    title: "The Agent Operator Framework",
+    content: "I manage your AI systems using a dedicated operational framework that ensures consistency, security, and measurable output:",
+    subPoints: [
+      { icon: <Zap className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Continuous Oversight:</strong> I monitor your assistant's performance daily, catching hallucinations or API failures before they impact your workflow." },
+      { icon: <Code2 className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Technical Maintenance:</strong> I handle the backend complexity—from updating system prompts to integrating the latest models (Gemini, Claude, Grok)." },
+      { icon: <Workflow className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Iterative Optimization:</strong> As your business needs evolve, I refine the assistant's logic and add new 'skills' to handle increasingly complex tasks." },
+    ],
+    keyBenefit: "Maintain high-performance AI infrastructure without ever needing to touch the code yourself."
+  },
+  {
     icon: <BrainCircuit className="h-5 w-5 text-primary shrink-0" />,
-    title: "Cultivating the Four Essential Mindsets for AI Success",
-    content: "I guide your organization in understanding and fostering these key mindset segments, identified through AI-driven language analysis and developmental psychology:",
+    title: "Efficiency Engineering & Logic Design",
+    content: "Clear thinking is the new code. I help you translate your complex business processes into structured AI logic that actually executes:",
     subPoints: [
-      { icon: <UserMinus className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Resistant (5-10%):</strong> Those deeply skeptical or obstructive toward AI change. I help leaders manage this group with compassion and accountability, minimizing disruption without stalling progress." },
-      { icon: <UserCog className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Reluctant (70-75%):</strong> The cautious majority who need evidence, time, and peer support to embrace AI. I design tailored communications and training to build their confidence and desire." },
-      { icon: <UserCheck className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Resilient (15%):</strong> Adaptable employees who quickly move to experimentation once given direction. I empower them as change agents and champions." },
-      { icon: <UserRoundSearch className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Results (5%):</strong> Natural second order thinkers who thrive on ambiguity and lead AI experimentation. Identifying and liberating these “needle-in-the-haystack” talents accelerates pilot success and creates momentum." },
+      { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Mapping manual workflows to identify the highest-leverage automation targets." },
+      { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Designing custom 'system prompts' that capture your specific voice and business rules." },
+      { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Building reliable 'Proof of Work' audit trails via GitHub and Firebase logs." },
     ],
-    keyBenefit: "Accelerate adoption by tailoring strategies to your team's unique psychological profiles."
-  },
-  {
-    icon: <Users className="h-5 w-5 text-primary shrink-0" />,
-    title: "Embedding Second Order Thinking and Emotional Intelligence (EQ)",
-    content: "I help leaders and teams evolve from first order (linear, control-driven) to second order thinking—holistic, adaptive, and emotionally mature approaches essential for navigating AI’s complexity. This shift enables:",
-    subPoints: [
-      { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Embracing uncertainty and iterative experimentation rather than rigid playbooks." },
-      { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Anticipating AI’s ripple effects on workflows, morale, and strategy." },
-      { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Leading with psychological safety, fostering innovation and ethical AI use." },
-    ],
-    keyBenefit: "Build sustainable internal momentum and overcome resistance through holistic strategies."
-  },
-  {
-    icon: <ScanSearch className="h-5 w-5 text-primary shrink-0" />,
-    title: "Leveraging AI-Powered Psychological Assessment for Precision Change Management",
-    content: "Using AI to analyze language from existing employee communications, I provide frictionless, data-driven insights into mindset distributions across your workforce. This enables:",
-    subPoints: [
-      { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Targeted interventions tailored to each mindset segment." },
-      { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Avoiding the “lowest common denominator” approach that slows adoption." },
-      { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Annual rescoring to track psychological growth and adapt strategies dynamically." },
-    ],
-    keyBenefit: "Get objective, customized solutions that truly fit your organization's context and goals."
-  },
-  {
-    icon: <GraduationCap className="h-5 w-5 text-primary shrink-0" />,
-    title: "Designing AI Adoption as an Organizational Learning Challenge, Not Just a Technical Rollout",
-    content: "I help you:",
-    subPoints: [
-      { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Build pilot teams from the Resilient and Results segments to rapidly test and refine AI tools." },
-      { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Showcase quick wins to convert Reluctant employees and reduce resistance." },
-      { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Manage Resistant employees with clear expectations and compassionate accountability." },
-      { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Avoid “talent hoarding” by enabling high performers to spread innovation cross-functionally." },
-      { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Integrate AI into workflows with user-centric design and hybrid models bridging legacy systems." },
-    ],
-    keyBenefit: "Unlock real organizational performance by focusing on learning and adaptation."
-  },
-  {
-    icon: <Crown className="h-5 w-5 text-primary shrink-0" />,
-    title: "Partnering Leadership, Lab, and Crowd for Sustainable AI Transformation",
-    content: "I emphasize the triad of:",
-    subPoints: [
-      { icon: <Crown className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Leadership:</strong> Setting a vivid AI vision, modeling AI use, and creating safe spaces for experimentation." },
-      { icon: <FlaskConical className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Lab:</strong> <em>Intentionally</em> silo teams to remove distractions and politics so they can rapidly build, benchmark, and iterate AI & Agent solutions for highest impact functions around the company." },
-      { icon: <Users className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Crowd:</strong> Empowered employees who discover and share AI use cases, fueling decentralized innovation." },
-    ],
-    keyBenefit: "Foster a culture of innovation by aligning leadership, expert teams, and empowered employees."
+    keyBenefit: "Turn your unique expertise into an automated, scalable system."
   }
 ];
 
 const whyItMattersData = [
   {
     icon: <TrendingUp className="h-6 w-6 text-primary" />,
-    title: "Unlock Real Organizational Performance",
-    content: "Move beyond isolated productivity gains to systemic transformation."
+    title: "Reclaim Your Time",
+    content: "Shift from managing rote administrative tasks to focusing on high-leverage strategic moves."
   },
   {
     icon: <ShieldCheck className="h-6 w-6 text-primary" />,
-    title: "Future-Proof Your Workforce",
-    content: "Equip your people with the mindsets and skills to thrive alongside AI."
+    title: "Data Sovereignty",
+    content: "Own your systems. I build on stacks that you control, ensuring your data isn't locked in a third-party silo."
   },
   {
     icon: <DollarSign className="h-6 w-6 text-primary" />,
-    title: "Maximize AI ROI",
-    content: "Accelerate adoption and scale by focusing on the right people and cultural shifts."
+    title: "Extreme ROI",
+    content: "Eliminate the overhead of a human hire while achieving 24/7 operational throughput."
   },
   {
     icon: <Zap className="h-6 w-6 text-primary" />,
-    title: "Lead with Confidence",
-    content: "Navigate complexity with emotionally intelligent leadership and adaptive strategies."
+    title: "Operational Agility",
+    content: "Evolve your systems as fast as the AI landscape changes, guided by an expert operator."
   }
 ];
 
@@ -120,16 +103,8 @@ export default function WhyWorkWithMeSection() {
       { threshold: 0.1 }
     );
 
-    if (contentRef.current) {
-      observer.observe(contentRef.current);
-    }
-
-    return () => {
-      if (contentRef.current) {
-        observer.unobserve(contentRef.current);
-      }
-      observer.disconnect();
-    };
+    if (contentRef.current) observer.observe(contentRef.current);
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -141,11 +116,11 @@ export default function WhyWorkWithMeSection() {
       >
         <div className="text-center mb-12">
           <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-            How I Work: Mindset-Centered AI Adoption
+            My Approach: Precision AI Operations
           </h2>
           <div className="mt-6 text-lg text-foreground/80 max-w-3xl mx-auto font-sans text-left space-y-4">
             <p>
-              Adoption has become easy. Impact and momentum has not. I act as the bridge between insight and <em className="italic">human action</em>. My methodology is unapologetically human-centered:
+              I act as the bridge between raw AI potential and <em className="italic">business results</em>. My methodology is focused on reliability, separateness, and performance:
             </p>
           </div>
         </div>
@@ -155,7 +130,7 @@ export default function WhyWorkWithMeSection() {
             {howIHelpData.map((item, index) => (
               <AccordionItem key={index} value={`item-${index}`} className="border-b-2 border-primary/10 last:border-b-0">
                 <AccordionTrigger className="text-lg font-semibold hover:no-underline py-6 text-left [&[data-state=open]>svg.lucide-chevron-down]:text-accent">
-                  <div className="flex items-center gap-3 mr-3"> {/* Added mr-3 for spacing before chevron */}
+                  <div className="flex items-center gap-3 mr-3">
                     {item.icon}
                     <span>{item.title}</span>
                   </div>
@@ -163,7 +138,7 @@ export default function WhyWorkWithMeSection() {
                 <AccordionContent className="pt-2 pb-6 text-base text-foreground/80 font-sans">
                   <p className="mb-4">{item.content}</p>
                   {item.subPoints && item.subPoints.length > 0 && (
-                    <ul className="space-y-3 ml-2"> {/* Added ml-2 for slight indent */}
+                    <ul className="space-y-3 ml-2">
                       {item.subPoints.map((subPoint, i) => (
                         <li key={i} className="flex items-start">
                           {subPoint.icon || <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />}
@@ -185,12 +160,12 @@ export default function WhyWorkWithMeSection() {
         </div>
 
         <div className="max-w-3xl mx-auto mb-12 text-center text-lg text-foreground/80 font-sans space-y-4">
-          <h4 className="text-xl font-bold text-primary">Why I Don’t Do Free Work</h4>
+          <h4 className="text-xl font-bold text-primary">Direct Implementation Only</h4>
           <p>
-            Anyone can get AI to generate reports. But belief change can’t be tested for free. The differentiator is no longer who experiments with AI, but who redesigns how decisions and accountability actually work.
+            I don't provide speculative RFPs or generic strategy decks. I focus on building functioning systems. Every engagement starts with a direct prototyping phase where we determine the exact logic needed for your specific context.
           </p>
           <p>
-            When you invest in a paid discovery session, we diagnose your team’s resistance and readiness upfront. This ensures every strategy I design isn’t just smart — it’s adoptable. No RFPs. No speculative work. Just clarity-first partnerships built on mutual commitment. <strong>I work with one client at a time.</strong>
+            This ensures that the infrastructure I build isn't just technologically sound—it's operationally useful. <strong>I manage a limited number of clients to ensure high-touch implementation.</strong>
           </p>
         </div>
 
