@@ -57,7 +57,7 @@ const CertificationItem: React.FC<{ certification: Certification }> = ({ certifi
 };
 
 // Chevron Icon Component
-const ChevronIcon: React.FC<{ isOpen: boolean }> = ({ isOpen }) => (
+const ChevronIcon: { (props: { isOpen: boolean }): JSX.Element } = ({ isOpen }) => (
   <svg
     className={`w-5 h-5 transition-transform duration-300 ease-out ${isOpen ? 'rotate-180' : ''}`}
     fill="none"
@@ -138,23 +138,14 @@ export default function AboutMeSection() {
       { threshold: 0.1 }
     );
 
-    if (contentRef.current) {
-      observer.observe(contentRef.current);
-    }
-
-    return () => {
-      if (contentRef.current) {
-        observer.unobserve(contentRef.current);
-      }
-      observer.disconnect();
-    };
+    if (contentRef.current) observer.observe(contentRef.current);
+    return () => observer.disconnect();
   }, []);
 
   return (
     <section id="about-me" className="relative py-12 md:py-24 bg-sectionBlue scroll-mt-20 overflow-hidden min-h-[800px] flex items-center">
 
       {/* Blended Portrait Background - Desktop Only */}
-      {/* Positioned absolutely to the right, full height to merge with background */}
       <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-[55%] pointer-events-none z-0">
         <div className="relative h-full w-full">
           <Image
@@ -164,7 +155,6 @@ export default function AboutMeSection() {
             className="object-contain object-bottom-right"
             style={{
               objectPosition: 'right bottom',
-              // Gradient mask to blend the left side into the background
               maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.1) 5%, rgba(0,0,0,0.8) 20%, black 40%)',
               WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.1) 5%, rgba(0,0,0,0.8) 20%, black 40%)',
             }}
@@ -180,10 +170,9 @@ export default function AboutMeSection() {
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
 
-          {/* Left Column - Content (Spans 7 columns to be tight effectively) */}
+          {/* Left Column - Content */}
           <div className="lg:col-span-7 space-y-4">
 
-            {/* Header Section including Image for Mobile */}
             <div className="flex flex-col">
               {/* Expert Badge */}
               {expertCertification && (
@@ -213,7 +202,7 @@ export default function AboutMeSection() {
                 </div>
               )}
 
-              {/* Mobile Image - Centered and Large, No Box */}
+              {/* Mobile Image */}
               <div className="lg:hidden relative w-full h-[400px] mb-8 -mx-4 w-[calc(100%+2rem)]">
                 <div className="absolute inset-0 bg-gradient-to-b from-sectionBlue via-transparent to-transparent z-10 pointer-events-none h-20" />
                 <Image
@@ -224,71 +213,63 @@ export default function AboutMeSection() {
                   priority
                   sizes="100vw"
                 />
-                {/* Bottom fade for mobile to blend into content */}
                 <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-sectionBlue to-transparent z-10" />
               </div>
 
               <h2 className="font-heading text-4xl font-bold tracking-tight text-primary sm:text-5xl text-center lg:text-left mb-6">
-                About Me
+                About Alex
               </h2>
 
               <div className="prose prose-lg text-foreground/80 max-w-none font-rubik">
                 <p>
-                  For years, I've watched a recurring scene: well-intentioned leaders invest heavily in new technology, but the output remains flat because the organization's "immune system" treats change as a threat. This results in <strong>"AI Theatre"</strong>—significant activity with zero meaningful ROI.
+                  I optimize human and financial capital using autonomous systems. My background in <strong>Systems Thinking</strong> and <strong>Change Management</strong> allows me to build AI infrastructure that actually executes, rather than just adding to the technical noise.
                 </p>
               </div>
             </div>
 
-            {/* Accordion Sections - Styling simplified to remove "Box" look */}
+            {/* Accordion Sections */}
             <div className="space-y-2 pt-4">
               <AccordionItem
-                title="How I Help You Stop Running in Place"
+                title="Systems Optimization"
                 isOpen={openAccordion === 0}
                 onToggle={() => toggleAccordion(0)}
               >
                 <div className="prose prose-lg text-foreground/80 max-w-none font-rubik">
                   <p>
-                    The bottlenecks aren't technical; it's linear mindsets attempting to manage an exponential reality. Most firms treat AI like a standard software rollout, but true adoption requires a culture of continuous experimentation and psychological readiness.
+                    I view every business process as a series of interconnected loops. Most bottlenecks aren't technical; they are structural. I rebuild those workflows using AI to collapse operational costs and increase throughput.
                   </p>
                 </div>
               </AccordionItem>
 
               <AccordionItem
-                title="How I Help You Move Beyond the 'Theatre'"
+                title="Direct Execution (No 'Theatre')"
                 isOpen={openAccordion === 1}
                 onToggle={() => toggleAccordion(1)}
               >
                 <div className="prose prose-lg text-foreground/80 max-w-none font-rubik">
                   <p>
-                    I act as a Fractional Change Architect, helping you upgrade your organisation's "operating system" to achieve 10x growth rather than incremental 10% improvements. My approach focuses on three human pillars:
+                    I act as your direct <strong>Agent Operator</strong>. I don't hand you a 50-page strategy deck; I provision the servers, write the system prompts, and manage the model integrations myself. My approach is focused on three pillars:
                   </p>
                   <ul className="list-none pl-0 space-y-4 mt-4">
                     <li className="flex gap-3">
                       <span className="text-primary text-xl shrink-0">→</span>
                       <div>
-                        <strong className="text-primary">Identifying High-Readiness Innovators:</strong>
-                        <span className="block mt-1">A minority of individuals in your company is naturally wired for uncertainty. Using linguistic behavioral intelligence, I identify "Results" thinkers through their existing communication styles, bypassing friction and politics of traditional surveys.</span>
+                        <strong className="text-primary">Architecting Autonomy:</strong>
+                        <span className="block mt-1">Building systems that handle rote drafting, scheduling, and research without human intervention.</span>
                       </div>
                     </li>
                     <li className="flex gap-3">
                       <span className="text-primary text-xl shrink-0">→</span>
                       <div>
-                        <strong className="text-primary">Bypassing Organisational Inertia:</strong>
-                        <span className="block mt-1">I help seed innovation at the "edge" of your company. By building rapid pilots with your high-readiness people, we secure early wins that justify further investment and stop "talent hoarding" in silos.</span>
+                        <strong className="text-primary">Managed Operations:</strong>
+                        <span className="block mt-1">Providing ongoing oversight to ensure your AI assistant evolves as fast as the models do.</span>
                       </div>
                     </li>
                     <li className="flex gap-3">
                       <span className="text-primary text-xl shrink-0">→</span>
                       <div>
-                        <strong className="text-primary">From Linear to Adaptive Leadership:</strong>
-                        <span className="block mt-1">I coach leaders to move from "First-Order" (command-and-control) thinking to "Adaptive Intelligence" (EQ). While IQ handles repeatable work, the age of AI requires the emotional maturity to navigate complex, non-linear problem-solving.</span>
-                      </div>
-                    </li>
-                    <li className="flex gap-3">
-                      <span className="text-primary text-xl shrink-0">→</span>
-                      <div>
-                        <strong className="text-primary">Aligning Transformational Purpose:</strong>
-                        <span className="block mt-1">I help craft an Impact-Driven Vision so aspirational that it aligns your team and attracts a wider community, ensuring you stay focused in a world of endless distractions.</span>
+                        <strong className="text-primary">Measurable ROI:</strong>
+                        <span className="block mt-1">Focusing exclusively on workflows that reclaim at least 10-20 hours of your week.</span>
                       </div>
                     </li>
                   </ul>
@@ -296,13 +277,13 @@ export default function AboutMeSection() {
               </AccordionItem>
 
               <AccordionItem
-                title="The Goal: Scale Through Autonomy"
+                title="Data & Privacy Sovereignty"
                 isOpen={openAccordion === 2}
                 onToggle={() => toggleAccordion(2)}
               >
                 <div className="prose prose-lg text-foreground/80 max-w-none font-rubik">
                   <p>
-                    By implementing distributed authority models and real-time performance dashboards, your teams can operate like independent, high-velocity squads. We stop over-planning for five years and start executing in real-time.
+                    In the era of AI, your data is your competitive edge. I build on high-performance, open-standard stacks that ensure you own your logic and your data. No platform taxes, no digital anchors.
                   </p>
                 </div>
               </AccordionItem>
@@ -311,14 +292,14 @@ export default function AboutMeSection() {
             {/* CTA */}
             <div className="pt-8">
               <p className="text-lg font-rubik text-foreground/90">
-                <strong>If you are ready to stop running in place and empower the catalysts already sitting in your building, </strong>
+                <strong>Ready to reclaim your time and focus on high-leverage work? </strong>
                 <a
-                  href="https://calendar.app.google.com/v2iqrJhw6AqGjE459"
+                  href="https://calendar.app.google/nAHHwNMfhDvXGv7P7"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-primary font-bold hover:underline underline-offset-4 transition-all duration-200 hover:gap-3"
                 >
-                  let's talk
+                  Provision your system
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
@@ -326,9 +307,10 @@ export default function AboutMeSection() {
               </p>
             </div>
 
-            {/* Other Certifications */}
+            {/* Certifications */}
             {otherCertifications.length > 0 && (
-              <div className="pt-8">
+              <div className="pt-8 border-t border-white/10">
+                <p className="text-xs font-mono uppercase tracking-widest text-primary/60 mb-4 text-center lg:text-left">Verified Background</p>
                 <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-3">
                   {otherCertifications.map((cert) => (
                     <CertificationItem key={cert.id} certification={cert} />

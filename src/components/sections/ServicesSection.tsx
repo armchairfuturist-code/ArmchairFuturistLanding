@@ -12,7 +12,10 @@ import {
   Globe2,
   TrendingUp,
   ShieldCheck,
-  Calculator
+  Calculator,
+  Layout,
+  Settings,
+  BookOpen
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -28,111 +31,92 @@ type PricingContext = 'standard' | 'ppp' | 'agile';
 
 const servicesPaths = [
   {
-    path: "CUSTOM",
-    title: "AI-Native Execution & Autonomy Coaching",
-    basePrice: 0,
-    priceNote: "Custom / Prototype-led",
-    duration: "Rapid Onboarding",
-    description: "Moving busy founders beyond 'Digital Anchors.' I help you fire your rigid subscription builders (Wix/WP) and rebuild your brand on high-performance, AI-driven stacks that you actually own.",
-    payload: ["AI-Native Stacks", "Autonomy Coaching", "Prompt Engineering", "Ownership Migration"],
-    idealFor: "Entrepreneurs too busy to learn the 'how' but who need the 'result' of an adaptable, future-flexible system.",
+    path: "SERVICE 1",
+    title: "Custom AI Provisioning (Done-For-You)",
+    basePrice: 1000,
+    maxPrice: 5000,
+    priceNote: "Fixed Project",
+    duration: "1-2 Weeks",
+    description: "I build your private AI command center so you don't have to learn the tech. I handle the API integrations, skill configuration, and system architecture to deliver a turnkey solution ready for immediate use.",
+    payload: ["Custom GPTs/Agents", "Calendar & Email Sync", "Workflow Automation", "Secure Infrastructure"],
+    idealFor: "Busy professionals who need the 'result' of an AI assistant without the learning curve.",
     details: [
       {
-        title: "Stop the Convenience Tax",
-        text: "Quit paying monthly for logic you don't understand. We move your brand from digital silos to high-speed stacks with zero platform taxes and total ownership."
+        title: "Architecture & Setup",
+        text: "I handle the heavy lifting: from provisioning the environment to configuring custom skills and cross-platform integrations."
       },
       {
-        title: "Interactive Autonomy",
-        text: "I don't just hand you a product. We work through mental models—teaching you (if you wish) to steer your own agentic workflows and keep your brand's engine running."
+        title: "Ownership & Privacy",
+        text: "You own the final system. I move your data and logic away from rigid silos into high-speed stacks that you control."
       },
       {
-        title: "Built for 2026",
-        text: "We don't build for today. We build adaptable, future-flexible systems so your personal technology stack evolves as fast as the AI landscape does."
+        title: "Immediate Throughput",
+        text: "My goal is to reclaim 10-20 hours of your week by automating rote scheduling, drafting, and research tasks."
       }
     ],
-    cta: "Schedule Free Strategy Session",
-    ctaLink: "https://thearmchairfuturist.com",
-    highlight: true,
-    badge: "New: Digital Autonomy"
-  },
-  {
-    path: "PILLAR 1",
-    title: "Psychology-Led Adoption Strategy",
-    basePrice: 12500,
-    priceNote: "Fixed",
-    duration: "3-4 Weeks",
-    description: "Rewiring the \"Corporate Immune System.\" I use data-driven profiling to segment your organization, ensuring we don't design for the \"lowest common denominator.\"",
-    payload: ["Results Thinker ID", "2nd-Order Coaching", "Low-Friction Diagnostics"],
-    idealFor: "Identifying psychological blocks & \"Internal Mavericks\" to lead change.",
-    details: [
-      { title: "The Problem", text: "Most transformation efforts fail because they ignore the human element. You cannot automate corporate antibodies." },
-      { title: "Bypassing Resistance Gates", text: "I identify the \"Results\" thinkers—the top 5% of your staff naturally wired for uncertainty—and empower them to lead the charge." },
-      { title: "Second-Order Leadership Coaching", text: "Coaching leaders to shift from 'Command-and-Control' to 'Complexity' thinking, essential for managing non-linear challenges." },
-      { title: "Low-Friction Diagnostics", text: "Using NLP analysis of neutral text to map team sentiment and readiness without the friction of endless surveys." }
-    ],
-    cta: "Schedule Diagnostic",
+    cta: "Request Setup",
     ctaLink: "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ00YbCp7nC3lquiFi9LfoqKg-Csj9Bl2W9gM3Xf1gYE_1JE3nSowo4K3xY9VMPklsxIqvrZwvCM",
-    highlight: false
+    highlight: true,
+    badge: "Most Popular",
+    icon: Layout
   },
   {
-    path: "PILLAR 2",
-    title: "Distributed Authority Strategist",
-    basePrice: 15000,
+    path: "SERVICE 2",
+    title: "Managed Agent Operations (AIaaS)",
+    basePrice: 500,
+    maxPrice: 2000,
     priceNote: "/Month",
     duration: "Monthly Retainer",
-    description: "From Hierarchical Bottlenecks to Competence-Based Accountability. Transition to Autonomous Squad Models where decisions follow data, not rank.",
-    payload: ["Autonomous Squads", "Role-Based Accountability", "Talent De-Siloing"],
-    idealFor: "Replacing rigid reporting lines with dynamic, cross-functional networks.",
+    description: "I don't just build the system and walk away; I run it for you. As your Agent Operator, I manage and optimize your AI infrastructure on a monthly retainer so it evolves with your business.",
+    payload: ["Daily Monitoring", "System Optimization", "New Skill Integration", "API Maintenance"],
+    idealFor: "Founders and agencies who want a world-class assistant without the overhead of a human hire.",
     details: [
-      { title: "The Reality", text: "As AI collapses job functions, old departmental silos become liabilities. Decisions must move to the edge." },
-      { title: "Autonomous Innovation Units", text: "Restructuring teams into self-sufficient units that operate like internal startups, decoupled from central bureaucracy." },
-      { title: "Competence-Based Accountability", text: "Moving away from 'titles' to 'roles,' ensuring decisions are made by those with the most relevant data." },
-      { title: "Stopping Talent Hoarding", text: "Strategies to release high-performers from departmental silos to seed innovation across the enterprise." }
+      {
+        title: "Continuous Optimization",
+        text: "I monitor performance and update your prompts and logic as new models are released, ensuring your system never becomes obsolete."
+      },
+      {
+        title: "Managed Infrastructure",
+        text: "I handle model updates, API key management, and security patches. You focus on the output, not the maintenance."
+      },
+      {
+        title: "Scalable Operations",
+        text: "As your business grows, I add new capabilities and integrations to your assistant to handle increased volume and complexity."
+      }
     ],
     cta: "Discuss Retainer",
     ctaLink: "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ00YbCp7nC3lquiFi9LfoqKg-Csj9Bl2W9gM3Xf1gYE_1JE3nSowo4K3xY9VMPklsxIqvrZwvCM",
-    highlight: false
+    highlight: false,
+    icon: Settings
   },
   {
-    path: "PILLAR 3",
-    title: "AI Infusion Lab",
-    basePrice: 45000,
-    maxPrice: 65000,
-    priceNote: "10-Week Lab",
-    duration: "10 Weeks",
-    description: "Orchestrating the Flow of Intelligence. A 10-week transformation lab to launch disruptive initiatives at the \"Edge\" and validate new models.",
-    payload: ["10-Week Transformation", "Human-Machine WF", "Tactical Prototyping"],
-    idealFor: "Testing and validating new business models safely before core integration.",
+    path: "SERVICE 3",
+    title: "The Implementation Library",
+    basePrice: 47,
+    maxPrice: 497,
+    priceNote: "One-time",
+    duration: "Lifetime Access",
+    description: "Practical blueprints for the self-reliant professional. I package my own internal workflows into templates and guides that you can implement today.",
+    payload: ["Prompt Architectures", "Skill Bundles", "Implementation Guides", "Workflow Blueprints"],
+    idealFor: "Individuals who want the 'how' and prefer to build their own systems using proven logic.",
     details: [
-      { title: "The Philosophy", text: "AI adoption is an experimental journey, not a software rollout. You cannot plan it; you must prototype it." },
-      { title: "The 10-Week Transformation Lab", text: "A high-intensity program designed to launch disruptive initiatives at the 'Edge' of your company." },
-      { title: "Human-Machine Collaboration", text: "Designing workflows where AI agents handle the rote 'output,' allowing humans to focus on 'outcomes.'" },
-      { title: "Tactical Prototyping (Vibe Coding)", text: "I step in to rapidly prototype functional concepts to provide the 'existence proof' needed for buy-in." }
+      {
+        title: "Battle-Tested Blueprints",
+        text: "Get access to the exact prompts and logic I use to run my own autonomous systems and client implementations."
+      },
+      {
+        title: "Step-by-Step Training",
+        text: "No surface-level theory. I provide clear, technical walkthroughs that focus on execution and measurable results."
+      },
+      {
+        title: "Reusable Assets",
+        text: "Includes downloadable skill templates and workflow maps that you can plug into your own AI setup immediately."
+      }
     ],
-    cta: "Apply for Lab",
-    ctaLink: "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ00YbCp7nC3lquiFi9LfoqKg-Csj9Bl2W9gM3Xf1gYE_1JE3nSowo4K3xY9VMPklsxIqvrZwvCM",
-    highlight: true,
-    badge: "Most Transformative"
-  },
-  {
-    path: "PILLAR 4",
-    title: "Strategy Facilitation",
-    basePrice: 5670,
-    maxPrice: 9450,
-    priceNote: "Single Event",
-    duration: "1-2 Days",
-    description: "Replacing Superficial Indicators with Value-Driven Data. Facilitated high-stakes sessions to break silos, force alignment, and resolve inertia.",
-    payload: ["Strategy Provocations", "Value-Driven Data", "The \"Vibe\" Check"],
-    idealFor: "Quarterly planning, breaking silos, and high-stakes leadership alignment.",
-    details: [
-      { title: "The Issue", text: "Quarterly planning often degenerates into 'theater'—optimistic roadmaps that ignore systemic friction." },
-      { title: "Strategy Provocations", text: "I don't just moderate; I challenge. We identify why tools don't communicate and why touchpoints are fragmented." },
-      { title: "Value-Driven Data", text: "Shifting focus from Superficial Indicators (hours, features) to real value metrics (velocity, impact)." },
-      { title: "The \"Vibe\" Check", text: "Creating Verified Collaborative Environments where politics, fear, and inertia are resolved." }
-    ],
-    cta: "Book Session",
-    ctaLink: "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ00YbCp7nC3lquiFi9LfoqKg-Csj9Bl2W9gM3Xf1gYE_1JE3nSowo4K3xY9VMPklsxIqvrZwvCM",
-    highlight: false
+    cta: "Browse Library",
+    ctaLink: "https://thearmchairfuturist.com",
+    highlight: false,
+    icon: BookOpen
   }
 ];
 
@@ -154,29 +138,28 @@ const RollingPrice = ({ value, context }: { value: number, context: PricingConte
 
   if (value === 0) return <span>Custom</span>;
 
-  // Formatting logic mirrored from getPriceDisplay but tailored for numbers
+  // Formatting logic for specific price points
+  if (value < 1000) {
+    return <span>${displayValue}</span>;
+  }
+
   const format = (val: number) => {
     return context === 'standard'
       ? `$${(val / 1000).toFixed(1).replace('.0', '')}k`
       : `$${(val / 1000).toFixed(1).replace('.0', '')}k*`;
   };
 
-  // For specific pillars with precise pricing
-  if (value % 1000 !== 0 && value < 13000) {
-    return <span>${displayValue.toLocaleString()}</span>;
-  }
-
   return <span>{format(displayValue)}</span>;
 };
 
 const ServiceAccordionItem = ({ service, pricingContext }: { service: typeof servicesPaths[0], pricingContext: PricingContext }) => {
-  // Calculate adjusted price for the RollingComponent
   let multiplier = 1;
   if (pricingContext === 'ppp') multiplier = 0.6;
   if (pricingContext === 'agile') multiplier = 0.85;
 
   const basePriceAdjusted = Math.round(service.basePrice * multiplier);
   const maxPriceAdjusted = service.maxPrice ? Math.round(service.maxPrice * multiplier) : null;
+  const Icon = service.icon;
 
   return (
     <motion.div
@@ -198,7 +181,6 @@ const ServiceAccordionItem = ({ service, pricingContext }: { service: typeof ser
 
         <AccordionTrigger className="px-4 py-6 hover:no-underline [&[data-state=open]>div>div>svg]:rotate-180">
           <div className="flex flex-col md:flex-row w-full items-start md:items-center gap-4 text-left z-10">
-            {/* Column 1: Title & Badge */}
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-1">
                 <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest">{service.path}</span>
@@ -209,26 +191,23 @@ const ServiceAccordionItem = ({ service, pricingContext }: { service: typeof ser
                   </span>
                 )}
               </div>
-              <h3 className="font-heading text-xl md:text-2xl font-bold text-foreground leading-tight group-hover:text-primary transition-colors duration-300">
-                {service.title}
-              </h3>
+              <div className="flex items-center gap-3">
+                <Icon className="w-5 h-5 text-primary" />
+                <h3 className="font-heading text-xl md:text-2xl font-bold text-foreground leading-tight group-hover:text-primary transition-colors duration-300">
+                  {service.title}
+                </h3>
+              </div>
             </div>
 
-            {/* Column 2: Duration (Hidden on Mobile, shown in header on Desktop) */}
             <div className="hidden md:flex items-center gap-2 px-6 border-l border-r border-border/50 h-10 min-w-[140px] justify-center">
               <span className="text-sm font-semibold text-muted-foreground whitespace-nowrap">{service.duration}</span>
             </div>
 
-            {/* Column 3: Price (Desktop) */}
             <div className="hidden md:flex flex-col items-end min-w-[140px]">
               <span className="text-xl font-bold text-primary tabular-nums">
-                {service.basePrice === 0 ? "Custom" : (
-                  <>
-                    <RollingPrice value={basePriceAdjusted} context={pricingContext} />
-                    {maxPriceAdjusted && (
-                      <> - <RollingPrice value={maxPriceAdjusted} context={pricingContext} /></>
-                    )}
-                  </>
+                <RollingPrice value={basePriceAdjusted} context={pricingContext} />
+                {maxPriceAdjusted && (
+                  <> - <RollingPrice value={maxPriceAdjusted} context={pricingContext} /></>
                 )}
               </span>
               <span className="text-xs text-muted-foreground">{service.priceNote}</span>
@@ -238,8 +217,6 @@ const ServiceAccordionItem = ({ service, pricingContext }: { service: typeof ser
 
         <AccordionContent className="px-4 pb-6 pt-2">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 border-t border-border/50 pt-6">
-
-            {/* Mobile Only: Price & Duration Re-display */}
             <div className="lg:hidden flex justify-between items-center bg-muted/30 p-4 rounded-lg border border-border/50">
               <div className="flex flex-col">
                 <span className="text-xs text-muted-foreground uppercase tracking-widest font-bold">Duration</span>
@@ -249,13 +226,9 @@ const ServiceAccordionItem = ({ service, pricingContext }: { service: typeof ser
                 <span className="text-xs text-muted-foreground uppercase tracking-widest font-bold">Investment</span>
                 <div className="text-right">
                   <span className="block text-lg font-bold text-primary leading-none tabular-nums">
-                    {service.basePrice === 0 ? "Custom" : (
-                      <>
-                        <RollingPrice value={basePriceAdjusted} context={pricingContext} />
-                        {maxPriceAdjusted && (
-                          <> - <RollingPrice value={maxPriceAdjusted} context={pricingContext} /></>
-                        )}
-                      </>
+                    <RollingPrice value={basePriceAdjusted} context={pricingContext} />
+                    {maxPriceAdjusted && (
+                      <> - <RollingPrice value={maxPriceAdjusted} context={pricingContext} /></>
                     )}
                   </span>
                   <span className="text-[10px] text-muted-foreground">{service.priceNote}</span>
@@ -263,7 +236,6 @@ const ServiceAccordionItem = ({ service, pricingContext }: { service: typeof ser
               </div>
             </div>
 
-            {/* Details Column */}
             <div className="lg:col-span-2 space-y-6">
               <p className="text-base md:text-lg text-foreground/90 font-sans leading-relaxed">
                 {service.description}
@@ -282,11 +254,10 @@ const ServiceAccordionItem = ({ service, pricingContext }: { service: typeof ser
               </div>
             </div>
 
-            {/* Payload & CTA Column */}
             <div className="lg:col-span-1 flex flex-col h-full bg-muted/10 rounded-xl p-6 border border-border/50">
               <div className="mb-6">
                 <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest mb-3 flex items-center gap-2">
-                  <Zap className="w-3 h-3" /> Technical Payload
+                  <Zap className="w-3 h-3" /> System Components
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {service.payload.map((item, i) => (
@@ -312,31 +283,6 @@ const ServiceAccordionItem = ({ service, pricingContext }: { service: typeof ser
       </AccordionItem>
     </motion.div>
   );
-};
-
-
-const getPriceDisplay = (service: typeof servicesPaths[0], context: PricingContext) => {
-  let multiplier = 1;
-  if (context === 'ppp') multiplier = 0.6;
-  if (context === 'agile') multiplier = 0.85;
-
-  const format = (val: number) => {
-    const adjusted = Math.round((val * multiplier) / 100) * 100;
-    return context === 'standard'
-      ? `$${(adjusted / 1000).toFixed(1).replace('.0', '')}k`
-      : `$${(adjusted / 1000).toFixed(1).replace('.0', '')}k*`; // Add asterisk for adjusted
-  };
-
-  if (service.title === "Psychology-Led Adoption Strategy" || service.title === "Distributed Authority Strategist") {
-    // Precise pricing for smaller amounts
-    const adjusted = Math.round(service.basePrice * multiplier);
-    return `$${adjusted.toLocaleString()}`;
-  }
-
-  if (service.maxPrice) {
-    return `${format(service.basePrice)} - ${format(service.maxPrice)}`;
-  }
-  return format(service.basePrice);
 };
 
 export default function ServicesSection() {
@@ -370,17 +316,17 @@ export default function ServicesSection() {
       >
         <div className="text-center mb-12 max-w-4xl mx-auto">
           <h2 className="font-heading text-4xl md:text-5xl font-bold tracking-tight text-primary mb-8">
-            Clear Thinking is the New Code.
+            Execution-First AI Engineering.
           </h2>
           <div className="text-xl text-foreground/80 font-sans leading-relaxed space-y-6">
             <p>
-              The real "language" of today isn't a specific programming syntax; it's the ability to articulate exactly what you want a system to do and steering AI to execute it.
+              I build and manage the autonomous systems that allow you to focus on your highest-leverage work. 
             </p>
             <p>
-              I help founders and entrepreneurs move beyond templates and "Digital Anchors." We aren’t just building a website; we are transforming how you operate. 
+              I don't sell theoretical strategy—I deliver functioning, high-performance AI infrastructure that I architect and operate directly.
             </p>
             <p>
-              <strong>My Promise:</strong> Don't just hire a developer who will charge you 10x the actual cost. Partner with an operator who executes with you as your needs evolve. If you aren't happy with our initial prototyping and ideation discussions, I will happily refund you.
+              <strong>My Promise:</strong> Partner with an operator who executes with you as your needs evolve. If you aren't happy with our initial prototyping and ideation discussions, I will happily refund you.
             </p>
           </div>
         </div>
@@ -388,45 +334,41 @@ export default function ServicesSection() {
         <div className="flex justify-center mb-16">
           <Image
             src="/IMG_3458.png"
-            alt="Services overview image showing strategic collaboration"
+            alt="Strategic collaboration overview"
             width={800}
             height={500}
             className="rounded-xl shadow-lg w-full max-w-3xl h-auto"
-            data-ai-hint="strategy collaboration"
           />
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-center gap-8 max-w-4xl mx-auto mb-8">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-8 max-w-4xl mx-auto mb-12">
           <div className="bg-card p-6 rounded-xl border border-border text-left">
-            <h4 className="font-bold text-primary mb-2">Engagement</h4>
-            <p className="text-sm text-foreground/80 italic">Retainers start at 1-month minimums.</p>
+            <h4 className="font-bold text-primary mb-2">Structure</h4>
+            <p className="text-sm text-foreground/80 italic">From one-time builds to ongoing management.</p>
           </div>
           <span className="text-primary text-2xl hidden md:block">→</span>
           <div className="bg-card p-6 rounded-xl border border-border text-left">
             <h4 className="font-bold text-primary mb-2">Focus</h4>
-            <p className="text-sm text-foreground/80 italic">High-impact diagnosis, "Edge" incubation, and cultural alignment.</p>
+            <p className="text-sm text-foreground/80 italic">API Integration, Agent Operations, and Efficiency Engineering.</p>
           </div>
           <span className="text-primary text-2xl hidden md:block">→</span>
           <div className="bg-card p-6 rounded-xl border border-border text-left">
-            <h4 className="font-bold text-primary mb-2">Goal</h4>
-            <p className="text-sm text-foreground/80 italic">To make myself obsolete by upgrading your internal team’s capability to handle the future alone.</p>
+            <h4 className="font-bold text-primary mb-2">Result</h4>
+            <p className="text-sm text-foreground/80 italic">To provide you with a turnkey 'Digital Staff' that handles the rote work so you don't have to.</p>
           </div>
         </div>
 
-
-
-        {/* Pricing Context Toggle */}
         <div className="flex flex-col items-center mb-12">
           <Tabs defaultValue="standard" className="w-[400px] md:w-auto" onValueChange={(val) => setPricingContext(val as PricingContext)}>
             <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 h-auto md:h-10">
-              <TabsTrigger value="standard">Standard (Enterprise)</TabsTrigger>
+              <TabsTrigger value="standard">Standard Rate</TabsTrigger>
               <TabsTrigger value="ppp">Emerging Market (PPP)</TabsTrigger>
               <TabsTrigger value="agile">High-Readiness (Agile)</TabsTrigger>
             </TabsList>
           </Tabs>
           {pricingContext !== 'standard' && (
             <p className="mt-3 text-xs text-primary animate-pulse italic">
-              * Pricing adjusted based on {pricingContext === 'ppp' ? 'Purchasing Power Parity' : 'Agile Readiness Assessment'}
+              * Pricing adjusted based on {pricingContext === 'ppp' ? 'Purchasing Power Parity' : 'Agile Readiness'}
             </p>
           )}
         </div>
@@ -453,59 +395,55 @@ export default function ServicesSection() {
           </Accordion>
         </div>
 
-        {/* Architectural Variable Pricing Section */}
         <div className="max-w-4xl mx-auto mt-16 p-8 md:p-12 bg-zinc-900 rounded-3xl border border-zinc-800 text-left">
-          <h3 className="text-3xl font-heading font-bold text-white mb-6">Architectural Variable Pricing</h3>
+          <h3 className="text-3xl font-heading font-bold text-white mb-6">Variable Pricing Logic</h3>
           <p className="text-lg text-zinc-300 mb-10 leading-relaxed font-sans">
-            I view pricing as a reflection of systemic variables, not a static barrier to entry. My rates are indexed based on three primary factors to ensure the highest probability of successful convergence:
+            I index my rates based on three primary factors to ensure accessible, high-ROI engineering:
           </p>
 
           <div className="grid gap-8 md:grid-cols-3 mb-10">
             <div className="space-y-3">
               <div className="flex items-center gap-2 text-primary font-bold">
-                <Zap className="w-5 h-5" /> <h3>1. Team Readiness Index</h3>
+                <Zap className="w-5 h-5" /> <h3>1. Client Readiness</h3>
               </div>
               <p className="text-sm text-zinc-400">
-                Organizations with existing Agile workflows or high technical literacy require less 'foundational repair.' If your team is ready to run, my fee adjusts to reflect the reduced friction.
+                If your business has existing documented workflows or high technical literacy, my fee adjusts to reflect the reduced friction of implementation.
               </p>
             </div>
             <div className="space-y-3">
               <div className="flex items-center gap-2 text-primary font-bold">
-                <Globe2 className="w-5 h-5" /> <h3>2. Geographic Alignment</h3>
+                <Globe2 className="w-5 h-5" /> <h3>2. Geographic Parity</h3>
               </div>
               <p className="text-sm text-zinc-400">
-                Innovation isn’t exclusive to high-GDP zones. I utilize Purchasing Power Parity (PPP) models to ensure my systemic blueprints are accessible to growth-stage organizations in emerging markets.
+                I utilize Purchasing Power Parity (PPP) models to ensure my implementation blueprints are accessible to entrepreneurs in emerging markets.
               </p>
             </div>
             <div className="space-y-3">
               <div className="flex items-center gap-2 text-primary font-bold">
-                <TrendingUp className="w-5 h-5" /> <h3>3. Performance Alignment</h3>
+                <TrendingUp className="w-5 h-5" /> <h3>3. Measured Impact</h3>
               </div>
               <p className="text-sm text-zinc-400">
-                For high-impact 'Convergence Sprints,' I am open to structured 'Success Fees.' If we are measurably collapsing costs and increasing throughput, I am willing to share the risk—and the reward.
+                For high-volume automation sprints, I am open to structured performance-based fees. If I demonstrably collapse your costs, I'm willing to share the risk.
               </p>
             </div>
           </div>
 
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-8 border-t border-zinc-800">
             <div className="text-zinc-200 font-semibold text-lg flex items-center gap-2">
-              Have a unique organizational context? <ArrowRight className="w-5 h-5 text-primary" />
+              Ready to automate? <ArrowRight className="w-5 h-5 text-primary" />
             </div>
             <Button asChild size="lg" className="bg-white text-zinc-900 hover:bg-zinc-200 font-bold">
               <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ00YbCp7nC3lquiFi9LfoqKg-Csj9Bl2W9gM3Xf1gYE_1JE3nSowo4K3xY9VMPklsxIqvrZwvCM" target="_blank" rel="noopener noreferrer">
                 <Calculator className="w-4 h-4 mr-2" />
-                Submit Organizational Profile for Pricing Alignment
+                Discuss Your Project
               </a>
             </Button>
           </div>
 
           <p className="mt-8 text-center text-xs text-zinc-500 font-mono italic">
-            Note: My engagement capacity is capped to ensure architectural integrity. I prioritize projects based on systemic ROI and the 'Internal Catalyst' potential of the team.
+            Note: I limit my active managed accounts to ensure the architectural integrity of every system I operate.
           </p>
         </div>
-
-
-
       </div>
     </section>
   );
