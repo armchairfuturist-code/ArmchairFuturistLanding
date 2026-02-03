@@ -21,7 +21,8 @@ import {
   ChevronDown,
   MonitorCheck,
   Code2,
-  Workflow
+  Workflow,
+  SearchCode
 } from 'lucide-react';
 import {
   Accordion,
@@ -40,49 +41,61 @@ interface HowIHelpItem {
 
 const howIHelpData: HowIHelpItem[] = [
   {
-    icon: <MonitorCheck className="h-5 w-5 text-primary shrink-0" />,
-    title: "The Agent Operator Framework",
-    content: "I manage your AI systems using a dedicated operational framework that ensures consistency, security, and measurable output:",
+    icon: <BrainCircuit className="h-5 w-5 text-primary shrink-0" />,
+    title: "Layer 1: Mindset Diagnosis & Behavioral Intelligence",
+    content: "Technical friction is usually a symptom of psychological resistance. I use linguistic behavioral intelligence to identify the four essential mindsets within your team or operation:",
     subPoints: [
-      { icon: <Zap className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Continuous Oversight:</strong> I monitor your assistant's performance daily, catching hallucinations or API failures before they impact your workflow." },
-      { icon: <Code2 className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Technical Maintenance:</strong> I handle the backend complexity—from updating system prompts to integrating the latest models (Gemini, Claude, Grok)." },
-      { icon: <Workflow className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Iterative Optimization:</strong> As your business needs evolve, I refine the assistant's logic and add new 'skills' to handle increasingly complex tasks." },
+      { icon: <UserRoundSearch className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Results (The 5%):</strong> Natural innovators who thrive on ambiguity. I identify and liberate these 'needle-in-the-haystack' catalysts to lead your AI pilots." },
+      { icon: <UserCheck className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Resilient (15%):</strong> Adaptable experimentalists who provide the foundational momentum for new systems." },
+      { icon: <UserCog className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Reluctant (70%):</strong> The cautious majority who need verifiable evidence and peer support before adoption." },
+      { icon: <UserMinus className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Resistant (10%):</strong> Those who obstructive toward change. I help you manage this group with compassionate accountability to prevent project stalling." },
     ],
-    keyBenefit: "Maintain high-performance AI infrastructure without ever needing to touch the code yourself."
+    keyBenefit: "Stop building systems your team will never use. Architect for psychological readiness first."
   },
   {
-    icon: <BrainCircuit className="h-5 w-5 text-primary shrink-0" />,
-    title: "Efficiency Engineering & Logic Design",
-    content: "Clear thinking is the new code. I help you translate your complex business processes into structured AI logic that actually executes:",
+    icon: <SearchCode className="h-5 w-5 text-primary shrink-0" />,
+    title: "Layer 2: Efficiency Engineering & Logic Design",
+    content: "Clear thinking is the new code. I translate your unique expertise and complex business processes into structured AI logic that executes reliably:",
     subPoints: [
-      { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Mapping manual workflows to identify the highest-leverage automation targets." },
-      { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Designing custom 'system prompts' that capture your specific voice and business rules." },
+      { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Mapping manual workflows to identify high-leverage automation targets." },
+      { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Designing custom 'system prompts' that capture your specific voice and institutional rules." },
       { icon: <ClipboardList className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />, text: "Building reliable 'Proof of Work' audit trails via GitHub and Firebase logs." },
     ],
-    keyBenefit: "Turn your unique expertise into an automated, scalable system."
+    keyBenefit: "Turn your manual processes into an automated, scalable engine."
+  },
+  {
+    icon: <MonitorCheck className="h-5 w-5 text-primary shrink-0" />,
+    title: "Layer 3: The Agent Operator Framework",
+    content: "I provide continuous oversight to ensure your AI systems deliver consistent, secure, and measurable output:",
+    subPoints: [
+      { icon: <Zap className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Daily Monitoring:</strong> I catch hallucinations or API failures before they impact your workflow." },
+      { icon: <Code2 className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Infrastructure Maintenance:</strong> I handle the complexity of model updates and prompt engineering." },
+      { icon: <Workflow className="h-5 w-5 text-accent mr-2 shrink-0" />, text: "<strong>Continuous Evolvability:</strong> I integrate the latest models (Gemini, Claude, Grok) as they are released." },
+    ],
+    keyBenefit: "High-performance AI operations without the technical overhead."
   }
 ];
 
 const whyItMattersData = [
   {
     icon: <TrendingUp className="h-6 w-6 text-primary" />,
-    title: "Reclaim Your Time",
-    content: "Shift from managing rote administrative tasks to focusing on high-leverage strategic moves."
+    title: "Extreme ROI",
+    content: "Shift from managing rote tasks to high-leverage strategy while achieving 24/7 throughput."
   },
   {
     icon: <ShieldCheck className="h-6 w-6 text-primary" />,
     title: "Data Sovereignty",
-    content: "Own your systems. I build on stacks that you control, ensuring your data isn't locked in a third-party silo."
+    content: "I build on open-standard stacks you control, ensuring your data isn't locked in third-party silos."
   },
   {
-    icon: <DollarSign className="h-6 w-6 text-primary" />,
-    title: "Extreme ROI",
-    content: "Eliminate the overhead of a human hire while achieving 24/7 operational throughput."
+    icon: <FlaskConical className="h-6 w-6 text-primary" />,
+    title: "Prototype, Don't Plan",
+    content: "Move beyond 50-page strategy decks. I focus on building functional concepts that provide proof of work."
   },
   {
     icon: <Zap className="h-6 w-6 text-primary" />,
     title: "Operational Agility",
-    content: "Evolve your systems as fast as the AI landscape changes, guided by an expert operator."
+    content: "Your systems evolve as fast as the AI landscape changes, guided by a dedicated operator."
   }
 ];
 
@@ -116,11 +129,11 @@ export default function WhyWorkWithMeSection() {
       >
         <div className="text-center mb-12">
           <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-            My Approach: Precision AI Operations
+            My Approach: The Execution Stack
           </h2>
           <div className="mt-6 text-lg text-foreground/80 max-w-3xl mx-auto font-sans text-left space-y-4">
             <p>
-              I act as the bridge between raw AI potential and <em className="italic">business results</em>. My methodology is focused on reliability, separateness, and performance:
+              I act as the bridge between raw AI potential and <em className="italic">business results</em>. My methodology integrates behavioral psychology with efficiency engineering:
             </p>
           </div>
         </div>
@@ -162,10 +175,10 @@ export default function WhyWorkWithMeSection() {
         <div className="max-w-3xl mx-auto mb-12 text-center text-lg text-foreground/80 font-sans space-y-4">
           <h4 className="text-xl font-bold text-primary">Direct Implementation Only</h4>
           <p>
-            I don't provide speculative RFPs or generic strategy decks. I focus on building functioning systems. Every engagement starts with a direct prototyping phase where we determine the exact logic needed for your specific context.
+            I focus on building functioning systems, not generic strategy decks. Every engagement starts with a direct prototyping phase where we determine the exact logic needed for your specific context.
           </p>
           <p>
-            This ensures that the infrastructure I build isn't just technologically sound—it's operationally useful. <strong>I manage a limited number of clients to ensure high-touch implementation.</strong>
+            This ensures that your infrastructure is both psychologically aligned and operationally useful. <strong>I manage a limited number of clients to ensure high-touch, precision implementation.</strong>
           </p>
         </div>
 
