@@ -18,7 +18,7 @@ export default function ConnectSection() {
           }
         });
       },
-      { threshold: 0.1 } 
+      { threshold: 0.1 }
     );
 
     if (contentRef.current) {
@@ -37,21 +37,20 @@ export default function ConnectSection() {
     <section id="connect" className="py-16 md:py-24 bg-gradient-to-br from-primary to-primary/90 text-primary-foreground scroll-mt-20">
       <div
         ref={contentRef}
-        className={`container mx-auto px-4 md:px-6 text-center scroll-animate ${
-          isContentVisible ? 'is-visible' : ''
-        }`}
+        className={`container mx-auto px-4 md:px-6 text-center scroll-animate ${isContentVisible ? 'is-visible' : ''
+          }`}
       >
         <h2 className="font-heading text-3xl font-bold tracking-tight sm:text-4xl mb-6">
-          Ready to Build an AI-Resilient Workforce That Delivers Impactful Outcomes?
+          Stop being distracted by tech. Start operating the future.
         </h2>
-        <p className="max-w-2xl mx-auto text-lg text-primary-foreground/80 mb-10 font-sans"> {/* Ensure font-sans for Roboto */}
-          The future is not just about AI technology — it’s about unlocking human potential through the right mindsets and leadership.
+        <p className="max-w-2xl mx-auto text-lg text-primary-foreground/80 mb-10 font-sans">
+          Let's talk about your TQ. High-signal results require skin in the game—and I'm ready to partner with you.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg transition-transform duration-200 hover:scale-105">
-             <a href="https://calendar.app.google/nAHHwNMfhDvXGv7P7" target="_blank" rel="noopener noreferrer">
+            <a href="https://calendar.app.google/nAHHwNMfhDvXGv7P7" target="_blank" rel="noopener noreferrer">
               <CalendarDays className="mr-2 h-5 w-5" />
-              Schedule a Discovery Call
+              Schedule Your Trust Audit
             </a>
           </Button>
           <Button
