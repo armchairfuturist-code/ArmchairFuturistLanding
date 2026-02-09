@@ -308,7 +308,7 @@ export default function ServicesSection() {
             Execution-First Engineering & Strategy.
           </h2>
           <div className="text-xl text-foreground/80 font-sans leading-relaxed space-y-6">
-            <p>I architect the systems that handle complexity so you don't have to. From building private AI assistants for solo founders to leading organizational change for large enterprises.</p>
+            <p>High-signal results require skin in the game. My pricing reflects the deep technical debt I save you from and the personal accountability I provide as your Trusted Architect.</p>
             <p><strong>My Promise:</strong> Partner with an operator who executes with you as your needs evolve. If you aren't happy with our initial prototyping and ideation discussions, I will happily refund you.</p>
           </div>
         </div>
@@ -316,13 +316,13 @@ export default function ServicesSection() {
         {/* Track Selector Toggle */}
         <div className="flex flex-col items-center mb-16">
           <div className="bg-muted p-1.5 rounded-2xl inline-flex gap-2 mb-4 border border-border shadow-inner">
-            <button 
+            <button
               onClick={() => setActiveTrack('entrepreneur')}
               className={`px-8 py-3 rounded-xl font-bold transition-all duration-300 flex items-center gap-2 ${activeTrack === 'entrepreneur' ? 'bg-primary text-primary-foreground shadow-lg' : 'text-muted-foreground hover:text-foreground'}`}
             >
               <Layout className="w-4 h-4" /> Founders & Solo Teams
             </button>
-            <button 
+            <button
               onClick={() => setActiveTrack('organization')}
               className={`px-8 py-3 rounded-xl font-bold transition-all duration-300 flex items-center gap-2 ${activeTrack === 'organization' ? 'bg-primary text-primary-foreground shadow-lg' : 'text-muted-foreground hover:text-foreground'}`}
             >
