@@ -23,7 +23,7 @@ const cases = [
     },
     {
         icon: <Shield className="h-10 w-10 text-blue-500" />,
-        title: "Market Immune Systems",
+        title: "Adaptable Systems",
         description: "Custom AI engines built for decision intelligence and secure, human-monitored execution.",
         category: "Custom Infrastructure",
         accentColor: "border-blue-500/30 hover:border-blue-500/50",
