@@ -11,6 +11,7 @@ export default function Header() {
     { href: '/#services', label: 'Services' },
     { href: '/#about-me', label: 'Why Alex' },
     { href: '/#thought-leadership', label: 'Insights' },
+    { href: 'https://github.com/armchairfuturist-code', label: 'GitHub' },
   ];
 
   const contactItem = { href: 'mailto:armchairfuturist@gmail.com', label: 'Contact Me' };
@@ -31,13 +32,14 @@ export default function Header() {
             The Armchair Futurist
           </span>
         </Link>
-        
+
         <nav className="hidden md:flex gap-6 items-center">
           {navItems.map((item) => (
             <Link
               key={item.label}
               href={item.href}
               className="text-sm font-medium text-foreground/70 transition-colors hover:text-foreground"
+              {...(item.href.startsWith('http') ? { target: "_blank", rel: "noopener noreferrer" } : {})}
             >
               {item.label}
             </Link>
@@ -49,7 +51,7 @@ export default function Header() {
           >
             <Mail className="h-5 w-5" />
           </a>
-           <Button asChild size="sm">
+          <Button asChild size="sm">
             <a href="https://calendar.app.google/nAHHwNMfhDvXGv7P7" target="_blank" rel="noopener noreferrer">
               Schedule a Call
             </a>
@@ -86,11 +88,12 @@ export default function Header() {
                     key={item.label}
                     href={item.href}
                     className="block text-sm font-medium text-foreground/90 transition-colors hover:text-primary"
+                    {...(item.href.startsWith('http') ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   >
                     {item.label}
                   </Link>
                 ))}
-                 <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4">
                   <a
                     href={contactItem.href}
                     className="flex items-center gap-2 text-sm font-medium text-foreground/90 transition-colors hover:text-primary"
@@ -107,11 +110,11 @@ export default function Header() {
                   >
                     <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="h-5 w-5">
                       <title>WhatsApp</title>
-                      <path d="M12.04 2.02c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.42 1.29 4.88L2.02 22l5.25-1.38c1.38.77 2.95 1.18 4.59 1.18h.01c5.46 0 9.9-4.44 9.9-9.9a9.9 9.9 0 0 0-9.9-9.9zM12.04 21.03h-.01c-1.6 0-3.15-.43-4.52-1.23l-.32-.19-3.35.88.9-3.27-.21-.33c-.86-1.4-1.38-3.03-1.38-4.76 0-4.9 3.98-8.88 8.88-8.88a8.88 8.88 0 0 1 8.88 8.88c0 4.9-3.98 8.88-8.88 8.88zm4.52-6.2c-.25-.12-1.47-.72-1.7-.82s-.39-.12-.56.12c-.17.25-.64.82-.79.99-.15.17-.3.19-.56.07s-1.06-.39-2.02-1.25c-.75-.67-1.25-1.5-1.4-1.75s-.02-.38.1-.51c.11-.11.25-.29.37-.44s.17-.25.25-.41.04-.3-.02-.42c-.06-.12-.56-1.34-.76-1.84s-.4-.42-.56-.42-.3 0-.46.01c-.17 0-.42.06-.64.3s-.86.84-.86 2.05c0 1.2.88 2.37 1 2.54s1.75 2.67 4.24 3.73c.58.25 1.04.4 1.4.52.58.17 1.1.15 1.51.09.46-.06 1.47-.6 1.68-1.18s.21-1.09.15-1.18c-.06-.1-.2-.16-.44-.28z"/>
+                      <path d="M12.04 2.02c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.42 1.29 4.88L2.02 22l5.25-1.38c1.38.77 2.95 1.18 4.59 1.18h.01c5.46 0 9.9-4.44 9.9-9.9a9.9 9.9 0 0 0-9.9-9.9zM12.04 21.03h-.01c-1.6 0-3.15-.43-4.52-1.23l-.32-.19-3.35.88.9-3.27-.21-.33c-.86-1.4-1.38-3.03-1.38-4.76 0-4.9 3.98-8.88 8.88-8.88a8.88 8.88 0 0 1 8.88 8.88c0 4.9-3.98 8.88-8.88 8.88zm4.52-6.2c-.25-.12-1.47-.72-1.7-.82s-.39-.12-.56.12c-.17.25-.64.82-.79.99-.15.17-.3.19-.56.07s-1.06-.39-2.02-1.25c-.75-.67-1.25-1.5-1.4-1.75s-.02-.38.1-.51c.11-.11.25-.29.37-.44s.17-.25.25-.41.04-.3-.02-.42c-.06-.12-.56-1.34-.76-1.84s-.4-.42-.56-.42-.3 0-.46.01c-.17 0-.42.06-.64.3s-.86.84-.86 2.05c0 1.2.88 2.37 1 2.54s1.75 2.67 4.24 3.73c.58.25 1.04.4 1.4.52.58.17 1.1.15 1.51.09.46-.06 1.47-.6 1.68-1.18s.21-1.09.15-1.18c-.06-.1-.2-.16-.44-.28z" />
                     </svg>
                   </a>
                 </div>
-                 <Button asChild className="w-full">
+                <Button asChild className="w-full">
                   <a href="https://calendar.app.google/nAHHwNMfhDvXGv7P7" target="_blank" rel="noopener noreferrer">
                     Schedule a Call
                   </a>
