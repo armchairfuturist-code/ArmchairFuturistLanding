@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 export default function Header() {
   const navItems = [
-    { href: '/#how-i-work', label: 'How I Work' },
+    { href: '/#strategy', label: 'How I Work' },
     { href: '/#services', label: 'Services' },
     { href: '/#about-me', label: 'Why Alex' },
     { href: '/#thought-leadership', label: 'Insights' },
@@ -53,7 +53,7 @@ export default function Header() {
           </a>
           <Button asChild size="sm">
             <a href="https://calendar.app.google/nAHHwNMfhDvXGv7P7" target="_blank" rel="noopener noreferrer">
-              Schedule a Call
+              Start Your Trust Audit.
             </a>
           </Button>
         </nav>
@@ -116,7 +116,7 @@ export default function Header() {
                 </div>
                 <Button asChild className="w-full">
                   <a href="https://calendar.app.google/nAHHwNMfhDvXGv7P7" target="_blank" rel="noopener noreferrer">
-                    Schedule a Call
+                    Start Your Trust Audit.
                   </a>
                 </Button>
               </div>

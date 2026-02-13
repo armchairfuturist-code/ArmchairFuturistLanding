@@ -1,33 +1,33 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
-import { TrendingUp, Code2, Shield, ArrowRight } from 'lucide-react';
+import { TrendingUp, Bot, ShieldCheck, ArrowRight } from 'lucide-react';
 import { Card, CardHeader, CardContent, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
 const cases = [
     {
-        icon: <TrendingUp className="h-10 w-10 text-green-500" />,
+        icon: <TrendingUp className="h-10 w-10 text-emerald-600" />,
         title: "High-Signal Strategy",
-        description: "Helping founders and teams pivot to scalable, tech-resilient business models that cut through the noise.",
-        category: "Strategic Partner",
-        accentColor: "border-green-500/30 hover:border-green-500/50",
-        iconBg: "bg-green-500/10"
+        description: "Helping leaders pivot from linear thinking to exponential execution, prioritizing Trust Quotient (TQ) over raw IQ.",
+        category: "Exponential Strategy",
+        accentColor: "border-emerald-600/30 hover:border-emerald-600/50",
+        iconBg: "bg-emerald-600/10"
     },
     {
-        icon: <Code2 className="h-10 w-10 text-purple-500" />,
-        title: "Frictionless Web Design",
-        description: "Rapid deployment of high-value sites that focus on utility, conversion, and long-term adaptability.",
-        category: "Web & Growth",
-        accentColor: "border-purple-500/30 hover:border-purple-500/50",
-        iconBg: "bg-purple-500/10"
+        icon: <Bot className="h-10 w-10 text-cyan-600" />,
+        title: "Custom AI Infrastructure",
+        description: "Designing Market Immune Systems and autonomous staff built for secure, verified, and human-monitored execution.",
+        category: "Autonomous Delivery Loops",
+        accentColor: "border-cyan-600/30 hover:border-cyan-600/50",
+        iconBg: "bg-cyan-600/10"
     },
     {
-        icon: <Shield className="h-10 w-10 text-blue-500" />,
-        title: "Adaptable Systems",
-        description: "Custom AI engines built for decision intelligence and secure, human-monitored execution.",
-        category: "Custom Infrastructure",
-        accentColor: "border-blue-500/30 hover:border-blue-500/50",
-        iconBg: "bg-blue-500/10"
+        icon: <ShieldCheck className="h-10 w-10 text-blue-600" />,
+        title: "Strategic Resiliency",
+        description: "Cutting burn rates and strengthening your digital moat to weather the coming dislocations.",
+        category: "Operational Hardening",
+        accentColor: "border-blue-600/30 hover:border-blue-600/50",
+        iconBg: "bg-blue-600/10"
     }
 ];
 
@@ -58,10 +58,10 @@ export default function UseCasesSection() {
             >
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-4">
-                        Strategic Tech Focus
+                        Strategy & Infrastructure (The TQ Premium)
                     </h2>
                     <p className="text-foreground/70 max-w-2xl mx-auto font-sans text-lg">
-                        From strategic oversight to tactical implementation, every engagement is designed for maximum signal and zero noise.
+                        Secure, verified systems for leaders who need accountable outcomes, not AI theater.
                     </p>
                 </div>
 
@@ -69,7 +69,8 @@ export default function UseCasesSection() {
                     {cases.map((useCase, index) => (
                         <Card
                             key={index}
-                            className={`bg-card border-2 ${useCase.accentColor} transition-all duration-300 group hover:-translate-y-2 hover:shadow-xl`}
+                            className={`bg-card border-2 ${useCase.accentColor} transition-all duration-300 group hover:-translate-y-2 hover:shadow-xl scroll-animate ${isVisible ? 'is-visible' : ''}`}
+                            style={{ animationDelay: `${index * 110}ms` }}
                         >
                             <CardHeader>
                                 <div className={`mb-4 p-4 ${useCase.iconBg} rounded-xl w-fit group-hover:scale-110 transition-transform duration-300`}>
@@ -98,7 +99,7 @@ export default function UseCasesSection() {
                         className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg px-8 py-6 shadow-lg transition-all duration-200 hover:scale-105"
                     >
                         <a href="#connect">
-                            Schedule Your Trust Audit <ArrowRight className="ml-2 w-5 h-5" />
+                            Start Your Trust Audit. <ArrowRight className="ml-2 w-5 h-5" />
                         </a>
                     </Button>
                 </div>

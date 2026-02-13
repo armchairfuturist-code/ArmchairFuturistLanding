@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { CalendarDays, Mail, Mic, Zap, Terminal } from 'lucide-react';
+import { Zap, Terminal } from 'lucide-react';
 
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -70,7 +70,7 @@ export default function HeroSection() {
           }`}
       >
         <div className="flex flex-col items-center justify-center space-y-6 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-100 text-xs font-mono mb-4 backdrop-blur-sm animate-pulse">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-100 text-xs font-mono mb-4 backdrop-blur-sm">
             <Terminal className="w-3 h-3" />
             <span>Trust Quotient: High</span>
           </div>
@@ -85,7 +85,7 @@ export default function HeroSection() {
           </h1>
 
           <p className="mt-8 text-primary-foreground/95 text-lg md:text-2xl max-w-4xl mx-auto hero-text-shadow font-sans leading-relaxed">
-            I architect high-trust AI systems and future-ready mindsets for leaders who can't afford to be distracted. From custom <span className="font-bold text-accent italic">Autonomous Digital Staff</span> to high-signal growth strategy, I ensure your execution is secure, scalable, and human-accountable.
+            I architect outcomes where AI can't. While others get lost in the noise of exponential change, I provide the Vision, Verification, and Resiliency to turn technical chaos into high-signal execution.
           </p>
 
           <div className="mt-12 flex flex-col gap-5 sm:flex-row sm:flex-wrap sm:justify-center">
@@ -101,7 +101,7 @@ export default function HeroSection() {
               className="bg-black/40 text-primary-foreground border-2 border-primary-foreground/50 hover:bg-primary-foreground hover:text-primary shadow-xl transition-all duration-200 hover:scale-105 h-14 px-8 text-lg font-bold backdrop-blur-md"
             >
               <a href="#services">
-                Start Your TQ Audit
+                Start Your Trust Audit.
               </a>
             </Button>
           </div>
