@@ -53,7 +53,7 @@ export default function Header() {
           </a>
           <Button asChild size="sm">
             <a href="https://calendar.app.google/nAHHwNMfhDvXGv7P7" target="_blank" rel="noopener noreferrer">
-              Start Your Trust Audit.
+              Start Your Trust Audit
             </a>
           </Button>
         </nav>
@@ -116,7 +116,7 @@ export default function Header() {
                 </div>
                 <Button asChild className="w-full">
                   <a href="https://calendar.app.google/nAHHwNMfhDvXGv7P7" target="_blank" rel="noopener noreferrer">
-                    Start Your Trust Audit.
+                    Start Your Trust Audit
                   </a>
                 </Button>
               </div>

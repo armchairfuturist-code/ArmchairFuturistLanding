@@ -7,12 +7,9 @@
    - Network:      http://0.0.0.0:3001
 
  ✓ Starting...
- ✓ Ready in 739ms
+ ✓ Ready in 720ms
  ○ Compiling / ...
- ✓ Compiled / in 2.3s
- GET / 200 in 2807ms
- GET / 200 in 244ms
- ✓ Compiled /favicon.ico in 174ms
- GET /favicon.ico?favicon.7ed73651.ico 200 in 454ms
- GET /api/substack 200 in 553ms
- ✓ Compiled in 122ms
+ ✓ Compiled / in 2.4s
+ GET / 200 in 2875ms
+ GET / 200 in 219ms
+ GET / 200 in 328ms
