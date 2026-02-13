@@ -1,0 +1,22 @@
+
+> nextn@0.1.0 dev
+> next dev --turbopack -p 9002 --hostname 0.0.0.0 --port 3000
+
+   ▲ Next.js 15.5.9 (Turbopack)
+   - Local:        http://localhost:3000
+   - Network:      http://0.0.0.0:3000
+
+ ✓ Starting...
+ ✓ Ready in 966ms
+ ○ Compiling / ...
+
+[1m[33mwarn[39m[22m - The class `ease-[cubic-bezier(0.25,0.1,0.25,1.0)]` is ambiguous and matches multiple utilities.
+[1m[33mwarn[39m[22m - If this is content and not a class, replace it with `ease-&lsqb;cubic-bezier(0.25,0.1,0.25,1.0)&rsqb;` to silence this warning.
+ ✓ Compiled / in 2.4s
+ GET / 200 in 2933ms
+ ✓ Compiled in 86ms
+ ✓ Compiled in 19ms
+ ✓ Compiled / in 35ms
+ GET / 200 in 362ms
+ ✓ Compiled in 27ms
+ ✓ Compiled in 24ms

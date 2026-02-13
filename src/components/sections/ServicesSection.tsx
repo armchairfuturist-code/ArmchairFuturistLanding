@@ -36,6 +36,26 @@ type ServiceTrack = 'entrepreneur' | 'organization';
 
 const entrepreneurServices = [
   {
+    path: "ENTRY OFFER",
+    title: "Own Your Identity: The $199 Landing Page",
+    basePrice: 199,
+    priceNote: "Flat",
+    duration: "2-4 Days",
+    description: "Linktree is dead in an interview economy where you need a platform, not a digital business card. I build you an interview-ready digital identity site that translates your LinkedIn vibe, resume details, and social links into one high-signal platform you own.",
+    payload: ["LinkedIn Vibe Mapping", "Resume Signal Extraction", "Social Link Stack", "Interview-Ready Storyline"],
+    idealFor: "Professionals who want to stand out before the first interview question is asked.",
+    details: [
+      { title: "Personal Brand Landing Page", text: "A conversion-focused homepage built around your differentiators, voice, and target opportunities." },
+      { title: "Digital Identity Upgrade", text: "I synthesize your LinkedIn profile and resume details into clear narrative blocks recruiters can scan in seconds." },
+      { title: "Social Proof & Contact Layer", text: "I wire your social links, booking call-to-action, and credibility assets into a single interview-ready portfolio." }
+    ],
+    cta: "Claim Your $199 Page",
+    ctaLink: "https://calendar.app.google/nAHHwNMfhDvXGv7P7",
+    highlight: true,
+    badge: "Primary Offer",
+    icon: Globe2
+  },
+  {
     path: "SERVICE 1",
     title: "Custom AI Provisioning (Done-For-You)",
     basePrice: 1000,
@@ -52,7 +72,7 @@ const entrepreneurServices = [
     ],
     cta: "Request Setup",
     ctaLink: "https://calendar.app.google/nAHHwNMfhDvXGv7P7",
-    highlight: true,
+    highlight: false,
     badge: "Most Popular",
     icon: Layout
   },
@@ -91,8 +111,8 @@ const entrepreneurServices = [
       { title: "Step-by-Step Training", text: "No surface-level theory. I provide clear, technical walkthroughs that focus on execution and measurable results." },
       { title: "Reusable Assets", text: "Includes downloadable skill templates and workflow maps that you can plug into your own AI setup immediately." }
     ],
-    cta: "Browse Library",
-    ctaLink: "https://thearmchairfuturist.com",
+    cta: "E-mail for more information",
+    ctaLink: "mailto:armchairfuturist@gmail.com",
     highlight: false,
     icon: BookOpen
   }
@@ -180,7 +200,7 @@ const RollingPrice = ({ value, context }: { value: number, context: PricingConte
   return <span>{format(displayValue)}</span>;
 };
 
-const ServiceAccordionItem = ({ service, pricingContext }: { service: any, pricingContext: PricingContext }) => {
+const ServiceAccordionItem = ({ service, pricingContext, index }: { service: any, pricingContext: PricingContext, index: number }) => {
   let multiplier = 1;
   if (pricingContext === 'ppp') multiplier = 0.6;
   if (pricingContext === 'agile') multiplier = 0.85;
@@ -190,7 +210,12 @@ const ServiceAccordionItem = ({ service, pricingContext }: { service: any, prici
   const Icon = service.icon;
 
   return (
-    <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="w-full" >
+    <motion.div
+      className="w-full"
+      initial={{ opacity: 0, y: 18 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.35, ease: 'easeOut', delay: index * 0.06 }}
+    >
       <AccordionItem value={service.title} className={`bg-card border rounded-xl px-2 mb-4 overflow-hidden shadow-sm transition-all hover:shadow-md 
                 ${service.highlight ? 'border-primary/50 ring-1 ring-primary/10 shadow-[0_0_15px_rgba(76,29,149,0.05)]' : 'border-border hover:border-primary/50'}
                 data-[state=open]:ring-1 data-[state=open]:ring-primary/20 data-[state=open]:shadow-lg relative group`}>
@@ -308,7 +333,7 @@ export default function ServicesSection() {
             Execution-First Engineering & Strategy.
           </h2>
           <div className="text-xl text-foreground/80 font-sans leading-relaxed space-y-6">
-            <p>High-signal results require skin in the game. My pricing reflects the deep technical debt I save you from and the personal accountability I provide as your Trusted Architect.</p>
+            <p>High-signal results require skin in the game. Start with the $199 Digital Identity upgrade - <strong>Your resume is not enough in 2026.</strong> - then scale into deeper architecture as your execution matures.</p>
             <p><strong>My Promise:</strong> Partner with an operator who executes with you as your needs evolve. If you aren't happy with our initial prototyping and ideation discussions, I will happily refund you.</p>
           </div>
         </div>
@@ -360,7 +385,7 @@ export default function ServicesSection() {
             >
               <Accordion type="single" collapsible className="w-full space-y-3">
                 {(activeTrack === 'entrepreneur' ? entrepreneurServices : organizationServices).map((service, index) => (
-                  <ServiceAccordionItem key={service.title} service={service} pricingContext={pricingContext} />
+                  <ServiceAccordionItem key={service.title} service={service} pricingContext={pricingContext} index={index} />
                 ))}
               </Accordion>
             </motion.div>

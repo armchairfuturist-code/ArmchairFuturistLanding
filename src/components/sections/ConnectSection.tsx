@@ -2,7 +2,7 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { CalendarDays, Mic, Mail } from 'lucide-react'; // Added Mail
+import { CalendarDays, Mic } from 'lucide-react';
 
 export default function ConnectSection() {
   const contentRef = useRef<HTMLDivElement>(null);
@@ -41,16 +41,16 @@ export default function ConnectSection() {
           }`}
       >
         <h2 className="font-heading text-3xl font-bold tracking-tight sm:text-4xl mb-6">
-          Stop being distracted by tech. Start operating the future.
+          Stop being distracted by the noise. Start architecting your outcomes. Let's talk about your TQ.
         </h2>
         <p className="max-w-2xl mx-auto text-lg text-primary-foreground/80 mb-10 font-sans">
-          Let's talk about your TQ. High-signal results require skin in the game—and I'm ready to partner with you.
+          High-signal execution needs a Human Architect, verified delivery loops, and last-mile polishing.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg transition-transform duration-200 hover:scale-105">
             <a href="https://calendar.app.google/nAHHwNMfhDvXGv7P7" target="_blank" rel="noopener noreferrer">
               <CalendarDays className="mr-2 h-5 w-5" />
-              Schedule Your Trust Audit
+              Secure My Execution.
             </a>
           </Button>
           <Button

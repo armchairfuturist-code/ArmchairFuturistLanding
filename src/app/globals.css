@@ -27,6 +27,23 @@
   animation: fadeInUp 0.8s cubic-bezier(0.25, 0.1, 0.25, 1.0) forwards;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .scroll-animate,
+  .scroll-animate.is-visible {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+}
+
 
 @layer base {
   :root {

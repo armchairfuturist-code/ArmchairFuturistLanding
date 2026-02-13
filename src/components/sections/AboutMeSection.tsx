@@ -1,11 +1,12 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import { Linkedin } from 'lucide-react';
 import type { Certification } from '@/types';
 
 const certificationsData: Certification[] = [
   { id: "genaiExpert", name: "GenAI Academy Expert", issuerInitials: "GAIE", link: "https://thegenaiacademy.com/expert-hub/alex-myers/", imageSrc: "/expert.png" },
-  { id: "ccmp", name: "Certified Change Management Professional", issuerInitials: "CCMP", link: "https://www.ccmprofessional.org/", imageSrc: "/CCMP.png" },
+  { id: "ccmp", name: "Certified Change Management Professional", issuerInitials: "CCMP", imageSrc: "/CCMP.png" },
   { id: "flta", name: "Certified Futurist & Long-Term Analyst", issuerInitials: "FLTA", imageSrc: "/Futurist.jpg" },
   { id: "cebp", name: "Certified Enterprise Blockchain Professional", issuerInitials: "CEBP", imageSrc: "/CEBP.png" },
   { id: "psm", name: "Professional Scrum Master", issuerInitials: "PSM", imageSrc: "/PSM.png" },
@@ -166,7 +167,7 @@ export default function AboutMeSection() {
 
       <div
         ref={contentRef}
-        className={`container mx-auto px-4 md:px-6 relative z-10 w-full ${isContentVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+        className={`container mx-auto px-4 md:px-6 relative z-10 w-full scroll-animate ${isContentVisible ? 'is-visible' : ''}`}
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
 
@@ -182,8 +183,8 @@ export default function AboutMeSection() {
                     href={expertCertification.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block p-2 rounded-md hover:bg-white/20 transition-colors duration-150 bg-white/10 backdrop-blur-sm shadow-md"
-                    aria-label={expertCertification.name}
+                    className="group inline-flex flex-col items-center p-2 rounded-md bg-white/10 backdrop-blur-sm shadow-md ring-2 ring-primary/35 hover:ring-primary hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary cursor-pointer"
+                    aria-label={`${expertCertification.name} (opens in new tab)`}
                   >
                     {expertCertification.imageSrc ? (
                       <Image
@@ -198,6 +199,9 @@ export default function AboutMeSection() {
                         <span className="font-semibold text-sm">{expertCertification.issuerInitials}</span>
                       </div>
                     )}
+                    <span className="mt-2 text-[11px] font-mono uppercase tracking-widest text-primary/75 group-hover:text-primary transition-colors">
+                      Click to verify
+                    </span>
                   </a>
                 </div>
               )}
@@ -216,9 +220,20 @@ export default function AboutMeSection() {
                 <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-sectionBlue to-transparent z-10" />
               </div>
 
-              <h2 className="font-heading text-4xl font-bold tracking-tight text-primary sm:text-5xl text-center lg:text-left mb-6">
-                About Alex
-              </h2>
+              <div className="flex items-center justify-center lg:justify-start gap-2 mb-6">
+                <h2 className="font-heading text-4xl font-bold tracking-tight text-primary sm:text-5xl text-center lg:text-left">
+                  About Alex
+                </h2>
+                <a
+                  href="https://www.linkedin.com/in/alex-myers-34572a10/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary/55 hover:text-primary transition-colors"
+                  aria-label="Alex Myers LinkedIn Profile"
+                >
+                  <Linkedin className="h-4 w-4" />
+                </a>
+              </div>
 
               <div className="prose prose-lg text-foreground/80 max-w-none font-rubik">
                 <p>
