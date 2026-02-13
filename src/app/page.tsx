@@ -10,7 +10,6 @@ import SubstackSection from '@/components/sections/SubstackSection';
 import ThoughtLeadershipSection from '@/components/sections/ThoughtLeadershipSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import ServicesSection from '@/components/sections/ServicesSection';
-import UseCasesSection from '@/components/sections/UseCasesSection';
 import ConnectSection from '@/components/sections/ConnectSection';
 
 export default function HomePage() {
@@ -27,7 +26,6 @@ export default function HomePage() {
       <ThoughtLeadershipSection />
       <TestimonialsSection />
       <ServicesSection />
-      <UseCasesSection />
       <ConnectSection />
     </div>
   );
