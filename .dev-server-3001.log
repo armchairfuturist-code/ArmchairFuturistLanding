@@ -13,3 +13,7 @@
  GET / 200 in 2875ms
  GET / 200 in 219ms
  GET / 200 in 328ms
+ GET / 200 in 222ms
+ ✓ Compiled /favicon.ico in 196ms
+ GET /favicon.ico?favicon.7ed73651.ico 200 in 483ms
+ GET /api/substack 200 in 906ms
