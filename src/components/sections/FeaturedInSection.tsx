@@ -12,6 +12,7 @@ const logos = [
   { src: "/kemin.jpg", alt: "Kemin logo", name: "Kemin" },
   { src: "/shiftdsm.jpg", alt: "Shift DSM logo", name: "Shift DSM" },
   { src: "/p2p.png", alt: "P2P logo", name: "P2P" },
+  { src: "/mindscape.png", alt: "Mindscape Psychedelic Institute logo", name: "Mindscape" },
 ];
 
 // Duplicate three times so there's always content filling the viewport

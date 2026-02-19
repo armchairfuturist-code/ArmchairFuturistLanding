@@ -237,7 +237,10 @@ export default function AboutMeSection() {
 
               <div className="prose prose-lg text-foreground/80 max-w-none font-rubik">
                 <p>
-                  I optimize human and financial capital using autonomous systems. My background in <strong>Systems Thinking</strong> and <strong>Change Management</strong> allows me to build AI infrastructure that actually executes, rather than just adding to the technical noise.
+                  Foresight is useless if people don't believe it — so I make belief actionable.
+                </p>
+                <p>
+                  I guide leaders through profound technological shifts by building partnerships grounded in trust, not buzzwords. My leverage is <strong>Systems Thinking</strong>, an intuitive grasp of group dynamics, and questions that catalyze real change. Future executives must become fluent in both organizational design and AI system engineering — firms that don't build this hybrid competence will struggle to compound AI gains and safeguard their culture as automation accelerates. I work at that gap.
                 </p>
               </div>
             </div>
