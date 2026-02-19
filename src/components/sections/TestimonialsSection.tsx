@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, Quote } from 'lucide-react';
 
 interface Testimonial {
   imageSrc: string;
@@ -61,7 +61,7 @@ const testimonialsData: Testimonial[] = [
     imageSrc: "/Lia-Savillo.webp",
     name: "Lia S.",
     title: "Marketing Strategist",
-    text: "Alex really made a huge difference in the operations at Aragon, ensuring every member of the team felt heard and seen — rare in many tech companies today.\n\nHe also ensured that each member was focused on their personal development and helped us adapt our skills as the organization’s needs shifted.\n\nHe would make a great addition to any project.",
+    text: "Alex really made a huge difference in the operations at Aragon, ensuring every member of the team felt heard and seen — rare in many tech companies today.\n\nHe also ensured that each member was focused on their personal development and helped us adapt our skills as the organization's needs shifted.\n\nHe would make a great addition to any project.",
     dataAiHint: "profile person"
   },
   {
@@ -73,8 +73,8 @@ const testimonialsData: Testimonial[] = [
   }
 ];
 
-const PREVIEW_LINE_HEIGHT = 'max-h-28'; 
-const EXPANDED_MAX_HEIGHT = 'max-h-[1000px]'; 
+const PREVIEW_LINE_HEIGHT = 'max-h-28';
+const EXPANDED_MAX_HEIGHT = 'max-h-[1000px]';
 
 export default function TestimonialsSection() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
@@ -120,26 +120,29 @@ export default function TestimonialsSection() {
     <section id="testimonials" className="py-12 md:py-24 bg-secondary scroll-mt-20">
       <div
         ref={contentRef}
-        className={`container mx-auto px-4 md:px-6 scroll-animate ${
-          isContentVisible ? 'is-visible' : ''
-        }`}
+        className={`container mx-auto px-4 md:px-6 scroll-animate ${isContentVisible ? 'is-visible' : ''
+          }`}
       >
         <div className="text-center mb-12">
           <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-            Testimonials
+            What Leaders Say After Working With Alex
           </h2>
+          <p className="mt-3 text-muted-foreground font-sans text-base max-w-xl mx-auto">
+            Testimonials from executives, founders, and operators across tech, strategy, and change management.
+          </p>
         </div>
 
-        <div className="overflow-hidden py-4 w-full">
-          <div className="flex items-start animate-marquee whitespace-nowrap gap-x-6 md:gap-x-8">
+        {/* Marquee — pauses on hover so users can interact */}
+        <div className="overflow-hidden py-4 w-full group">
+          <div className="flex items-start animate-marquee group-hover:[animation-play-state:paused] whitespace-nowrap gap-x-6 md:gap-x-8">
             {duplicatedTestimonials.map((testimonial, index) => {
               const originalIndex = index % testimonialsData.length;
               const isExpanded = expandedIndex === originalIndex;
-              const needsReadMore = testimonial.text.length > 200; 
+              const needsReadMore = testimonial.text.length > 200;
 
               return (
-                <Card 
-                  key={`${testimonial.name}-${index}-${originalIndex}`} 
+                <Card
+                  key={`${testimonial.name}-${index}-${originalIndex}`}
                   className="w-80 md:w-96 flex-shrink-0 bg-card shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col"
                 >
                   <CardHeader className="flex flex-row items-center gap-4 p-4 md:p-6">
@@ -152,16 +155,17 @@ export default function TestimonialsSection() {
                         data-ai-hint={testimonial.dataAiHint || "profile person"}
                       />
                     </div>
-                    <div>
+                    <div className="flex-1">
                       <h3 className="text-base md:text-lg font-semibold text-primary">{testimonial.name}</h3>
-                      <p className="text-xs md:text-sm text-muted-foreground font-sans">{testimonial.title}</p> {/* Ensure font-sans for Roboto */}
+                      <p className="text-xs md:text-sm text-muted-foreground font-sans">{testimonial.title}</p>
                     </div>
+                    <Quote className="h-5 w-5 text-primary/20 shrink-0" />
                   </CardHeader>
                   <CardContent className="p-4 md:p-6 pt-0 text-sm text-foreground/80 flex-grow flex flex-col">
-                    <div 
+                    <div
                       className={`relative overflow-hidden transition-all duration-500 ease-in-out ${isExpanded ? EXPANDED_MAX_HEIGHT : PREVIEW_LINE_HEIGHT}`}
                     >
-                      <p className="whitespace-normal leading-relaxed font-sans"> {/* Ensure font-sans for Roboto */}
+                      <p className="whitespace-normal leading-relaxed font-sans">
                         {testimonial.text.split('\n\n').map((paragraph, i) => (
                           <span key={i} className="block mb-2 last:mb-0">{paragraph}</span>
                         ))}
@@ -171,9 +175,9 @@ export default function TestimonialsSection() {
                       )}
                     </div>
                     {needsReadMore && (
-                       <Button 
-                        variant="link" 
-                        size="sm" 
+                      <Button
+                        variant="link"
+                        size="sm"
                         className="mt-2 self-start px-0 text-primary hover:text-accent"
                         onClick={() => toggleExpand(originalIndex)}
                         aria-expanded={isExpanded}

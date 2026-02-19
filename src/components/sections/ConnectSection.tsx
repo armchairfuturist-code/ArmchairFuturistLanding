@@ -41,16 +41,16 @@ export default function ConnectSection() {
           }`}
       >
         <h2 className="font-heading text-3xl font-bold tracking-tight sm:text-4xl mb-6">
-          Stop being distracted by the noise. Start architecting your outcomes. Let's talk about your TQ.
+          Ready to reclaim 10–20 hours a week? Let&apos;s audit your AI stack.
         </h2>
         <p className="max-w-2xl mx-auto text-lg text-primary-foreground/80 mb-10 font-sans">
-          High-signal execution needs a Human Architect, verified delivery loops, and last-mile polishing.
+          One focused call. I&apos;ll identify exactly where your AI systems are leaking value and what to do about it — no obligation, no deck.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg transition-transform duration-200 hover:scale-105">
             <a href="https://calendar.app.google/nAHHwNMfhDvXGv7P7" target="_blank" rel="noopener noreferrer">
               <CalendarDays className="mr-2 h-5 w-5" />
-              Secure My Execution.
+              Book a Free Strategy Call
             </a>
           </Button>
           <Button
