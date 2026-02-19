@@ -42,6 +42,14 @@
     opacity: 1 !important;
     animation: none !important;
   }
+
+  /* Marquees should still scroll (content display, not decoration) */
+  .animate-marquee {
+    animation: marquee 60s linear infinite !important;
+  }
+  .animate-marquee-slow {
+    animation: marquee 120s linear infinite !important;
+  }
 }
 
 

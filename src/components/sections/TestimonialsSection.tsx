@@ -14,6 +14,13 @@ interface Testimonial {
 
 const testimonialsData: Testimonial[] = [
   {
+    imageSrc: "/stephan-kerby.jpg",
+    name: "Stephan Kerby",
+    title: "Co-Founder, Mindscape Psychedelic Institute",
+    text: "Alex is a fantastic communicator who made the website redesign process effortless. I'm thrilled with the outcome and the creative ideas Alex brought to the project that I never would have thought of.",
+    dataAiHint: "profile person"
+  },
+  {
     imageSrc: "/Alexaragon.jpg",
     name: "Alex A.",
     title: "COO at Aragon.org",
@@ -68,13 +75,6 @@ const testimonialsData: Testimonial[] = [
     title: "Sr. Manager - Launch by NTT Data",
     text: "Alex has been one of the most engaging and positive SCRUM masters I have ever worked with. He raises risks when they come up and nothing ever really goes unnoticed by him. He not only focuses on the business at hand but also focuses on the growth of everyone around him and elevates everyone. It has been a true pleasure working with him.",
     dataAiHint: "profile person"
-  },
-  {
-    imageSrc: "/stephan-kerby.jpg",
-    name: "Stephan Kerby",
-    title: "Co-Founder, Mindscape Psychedelic Institute",
-    text: "Alex is a fantastic communicator who made the website redesign process effortless. I'm thrilled with the outcome and the creative ideas Alex brought to the project that I never would have thought of.",
-    dataAiHint: "profile person"
   }
 ];
 
@@ -102,47 +102,45 @@ export default function TestimonialsSection() {
     <section id="testimonials" className="py-12 md:py-24 bg-secondary scroll-mt-20 overflow-hidden">
       <div
         ref={sectionRef}
-        className={`scroll-animate ${isContentVisible ? 'is-visible' : ''}`}
+        className={`container mx-auto px-4 md:px-6 text-center mb-12 scroll-animate ${isContentVisible ? 'is-visible' : ''}`}
       >
-        <div className="container mx-auto px-4 md:px-6 text-center mb-12">
-          <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-            What Leaders Say After Working With Alex
-          </h2>
-          <p className="mt-3 text-muted-foreground font-sans text-base max-w-xl mx-auto">
-            Testimonials from executives, founders, and operators across tech, strategy, and change management.
-          </p>
-        </div>
+        <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
+          What Leaders Say After Working With Alex
+        </h2>
+        <p className="mt-3 text-muted-foreground font-sans text-base max-w-xl mx-auto">
+          Testimonials from executives, founders, and operators across tech, strategy, and change management.
+        </p>
+      </div>
 
-        <div className="relative flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
-          <div className="flex animate-marquee-slow hover:[animation-play-state:paused] gap-x-6 md:gap-x-8">
-            {duplicatedTestimonials.map((testimonial, index) => (
-              <div
-                key={`${testimonial.name}-${index}`}
-                className="flex-none w-80 md:w-96 bg-card rounded-xl border border-border/50 shadow-md p-5 md:p-6 flex flex-col gap-4"
-              >
-                <Quote className="h-5 w-5 text-primary/30 shrink-0" />
-                <p className="text-sm text-foreground/80 font-sans leading-relaxed line-clamp-5">
-                  {testimonial.text}
-                </p>
-                <div className="flex items-center gap-3 mt-auto pt-2 border-t border-border/30">
-                  <div className="relative h-10 w-10 shrink-0">
-                    <Image
-                      src={testimonial.imageSrc}
-                      alt={`Profile picture of ${testimonial.name}`}
-                      fill
-                      sizes="40px"
-                      className="rounded-full object-cover border-2 border-primary/20"
-                      data-ai-hint={testimonial.dataAiHint || "profile person"}
-                    />
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-primary leading-tight">{testimonial.name}</p>
-                    <p className="text-xs text-muted-foreground font-sans">{testimonial.title}</p>
-                  </div>
+      <div className="relative flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+        <div className="flex min-w-max animate-marquee-slow hover:[animation-play-state:paused] gap-x-6 md:gap-x-8">
+          {duplicatedTestimonials.map((testimonial, index) => (
+            <div
+              key={`${testimonial.name}-${index}`}
+              className="flex-none w-80 md:w-96 bg-card rounded-xl border border-border/50 shadow-md p-5 md:p-6 flex flex-col gap-4"
+            >
+              <Quote className="h-5 w-5 text-primary/30 shrink-0" />
+              <p className="text-sm text-foreground/80 font-sans leading-relaxed line-clamp-5">
+                {testimonial.text}
+              </p>
+              <div className="flex items-center gap-3 mt-auto pt-2 border-t border-border/30">
+                <div className="relative h-10 w-10 shrink-0">
+                  <Image
+                    src={testimonial.imageSrc}
+                    alt={`Profile picture of ${testimonial.name}`}
+                    fill
+                    sizes="40px"
+                    className="rounded-full object-cover border-2 border-primary/20"
+                    data-ai-hint={testimonial.dataAiHint || "profile person"}
+                  />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-primary leading-tight">{testimonial.name}</p>
+                  <p className="text-xs text-muted-foreground font-sans">{testimonial.title}</p>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
