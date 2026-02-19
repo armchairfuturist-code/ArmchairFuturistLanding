@@ -15,8 +15,7 @@ const logos = [
   { src: "/mindscape.png", alt: "Mindscape Psychedelic Institute logo", name: "Mindscape" },
 ];
 
-// Duplicate three times so there's always content filling the viewport
-const track = [...logos, ...logos, ...logos];
+const track = [...logos, ...logos];
 
 export default function FeaturedInSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -38,17 +37,17 @@ export default function FeaturedInSection() {
 
   return (
     <section className="py-8 md:py-10 bg-background scroll-mt-20 overflow-hidden">
-      <div
-        ref={sectionRef}
-        className={`scroll-animate ${isContentVisible ? 'is-visible' : ''}`}
-      >
-        <p className="font-mono text-center text-xs uppercase tracking-widest text-muted-foreground mb-8 px-4">
-          Organizations I&apos;ve Advised &amp; Partnered With
-        </p>
+        <div
+          ref={sectionRef}
+          className={`scroll-animate ${isContentVisible ? 'is-visible' : ''}`}
+        >
+          <p className="font-mono text-center text-xs uppercase tracking-widest text-muted-foreground mb-8 px-4">
+            Organizations I&apos;ve Advised &amp; Partnered With
+          </p>
+        </div>
 
-        {/* Outer overflow clip — no whitespace-nowrap needed; width is driven by flex */}
         <div className="relative flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
-          <div className="flex animate-marquee hover:[animation-play-state:paused] gap-x-10 md:gap-x-14">
+          <div className="flex min-w-max animate-marquee hover:[animation-play-state:paused] gap-x-10 md:gap-x-14">
             {track.map((logo, index) => (
               <div
                 key={`${logo.alt}-${index}`}
@@ -71,7 +70,6 @@ export default function FeaturedInSection() {
             ))}
           </div>
         </div>
-      </div>
     </section>
   );
 }

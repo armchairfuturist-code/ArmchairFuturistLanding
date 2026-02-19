@@ -6,8 +6,7 @@ import { Zap, Terminal } from 'lucide-react';
 const stats = [
   { value: '40+', label: 'AI Systems Deployed' },
   { value: '10–20h', label: 'Reclaimed Per Client / Week' },
-  { value: '6', label: 'Verified Certifications' },
-  { value: '7+', label: 'Podcast Appearances' },
+  { value: '✓', label: 'Authentic, Certified Futurist' },
 ];
 
 export default function HeroSection() {
@@ -114,7 +113,7 @@ export default function HeroSection() {
           </div>
 
           {/* Social Proof Stats Bar */}
-          <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 pt-8 border-t border-white/10 w-full max-w-2xl mx-auto">
+          <div className="mt-10 grid grid-cols-3 gap-4 sm:gap-8 pt-8 border-t border-white/10 w-full max-w-2xl mx-auto">
             {stats.map((stat) => (
               <div key={stat.label} className="flex flex-col items-center gap-1">
                 <span className="text-2xl font-black text-white hero-text-shadow">{stat.value}</span>
