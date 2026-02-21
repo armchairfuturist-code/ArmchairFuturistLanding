@@ -77,18 +77,35 @@ export default function ChallengeSection() {
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {challenges.map((challenge, index) => (
-            <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
-              <CardHeader className="flex flex-row items-start gap-4 space-y-0 pb-2">
-                <div className="p-2 bg-muted/50 rounded-md mt-1">{challenge.icon}</div>
-                <CardTitle className="text-xl font-semibold">{challenge.title}</CardTitle>
-              </CardHeader>
-              <CardContent className="flex-grow">
-                <p className="text-muted-foreground font-sans">{challenge.description}</p> {/* Ensure font-sans for Roboto */}
-              </CardContent>
-            </Card>
-          ))}
+        <div className="space-y-8">
+          {/* First row: first 3 cards */}
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {challenges.slice(0, 3).map((challenge, index) => (
+              <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                <CardHeader className="flex flex-row items-start gap-4 space-y-0 pb-2">
+                  <div className="p-2 bg-muted/50 rounded-md mt-1">{challenge.icon}</div>
+                  <CardTitle className="text-xl font-semibold">{challenge.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <p className="text-muted-foreground font-sans">{challenge.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          {/* Second row: remaining cards centered */}
+          <div className="flex flex-col md:flex-row gap-8 justify-center">
+            {challenges.slice(3).map((challenge, index) => (
+              <Card key={index + 3} className="shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col w-full md:max-w-[370px]">
+                <CardHeader className="flex flex-row items-start gap-4 space-y-0 pb-2">
+                  <div className="p-2 bg-muted/50 rounded-md mt-1">{challenge.icon}</div>
+                  <CardTitle className="text-xl font-semibold">{challenge.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <p className="text-muted-foreground font-sans">{challenge.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </section>

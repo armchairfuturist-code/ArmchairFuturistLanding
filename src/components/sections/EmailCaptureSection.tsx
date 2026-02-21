@@ -41,10 +41,8 @@ export default function EmailCaptureSection() {
         setErrorMsg('');
         setFormState('loading');
 
-        // Redirect to Substack subscribe — replace with Mailchimp/ConvertKit endpoint when ready
         try {
             await new Promise((res) => setTimeout(res, 800));
-            // Open Substack subscription page as the current capture mechanism
             window.open(
                 `https://armchairfuturist.substack.com/subscribe?email=${encodeURIComponent(email)}`,
                 '_blank'
@@ -96,9 +94,9 @@ export default function EmailCaptureSection() {
                                 <div className="h-14 w-14 rounded-full bg-green-500/10 border border-green-500/30 flex items-center justify-center">
                                     <CheckCircle2 className="h-7 w-7 text-green-500" />
                                 </div>
-                                <h3 className="text-xl font-bold text-primary font-heading">You&apos;re in!</h3>
+                                <h3 className="text-xl font-bold text-primary font-heading">Almost there!</h3>
                                 <p className="text-sm text-muted-foreground font-sans leading-relaxed">
-                                    Check your inbox (and spam folder) — your AI Trust Audit Checklist is on its way. A tab has opened to confirm your Substack subscription.
+                                    A Substack tab has opened — confirm your subscription there to receive the AI Trust Audit Checklist directly in your inbox.
                                 </p>
                             </div>
                         ) : (
@@ -108,7 +106,7 @@ export default function EmailCaptureSection() {
                                     <h3 className="font-heading text-lg font-bold text-foreground">Get it free, instantly</h3>
                                 </div>
                                 <p className="text-xs text-muted-foreground mb-6 font-sans">
-                                    Join 500+ leaders getting weekly high-signal AI insights. Unsubscribe any time.
+                                    Subscribe on Substack — join 500+ leaders getting weekly high-signal AI insights. Unsubscribe any time.
                                 </p>
                                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                                     <div>
@@ -135,12 +133,12 @@ export default function EmailCaptureSection() {
                                         {formState === 'loading' ? (
                                             <>
                                                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                                                Sending…
+                                                Opening Substack…
                                             </>
                                         ) : (
                                             <>
                                                 <Download className="mr-2 h-4 w-4" />
-                                                Send Me the Checklist
+                                                Get the Checklist on Substack
                                             </>
                                         )}
                                     </Button>

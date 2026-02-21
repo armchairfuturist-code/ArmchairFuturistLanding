@@ -316,6 +316,7 @@ export default function ServicesSection() {
   const [isContentVisible, setIsContentVisible] = useState(false);
   const [pricingContext, setPricingContext] = useState<PricingContext>('standard');
   const [activeTrack, setActiveTrack] = useState<ServiceTrack>('entrepreneur');
+  const [showPricingOptions, setShowPricingOptions] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -360,17 +361,28 @@ export default function ServicesSection() {
         </div>
 
         <div className="flex flex-col items-center mb-12">
-          <Tabs defaultValue="standard" className="w-[400px] md:w-auto" onValueChange={(val) => setPricingContext(val as PricingContext)}>
-            <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 h-auto md:h-10">
-              <TabsTrigger value="standard">Standard Rate</TabsTrigger>
-              <TabsTrigger value="ppp">Emerging Market (PPP)</TabsTrigger>
-              <TabsTrigger value="agile">High-Readiness (Agile)</TabsTrigger>
-            </TabsList>
-          </Tabs>
-          {pricingContext !== 'standard' && (
-            <p className="mt-3 text-xs text-primary animate-pulse italic">
-              * Pricing adjusted based on {pricingContext === 'ppp' ? 'Purchasing Power Parity' : 'Agile Readiness'}
-            </p>
+          <button
+            onClick={() => setShowPricingOptions(!showPricingOptions)}
+            className="text-xs text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5 underline underline-offset-2 mb-3 cursor-pointer"
+          >
+            <Settings className="w-3 h-3" />
+            {showPricingOptions ? 'Hide pricing options' : 'Adjust pricing for your region or readiness level'}
+          </button>
+          {showPricingOptions && (
+            <div className="flex flex-col items-center">
+              <Tabs defaultValue="standard" className="w-full max-w-sm md:w-auto md:max-w-none" onValueChange={(val) => setPricingContext(val as PricingContext)}>
+                <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 h-auto md:h-10">
+                  <TabsTrigger value="standard">Standard Rate</TabsTrigger>
+                  <TabsTrigger value="ppp">Emerging Market (PPP)</TabsTrigger>
+                  <TabsTrigger value="agile">High-Readiness (Agile)</TabsTrigger>
+                </TabsList>
+              </Tabs>
+              {pricingContext !== 'standard' && (
+                <p className="mt-3 text-xs text-primary italic">
+                  * Pricing adjusted based on {pricingContext === 'ppp' ? 'Purchasing Power Parity' : 'Agile Readiness'}
+                </p>
+              )}
+            </div>
           )}
         </div>
 
@@ -392,25 +404,25 @@ export default function ServicesSection() {
           </AnimatePresence>
         </div>
 
-        <div className="max-w-4xl mx-auto mt-16 p-8 md:p-12 bg-zinc-900 rounded-3xl border border-zinc-800 text-left">
-          <h3 className="text-3xl font-heading font-bold text-white mb-6">Variable Pricing Logic</h3>
+        <div className="max-w-4xl mx-auto mt-16 p-8 md:p-12 bg-foreground rounded-3xl border border-border/20 text-left">
+          <h3 className="text-3xl font-heading font-bold text-background mb-6">Variable Pricing Logic</h3>
           <div className="grid gap-8 md:grid-cols-3 mb-10">
             <div className="space-y-3">
               <div className="flex items-center gap-2 text-primary font-bold"><Zap className="w-5 h-5" /> <h3>1. Client Readiness</h3></div>
-              <p className="text-sm text-zinc-400">If your business has existing documented workflows or high technical literacy, my fee adjusts to reflect the reduced friction of implementation.</p>
+              <p className="text-sm text-background/60">If your business has existing documented workflows or high technical literacy, my fee adjusts to reflect the reduced friction of implementation.</p>
             </div>
             <div className="space-y-3">
               <div className="flex items-center gap-2 text-primary font-bold"><Globe2 className="w-5 h-5" /> <h3>2. Geographic Parity</h3></div>
-              <p className="text-sm text-zinc-400">I utilize Purchasing Power Parity (PPP) models to ensure my implementation blueprints are accessible to entrepreneurs in emerging markets.</p>
+              <p className="text-sm text-background/60">I utilize Purchasing Power Parity (PPP) models to ensure my implementation blueprints are accessible to entrepreneurs in emerging markets.</p>
             </div>
             <div className="space-y-3">
               <div className="flex items-center gap-2 text-primary font-bold"><TrendingUp className="w-5 h-5" /> <h3>3. Measured Impact</h3></div>
-              <p className="text-sm text-zinc-400">For high-volume automation sprints, I am open to performance-based fees. If I demonstrably collapse your costs, I'm willing to share the risk.</p>
+              <p className="text-sm text-background/60">For high-volume automation sprints, I am open to performance-based fees. If I demonstrably collapse your costs, I'm willing to share the risk.</p>
             </div>
           </div>
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-8 border-t border-zinc-800">
-            <div className="text-zinc-200 font-semibold text-lg flex items-center gap-2">Ready to scale? <ArrowRight className="w-5 h-5 text-primary" /></div>
-            <Button asChild size="lg" className="bg-white text-zinc-900 hover:bg-zinc-200 font-bold">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-8 border-t border-background/20">
+            <div className="text-background/90 font-semibold text-lg flex items-center gap-2">Ready to scale? <ArrowRight className="w-5 h-5 text-primary" /></div>
+            <Button asChild size="lg" className="bg-background text-foreground hover:bg-background/90 font-bold">
               <a href="https://calendar.app.google/nAHHwNMfhDvXGv7P7" target="_blank" rel="noopener noreferrer">
                 <Calculator className="w-4 h-4 mr-2" /> Discuss Your Project
               </a>
