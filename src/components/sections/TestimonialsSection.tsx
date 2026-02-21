@@ -45,7 +45,7 @@ const testimonialsData: Testimonial[] = [
     imageSrc: "/Sepehr.jpg",
     name: "Sepehr S.",
     title: "Co-Founder & Sr. Software Engineer",
-    text: "If you're looking for someone who makes a difference, look no further than Alex. His incredible positive energy makes everyone feel upbeat and ready to tackle any challenge. Alex's deep understanding of Scrum methodologies has been a game-changer for us — his mix of vibrant energy and expertise hasn't just revolutionized our HR department; it's electrified our entire workplace atmosphere.",
+    text: "If you're looking for someone who makes a difference, look no further than Alex. His incredible positive energy makes everyone feel upbeat and ready to tackle any challenge. Alex's deep understanding of Scrum methodologies has been a game-changer for us - his mix of vibrant energy and expertise hasn't just revolutionized our HR department; it's electrified our entire workplace atmosphere.",
     dataAiHint: "profile person"
   },
   {
@@ -66,7 +66,7 @@ const testimonialsData: Testimonial[] = [
     imageSrc: "/Lia-Savillo.webp",
     name: "Lia S.",
     title: "Marketing Strategist",
-    text: "Alex really made a huge difference in the operations at Aragon, ensuring every member of the team felt heard and seen — rare in many tech companies today. He also ensured that each member was focused on their personal development and helped us adapt our skills as the organization's needs shifted. He would make a great addition to any project.",
+    text: "Alex really made a huge difference in the operations at Aragon, ensuring every member of the team felt heard and seen - rare in many tech companies today. He also ensured that each member was focused on their personal development and helped us adapt our skills as the organization's needs shifted. He would make a great addition to any project.",
     dataAiHint: "profile person"
   },
   {

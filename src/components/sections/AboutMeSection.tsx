@@ -144,100 +144,82 @@ export default function AboutMeSection() {
   }, []);
 
   return (
-    <section id="about-me" className="relative py-12 md:py-24 bg-sectionBlue scroll-mt-20 overflow-hidden min-h-[800px] flex items-center">
-
-      {/* Blended Portrait Background - Desktop Only */}
-      <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-[55%] pointer-events-none z-0">
-        <div className="relative h-full w-full">
-          <Image
-            src="/Standing-Photoroom.png"
-            alt="Alex Myers"
-            fill
-            className="object-contain object-bottom-right"
-            style={{
-              objectPosition: 'right bottom',
-              maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.1) 5%, rgba(0,0,0,0.8) 20%, black 40%)',
-              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.1) 5%, rgba(0,0,0,0.8) 20%, black 40%)',
-            }}
-            priority
-            sizes="50vw"
-          />
-        </div>
-      </div>
+    <section id="about-me" className="relative py-12 md:py-24 bg-sectionBlue scroll-mt-20">
 
       <div
         ref={contentRef}
-        className={`container mx-auto px-4 md:px-6 relative z-10 w-full scroll-animate ${isContentVisible ? 'is-visible' : ''}`}
+        className={`container mx-auto px-4 md:px-6 w-full scroll-animate ${isContentVisible ? 'is-visible' : ''}`}
       >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 lg:items-start">
 
           {/* Left Column - Content */}
-          <div className="lg:col-span-7 space-y-4">
+          <div className="lg:col-span-6 space-y-4">
 
-            <div className="flex flex-col">
-              {/* Expert Badge */}
-              {expertCertification && (
-                <div className="flex justify-center lg:justify-start mb-6">
+            {/* Expert Badge */}
+            {expertCertification && (
+              <div className="flex justify-center lg:justify-start mb-6">
+                <a
+                  key={expertCertification.id}
+                  href={expertCertification.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex flex-col items-center p-2 rounded-md bg-white/10 backdrop-blur-sm shadow-md ring-2 ring-primary/35 hover:ring-primary hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary cursor-pointer"
+                  aria-label={`${expertCertification.name} (opens in new tab)`}
+                >
+                  {expertCertification.imageSrc ? (
+                    <Image
+                      src={expertCertification.imageSrc}
+                      alt={`${expertCertification.name} badge`}
+                      width={80}
+                      height={80}
+                      className="object-contain shrink-0 rounded-md"
+                    />
+                  ) : (
+                    <div className="flex h-[80px] w-[80px] shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground">
+                      <span className="font-semibold text-sm">{expertCertification.issuerInitials}</span>
+                    </div>
+                  )}
+                  <span className="mt-2 text-[11px] font-mono uppercase tracking-widest text-primary/75 group-hover:text-primary transition-colors">
+                    Click to verify
+                  </span>
+                </a>
+              </div>
+            )}
+
+            {/* Heading row — desktop: just heading; mobile: heading + compact portrait side-by-side */}
+            <div className="flex items-start justify-between gap-4 mb-6">
+              <div>
+                <div className="flex items-center gap-2">
+                  <h2 className="font-heading text-4xl font-bold tracking-tight text-primary sm:text-5xl">
+                    About Alex
+                  </h2>
                   <a
-                    key={expertCertification.id}
-                    href={expertCertification.link}
+                    href="https://www.linkedin.com/in/alex-myers-34572a10/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group inline-flex flex-col items-center p-2 rounded-md bg-white/10 backdrop-blur-sm shadow-md ring-2 ring-primary/35 hover:ring-primary hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary cursor-pointer"
-                    aria-label={`${expertCertification.name} (opens in new tab)`}
+                    className="text-primary/55 hover:text-primary transition-colors"
+                    aria-label="Alex Myers LinkedIn Profile"
                   >
-                    {expertCertification.imageSrc ? (
-                      <Image
-                        src={expertCertification.imageSrc}
-                        alt={`${expertCertification.name} badge`}
-                        width={80}
-                        height={80}
-                        className="object-contain shrink-0 rounded-md"
-                      />
-                    ) : (
-                      <div className="flex h-[80px] w-[80px] shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground">
-                        <span className="font-semibold text-sm">{expertCertification.issuerInitials}</span>
-                      </div>
-                    )}
-                    <span className="mt-2 text-[11px] font-mono uppercase tracking-widest text-primary/75 group-hover:text-primary transition-colors">
-                      Click to verify
-                    </span>
+                    <Linkedin className="h-4 w-4" />
                   </a>
                 </div>
-              )}
-
-              {/* Mobile Image */}
-              <div className="lg:hidden relative w-full h-[400px] mb-8 -mx-4 w-[calc(100%+2rem)]">
-                <div className="absolute inset-0 bg-gradient-to-b from-sectionBlue via-transparent to-transparent z-10 pointer-events-none h-20" />
+              </div>
+              {/* Mobile compact portrait — hidden on desktop (desktop has the right column) */}
+              <div className="lg:hidden relative w-28 h-36 rounded-xl overflow-hidden shadow-lg shrink-0 bg-white/10">
                 <Image
                   src="/Standing-Photoroom.png"
                   alt="Alex Myers"
                   fill
                   className="object-contain object-bottom"
+                  sizes="112px"
                   priority
-                  sizes="100vw"
                 />
-                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-sectionBlue to-transparent z-10" />
               </div>
+            </div>
 
-              <div className="flex items-center justify-center lg:justify-start gap-2 mb-6">
-                <h2 className="font-heading text-4xl font-bold tracking-tight text-primary sm:text-5xl text-center lg:text-left">
-                  About Alex
-                </h2>
-                <a
-                  href="https://www.linkedin.com/in/alex-myers-34572a10/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary/55 hover:text-primary transition-colors"
-                  aria-label="Alex Myers LinkedIn Profile"
-                >
-                  <Linkedin className="h-4 w-4" />
-                </a>
-              </div>
-
-              <div className="space-y-5 md:space-y-6">
+            <div className="space-y-5 md:space-y-6">
                 <p className="text-base md:text-lg text-foreground/80 font-sans leading-relaxed">
-                  <span className="block">Foresight is useless if people don&apos;t believe it —</span>
+                  <span className="block">Foresight is useless if people don&apos;t believe it -</span>
                   <span className="block">so I make belief actionable.</span>
                 </p>
 
@@ -267,7 +249,6 @@ export default function AboutMeSection() {
                   I work at that gap.
                 </p>
               </div>
-            </div>
 
             {/* Accordion Sections */}
             <div className="space-y-2 pt-4">
@@ -361,6 +342,22 @@ export default function AboutMeSection() {
               </div>
             )}
           </div>
+
+          {/* Right Column — Magazine Portrait (desktop only) */}
+          <div className="hidden lg:flex lg:col-span-5 lg:col-start-8 lg:justify-center lg:items-start">
+            <div className="relative w-full max-w-sm rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/20 aspect-[3/4] bg-white/10">
+              <Image
+                src="/Standing-Photoroom.png"
+                alt="Alex Myers - standing portrait"
+                fill
+                className="object-contain object-bottom"
+                sizes="(min-width: 1024px) 35vw, 0px"
+                priority
+              />
+              <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-sectionBlue/50 to-transparent pointer-events-none" />
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

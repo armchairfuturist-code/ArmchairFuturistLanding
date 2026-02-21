@@ -65,7 +65,7 @@ export default function EmailCaptureSection() {
             >
                 <div className="grid md:grid-cols-2 gap-10 items-center">
 
-                    {/* Left — value proposition */}
+                    {/* Left - value proposition */}
                     <div>
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-mono mb-5">
                             <Download className="w-3 h-3" />
@@ -75,7 +75,7 @@ export default function EmailCaptureSection() {
                             The AI Trust Audit Checklist
                         </h2>
                         <p className="text-foreground/70 font-sans leading-relaxed mb-6">
-                            Not ready to book a call yet? Get my free diagnostic — 10 questions that expose where your AI stack is creating risk instead of results.
+                            Not ready to book a call yet? Get my free diagnostic - 10 questions that expose where your AI stack is creating risk instead of results.
                         </p>
                         <ul className="space-y-3">
                             {benefits.map((benefit) => (
@@ -87,7 +87,7 @@ export default function EmailCaptureSection() {
                         </ul>
                     </div>
 
-                    {/* Right — form */}
+                    {/* Right - form */}
                     <div className="bg-card rounded-2xl border border-border p-8 shadow-lg">
                         {formState === 'success' ? (
                             <div className="flex flex-col items-center text-center py-6 gap-4">
@@ -96,7 +96,7 @@ export default function EmailCaptureSection() {
                                 </div>
                                 <h3 className="text-xl font-bold text-primary font-heading">Almost there!</h3>
                                 <p className="text-sm text-muted-foreground font-sans leading-relaxed">
-                                    A Substack tab has opened — confirm your subscription there to receive the AI Trust Audit Checklist directly in your inbox.
+                                    A Substack tab has opened - confirm your subscription there to receive the AI Trust Audit Checklist directly in your inbox.
                                 </p>
                             </div>
                         ) : (
@@ -106,7 +106,7 @@ export default function EmailCaptureSection() {
                                     <h3 className="font-heading text-lg font-bold text-foreground">Get it free, instantly</h3>
                                 </div>
                                 <p className="text-xs text-muted-foreground mb-6 font-sans">
-                                    Subscribe on Substack — join 500+ leaders getting weekly high-signal AI insights. Unsubscribe any time.
+                                    Subscribe on Substack - join 500+ leaders getting weekly high-signal AI insights. Unsubscribe any time.
                                 </p>
                                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                                     <div>

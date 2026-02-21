@@ -18,12 +18,12 @@ const challenges = [
   {
     icon: <UsersRound className="h-6 w-6 text-muted-foreground" />,
     title: "Diverse Employee Responses to Change",
-    description: "People vary widely in their willingness and ability to adopt AI—from resistant skeptics to eager experimenters. Traditional change management treats everyone the same, slowing progress and increasing friction.",
+    description: "People vary widely in their willingness and ability to adopt AI-from resistant skeptics to eager experimenters. Traditional change management treats everyone the same, slowing progress and increasing friction.",
   },
   {
     icon: <TrendingDown className="h-6 w-6 text-muted-foreground" />,
     title: "Leadership and Culture Gaps",
-    description: "Many leaders remain stuck in first order thinking—linear, control-focused, and uncomfortable with uncertainty—hindering agile responses to AI’s evolving landscape. Emotional intelligence (EQ) and second order thinking are rare but critical for leading AI transformation.",
+    description: "Many leaders remain stuck in first order thinking-linear, control-focused, and uncomfortable with uncertainty-hindering agile responses to AI’s evolving landscape. Emotional intelligence (EQ) and second order thinking are rare but critical for leading AI transformation.",
   },
   {
     icon: <PlugZap className="h-6 w-6 text-muted-foreground" />,

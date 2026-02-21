@@ -44,7 +44,7 @@ export default function ConnectSection() {
           Ready to reclaim 10–20 hours a week? Let&apos;s audit your AI stack.
         </h2>
         <p className="max-w-2xl mx-auto text-lg text-primary-foreground/80 mb-10 font-sans">
-          One focused call. I&apos;ll identify exactly where your AI systems are leaking value and what to do about it — no obligation, no deck.
+          One focused call. I&apos;ll identify exactly where your AI systems are leaking value and what to do about it - no obligation, no deck.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 shadow-lg transition-transform duration-200 hover:scale-105">
