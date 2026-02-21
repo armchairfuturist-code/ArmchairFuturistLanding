@@ -57,7 +57,6 @@ const CertificationItem: React.FC<{ certification: Certification }> = ({ certifi
   );
 };
 
-// Chevron Icon Component
 const ChevronIcon: { (props: { isOpen: boolean }): JSX.Element } = ({ isOpen }) => (
   <svg
     className={`w-5 h-5 transition-transform duration-300 ease-out ${isOpen ? 'rotate-180' : ''}`}
@@ -70,7 +69,6 @@ const ChevronIcon: { (props: { isOpen: boolean }): JSX.Element } = ({ isOpen }) 
   </svg>
 );
 
-// Accordion Item Component
 interface AccordionItemProps {
   title: string;
   isOpen: boolean;
@@ -119,7 +117,6 @@ export default function AboutMeSection() {
   const contentRef = useRef<HTMLDivElement>(null);
   const [isContentVisible, setIsContentVisible] = useState(false);
 
-  // Accordion state
   const [openAccordion, setOpenAccordion] = useState<number | null>(0);
 
   const toggleAccordion = (index: number) => {
@@ -144,80 +141,98 @@ export default function AboutMeSection() {
   }, []);
 
   return (
-    <section id="about-me" className="relative py-12 md:py-24 bg-sectionBlue scroll-mt-20">
+    <section id="about-me" className="relative py-12 md:py-24 bg-sectionBlue scroll-mt-20 overflow-hidden min-h-[800px] flex items-center">
+
+      {/* Portrait — desktop only, confined to the right half so it never bleeds over text */}
+      <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-[48%] pointer-events-none z-0">
+        <div className="relative h-full w-full">
+          <Image
+            src="/Standing-Photoroom.png"
+            alt="Alex Myers"
+            fill
+            className="object-contain"
+            style={{
+              objectPosition: 'right top',
+              maskImage: 'linear-gradient(to right, transparent 0%, transparent 15%, rgba(0,0,0,0.5) 40%, black 65%)',
+              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, transparent 15%, rgba(0,0,0,0.5) 40%, black 65%)',
+            }}
+            priority
+            sizes="48vw"
+          />
+        </div>
+      </div>
 
       <div
         ref={contentRef}
-        className={`container mx-auto px-4 md:px-6 w-full scroll-animate ${isContentVisible ? 'is-visible' : ''}`}
+        className={`container mx-auto px-4 md:px-6 relative z-10 w-full scroll-animate ${isContentVisible ? 'is-visible' : ''}`}
       >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 lg:items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
 
-          {/* Left Column - Content */}
+          {/* Left Column — text safely within the left 50% on desktop */}
           <div className="lg:col-span-6 space-y-4">
 
-            {/* Expert Badge */}
-            {expertCertification && (
-              <div className="flex justify-center lg:justify-start mb-6">
-                <a
-                  key={expertCertification.id}
-                  href={expertCertification.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex flex-col items-center p-2 rounded-md bg-white/10 backdrop-blur-sm shadow-md ring-2 ring-primary/35 hover:ring-primary hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary cursor-pointer"
-                  aria-label={`${expertCertification.name} (opens in new tab)`}
-                >
-                  {expertCertification.imageSrc ? (
-                    <Image
-                      src={expertCertification.imageSrc}
-                      alt={`${expertCertification.name} badge`}
-                      width={80}
-                      height={80}
-                      className="object-contain shrink-0 rounded-md"
-                    />
-                  ) : (
-                    <div className="flex h-[80px] w-[80px] shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground">
-                      <span className="font-semibold text-sm">{expertCertification.issuerInitials}</span>
-                    </div>
-                  )}
-                  <span className="mt-2 text-[11px] font-mono uppercase tracking-widest text-primary/75 group-hover:text-primary transition-colors">
-                    Click to verify
-                  </span>
-                </a>
-              </div>
-            )}
-
-            {/* Heading row — desktop: just heading; mobile: heading + compact portrait side-by-side */}
-            <div className="flex items-start justify-between gap-4 mb-6">
-              <div>
-                <div className="flex items-center gap-2">
-                  <h2 className="font-heading text-4xl font-bold tracking-tight text-primary sm:text-5xl">
-                    About Alex
-                  </h2>
+            <div className="flex flex-col">
+              {/* Expert Badge */}
+              {expertCertification && (
+                <div className="flex justify-center lg:justify-start mb-6">
                   <a
-                    href="https://www.linkedin.com/in/alex-myers-34572a10/"
+                    key={expertCertification.id}
+                    href={expertCertification.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-primary/55 hover:text-primary transition-colors"
-                    aria-label="Alex Myers LinkedIn Profile"
+                    className="group inline-flex flex-col items-center p-2 rounded-md bg-white/10 backdrop-blur-sm shadow-md ring-2 ring-primary/35 hover:ring-primary hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary cursor-pointer"
+                    aria-label={`${expertCertification.name} (opens in new tab)`}
                   >
-                    <Linkedin className="h-4 w-4" />
+                    {expertCertification.imageSrc ? (
+                      <Image
+                        src={expertCertification.imageSrc}
+                        alt={`${expertCertification.name} badge`}
+                        width={80}
+                        height={80}
+                        className="object-contain shrink-0 rounded-md"
+                      />
+                    ) : (
+                      <div className="flex h-[80px] w-[80px] shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground">
+                        <span className="font-semibold text-sm">{expertCertification.issuerInitials}</span>
+                      </div>
+                    )}
+                    <span className="mt-2 text-[11px] font-mono uppercase tracking-widest text-primary/75 group-hover:text-primary transition-colors">
+                      Click to verify
+                    </span>
                   </a>
                 </div>
-              </div>
-              {/* Mobile compact portrait — hidden on desktop (desktop has the right column) */}
-              <div className="lg:hidden relative w-28 h-36 rounded-xl overflow-hidden shadow-lg shrink-0 bg-white/10">
+              )}
+
+              {/* Mobile Image — face-first, shorter crop */}
+              <div className="lg:hidden relative w-full h-[320px] mb-8 -mx-4 w-[calc(100%+2rem)]">
+                <div className="absolute inset-0 bg-gradient-to-b from-sectionBlue via-transparent to-transparent z-10 pointer-events-none h-20" />
                 <Image
                   src="/Standing-Photoroom.png"
                   alt="Alex Myers"
                   fill
-                  className="object-contain object-bottom"
-                  sizes="112px"
+                  className="object-contain object-top"
                   priority
+                  sizes="100vw"
                 />
+                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-sectionBlue to-transparent z-10" />
               </div>
-            </div>
 
-            <div className="space-y-5 md:space-y-6">
+              <div className="flex items-center justify-center lg:justify-start gap-2 mb-6">
+                <h2 className="font-heading text-4xl font-bold tracking-tight text-primary sm:text-5xl text-center lg:text-left">
+                  About Alex
+                </h2>
+                <a
+                  href="https://www.linkedin.com/in/alex-myers-34572a10/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary/55 hover:text-primary transition-colors"
+                  aria-label="Alex Myers LinkedIn Profile"
+                >
+                  <Linkedin className="h-4 w-4" />
+                </a>
+              </div>
+
+              <div className="space-y-5 md:space-y-6">
                 <p className="text-base md:text-lg text-foreground/80 font-sans leading-relaxed">
                   <span className="block">Foresight is useless if people don&apos;t believe it -</span>
                   <span className="block">so I make belief actionable.</span>
@@ -235,13 +250,13 @@ export default function AboutMeSection() {
                 </p>
 
                 <p className="text-base md:text-lg text-foreground/80 font-sans leading-relaxed">
-                  <span className="block">Future execs must speak two languages:</span>
-                  <span className="block font-semibold text-foreground">org design AND AI engineering.</span>
+                  <span className="block">Future executives must speak two languages:</span>
+                  <span className="block font-semibold text-foreground">org design and AI engineering.</span>
                 </p>
 
                 <p className="text-base md:text-lg text-foreground/80 font-sans leading-relaxed">
                   <span className="block">Firms that don&apos;t build that competence</span>
-                  <span className="block">won&apos;t compound AI gains.</span>
+                  <span className="block">won&apos;t compound their AI gains.</span>
                 </p>
 
                 <p className="flex items-center gap-2 text-base md:text-lg text-primary font-bold font-sans">
@@ -249,6 +264,7 @@ export default function AboutMeSection() {
                   I work at that gap.
                 </p>
               </div>
+            </div>
 
             {/* Accordion Sections */}
             <div className="space-y-2 pt-4">
@@ -257,21 +273,21 @@ export default function AboutMeSection() {
                 isOpen={openAccordion === 0}
                 onToggle={() => toggleAccordion(0)}
               >
-                <div className="prose prose-lg text-foreground/80 max-w-none font-rubik">
+                <div className="prose prose-lg text-foreground/80 max-w-none font-sans">
                   <p>
-                    I view every business process as a series of interconnected loops. Most bottlenecks aren't technical; they are structural. I rebuild those workflows using AI to collapse operational costs and increase throughput.
+                    I view every business process as a series of interconnected loops. Most bottlenecks aren&apos;t technical; they are structural. I rebuild those workflows using AI to collapse operational costs and increase throughput.
                   </p>
                 </div>
               </AccordionItem>
 
               <AccordionItem
-                title="Direct Execution (No 'Theatre')"
+                title="Direct Execution (No Theatre)"
                 isOpen={openAccordion === 1}
                 onToggle={() => toggleAccordion(1)}
               >
-                <div className="prose prose-lg text-foreground/80 max-w-none font-rubik">
+                <div className="prose prose-lg text-foreground/80 max-w-none font-sans">
                   <p>
-                    I act as your direct <strong>Agent Operator</strong>. I don't hand you a 50-page strategy deck; I provision the servers, write the system prompts, and manage the model integrations myself. My approach is focused on three pillars:
+                    I act as your direct <strong>Agent Operator</strong>. I don&apos;t hand you a 50-page strategy deck; I provision the servers, write the system prompts, and manage the model integrations myself. My approach is focused on three pillars:
                   </p>
                   <ul className="list-none pl-0 space-y-4 mt-4">
                     <li className="flex gap-3">
@@ -304,7 +320,7 @@ export default function AboutMeSection() {
                 isOpen={openAccordion === 2}
                 onToggle={() => toggleAccordion(2)}
               >
-                <div className="prose prose-lg text-foreground/80 max-w-none font-rubik">
+                <div className="prose prose-lg text-foreground/80 max-w-none font-sans">
                   <p>
                     In the era of AI, your data is your competitive edge. I build on high-performance, open-standard stacks that ensure you own your logic and your data. No platform taxes, no digital anchors.
                   </p>
@@ -314,7 +330,7 @@ export default function AboutMeSection() {
 
             {/* CTA */}
             <div className="pt-8">
-              <p className="text-lg font-rubik text-foreground/90">
+              <p className="text-lg font-sans text-foreground/90">
                 <strong>Ready to reclaim your time and focus on high-leverage work? </strong>
                 <a
                   href="https://calendar.app.google/nAHHwNMfhDvXGv7P7"
@@ -342,22 +358,6 @@ export default function AboutMeSection() {
               </div>
             )}
           </div>
-
-          {/* Right Column — Magazine Portrait (desktop only) */}
-          <div className="hidden lg:flex lg:col-span-5 lg:col-start-8 lg:justify-center lg:items-start">
-            <div className="relative w-full max-w-sm rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/20 aspect-[3/4] bg-white/10">
-              <Image
-                src="/Standing-Photoroom.png"
-                alt="Alex Myers - standing portrait"
-                fill
-                className="object-contain object-bottom"
-                sizes="(min-width: 1024px) 35vw, 0px"
-                priority
-              />
-              <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-sectionBlue/50 to-transparent pointer-events-none" />
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
