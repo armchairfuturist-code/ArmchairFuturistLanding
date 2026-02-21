@@ -130,7 +130,7 @@ const organizationServices = [
     idealFor: "Identifying psychological blocks & \"Internal Mavericks\" to lead change.",
     details: [
       { title: "The Problem", text: "Most transformation efforts fail because they ignore the human element. You cannot automate corporate antibodies." },
-      { title: "Bypassing Resistance Gates", text: "I identify the \"Results\" thinkers—the top 5% of your staff naturally wired for uncertainty—and empower them to lead the charge." },
+      { title: "Bypassing Resistance Gates", text: "I identify the \"Results\" thinkers-the top 5% of your staff naturally wired for uncertainty-and empower them to lead the charge." },
       { title: "Complexity Coaching", text: "Coaching leaders to shift from 'Command-and-Control' to 'Complexity' thinking, essential for managing non-linear challenges." }
     ],
     cta: "Schedule Diagnostic",
