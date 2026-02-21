@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { Linkedin } from 'lucide-react';
+import { Linkedin, ArrowRight } from 'lucide-react';
 import type { Certification } from '@/types';
 
 const certificationsData: Certification[] = [
@@ -235,12 +235,36 @@ export default function AboutMeSection() {
                 </a>
               </div>
 
-              <div className="prose prose-lg text-foreground/80 max-w-none font-rubik">
-                <p>
-                  Foresight is useless if people don't believe it — so I make belief actionable.
+              <div className="space-y-5 md:space-y-6">
+                <p className="text-base md:text-lg text-foreground/80 font-sans leading-relaxed">
+                  <span className="block">Foresight is useless if people don&apos;t believe it —</span>
+                  <span className="block">so I make belief actionable.</span>
                 </p>
-                <p>
-                  I guide leaders through profound technological shifts by building partnerships grounded in trust, not buzzwords. My leverage is <strong>Systems Thinking</strong>, an intuitive grasp of group dynamics, and questions that catalyze real change. Future executives must become fluent in both organizational design and AI system engineering — firms that don't build this hybrid competence will struggle to compound AI gains and safeguard their culture as automation accelerates. I work at that gap.
+
+                <p className="text-base md:text-lg text-foreground/80 font-sans leading-relaxed">
+                  <span className="block">I guide leaders through profound technological shifts.</span>
+                  <span className="block">Not with buzzwords. With trust.</span>
+                </p>
+
+                <p className="text-base md:text-lg text-foreground/80 font-sans leading-relaxed">
+                  <span className="block font-semibold text-foreground">My leverage:</span>
+                  <span className="block">Systems Thinking. Group dynamics.</span>
+                  <span className="block">Questions that catalyze real change.</span>
+                </p>
+
+                <p className="text-base md:text-lg text-foreground/80 font-sans leading-relaxed">
+                  <span className="block">Future execs must speak two languages:</span>
+                  <span className="block font-semibold text-foreground">org design AND AI engineering.</span>
+                </p>
+
+                <p className="text-base md:text-lg text-foreground/80 font-sans leading-relaxed">
+                  <span className="block">Firms that don&apos;t build that competence</span>
+                  <span className="block">won&apos;t compound AI gains.</span>
+                </p>
+
+                <p className="flex items-center gap-2 text-base md:text-lg text-primary font-bold font-sans">
+                  <ArrowRight className="w-4 h-4 shrink-0" />
+                  I work at that gap.
                 </p>
               </div>
             </div>
