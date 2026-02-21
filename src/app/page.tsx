@@ -31,11 +31,11 @@ export default function HomePage() {
       <FeaturedInSection />
       <WhyWorkWithMeSection />
 
-      {/* OFFER — the specific services available */}
-      <ServicesSection />
-
       {/* PROOF — validate the offer with social proof */}
       <TestimonialsSection />
+
+      {/* OFFER — the specific services available */}
+      <ServicesSection />
 
       {/* NURTURE — capture visitors not yet ready to buy */}
       <EmailCaptureSection />

@@ -1,12 +1,14 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Zap, Terminal } from 'lucide-react';
+import { Zap, Terminal, CheckCircle2 } from 'lucide-react';
 
-const stats = [
+type Stat = { value: string | null; icon?: React.ElementType; label: string };
+
+const stats: Stat[] = [
   { value: '40+', label: 'AI Systems Deployed' },
   { value: '10–20h', label: 'Reclaimed Per Client / Week' },
-  { value: '✓', label: 'Authentic, Certified Futurist' },
+  { value: null, icon: CheckCircle2, label: 'Authentic, Certified Futurist' },
 ];
 
 export default function HeroSection() {
@@ -17,24 +19,27 @@ export default function HeroSection() {
   useEffect(() => {
     const videoElement = videoRef.current;
     if (videoElement) {
-      videoElement.play().catch(error => {
-        console.error("Video autoplay was prevented:", error);
-      });
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!prefersReduced) {
+        videoElement.play().catch(error => {
+          console.error("Video autoplay was prevented:", error);
+        });
 
-      const handleVideoEnd = () => {
-        if (videoElement) {
-          videoElement.currentTime = 0;
-          videoElement.play().catch(error => {
-            console.error("Video loop play was prevented:", error);
-          });
-        }
-      };
-      videoElement.addEventListener('ended', handleVideoEnd);
-      return () => {
-        if (videoElement) {
-          videoElement.removeEventListener('ended', handleVideoEnd);
-        }
-      };
+        const handleVideoEnd = () => {
+          if (videoElement) {
+            videoElement.currentTime = 0;
+            videoElement.play().catch(error => {
+              console.error("Video loop play was prevented:", error);
+            });
+          }
+        };
+        videoElement.addEventListener('ended', handleVideoEnd);
+        return () => {
+          if (videoElement) {
+            videoElement.removeEventListener('ended', handleVideoEnd);
+          }
+        };
+      }
     }
   }, []);
 
@@ -95,7 +100,7 @@ export default function HeroSection() {
           </p>
 
           <div className="mt-12 flex flex-col gap-5 sm:flex-row sm:flex-wrap sm:justify-center">
-            <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-2xl transition-all duration-200 hover:scale-105 h-14 px-8 text-lg font-bold">
+            <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 shadow-2xl transition-all duration-200 hover:scale-105 h-14 px-8 text-lg font-bold">
               <a href="https://calendar.app.google/nAHHwNMfhDvXGv7P7" target="_blank" rel="noopener noreferrer">
                 <Zap className="mr-2 h-5 w-5 fill-current" />
                 Book a Free Strategy Call
@@ -116,8 +121,12 @@ export default function HeroSection() {
           <div className="mt-10 grid grid-cols-3 gap-4 sm:gap-8 pt-8 border-t border-white/10 w-full max-w-2xl mx-auto">
             {stats.map((stat) => (
               <div key={stat.label} className="flex flex-col items-center gap-1">
-                <span className="text-2xl font-black text-white hero-text-shadow">{stat.value}</span>
-                <span className="text-[11px] text-primary-foreground/55 font-mono uppercase tracking-widest leading-tight text-center">{stat.label}</span>
+                {stat.icon ? (
+                  <stat.icon className="h-7 w-7 text-white hero-text-shadow" strokeWidth={2.5} />
+                ) : (
+                  <span className="text-2xl font-black text-white hero-text-shadow">{stat.value}</span>
+                )}
+                <span className="text-[11px] text-primary-foreground/70 font-mono uppercase tracking-widest leading-tight text-center">{stat.label}</span>
               </div>
             ))}
           </div>

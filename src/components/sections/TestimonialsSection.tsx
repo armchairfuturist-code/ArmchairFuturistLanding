@@ -113,6 +113,7 @@ export default function TestimonialsSection() {
       </div>
 
       <div className="relative flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+        <p className="absolute bottom-2 right-4 z-10 text-[10px] text-muted-foreground/40 font-mono pointer-events-none select-none">hover to pause</p>
         <div className="flex min-w-max animate-marquee-slow hover:[animation-play-state:paused] gap-x-6 md:gap-x-8">
           {duplicatedTestimonials.map((testimonial, index) => (
             <div
@@ -120,7 +121,7 @@ export default function TestimonialsSection() {
               className="flex-none w-80 md:w-96 bg-card rounded-xl border border-border/50 shadow-md p-5 md:p-6 flex flex-col gap-4"
             >
               <Quote className="h-5 w-5 text-primary/30 shrink-0" />
-              <p className="text-sm text-foreground/80 font-sans leading-relaxed line-clamp-5">
+              <p className="text-sm text-foreground/80 font-sans leading-relaxed line-clamp-7">
                 {testimonial.text}
               </p>
               <div className="flex items-center gap-3 mt-auto pt-2 border-t border-border/30">

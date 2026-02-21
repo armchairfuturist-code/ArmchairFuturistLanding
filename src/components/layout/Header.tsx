@@ -46,10 +46,11 @@ export default function Header() {
           ))}
           <a
             href={contactItem.href}
-            className="text-sm font-medium text-foreground/70 transition-colors hover:text-foreground"
+            className="flex items-center gap-1.5 text-sm font-medium text-foreground/70 transition-colors hover:text-foreground"
             aria-label={contactItem.label}
           >
-            <Mail className="h-5 w-5" />
+            <Mail className="h-4 w-4" />
+            <span>Email</span>
           </a>
           <Button asChild size="sm">
             <a href="https://calendar.app.google/nAHHwNMfhDvXGv7P7" target="_blank" rel="noopener noreferrer">

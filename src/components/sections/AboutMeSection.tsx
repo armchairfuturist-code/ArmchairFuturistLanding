@@ -92,7 +92,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ title, isOpen, onToggle, 
     <div className="border-b border-white/20 last:border-0 transition-all duration-300">
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between py-4 text-left focus:outline-none group"
+        className="w-full flex items-center justify-between py-4 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:rounded group"
         aria-expanded={isOpen}
       >
         <h3 className="text-lg md:text-xl font-bold text-primary group-hover:text-primary/80 transition-colors">{title}</h3>

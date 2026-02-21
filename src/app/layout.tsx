@@ -2,19 +2,25 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import Script from 'next/script';
-import { Roboto, Geist_Mono } from 'next/font/google'; // Import Roboto
+import { Roboto, Geist_Mono, DM_Sans } from 'next/font/google';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import ScrollToTop from '@/components/ui/ScrollToTop';
 import { cn } from '@/lib/utils';
 import FirebaseAnalytics from '@/components/analytics/FirebaseAnalytics';
 
-// Configure Roboto for body text
 const roboto = Roboto({
   subsets: ['latin'],
   weight: ['300', '400', '500', '700'],
   variable: '--font-sans',
+});
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800', '900'],
+  variable: '--font-heading',
 });
 
 const geistMono = Geist_Mono({
@@ -62,7 +68,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={cn(roboto.variable, geistMono.variable, "font-sans antialiased flex flex-col min-h-screen")}>
+      <body className={cn(roboto.variable, geistMono.variable, dmSans.variable, "font-sans antialiased flex flex-col min-h-screen")}>
         <Script
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-18FCVPH408"
@@ -86,6 +92,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <ScrollToTop />
         <Toaster />
       </body>
     </html>
