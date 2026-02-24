@@ -1,28 +1,24 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
-import { Target, Zap, Bot, Box, ArrowRight } from 'lucide-react';
+import { Workflow, Wrench, ShieldCheck } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const strategyItems = [
   {
-    icon: <Target className="h-8 w-8 text-primary" />,
-    title: "Purpose-Driven Execution",
-    content: "Aligning your technical stack with your highest long-term aspirations. We don't build tech for tech's sake; we build to secure your specific future."
+    icon: <Workflow className="h-8 w-8 text-primary" />,
+    title: "Systems Optimization",
+    content: "I view every business process as interconnected loops. Most bottlenecks aren't technical — they are structural. I rebuild workflows using AI to collapse costs and increase throughput."
   },
   {
-    icon: <Zap className="h-8 w-8 text-primary" />,
-    title: "Agile Experimentation",
-    content: "Moving past slow, linear planning into rapid, iterative implementation that actually delivers. We prototype fast, fail cheap, and scale what works."
+    icon: <Wrench className="h-8 w-8 text-primary" />,
+    title: "Direct Execution (No Theatre)",
+    content: "I don't hand you a strategy deck — I provision the servers, write the system prompts, and manage model integrations myself.",
+    tags: ["Architecting Autonomy", "Managed Operations", "Measurable ROI"]
   },
   {
-    icon: <Bot className="h-8 w-8 text-primary" />,
-    title: "Autonomous Digital Staff",
-    content: "Designing on-demand AI systems that scale your capacity without increasing your overhead. Your operational capability should grow faster than your payroll."
-  },
-  {
-    icon: <Box className="h-8 w-8 text-primary" />,
-    title: "Scalable Architecture",
-    content: "Building modular systems that are ready to pivot as fast as the market moves. I ensure your infrastructure is asset-light and adaptability-heavy."
+    icon: <ShieldCheck className="h-8 w-8 text-primary" />,
+    title: "Data & Privacy Sovereignty",
+    content: "Your data is your competitive edge. I build on high-performance, open-standard stacks that ensure you own your logic and your data. No platform taxes, no digital anchors."
   }
 ];
 
@@ -55,14 +51,14 @@ export default function WhyWorkWithMeSection() {
       >
         <div className="text-center mb-16 max-w-4xl mx-auto">
           <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary mb-6">
-            Strategy & Implementation
+            How I Operate
           </h2>
           <p className="text-xl text-foreground/80 font-sans leading-relaxed">
-            The Generalized Framework for High-TQ Operations.
+            Execution-first. No theatre. Measurable outcomes.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {strategyItems.map((item, index) => (
             <Card key={index} className="border-none shadow-none bg-secondary/20 hover:bg-secondary/40 transition-colors duration-300">
               <CardHeader className="pb-4">
@@ -77,9 +73,36 @@ export default function WhyWorkWithMeSection() {
                 <p className="text-foreground/70 leading-relaxed font-sans">
                   {item.content}
                 </p>
+                {item.tags && (
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    {item.tags.map((tag) => (
+                      <span key={tag} className="text-xs font-mono px-2 py-1 rounded-md bg-primary/10 text-primary/80">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        {/* CTA */}
+        <div className="mt-14 text-center">
+          <p className="text-lg font-sans text-foreground/90">
+            <strong>Ready to reclaim your time and focus on high-leverage work? </strong>
+            <a
+              href="https://calendar.app.google/nAHHwNMfhDvXGv7P7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-primary font-bold hover:underline underline-offset-4 transition-all duration-200 hover:gap-3"
+            >
+              Provision your system
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </p>
         </div>
       </div>
     </section>

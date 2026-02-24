@@ -87,6 +87,31 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <FirebaseAnalytics />
         </Suspense>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ProfessionalService",
+              "name": "The Armchair Futurist - Alex Myers",
+              "description": "Advisor to leaders navigating AI, change, and the future of work with grounded, human-first strategy.",
+              "url": "https://thearmchairfuturist.com",
+              "image": "https://thearmchairfuturist.com/floop.jpg",
+              "founder": {
+                "@type": "Person",
+                "name": "Alex Myers",
+                "jobTitle": "Certified Futurist & AI Strategy Advisor",
+                "url": "https://linkedin.com/in/alex-myers-34572a10/"
+              },
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "PT"
+              },
+              "priceRange": "$199 - $55,250",
+              "areaServed": "Worldwide"
+            })
+          }}
+        />
         <Header />
         <main className="flex-grow">
           {children}

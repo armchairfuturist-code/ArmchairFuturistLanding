@@ -12,6 +12,9 @@ import EmailCaptureSection from '@/components/sections/EmailCaptureSection';
 import SubstackSection from '@/components/sections/SubstackSection';
 import ThoughtLeadershipSection from '@/components/sections/ThoughtLeadershipSection';
 import ConnectSection from '@/components/sections/ConnectSection';
+import SpotlightSection from '@/components/sections/SpotlightSection';
+import AIMentoringSection from '@/components/sections/AIMentoringSection';
+import SpeakingSection from '@/components/sections/SpeakingSection';
 
 export default function HomePage() {
   return (
@@ -26,6 +29,12 @@ export default function HomePage() {
       <AccountabilityGapSection />
       <NavigatorSection />
 
+      {/* SPOTLIGHT — $199 Digital Identity gateway offer */}
+      <SpotlightSection />
+
+      {/* MENTORING — AI mindset coaching for the overwhelmed */}
+      <AIMentoringSection />
+
       {/* AUTHORITY — who is Alex, why trust him */}
       <AboutMeSection />
       <FeaturedInSection />
@@ -33,6 +42,9 @@ export default function HomePage() {
 
       {/* PROOF — validate the offer with social proof */}
       <TestimonialsSection />
+
+      {/* SPEAKING — keynotes, roundtables, workshops */}
+      <SpeakingSection />
 
       {/* OFFER — the specific services available */}
       <ServicesSection />

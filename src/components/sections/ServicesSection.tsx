@@ -98,21 +98,21 @@ const entrepreneurServices = [
   },
   {
     path: "SERVICE 3",
-    title: "The Implementation Library",
-    basePrice: 47,
+    title: "AI Mentoring & Mindset Coaching",
+    basePrice: 97,
     maxPrice: 497,
-    priceNote: "One-time",
-    duration: "Lifetime Access",
-    description: "Practical blueprints for the self-reliant professional. I package my own internal workflows into templates and guides that you can implement today.",
-    payload: ["Prompt Architectures", "Skill Bundles", "Implementation Guides", "Workflow Blueprints"],
-    idealFor: "Individuals who want the 'how' and prefer to build their own systems using proven logic.",
+    priceNote: "Per Session / Package",
+    duration: "Ongoing",
+    description: "AI isn't just a tool problem — it's a thinking problem. Most people aren't overwhelmed by the technology; they're overwhelmed by what it means for their future. I help you move from anxiety to agency.",
+    payload: ["1-on-1 Mentoring", "Mindset Reframing", "Practical Tool Guidance", "Future-Optimistic Framework"],
+    idealFor: "Anyone who feels personally or professionally overwhelmed by AI and wants to think — and feel — differently about what's coming.",
     details: [
-      { title: "Battle-Tested Blueprints", text: "Get access to the exact prompts and logic I use to run my own autonomous systems and client implementations." },
-      { title: "Step-by-Step Training", text: "No surface-level theory. I provide clear, technical walkthroughs that focus on execution and measurable results." },
-      { title: "Reusable Assets", text: "Includes downloadable skill templates and workflow maps that you can plug into your own AI setup immediately." }
+      { title: "Mindset Before Toolset", text: "We start with how you think about AI, not how you use it. The shift from fear to agency unlocks everything else." },
+      { title: "Practical & Personal", text: "Every session blends hands-on tool guidance with the bigger picture — how AI changes your role, your industry, and your opportunities." },
+      { title: "Optimism Through Understanding", text: "The future isn't something that happens to you. I help you see AI as a lever for your ambitions, not a threat to your relevance." }
     ],
-    cta: "E-mail for more information",
-    ctaLink: "mailto:armchairfuturist@gmail.com",
+    cta: "Start Your AI Mentoring Journey",
+    ctaLink: "https://calendar.app.google/nAHHwNMfhDvXGv7P7",
     highlight: false,
     icon: BookOpen
   }
@@ -122,7 +122,7 @@ const organizationServices = [
   {
     path: "PILLAR 1",
     title: "Psychology-Led Adoption Strategy",
-    basePrice: 12500,
+    basePrice: 10625,
     priceNote: "Fixed",
     duration: "3-4 Weeks",
     description: "Rewiring the \"Corporate Immune System.\" I use data-driven profiling to segment your organization, ensuring we don't design for the \"lowest common denominator.\"",
@@ -141,7 +141,7 @@ const organizationServices = [
   {
     path: "PILLAR 2",
     title: "Distributed Authority Architect",
-    basePrice: 15000,
+    basePrice: 12750,
     priceNote: "/Month",
     duration: "Monthly Retainer",
     description: "From Hierarchical Bottlenecks to Competence-Based Accountability. Transition to Autonomous Squad Models where decisions follow data, not rank.",
@@ -160,8 +160,8 @@ const organizationServices = [
   {
     path: "PILLAR 3",
     title: "AI Infusion Lab",
-    basePrice: 45000,
-    maxPrice: 65000,
+    basePrice: 38250,
+    maxPrice: 55250,
     priceNote: "10-Week Lab",
     duration: "10 Weeks",
     description: "A 10-week transformation lab to launch disruptive initiatives at the \"Edge\" and validate new models safely before core integration.",
