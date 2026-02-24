@@ -154,7 +154,7 @@ export default function AboutMeSection() {
             maskImage: 'linear-gradient(to bottom, black 55%, transparent 88%)',
             WebkitMaskImage: 'linear-gradient(to bottom, black 55%, transparent 88%)',
           }}
-          priority
+          loading="lazy"
           sizes="48vw"
         />
       </div>
@@ -211,7 +211,7 @@ export default function AboutMeSection() {
                     maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
                     WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
                   }}
-                  priority
+                  loading="lazy"
                   sizes="100vw"
                 />
               </div>
