@@ -50,7 +50,7 @@ const entrepreneurServices = [
       { title: "Social Proof & Contact Layer", text: "I wire your social links, booking call-to-action, and credibility assets into a single interview-ready portfolio." }
     ],
     cta: "Claim Your $199 Page",
-    ctaLink: "https://calendar.app.google/nAHHwNMfhDvXGv7P7",
+    ctaLink: "https://forms.gle/ASNfu9Wr1qRLBZ8C8",
     highlight: true,
     badge: "Primary Offer",
     icon: Globe2
