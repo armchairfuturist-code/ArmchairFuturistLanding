@@ -141,32 +141,29 @@ export default function AboutMeSection() {
   }, []);
 
   return (
-    <section id="about-me" className="relative py-12 md:py-24 bg-sectionBlue scroll-mt-20 overflow-hidden min-h-[800px] flex items-center">
+    <section id="about-me" className="relative py-12 md:py-24 bg-sectionBlue scroll-mt-20 overflow-hidden">
 
-      {/* Portrait — desktop only, confined to the right half so it never bleeds over text */}
-      <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-[48%] pointer-events-none z-0">
-        <div className="relative h-full w-full">
-          <Image
-            src="/Standing-Photoroom.png"
-            alt="Alex Myers"
-            fill
-            className="object-contain"
-            style={{
-              objectPosition: 'right top',
-              maskImage: 'linear-gradient(to right, transparent 0%, transparent 15%, rgba(0,0,0,0.5) 40%, black 65%)',
-              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, transparent 15%, rgba(0,0,0,0.5) 40%, black 65%)',
-            }}
-            priority
-            sizes="48vw"
-          />
-        </div>
+      {/* Desktop portrait — absolute, bleeds to right edge of section */}
+      <div className="hidden lg:block absolute top-0 right-0 w-[48%] bottom-0 z-0 pointer-events-none">
+        <Image
+          src="/alexheadshot-nobg.png"
+          alt=""
+          fill
+          className="object-contain object-right-top"
+          style={{
+            maskImage: 'linear-gradient(to bottom, black 55%, transparent 88%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, black 55%, transparent 88%)',
+          }}
+          priority
+          sizes="48vw"
+        />
       </div>
 
       <div
         ref={contentRef}
         className={`container mx-auto px-4 md:px-6 relative z-10 w-full scroll-animate ${isContentVisible ? 'is-visible' : ''}`}
       >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 lg:items-center">
 
           {/* Left Column — text safely within the left 50% on desktop */}
           <div className="lg:col-span-6 space-y-4">
@@ -203,18 +200,20 @@ export default function AboutMeSection() {
                 </div>
               )}
 
-              {/* Mobile Image — face-first, shorter crop */}
-              <div className="lg:hidden relative w-full h-[320px] mb-8 -mx-4 w-[calc(100%+2rem)]">
-                <div className="absolute inset-0 bg-gradient-to-b from-sectionBlue via-transparent to-transparent z-10 pointer-events-none h-20" />
+              {/* Mobile Image — transparent cutout on sectionBlue */}
+              <div className="lg:hidden relative w-full h-[320px] mb-8">
                 <Image
-                  src="/Standing-Photoroom.png"
+                  src="/alexheadshot-nobg.png"
                   alt="Alex Myers"
                   fill
                   className="object-contain object-top"
+                  style={{
+                    maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
+                    WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
+                  }}
                   priority
                   sizes="100vw"
                 />
-                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-sectionBlue to-transparent z-10" />
               </div>
 
               <div className="flex items-center justify-center lg:justify-start gap-2 mb-6">
@@ -234,131 +233,51 @@ export default function AboutMeSection() {
 
               <div className="space-y-5 md:space-y-6">
                 <p className="text-base md:text-lg text-foreground/80 font-sans leading-relaxed">
-                  <span className="block">Foresight is useless if people don&apos;t believe it -</span>
-                  <span className="block">so I make belief actionable.</span>
+                  Most people are exhausted by AI because they&apos;re trying to track a moving target. They see a tidal wave of new apps and feel an obligation to keep up. That pressure is a choice, and usually, it&apos;s the wrong one.
                 </p>
 
                 <p className="text-base md:text-lg text-foreground/80 font-sans leading-relaxed">
-                  <span className="block">I guide leaders through profound technological shifts.</span>
-                  <span className="block">Not with buzzwords. With trust.</span>
+                  I don&apos;t teach people how to use more tools. I help them change how they see the landscape.
                 </p>
 
                 <p className="text-base md:text-lg text-foreground/80 font-sans leading-relaxed">
-                  <span className="block font-semibold text-foreground">My leverage:</span>
-                  <span className="block">Systems Thinking. Group dynamics.</span>
-                  <span className="block">Questions that catalyze real change.</span>
+                  When you fix your mental model, the overwhelm disappears. You stop reacting to the noise and start orienting toward agency.
                 </p>
 
+                <h3 className="text-lg md:text-xl font-bold text-primary pt-2">For the Executive:</h3>
                 <p className="text-base md:text-lg text-foreground/80 font-sans leading-relaxed">
-                  <span className="block">Future executives must speak two languages:</span>
-                  <span className="block font-semibold text-foreground">org design and AI engineering.</span>
+                  Future leadership requires being bilingual. You have to speak the language of organizational design and the language of AI logic in the same breath. I help you bridge that gap so your firm can actually compound its gains rather than just chasing the next demo.
                 </p>
 
+                <h3 className="text-lg md:text-xl font-bold text-primary pt-2">For the Individual:</h3>
                 <p className="text-base md:text-lg text-foreground/80 font-sans leading-relaxed">
-                  <span className="block">Firms that don&apos;t build that competence</span>
-                  <span className="block">won&apos;t compound their AI gains.</span>
+                  I help you find your footing. We work on the questions that matter: How do you live optimistically in a world where intelligence is becoming a cheap utility? How do you reclaim your time for the work that is uniquely yours?
                 </p>
 
                 <p className="flex items-center gap-2 text-base md:text-lg text-primary font-bold font-sans">
                   <ArrowRight className="w-4 h-4 shrink-0" />
-                  I work at that gap.
+                  This isn&apos;t about prediction. It&apos;s about moving from a state of &ldquo;what happens next&rdquo; to &ldquo;here is what I am building.&rdquo;
                 </p>
               </div>
             </div>
 
-            {/* Accordion Sections */}
-            <div className="space-y-2 pt-4">
-              <AccordionItem
-                title="Systems Optimization"
-                isOpen={openAccordion === 0}
-                onToggle={() => toggleAccordion(0)}
-              >
-                <div className="prose prose-lg text-foreground/80 max-w-none font-sans">
-                  <p>
-                    I view every business process as a series of interconnected loops. Most bottlenecks aren&apos;t technical; they are structural. I rebuild those workflows using AI to collapse operational costs and increase throughput.
-                  </p>
-                </div>
-              </AccordionItem>
-
-              <AccordionItem
-                title="Direct Execution (No Theatre)"
-                isOpen={openAccordion === 1}
-                onToggle={() => toggleAccordion(1)}
-              >
-                <div className="prose prose-lg text-foreground/80 max-w-none font-sans">
-                  <p>
-                    I act as your direct <strong>Agent Operator</strong>. I don&apos;t hand you a 50-page strategy deck; I provision the servers, write the system prompts, and manage the model integrations myself. My approach is focused on three pillars:
-                  </p>
-                  <ul className="list-none pl-0 space-y-4 mt-4">
-                    <li className="flex gap-3">
-                      <span className="text-primary text-xl shrink-0">→</span>
-                      <div>
-                        <strong className="text-primary">Architecting Autonomy:</strong>
-                        <span className="block mt-1">Building systems that handle rote drafting, scheduling, and research without human intervention.</span>
-                      </div>
-                    </li>
-                    <li className="flex gap-3">
-                      <span className="text-primary text-xl shrink-0">→</span>
-                      <div>
-                        <strong className="text-primary">Managed Operations:</strong>
-                        <span className="block mt-1">Providing ongoing oversight to ensure your AI assistant evolves as fast as the models do.</span>
-                      </div>
-                    </li>
-                    <li className="flex gap-3">
-                      <span className="text-primary text-xl shrink-0">→</span>
-                      <div>
-                        <strong className="text-primary">Measurable ROI:</strong>
-                        <span className="block mt-1">Focusing exclusively on workflows that reclaim at least 10-20 hours of your week.</span>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </AccordionItem>
-
-              <AccordionItem
-                title="Data & Privacy Sovereignty"
-                isOpen={openAccordion === 2}
-                onToggle={() => toggleAccordion(2)}
-              >
-                <div className="prose prose-lg text-foreground/80 max-w-none font-sans">
-                  <p>
-                    In the era of AI, your data is your competitive edge. I build on high-performance, open-standard stacks that ensure you own your logic and your data. No platform taxes, no digital anchors.
-                  </p>
-                </div>
-              </AccordionItem>
-            </div>
-
-            {/* CTA */}
-            <div className="pt-8">
-              <p className="text-lg font-sans text-foreground/90">
-                <strong>Ready to reclaim your time and focus on high-leverage work? </strong>
-                <a
-                  href="https://calendar.app.google/nAHHwNMfhDvXGv7P7"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-primary font-bold hover:underline underline-offset-4 transition-all duration-200 hover:gap-3"
-                >
-                  Provision your system
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </a>
-              </p>
-            </div>
-
-            {/* Certifications */}
-            {otherCertifications.length > 0 && (
-              <div className="pt-8 border-t border-white/10">
-                <p className="text-xs font-mono uppercase tracking-widest text-primary/60 mb-4 text-center lg:text-left">Verified Background</p>
-                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-3">
-                  {otherCertifications.map((cert) => (
-                    <CertificationItem key={cert.id} certification={cert} />
-                  ))}
-                </div>
-              </div>
-            )}
           </div>
+
+          {/* Right Column — spacer for absolute portrait */}
+          <div className="hidden lg:block lg:col-span-6" aria-hidden="true" />
         </div>
+
+        {/* Certifications */}
+        {otherCertifications.length > 0 && (
+          <div className="mt-10 pt-8 border-t border-white/10">
+            <p className="text-xs font-mono uppercase tracking-widest text-primary/60 mb-4 text-center lg:text-left">Verified Background</p>
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-3">
+              {otherCertifications.map((cert) => (
+                <CertificationItem key={cert.id} certification={cert} />
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

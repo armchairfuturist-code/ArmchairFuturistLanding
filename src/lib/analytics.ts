@@ -41,7 +41,6 @@ export function trackEvent(eventName: string, eventParams?: Record<string, any>)
     }
 
     logEvent(analytics, eventName, eventParams);
-    console.log(`📊 Firebase Analytics: Event tracked - ${eventName}`, eventParams);
 }
 
 /**
