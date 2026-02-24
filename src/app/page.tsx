@@ -1,16 +1,13 @@
 
 import HeroSection from '@/components/sections/HeroSection';
 import ChallengeSection from '@/components/sections/ChallengeSection';
-import AccountabilityGapSection from '@/components/sections/AccountabilityGapSection';
-import NavigatorSection from '@/components/sections/NavigatorSection';
 import AboutMeSection from '@/components/sections/AboutMeSection';
 import FeaturedInSection from '@/components/sections/FeaturedInSection';
 import WhyWorkWithMeSection from '@/components/sections/WhyWorkWithMeSection';
 import ServicesSection from '@/components/sections/ServicesSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import EmailCaptureSection from '@/components/sections/EmailCaptureSection';
-import SubstackSection from '@/components/sections/SubstackSection';
-import ThoughtLeadershipSection from '@/components/sections/ThoughtLeadershipSection';
+import InsightsSection from '@/components/sections/InsightsSection';
 import ConnectSection from '@/components/sections/ConnectSection';
 import SpotlightSection from '@/components/sections/SpotlightSection';
 import AIMentoringSection from '@/components/sections/AIMentoringSection';
@@ -22,12 +19,8 @@ export default function HomePage() {
       {/* HOOK — make the visitor feel the stakes */}
       <HeroSection />
 
-      {/* PROBLEM — agitate the pain they already feel */}
+      {/* PROBLEM + SOLUTION — the accountability gap and how I bridge it */}
       <ChallengeSection />
-
-      {/* SOLUTION — introduce the concept & methodology */}
-      <AccountabilityGapSection />
-      <NavigatorSection />
 
       {/* SPOTLIGHT — $199 Digital Identity gateway offer */}
       <SpotlightSection />
@@ -52,9 +45,8 @@ export default function HomePage() {
       {/* NURTURE — capture visitors not yet ready to buy */}
       <EmailCaptureSection />
 
-      {/* CONTENT — keep curious visitors engaged & coming back */}
-      <SubstackSection />
-      <ThoughtLeadershipSection />
+      {/* CONTENT — articles + podcasts in one view */}
+      <InsightsSection />
 
       {/* CLOSE — final CTA */}
       <ConnectSection />
