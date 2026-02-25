@@ -1,13 +1,15 @@
 "use client";
 
 import type { FC } from 'react';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { BookOpen, ExternalLink, Calendar, Image as ImageIcon, Podcast, MessageCircle, ChevronDown, ChevronUp } from 'lucide-react';
 import { format } from 'date-fns';
 import Image from 'next/image';
 import Link from 'next/link';
+import { BlurFade } from '@/components/ui/blur-fade';
+import { motion } from 'framer-motion';
 
 interface SubstackPost {
   title: string;
@@ -68,8 +70,6 @@ export default function InsightsSection() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [showAllPodcasts, setShowAllPodcasts] = useState(false);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -88,20 +88,6 @@ export default function InsightsSection() {
     fetchPosts();
   }, []);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-    if (contentRef.current) observer.observe(contentRef.current);
-    return () => observer.disconnect();
-  }, []);
-
   const formatDate = (dateStr: string) => {
     try {
       return format(new Date(dateStr), 'MMM d, yyyy');
@@ -114,18 +100,23 @@ export default function InsightsSection() {
 
   return (
     <section id="latest-insights" className="py-12 md:py-20 bg-background scroll-mt-20">
-      <div
-        ref={contentRef}
-        className={`container mx-auto px-4 md:px-6 scroll-animate ${isVisible ? 'is-visible' : ''}`}
+      <motion.div
+        className="container mx-auto px-4 md:px-6"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
       >
-        <div className="text-center mb-12">
-          <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-            Insights
-          </h2>
-          <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto font-sans">
-            Thoughts on technology, meaning, and the future.
-          </p>
-        </div>
+        <BlurFade inView>
+          <div className="text-center mb-12">
+            <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
+              Insights
+            </h2>
+            <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto font-sans">
+              Thoughts on technology, meaning, and the future.
+            </p>
+          </div>
+        </BlurFade>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {/* Written — takes 2 columns */}
@@ -145,34 +136,42 @@ export default function InsightsSection() {
               <>
                 <div className="grid gap-5 sm:grid-cols-3">
                   {posts.map((post, index) => (
-                    <Card key={index} className="flex flex-col shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group">
-                      <div className="relative h-36 w-full bg-muted overflow-hidden">
-                        {post.imageUrl ? (
-                          <Image
-                            src={post.imageUrl}
-                            alt={post.title}
-                            fill
-                            className="object-cover group-hover:scale-105 transition-transform duration-300"
-                            sizes="(max-width: 768px) 100vw, 33vw"
-                          />
-                        ) : (
-                          <div className="flex items-center justify-center h-full">
-                            <ImageIcon className="h-10 w-10 text-muted-foreground/30" />
-                          </div>
-                        )}
-                      </div>
-                      <CardContent className="flex-grow p-4 flex flex-col">
-                        <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
-                          <Calendar className="h-3 w-3" />
-                          <span>{formatDate(post.pubDate)}</span>
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 16 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.35, delay: index * 0.08 }}
+                    >
+                      <Card className="flex flex-col shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group">
+                        <div className="relative h-36 w-full bg-muted overflow-hidden">
+                          {post.imageUrl ? (
+                            <Image
+                              src={post.imageUrl}
+                              alt={post.title}
+                              fill
+                              className="object-cover group-hover:scale-105 transition-transform duration-300"
+                              sizes="(max-width: 768px) 100vw, 33vw"
+                            />
+                          ) : (
+                            <div className="flex items-center justify-center h-full">
+                              <ImageIcon className="h-10 w-10 text-muted-foreground/30" />
+                            </div>
+                          )}
                         </div>
-                        <h4 className="font-semibold text-sm leading-tight text-foreground group-hover:text-primary transition-colors line-clamp-2">
-                          <a href={post.link} target="_blank" rel="noopener noreferrer" className="hover:underline">
-                            {post.title}
-                          </a>
-                        </h4>
-                      </CardContent>
-                    </Card>
+                        <CardContent className="flex-grow p-4 flex flex-col">
+                          <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
+                            <Calendar className="h-3 w-3" />
+                            <span>{formatDate(post.pubDate)}</span>
+                          </div>
+                          <h4 className="font-semibold text-sm leading-tight text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                            <a href={post.link} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                              {post.title}
+                            </a>
+                          </h4>
+                        </CardContent>
+                      </Card>
+                    </motion.div>
                   ))}
                 </div>
                 <div className="mt-6">
@@ -228,7 +227,7 @@ export default function InsightsSection() {
             )}
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
