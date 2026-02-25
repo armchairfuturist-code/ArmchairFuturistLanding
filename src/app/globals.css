@@ -52,7 +52,6 @@
   }
 }
 
-
 @layer base {
   :root {
     --background: 0 0% 100%; /* White */
@@ -145,6 +144,8 @@
   body {
     @apply bg-background text-foreground font-sans; /* Ensure font-sans is applied */
   }
+  .theme { --animate-marquee: marquee var(--duration) infinite linear; --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite; --animate-shine: shine var(--duration) infinite linear;
+  }
 }
 
 @layer utilities {
@@ -156,5 +157,35 @@
   }
   .text-hero-title-2 {
     color: hsl(var(--hero-title-color-2));
+  }
+}
+
+@theme inline {
+  @keyframes marquee {
+  from {
+    transform: translateX(0);
+    }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+    }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes shine {
+  0% {
+    background-position: 0% 0%;
+    }
+  50% {
+    background-position: 100% 100%;
+    }
+  to {
+    background-position: 0% 0%;
+    }
   }
 }

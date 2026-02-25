@@ -1,8 +1,8 @@
-
 "use client";
-import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { Quote } from 'lucide-react';
+import { BlurFade } from '@/components/ui/blur-fade';
+import { Marquee } from '@/components/ui/marquee';
 
 interface Testimonial {
   imageSrc: string;
@@ -78,71 +78,54 @@ const testimonialsData: Testimonial[] = [
   }
 ];
 
-const duplicatedTestimonials = [...testimonialsData, ...testimonialsData];
+function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
+  return (
+    <div className="flex-none w-80 md:w-96 bg-card rounded-xl border border-border/50 shadow-md p-5 md:p-6 flex flex-col gap-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+      <Quote className="h-5 w-5 text-primary/30 shrink-0" />
+      <p className="text-sm text-foreground/80 font-sans leading-relaxed line-clamp-7">
+        {testimonial.text}
+      </p>
+      <div className="flex items-center gap-3 mt-auto pt-2 border-t border-border/30">
+        <div className="relative h-10 w-10 shrink-0">
+          <Image
+            src={testimonial.imageSrc}
+            alt={`Profile picture of ${testimonial.name}`}
+            fill
+            sizes="40px"
+            className="rounded-full object-cover border-2 border-primary/20"
+            data-ai-hint={testimonial.dataAiHint || "profile person"}
+          />
+        </div>
+        <div>
+          <p className="text-sm font-semibold text-primary leading-tight">{testimonial.name}</p>
+          <p className="text-xs text-muted-foreground font-sans">{testimonial.title}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function TestimonialsSection() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const [isContentVisible, setIsContentVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsContentVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section id="testimonials" className="py-12 md:py-24 bg-secondary scroll-mt-20 overflow-hidden">
-      <div
-        ref={sectionRef}
-        className={`container mx-auto px-4 md:px-6 text-center mb-12 scroll-animate ${isContentVisible ? 'is-visible' : ''}`}
-      >
-        <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-          What Leaders Say After Working With Alex
-        </h2>
-        <p className="mt-3 text-muted-foreground font-sans text-base max-w-xl mx-auto">
-          Testimonials from executives, founders, and operators across tech, strategy, and change management.
-        </p>
-      </div>
-
-      <div className="relative flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
-        <p className="absolute bottom-2 right-4 z-10 text-[10px] text-muted-foreground/40 font-mono pointer-events-none select-none">hover to pause</p>
-        <div className="flex min-w-max animate-marquee-slow hover:[animation-play-state:paused] gap-x-6 md:gap-x-8">
-          {duplicatedTestimonials.map((testimonial, index) => (
-            <div
-              key={`${testimonial.name}-${index}`}
-              className="flex-none w-80 md:w-96 bg-card rounded-xl border border-border/50 shadow-md p-5 md:p-6 flex flex-col gap-4"
-            >
-              <Quote className="h-5 w-5 text-primary/30 shrink-0" />
-              <p className="text-sm text-foreground/80 font-sans leading-relaxed line-clamp-7">
-                {testimonial.text}
-              </p>
-              <div className="flex items-center gap-3 mt-auto pt-2 border-t border-border/30">
-                <div className="relative h-10 w-10 shrink-0">
-                  <Image
-                    src={testimonial.imageSrc}
-                    alt={`Profile picture of ${testimonial.name}`}
-                    fill
-                    sizes="40px"
-                    className="rounded-full object-cover border-2 border-primary/20"
-                    data-ai-hint={testimonial.dataAiHint || "profile person"}
-                  />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-primary leading-tight">{testimonial.name}</p>
-                  <p className="text-xs text-muted-foreground font-sans">{testimonial.title}</p>
-                </div>
-              </div>
-            </div>
-          ))}
+      <BlurFade inView>
+        <div className="container mx-auto px-4 md:px-6 text-center mb-12">
+          <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
+            What Leaders Say After Working With Alex
+          </h2>
+          <p className="mt-3 text-muted-foreground font-sans text-base max-w-xl mx-auto">
+            Testimonials from executives, founders, and operators across tech, strategy, and change management.
+          </p>
         </div>
+      </BlurFade>
+
+      <div className="relative [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+        <p className="absolute bottom-2 right-4 z-10 text-[10px] text-muted-foreground/40 font-mono pointer-events-none select-none">hover to pause</p>
+        <Marquee pauseOnHover className="[--duration:70s] [--gap:1.5rem] md:[--gap:2rem]">
+          {testimonialsData.map((testimonial) => (
+            <TestimonialCard key={testimonial.name} testimonial={testimonial} />
+          ))}
+        </Marquee>
       </div>
     </section>
   );

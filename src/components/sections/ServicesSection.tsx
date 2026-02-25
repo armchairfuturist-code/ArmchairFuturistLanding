@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import {
@@ -30,6 +30,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { motion, useSpring, useTransform, useMotionValue, AnimatePresence } from 'framer-motion';
+import { ShineBorder } from '@/components/ui/shine-border';
+import { BlurFade } from '@/components/ui/blur-fade';
 
 type PricingContext = 'standard' | 'ppp' | 'agile';
 type ServiceTrack = 'entrepreneur' | 'organization';
@@ -216,11 +218,14 @@ const ServiceAccordionItem = ({ service, pricingContext, index }: { service: any
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35, ease: 'easeOut', delay: index * 0.06 }}
     >
-      <AccordionItem value={service.title} className={`bg-card border rounded-xl px-2 mb-4 overflow-hidden shadow-sm transition-all hover:shadow-md 
+      <AccordionItem value={service.title} className={`bg-card border rounded-xl px-2 mb-4 overflow-hidden shadow-sm transition-all hover:shadow-md
                 ${service.highlight ? 'border-primary/50 ring-1 ring-primary/10 shadow-[0_0_15px_rgba(76,29,149,0.05)]' : 'border-border hover:border-primary/50'}
                 data-[state=open]:ring-1 data-[state=open]:ring-primary/20 data-[state=open]:shadow-lg relative group`}>
         {service.highlight && (
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+          <>
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+            <ShineBorder shineColor={["hsl(208, 100%, 50%)", "hsl(208, 100%, 70%)"]} borderWidth={2} duration={10} />
+          </>
         )}
         <AccordionTrigger className="px-4 py-6 hover:no-underline [&[data-state=open]>div>div>svg]:rotate-180">
           <div className="flex flex-col md:flex-row w-full items-start md:items-center gap-4 text-left z-10">
@@ -312,24 +317,15 @@ const ServiceAccordionItem = ({ service, pricingContext, index }: { service: any
 };
 
 export default function ServicesSection() {
-  const contentRef = useRef<HTMLDivElement>(null);
-  const [isContentVisible, setIsContentVisible] = useState(false);
   const [pricingContext, setPricingContext] = useState<PricingContext>('standard');
   const [activeTrack, setActiveTrack] = useState<ServiceTrack>('entrepreneur');
   const [showPricingOptions, setShowPricingOptions] = useState(false);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => { if (entry.isIntersecting) { setIsContentVisible(true); observer.unobserve(entry.target); } });
-    }, { threshold: 0.1 });
-    if (contentRef.current) observer.observe(contentRef.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section id="services" className="py-24 bg-background scroll-mt-20 relative">
-      <div ref={contentRef} className={`container mx-auto px-4 md:px-6 scroll-animate ${isContentVisible ? 'is-visible' : ''}`} >
-        <div className="text-center mb-12 max-w-4xl mx-auto">
+      <div className="container mx-auto px-4 md:px-6">
+        <BlurFade inView>
+          <div className="text-center mb-12 max-w-4xl mx-auto">
           <h2 className="font-heading text-4xl md:text-5xl font-bold tracking-tight text-primary mb-8">
             Execution-First Engineering & Strategy.
           </h2>
@@ -338,6 +334,7 @@ export default function ServicesSection() {
             <p><strong>My Promise:</strong> Partner with an operator who executes with you as your needs evolve. If you aren't happy with our initial prototyping and ideation discussions, I will happily refund you.</p>
           </div>
         </div>
+        </BlurFade>
 
         {/* Track Selector Toggle */}
         <div className="flex flex-col items-center mb-16">
