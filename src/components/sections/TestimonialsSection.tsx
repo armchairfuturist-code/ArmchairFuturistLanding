@@ -111,7 +111,7 @@ export default function TestimonialsSection() {
       <BlurFade inView>
         <div className="container mx-auto px-4 md:px-6 text-center mb-12">
           <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-            What Leaders Say After Working With Alex
+            What Do Clients Say About Working With Alex Myers?
           </h2>
           <p className="mt-3 text-muted-foreground font-sans text-base max-w-xl mx-auto">
             Testimonials from executives, founders, and operators across tech, strategy, and change management.

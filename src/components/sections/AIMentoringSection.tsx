@@ -30,15 +30,15 @@ export default function AIMentoringSection() {
       <div className="container max-w-5xl mx-auto">
         <BlurFade inView>
           <div className="text-center mb-12">
+            <p className="text-xs text-muted-foreground/60 font-mono mb-2">Last updated: February 2026</p>
             <p className="text-sm font-mono text-primary uppercase tracking-widest mb-3">
               AI Mentoring
             </p>
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
-              You don&apos;t need another AI course.<br className="hidden sm:block" />
-              You need someone in your corner.
+              What Is AI Mentoring and Who Is It For?
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Most AI &quot;training&quot; teaches tools. I mentor people. Whether you&apos;re a seasoned executive or early in your career, the real barrier isn&apos;t technical — it&apos;s the story you&apos;re telling yourself about what&apos;s coming.
+              AI mentoring is one-on-one coaching that helps you move from AI anxiety to agency. Most AI &quot;training&quot; teaches tools &mdash; Alex mentors people. Whether you&apos;re a seasoned executive or early in your career, the real barrier isn&apos;t technical &mdash; it&apos;s the story you&apos;re telling yourself about what&apos;s coming.
             </p>
           </div>
         </BlurFade>

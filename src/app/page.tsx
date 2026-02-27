@@ -12,6 +12,7 @@ import ConnectSection from '@/components/sections/ConnectSection';
 import SpotlightSection from '@/components/sections/SpotlightSection';
 import AIMentoringSection from '@/components/sections/AIMentoringSection';
 import SpeakingSection from '@/components/sections/SpeakingSection';
+import FAQSection from '@/components/sections/FAQSection';
 
 export default function HomePage() {
   return (
@@ -47,6 +48,9 @@ export default function HomePage() {
 
       {/* CONTENT — articles + podcasts in one view */}
       <InsightsSection />
+
+      {/* FAQ — AI-optimized question-answer content */}
+      <FAQSection />
 
       {/* CLOSE — final CTA */}
       <ConnectSection />

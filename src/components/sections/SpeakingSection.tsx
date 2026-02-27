@@ -29,10 +29,10 @@ export default function SpeakingSection() {
             </div>
 
             <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-3">
-              Bring the conversation to your team.
+              Can Alex Myers Speak at Our Event or Organization?
             </h2>
             <p className="text-muted-foreground text-lg mb-8">
-              Keynotes, executive roundtables, and workshops for organizations ready to think clearly about AI — not just adopt it.
+              Yes &mdash; Alex delivers keynotes, executive roundtables, and workshops for organizations ready to think clearly about AI, not just adopt it. Topics include:
             </p>
 
             <ul className="space-y-3 mb-8">

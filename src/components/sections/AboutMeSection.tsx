@@ -146,8 +146,9 @@ export default function AboutMeSection() {
 
               <BlurFade inView delay={0.2}>
                 <div className="flex items-center justify-center lg:justify-start gap-2 mb-6">
+                  <p className="text-xs text-muted-foreground/60 font-mono mb-2 text-center lg:text-left">Last updated: February 2026</p>
                   <h2 className="font-heading text-4xl font-bold tracking-tight text-primary sm:text-5xl text-center lg:text-left">
-                    About Alex
+                    Who Is Alex Myers?
                   </h2>
                   <a
                     href="https://www.linkedin.com/in/alex-myers-34572a10/"

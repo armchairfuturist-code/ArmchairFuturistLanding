@@ -28,10 +28,10 @@ export default function ChallengeSection() {
         <BlurFade inView>
           <div className="max-w-5xl mx-auto text-center mb-12">
             <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary mb-5">
-              AI Adoption Stalls Because of People, Not Technology
+              Why Does AI Adoption Stall in Most Organizations?
             </h2>
             <p className="text-lg md:text-xl text-foreground/80 font-sans leading-relaxed max-w-3xl mx-auto">
-              Most companies layer AI onto existing processes without rethinking workflows, incentives, or decision rights. The result is an <strong className="text-primary">Accountability Gap</strong> &mdash; the space between an AI output and a business result. I bridge that gap as your Trusted Human Architect.
+              AI adoption stalls because of people, not technology. Most companies layer AI onto existing processes without rethinking workflows, incentives, or decision rights. The result is an <strong className="text-primary">Accountability Gap</strong> &mdash; the space between an AI output and a business result. Alex Myers bridges that gap as your Trusted Human Architect.
             </p>
           </div>
         </BlurFade>
