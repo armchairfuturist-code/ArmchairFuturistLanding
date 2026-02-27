@@ -51,10 +51,10 @@ export default function WhyWorkWithMeSection() {
       >
         <div className="text-center mb-16 max-w-4xl mx-auto">
           <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary mb-6">
-            How I Operate
+            How Does Alex Myers Work With Clients?
           </h2>
           <p className="text-xl text-foreground/80 font-sans leading-relaxed">
-            Execution-first. No theatre. Measurable outcomes.
+            Alex operates execution-first with no theatre and measurable outcomes across three pillars.
           </p>
         </div>
 

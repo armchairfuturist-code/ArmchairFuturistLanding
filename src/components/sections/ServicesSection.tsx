@@ -326,11 +326,12 @@ export default function ServicesSection() {
       <div className="container mx-auto px-4 md:px-6">
         <BlurFade inView>
           <div className="text-center mb-12 max-w-4xl mx-auto">
+          <p className="text-xs text-muted-foreground/60 font-mono mb-4">Last updated: February 2026</p>
           <h2 className="font-heading text-4xl md:text-5xl font-bold tracking-tight text-primary mb-8">
-            Execution-First Engineering & Strategy.
+            What Services Does the Armchair Futurist Offer?
           </h2>
           <div className="text-xl text-foreground/80 font-sans leading-relaxed space-y-6">
-            <p>High-signal results require skin in the game. Start with the $199 Digital Identity upgrade - <strong>Your resume is not enough in 2026.</strong> - then scale into deeper architecture as your execution matures.</p>
+            <p>The Armchair Futurist offers execution-first AI strategy services ranging from $97 to $55,250. Start with the $199 Digital Identity upgrade &mdash; <strong>your resume is not enough in 2026</strong> &mdash; then scale into deeper architecture as your execution matures.</p>
             <p><strong>My Promise:</strong> Partner with an operator who executes with you as your needs evolve. If you aren't happy with our initial prototyping and ideation discussions, I will happily refund you.</p>
           </div>
         </div>
