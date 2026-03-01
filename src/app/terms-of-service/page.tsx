@@ -59,7 +59,7 @@ export default function TermsOfServicePage() {
 
           <h2>8. Contact Us</h2>
           <p>
-            If you have any questions about these Terms, please contact us at alex@alexmyers.co (replace with actual contact email).
+            If you have any questions about these Terms, please contact us at armchairfuturist@gmail.com.
           </p>
         </CardContent>
       </Card>
