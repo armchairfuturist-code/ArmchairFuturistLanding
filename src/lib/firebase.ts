@@ -1,5 +1,5 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp, getApps, getApp } from "firebase/app";
+import { initializeApp, getApps, getApp, FirebaseApp } from "firebase/app";
 import { getAnalytics, Analytics } from "firebase/analytics";
 
 // Your web app's Firebase configuration
@@ -14,9 +14,14 @@ const firebaseConfig = {
     measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
 };
 
-// Initialize Firebase
-// Use getApps() to check if Firebase is already initialized to avoid multiple instances
-const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
+// Initialize Firebase only if required config is present
+const isFirebaseConfigured = !!(firebaseConfig.apiKey && firebaseConfig.projectId && firebaseConfig.appId);
+
+let app: FirebaseApp | null = null;
+
+if (isFirebaseConfigured) {
+    app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
+}
 
 // Initialize Analytics and export
 // Note: Analytics only works in the browser, not during server-side rendering
@@ -24,7 +29,7 @@ let analytics: Analytics | null = null;
 
 // Function to get analytics instance (only in browser)
 export const getAnalyticsInstance = () => {
-    if (typeof window !== 'undefined' && !analytics) {
+    if (typeof window !== 'undefined' && !analytics && app) {
         analytics = getAnalytics(app);
     }
     return analytics;
