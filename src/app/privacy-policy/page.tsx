@@ -69,7 +69,7 @@ export default function PrivacyPolicyPage() {
 
           <h2>8. How Can You Contact Us About This Policy?</h2>
           <p>
-            If you have questions or comments about this policy, you may email us at alex@alexmyers.co (replace with actual contact email).
+            If you have questions or comments about this policy, you may email us at armchairfuturist@gmail.com.
           </p>
         </CardContent>
       </Card>
