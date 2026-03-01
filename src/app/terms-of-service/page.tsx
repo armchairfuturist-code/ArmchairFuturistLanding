@@ -1,16 +1,7 @@
 
-"use client";
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useState, useEffect } from 'react';
 
 export default function TermsOfServicePage() {
-  const [currentDate, setCurrentDate] = useState('');
-
-  useEffect(() => {
-    setCurrentDate(new Date().toLocaleDateString());
-  }, []);
-
   return (
     <div className="container mx-auto py-12 px-4 md:px-6">
       <Card className="max-w-3xl mx-auto shadow-lg">
@@ -18,8 +9,8 @@ export default function TermsOfServicePage() {
           <CardTitle className="text-3xl font-bold text-primary">Terms of Service</CardTitle>
         </CardHeader>
         <CardContent className="prose prose-lg max-w-none text-foreground/80">
-          <p><em>Last updated: {currentDate || 'Loading...'}</em></p>
-          
+          <p><em>Last updated: March 1, 2026</em></p>
+
           <h2>1. Agreement to Terms</h2>
           <p>
             By accessing or using the Armchair Futurist website (the "Service"), you agree to be bound by these Terms of Service ("Terms"). If you disagree with any part of the terms, then you may not access the Service.
@@ -42,7 +33,7 @@ export default function TermsOfServicePage() {
           <p>
             In no event shall Alex Myers Consulting LLC, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from (i) your access to or use of or inability to access or use the Service; (ii) any conduct or content of any third party on the Service; (iii) any content obtained from the Service; and (iv) unauthorized access, use or alteration of your transmissions or content, whether based on warranty, contract, tort (including negligence) or any other legal theory, whether or not we have been informed of the possibility of such damage, and even if a remedy set forth herein is found to have failed of its essential purpose.
           </p>
-          
+
           <h2>5. Disclaimer</h2>
            <p>Your use of the Service is at your sole risk. The Service is provided on an "AS IS" and "AS AVAILABLE" basis. The Service is provided without warranties of any kind, whether express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, non-infringement or course of performance.</p>
            <p>Alex Myers Consulting LLC its subsidiaries, affiliates, and its licensors do not warrant that a) the Service will function uninterrupted, secure or available at any particular time or location; b) any errors or defects will be corrected; c) the Service is free of viruses or other harmful components; or d) the results of using the Service will meet your requirements.</p>
