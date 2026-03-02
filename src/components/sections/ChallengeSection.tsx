@@ -1,7 +1,7 @@
 "use client";
 import { Compass, Bot, ShieldCheck } from 'lucide-react';
 import { BlurFade } from '@/components/ui/blur-fade';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 const signals = [
   {

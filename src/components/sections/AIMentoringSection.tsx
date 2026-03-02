@@ -4,7 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Heart, Lightbulb, TrendingUp, CalendarDays } from 'lucide-react';
 import { trackConversion } from '@/lib/analytics';
 import { BlurFade } from '@/components/ui/blur-fade';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
+import { CALENDAR_URL } from '@/lib/constants';
 
 const pillars = [
   {
@@ -71,7 +72,7 @@ export default function AIMentoringSection() {
               This isn&apos;t for everyone — it&apos;s for people who want to lead their own AI journey, not be dragged along by it. Sessions start at $97.
             </p>
             <Button asChild size="lg" className="h-12 px-8 text-base font-bold">
-              <a href="https://calendar.app.google/nAHHwNMfhDvXGv7P7" target="_blank" rel="noopener noreferrer" onClick={() => trackConversion('mentoring_book_session', 97)}>
+              <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackConversion('mentoring_book_session', 97)}>
                 <CalendarDays className="mr-2 h-5 w-5" />
                 Book a Mentoring Session
               </a>

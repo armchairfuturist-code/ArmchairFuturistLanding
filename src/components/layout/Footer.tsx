@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Linkedin } from 'lucide-react';
+import { SUBSTACK_URL } from '@/lib/constants';
 
 export default function Footer() {
   return (
@@ -27,7 +28,7 @@ export default function Footer() {
             <Linkedin className="h-5 w-5" />
           </a>
           <a
-            href="https://armchairfuturist.substack.com/"
+            href={SUBSTACK_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-foreground"

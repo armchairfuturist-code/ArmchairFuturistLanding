@@ -3,11 +3,15 @@ import { XMLParser } from 'fast-xml-parser';
 
 export async function GET() {
   try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 5000);
     const response = await fetch('https://armchairfuturist.substack.com/feed', {
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
       },
+      signal: controller.signal,
     });
+    clearTimeout(timeout);
     if (!response.ok) {
       throw new Error('Failed to fetch feed');
     }

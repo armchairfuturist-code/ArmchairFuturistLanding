@@ -127,6 +127,20 @@ export default function TestimonialsSection() {
           ))}
         </Marquee>
       </div>
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "@id": "https://thearmchairfuturist.com/#org",
+          "name": "The Armchair Futurist - Alex Myers",
+          "review": testimonialsData.map((t) => ({
+            "@type": "Review",
+            "author": { "@type": "Person", "name": t.name },
+            "reviewBody": t.text,
+          })),
+        }),
+      }} />
     </section>
   );
 }

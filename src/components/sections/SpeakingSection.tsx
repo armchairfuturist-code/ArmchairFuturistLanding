@@ -4,7 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Mic, Users, Brain, TrendingUp, Shield } from 'lucide-react';
 import { trackEvent } from '@/lib/analytics';
 import { BlurFade } from '@/components/ui/blur-fade';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
+import { SPEAKING_FORM_URL } from '@/lib/constants';
 
 const topics = [
   { icon: Brain, text: "AI & the Future of Work — what actually changes" },
@@ -57,7 +58,7 @@ export default function SpeakingSection() {
 
             <Button asChild size="lg" className="h-12 px-6 text-base font-bold">
               <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSe36EU0DrDTMYMsGp32-wD_HlF7M_IPH-IsqpU-hrtJTlPZAg/viewform?usp=header"
+                href={SPEAKING_FORM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackEvent('speaking_inquiry_click')}

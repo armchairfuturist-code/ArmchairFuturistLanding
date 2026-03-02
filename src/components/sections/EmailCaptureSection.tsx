@@ -4,7 +4,8 @@ import { Mail, Download, CheckCircle2, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { BorderBeam } from '@/components/ui/border-beam';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
+import { SUBSTACK_URL } from '@/lib/constants';
 
 const benefits = [
     "10 diagnostic questions to expose your AI accountability gaps",
@@ -31,7 +32,7 @@ export default function EmailCaptureSection() {
         try {
             await new Promise((res) => setTimeout(res, 800));
             window.open(
-                `https://armchairfuturist.substack.com/subscribe?email=${encodeURIComponent(email)}`,
+                `${SUBSTACK_URL}/subscribe?email=${encodeURIComponent(email)}`,
                 '_blank'
             );
             setFormState('success');
