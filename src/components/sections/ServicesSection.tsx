@@ -29,7 +29,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { motion, useSpring, useTransform, useMotionValue, AnimatePresence } from 'framer-motion';
+import { motion, useSpring, useTransform, useMotionValue, AnimatePresence } from 'motion/react';
+import { CALENDAR_URL, GOOGLE_FORM_URL } from '@/lib/constants';
 import { ShineBorder } from '@/components/ui/shine-border';
 import { BlurFade } from '@/components/ui/blur-fade';
 
@@ -52,7 +53,7 @@ const entrepreneurServices = [
       { title: "Social Proof & Contact Layer", text: "I wire your social links, booking call-to-action, and credibility assets into a single interview-ready portfolio." }
     ],
     cta: "Claim Your $199 Page",
-    ctaLink: "https://forms.gle/ASNfu9Wr1qRLBZ8C8",
+    ctaLink: GOOGLE_FORM_URL,
     highlight: true,
     badge: "Primary Offer",
     icon: Globe2
@@ -73,7 +74,7 @@ const entrepreneurServices = [
       { title: "Immediate Throughput", text: "My goal is to reclaim 10-20 hours of your week by automating rote scheduling, drafting, and research tasks." }
     ],
     cta: "Request Setup",
-    ctaLink: "https://calendar.app.google/nAHHwNMfhDvXGv7P7",
+    ctaLink: CALENDAR_URL,
     highlight: false,
     badge: "Most Popular",
     icon: Layout
@@ -94,7 +95,7 @@ const entrepreneurServices = [
       { title: "Scalable Operations", text: "As your business grows, I add new capabilities and integrations to your assistant to handle increased volume and complexity." }
     ],
     cta: "Discuss Retainer",
-    ctaLink: "https://calendar.app.google/nAHHwNMfhDvXGv7P7",
+    ctaLink: CALENDAR_URL,
     highlight: false,
     icon: Settings
   },
@@ -114,7 +115,7 @@ const entrepreneurServices = [
       { title: "Optimism Through Understanding", text: "The future isn't something that happens to you. I help you see AI as a lever for your ambitions, not a threat to your relevance." }
     ],
     cta: "Start Your AI Mentoring Journey",
-    ctaLink: "https://calendar.app.google/nAHHwNMfhDvXGv7P7",
+    ctaLink: CALENDAR_URL,
     highlight: false,
     icon: BookOpen
   }
@@ -136,7 +137,7 @@ const organizationServices = [
       { title: "Complexity Coaching", text: "Coaching leaders to shift from 'Command-and-Control' to 'Complexity' thinking, essential for managing non-linear challenges." }
     ],
     cta: "Schedule Diagnostic",
-    ctaLink: "https://calendar.app.google/nAHHwNMfhDvXGv7P7",
+    ctaLink: CALENDAR_URL,
     highlight: false,
     icon: BrainCircuit
   },
@@ -155,7 +156,7 @@ const organizationServices = [
       { title: "Role-Based Ownership", text: "Moving away from 'titles' to 'roles,' ensuring decisions are made by those with the most relevant data." }
     ],
     cta: "Discuss Retainer",
-    ctaLink: "https://calendar.app.google/nAHHwNMfhDvXGv7P7",
+    ctaLink: CALENDAR_URL,
     highlight: false,
     icon: Users
   },
@@ -175,7 +176,7 @@ const organizationServices = [
       { title: "High-Intensity Pilots", text: "Launching high-impact initiatives in 10-week sprints to secure measurable ROI and cultural momentum." }
     ],
     cta: "Apply for Lab",
-    ctaLink: "https://calendar.app.google/nAHHwNMfhDvXGv7P7",
+    ctaLink: CALENDAR_URL,
     highlight: true,
     badge: "Most Transformative",
     icon: FlaskConical
@@ -421,7 +422,7 @@ export default function ServicesSection() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-8 border-t border-background/20">
             <div className="text-background/90 font-semibold text-lg flex items-center gap-2">Ready to scale? <ArrowRight className="w-5 h-5 text-primary" /></div>
             <Button asChild size="lg" className="bg-background text-foreground hover:bg-background/90 font-bold">
-              <a href="https://calendar.app.google/nAHHwNMfhDvXGv7P7" target="_blank" rel="noopener noreferrer">
+              <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer">
                 <Calculator className="w-4 h-4 mr-2" /> Discuss Your Project
               </a>
             </Button>

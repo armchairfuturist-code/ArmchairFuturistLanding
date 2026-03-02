@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Linkedin, ArrowRight } from 'lucide-react';
 import type { Certification } from '@/types';
 import { BlurFade } from '@/components/ui/blur-fade';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 const certificationsData: Certification[] = [
   { id: "genaiExpert", name: "GenAI Academy Expert", issuerInitials: "GAIE", link: "https://thegenaiacademy.com/expert-hub/alex-myers/", imageSrc: "/expert.png" },

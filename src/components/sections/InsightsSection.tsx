@@ -9,7 +9,8 @@ import { format } from 'date-fns';
 import Image from 'next/image';
 import Link from 'next/link';
 import { BlurFade } from '@/components/ui/blur-fade';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
+import { SUBSTACK_URL } from '@/lib/constants';
 
 interface SubstackPost {
   title: string;
@@ -176,7 +177,7 @@ export default function InsightsSection() {
                 </div>
                 <div className="mt-6">
                   <Button asChild variant="outline" size="sm">
-                    <a href="https://armchairfuturist.substack.com" target="_blank" rel="noopener noreferrer">
+                    <a href={SUBSTACK_URL} target="_blank" rel="noopener noreferrer">
                       View All Posts
                       <ExternalLink className="ml-2 h-3 w-3" />
                     </a>

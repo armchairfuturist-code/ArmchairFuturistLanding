@@ -3,7 +3,8 @@ import { Button } from '@/components/ui/button';
 import { CalendarDays } from 'lucide-react';
 import { trackConversion } from '@/lib/analytics';
 import { BlurFade } from '@/components/ui/blur-fade';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
+import { CALENDAR_URL } from '@/lib/constants';
 
 export default function ConnectSection() {
   return (
@@ -32,7 +33,7 @@ export default function ConnectSection() {
             className="inline-block"
           >
             <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 shadow-lg transition-transform duration-200">
-              <a href="https://calendar.app.google/nAHHwNMfhDvXGv7P7" target="_blank" rel="noopener noreferrer" onClick={() => trackConversion('connect_book_call')}>
+              <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackConversion('connect_book_call')}>
                 <CalendarDays className="mr-2 h-5 w-5" />
                 Book a Free Strategy Call
               </a>

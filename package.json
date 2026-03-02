@@ -41,7 +41,6 @@
     "dotenv": "^16.5.0",
     "fast-xml-parser": "^5.3.3",
     "firebase": "^11.10.0",
-    "framer-motion": "^12.23.26",
     "genkit": "^1.8.0",
     "lucide-react": "^0.475.0",
     "motion": "^12.34.3",

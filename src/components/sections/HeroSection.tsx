@@ -7,7 +7,8 @@ import { NumberTicker } from '@/components/ui/number-ticker';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { Particles } from '@/components/ui/particles';
 import { TextScramble } from '@/components/ui/text-scramble';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
+import { CALENDAR_URL } from '@/lib/constants';
 
 type Stat = { value: string | null; numericValue?: number; suffix?: string; icon?: React.ElementType; label: string };
 
@@ -105,7 +106,7 @@ export default function HeroSection() {
           <BlurFade delay={0.5} inView>
             <div className="mt-12 flex flex-col gap-5 sm:flex-row sm:flex-wrap sm:justify-center">
               <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 shadow-2xl transition-all duration-200 hover:scale-105 h-14 px-8 text-lg font-bold">
-                <a href="https://calendar.app.google/nAHHwNMfhDvXGv7P7" target="_blank" rel="noopener noreferrer" onClick={() => trackConversion('hero_book_call')}>
+                <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackConversion('hero_book_call')}>
                   <Zap className="mr-2 h-5 w-5 fill-current" />
                   Book a Free Strategy Call
                 </a>

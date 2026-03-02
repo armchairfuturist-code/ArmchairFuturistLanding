@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Workflow, Wrench, ShieldCheck } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { CALENDAR_URL } from '@/lib/constants';
 
 const strategyItems = [
   {
@@ -92,7 +93,7 @@ export default function WhyWorkWithMeSection() {
           <p className="text-lg font-sans text-foreground/90">
             <strong>Ready to reclaim your time and focus on high-leverage work? </strong>
             <a
-              href="https://calendar.app.google/nAHHwNMfhDvXGv7P7"
+              href={CALENDAR_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-primary font-bold hover:underline underline-offset-4 transition-all duration-200 hover:gap-3"

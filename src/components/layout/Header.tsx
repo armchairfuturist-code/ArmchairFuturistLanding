@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { Menu, Mail } from 'lucide-react';
 import Image from 'next/image';
+import { CALENDAR_URL } from '@/lib/constants';
 
 export default function Header() {
   const navItems = [
@@ -53,7 +54,7 @@ export default function Header() {
             <span>Email</span>
           </a>
           <Button asChild size="sm">
-            <a href="https://calendar.app.google/nAHHwNMfhDvXGv7P7" target="_blank" rel="noopener noreferrer">
+            <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer">
               Book a Free Strategy Call
             </a>
           </Button>
@@ -116,7 +117,7 @@ export default function Header() {
                   </a>
                 </div>
                 <Button asChild className="w-full">
-                  <a href="https://calendar.app.google/nAHHwNMfhDvXGv7P7" target="_blank" rel="noopener noreferrer">
+                  <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer">
                     Book a Free Strategy Call
                   </a>
                 </Button>
