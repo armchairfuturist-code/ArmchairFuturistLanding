@@ -90,7 +90,7 @@ const entrepreneurServices = [
     payload: ["Daily Monitoring", "System Optimization", "New Skill Integration", "API Maintenance"],
     idealFor: "Founders and agencies who want a world-class assistant without the overhead of a human hire.",
     details: [
-      { title: "Continuous Optimization", text: "I monitor performance and update your prompts and logic as new models are released, ensuring your system never becomes obsolete." },
+      { title: "Continuous Optimization", text: "I monitor performance and update your prompts and logic as new models are released. Your system stays current without you having to track what changed." },
       { title: "Managed Infrastructure", text: "I handle model updates, API key management, and security patches. You focus on the output, not the maintenance." },
       { title: "Scalable Operations", text: "As your business grows, I add new capabilities and integrations to your assistant to handle increased volume and complexity." }
     ],
@@ -112,9 +112,9 @@ const entrepreneurServices = [
     details: [
       { title: "Mindset Before Toolset", text: "We start with how you think about AI, not how you use it. The shift from fear to agency unlocks everything else." },
       { title: "Practical & Personal", text: "Every session blends hands-on tool guidance with the bigger picture — how AI changes your role, your industry, and your opportunities." },
-      { title: "Optimism Through Understanding", text: "The future isn't something that happens to you. I help you see AI as a lever for your ambitions, not a threat to your relevance." }
+      { title: "Optimism Through Understanding", text: "I help you see AI as a lever for your ambitions instead of a threat to your relevance. That shift changes everything about how you make decisions." }
     ],
-    cta: "Start Your AI Mentoring Journey",
+    cta: "Book a Mentoring Session",
     ctaLink: CALENDAR_URL,
     highlight: false,
     icon: BookOpen
@@ -412,7 +412,7 @@ export default function ServicesSection() {
             </div>
             <div className="space-y-3">
               <div className="flex items-center gap-2 text-primary font-bold"><Globe2 className="w-5 h-5" /> <h3>2. Geographic Parity</h3></div>
-              <p className="text-sm text-background/60">I utilize Purchasing Power Parity (PPP) models to ensure my implementation blueprints are accessible to entrepreneurs in emerging markets.</p>
+              <p className="text-sm text-background/60">I use Purchasing Power Parity (PPP) to price fairly for entrepreneurs in emerging markets.</p>
             </div>
             <div className="space-y-3">
               <div className="flex items-center gap-2 text-primary font-bold"><TrendingUp className="w-5 h-5" /> <h3>3. Measured Impact</h3></div>
