@@ -7,7 +7,7 @@ import { BlurFade } from '@/components/ui/blur-fade';
 import { BorderBeam } from '@/components/ui/border-beam';
 
 const benefits = [
-  { icon: Globe, text: "A professional site you own — not a Linktree" },
+  { icon: Globe, text: "A professional site you own, not a Linktree" },
   { icon: FileText, text: "Your LinkedIn vibe + resume, translated into one platform" },
   { icon: Link2, text: "Social links, portfolio, and interview-ready storyline" },
   { icon: Sparkles, text: "Delivered in 2–4 days, $199 flat" },
@@ -31,7 +31,7 @@ export default function SpotlightSection() {
               Not ready for a strategy call? Start here.
             </h2>
             <p className="text-muted-foreground text-lg mb-8">
-              Your resume is not enough in 2026. I build you an interview-ready digital identity site — one high-signal platform you own.
+              Your resume is not enough in 2026. I build you an interview-ready digital identity site. One high-signal platform you own.
             </p>
 
             <ul className="space-y-4 mb-8">
@@ -51,7 +51,7 @@ export default function SpotlightSection() {
                 </a>
               </Button>
               <p className="text-sm text-muted-foreground self-center">
-                No call required — just scroll to services.
+                No call required. Just scroll to services.
               </p>
             </div>
           </div>

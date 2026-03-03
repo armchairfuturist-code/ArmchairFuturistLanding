@@ -99,7 +99,7 @@ export default function HeroSection() {
 
           <BlurFade delay={0.4} inView>
             <p className="mt-8 text-primary-foreground/95 text-lg md:text-2xl max-w-4xl mx-auto hero-text-shadow font-sans leading-relaxed">
-              I architect outcomes where AI can&apos;t — turning technical chaos into high-signal execution with Vision, Verification, and Resiliency.
+              I architect outcomes where AI can&apos;t, turning technical chaos into high-signal execution with Vision, Verification, and Resiliency.
             </p>
           </BlurFade>
 
@@ -131,7 +131,7 @@ export default function HeroSection() {
                 className="inline-flex items-center gap-2 text-sm text-blue-200/80 hover:text-white transition-colors font-mono tracking-wide"
               >
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                New: Own Your Digital Identity — $199 flat
+                New: Own Your Digital Identity, $199 flat
               </a>
             </div>
           </BlurFade>

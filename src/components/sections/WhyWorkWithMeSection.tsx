@@ -8,12 +8,12 @@ const strategyItems = [
   {
     icon: <Workflow className="h-8 w-8 text-primary" />,
     title: "Systems Optimization",
-    content: "I view every business process as interconnected loops. Most bottlenecks aren't technical — they are structural. I rebuild workflows using AI to collapse costs and increase throughput."
+    content: "I view every business process as interconnected loops. Most bottlenecks aren't technical. They are structural. I rebuild workflows using AI to collapse costs and increase throughput."
   },
   {
     icon: <Wrench className="h-8 w-8 text-primary" />,
     title: "Direct Execution (No Theatre)",
-    content: "I don't hand you a strategy deck — I provision the servers, write the system prompts, and manage model integrations myself.",
+    content: "I don't hand you a strategy deck. I provision the servers, write the system prompts, and manage model integrations myself.",
     tags: ["Architecting Autonomy", "Managed Operations", "Measurable ROI"]
   },
   {
