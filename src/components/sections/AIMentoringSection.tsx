@@ -11,17 +11,17 @@ const pillars = [
   {
     icon: Heart,
     title: "From Fear to Understanding",
-    description: "AI anxiety is real and valid. We start by acknowledging what you're feeling — then we replace uncertainty with clarity about what AI actually means for your work and life."
+    description: "AI anxiety is real and valid. We start by acknowledging what you're feeling. Then we replace uncertainty with clarity about what AI actually means for your work and life."
   },
   {
     icon: Lightbulb,
     title: "From Understanding to Agency",
-    description: "Once the fog lifts, we build your personal AI literacy — not generic training, but the specific skills and mental models that matter for your role and ambitions."
+    description: "Once the fog lifts, we build your personal AI literacy. Not generic training, but the specific skills and mental models that matter for your role and ambitions."
   },
   {
     icon: TrendingUp,
     title: "From Agency to Optimism",
-    description: "The future isn't something that happens to you. With the right frame, AI becomes a lever for your goals — more time, more creative output, more impact."
+    description: "The future isn't something that happens to you. With the right frame, AI becomes a lever for your goals: more time, more creative output, more impact."
   }
 ];
 
@@ -39,7 +39,7 @@ export default function AIMentoringSection() {
               What Is AI Mentoring and Who Is It For?
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              AI mentoring is one-on-one coaching that helps you move from AI anxiety to agency. Most AI &quot;training&quot; teaches tools &mdash; Alex mentors people. Whether you&apos;re a seasoned executive or early in your career, the real barrier isn&apos;t technical &mdash; it&apos;s the story you&apos;re telling yourself about what&apos;s coming.
+              AI mentoring is one-on-one coaching that helps you move from AI anxiety to agency. Most AI &quot;training&quot; teaches tools. Alex mentors people. Whether you&apos;re a seasoned executive or early in your career, the real barrier isn&apos;t technical. It&apos;s the story you&apos;re telling yourself about what&apos;s coming.
             </p>
           </div>
         </BlurFade>
@@ -69,7 +69,7 @@ export default function AIMentoringSection() {
         <BlurFade inView delay={0.3}>
           <div className="text-center">
             <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-              This isn&apos;t for everyone — it&apos;s for people who want to lead their own AI journey, not be dragged along by it. Sessions start at $97.
+              This isn&apos;t for everyone. It&apos;s for people who want to lead their own AI journey, not be dragged along by it. Sessions start at $97.
             </p>
             <Button asChild size="lg" className="h-12 px-8 text-base font-bold">
               <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackConversion('mentoring_book_session', 97)}>

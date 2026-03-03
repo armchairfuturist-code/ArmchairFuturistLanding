@@ -8,8 +8,8 @@ import { motion } from 'motion/react';
 import { SPEAKING_FORM_URL } from '@/lib/constants';
 
 const topics = [
-  { icon: Brain, text: "AI & the Future of Work — what actually changes" },
-  { icon: TrendingUp, text: "From Overwhelm to Agency — what actually helps people adapt" },
+  { icon: Brain, text: "AI & the Future of Work: what actually changes" },
+  { icon: TrendingUp, text: "From Overwhelm to Agency: what actually helps people adapt" },
   { icon: Users, text: "Organizational Trust in the Age of Automation" },
   { icon: Shield, text: "Data Sovereignty & the End of Platform Dependency" },
 ];
@@ -33,7 +33,7 @@ export default function SpeakingSection() {
               Can Alex Myers Speak at Our Event or Organization?
             </h2>
             <p className="text-muted-foreground text-lg mb-8">
-              Yes &mdash; Alex delivers keynotes, executive roundtables, and workshops for organizations ready to think clearly about AI, not just adopt it. Topics include:
+              Yes. Alex delivers keynotes, executive roundtables, and workshops for organizations ready to think clearly about AI, not just adopt it. Topics include:
             </p>
 
             <ul className="space-y-3 mb-8">

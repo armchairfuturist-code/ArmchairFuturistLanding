@@ -106,12 +106,12 @@ const entrepreneurServices = [
     maxPrice: 497,
     priceNote: "Per Session / Package",
     duration: "Ongoing",
-    description: "AI isn't just a tool problem — it's a thinking problem. Most people aren't overwhelmed by the technology; they're overwhelmed by what it means for their future. I help you move from anxiety to agency.",
+    description: "AI isn't just a tool problem. It's a thinking problem. Most people aren't overwhelmed by the technology; they're overwhelmed by what it means for their future. I help you move from anxiety to agency.",
     payload: ["1-on-1 Mentoring", "Mindset Reframing", "Practical Tool Guidance", "Future-Optimistic Framework"],
-    idealFor: "Anyone who feels personally or professionally overwhelmed by AI and wants to think — and feel — differently about what's coming.",
+    idealFor: "Anyone who feels personally or professionally overwhelmed by AI and wants to think, and feel, differently about what's coming.",
     details: [
       { title: "Mindset Before Toolset", text: "We start with how you think about AI, not how you use it. The shift from fear to agency unlocks everything else." },
-      { title: "Practical & Personal", text: "Every session blends hands-on tool guidance with the bigger picture — how AI changes your role, your industry, and your opportunities." },
+      { title: "Practical & Personal", text: "Every session blends hands-on tool guidance with the bigger picture: how AI changes your role, your industry, and your opportunities." },
       { title: "Optimism Through Understanding", text: "I help you see AI as a lever for your ambitions instead of a threat to your relevance. That shift changes everything about how you make decisions." }
     ],
     cta: "Book a Mentoring Session",
@@ -332,7 +332,7 @@ export default function ServicesSection() {
             What Services Does the Armchair Futurist Offer?
           </h2>
           <div className="text-xl text-foreground/80 font-sans leading-relaxed space-y-6">
-            <p>The Armchair Futurist offers execution-first AI strategy services ranging from $97 to $55,250. Start with the $199 Digital Identity upgrade &mdash; <strong>your resume is not enough in 2026</strong> &mdash; then scale into deeper architecture as your execution matures.</p>
+            <p>The Armchair Futurist offers execution-first AI strategy services ranging from $97 to $55,250. Start with the $199 Digital Identity upgrade. <strong>Your resume is not enough in 2026.</strong> Then scale into deeper architecture as your execution matures.</p>
             <p><strong>My Promise:</strong> Partner with an operator who executes with you as your needs evolve. If you aren't happy with our initial prototyping and ideation discussions, I will happily refund you.</p>
           </div>
         </div>

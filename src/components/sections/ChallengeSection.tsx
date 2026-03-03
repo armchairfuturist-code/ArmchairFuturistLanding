@@ -31,7 +31,7 @@ export default function ChallengeSection() {
               Why Does AI Adoption Stall in Most Organizations?
             </h2>
             <p className="text-lg md:text-xl text-foreground/80 font-sans leading-relaxed max-w-3xl mx-auto">
-              AI adoption stalls because of people, not technology. Most companies layer AI onto existing processes without rethinking workflows, incentives, or decision rights. The result is an <strong className="text-primary">Accountability Gap</strong> &mdash; the space between an AI output and a business result. Alex Myers bridges that gap as your Trusted Human Architect.
+              AI adoption stalls because of people, not technology. Most companies layer AI onto existing processes without rethinking workflows, incentives, or decision rights. The result is an <strong className="text-primary">Accountability Gap</strong> : the space between an AI output and a business result. Alex Myers bridges that gap as your Trusted Human Architect.
             </p>
           </div>
         </BlurFade>

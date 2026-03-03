@@ -17,11 +17,11 @@ interface FAQItem {
 const faqItems: FAQItem[] = [
   {
     question: "What is the Armchair Futurist?",
-    answer: "The Armchair Futurist is the advisory practice of Alex Myers, a certified futurist and AI strategy advisor. Alex helps leaders and organizations navigate AI adoption by bridging the Accountability Gap — the space between an AI output and a business result. Services range from a $199 digital identity landing page to a $55,250 ten-week AI Infusion Lab for enterprises. The practice is based in Portugal and serves clients worldwide."
+    answer: "The Armchair Futurist is the advisory practice of Alex Myers, a certified futurist and AI strategy advisor. Alex helps leaders and organizations navigate AI adoption by bridging the Accountability Gap: the space between an AI output and a business result. Services range from a $199 digital identity landing page to a $55,250 ten-week AI Infusion Lab for enterprises. The practice is based in Portugal and serves clients worldwide."
   },
   {
     question: "What is the Accountability Gap in AI adoption?",
-    answer: "The Accountability Gap is the space between what an AI system produces and what a business actually needs. Most companies layer AI onto existing processes without rethinking workflows, incentives, or decision rights. The result is that nobody owns the outcome — the AI generated a draft, but who verified it, refined it, and made it actionable? Alex Myers bridges this gap by acting as a Trusted Human Architect who ensures AI outputs connect to measurable business results."
+    answer: "The Accountability Gap is the space between what an AI system produces and what a business actually needs. Most companies layer AI onto existing processes without rethinking workflows, incentives, or decision rights. The result is that nobody owns the outcome. The AI generated a draft, but who verified it, refined it, and made it actionable? Alex Myers bridges this gap by acting as a Trusted Human Architect who ensures AI outputs connect to measurable business results."
   },
   {
     question: "What qualifications does Alex Myers have?",
@@ -29,7 +29,7 @@ const faqItems: FAQItem[] = [
   },
   {
     question: "How much do the Armchair Futurist's services cost?",
-    answer: "Services range from $97 for a single AI mentoring session to $55,250 for the full 10-week AI Infusion Lab. The $199 Digital Identity Landing Page is the most accessible entry point — a professional site delivered in 2-4 days. Custom AI Provisioning runs $1,000-$5,000 as a fixed project. Managed Agent Operations cost $500-$2,000 per month. Organizational services start at $10,625. Pricing adjusts for emerging markets through Purchasing Power Parity and for high-readiness organizations through Agile Readiness discounts."
+    answer: "Services range from $97 for a single AI mentoring session to $55,250 for the full 10-week AI Infusion Lab. The $199 Digital Identity Landing Page is the most accessible entry point: a professional site delivered in 2-4 days. Custom AI Provisioning runs $1,000-$5,000 as a fixed project. Managed Agent Operations cost $500-$2,000 per month. Organizational services start at $10,625. Pricing adjusts for emerging markets through Purchasing Power Parity and for high-readiness organizations through Agile Readiness discounts."
   },
   {
     question: "What is the $199 Digital Identity Landing Page?",
@@ -37,7 +37,7 @@ const faqItems: FAQItem[] = [
   },
   {
     question: "How does AI mentoring work with Alex Myers?",
-    answer: "AI mentoring with Alex Myers is one-on-one coaching that helps individuals move from AI anxiety to agency. Sessions start at $97 and focus on mindset before toolset — reframing how you think about AI rather than just teaching you how to use tools. Each session blends practical guidance with the bigger picture of how AI changes your role, your industry, and your opportunities. The approach follows three stages: from fear to understanding, from understanding to agency, and from agency to optimism."
+    answer: "AI mentoring with Alex Myers is one-on-one coaching that helps individuals move from AI anxiety to agency. Sessions start at $97 and focus on mindset before toolset, reframing how you think about AI rather than just teaching you how to use tools. Each session blends practical guidance with the bigger picture of how AI changes your role, your industry, and your opportunities. The approach follows three stages: from fear to understanding, from understanding to agency, and from agency to optimism."
   },
   {
     question: "Can Alex Myers work with organizations outside the United States?",
@@ -45,7 +45,7 @@ const faqItems: FAQItem[] = [
   },
   {
     question: "What results can clients expect from working with Alex Myers?",
-    answer: "Clients typically reclaim 10-20 hours per week through AI-powered workflow automation. Individual clients gain clarity on their AI strategy and a shift from overwhelm to agency. Enterprise clients see measurable improvements in adoption rates by addressing psychological barriers before technical ones. Alex has deployed over 40 AI systems and approaches every engagement with an execution-first methodology — he provisions servers, writes system prompts, and manages model integrations directly rather than handing over a strategy deck."
+    answer: "Clients typically reclaim 10-20 hours per week through AI-powered workflow automation. Individual clients gain clarity on their AI strategy and a shift from overwhelm to agency. Enterprise clients see measurable improvements in adoption rates by addressing psychological barriers before technical ones. Alex has deployed over 40 AI systems and approaches every engagement with an execution-first methodology. He provisions servers, writes system prompts, and manages model integrations directly rather than handing over a strategy deck."
   },
   {
     question: "What is the AI Infusion Lab?",
@@ -53,7 +53,7 @@ const faqItems: FAQItem[] = [
   },
   {
     question: "How is Alex Myers different from other AI consultants?",
-    answer: "Alex Myers differs from typical AI consultants in three ways. First, he executes directly — he does not hand over a strategy deck but instead provisions infrastructure, writes system prompts, and manages integrations himself. Second, he addresses the human side of AI adoption through psychology-led strategies and certified change management expertise. Third, he prioritizes data and privacy sovereignty, building on open-standard stacks so clients own their logic and data without platform dependency."
+    answer: "Alex Myers differs from typical AI consultants in three ways. First, he executes directly: he does not hand over a strategy deck but instead provisions infrastructure, writes system prompts, and manages integrations himself. Second, he addresses the human side of AI adoption through psychology-led strategies and certified change management expertise. Third, he prioritizes data and privacy sovereignty, building on open-standard stacks so clients own their logic and data without platform dependency."
   },
   {
     question: "Does Alex Myers offer speaking engagements or keynotes?",
@@ -61,7 +61,7 @@ const faqItems: FAQItem[] = [
   },
   {
     question: "What is Custom AI Provisioning?",
-    answer: "Custom AI Provisioning is a done-for-you service where Alex builds a private AI command center tailored to your needs. This includes custom GPTs and agents, calendar and email synchronization, workflow automation, and secure infrastructure — all delivered as a turnkey solution. The goal is to reclaim 10-20 hours of your week by automating scheduling, drafting, and research tasks. Pricing ranges from $1,000 to $5,000 as a fixed project delivered in 1-2 weeks."
+    answer: "Custom AI Provisioning is a done-for-you service where Alex builds a private AI command center tailored to your needs. This includes custom GPTs and agents, calendar and email synchronization, workflow automation, and secure infrastructure, all delivered as a turnkey solution. The goal is to reclaim 10-20 hours of your week by automating scheduling, drafting, and research tasks. Pricing ranges from $1,000 to $5,000 as a fixed project delivered in 1-2 weeks."
   },
   {
     question: "What is Managed Agent Operations (AIaaS)?",
@@ -73,11 +73,11 @@ const faqItems: FAQItem[] = [
   },
   {
     question: "What is Psychology-Led Adoption Strategy?",
-    answer: "Psychology-Led Adoption Strategy is an organizational service priced at $10,625 that addresses the human barriers to AI adoption. Alex uses data-driven profiling to segment your organization and identify the top 5% of staff — called Results Thinkers — who are naturally wired for uncertainty and can lead change. The engagement includes complexity coaching for leaders to shift from command-and-control to complexity thinking, bypassing the corporate immune system that typically kills transformation efforts."
+    answer: "Psychology-Led Adoption Strategy is an organizational service priced at $10,625 that addresses the human barriers to AI adoption. Alex uses data-driven profiling to segment your organization and identify the top 5% of staff, called Results Thinkers, who are naturally wired for uncertainty and can lead change. The engagement includes complexity coaching for leaders to shift from command-and-control to complexity thinking, bypassing the corporate immune system that typically kills transformation efforts."
   },
   {
     question: "How do I get started with the Armchair Futurist?",
-    answer: "There are three ways to get started. The lowest commitment option is to claim the $199 Digital Identity Landing Page — no call required, just submit the form. For AI mentoring, book a session starting at $97 through the calendar link. For strategy and advisory services, schedule a free strategy call where Alex will identify where your AI systems are leaking value and what to do about it, with no obligation and no pitch deck."
+    answer: "There are three ways to get started. The lowest commitment option is to claim the $199 Digital Identity Landing Page. No call required, just submit the form. For AI mentoring, book a session starting at $97 through the calendar link. For strategy and advisory services, schedule a free strategy call where Alex will identify where your AI systems are leaking value and what to do about it, with no obligation and no pitch deck."
   },
 ];
 
