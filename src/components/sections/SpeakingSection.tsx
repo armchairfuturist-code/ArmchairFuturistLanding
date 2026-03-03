@@ -9,7 +9,7 @@ import { SPEAKING_FORM_URL } from '@/lib/constants';
 
 const topics = [
   { icon: Brain, text: "AI & the Future of Work — what actually changes" },
-  { icon: TrendingUp, text: "From Overwhelm to Agency — reframing the AI landscape" },
+  { icon: TrendingUp, text: "From Overwhelm to Agency — what actually helps people adapt" },
   { icon: Users, text: "Organizational Trust in the Age of Automation" },
   { icon: Shield, text: "Data Sovereignty & the End of Platform Dependency" },
 ];

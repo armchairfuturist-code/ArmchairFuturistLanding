@@ -24,7 +24,7 @@ const testimonialsData: Testimonial[] = [
     imageSrc: "/Alexaragon.jpg",
     name: "Alex A.",
     title: "COO at Aragon.org",
-    text: "It's not every day you come across someone who combines a strong work ethic with an impressive attention to detail, but that's exactly what Alex does. He has an incredibly open-minded approach to challenges and his skill to build consensus has been invaluable. He would undoubtedly be a valuable asset to any team he joins.",
+    text: "Alex has a strong work ethic and real attention to detail. He's open-minded about how to approach problems, and he's good at getting people on the same page. I'd work with him again without hesitating.",
     dataAiHint: "profile person"
   },
   {
@@ -45,14 +45,14 @@ const testimonialsData: Testimonial[] = [
     imageSrc: "/Sepehr.jpg",
     name: "Sepehr S.",
     title: "Co-Founder & Sr. Software Engineer",
-    text: "If you're looking for someone who makes a difference, look no further than Alex. His incredible positive energy makes everyone feel upbeat and ready to tackle any challenge. Alex's deep understanding of Scrum methodologies has been a game-changer for us - his mix of vibrant energy and expertise hasn't just revolutionized our HR department; it's electrified our entire workplace atmosphere.",
+    text: "Alex's energy is contagious - he walks into a room and people actually want to work. His understanding of Scrum is deep and practical, and it made a real difference in how our HR department operates. The whole team runs better when he's involved.",
     dataAiHint: "profile person"
   },
   {
     imageSrc: "/marco.jpg",
     name: "Marco",
     title: "Sr. Product Designer",
-    text: "Alex possesses a rare combination of professionalism, compassion, and unwavering respect for both the job at hand and the individuals involved. His commitment to fostering a culture of continuous improvement and adaptability was truly commendable. I wholeheartedly recommend Alex for any organization seeking a professional who not only excels in their role but also brings a human touch to every aspect of their work.",
+    text: "Alex is professional and genuinely cares about the people he works with. He pushed our team toward continuous improvement without making it feel forced. I'd recommend him to any organization that values both competence and decency.",
     dataAiHint: "profile person"
   },
   {
@@ -73,7 +73,7 @@ const testimonialsData: Testimonial[] = [
     imageSrc: "/jasper.jpg",
     name: "Jasper",
     title: "Sr. Manager - Launch by NTT Data",
-    text: "Alex has been one of the most engaging and positive SCRUM masters I have ever worked with. He raises risks when they come up and nothing ever really goes unnoticed by him. He not only focuses on the business at hand but also focuses on the growth of everyone around him and elevates everyone. It has been a true pleasure working with him.",
+    text: "Alex is the best SCRUM master I've worked with. He catches risks early and nothing slips past him. He also genuinely cares about helping the people around him grow, which is rare. Great to work with.",
     dataAiHint: "profile person"
   }
 ];
