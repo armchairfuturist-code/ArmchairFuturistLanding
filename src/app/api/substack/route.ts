@@ -21,6 +21,8 @@ export async function GET() {
     const parser = new XMLParser({
       ignoreAttributes: false,
       attributeNamePrefix: '',
+      processEntities: false,
+      htmlEntities: false,
     });
     const xml = parser.parse(text);
     const items = xml.rss?.channel?.item || [];
