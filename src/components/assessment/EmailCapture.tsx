@@ -1,21 +1,23 @@
 'use client';
 
 import { useState } from 'react';
-import { Mail, Loader2, ArrowRight } from 'lucide-react';
+import { Mail, Loader2, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'motion/react';
-import { SUBSTACK_URL } from '@/lib/constants';
 import { trackEvent } from '@/lib/analytics';
 
 interface EmailCaptureProps {
   onComplete: () => void;
   onSkip: () => void;
+  archetypeSlug: string;
+  scores: { clarity: number; readiness: number; urgency: number };
 }
 
-export default function EmailCapture({ onComplete, onSkip }: EmailCaptureProps) {
+export default function EmailCapture({ onComplete, onSkip, archetypeSlug, scores }: EmailCaptureProps) {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [sent, setSent] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,18 +29,45 @@ export default function EmailCapture({ onComplete, onSkip }: EmailCaptureProps) 
     setLoading(true);
 
     try {
-      await new Promise((res) => setTimeout(res, 600));
-      window.open(
-        `${SUBSTACK_URL}/subscribe?email=${encodeURIComponent(email)}`,
-        '_blank',
-      );
+      const res = await fetch('/api/assessment/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, archetypeSlug, scores }),
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || 'Failed to send results.');
+      }
+
       trackEvent('assessment_email_capture', { email_provided: true });
-      onComplete();
-    } catch {
-      setError('Something went wrong. Please try again.');
+      setSent(true);
+
+      // Brief pause so they see the confirmation, then navigate
+      setTimeout(() => onComplete(), 1500);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
       setLoading(false);
     }
   };
+
+  if (sent) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="w-full max-w-md mx-auto text-center"
+      >
+        <CheckCircle2 className="h-10 w-10 text-green-500 mx-auto mb-3" />
+        <h2 className="font-heading text-xl font-bold text-foreground mb-2">
+          Results sent!
+        </h2>
+        <p className="text-sm text-muted-foreground font-sans">
+          Check your inbox. Loading your results now...
+        </p>
+      </motion.div>
+    );
+  }
 
   return (
     <motion.div
@@ -50,11 +79,11 @@ export default function EmailCapture({ onComplete, onSkip }: EmailCaptureProps) 
       <div className="flex items-center justify-center gap-2 mb-3">
         <Mail className="h-5 w-5 text-primary" />
         <h2 className="font-heading text-xl md:text-2xl font-bold text-foreground">
-          Save your results
+          Get your results by email
         </h2>
       </div>
       <p className="text-sm text-muted-foreground mb-6 font-sans">
-        Enter your email to get your personalized action plan and join 500+ leaders getting weekly AI insights.
+        Your personalized AI readiness profile, diagnosis, and recommended next step, delivered to your inbox.
       </p>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-3 mb-4">
@@ -77,17 +106,17 @@ export default function EmailCapture({ onComplete, onSkip }: EmailCaptureProps) 
           {loading ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Opening Substack...
+              Sending...
             </>
           ) : (
             <>
               <Mail className="mr-2 h-4 w-4" />
-              Get My Results + Newsletter
+              Send My Results
             </>
           )}
         </Button>
         <p className="text-[10px] text-muted-foreground/50 font-mono">
-          No spam. Unsubscribe in one click.
+          No spam. Your data stays private.
         </p>
       </form>
 

@@ -21,6 +21,7 @@ export default function AssessmentPage() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<AnswerOption[]>([]);
   const [resultSlug, setResultSlug] = useState('');
+  const [resultScores, setResultScores] = useState<{ clarity: number; readiness: number; urgency: number } | null>(null);
 
   const handleStart = useCallback(() => {
     trackEvent('assessment_start');
@@ -40,6 +41,7 @@ export default function AssessmentPage() {
       // All questions answered, calculate scores
       const result = calculateScores(newAnswers);
       setResultSlug(result.archetypeSlug);
+      setResultScores({ clarity: result.clarity, readiness: result.readiness, urgency: result.urgency });
       setPhase('email');
     }
   }, [answers, currentQuestion]);
@@ -132,6 +134,8 @@ export default function AssessmentPage() {
           <EmailCapture
             onComplete={navigateToResult}
             onSkip={navigateToResult}
+            archetypeSlug={resultSlug}
+            scores={resultScores || { clarity: 50, readiness: 50, urgency: 50 }}
           />
         </div>
       </section>
