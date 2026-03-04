@@ -13,6 +13,7 @@ import SpotlightSection from '@/components/sections/SpotlightSection';
 import AIMentoringSection from '@/components/sections/AIMentoringSection';
 import SpeakingSection from '@/components/sections/SpeakingSection';
 import FAQSection from '@/components/sections/FAQSection';
+import AssessmentCtaSection from '@/components/sections/AssessmentCtaSection';
 
 export default function HomePage() {
   return (
@@ -31,6 +32,10 @@ export default function HomePage() {
 
       {/* AUTHORITY — who is Alex, why trust him */}
       <AboutMeSection />
+
+      {/* ASSESSMENT — self-qualifying diagnostic quiz */}
+      <AssessmentCtaSection />
+
       <FeaturedInSection />
       <WhyWorkWithMeSection />
 
