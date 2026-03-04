@@ -68,7 +68,8 @@ export default function HeroSection() {
         loop
         muted
         playsInline
-        preload="auto"
+        preload="metadata"
+        poster="/header.webp"
         className={`absolute top-0 left-0 w-full h-full object-cover z-0 transition-opacity duration-700 ${isVideoReady ? 'opacity-100' : 'opacity-0'}`}
         src="/header.mp4"
       >
