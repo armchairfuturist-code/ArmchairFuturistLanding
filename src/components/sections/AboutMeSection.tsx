@@ -145,20 +145,22 @@ export default function AboutMeSection() {
               </div>
 
               <BlurFade inView delay={0.2}>
-                <div className="flex items-center justify-center lg:justify-start gap-2 mb-6">
-                  <p className="text-xs text-muted-foreground/60 font-mono mb-2 text-center lg:text-left">Last updated: February 2026</p>
-                  <h2 className="font-heading text-4xl font-bold tracking-tight text-primary sm:text-5xl text-center lg:text-left">
-                    Who Is Alex Myers?
-                  </h2>
-                  <a
-                    href="https://www.linkedin.com/in/alex-myers-34572a10/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary/55 hover:text-primary transition-colors"
-                    aria-label="Alex Myers LinkedIn Profile"
-                  >
-                    <Linkedin className="h-4 w-4" />
-                  </a>
+                <div className="mb-6 text-center lg:text-left">
+                  <p className="text-xs text-muted-foreground/60 font-mono mb-2">Last updated: February 2026</p>
+                  <div className="flex items-center justify-center lg:justify-start gap-3">
+                    <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary">
+                      Who Is Alex Myers?
+                    </h2>
+                    <a
+                      href="https://www.linkedin.com/in/alex-myers-34572a10/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary/55 hover:text-primary transition-colors"
+                      aria-label="Alex Myers LinkedIn Profile"
+                    >
+                      <Linkedin className="h-5 w-5" />
+                    </a>
+                  </div>
                 </div>
               </BlurFade>
 
@@ -168,11 +170,19 @@ export default function AboutMeSection() {
                 </p>
 
                 <p className="text-base md:text-lg text-foreground/80 font-sans leading-relaxed">
-                  I don&apos;t teach people how to use more tools. I help them change how they see the landscape.
+                  I don&apos;t teach people how to use more tools. I help them see the field differently.
                 </p>
 
                 <p className="text-base md:text-lg text-foreground/80 font-sans leading-relaxed">
-                  When you fix your mental model, the overwhelm disappears. You stop reacting to the noise and start orienting toward agency.
+                  When you fix your mental model, the overwhelm disappears. You stop reacting to noise and start making decisions from a position of clarity.
+                </p>
+
+                <p className="text-base md:text-lg text-foreground/80 font-sans leading-relaxed">
+                  Many &ldquo;consultants&rdquo; with fancy MBAs can confidently sell you solutions using AI-generated responses you could have found on your own. The game has changed. Answers alone won&apos;t create real change, especially in larger organizations pinned down by inertia, transformation paralysis, and &ldquo;safe&rdquo; thinking. In the generative AI era, that kind of thinking is a death sentence.
+                </p>
+
+                <p className="text-base md:text-lg text-foreground/80 font-sans leading-relaxed">
+                  My leverage: systems thinking, an intuitive grasp of group dynamics, and the ability to ask questions that force real movement. Combined with radical candor, that&apos;s how we co-design solutions that actually stick. I share what I&apos;m learning about technology&apos;s impact on work and human connection; you&apos;ll find it on podcasts and in strategic discussions.
                 </p>
 
                 <h3 className="text-lg md:text-xl font-bold text-primary pt-2">For the Executive:</h3>
@@ -187,7 +197,7 @@ export default function AboutMeSection() {
 
                 <p className="flex items-center gap-2 text-base md:text-lg text-primary font-bold font-sans">
                   <ArrowRight className="w-4 h-4 shrink-0" />
-                  This isn&apos;t about prediction. It&apos;s about moving from a state of &ldquo;what happens next&rdquo; to &ldquo;here is what I am building.&rdquo;
+                  Forget prediction. The goal is to move you from &ldquo;what happens next&rdquo; to &ldquo;here is what I am building.&rdquo;
                 </p>
               </div>
             </div>
