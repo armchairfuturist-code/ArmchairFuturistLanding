@@ -66,6 +66,10 @@ const nextConfig: NextConfig = {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=()',
           },
+          {
+            key: 'Content-Security-Policy',
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; connect-src 'self' https://*.google-analytics.com https://*.firebase.io; img-src 'self' data: https://substackcdn.com https://substack-post-media.s3.amazonaws.com; style-src 'self' 'unsafe-inline'; font-src 'self'",
+          },
         ],
       },
     ];
