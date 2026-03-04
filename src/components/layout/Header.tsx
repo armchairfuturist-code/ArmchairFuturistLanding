@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from '@/components/ui/sheet';
-import { Menu, Mail } from 'lucide-react';
+import { Menu, Mail, Brain } from 'lucide-react';
 import Image from 'next/image';
 import { CALENDAR_URL } from '@/lib/constants';
 
@@ -53,6 +53,13 @@ export default function Header() {
             <Mail className="h-4 w-4" />
             <span>Email</span>
           </a>
+          <Link
+            href="/assessment"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
+          >
+            <Brain className="h-3.5 w-3.5" />
+            Free Assessment
+          </Link>
           <Button asChild size="sm">
             <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer">
               Book a Free Strategy Call
@@ -116,6 +123,13 @@ export default function Header() {
                     </svg>
                   </a>
                 </div>
+                <Link
+                  href="/assessment"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
+                >
+                  <Brain className="h-4 w-4" />
+                  Free AI Assessment
+                </Link>
                 <Button asChild className="w-full">
                   <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer">
                     Book a Free Strategy Call

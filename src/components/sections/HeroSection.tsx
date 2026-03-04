@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Zap, Terminal, CheckCircle2 } from 'lucide-react';
+import { Zap, Terminal, CheckCircle2, Brain } from 'lucide-react';
 import { trackEvent, trackConversion } from '@/lib/analytics';
 import { NumberTicker } from '@/components/ui/number-ticker';
 import { BlurFade } from '@/components/ui/blur-fade';
@@ -117,15 +117,23 @@ export default function HeroSection() {
                 size="lg"
                 className="bg-black/40 text-primary-foreground border-2 border-primary-foreground/50 hover:bg-primary-foreground hover:text-primary shadow-xl transition-all duration-200 hover:scale-105 h-14 px-8 text-lg font-bold backdrop-blur-md"
               >
-                <a href="#services" onClick={() => trackEvent('hero_see_services')}>
-                  See How I Work
+                <a href="/assessment" onClick={() => trackEvent('hero_assessment_cta')}>
+                  <Brain className="mr-2 h-5 w-5" />
+                  Take the Free Assessment
                 </a>
               </Button>
             </div>
           </BlurFade>
 
           <BlurFade delay={0.55} inView>
-            <div className="mt-4">
+            <div className="mt-4 flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
+              <a
+                href="#services"
+                onClick={() => trackEvent('hero_see_services')}
+                className="inline-flex items-center gap-2 text-sm text-blue-200/80 hover:text-white transition-colors font-mono tracking-wide"
+              >
+                See How I Work
+              </a>
               <a
                 href="#services"
                 onClick={() => trackEvent('hero_199_spotlight_click')}
