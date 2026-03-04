@@ -11,7 +11,7 @@ export default function Header() {
     { href: '/#strategy', label: 'How I Work' },
     { href: '/#services', label: 'Services' },
     { href: '/#about-me', label: 'Why Alex' },
-    { href: '/#thought-leadership', label: 'Insights' },
+    { href: '/#latest-insights', label: 'Insights' },
     { href: 'https://github.com/armchairfuturist-code', label: 'GitHub' },
   ];
 

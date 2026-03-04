@@ -37,6 +37,29 @@ import { BlurFade } from '@/components/ui/blur-fade';
 type PricingContext = 'standard' | 'ppp' | 'agile';
 type ServiceTrack = 'entrepreneur' | 'organization';
 
+interface ServiceDetail {
+  title: string;
+  text: string;
+}
+
+interface Service {
+  path: string;
+  title: string;
+  basePrice: number;
+  maxPrice?: number;
+  priceNote: string;
+  duration: string;
+  description: string;
+  payload: string[];
+  idealFor: string;
+  details: ServiceDetail[];
+  cta: string;
+  ctaLink: string;
+  highlight: boolean;
+  badge?: string;
+  icon: React.ElementType;
+}
+
 const entrepreneurServices = [
   {
     path: "ENTRY OFFER",
@@ -203,7 +226,7 @@ const RollingPrice = ({ value, context }: { value: number, context: PricingConte
   return <span>{format(displayValue)}</span>;
 };
 
-const ServiceAccordionItem = ({ service, pricingContext, index }: { service: any, pricingContext: PricingContext, index: number }) => {
+const ServiceAccordionItem = ({ service, pricingContext, index }: { service: Service, pricingContext: PricingContext, index: number }) => {
   let multiplier = 1;
   if (pricingContext === 'ppp') multiplier = 0.6;
   if (pricingContext === 'agile') multiplier = 0.85;
@@ -279,7 +302,7 @@ const ServiceAccordionItem = ({ service, pricingContext, index }: { service: any
             <div className="lg:col-span-2 space-y-6">
               <p className="text-base md:text-lg text-foreground/90 font-sans leading-relaxed">{service.description}</p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {service.details?.map((detail: any, i: number) => (
+                {service.details?.map((detail: ServiceDetail, i: number) => (
                   <div key={i} className="bg-muted/20 p-4 rounded-lg border border-border/30 hover:bg-muted/40 transition-colors">
                     <h5 className="font-bold text-foreground text-sm mb-1.5 flex items-start gap-2">
                       <div className="mt-1 min-w-[6px] min-h-[6px] rounded-full bg-primary" /> {detail.title}
