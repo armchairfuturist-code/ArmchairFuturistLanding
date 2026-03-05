@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getDb } from '@/lib/firebase-admin';
 import { getResend } from '@/lib/resend';
 import { getArchetypeBySlug } from '@/lib/assessment/archetypes';
 import {
@@ -8,7 +7,7 @@ import {
 } from '@/lib/assessment/email-templates';
 
 const ALEX_EMAIL = 'armchairfuturist@gmail.com';
-const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'Alex Myers <onboarding@resend.dev>';
+const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'Alex Myers <alex@thearmchairfuturist.com>';
 
 export async function POST(request: NextRequest) {
   try {
@@ -31,17 +30,22 @@ export async function POST(request: NextRequest) {
 
     const { clarity, readiness, urgency } = scores;
 
-    // Store contact in Firestore
-    const db = getDb();
-    const contactRef = db.collection('assessment_leads').doc();
-    await contactRef.set({
-      email,
-      archetypeSlug,
-      archetypeName: archetype.name,
-      scores: { clarity, readiness, urgency },
-      createdAt: new Date().toISOString(),
-      source: 'assessment',
-    });
+    // Store contact in Firestore (optional - skip if not configured)
+    try {
+      const { getDb } = await import('@/lib/firebase-admin');
+      const db = getDb();
+      const contactRef = db.collection('assessment_leads').doc();
+      await contactRef.set({
+        email,
+        archetypeSlug,
+        archetypeName: archetype.name,
+        scores: { clarity, readiness, urgency },
+        createdAt: new Date().toISOString(),
+        source: 'assessment',
+      });
+    } catch (firestoreError) {
+      console.warn('Firestore not configured, skipping lead storage:', firestoreError);
+    }
 
     // Send results email to prospect
     const resend = getResend();
