@@ -72,10 +72,10 @@ export default function AboutMeSection() {
           src="/alexheadshot-nobg.png"
           alt=""
           fill
-          className="object-contain object-right-top"
+          className="object-contain object-bottom"
           style={{
-            maskImage: 'linear-gradient(to bottom, black 55%, transparent 88%)',
-            WebkitMaskImage: 'linear-gradient(to bottom, black 55%, transparent 88%)',
+            maskImage: 'linear-gradient(to top, black 70%, transparent 95%)',
+            WebkitMaskImage: 'linear-gradient(to top, black 70%, transparent 95%)',
           }}
           loading="lazy"
           sizes="48vw"
@@ -134,10 +134,10 @@ export default function AboutMeSection() {
                   src="/alexheadshot-nobg.png"
                   alt="Alex Myers"
                   fill
-                  className="object-contain object-top"
+                  className="object-contain object-bottom"
                   style={{
-                    maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
-                    WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
+                    maskImage: 'linear-gradient(to top, black 65%, transparent 95%)',
+                    WebkitMaskImage: 'linear-gradient(to top, black 65%, transparent 95%)',
                   }}
                   loading="lazy"
                   sizes="100vw"
@@ -204,14 +204,32 @@ export default function AboutMeSection() {
 
           </div>
 
-          {/* Right Column — spacer for absolute portrait */}
-          <div className="hidden lg:block lg:col-span-6" aria-hidden="true" />
+          {/* Right Column — contains portrait and certifications */}
+          <div className="hidden lg:block lg:col-span-6 relative">
+            {/* Certifications - positioned in the light space below the image */}
+            {otherCertifications.length > 0 && (
+              <motion.div
+                className="absolute bottom-12 right-8 max-w-md bg-white/40 backdrop-blur-sm rounded-lg p-4"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.3 }}
+              >
+                <p className="text-xs font-mono uppercase tracking-widest text-primary/70 mb-3">Verified Background</p>
+                <div className="flex flex-wrap gap-x-4 gap-y-2">
+                  {otherCertifications.map((cert) => (
+                    <CertificationItem key={cert.id} certification={cert} />
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </div>
         </div>
 
-        {/* Certifications */}
+        {/* Mobile-only certifications (below content) */}
         {otherCertifications.length > 0 && (
           <motion.div
-            className="mt-10 pt-8 border-t border-white/10"
+            className="lg:hidden mt-10 pt-8 border-t border-white/10"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
