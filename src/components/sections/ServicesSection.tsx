@@ -77,53 +77,57 @@ const entrepreneurServices = [
     ],
     cta: "Claim Your $199 Page",
     ctaLink: GOOGLE_FORM_URL,
-    highlight: true,
-    badge: "Primary Offer",
+    highlight: false,
+    badge: "Entry Offer",
     icon: Globe2
   },
   {
-    path: "SERVICE 1",
-    title: "Custom AI Provisioning (Done-For-You)",
-    basePrice: 1000,
-    maxPrice: 5000,
+    path: "PREMIER OFFER",
+    title: "AI Tools Assessment",
+    basePrice: 599,
+    maxPrice: 999,
     priceNote: "Fixed Project",
-    duration: "1-2 Weeks",
-    description: "I build your private AI command center so you don't have to learn the tech. I handle the API integrations, skill configuration, and system architecture to deliver a turnkey solution ready for immediate use.",
-    payload: ["Custom GPTs/Agents", "Calendar & Email Sync", "Workflow Automation", "Secure Infrastructure"],
-    idealFor: "Busy professionals who need the 'result' of an AI assistant without the learning curve.",
+    duration: "1 Week",
+    description: "Business owners know AI exists. They've seen the demos. They've tried ChatGPT. But they're stuck—drowning in tools with no idea which ones solve their specific problems. They don't need a developer. They need someone who can look at their calendar, inbox, and workflows and say: 'This tool. This process. This is where you start.' That's what you get.",
+    payload: ["45-Min Discovery Call", "Custom Tool Recommendations", "Polished Report", "30-Min Walkthrough"],
+    idealFor: "Business owners and small teams who need clarity on which AI tools will actually save them time.",
     details: [
-      { title: "Architecture & Setup", text: "I handle the heavy lifting: from provisioning the environment to configuring custom skills and cross-platform integrations." },
-      { title: "Ownership & Privacy", text: "You own the final system. I move your data and logic away from rigid silos into high-speed stacks that you control." },
-      { title: "Immediate Throughput", text: "My goal is to reclaim 10-20 hours of your week by automating rote scheduling, drafting, and research tasks." }
+      { title: "Phase 1: The Discovery Call", text: "45-minute Zoom where I pull your real problems—not what you think you should automate, but what's actually eating your time. I ask: Where did your time go yesterday? What tasks do you dread? Where does work pile up waiting on you?" },
+      { title: "Phase 2: The AI Analysis", text: "I feed the full transcript into Claude to identify 5-7 areas where existing AI tools could save significant time. Each opportunity includes specific tool recommendations and estimated weekly hours saved." },
+      { title: "Phase 3: The Report", text: "You get a polished Gamma deliverable with executive summary, priority matrix, tool recommendations with implementation details, 4-day quick start plan, and financial impact breakdown. Looks like a $10K consulting firm produced it." },
+      { title: "Phase 4: The Review Call", text: "Screen-share walkthrough where I answer questions and let it sink in. Then I ask: Which feels most urgent? Want to implement yourself or need help? About 60% want implementation help—that's where the real transformation happens." }
     ],
-    cta: "Request Setup",
+    cta: "Start Your Assessment",
     ctaLink: CALENDAR_URL,
-    highlight: false,
-    badge: "Most Popular",
-    icon: Layout
+    highlight: true,
+    badge: "Premier Offer",
+    icon: Rocket
   },
   {
-    path: "SERVICE 2",
-    title: "Managed Agent Operations (AIaaS)",
-    basePrice: 500,
-    maxPrice: 2000,
-    priceNote: "/Month",
-    duration: "Monthly Retainer",
-    description: "I don't just build the system and walk away; I run it for you. As your Agent Operator, I manage and optimize your AI infrastructure on a monthly retainer so it evolves with your business.",
-    payload: ["Daily Monitoring", "System Optimization", "New Skill Integration", "API Maintenance"],
-    idealFor: "Founders and agencies who want a world-class assistant without the overhead of a human hire.",
+    path: "IMPLEMENTATION",
+    title: "Implementation & Scaling",
+    basePrice: 1000,
+    maxPrice: 10000,
+    priceNote: "Fixed Project",
+    duration: "2-6 Weeks",
+    description: "60% of Assessment clients want help implementing the recommendations. That's where the real revenue—and real results—live. I don't just recommend tools; I build the workflows, automate the connections, and hand you a system that works.",
+    payload: ["Process Redesign", "Automation Build", "Knowledge Systems", "Custom Workflows"],
+    idealFor: "Assessment clients ready to move from recommendations to results—and business owners with established AI usage who need custom solutions.",
     details: [
-      { title: "Continuous Optimization", text: "I monitor performance and update your prompts and logic as new models are released. Your system stays current without you having to track what changed." },
-      { title: "Managed Infrastructure", text: "I handle model updates, API key management, and security patches. You focus on the output, not the maintenance." },
-      { title: "Scalable Operations", text: "As your business grows, I add new capabilities and integrations to your assistant to handle increased volume and complexity." }
+      { title: "Process Redesign ($3K-$5K)", text: "Almost every assessment uncovers broken workflows. Map the current state, design the future state, remove the waste. For businesses losing hours weekly to outdated processes." },
+      { title: "Automation Build ($1K-$3K)", text: "Sometimes you just need Zapier or Make.com workflows connecting your existing tools. I build it, train you, hand it off. Immediate time savings without the learning curve." },
+      { title: "Knowledge Systems ($3K+)", text: "Have thousands of hours of training videos or documents nobody watches? I build custom GPTs your team can query instead of interrupting you. One client saved 3 hours weekly." },
+      { title: "Custom Workflows ($3K-$5K)", text: "For clients already using AI tools, I build custom prompts and templates that turn manual processes into one-click operations. Your existing tools, supercharged." },
+      { title: "Full Implementation ($5K-$10K+)", text: "Custom agents running entire workflows. Only for tech-savvy clients or those with someone to maintain. The premium tier for complete AI infrastructure." }
     ],
-    cta: "Discuss Retainer",
+    cta: "Discuss Implementation",
     ctaLink: CALENDAR_URL,
     highlight: false,
-    icon: Settings
+    badge: "Where 60% Go",
+    icon: Workflow
   },
   {
-    path: "SERVICE 3",
+    path: "MENTORING",
     title: "AI Mentoring & Mindset Coaching",
     basePrice: 97,
     maxPrice: 497,
@@ -355,7 +359,7 @@ export default function ServicesSection() {
             What Services Does the Armchair Futurist Offer?
           </h2>
           <div className="text-xl text-foreground/80 font-sans leading-relaxed space-y-6">
-            <p>The Armchair Futurist offers execution-first AI strategy services ranging from $97 to $55,250. Start with the $199 Digital Identity upgrade. <strong>Your resume is not enough in 2026.</strong> Then scale into deeper architecture as your execution matures.</p>
+            <p>The Armchair Futurist offers execution-first AI strategy services ranging from $97 to $55,250. Start with the $199 Digital Identity upgrade or the $599 AI Tools Assessment. <strong>Most clients start with assessment—then scale into implementation.</strong> Then scale into deeper architecture as your execution matures.</p>
             <p><strong>My Promise:</strong> Partner with an operator who executes with you as your needs evolve. If you aren't happy with our initial prototyping and ideation discussions, I will happily refund you.</p>
           </div>
         </div>
@@ -368,7 +372,7 @@ export default function ServicesSection() {
               onClick={() => setActiveTrack('entrepreneur')}
               className={`px-8 py-3 rounded-xl font-bold transition-all duration-300 flex items-center gap-2 ${activeTrack === 'entrepreneur' ? 'bg-primary text-primary-foreground shadow-lg' : 'text-muted-foreground hover:text-foreground'}`}
             >
-              <Layout className="w-4 h-4" /> Founders & Solo Teams
+              <Layout className="w-4 h-4" /> Founders & Small Teams
             </button>
             <button
               onClick={() => setActiveTrack('organization')}
@@ -378,7 +382,7 @@ export default function ServicesSection() {
             </button>
           </div>
           <p className="text-sm text-muted-foreground font-medium animate-in fade-in slide-in-from-bottom-2 duration-700">
-            {activeTrack === 'entrepreneur' ? "Direct implementation for high-speed execution." : "Structural architecture for organizational scale."}
+            {activeTrack === 'entrepreneur' ? "For business owners ready to stop drowning in tools and start getting results." : "Structural architecture for organizational scale."}
           </p>
         </div>
 
