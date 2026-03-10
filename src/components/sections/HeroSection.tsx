@@ -15,7 +15,7 @@ type Stat = { value: string | null; numericValue?: number; suffix?: string; icon
 const stats: Stat[] = [
   { value: '40+', numericValue: 40, suffix: '+', label: 'AI Systems Deployed' },
   { value: '10–20h', label: 'Reclaimed Per Client / Week' },
-  { value: null, icon: CheckCircle2, label: 'Authentic, Certified Futurist' },
+  { value: null, icon: CheckCircle2, label: '5+ Hours/Week Guaranteed' },
 ];
 
 export default function HeroSection() {
@@ -140,7 +140,7 @@ export default function HeroSection() {
                 className="inline-flex items-center gap-2 text-sm text-blue-200/80 hover:text-white transition-colors font-mono tracking-wide"
               >
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                New: Own Your Digital Identity, $199 flat
+                From $199: Identity • From $599: AI Tools Assessment
               </a>
             </div>
           </BlurFade>

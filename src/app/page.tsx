@@ -48,6 +48,9 @@ export default function HomePage() {
       {/* OFFER — the specific services available */}
       <ServicesSection />
 
+      {/* CLOSE — main contact CTA */}
+      <ConnectSection />
+
       {/* NURTURE — capture visitors not yet ready to buy */}
       <EmailCaptureSection />
 
@@ -56,9 +59,6 @@ export default function HomePage() {
 
       {/* FAQ — AI-optimized question-answer content */}
       <FAQSection />
-
-      {/* CLOSE — final CTA */}
-      <ConnectSection />
     </div>
   );
 }
