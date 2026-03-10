@@ -229,6 +229,30 @@ export default function InsightsSection() {
           </div>
         </div>
       </motion.div>
+
+      {/* Article Schema for Insights */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Insights on AI Strategy, Change Management, and the Future of Work",
+            "description": "Articles and podcast appearances by Alex Myers on AI adoption, organizational transformation, and human-machine collaboration.",
+            "url": "https://thearmchairfuturist.com#insights",
+            "author": {
+              "@type": "Person",
+              "name": "Alex Myers",
+              "url": "https://thearmchairfuturist.com"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "The Armchair Futurist"
+            },
+            "datePublished": "2026-02-01"
+          })
+        }}
+      />
     </section>
   );
 }

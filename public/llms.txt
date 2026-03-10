@@ -1,0 +1,38 @@
+# Alex Myers - The Armchair Futurist
+
+## About
+Certified futurist and AI strategy advisor helping leaders navigate AI adoption, close the accountability gap, and reclaim 10-20 hours per week through human-first execution.
+
+## Services
+- Digital Identity Landing Page ($199)
+- Custom AI Provisioning ($1,000-$5,000)
+- AI Mentoring & Mindset Coaching ($97+)
+- Managed Agent Operations ($500-$2,000/month)
+- Psychology-Led Adoption Strategy ($10,625)
+- AI Infusion Lab ($38,250-$55,250)
+
+## Expertise
+AI Strategy & Adoption, Change Management, Future of Work, Digital Transformation, Organizational Design
+
+## Certifications
+- Certified Futurist & Long-Term Analyst (FLTA)
+- Certified Change Management Professional (CCMP)
+- GenAI Academy Expert
+- Certified Enterprise Blockchain Professional (CEBP)
+- Professional Scrum Master (PSM)
+- Professional Agile Leadership (PAL)
+
+## Featured In
+Techstars, NTT Data, GenAI Academy, Aragon.org
+
+## Contact
+- Website: https://thearmchairfuturist.com
+- LinkedIn: https://www.linkedin.com/in/alex-myers-34572a10/
+- Substack: https://armchairfuturist.substack.com/
+
+## Sitemap
+- / - Home
+- /assessment - AI Readiness Assessment
+- /assessment/result/[slug] - Assessment Results
+- /privacy-policy - Privacy Policy
+- /terms-of-service - Terms of Service
