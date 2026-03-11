@@ -106,7 +106,7 @@ export default function HeroSection() {
 
           <BlurFade delay={0.5} inView>
             <div className="mt-12 flex flex-col gap-5 sm:flex-row sm:flex-wrap sm:justify-center">
-              <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 shadow-2xl transition-all duration-200 hover:scale-105 h-14 px-8 text-lg font-bold">
+              <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 shadow-2xl transition-all duration-200 h-14 px-8 text-lg font-bold">
                 <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackConversion('hero_book_call')}>
                   <Zap className="mr-2 h-5 w-5 fill-current" />
                   Book a Free Strategy Call
@@ -115,7 +115,7 @@ export default function HeroSection() {
               <Button
                 asChild
                 size="lg"
-                className="bg-black/40 text-primary-foreground border-2 border-primary-foreground/50 hover:bg-primary-foreground hover:text-primary shadow-xl transition-all duration-200 hover:scale-105 h-14 px-8 text-lg font-bold backdrop-blur-md"
+                className="bg-black/40 text-primary-foreground border-2 border-primary-foreground/50 hover:bg-primary-foreground hover:text-primary shadow-xl transition-all duration-200 h-14 px-8 text-lg font-bold backdrop-blur-md"
               >
                 <a href="/assessment" onClick={() => trackEvent('hero_assessment_cta')}>
                   <Brain className="mr-2 h-5 w-5" />
@@ -130,14 +130,14 @@ export default function HeroSection() {
               <a
                 href="#services"
                 onClick={() => trackEvent('hero_see_services')}
-                className="inline-flex items-center gap-2 text-sm text-blue-200/80 hover:text-white transition-colors font-mono tracking-wide"
+                className="inline-flex items-center gap-2 text-sm text-blue-200/80 hover:text-white transition-colors font-mono tracking-wide focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black focus-visible:rounded-sm"
               >
                 See How I Work
               </a>
               <a
                 href="#services"
                 onClick={() => trackEvent('hero_199_spotlight_click')}
-                className="inline-flex items-center gap-2 text-sm text-blue-200/80 hover:text-white transition-colors font-mono tracking-wide"
+                className="inline-flex items-center gap-2 text-sm text-blue-200/80 hover:text-white transition-colors font-mono tracking-wide focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black focus-visible:rounded-sm"
               >
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
                 From $199: Identity • From $599: AI Tools Assessment
