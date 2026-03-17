@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Zap, Terminal, CheckCircle2, Brain } from 'lucide-react';
+import { Zap, Terminal, CheckCircle2, Brain, Shield, Clock, Star } from 'lucide-react';
 import { trackEvent, trackConversion } from '@/lib/analytics';
 import { NumberTicker } from '@/components/ui/number-ticker';
 import { BlurFade } from '@/components/ui/blur-fade';
@@ -9,6 +9,7 @@ import { Particles } from '@/components/ui/particles';
 import { TextScramble } from '@/components/ui/text-scramble';
 import { motion } from 'motion/react';
 import { CALENDAR_URL } from '@/lib/constants';
+import { useExperiment } from '@/hooks/useExperiment';
 
 type Stat = { value: string | null; numericValue?: number; suffix?: string; icon?: React.ElementType; label: string };
 
@@ -18,9 +19,28 @@ const stats: Stat[] = [
   { value: null, icon: CheckCircle2, label: '5+ Hours/Week Guaranteed' },
 ];
 
+// A/B Test: CTA Copy Variants
+const ctaVariants = {
+  control: { primary: 'Book a Free Strategy Call', secondary: 'Take the Free Assessment' },
+  variant_a: { primary: 'Book Your Free Call', secondary: 'Get Your Free Score' },
+  variant_b: { primary: 'Schedule Free Consultation', secondary: 'Start Your Free Quiz' },
+};
+
+const secondaryCtaVariants = {
+  control: 'Take the Free Assessment',
+  variant_a: 'Get Your Free Score',
+};
+
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isVideoReady, setIsVideoReady] = useState(false);
+
+  // A/B Testing
+  const { variant: ctaVariant, trackConversion: trackCtaConversion } = useExperiment('HERO_CTA_COPY');
+  const { variant: secondaryCtaVariant } = useExperiment('HERO_SECONDARY_CTA');
+
+  const ctaText = ctaVariants[ctaVariant as keyof typeof ctaVariants] || ctaVariants.control;
+  const secondaryCtaText = secondaryCtaVariants[secondaryCtaVariant as keyof typeof secondaryCtaVariants] || secondaryCtaVariants.control;
 
   useEffect(() => {
     const videoElement = videoRef.current;
@@ -106,23 +126,45 @@ export default function HeroSection() {
 
           <BlurFade delay={0.5} inView>
             <div className="mt-12 flex flex-col gap-5 sm:flex-row sm:flex-wrap sm:justify-center">
-              <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 shadow-2xl transition-all duration-200 h-14 px-8 text-lg font-bold">
-                <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackConversion('hero_book_call')}>
+              <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 shadow-2xl hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] hover:scale-[1.02] transition-all duration-200 h-14 px-8 text-lg font-bold">
+                <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" onClick={() => { trackConversion('hero_book_call'); trackCtaConversion({ cta_variant: ctaVariant }); }}>
                   <Zap className="mr-2 h-5 w-5 fill-current" />
-                  Book a Free Strategy Call
+                  {ctaText.primary}
                 </a>
               </Button>
               <Button
                 asChild
                 size="lg"
-                className="bg-black/40 text-primary-foreground border-2 border-primary-foreground/50 hover:bg-primary-foreground hover:text-primary shadow-xl transition-all duration-200 h-14 px-8 text-lg font-bold backdrop-blur-md"
+                className="bg-black/40 text-primary-foreground border-2 border-primary-foreground/50 hover:bg-primary-foreground hover:text-primary shadow-xl hover:shadow-2xl hover:shadow-primary/20 transition-all duration-200 h-14 px-8 text-lg font-bold backdrop-blur-md"
               >
                 <a href="/assessment" onClick={() => trackEvent('hero_assessment_cta')}>
                   <Brain className="mr-2 h-5 w-5" />
-                  Take the Free Assessment
+                  {secondaryCtaText}
                 </a>
               </Button>
             </div>
+
+            {/* Trust badges - social proof below CTAs */}
+            <motion.div 
+              className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs text-primary-foreground/60"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.8 }}
+            >
+              <div className="flex items-center gap-1.5">
+                <Shield className="w-3.5 h-3.5 text-green-400" />
+                <span>No commitment</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <Clock className="w-3.5 h-3.5 text-blue-400" />
+                <span>15-min call</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <Star className="w-3.5 h-3.5 text-yellow-400" />
+                <span>4.9/5 rating</span>
+              </div>
+            </motion.div>
           </BlurFade>
 
           <BlurFade delay={0.55} inView>

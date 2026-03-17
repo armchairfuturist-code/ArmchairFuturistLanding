@@ -1,5 +1,5 @@
 "use client";
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Mail, Download, CheckCircle2, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { BlurFade } from '@/components/ui/blur-fade';
@@ -19,6 +19,27 @@ export default function EmailCaptureSection() {
     const [email, setEmail] = useState('');
     const [formState, setFormState] = useState<FormState>('idle');
     const [errorMsg, setErrorMsg] = useState('');
+    const emailInputRef = useRef<HTMLInputElement>(null);
+
+    // Auto-focus email input when section comes into view
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting && emailInputRef.current) {
+                    // Small delay to ensure smooth UX
+                    setTimeout(() => {
+                        emailInputRef.current?.focus();
+                    }, 500);
+                }
+            },
+            { threshold: 0.5 }
+        );
+
+        const section = document.getElementById('free-audit');
+        if (section) observer.observe(section);
+
+        return () => observer.disconnect();
+    }, []);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -108,6 +129,7 @@ export default function EmailCaptureSection() {
                                         <div>
                                             <label htmlFor="email-capture" className="sr-only">Email address</label>
                                             <input
+                                                ref={emailInputRef}
                                                 id="email-capture"
                                                 type="email"
                                                 value={email}
