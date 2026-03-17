@@ -28,6 +28,17 @@ export type Experiment = {
 
 // Pre-defined experiments
 export const EXPERIMENTS: Record<string, Experiment> = {
+  HERO_HEADLINE: {
+    id: 'hero_headline',
+    name: 'Hero Headline Copy',
+    description: 'Test different headlines to improve engagement',
+    goalMetric: 'hero_headline_impression',
+    variants: [
+      { id: 'control', name: 'Control - Intelligence is cheap. Trust is the new scarcity.', weight: 0.33 },
+      { id: 'variant_a', name: 'Variant A - AI can do the work. You provide the trust.', weight: 0.33 },
+      { id: 'variant_b', name: 'Variant B - Stop wasting 20 hours a week on AI chaos', weight: 0.34 },
+    ],
+  },
   HERO_CTA_COPY: {
     id: 'hero_cta_copy',
     name: 'Hero CTA Button Copy',
@@ -67,6 +78,26 @@ export const EXPERIMENTS: Record<string, Experiment> = {
     variants: [
       { id: 'control', name: 'Control - Claim Your $199 Page', weight: 0.5 },
       { id: 'variant_a', name: 'Variant A - Get Started for $199', weight: 0.5 },
+    ],
+  },
+  HERO_BACKGROUND: {
+    id: 'hero_background',
+    name: 'Hero Background Type',
+    description: 'Test video vs image background performance',
+    goalMetric: 'hero_background_impression',
+    variants: [
+      { id: 'control', name: 'Control - Video Background', weight: 0.5 },
+      { id: 'variant_a', name: 'Variant A - Static Image', weight: 0.5 },
+    ],
+  },
+  SOCIAL_PROOF_COUNT: {
+    id: 'social_proof_count',
+    name: 'Social Proof Items',
+    description: 'Test number of social proof stats to show',
+    goalMetric: 'social_proof_impression',
+    variants: [
+      { id: 'control', name: 'Control - 3 stats', weight: 0.5 },
+      { id: 'variant_a', name: 'Variant A - 6 stats', weight: 0.5 },
     ],
   },
 };

@@ -31,14 +31,37 @@ const secondaryCtaVariants = {
   variant_a: 'Get Your Free Score',
 };
 
+// A/B Test: Headline Variants
+import Image from 'next/image';
+
+const headlineVariants = {
+  control: {
+    line1: 'Intelligence is cheap.',
+    line2: 'Trust is the new scarcity.',
+  },
+  variant_a: {
+    line1: 'AI can do the work.',
+    line2: 'You provide the trust.',
+  },
+  variant_b: {
+    line1: "Stop wasting 20 hours a week",
+    line2: 'on AI chaos',
+  },
+};
+
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isVideoReady, setIsVideoReady] = useState(false);
 
   // A/B Testing
+  const { variant: headlineVariant } = useExperiment('HERO_HEADLINE');
+  const { variant: backgroundVariant } = useExperiment('HERO_BACKGROUND');
   const { variant: ctaVariant, trackConversion: trackCtaConversion } = useExperiment('HERO_CTA_COPY');
   const { variant: secondaryCtaVariant } = useExperiment('HERO_SECONDARY_CTA');
 
+  const useVideoBackground = backgroundVariant !== 'variant_a';
+
+  const headline = headlineVariants[headlineVariant as keyof typeof headlineVariants] || headlineVariants.control;
   const ctaText = ctaVariants[ctaVariant as keyof typeof ctaVariants] || ctaVariants.control;
   const secondaryCtaText = secondaryCtaVariants[secondaryCtaVariant as keyof typeof secondaryCtaVariants] || secondaryCtaVariants.control;
 
@@ -82,19 +105,32 @@ export default function HeroSection() {
 
   return (
     <section className="relative w-full min-h-[80vh] lg:min-h-[85vh] overflow-hidden flex items-center justify-center bg-black">
-      <video
-        ref={videoRef}
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="metadata"
-        poster="/header.webp"
-        className={`absolute top-0 left-0 w-full h-full object-cover z-0 transition-opacity duration-700 ${isVideoReady ? 'opacity-100' : 'opacity-0'}`}
-        src="/header.mp4"
-      >
-        Your browser does not support the video tag.
-      </video>
+      {/* A/B Test: Video vs Image Background */}
+      {useVideoBackground ? (
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          poster="/header.webp"
+          className={`absolute top-0 left-0 w-full h-full object-cover z-0 transition-opacity duration-700 ${isVideoReady ? 'opacity-100' : 'opacity-0'}`}
+          src="/header.mp4"
+        >
+          Your browser does not support the video tag.
+        </video>
+      ) : (
+        <div className="absolute top-0 left-0 w-full h-full z-0">
+          <Image
+            src="/header.webp"
+            alt="Background"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+      )}
       <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-[1]"></div>
       <Particles className="z-[2]" quantity={40} color="rgba(255, 255, 255, 0.3)" size={1.5} speed={0.2} />
 
@@ -110,10 +146,14 @@ export default function HeroSection() {
           <BlurFade delay={0.2} inView>
             <h1 className="tracking-tighter sm:text-5xl xl:text-7xl/none hero-text-shadow">
               <span className="block text-hero-title-1 text-5xl md:text-6xl xl:text-7xl font-heading font-black">
-                Intelligence is cheap.
+                {headline.line1}
               </span>
               <span className="block text-hero-title-2 text-4xl md:text-5xl xl:text-6xl mt-1 md:mt-2 font-heading font-bold opacity-90">
-                <TextScramble text="Trust is the new scarcity." speed={25} scrambleDuration={1400} />
+                {headlineVariant === 'control' ? (
+                  <TextScramble text={headline.line2} speed={25} scrambleDuration={1400} />
+                ) : (
+                  headline.line2
+                )}
               </span>
             </h1>
           </BlurFade>
