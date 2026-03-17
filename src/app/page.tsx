@@ -6,7 +6,6 @@ import FeaturedInSection from '@/components/sections/FeaturedInSection';
 import WhyWorkWithMeSection from '@/components/sections/WhyWorkWithMeSection';
 import ServicesSection from '@/components/sections/ServicesSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
-import EmailCaptureSection from '@/components/sections/EmailCaptureSection';
 import InsightsSection from '@/components/sections/InsightsSection';
 import ConnectSection from '@/components/sections/ConnectSection';
 import SpotlightSection from '@/components/sections/SpotlightSection';
@@ -50,9 +49,6 @@ export default function HomePage() {
 
       {/* CLOSE — main contact CTA */}
       <ConnectSection />
-
-      {/* NURTURE — capture visitors not yet ready to buy */}
-      <EmailCaptureSection />
 
       {/* CONTENT — articles + podcasts in one view */}
       <InsightsSection />
