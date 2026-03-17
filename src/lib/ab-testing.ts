@@ -60,16 +60,6 @@ export const EXPERIMENTS: Record<string, Experiment> = {
       { id: 'variant_a', name: 'Variant A - Get Your Free Score', weight: 0.5 },
     ],
   },
-  EMAIL_CAPTURE_POSITION: {
-    id: 'email_capture_position',
-    name: 'Email Capture Form Variant',
-    description: 'Test different email capture form layouts',
-    goalMetric: 'email_capture_submit',
-    variants: [
-      { id: 'control', name: 'Control - Standard Form', weight: 0.5 },
-      { id: 'variant_a', name: 'Variant A - Simplified Single-Line', weight: 0.5 },
-    ],
-  },
   SPOTLIGHT_CTA: {
     id: 'spotlight_cta',
     name: 'Spotlight Section CTA Style',
@@ -98,27 +88,6 @@ export const EXPERIMENTS: Record<string, Experiment> = {
     variants: [
       { id: 'control', name: 'Control - 3 stats', weight: 0.5 },
       { id: 'variant_a', name: 'Variant A - 6 stats', weight: 0.5 },
-    ],
-  },
-  EMAIL_CAPTURE_HEADLINE: {
-    id: 'email_capture_headline',
-    name: 'Email Capture Headline',
-    description: 'Test different headlines for email capture',
-    goalMetric: 'email_capture_impression',
-    variants: [
-      { id: 'control', name: 'Control - The AI Trust Audit Checklist', weight: 0.33 },
-      { id: 'variant_a', name: 'Variant A - Reclaim 10-20 Hours/Week', weight: 0.33 },
-      { id: 'variant_b', name: 'Variant B - Free Diagnostic: 10 Questions', weight: 0.34 },
-    ],
-  },
-  EMAIL_CAPTURE_CTA: {
-    id: 'email_capture_cta',
-    name: 'Email Capture CTA Button',
-    description: 'Test different CTA buttons for email form',
-    goalMetric: 'email_capture_cta_click',
-    variants: [
-      { id: 'control', name: 'Control - Get the Checklist on Substack', weight: 0.5 },
-      { id: 'variant_a', name: 'Variant A - Send Me the Free Checklist', weight: 0.5 },
     ],
   },
   CTA_BUTTON_STYLE: {
