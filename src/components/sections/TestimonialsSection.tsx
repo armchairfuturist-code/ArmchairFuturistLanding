@@ -1,8 +1,10 @@
 "use client";
+import { useState } from 'react';
 import Image from 'next/image';
-import { Quote } from 'lucide-react';
+import { Quote, ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { Marquee } from '@/components/ui/marquee';
+import { motion, AnimatePresence } from 'motion/react';
 
 interface Testimonial {
   imageSrc: string;
@@ -78,6 +80,82 @@ const testimonialsData: Testimonial[] = [
   }
 ];
 
+// Featured testimonials for spotlight carousel
+const featuredTestimonials = testimonialsData.slice(0, 3);
+
+function FeaturedTestimonialCarousel() {
+  const [current, setCurrent] = useState(0);
+
+  const next = () => setCurrent((prev) => (prev + 1) % featuredTestimonials.length);
+  const prev = () => setCurrent((prev) => (prev - 1 + featuredTestimonials.length) % featuredTestimonials.length);
+
+  return (
+    <div className="max-w-3xl mx-auto mb-12">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={current}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.4 }}
+          className="relative bg-card rounded-2xl border border-border p-8 md:p-10 shadow-xl"
+        >
+          <Quote className="h-10 w-10 text-primary/20 mb-4" />
+          <p className="text-lg md:text-xl text-foreground/90 font-sans leading-relaxed mb-8">
+            "{featuredTestimonials[current].text}"
+          </p>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <div className="relative h-14 w-14 shrink-0">
+                <Image
+                  src={featuredTestimonials[current].imageSrc}
+                  alt={`Profile picture of ${featuredTestimonials[current].name}`}
+                  fill
+                  sizes="56px"
+                  className="rounded-full object-cover border-2 border-primary/30"
+                  data-ai-hint={featuredTestimonials[current].dataAiHint || "profile person"}
+                />
+              </div>
+              <div>
+                <p className="text-base font-bold text-primary">{featuredTestimonials[current].name}</p>
+                <p className="text-sm text-muted-foreground font-sans">{featuredTestimonials[current].title}</p>
+              </div>
+            </div>
+            <div className="flex gap-2">
+              <button
+                onClick={prev}
+                className="p-2 rounded-full hover:bg-muted transition-colors"
+                aria-label="Previous testimonial"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+              <button
+                onClick={next}
+                className="p-2 rounded-full hover:bg-muted transition-colors"
+                aria-label="Next testimonial"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+            </div>
+          </div>
+          <div className="flex justify-center gap-1 mt-4">
+            {featuredTestimonials.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrent(i)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  i === current ? 'w-6 bg-primary' : 'w-2 bg-muted'
+                }`}
+                aria-label={`Go to testimonial ${i + 1}`}
+              />
+            ))}
+          </div>
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  );
+}
+
 function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
     <div className="flex-none w-80 md:w-96 bg-card rounded-xl border border-border/50 shadow-md p-5 md:p-6 flex flex-col gap-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
@@ -118,6 +196,9 @@ export default function TestimonialsSection() {
           </p>
         </div>
       </BlurFade>
+
+      {/* Featured testimonial carousel */}
+      <FeaturedTestimonialCarousel />
 
       <div className="relative [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
         <p className="absolute bottom-2 right-4 z-10 text-[10px] text-muted-foreground/40 font-mono pointer-events-none select-none">hover to pause</p>
