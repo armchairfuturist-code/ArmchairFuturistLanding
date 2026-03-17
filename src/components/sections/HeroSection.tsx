@@ -58,8 +58,18 @@ export default function HeroSection() {
   const { variant: backgroundVariant } = useExperiment('HERO_BACKGROUND');
   const { variant: ctaVariant, trackConversion: trackCtaConversion } = useExperiment('HERO_CTA_COPY');
   const { variant: secondaryCtaVariant } = useExperiment('HERO_SECONDARY_CTA');
+  const { variant: ctaStyleVariant } = useExperiment('CTA_BUTTON_STYLE');
 
   const useVideoBackground = backgroundVariant !== 'variant_a';
+
+  // CTA Button style classes
+  const ctaButtonStyles: Record<string, string> = {
+    control: 'bg-white text-primary hover:bg-white/90 shadow-2xl hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] hover:scale-[1.02]',
+    variant_a: 'bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-400 hover:to-blue-500 shadow-lg hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] hover:scale-[1.02]',
+    variant_b: 'bg-white text-primary hover:bg-white/90 shadow-2xl hover:shadow-[0_0_40px_rgba(255,255,255,0.6)] scale-105 hover:scale-110',
+  };
+
+  const ctaStyle = ctaButtonStyles[ctaStyleVariant] || ctaButtonStyles.control;
 
   const headline = headlineVariants[headlineVariant as keyof typeof headlineVariants] || headlineVariants.control;
   const ctaText = ctaVariants[ctaVariant as keyof typeof ctaVariants] || ctaVariants.control;
@@ -166,8 +176,8 @@ export default function HeroSection() {
 
           <BlurFade delay={0.5} inView>
             <div className="mt-12 flex flex-col gap-5 sm:flex-row sm:flex-wrap sm:justify-center">
-              <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 shadow-2xl hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] hover:scale-[1.02] transition-all duration-200 h-14 px-8 text-lg font-bold">
-                <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" onClick={() => { trackConversion('hero_book_call'); trackCtaConversion({ cta_variant: ctaVariant }); }}>
+              <Button asChild size="lg" className={`${ctaStyle} transition-all duration-200 h-14 px-8 text-lg font-bold`}>
+                <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" onClick={() => { trackConversion('hero_book_call'); trackCtaConversion({ cta_variant: ctaVariant, cta_style: ctaStyleVariant }); }}>
                   <Zap className="mr-2 h-5 w-5 fill-current" />
                   {ctaText.primary}
                 </a>

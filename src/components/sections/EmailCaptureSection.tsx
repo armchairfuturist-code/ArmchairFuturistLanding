@@ -1,17 +1,32 @@
 "use client";
 import { useState, useRef, useEffect } from 'react';
-import { Mail, Download, CheckCircle2, Loader2 } from 'lucide-react';
+import { Mail, Download, CheckCircle2, Loader2, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { BorderBeam } from '@/components/ui/border-beam';
 import { motion } from 'motion/react';
 import { SUBSTACK_URL } from '@/lib/constants';
+import { useExperiment } from '@/hooks/useExperiment';
+import { trackEvent } from '@/lib/analytics';
 
 const benefits = [
     "10 diagnostic questions to expose your AI accountability gaps",
     "The 3-pillar Trust Quotient framework explained",
     "A prioritized action list to reclaim 10-20 hours a week",
 ];
+
+// A/B Test: Headline Variants
+const headlineVariants = {
+    control: 'The AI Trust Audit Checklist',
+    variant_a: 'Reclaim 10-20 Hours/Week',
+    variant_b: 'Free Diagnostic: 10 Questions',
+};
+
+// A/B Test: CTA Variants
+const ctaVariants = {
+    control: 'Get the Checklist on Substack',
+    variant_a: 'Send Me the Free Checklist',
+};
 
 type FormState = 'idle' | 'loading' | 'success' | 'error';
 
@@ -20,6 +35,13 @@ export default function EmailCaptureSection() {
     const [formState, setFormState] = useState<FormState>('idle');
     const [errorMsg, setErrorMsg] = useState('');
     const emailInputRef = useRef<HTMLInputElement>(null);
+
+    // A/B Testing
+    const { variant: headlineVariant } = useExperiment('EMAIL_CAPTURE_HEADLINE');
+    const { variant: ctaVariant, trackConversion: trackCtaConversion } = useExperiment('EMAIL_CAPTURE_CTA');
+
+    const headline = headlineVariants[headlineVariant as keyof typeof headlineVariants] || headlineVariants.control;
+    const ctaText = ctaVariants[ctaVariant as keyof typeof ctaVariants] || ctaVariants.control;
 
     // Auto-focus email input when section comes into view
     useEffect(() => {
@@ -85,7 +107,7 @@ export default function EmailCaptureSection() {
                                 <span>Free Checklist</span>
                             </div>
                             <h2 className="font-heading text-2xl md:text-3xl font-bold tracking-tight text-primary mb-4">
-                                The AI Trust Audit Checklist
+                                {headline}
                             </h2>
                             <p className="text-foreground/70 font-sans leading-relaxed mb-6">
                                 Not ready to book a call yet? Get my free diagnostic - 10 questions that expose where your AI stack is creating risk instead of results.
@@ -147,6 +169,7 @@ export default function EmailCaptureSection() {
                                             type="submit"
                                             className="w-full h-11 font-bold"
                                             disabled={formState === 'loading'}
+                                            onClick={() => trackCtaConversion()}
                                         >
                                             {formState === 'loading' ? (
                                                 <>
@@ -155,8 +178,8 @@ export default function EmailCaptureSection() {
                                                 </>
                                             ) : (
                                                 <>
-                                                    <Download className="mr-2 h-4 w-4" />
-                                                    Get the Checklist on Substack
+                                                    <ArrowRight className="mr-2 h-4 w-4" />
+                                                    {ctaText}
                                                 </>
                                             )}
                                         </Button>
