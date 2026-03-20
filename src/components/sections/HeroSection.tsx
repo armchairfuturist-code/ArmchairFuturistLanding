@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Zap, Terminal, CheckCircle2, Brain, Shield, Clock, Star } from 'lucide-react';
 import { trackEvent, trackConversion } from '@/lib/analytics';
@@ -32,8 +33,6 @@ const secondaryCtaVariants = {
 };
 
 // A/B Test: Headline Variants
-import Image from 'next/image';
-
 const headlineVariants = {
   control: {
     line1: 'Intelligence is cheap.',
@@ -55,12 +54,9 @@ export default function HeroSection() {
 
   // A/B Testing
   const { variant: headlineVariant } = useExperiment('HERO_HEADLINE');
-  const { variant: backgroundVariant } = useExperiment('HERO_BACKGROUND');
   const { variant: ctaVariant, trackConversion: trackCtaConversion } = useExperiment('HERO_CTA_COPY');
   const { variant: secondaryCtaVariant } = useExperiment('HERO_SECONDARY_CTA');
   const { variant: ctaStyleVariant } = useExperiment('CTA_BUTTON_STYLE');
-
-  const useVideoBackground = backgroundVariant !== 'variant_a';
 
   // CTA Button style classes
   const ctaButtonStyles: Record<string, string> = {
@@ -115,32 +111,20 @@ export default function HeroSection() {
 
   return (
     <section className="relative w-full min-h-[80vh] lg:min-h-[85vh] overflow-hidden flex items-center justify-center bg-black">
-      {/* A/B Test: Video vs Image Background */}
-      {useVideoBackground ? (
-        <video
-          ref={videoRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
-          poster="/header.webp"
-          className={`absolute top-0 left-0 w-full h-full object-cover z-0 transition-opacity duration-700 ${isVideoReady ? 'opacity-100' : 'opacity-0'}`}
-          src="/header.mp4"
-        >
-          Your browser does not support the video tag.
-        </video>
-      ) : (
-        <div className="absolute top-0 left-0 w-full h-full z-0">
-          <Image
-            src="/header.webp"
-            alt="Background"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-      )}
+      {/* Video background with poster fallback - always render video for better mobile support */}
+      <video
+        ref={videoRef}
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="metadata"
+        poster="/header.webp"
+        className={`absolute top-0 left-0 w-full h-full object-cover z-0 transition-opacity duration-700 ${isVideoReady ? 'opacity-100' : 'opacity-0'}`}
+        src="/header.mp4"
+      >
+        Your browser does not support the video tag.
+      </video>
       <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-[1]"></div>
       <Particles className="z-[2]" quantity={40} color="rgba(255, 255, 255, 0.3)" size={1.5} speed={0.2} />
 
