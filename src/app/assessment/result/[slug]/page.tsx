@@ -52,12 +52,7 @@ export default function AssessmentResultPage() {
           }),
         }}
       />
-
-      <section className="min-h-screen bg-gradient-to-b from-background to-primary/5 py-20 md:py-28">
-        <div className="container mx-auto px-4 md:px-6">
-          <ResultPage archetype={archetype} scores={scores} />
-        </div>
-      </section>
+      <ResultPage scores={scores} archetype={archetype} />
     </>
   );
 }
