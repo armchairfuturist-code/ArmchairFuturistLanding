@@ -13,6 +13,7 @@ import AIMentoringSection from '@/components/sections/AIMentoringSection';
 import SpeakingSection from '@/components/sections/SpeakingSection';
 import FAQSection from '@/components/sections/FAQSection';
 import AssessmentCtaSection from '@/components/sections/AssessmentCtaSection';
+import KeyStatsSection from '@/components/sections/KeyStatsSection';
 
 export default function HomePage() {
   return (
@@ -28,6 +29,9 @@ export default function HomePage() {
 
       {/* MENTORING — AI mindset coaching for the overwhelmed */}
       <AIMentoringSection />
+
+      {/* KEY STATS — AI-citable statistics and facts */}
+      <KeyStatsSection />
 
       {/* AUTHORITY — who is Alex, why trust him */}
       <AboutMeSection />

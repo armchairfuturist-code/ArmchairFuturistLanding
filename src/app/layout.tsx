@@ -34,11 +34,37 @@ const siteUrl = 'https://thearmchairfuturist.com';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'The Armchair Futurist - Alex Myers | AI Strategy Advisor',
-  description: 'Alex Myers is a certified futurist and AI strategy advisor who helps leaders navigate AI adoption, close the accountability gap, and reclaim 10-20 hours per week through human-first execution.',
-  authors: [{ name: 'Alex Myers', url: 'https://www.linkedin.com/in/alex-myers-34572a10/' }],
+  title: {
+    default: 'The Armchair Futurist - Alex Myers | AI Strategy Advisor',
+    template: '%s | The Armchair Futurist'
+  },
+  description: 'Alex Myers is a certified futurist and AI strategy advisor who helps leaders navigate AI adoption, close the accountability gap, and reclaim 10-20 hours per week through human-first execution. Based in Portugal, serving clients worldwide.',
+  authors: [
+    { 
+      name: 'Alex Myers', 
+      url: 'https://www.linkedin.com/in/alex-myers-34572a10/' 
+    }
+  ],
+  creator: 'Alex Myers',
+  publisher: 'The Armchair Futurist',
+  keywords: [
+    'AI Strategy',
+    'AI Adoption',
+    'Change Management',
+    'Future of Work',
+    'Organizational Design',
+    'Digital Transformation',
+    'AI Mentoring',
+    'Workflow Automation',
+    'Accountability Gap',
+    'Psychology-Led Adoption',
+    'Alex Myers',
+    'Certified Futurist',
+    'AI Consultant'
+  ],
   icons: {
     icon: '/img.jpg',
+    apple: '/img.jpg',
   },
   alternates: {
     canonical: '/',
@@ -54,16 +80,30 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: 'Alex Myers - The Armchair Futurist - AI Strategy Advisor',
+        type: 'image/jpeg',
       },
     ],
     type: 'website',
     locale: 'en_US',
+    alternateLocale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'The Armchair Futurist - Alex Myers | AI Strategy Advisor',
     description: 'Alex Myers is a certified futurist and AI strategy advisor who helps leaders navigate AI adoption, close the accountability gap, and reclaim 10-20 hours per week through human-first execution.',
     images: ['/floop.jpg'],
+    creator: '@armchairfuturist',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
@@ -202,7 +242,7 @@ export default function RootLayout({
             })
           }}
         />
-        {/* Person Schema */}
+        {/* Person Schema - Enhanced with awards, publications, and full credentials */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -211,10 +251,17 @@ export default function RootLayout({
               "@type": "Person",
               "@id": "https://thearmchairfuturist.com/#person",
               "name": "Alex Myers",
+              "givenName": "Alex",
+              "familyName": "Myers",
               "jobTitle": "Certified Futurist & AI Strategy Advisor",
               "url": "https://thearmchairfuturist.com",
               "image": "https://thearmchairfuturist.com/alexheadshot-nobg.png",
-              "description": "Alex Myers is a certified futurist, AI strategy advisor, and change management professional who helps leaders and organizations bridge the accountability gap between AI outputs and business results.",
+              "description": "Alex Myers is a certified futurist, AI strategy advisor, and change management professional who helps leaders and organizations bridge the accountability gap between AI outputs and business results. Based in Portugal, serving clients worldwide.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "PT",
+                "addressLocality": "Portugal"
+              },
               "sameAs": [
                 "https://www.linkedin.com/in/alex-myers-34572a10/",
                 "https://armchairfuturist.substack.com/",
@@ -229,19 +276,190 @@ export default function RootLayout({
                 "Blockchain & Web3",
                 "Data Sovereignty",
                 "Agile & Scrum",
-                "AI Mentoring"
+                "AI Mentoring",
+                "Psychology-Led Adoption",
+                "Human-Machine Workflow Design"
               ],
               "hasCredential": [
-                { "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "Certified Futurist & Long-Term Analyst (FLTA)" },
-                { "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "Certified Change Management Professional (CCMP)" },
-                { "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "GenAI Academy Expert" },
-                { "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "Certified Enterprise Blockchain Professional (CEBP)" },
-                { "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "Professional Scrum Master (PSM)" },
-                { "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "Professional Agile Leadership (PAL)" }
+                { 
+                  "@type": "EducationalOccupationalCredential", 
+                  "credentialCategory": "certification", 
+                  "name": "Certified Futurist & Long-Term Analyst (FLTA)",
+                  "description": "Futures thinking and scenario planning certification"
+                },
+                { 
+                  "@type": "EducationalOccupationalCredential", 
+                  "credentialCategory": "certification", 
+                  "name": "Certified Change Management Professional (CCMP)",
+                  "description": "Organizational change management methodology"
+                },
+                { 
+                  "@type": "EducationalOccupationalCredential", 
+                  "credentialCategory": "certification", 
+                  "name": "GenAI Academy Expert",
+                  "description": "Generative AI implementation expertise"
+                },
+                { 
+                  "@type": "EducationalOccupationalCredential", 
+                  "credentialCategory": "certification", 
+                  "name": "Certified Enterprise Blockchain Professional (CEBP)",
+                  "description": "Distributed systems and blockchain architecture"
+                },
+                { 
+                  "@type": "EducationalOccupationalCredential", 
+                  "credentialCategory": "certification", 
+                  "name": "Professional Scrum Master (PSM)",
+                  "description": "Agile methodology and Scrum framework"
+                },
+                { 
+                  "@type": "EducationalOccupationalCredential", 
+                  "credentialCategory": "certification", 
+                  "name": "Professional Agile Leadership (PAL)",
+                  "description": "Organizational agility and leadership"
+                }
               ],
               "worksFor": {
                 "@type": "Organization",
-                "name": "Alex Myers Consulting LLC"
+                "name": "Alex Myers Consulting LLC",
+                "url": "https://thearmchairfuturist.com"
+              },
+              "award": "Certified Futurist & Long-Term Analyst",
+              "alumniOf": "GenAI Academy",
+              "hasOccupation": {
+                "@type": "Occupation",
+                "name": "AI Strategy Advisor",
+                "occupationLocation": {
+                  "@type": "Country",
+                  "name": "Portugal"
+                },
+                "estimatedSalary": {
+                  "@type": "MonetaryAmountDistribution",
+                  "name": "Service Range",
+                  "currency": "USD",
+                  "minValue": 97,
+                  "maxValue": 55250
+                },
+                "skills": "AI Strategy, Change Management, Future of Work, Organizational Design"
+              }
+            })
+          }}
+        />
+        {/* Organization Schema - Enhanced for AI entity recognition */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "@id": "https://thearmchairfuturist.com/#organization",
+              "name": "The Armchair Futurist",
+              "alternateName": "Alex Myers Consulting",
+              "url": "https://thearmchairfuturist.com",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://thearmchairfuturist.com/img.jpg",
+                "width": 600,
+                "height": 600
+              },
+              "image": {
+                "@type": "ImageObject",
+                "url": "https://thearmchairfuturist.com/floop.jpg",
+                "width": 1200,
+                "height": 630
+              },
+              "description": "The Armchair Futurist is the advisory practice of Alex Myers, a certified futurist and AI strategy advisor. Alex helps leaders and organizations navigate AI adoption by bridging the Accountability Gap—the space between AI outputs and business results.",
+              "founder": { "@id": "https://thearmchairfuturist.com/#person" },
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "PT",
+                "addressLocality": "Portugal"
+              },
+              "areaServed": "Worldwide",
+              "sameAs": [
+                "https://www.linkedin.com/in/alex-myers-34572a10/",
+                "https://armchairfuturist.substack.com/",
+                "https://thegenaiacademy.com/expert-hub/alex-myers/"
+              ],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "customer service",
+                "availableLanguage": "English",
+                "areaServed": "Worldwide"
+              },
+              "knowsAbout": [
+                "AI Strategy",
+                "AI Adoption",
+                "Change Management",
+                "Future of Work",
+                "Organizational Design",
+                "Digital Transformation",
+                "AI Mentoring",
+                "Workflow Automation"
+              ],
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "AI Strategy & Advisory Services",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Digital Identity Landing Page",
+                      "description": "Interview-ready digital identity site delivered in 2-4 days"
+                    },
+                    "price": "199",
+                    "priceCurrency": "USD"
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "AI Mentoring & Mindset Coaching",
+                      "description": "One-on-one AI mentoring from anxiety to agency"
+                    },
+                    "priceSpecification": {
+                      "@type": "PriceSpecification",
+                      "minPrice": "97",
+                      "maxPrice": "497",
+                      "priceCurrency": "USD"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Custom AI Provisioning",
+                      "description": "Private AI command center with API integrations"
+                    },
+                    "priceSpecification": {
+                      "@type": "PriceSpecification",
+                      "minPrice": "1000",
+                      "maxPrice": "5000",
+                      "priceCurrency": "USD"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "AI Infusion Lab",
+                      "description": "10-week organizational transformation program"
+                    },
+                    "priceSpecification": {
+                      "@type": "PriceSpecification",
+                      "minPrice": "38250",
+                      "maxPrice": "55250",
+                      "priceCurrency": "USD"
+                    }
+                  }
+                ]
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "reviewCount": "40",
+                "bestRating": "5",
+                "worstRating": "1"
               }
             })
           }}
