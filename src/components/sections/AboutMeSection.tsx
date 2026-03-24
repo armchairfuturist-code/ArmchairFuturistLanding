@@ -146,7 +146,6 @@ export default function AboutMeSection() {
 
               <BlurFade inView delay={0.2}>
                 <div className="mb-6 text-center lg:text-left">
-                  <p className="text-xs text-muted-foreground/60 font-mono mb-2">Last updated: February 2026</p>
                   <div className="flex items-center justify-center lg:justify-start gap-3">
                     <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary">
                       Who Is Alex Myers?
@@ -182,7 +181,7 @@ export default function AboutMeSection() {
                 </p>
 
                 <p className="text-base md:text-lg text-foreground/80 font-sans leading-relaxed">
-                  My leverage: systems thinking, an intuitive grasp of group dynamics, and the ability to ask questions that force real movement. Combined with radical candor, that&apos;s how we co-design solutions that actually stick. I share what I&apos;m learning about technology&apos;s impact on work and human connection; you&apos;ll find it on podcasts and in strategic discussions.
+                  My leverage: systems thinking, an intuitive grasp of group dynamics, and the ability to ask questions that force real movement. I tell you what I actually think, not what you want to hear. That's how we build solutions that stick. I share what I'm learning about technology's impact on work and human connection; you'll find it on podcasts and in strategic discussions.
                 </p>
 
                 <h3 className="text-lg md:text-xl font-bold text-primary pt-2">For the Executive:</h3>

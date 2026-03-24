@@ -7,19 +7,18 @@ import { CALENDAR_URL } from '@/lib/constants';
 const strategyItems = [
   {
     icon: <Workflow className="h-8 w-8 text-primary" />,
-    title: "Systems Optimization",
-    content: "I view every business process as interconnected loops. Most bottlenecks aren't technical. They are structural. I rebuild workflows using AI to collapse costs and increase throughput."
+    title: "Fix the bottleneck, not the symptom",
+    content: "Most problems aren't technical. They're structural. I look at how work actually flows through your business, then rebuild the parts that are bleeding time and money."
   },
   {
     icon: <Wrench className="h-8 w-8 text-primary" />,
-    title: "Direct Execution (No Theatre)",
-    content: "I don't hand you a strategy deck. I provision the servers, write the system prompts, and manage model integrations myself.",
-    tags: ["Architecting Autonomy", "Managed Operations", "Measurable ROI"]
+    title: "I build it, I don't hand you a deck",
+    content: "I provision the servers, write the prompts, connect the tools. You get a working system, not a 40-slide strategy deck you'll never open."
   },
   {
     icon: <ShieldCheck className="h-8 w-8 text-primary" />,
-    title: "Data & Privacy Sovereignty",
-    content: "Your data is your competitive edge. I build on high-performance, open-standard stacks that ensure you own your logic and your data. No platform taxes, no digital anchors."
+    title: "Your data stays yours",
+    content: "I build on open-standard stacks. No platform lock-in, no vendor tax. You own your logic, your data, and your infrastructure."
   }
 ];
 
@@ -52,10 +51,10 @@ export default function WhyWorkWithMeSection() {
       >
         <div className="text-center mb-16 max-w-4xl mx-auto">
           <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary mb-6">
-            How Does Alex Myers Work With Clients?
+            How I work
           </h2>
           <p className="text-xl text-foreground/80 font-sans leading-relaxed">
-            Alex operates execution-first with no theatre and measurable outcomes across three pillars.
+            Three principles. No fluff.
           </p>
         </div>
 
@@ -74,15 +73,6 @@ export default function WhyWorkWithMeSection() {
                 <p className="text-foreground/70 leading-relaxed font-sans">
                   {item.content}
                 </p>
-                {item.tags && (
-                  <div className="flex flex-wrap gap-2 mt-4">
-                    {item.tags.map((tag) => (
-                      <span key={tag} className="text-xs font-mono px-2 py-1 rounded-md bg-primary/10 text-primary/80">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
               </CardContent>
             </Card>
           ))}
@@ -91,14 +81,14 @@ export default function WhyWorkWithMeSection() {
         {/* CTA */}
         <div className="mt-14 text-center">
           <p className="text-lg font-sans text-foreground/90">
-            <strong>Ready to reclaim your time and focus on high-leverage work? </strong>
+            <strong>Ready to stop wasting time on AI chaos? </strong>
             <a
               href={CALENDAR_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-primary font-bold hover:underline underline-offset-4 transition-all duration-200 hover:gap-3"
             >
-              Provision your system
+              Book a call
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>

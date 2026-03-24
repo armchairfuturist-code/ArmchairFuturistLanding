@@ -67,13 +67,13 @@ const entrepreneurServices = [
     basePrice: 199,
     priceNote: "Flat",
     duration: "2-4 Days",
-    description: "Linktree is dead in an interview economy where you need a platform, not a digital business card. I build you an interview-ready digital identity site that translates your LinkedIn vibe, resume details, and social links into one high-signal platform you own.",
+    description: "Linktree is dead. In an interview economy, you need a platform, not a digital business card. I build you a site that translates your LinkedIn vibe, resume, and social links into one platform you own.",
     payload: ["LinkedIn Vibe Mapping", "Resume Signal Extraction", "Social Link Stack", "Interview-Ready Storyline"],
     idealFor: "Professionals who want to stand out before the first interview question is asked.",
     details: [
-      { title: "Personal Brand Landing Page", text: "A conversion-focused homepage built around your differentiators, voice, and target opportunities." },
-      { title: "Digital Identity Upgrade", text: "I synthesize your LinkedIn profile and resume details into clear narrative blocks recruiters can scan in seconds." },
-      { title: "Social Proof & Contact Layer", text: "I wire your social links, booking call-to-action, and credibility assets into a single interview-ready portfolio." }
+      { title: "Personal Brand Landing Page", text: "A homepage built around your differentiators, voice, and target opportunities." },
+      { title: "Digital Identity Upgrade", text: "I synthesize your LinkedIn and resume into clear narrative blocks recruiters can scan in seconds." },
+      { title: "Social Proof & Contact Layer", text: "Your social links, booking CTA, and credibility assets wired into one interview-ready portfolio." }
     ],
     cta: "Claim Your $199 Page",
     ctaLink: GOOGLE_FORM_URL,
@@ -88,14 +88,14 @@ const entrepreneurServices = [
     maxPrice: 999,
     priceNote: "Fixed Project",
     duration: "1 Week",
-    description: "Business owners know AI exists. They've seen the demos. They've tried ChatGPT. But they're stuck—drowning in tools with no idea which ones solve their specific problems. They don't need a developer. They need someone who can look at their calendar, inbox, and workflows and say: 'This tool. This process. This is where you start.' That's what you get.",
+    description: "You've seen the demos. You've tried ChatGPT. But you're stuck—drowning in tools with no idea which ones solve your specific problems. You need someone who can look at your workflows and say: 'This tool. This process. This is where you start.'",
     payload: ["45-Min Discovery Call", "Custom Tool Recommendations", "Polished Report", "30-Min Walkthrough"],
-    idealFor: "Business owners and small teams who need clarity on which AI tools will actually save them time.",
+    idealFor: "Business owners who need clarity on which AI tools will actually save them time.",
     details: [
-      { title: "Phase 1: The Discovery Call", text: "45-minute Zoom where I pull your real problems—not what you think you should automate, but what's actually eating your time. I ask: Where did your time go yesterday? What tasks do you dread? Where does work pile up waiting on you?" },
-      { title: "Phase 2: The AI Analysis", text: "I feed the full transcript into Claude to identify 5-7 areas where existing AI tools could save significant time. Each opportunity includes specific tool recommendations and estimated weekly hours saved." },
-      { title: "Phase 3: The Report", text: "You get a polished Gamma deliverable with executive summary, priority matrix, tool recommendations with implementation details, 4-day quick start plan, and financial impact breakdown. Looks like a $10K consulting firm produced it." },
-      { title: "Phase 4: The Review Call", text: "Screen-share walkthrough where I answer questions and let it sink in. Then I ask: Which feels most urgent? Want to implement yourself or need help? About 60% want implementation help—that's where the real transformation happens." }
+      { title: "Phase 1: Discovery", text: "45-minute Zoom. I pull your real problems—not what you think you should automate, but what's actually eating your time." },
+      { title: "Phase 2: Analysis", text: "I identify 5-7 areas where existing AI tools could save significant time. Each with specific tool recommendations and estimated hours saved." },
+      { title: "Phase 3: Report", text: "A polished deliverable with executive summary, priority matrix, tool recommendations, quick start plan, and financial impact." },
+      { title: "Phase 4: Review", text: "Screen-share walkthrough. I answer questions, then ask: Which feels most urgent? About 60% want implementation help after this." }
     ],
     cta: "Start Your Assessment",
     ctaLink: CALENDAR_URL,
@@ -110,15 +110,15 @@ const entrepreneurServices = [
     maxPrice: 10000,
     priceNote: "Fixed Project",
     duration: "2-6 Weeks",
-    description: "60% of Assessment clients want help implementing the recommendations. That's where the real revenue—and real results—live. I don't just recommend tools; I build the workflows, automate the connections, and hand you a system that works.",
+    description: "60% of assessment clients want help implementing recommendations. That's where the real results live. I build the workflows, automate the connections, and hand you a system that works.",
     payload: ["Process Redesign", "Automation Build", "Knowledge Systems", "Custom Workflows"],
-    idealFor: "Assessment clients ready to move from recommendations to results—and business owners with established AI usage who need custom solutions.",
+    idealFor: "Assessment clients ready to move from recommendations to results.",
     details: [
-      { title: "Process Redesign ($3K-$5K)", text: "Almost every assessment uncovers broken workflows. Map the current state, design the future state, remove the waste. For businesses losing hours weekly to outdated processes." },
-      { title: "Automation Build ($1K-$3K)", text: "Sometimes you just need Zapier or Make.com workflows connecting your existing tools. I build it, train you, hand it off. Immediate time savings without the learning curve." },
-      { title: "Knowledge Systems ($3K+)", text: "Have thousands of hours of training videos or documents nobody watches? I build custom GPTs your team can query instead of interrupting you. One client saved 3 hours weekly." },
-      { title: "Custom Workflows ($3K-$5K)", text: "For clients already using AI tools, I build custom prompts and templates that turn manual processes into one-click operations. Your existing tools, supercharged." },
-      { title: "Full Implementation ($5K-$10K+)", text: "Custom agents running entire workflows. Only for tech-savvy clients or those with someone to maintain. The premium tier for complete AI infrastructure." }
+      { title: "Process Redesign ($3K-$5K)", text: "Map the current state, design the future state, remove the waste. For businesses losing hours weekly to outdated processes." },
+      { title: "Automation Build ($1K-$3K)", text: "Zapier or Make.com workflows connecting your existing tools. I build it, train you, hand it off." },
+      { title: "Knowledge Systems ($3K+)", text: "Have thousands of hours of training videos nobody watches? I build custom GPTs your team can query instead." },
+      { title: "Custom Workflows ($3K-$5K)", text: "Custom prompts and templates that turn manual processes into one-click operations." },
+      { title: "Full Implementation ($5K-$10K+)", text: "Custom agents running entire workflows. The premium tier for complete AI infrastructure." }
     ],
     cta: "Discuss Implementation",
     ctaLink: CALENDAR_URL,
@@ -135,11 +135,11 @@ const entrepreneurServices = [
     duration: "Ongoing",
     description: "AI isn't just a tool problem. It's a thinking problem. Most people aren't overwhelmed by the technology; they're overwhelmed by what it means for their future. I help you move from anxiety to agency.",
     payload: ["1-on-1 Mentoring", "Mindset Reframing", "Practical Tool Guidance", "Future-Optimistic Framework"],
-    idealFor: "Anyone who feels personally or professionally overwhelmed by AI and wants to think, and feel, differently about what's coming.",
+    idealFor: "Anyone who feels overwhelmed by AI and wants to think differently about what's coming.",
     details: [
       { title: "Mindset Before Toolset", text: "We start with how you think about AI, not how you use it. The shift from fear to agency unlocks everything else." },
-      { title: "Practical & Personal", text: "Every session blends hands-on tool guidance with the bigger picture: how AI changes your role, your industry, and your opportunities." },
-      { title: "Optimism Through Understanding", text: "I help you see AI as a lever for your ambitions instead of a threat to your relevance. That shift changes everything about how you make decisions." }
+      { title: "Practical & Personal", text: "Every session blends hands-on tool guidance with the bigger picture: how AI changes your role and opportunities." },
+      { title: "Optimism Through Understanding", text: "I help you see AI as a lever for your ambitions instead of a threat to your relevance." }
     ],
     cta: "Book a Mentoring Session",
     ctaLink: CALENDAR_URL,
@@ -151,17 +151,17 @@ const entrepreneurServices = [
 const organizationServices = [
   {
     path: "PILLAR 1",
-    title: "Psychology-Led Adoption Strategy",
+    title: "Adoption Strategy",
     basePrice: 10625,
     priceNote: "Fixed",
     duration: "3-4 Weeks",
-    description: "Rewiring the \"Corporate Immune System.\" I use data-driven profiling to segment your organization, ensuring we don't design for the \"lowest common denominator.\"",
+    description: "Most transformation efforts fail because they ignore the people. I use data-driven profiling to segment your organization and find the 5% of staff who are naturally wired for uncertainty—the ones who can actually lead change.",
     payload: ["Results Thinker ID", "2nd-Order Coaching", "Low-Friction Diagnostics"],
-    idealFor: "Identifying psychological blocks & \"Internal Mavericks\" to lead change.",
+    idealFor: "Organizations that have tried AI training and gotten nowhere.",
     details: [
-      { title: "The Problem", text: "Most transformation efforts fail because they ignore the human element. You cannot automate corporate antibodies." },
-      { title: "Bypassing Resistance Gates", text: "I identify the \"Results\" thinkers-the top 5% of your staff naturally wired for uncertainty-and empower them to lead the charge." },
-      { title: "Complexity Coaching", text: "Coaching leaders to shift from 'Command-and-Control' to 'Complexity' thinking, essential for managing non-linear challenges." }
+      { title: "The Problem", text: "You can't automate away resistance. Corporate antibodies kill transformation efforts before they start." },
+      { title: "Find the Leaders", text: "I identify the top 5% of your staff who think in outcomes, not processes. Then I empower them to lead." },
+      { title: "Coach the Rest", text: "Help leaders shift from command-and-control to managing uncertainty—essential for AI adoption." }
     ],
     cta: "Schedule Diagnostic",
     ctaLink: CALENDAR_URL,
@@ -170,17 +170,17 @@ const organizationServices = [
   },
   {
     path: "PILLAR 2",
-    title: "Distributed Authority Architect",
+    title: "Team Structure Redesign",
     basePrice: 12750,
     priceNote: "/Month",
     duration: "Monthly Retainer",
-    description: "From Hierarchical Bottlenecks to Competence-Based Accountability. Transition to Autonomous Squad Models where decisions follow data, not rank.",
+    description: "As AI collapses job functions, old departmental silos become liabilities. I help you move decisions to the edge—where the data actually is.",
     payload: ["Autonomous Squads", "Role-Based Accountability", "Talent De-Siloing"],
-    idealFor: "Replacing rigid reporting lines with dynamic, cross-functional networks.",
+    idealFor: "Companies where decisions bottleneck at the top.",
     details: [
-      { title: "The Reality", text: "As AI collapses job functions, old departmental silos become liabilities. Decisions must move to the edge." },
-      { title: "Autonomous Innovation Units", text: "Restructuring teams into self-sufficient units that operate like internal startups, decoupled from central bureaucracy." },
-      { title: "Role-Based Ownership", text: "Moving away from 'titles' to 'roles,' ensuring decisions are made by those with the most relevant data." }
+      { title: "The Reality", text: "Rigid reporting lines slow everything down. AI moves fast; your org structure has to match." },
+      { title: "Autonomous Units", text: "Restructure teams into self-sufficient units that operate like internal startups." },
+      { title: "Roles Over Titles", text: "Move away from job titles to roles—decisions get made by whoever has the most relevant data." }
     ],
     cta: "Discuss Retainer",
     ctaLink: CALENDAR_URL,
@@ -189,18 +189,18 @@ const organizationServices = [
   },
   {
     path: "PILLAR 3",
-    title: "AI Infusion Lab",
+    title: "10-Week Transformation Lab",
     basePrice: 38250,
     maxPrice: 55250,
     priceNote: "10-Week Lab",
     duration: "10 Weeks",
-    description: "A 10-week transformation lab to launch disruptive initiatives at the \"Edge\" and validate new models safely before core integration.",
+    description: "A hands-on lab to prototype AI-driven initiatives at the edge of your organization. Test new models safely before rolling them into core operations.",
     payload: ["10-Week Transformation", "Human-Machine WF", "Tactical Prototyping"],
-    idealFor: "Testing and validating new business models without disrupting current operations.",
+    idealFor: "Organizations that want to test AI ideas without disrupting current operations.",
     details: [
-      { title: "Prototype, Don't Plan", text: "AI adoption is an experimental journey. I help you build functional concepts to provide the 'existence proof' needed for buy-in." },
-      { title: "Human-Machine Collaboration", text: "Designing workflows where AI agents handle the rote 'output,' allowing humans to focus on 'outcomes.'" },
-      { title: "High-Intensity Pilots", text: "Launching high-impact initiatives in 10-week sprints to secure measurable ROI and cultural momentum." }
+      { title: "Prototype, Don't Plan", text: "Build functional concepts to prove the idea works before asking for buy-in." },
+      { title: "Human + Machine", text: "Design workflows where AI handles the rote output, humans focus on outcomes." },
+      { title: "High-Impact Sprints", text: "10-week pilots designed to show measurable ROI and build cultural momentum." }
     ],
     cta: "Apply for Lab",
     ctaLink: CALENDAR_URL,
@@ -354,13 +354,12 @@ export default function ServicesSection() {
       <div className="container mx-auto px-4 md:px-6">
         <BlurFade inView>
           <div className="text-center mb-12 max-w-4xl mx-auto">
-          <p className="text-xs text-muted-foreground/60 font-mono mb-4">Last updated: February 2026</p>
           <h2 className="font-heading text-4xl md:text-5xl font-bold tracking-tight text-primary mb-8">
-            What Services Does the Armchair Futurist Offer?
+            What I offer
           </h2>
           <div className="text-xl text-foreground/80 font-sans leading-relaxed space-y-6">
-            <p>The Armchair Futurist offers execution-first AI strategy services ranging from $97 to $55,250. Start with the $199 Digital Identity upgrade or the $599 AI Tools Assessment. <strong>Most clients start with assessment—then scale into implementation.</strong> Then scale into deeper architecture as your execution matures.</p>
-            <p><strong>My Promise:</strong> Partner with an operator who executes with you as your needs evolve. If you aren't happy with our initial prototyping and ideation discussions, I will happily refund you.</p>
+            <p>Services from $97 to $55,250. Start with the $199 landing page or the $599 assessment. <strong>Most clients start with assessment—then scale into implementation.</strong></p>
+            <p><strong>My promise:</strong> If you aren't happy with our initial discussions, I'll refund you.</p>
           </div>
         </div>
         </BlurFade>
@@ -428,32 +427,6 @@ export default function ServicesSection() {
               </Accordion>
             </motion.div>
           </AnimatePresence>
-        </div>
-
-        <div className="max-w-4xl mx-auto mt-16 p-8 md:p-12 bg-foreground rounded-3xl border border-border/20 text-left">
-          <h3 className="text-3xl font-heading font-bold text-background mb-6">Variable Pricing Logic</h3>
-          <div className="grid gap-8 md:grid-cols-3 mb-10">
-            <div className="space-y-3">
-              <div className="flex items-center gap-2 text-primary font-bold"><Zap className="w-5 h-5" /> <h3>1. Client Readiness</h3></div>
-              <p className="text-sm text-background/60">If your business has existing documented workflows or high technical literacy, my fee adjusts to reflect the reduced friction of implementation.</p>
-            </div>
-            <div className="space-y-3">
-              <div className="flex items-center gap-2 text-primary font-bold"><Globe2 className="w-5 h-5" /> <h3>2. Geographic Parity</h3></div>
-              <p className="text-sm text-background/60">I use Purchasing Power Parity (PPP) to price fairly for entrepreneurs in emerging markets.</p>
-            </div>
-            <div className="space-y-3">
-              <div className="flex items-center gap-2 text-primary font-bold"><TrendingUp className="w-5 h-5" /> <h3>3. Measured Impact</h3></div>
-              <p className="text-sm text-background/60">For high-volume automation sprints, I am open to performance-based fees. If I demonstrably collapse your costs, I'm willing to share the risk.</p>
-            </div>
-          </div>
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-8 border-t border-background/20">
-            <div className="text-background/90 font-semibold text-lg flex items-center gap-2">Ready to scale? <ArrowRight className="w-5 h-5 text-primary" /></div>
-            <Button asChild size="lg" className="bg-background text-foreground hover:bg-background/90 font-bold">
-              <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer">
-                <Calculator className="w-4 h-4 mr-2" /> Discuss Your Project
-              </a>
-            </Button>
-          </div>
         </div>
       </div>
     </section>
