@@ -2,12 +2,10 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Zap, Terminal, CheckCircle2, Brain, Shield, Clock, Star } from 'lucide-react';
+import { Zap, CheckCircle2, Brain, Shield, Clock } from 'lucide-react';
 import { trackEvent, trackConversion } from '@/lib/analytics';
 import { NumberTicker } from '@/components/ui/number-ticker';
 import { BlurFade } from '@/components/ui/blur-fade';
-import { Particles } from '@/components/ui/particles';
-import { TextScramble } from '@/components/ui/text-scramble';
 import { motion } from 'motion/react';
 import { CALENDAR_URL } from '@/lib/constants';
 import { useExperiment } from '@/hooks/useExperiment';
@@ -126,16 +124,10 @@ export default function HeroSection() {
         Your browser does not support the video tag.
       </video>
       <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-[1]"></div>
-      <Particles className="z-[2]" quantity={40} color="rgba(255, 255, 255, 0.3)" size={1.5} speed={0.2} />
 
       <div className="container relative z-10 px-4 md:px-6 text-center max-w-4xl mx-auto">
         <div className="flex flex-col items-center justify-center space-y-6 text-center">
-          <BlurFade delay={0.1} inView>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-100 text-xs font-mono mb-4 backdrop-blur-sm">
-              <Terminal className="w-3 h-3" />
-              <span>Trust Quotient: High</span>
-            </div>
-          </BlurFade>
+
 
           <BlurFade delay={0.2} inView>
             <h1 className="tracking-tighter sm:text-5xl xl:text-7xl/none hero-text-shadow">
@@ -143,18 +135,14 @@ export default function HeroSection() {
                 {headline.line1}
               </span>
               <span className="block text-hero-title-2 text-4xl md:text-5xl xl:text-6xl mt-1 md:mt-2 font-heading font-bold opacity-90">
-                {headlineVariant === 'control' ? (
-                  <TextScramble text={headline.line2} speed={25} scrambleDuration={1400} />
-                ) : (
-                  headline.line2
-                )}
+                {headline.line2}
               </span>
             </h1>
           </BlurFade>
 
           <BlurFade delay={0.4} inView>
             <p className="mt-8 text-primary-foreground/95 text-lg md:text-2xl max-w-4xl mx-auto hero-text-shadow font-sans leading-relaxed">
-              I architect outcomes where AI can&apos;t, turning technical chaos into high-signal execution with Vision, Verification, and Resiliency.
+              I help you stop chasing AI tools and start building systems that actually work. No decks. No theatre. Just execution.
             </p>
           </BlurFade>
 
@@ -193,10 +181,6 @@ export default function HeroSection() {
               <div className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-blue-400" />
                 <span>15-min call</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <Star className="w-3.5 h-3.5 text-yellow-400" />
-                <span>4.9/5 rating</span>
               </div>
             </motion.div>
           </BlurFade>

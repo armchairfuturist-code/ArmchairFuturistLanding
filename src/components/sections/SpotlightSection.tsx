@@ -4,7 +4,6 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Globe, FileText, Link2, Sparkles, Clock, Users, Zap, Building2, User } from 'lucide-react';
 import { trackEvent } from '@/lib/analytics';
 import { BlurFade } from '@/components/ui/blur-fade';
-import { BorderBeam } from '@/components/ui/border-beam';
 import { useExperiment } from '@/hooks/useExperiment';
 import { GOOGLE_FORM_URL, CALENDAR_URL } from '@/lib/constants';
 
@@ -38,17 +37,10 @@ export default function SpotlightSection() {
     <section id="spotlight" className="py-12 md:py-16 px-4 scroll-mt-20">
       <div className="max-w-5xl mx-auto">
         <BlurFade inView>
-          <div className="relative rounded-2xl bg-gradient-to-br from-primary/5 via-background to-primary/5 border border-primary/20 p-8 md:p-12 shadow-lg overflow-hidden">
-            {/* Subtle gradient glow */}
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/10 via-transparent to-primary/10 blur-xl -z-10" />
+          <div className="relative rounded-2xl bg-card border border-border p-8 md:p-12 shadow-lg overflow-hidden">
 
-            <BorderBeam size={200} duration={8} colorFrom="hsl(208, 100%, 50%)" colorTo="hsl(208, 100%, 70%)" borderWidth={2} />
-
-            <p className="text-sm font-mono text-muted-foreground uppercase tracking-widest mb-3 text-center">
-              Choose Your Path
-            </p>
             <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-8 text-center">
-              Start where you are. Scale from there.
+              Two ways to start
             </h2>
 
             {/* Two-column layout */}
