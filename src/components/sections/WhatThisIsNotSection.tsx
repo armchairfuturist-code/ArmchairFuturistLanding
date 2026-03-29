@@ -19,24 +19,24 @@ import { trackEvent } from '@/lib/analytics';
 const notForYou = [
   {
     icon: Users,
-    title: "Not for organizations seeking a polished slide deck",
-    description: "I execute. I provision infrastructure, write prompts, and build workflows myself. If you need presentation theatre for a board meeting, other consultants are better suited.",
+    title: "Not for organizations seeking a deck for the board",
+    description: "I execute. I provision infrastructure, write prompts, and build workflows myself. If you need slides to show leadership, other consultants are better suited.",
     bold: true
   },
   {
     icon: Clock,
-    title: "Not for leaders who want AI 'in theory'",
-    description: "If you're still forming a committee to evaluate whether AI is relevant, start elsewhere. I work with organizations and individuals at the point of execution—where readiness meets action."
+    title: "Not for leaders still evaluating whether AI matters",
+    description: "If you're still forming committees to study AI, start elsewhere. I work with organizations and individuals who are ready to execute—not to write reports."
   },
   {
     icon: Wrench,
-    title: "Not for teams who won't touch the tools",
-    description: "I don't build black boxes you can't understand. I build systems you operate. If you want AI magic you never have to think about, this isn't the right fit. AI adoption requires human architects."
+    title: "Not for teams who want AI to do the work for them",
+    description: "I build systems you understand and operate. If you want AI magic that runs on its own, this isn't the right fit. Someone on your team needs to own the process."
   },
   {
     icon: AlertTriangle,
-    title: "Not if you expect AI to solve culture problems",
-    description: "AI amplifies what's already there. If your team struggles with accountability, trust, or decision rights, AI won't fix that—it will expose it. I can help you bridge that gap, but you have to be willing to address it head-on.",
+    title: "Not if you expect AI to fix team dysfunction",
+    description: "AI amplifies what's already there. If your team struggles with accountability, trust, or decision rights, AI won't fix that—it will expose it. I can help you address it, but you have to be willing to do the work.",
     bold: true
   }
 ];

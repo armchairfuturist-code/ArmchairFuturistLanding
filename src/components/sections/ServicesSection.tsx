@@ -68,12 +68,12 @@ const entrepreneurServices = [
     priceNote: "Flat",
     duration: "2-4 Days",
     description: "Linktree is dead. In an interview economy, you need a platform you own. I build a site that translates your LinkedIn, resume, and social links into one interview-ready portfolio.",
-    payload: ["LinkedIn Vibe Mapping", "Resume Signal Extraction", "Social Link Stack", "Interview-Ready Storyline"],
+    payload: ["LinkedIn Profile Rewrite", "Resume Translation", "Social Links Setup", "Your Story, One Page"],
     idealFor: "Professionals who want to stand out before the first interview question is asked.",
     details: [
       { title: "Personal Brand Landing Page", text: "A homepage built around your differentiators, voice, and target opportunities." },
-      { title: "Digital Identity Upgrade", text: "I synthesize your LinkedIn and resume into clear narrative blocks recruiters can scan in seconds." },
-      { title: "Social Proof & Contact Layer", text: "Your social links, booking CTA, and credibility assets wired into one interview-ready portfolio." }
+      { title: "LinkedIn & Resume Synthesis", text: "I pull the signal from your existing profiles into clear narrative blocks." },
+      { title: "Social Links + Contact", text: "All your links and booking options in one place you own." }
     ],
     cta: "Claim Your $199 Page",
     ctaLink: GOOGLE_FORM_URL,
@@ -89,13 +89,13 @@ const entrepreneurServices = [
     priceNote: "Fixed Project",
     duration: "1 Week",
     description: "You've seen the demos. You've tried ChatGPT. But you're stuck—drowning in tools with no idea which ones solve your specific problems. You need someone who can look at your workflows and say: 'This tool. This process. This is where you start.'",
-    payload: ["45-Min Discovery Call", "Custom Tool Recommendations", "Polished Report", "30-Min Walkthrough"],
+    payload: ["45-Min Discovery Call", "Your Top 5 Tool Picks", "Written Report", "30-Min Review"],
     idealFor: "Business owners who need clarity on which AI tools will actually save them time.",
     details: [
-      { title: "Phase 1: Discovery", text: "45-minute Zoom. I pull your real problems—not what you think you should automate, but what's actually eating your time." },
-      { title: "Phase 2: Analysis", text: "I identify 5-7 areas where existing AI tools could save significant time. Each with specific tool recommendations and estimated hours saved." },
-      { title: "Phase 3: Report", text: "A polished deliverable with executive summary, priority matrix, tool recommendations, quick start plan, and financial impact." },
-      { title: "Phase 4: Review", text: "Screen-share walkthrough. I answer questions, then ask: Which feels most urgent? About 60% want implementation help after this." }
+      { title: "Step 1: Discovery", text: "45-minute Zoom. I ask what problems waste your time—not what you think you should automate." },
+      { title: "Step 2: Analysis", text: "I find 5-7 areas where tools could save hours. Each recommendation comes with estimated time savings." },
+      { title: "Step 3: Report", text: "You get a clear document: where to start, what to try, and how much time you'll save." },
+      { title: "Step 4: Review", text: "We walk through the report together. I answer questions. Most clients move to implementation after this." }
     ],
     cta: "Start Your Assessment",
     ctaLink: CALENDAR_URL,
@@ -111,14 +111,14 @@ const entrepreneurServices = [
     priceNote: "Fixed Project",
     duration: "2-6 Weeks",
     description: "60% of assessment clients want help implementing recommendations. That's where the real results live. I build the workflows, automate the connections, and hand you a system that works.",
-    payload: ["Process Redesign", "Automation Build", "Knowledge Systems", "Custom Workflows"],
+    payload: ["Fix Your Slow Processes", "Automate the Repetitive Stuff", "Build a Team Chatbot", "One-Click Workflows"],
     idealFor: "Assessment clients ready to move from recommendations to results.",
     details: [
-      { title: "Process Redesign ($3K-$5K)", text: "Map the current state, design the future state, remove the waste. For businesses losing hours weekly to outdated processes." },
-      { title: "Automation Build ($1K-$3K)", text: "Zapier or Make.com workflows connecting your existing tools. I build it, train you, hand it off." },
-      { title: "Knowledge Systems ($3K+)", text: "Have thousands of hours of training videos nobody watches? I build custom GPTs your team can query instead." },
-      { title: "Custom Workflows ($3K-$5K)", text: "Custom prompts and templates that turn manual processes into one-click operations." },
-      { title: "Full Implementation ($5K-$10K+)", text: "Custom agents running entire workflows. The premium tier for complete AI infrastructure." }
+      { title: "Process Fix ($3K-$5K)", text: "Map how work flows now, redesign the bottlenecks, automate the rest. For businesses losing hours weekly." },
+      { title: "Automation ($1K-$3K)", text: "Connect your existing tools with Zapier or Make.com. I build it and teach you how to maintain it." },
+      { title: "Team Chatbot ($3K+)", text: "Have docs nobody reads? I build a chatbot your team actually uses instead." },
+      { title: "One-Click Workflows ($3K-$5K)", text: "Turn 10-step manual processes into single-click operations." },
+      { title: "Full AI Setup ($5K-$10K+)", text: "Complete AI infrastructure for teams ready to go all-in." }
     ],
     cta: "Discuss Implementation",
     ctaLink: CALENDAR_URL,
