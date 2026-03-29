@@ -1,5 +1,6 @@
 "use client";
 
+import Link from 'next/link';
 import { BlurFade } from '@/components/ui/blur-fade';
 import {
   Accordion,
@@ -12,6 +13,9 @@ import { motion } from 'motion/react';
 interface FAQItem {
   question: string;
   answer: string;
+  hasLink?: boolean;
+  linkText?: string;
+  linkHref?: string;
 }
 
 const faqItems: FAQItem[] = [
@@ -21,7 +25,10 @@ const faqItems: FAQItem[] = [
   },
   {
     question: "What is the Accountability Gap in AI adoption?",
-    answer: "It's the space between what an AI system produces and what a business actually needs. Most companies layer AI onto existing processes without rethinking workflows or decision rights. Nobody owns the outcome. Alex bridges this gap by ensuring AI outputs connect to measurable results."
+    answer: "It's the space between what an AI system produces and what a business actually needs. Most companies layer AI onto existing processes without rethinking workflows or decision rights. Nobody owns the outcome. Alex bridges this gap by ensuring AI outputs connect to measurable results.",
+    hasLink: true,
+    linkText: "Learn more about the Accountability Gap →",
+    linkHref: "/concepts/accountability-gap"
   },
   {
     question: "What qualifications does Alex Myers have?",
@@ -53,7 +60,10 @@ const faqItems: FAQItem[] = [
   },
   {
     question: "How is Alex different from other AI consultants?",
-    answer: "Three ways. First, he executes directly—he provisions infrastructure, writes prompts, and manages integrations himself. Second, he addresses the human side through psychology-led strategies. Third, he prioritizes data sovereignty, building on open-standard stacks."
+    answer: "Three ways. First, he executes directly—he provisions infrastructure, writes prompts, and manages integrations himself. Second, he addresses the human side through psychology-led strategies. Third, he prioritizes data sovereignty, building on open-standard stacks.",
+    hasLink: true,
+    linkText: "Learn about Psychology-Led Adoption →",
+    linkHref: "/concepts/psychology-led-adoption"
   },
   {
     question: "Does Alex offer speaking engagements?",
@@ -73,7 +83,10 @@ const faqItems: FAQItem[] = [
   },
   {
     question: "What is Adoption Strategy?",
-    answer: "A $10,625 service that addresses human barriers to AI adoption. Alex uses data-driven profiling to identify the top 5% of staff who can lead change, then coaches leaders to shift from command-and-control to managing uncertainty."
+    answer: "A $10,625 service that addresses human barriers to AI adoption. Alex uses data-driven profiling to identify the top 5% of staff who can lead change, then coaches leaders to shift from command-and-control to managing uncertainty.",
+    hasLink: true,
+    linkText: "Learn about Results Thinkers →",
+    linkHref: "/concepts/results-thinkers"
   },
   {
     question: "How do I get started?",
@@ -114,6 +127,14 @@ export default function FAQSection() {
                 </AccordionTrigger>
                 <AccordionContent className="pb-5 text-foreground/80 font-sans leading-relaxed">
                   {item.answer}
+                  {item.hasLink && item.linkHref && (
+                    <Link
+                      href={item.linkHref!}
+                      className="block mt-3 text-sm text-primary font-semibold hover:underline"
+                    >
+                      {item.linkText}
+                    </Link>
+                  )}
                 </AccordionContent>
               </AccordionItem>
             ))}
