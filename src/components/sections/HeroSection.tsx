@@ -109,6 +109,11 @@ export default function HeroSection() {
 
   return (
     <section className="relative w-full min-h-[80vh] lg:min-h-[85vh] overflow-hidden flex items-center justify-center bg-black">
+      {/* Semantic H1 for SEO — visually hidden but crawler-visible */}
+      <h1 className="sr-only">
+        Alex Myers — Certified Futurist & AI Strategy Advisor | Helping Leaders Bridge the Accountability Gap
+      </h1>
+
       {/* Video background with poster fallback - always render video for better mobile support */}
       <video
         ref={videoRef}

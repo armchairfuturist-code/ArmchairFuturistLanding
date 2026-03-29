@@ -1,0 +1,44 @@
+# robots.txt for thearmchairfuturist.com
+# Static backup of robots.ts for crawler redundancy
+
+User-agent: *
+Allow: /
+
+# AI Search Crawlers - Allow for AI Overview, ChatGPT, Claude, Perplexity citations
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# AI Training Crawlers - Block (not beneficial for citation)
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+# Sitemap location
+Sitemap: https://thearmchairfuturist.com/sitemap.xml
+
+# Crawl delay for overtly aggressive crawlers (optional)
+# User-agent: *
+# Crawl-delay: 1
