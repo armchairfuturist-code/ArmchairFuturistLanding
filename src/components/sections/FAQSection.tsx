@@ -44,7 +44,7 @@ const faqItems: FAQItem[] = [
   },
   {
     question: "How does AI mentoring work?",
-    answer: "One-on-one coaching starting at $97. We focus on mindset before toolset—reframing how you think about AI rather than just teaching you tools. Each session blends practical guidance with how AI changes your role and opportunities."
+    answer: "One-on-one coaching starting at $97. We focus on mindset before toolset. Reframing how you think about AI rather than just teaching you tools. Each session blends practical guidance with how AI changes your role and opportunities."
   },
   {
     question: "Can Alex work with organizations outside the US?",
@@ -60,7 +60,7 @@ const faqItems: FAQItem[] = [
   },
   {
     question: "How is Alex different from other AI consultants?",
-    answer: "Three ways. First, he executes directly—he provisions infrastructure, writes prompts, and manages integrations himself. Second, he addresses the human side through psychology-led strategies. Third, he prioritizes data sovereignty, building on open-standard stacks.",
+    answer: "Three ways. First, he executes directly. He provisions infrastructure, writes prompts, and manages integrations himself. Second, he addresses the human side through psychology-led strategies. Third, he prioritizes data sovereignty, building on open-standard stacks.",
     hasLink: true,
     linkText: "Learn about Psychology-Led Adoption →",
     linkHref: "/concepts/psychology-led-adoption"
@@ -90,7 +90,7 @@ const faqItems: FAQItem[] = [
   },
   {
     question: "How do I get started?",
-    answer: "Three ways. The $199 landing page requires no call—just submit the form. For mentoring, book a session starting at $97. For strategy services, schedule a free call where Alex identifies where your AI systems are leaking value."
+    answer: "Three ways. The $199 landing page requires no call. Just submit the form. For mentoring, book a session starting at $97. For strategy services, schedule a free call where Alex identifies where your AI systems are leaking value."
   }
 ];
 
