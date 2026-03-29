@@ -67,7 +67,7 @@ const entrepreneurServices = [
     basePrice: 199,
     priceNote: "Flat",
     duration: "2-4 Days",
-    description: "Linktree is dead. In an interview economy, you need a platform, not a digital business card. I build you a site that translates your LinkedIn vibe, resume, and social links into one platform you own.",
+    description: "Linktree is dead. In an interview economy, you need a platform you own. I build a site that translates your LinkedIn, resume, and social links into one interview-ready portfolio.",
     payload: ["LinkedIn Vibe Mapping", "Resume Signal Extraction", "Social Link Stack", "Interview-Ready Storyline"],
     idealFor: "Professionals who want to stand out before the first interview question is asked.",
     details: [
@@ -133,7 +133,7 @@ const entrepreneurServices = [
     maxPrice: 497,
     priceNote: "Per Session / Package",
     duration: "Ongoing",
-    description: "AI isn't just a tool problem. It's a thinking problem. Most people aren't overwhelmed by the technology; they're overwhelmed by what it means for their future. I help you move from anxiety to agency.",
+    description: "AI is a thinking problem, not just a tool problem. Most people aren't overwhelmed by the technology; they're overwhelmed by what it means for their future. I help you move from anxiety to agency.",
     payload: ["1-on-1 Mentoring", "Mindset Reframing", "Practical Tool Guidance", "Future-Optimistic Framework"],
     idealFor: "Anyone who feels overwhelmed by AI and wants to think differently about what's coming.",
     details: [
@@ -155,7 +155,7 @@ const organizationServices = [
     basePrice: 10625,
     priceNote: "Fixed",
     duration: "3-4 Weeks",
-    description: "Most transformation efforts fail because they ignore the people. I use data-driven profiling to segment your organization and find the 5% of staff who are naturally wired for uncertainty—the ones who can actually lead change.",
+    description: "Most transformation efforts stall because they ignore the people. I use data-driven profiling to segment your organization and find the 5% of staff who naturally embrace uncertainty—the ones who can actually lead change.",
     payload: ["Results Thinker ID", "2nd-Order Coaching", "Low-Friction Diagnostics"],
     idealFor: "Organizations that have tried AI training and gotten nowhere.",
     details: [
