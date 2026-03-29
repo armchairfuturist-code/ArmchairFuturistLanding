@@ -1,5 +1,6 @@
 "use client";
 
+import Link from 'next/link';
 import { motion } from 'motion/react';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { CheckCircle2, Globe, TrendingUp, Award, Clock, Users } from 'lucide-react';
@@ -115,9 +116,14 @@ export default function KeyStatsSection() {
               <p className="text-sm text-foreground/80 font-sans leading-relaxed">
                 Alex Myers is a <strong className="text-primary">Certified Futurist & AI Strategy Advisor</strong> based in <strong className="text-primary">Portugal</strong>, serving clients worldwide. 
                 With <strong className="text-primary">6 professional certifications</strong> and <strong className="text-primary">40+ AI systems deployed</strong>, 
-                Alex helps leaders bridge the <strong className="text-primary">Accountability Gap</strong>—the space between AI outputs and business results. 
-                Clients typically reclaim <strong className="text-primary">10-20 hours per week</strong> through AI-powered workflow automation, 
-                with services ranging from <strong className="text-primary">$97</strong> for individual mentoring to <strong className="text-primary">$55,250</strong> for enterprise transformation.
+                Alex helps leaders bridge the{' '}
+                <Link href="/concepts/accountability-gap" className="text-primary font-semibold hover:underline">
+                  Accountability Gap
+                </Link>
+                —the space between AI outputs and business results. 
+                Clients typically reclaim <strong className="text-primary">10-20 hours per week</strong> through AI-powered workflow automation. 
+                The <Link href="/concepts/results-thinkers" className="text-primary font-semibold hover:underline"> top 5% of adopters (Results Thinkers)</Link> see even greater gains. 
+                Services range from <strong className="text-primary">$97</strong> for individual mentoring to <strong className="text-primary">$55,250</strong> for enterprise transformation.
               </p>
             </div>
           </div>
