@@ -48,7 +48,7 @@ export default function KeyStatsSection() {
               Track record
             </h2>
             <p className="text-foreground/70 font-sans text-lg max-w-xl">
-              From individual professionals to enterprise teams—measurable results.
+              From individual professionals to enterprise teams. Measurable results.
             </p>
           </div>
         </BlurFade>

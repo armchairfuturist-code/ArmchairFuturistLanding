@@ -87,7 +87,7 @@ const entrepreneurServices = [
     maxPrice: 999,
     priceNote: "Fixed Project",
     duration: "1 Week",
-    description: "You've seen the demos. You've tried ChatGPT. But you're stuck—drowning in tools with no idea which ones solve your specific problems. You need someone who can look at your workflows and say: 'This tool. This process. This is where you start.'",
+    description: "You've seen the demos. You've tried ChatGPT. But you're stuck. Drowning in tools with no idea which ones solve your specific problems. You need someone who can look at your workflows and say: 'This tool. This process. This is where you start.'",
     payload: ["45-Min Discovery Call", "Your Top 5 Tool Picks", "Written Report", "30-Min Review"],
     idealFor: "Business owners who need clarity on which AI tools will actually save them time.",
     details: [
