@@ -16,6 +16,13 @@ interface Testimonial {
 
 const testimonialsData: Testimonial[] = [
   {
+    imageSrc: "/shannon-myers.jpg",
+    name: "Shannon Myers",
+    title: "Founder of The Integrative Practitioner",
+    text: "I knew Alex was brilliant, but working with him transformed my business. He helped me reclaim 20 hours per week through AI optimization and launch a website that landed a deal within an hour. Beyond the metrics, Alex provides balance. In a world of AI noise, he helps entrepreneurs use tech with a soul-led focus. If your digital presence doesn't feel like your Authentic Self, you don't need a developer—you need a Tech Sherpa.",
+    dataAiHint: "profile person"
+  },
+  {
     imageSrc: "/stephan-kerby.jpg",
     name: "Stephan Kerby",
     title: "Co-Founder, Mindscape Psychedelic Institute",
