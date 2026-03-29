@@ -63,6 +63,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // === CONCEPT/EXPLAINER PAGES ===
     // These pages target long-tail keywords and provide AI-citable definitions
     {
+      url: `${baseUrl}/concepts`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/concepts/accountability-gap`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
@@ -81,7 +87,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     },
 
-    // // === CASE STUDIES (uncomment when created) ===
+    // === CASE STUDIES ===
+    {
+      url: `${baseUrl}/case-studies`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
     // {
     //   url: `${baseUrl}/case-studies`,
     //   lastModified: new Date(),

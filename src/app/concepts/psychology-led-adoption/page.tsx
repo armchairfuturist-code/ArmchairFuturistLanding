@@ -3,6 +3,7 @@ import { ArrowLeft, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { BlurFade } from '@/components/ui/blur-fade';
+import Breadcrumbs from '@/components/ui/breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'Psychology-Led AI Adoption Strategy | The Armchair Futurist',
@@ -77,6 +78,10 @@ export default function PsychologyLedAdoptionPage() {
     <div className="min-h-screen bg-background">
       {/* Navigation */}
       <div className="container mx-auto px-4 md:px-6 py-6">
+        <Breadcrumbs items={[
+          { label: 'Concepts', href: '/concepts' },
+          { label: 'Psychology-Led Adoption', href: '/concepts/psychology-led-adoption' }
+        ]} />
         <Link
           href="/"
           className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
