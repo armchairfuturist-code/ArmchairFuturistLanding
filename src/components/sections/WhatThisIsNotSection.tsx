@@ -61,12 +61,12 @@ export default function WhatThisIsNotSection() {
     <section id="what-this-is-not" className="py-16 md:py-24 bg-background scroll-mt-20">
       <div className="container mx-auto px-4 md:px-6 max-w-5xl">
         <BlurFade inView>
-          <div className="text-center mb-12">
+          <div className="max-w-2xl mb-12">
             <p className="text-xs text-muted-foreground/60 font-mono mb-2 uppercase tracking-widest">
               Honest Fit Assessment
             </p>
             <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary mb-4">
-              What This Is NOT For
+              What this is NOT for
             </h2>
             <p className="text-lg text-foreground/80 font-sans max-w-2xl mx-auto">
               I'd rather lose a sale than take on work I can't deliver. If these describe you, there are better options.

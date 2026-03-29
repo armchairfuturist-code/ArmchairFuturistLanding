@@ -31,7 +31,6 @@ import {
 } from "@/components/ui/accordion";
 import { motion, useSpring, useTransform, useMotionValue, AnimatePresence } from 'motion/react';
 import { CALENDAR_URL, GOOGLE_FORM_URL } from '@/lib/constants';
-import { ShineBorder } from '@/components/ui/shine-border';
 import { BlurFade } from '@/components/ui/blur-fade';
 
 type PricingContext = 'standard' | 'ppp' | 'agile';
@@ -247,14 +246,8 @@ const ServiceAccordionItem = ({ service, pricingContext, index }: { service: Ser
       transition={{ duration: 0.35, ease: 'easeOut', delay: index * 0.06 }}
     >
       <AccordionItem value={service.title} className={`bg-card border rounded-xl px-2 mb-4 overflow-hidden shadow-sm transition-all hover:shadow-md
-                ${service.highlight ? 'border-primary/50 ring-1 ring-primary/10 shadow-[0_0_15px_rgba(76,29,149,0.05)]' : 'border-border hover:border-primary/50'}
-                data-[state=open]:ring-1 data-[state=open]:ring-primary/20 data-[state=open]:shadow-lg relative group`}>
-        {service.highlight && (
-          <>
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-            <ShineBorder shineColor={["hsl(208, 100%, 50%)", "hsl(208, 100%, 70%)"]} borderWidth={2} duration={10} />
-          </>
-        )}
+                ${service.highlight ? 'border-primary/40' : 'border-border hover:border-primary/50'}
+                data-[state=open]:ring-1 data-[state=open]:ring-primary/20 data-[state=open]:shadow-lg`}>
         <AccordionTrigger className="px-4 py-6 hover:no-underline [&[data-state=open]>div>div>svg]:rotate-180">
           <div className="flex flex-col md:flex-row w-full items-start md:items-center gap-4 text-left z-10">
             <div className="flex-1">
@@ -353,12 +346,12 @@ export default function ServicesSection() {
     <section id="services" className="py-24 bg-background scroll-mt-20 relative">
       <div className="container mx-auto px-4 md:px-6">
         <BlurFade inView>
-          <div className="text-center mb-12 max-w-4xl mx-auto">
-          <h2 className="font-heading text-4xl md:text-5xl font-bold tracking-tight text-primary mb-8">
+          <div className="max-w-3xl">
+          <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary mb-6">
             What I offer
           </h2>
-          <div className="text-xl text-foreground/80 font-sans leading-relaxed space-y-6">
-            <p>Services from $97 to $55,250. Start with the $199 landing page or the $599 assessment. <strong>Most clients start with assessment—then scale into implementation.</strong></p>
+          <div className="text-lg text-foreground/80 font-sans leading-relaxed space-y-4">
+            <p>Services from $199 to $55,250. Start with the landing page or the AI assessment—then scale into implementation.</p>
             <p><strong>My promise:</strong> If you aren't happy with our initial discussions, I'll refund you.</p>
           </div>
         </div>
