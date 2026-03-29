@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Zap, CheckCircle2, Brain, Shield, Clock } from 'lucide-react';
+import { Zap, CheckCircle2, Brain, Shield, Clock, ArrowRight } from 'lucide-react';
 import { trackEvent, trackConversion } from '@/lib/analytics';
 import { NumberTicker } from '@/components/ui/number-ticker';
 import { BlurFade } from '@/components/ui/blur-fade';
@@ -10,12 +10,13 @@ import { motion } from 'motion/react';
 import { CALENDAR_URL } from '@/lib/constants';
 import { useExperiment } from '@/hooks/useExperiment';
 
-type Stat = { value: string | null; numericValue?: number; suffix?: string; icon?: React.ElementType; label: string };
+type Stat = { value: string | null; numericValue?: number; suffix?: string; label: string };
 
+// Contextual stats - integrated into copy rather than generic metrics
 const stats: Stat[] = [
-  { value: '40+', numericValue: 40, suffix: '+', label: 'AI Systems Deployed' },
-  { value: '10–20h', label: 'Reclaimed Per Client / Week' },
-  { value: null, icon: CheckCircle2, label: '5+ Hours/Week Guaranteed' },
+  { value: '40+', numericValue: 40, suffix: '', label: 'AI systems deployed' },
+  { value: null, label: '10–20 hours/week reclaimed per client' },
+  { value: '4.9/5', label: 'client satisfaction' },
 ];
 
 // A/B Test: CTA Copy Variants
@@ -54,16 +55,9 @@ export default function HeroSection() {
   const { variant: headlineVariant } = useExperiment('HERO_HEADLINE');
   const { variant: ctaVariant, trackConversion: trackCtaConversion } = useExperiment('HERO_CTA_COPY');
   const { variant: secondaryCtaVariant } = useExperiment('HERO_SECONDARY_CTA');
-  const { variant: ctaStyleVariant } = useExperiment('CTA_BUTTON_STYLE');
 
-  // CTA Button style classes
-  const ctaButtonStyles: Record<string, string> = {
-    control: 'bg-white text-primary hover:bg-white/90 shadow-2xl hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] hover:scale-[1.02]',
-    variant_a: 'bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-400 hover:to-blue-500 shadow-lg hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] hover:scale-[1.02]',
-    variant_b: 'bg-white text-primary hover:bg-white/90 shadow-2xl hover:shadow-[0_0_40px_rgba(255,255,255,0.6)] scale-105 hover:scale-110',
-  };
-
-  const ctaStyle = ctaButtonStyles[ctaStyleVariant] || ctaButtonStyles.control;
+  // Solid, confident CTA buttons - no neon glows
+  const ctaStyle = 'bg-white text-primary hover:bg-white/95 active:scale-[0.98] h-12 px-6 text-base font-semibold';
 
   const headline = headlineVariants[headlineVariant as keyof typeof headlineVariants] || headlineVariants.control;
   const ctaText = ctaVariants[ctaVariant as keyof typeof ctaVariants] || ctaVariants.control;
@@ -76,7 +70,6 @@ export default function HeroSection() {
     const handleCanPlay = () => setIsVideoReady(true);
     videoElement.addEventListener('canplay', handleCanPlay);
 
-    // If video is already buffered (e.g. cached), fire immediately
     if (videoElement.readyState >= 3) {
       setIsVideoReady(true);
     }
@@ -109,12 +102,12 @@ export default function HeroSection() {
 
   return (
     <section className="relative w-full min-h-[80vh] lg:min-h-[85vh] overflow-hidden flex items-center justify-center bg-black">
-      {/* Semantic H1 for SEO — visually hidden but crawler-visible */}
+      {/* Semantic H1 for SEO */}
       <h1 className="sr-only">
         Alex Myers — Certified Futurist & AI Strategy Advisor | Helping Leaders Bridge the Accountability Gap
       </h1>
 
-      {/* Video background with poster fallback - always render video for better mobile support */}
+      {/* Video background */}
       <video
         ref={videoRef}
         autoPlay
@@ -130,9 +123,8 @@ export default function HeroSection() {
       </video>
       <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-[1]"></div>
 
-      <div className="container relative z-10 px-4 md:px-6 text-center max-w-4xl mx-auto">
-        <div className="flex flex-col items-center justify-center space-y-6 text-center">
-
+      <div className="container relative z-10 px-4 md:px-6 max-w-4xl mx-auto">
+        <div className="flex flex-col space-y-8 text-center">
 
           <BlurFade delay={0.2} inView>
             <h1 className="tracking-tighter sm:text-5xl xl:text-7xl/none hero-text-shadow">
@@ -146,97 +138,54 @@ export default function HeroSection() {
           </BlurFade>
 
           <BlurFade delay={0.4} inView>
-            <p className="mt-8 text-primary-foreground/95 text-lg md:text-2xl max-w-4xl mx-auto hero-text-shadow font-sans leading-relaxed">
-              I help you stop chasing AI tools and start building systems that actually work. No decks. No theatre. Just execution.
+            <p className="text-primary-foreground/95 text-lg md:text-xl max-w-2xl mx-auto hero-text-shadow font-sans leading-relaxed">
+              I help you stop chasing AI tools and start building systems that actually work.
             </p>
           </BlurFade>
 
           <BlurFade delay={0.5} inView>
-            <div className="mt-12 flex flex-col gap-5 sm:flex-row sm:flex-wrap sm:justify-center">
-              <Button asChild size="lg" className={`${ctaStyle} transition-all duration-200 h-14 px-8 text-lg font-bold`}>
-                <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" onClick={() => { trackConversion('hero_book_call'); trackCtaConversion({ cta_variant: ctaVariant, cta_style: ctaStyleVariant }); }}>
-                  <Zap className="mr-2 h-5 w-5 fill-current" />
-                  {ctaText.primary}
-                </a>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                className="bg-black/40 text-primary-foreground border-2 border-primary-foreground/50 hover:bg-primary-foreground hover:text-primary shadow-xl hover:shadow-2xl hover:shadow-primary/20 transition-all duration-200 h-14 px-8 text-lg font-bold backdrop-blur-md"
+            {/* Primary CTA - solid, confident, no glow */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a 
+                href={CALENDAR_URL} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                onClick={() => { trackConversion('hero_book_call'); trackCtaConversion({ cta_variant: ctaVariant }); }}
+                className="inline-flex items-center gap-2 bg-white text-primary font-semibold text-base px-6 py-3 hover:bg-white/95 active:scale-[0.98] transition-transform"
               >
-                <a href="/assessment" onClick={() => trackEvent('hero_assessment_cta')}>
-                  <Brain className="mr-2 h-5 w-5" />
-                  {secondaryCtaText}
-                </a>
-              </Button>
+                <Zap className="w-4 h-4" />
+                {ctaText.primary}
+              </a>
+              <a 
+                href="/assessment" 
+                onClick={() => trackEvent('hero_assessment_cta')}
+                className="inline-flex items-center gap-2 text-primary-foreground font-medium text-base px-4 py-3 hover:underline"
+              >
+                {secondaryCtaText}
+                <ArrowRight className="w-4 h-4" />
+              </a>
             </div>
 
-            {/* Trust badges - social proof below CTAs */}
-            <motion.div 
-              className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs text-primary-foreground/60"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.8 }}
-            >
-              <div className="flex items-center gap-1.5">
-                <Shield className="w-3.5 h-3.5 text-green-400" />
-                <span>No commitment</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5 text-blue-400" />
-                <span>15-min call</span>
-              </div>
-            </motion.div>
+            {/* Trust signals - simple text, no icons as decoration */}
+            <div className="mt-4 text-xs text-primary-foreground/50 font-mono">
+              No commitment required · 15-minute call
+            </div>
           </BlurFade>
 
+          {/* Asymmetric layout: stats integrated into the narrative */}
           <BlurFade delay={0.55} inView>
-            <div className="mt-4 flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
-              <a
-                href="#services"
-                onClick={() => trackEvent('hero_see_services')}
-                className="inline-flex items-center gap-2 text-sm text-blue-200/80 hover:text-white transition-colors font-mono tracking-wide focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black focus-visible:rounded-sm"
-              >
-                See How I Work
-              </a>
-              <a
-                href="#services"
-                onClick={() => trackEvent('hero_199_spotlight_click')}
-                className="inline-flex items-center gap-2 text-sm text-blue-200/80 hover:text-white transition-colors font-mono tracking-wide focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black focus-visible:rounded-sm"
-              >
-                <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                From $199: Identity • From $599: AI Tools Assessment
-              </a>
+            <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-primary-foreground/70">
+              <span><strong className="text-primary-foreground/90">40+</strong> AI systems deployed</span>
+              <span className="hidden sm:inline text-white/20">·</span>
+              <span><strong className="text-primary-foreground/90">10–20 hrs/week</strong> reclaimed</span>
+              <span className="hidden sm:inline text-white/20">·</span>
+              <span><strong className="text-primary-foreground/90">$199</strong> to start</span>
             </div>
           </BlurFade>
-
-          {/* Social Proof Stats Bar */}
-          <motion.div
-            className="mt-10 grid grid-cols-3 gap-4 sm:gap-8 pt-8 border-t border-white/10 w-full max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-          >
-            {stats.map((stat) => (
-              <div key={stat.label} className="flex flex-col items-center gap-1">
-                {stat.icon ? (
-                  <stat.icon className="h-7 w-7 text-white hero-text-shadow" strokeWidth={2.5} />
-                ) : stat.numericValue ? (
-                  <span className="text-2xl font-black text-white hero-text-shadow">
-                    <NumberTicker value={stat.numericValue} className="text-2xl font-black text-white" />{stat.suffix}
-                  </span>
-                ) : (
-                  <span className="text-2xl font-black text-white hero-text-shadow">{stat.value}</span>
-                )}
-                <span className="text-[11px] text-primary-foreground/70 font-mono uppercase tracking-widest leading-tight text-center">{stat.label}</span>
-              </div>
-            ))}
-          </motion.div>
 
           <BlurFade delay={0.7} inView>
-            <p className="text-primary-foreground/60 text-sm font-mono mt-4 uppercase tracking-widest">
-              No Fluff &middot; Real Results &middot; You Keep It
+            <p className="text-primary-foreground/50 text-sm font-mono uppercase tracking-widest">
+              No Fluff · Real Results · You Keep It
             </p>
           </BlurFade>
         </div>
