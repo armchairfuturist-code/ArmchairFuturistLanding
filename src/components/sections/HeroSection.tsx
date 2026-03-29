@@ -236,7 +236,7 @@ export default function HeroSection() {
 
           <BlurFade delay={0.7} inView>
             <p className="text-primary-foreground/60 text-sm font-mono mt-4 uppercase tracking-widest">
-              High Signal &middot; Zero Noise &middot; Full Ownership
+              No Fluff &middot; Real Results &middot; You Keep It
             </p>
           </BlurFade>
         </div>
