@@ -56,17 +56,17 @@ const methodology = {
 const keyFindings = [
   {
     title: "The Results Thinker Pattern",
-    finding: "5% of staff account for disproportionate adoption success. These 'Results Thinkers' ask different questions: instead of 'What can AI do?' they ask 'What outcome do I need?'",
+    finding: "5% of staff account for disproportionate adoption success. These 'Results Thinkers' ask different questions—'What outcome do I need?' instead of 'What can AI do?'",
     implication: "Identifying and empowering Results Thinkers accelerates organizational adoption by 3x"
   },
   {
     title: "The Accountability Gap",
-    finding: "67% of stalled AI projects have no clear owner for outcomes. AI produces outputs; no one is responsible for translating them into business results.",
+    finding: "67% of stalled AI projects have no clear owner for outcomes. AI produces outputs; no one translates them into business results.",
     implication: "Assigning 'Human Architects'—people who bridge AI outputs to business outcomes—is the single highest-leverage intervention"
   },
   {
     title: "Time-to-Value Compression",
-    finding: "Organizations that combine assessment + implementation see value in 4-6 weeks. Assessment-only leads to 67% pilot failure rate.",
+    finding: "Organizations that combine assessment with implementation see value in 4-6 weeks. Assessment-only leads to 67% pilot failure.",
     implication: "Diagnostic without execution is expensive. Implementation without diagnostic is wasteful. The combination unlocks adoption."
   }
 ];
@@ -85,7 +85,7 @@ export default function OriginalResearchSection() {
             </h2>
             <p className="text-lg text-foreground/80 font-sans leading-relaxed">
               Aggregate findings from client implementations across industries.
-              These patterns emerged consistently enough to inform our approach.
+              The same three patterns showed up repeatedly enough to change how we work.
             </p>
           </div>
         </BlurFade>
