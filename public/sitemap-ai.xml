@@ -74,6 +74,12 @@
 
   <!-- Concept Pages - Core concept definitions for LLM citation -->
   <url>
+    <loc>https://thearmchairfuturist.com/concepts</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://thearmchairfuturist.com/concepts/accountability-gap</loc>
     <lastmod>2026-03-29</lastmod>
     <changefreq>monthly</changefreq>
@@ -92,7 +98,15 @@
     <priority>0.6</priority>
   </url>
 
-  <!--
+  <!-- Case Studies - Evidence and proof points -->
+  <url>
+    <loc>https://thearmchairfuturist.com/case-studies</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
     FUTURE PAGES - Add when created:
     
     /blog/ai-adoption-checklist

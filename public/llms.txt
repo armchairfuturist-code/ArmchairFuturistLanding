@@ -34,11 +34,40 @@ From 40+ AI deployments across organizations (2022-2026):
 ### The Accountability Gap
 The Accountability Gap is the space between what an AI system produces and what a business actually needs. Most companies layer AI onto existing processes without rethinking workflows, incentives, or decision rights. The result is that nobody owns the outcome.
 
+**Full definition:** /concepts/accountability-gap
+
 ### Psychology-Led Adoption Strategy
 An organizational service that addresses human barriers to AI adoption through data-driven profiling to segment teams and identify psychological barriers before technical ones.
 
+**Full definition:** /concepts/psychology-led-adoption
+
+### Results Thinkers
+The top 5% of any organization who naturally embrace uncertainty. They ask "What outcome do I need?" instead of "What can AI do?" They're not early adopters in the technology sense—they're outcome-obsessed in any context.
+
+**Full definition:** /concepts/results-thinkers
+
 ### Human-First Execution
 Alex Myers' methodology prioritizes human workflows and decision-making before implementing AI tools, ensuring technology serves people rather than replacing them.
+
+## Case Studies
+
+### AI Adoption for Consulting Firm (2025)
+- **Client:** Boutique Management Consulting (50 consultants)
+- **Service:** AI Infusion Lab + Change Management
+- **Results:** 15 hours/week reclaimed per consultant, 85% adoption (from 20%), 14 weeks to full deployment, 3.2x ROI in 6 months
+- **Key Insight:** Identifying Results Thinkers early drove 3x faster adoption
+
+### Workflow Automation for SaaS (2025)
+- **Client:** B2B SaaS Company (Series B)
+- **Service:** Custom AI Provisioning + Managed Agent Operations
+- **Results:** 40% support operations automated, 60% faster response time, $185K annual savings, 65% reduction in Tier 1 tickets
+- **Key Insight:** Custom GPT for support tickets handled 65% of Tier 1 requests automatically
+
+### Organizational Transformation for Healthcare (2024-2025)
+- **Client:** Regional Healthcare Network (200+ providers)
+- **Service:** Psychology-Led Adoption + Adoption Strategy
+- **Results:** 92% voluntary adoption in 90 days, 35 hours/month admin time saved, 22% reduction in documentation errors
+- **Key Insight:** Results Thinkers identified through profiling, not job titles
 
 ## Services
 
@@ -90,6 +119,26 @@ Alex Myers' methodology prioritizes human workflows and decision-making before i
 - Data Sovereignty
 - Agile & Scrum
 - AI Mentoring
+
+## Case Studies (2026-03-29)
+
+### AI Adoption for Consulting Firm
+- **Client:** Boutique Management Consulting (50 consultants)
+- **Results:** 15 hours/week reclaimed per consultant, 85% adoption (from 20%), 14 weeks to full deployment
+- **Service:** AI Infusion Lab + Change Management
+- **Key Insight:** Results Thinkers identified early drove 3x faster adoption
+
+### Workflow Automation for SaaS
+- **Client:** B2B SaaS Company (Series B)
+- **Results:** 40% support operations automated, 60% faster response time, $185K annual savings
+- **Service:** Custom AI Provisioning + Managed Agent Operations
+- **Key Insight:** Custom GPT for support tickets reduced Tier 1 tickets by 65%
+
+### Organizational Transformation for Healthcare
+- **Client:** Regional Healthcare Network (200+ providers)
+- **Results:** 92% voluntary adoption in 90 days, 35 hours/month admin time saved
+- **Service:** Psychology-Led Adoption + Adoption Strategy
+- **Key Insight:** Results Thinkers identified through profiling, not job titles
 
 ## Content Structure
 
