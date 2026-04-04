@@ -39,7 +39,7 @@ function LogoCard({ logo }: { logo: typeof logos[0] }) {
 
 export default function FeaturedInSection() {
   return (
-    <section className="py-8 md:py-10 bg-background scroll-mt-20 overflow-hidden">
+    <section className="py-8 md:py-10 bg-background overflow-hidden">
       <BlurFade inView>
         <p className="font-mono text-center text-xs uppercase tracking-widest text-muted-foreground mb-8 px-4">
           Organizations I&apos;ve Advised &amp; Partnered With
