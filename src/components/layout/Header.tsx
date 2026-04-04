@@ -1,14 +1,17 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from '@/components/ui/sheet';
-import { Menu, Brain } from 'lucide-react';
+import { Menu, Brain, BookOpen, BarChart3, FileText } from 'lucide-react';
 import Image from 'next/image';
 import { CALENDAR_URL } from '@/lib/constants';
 
 export default function Header() {
   const navItems = [
     { href: '/#services', label: 'Services' },
-    { href: '/#about-me', label: 'Why Alex' },
+    { href: '/#case-studies', label: 'Case Studies' },
+    { href: '/#roi-calculator', label: 'ROI Calculator' },
+    { href: '/blog', label: 'Blog', icon: BookOpen },
+    { href: '/#about-me', label: 'About', icon: FileText },
   ];
 
   return (
@@ -32,8 +35,9 @@ export default function Header() {
             <Link
               key={item.label}
               href={item.href}
-              className="text-sm font-medium text-foreground/70 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:rounded-sm"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground/70 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:rounded-sm"
             >
+              {item.icon && <item.icon className="h-3.5 w-3.5" />}
               {item.label}
             </Link>
           ))}
@@ -88,8 +92,9 @@ export default function Header() {
                   <Link
                     key={item.label}
                     href={item.href}
-                    className="block text-sm font-medium text-foreground/90 transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:rounded-sm"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-foreground/90 transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:rounded-sm"
                   >
+                    {item.icon && <item.icon className="h-4 w-4" />}
                     {item.label}
                   </Link>
                 ))}
