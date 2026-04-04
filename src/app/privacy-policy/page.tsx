@@ -1,5 +1,25 @@
 
+import type { Metadata } from 'next';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+const siteUrl = 'https://thearmchairfuturist.com';
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  title: 'Privacy Policy | The Armchair Futurist',
+  description: 'Privacy policy for The Armchair Futurist — how Alex Myers collects, uses, and protects your personal information.',
+  openGraph: {
+    title: 'Privacy Policy | The Armchair Futurist',
+    description: 'Privacy policy for The Armchair Futurist.',
+    url: `${siteUrl}/privacy-policy`,
+    siteName: 'The Armchair Futurist',
+    type: 'website',
+  },
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export default function PrivacyPolicyPage() {
   return (

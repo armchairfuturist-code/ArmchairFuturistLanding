@@ -1,5 +1,25 @@
 
+import type { Metadata } from 'next';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+const siteUrl = 'https://thearmchairfuturist.com';
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  title: 'Terms of Service | The Armchair Futurist',
+  description: 'Terms of service for The Armchair Futurist — legal terms governing your use of thearmchairfuturist.com.',
+  openGraph: {
+    title: 'Terms of Service | The Armchair Futurist',
+    description: 'Terms of service for The Armchair Futurist.',
+    url: `${siteUrl}/terms-of-service`,
+    siteName: 'The Armchair Futurist',
+    type: 'website',
+  },
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export default function TermsOfServicePage() {
   return (

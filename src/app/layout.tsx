@@ -453,15 +453,24 @@ export default function RootLayout({
                     }
                   }
                 ]
-              },
-              "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.9",
-                "reviewCount": "40",
-                "bestRating": "5",
-                "worstRating": "1"
               }
             })
+          }}
+        />
+        {/* BreadcrumbList Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://thearmchairfuturist.com" },
+                { "@type": "ListItem", "position": 2, "name": "About", "item": "https://thearmchairfuturist.com/about" },
+                { "@type": "ListItem", "position": 3, "name": "Assessment", "item": "https://thearmchairfuturist.com/assessment" },
+                { "@type": "ListItem", "position": 4, "name": "Blog", "item": "https://thearmchairfuturist.com/blog" },
+              ],
+            }),
           }}
         />
         <Header />
