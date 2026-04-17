@@ -7,7 +7,7 @@ import { trackEvent, trackConversion } from '@/lib/analytics';
 import { NumberTicker } from '@/components/ui/number-ticker';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { motion } from 'motion/react';
-import { CALENDAR_URL } from '@/lib/constants';
+import { CALENDAR_URL, GOOGLE_FORM_URL } from '@/lib/constants';
 import { useExperiment } from '@/hooks/useExperiment';
 
 type Stat = { value: string | null; numericValue?: number; suffix?: string; label: string };
@@ -157,6 +157,15 @@ export default function HeroSection() {
                 {ctaText.primary}
               </a>
               <a 
+                href={GOOGLE_FORM_URL} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                onClick={() => trackEvent('hero_199_cta')}
+                className="inline-flex items-center gap-2 bg-primary/90 text-white font-semibold text-base px-6 py-3 hover:bg-primary active:scale-[0.98] transition-transform border border-primary"
+              >
+                Get Your $199 Landing Page
+              </a>
+              <a 
                 href="/assessment" 
                 onClick={() => trackEvent('hero_assessment_cta')}
                 className="inline-flex items-center gap-2 text-primary-foreground font-medium text-base px-4 py-3 hover:underline"
@@ -166,9 +175,13 @@ export default function HeroSection() {
               </a>
             </div>
 
-            {/* Trust signals - simple text, no icons as decoration */}
+            {/* Trust signals - simple text, no neon glows */}
             <div className="mt-4 text-xs text-primary-foreground/50 font-mono">
-              No commitment required · 15-minute call
+              No commitment required · 15-minute call · $199 entry point
+            </div>
+            <div className="mt-2 flex items-center justify-center gap-1.5 text-xs text-primary-foreground/60">
+              <span className="text-green-400">★★★★★</span>
+              <span>4.9/5 from 40+ clients</span>
             </div>
           </BlurFade>
 

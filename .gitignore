@@ -48,3 +48,8 @@ firestore-debug.log
 # dev artifacts
 .dev-server*.log
 .modified
+# Firebase/Next.js build artifacts (too large for GitHub)
+.firebase/
+.next/
+out/
+build/

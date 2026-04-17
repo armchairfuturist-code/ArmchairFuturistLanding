@@ -11,7 +11,8 @@ import type { ScoreResult } from '@/lib/assessment/scoring';
 export default function AssessmentResultPage() {
   const params = useParams();
   const searchParams = useSearchParams();
-  const slug = params.slug as string;
+  // In Next.js 16, params.slug can be string | string[]
+  const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug ?? '';
   const archetype = getArchetypeBySlug(slug);
 
   const scores: ScoreResult = useMemo(() => ({

@@ -80,6 +80,9 @@ export default function ConnectSection() {
               </a>
             </Button>
           </motion.div>
+          <p className="mt-4 text-sm text-primary-foreground/60">
+            Join 40+ leaders who've reclaimed 10-20 hrs/week · <span className="text-green-300">★★★★★</span> 4.9/5 client satisfaction
+          </p>
         </BlurFade>
         {/* Contact Form */}
         <motion.div

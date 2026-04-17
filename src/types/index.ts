@@ -1,8 +1,8 @@
 export interface Certification {
   id: string;
   name: string;
-  issuerInitials: string; // e.g., "CCMP"
-  issuerFullName?: string; // e.g., "Certified Change Management Professional"
+  issuerInitials: string;
+  issuerFullName?: string;
   link?: string;
-  imageSrc?: string; // Path to the certification image/logo
+  imageSrc?: string;
 }

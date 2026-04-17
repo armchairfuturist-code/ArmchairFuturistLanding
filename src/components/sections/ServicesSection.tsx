@@ -19,7 +19,8 @@ import {
   BrainCircuit,
   Users,
   FlaskConical,
-  Trophy
+  Trophy,
+  Clock,
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -56,6 +57,7 @@ interface Service {
   ctaLink: string;
   highlight: boolean;
   badge?: string;
+  badgeNote?: string;
   icon: React.ElementType;
 }
 
@@ -78,6 +80,7 @@ const entrepreneurServices = [
     ctaLink: GOOGLE_FORM_URL,
     highlight: false,
     badge: "Entry Offer",
+    badgeNote: "Limited to 5 clients per month",
     icon: Globe2
   },
   {
@@ -258,6 +261,11 @@ const ServiceAccordionItem = ({ service, pricingContext, index }: { service: Ser
                     <Rocket className="w-3 h-3" /> {service.badge}
                   </span>
                 )}
+                {service.badge && !service.highlight && (
+                  <span className="bg-amber-500/10 text-amber-600 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider border border-amber-500/20 flex items-center gap-1 shadow-sm">
+                    <Clock className="w-3 h-3" /> {service.badge}
+                  </span>
+                )}
               </div>
               <div className="flex items-center gap-3">
                 <Icon className="w-5 h-5 text-primary" />
@@ -353,6 +361,10 @@ export default function ServicesSection() {
           <div className="text-lg text-foreground/80 font-sans leading-relaxed space-y-4">
             <p>Services from $199 to $55,250. Start with the landing page or the AI assessment—then scale into implementation.</p>
             <p><strong>My promise:</strong> If you aren't happy with our initial discussions, I'll refund you.</p>
+            <p className="flex items-center gap-2 text-sm">
+              <span className="text-green-500">★★★★★</span>
+              <span>4.9/5 from 40+ clients · 10-20 hours/week reclaimed on average</span>
+            </p>
           </div>
         </div>
         </BlurFade>
