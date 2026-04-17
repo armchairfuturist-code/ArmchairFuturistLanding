@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { BorderBeam } from '@/components/ui/border-beam';
 import { motion } from 'motion/react';
-import { SUBSTACK_URL } from '@/lib/constants';
+import { SUBSTACK_URL, CALENDAR_URL } from '@/lib/constants';
 import { useExperiment } from '@/hooks/useExperiment';
 import { trackEvent } from '@/lib/analytics';
 
@@ -128,17 +128,29 @@ export default function EmailCaptureSection() {
                         <div className="relative bg-card rounded-2xl border border-border p-8 shadow-lg overflow-hidden">
                             <BorderBeam size={150} duration={10} colorFrom="hsl(208, 100%, 50%)" colorTo="hsl(120, 60%, 50%)" borderWidth={2} />
 
-                            {formState === 'success' ? (
-                                <div className="flex flex-col items-center text-center py-6 gap-4">
-                                    <div className="h-14 w-14 rounded-full bg-green-500/10 border border-green-500/30 flex items-center justify-center">
-                                        <CheckCircle2 className="h-7 w-7 text-green-500" />
-                                    </div>
-                                    <h3 className="text-xl font-bold text-primary font-heading">Almost there!</h3>
-                                    <p className="text-sm text-muted-foreground font-sans leading-relaxed">
-                                        A Substack tab has opened - confirm your subscription there to receive the AI Trust Audit Checklist directly in your inbox.
-                                    </p>
-                                </div>
-                            ) : (
+            {formState === 'success' ? (
+                <div className="flex flex-col items-center text-center py-6 gap-4">
+                    <div className="h-14 w-14 rounded-full bg-green-500/10 border border-green-500/30 flex items-center justify-center">
+                        <CheckCircle2 className="h-7 w-7 text-green-500" />
+                    </div>
+                    <h3 className="text-xl font-bold text-primary font-heading">Almost there!</h3>
+                    <p className="text-sm text-muted-foreground font-sans leading-relaxed">
+                        A Substack tab has opened - confirm your subscription there to receive the AI Trust Audit Checklist directly in your inbox.
+                    </p>
+                    <div className="w-full pt-2 border-t border-border/30">
+                        <p className="text-xs text-muted-foreground mb-3">While you're here, why not book your free strategy call?</p>
+                        <a
+                            href={CALENDAR_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => trackEvent('email_capture_book_call_after_subscribe')}
+                            className="inline-flex items-center justify-center gap-2 w-full h-10 px-4 rounded-lg bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-colors"
+                        >
+                            Book Your Free Call <ArrowRight className="w-4 h-4" />
+                        </a>
+                    </div>
+                </div>
+            ) : (
                                 <>
                                     <div className="flex items-center gap-2 mb-2">
                                         <Mail className="h-5 w-5 text-primary" />

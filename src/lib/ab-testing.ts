@@ -6,6 +6,9 @@
  * 
  * This provides a simple framework for running concurrent experiments
  * and tracking conversion metrics.
+ * 
+ * Results are stored in localStorage for immediate queryability
+ * AND sent to Firebase Analytics for server-side aggregation.
  */
 
 import { trackEvent } from './analytics';
@@ -25,6 +28,51 @@ export type Experiment = {
   // Conversion goal metric
   goalMetric: string;
 };
+
+// LocalStorage result types
+export type ExperimentResults = {
+  [experimentId: string]: {
+    [variantId: string]: {
+      impressions: number;
+      conversions: number;
+    };
+  };
+};
+
+const RESULTS_KEY = 'ab_test_results';
+
+/**
+ * Read experiment results from localStorage
+ */
+function readResults(): ExperimentResults {
+  if (typeof window === 'undefined') return {};
+  try {
+    return JSON.parse(localStorage.getItem(RESULTS_KEY) || '{}');
+  } catch {
+    return {};
+  }
+}
+
+/**
+ * Write experiment results to localStorage
+ */
+function writeResults(results: ExperimentResults): void {
+  if (typeof window === 'undefined') return;
+  localStorage.setItem(RESULTS_KEY, JSON.stringify(results));
+}
+
+/**
+ * Increment a counter in localStorage results
+ */
+function incrementResult(experimentId: string, variantId: string, field: 'impressions' | 'conversions'): void {
+  const results = readResults();
+  if (!results[experimentId]) results[experimentId] = {};
+  if (!results[experimentId][variantId]) {
+    results[experimentId][variantId] = { impressions: 0, conversions: 0 };
+  }
+  results[experimentId][variantId][field]++;
+  writeResults(results);
+}
 
 // Pre-defined experiments
 export const EXPERIMENTS: Record<string, Experiment> = {
@@ -158,6 +206,9 @@ export function trackExperimentConversion(
 ): void {
   const variant = getAssignedVariant(experimentId);
   
+  // Store in localStorage for immediate queryability
+  incrementResult(experimentId, variant, 'conversions');
+  
   trackEvent('experiment_conversion', {
     experiment_id: experimentId,
     variant_id: variant,
@@ -191,6 +242,9 @@ export function trackExperimentImpression(experimentId: string): void {
   
   sessionStorage.setItem(trackedKey, 'true');
   
+  // Store in localStorage for immediate queryability
+  incrementResult(experimentId, variant, 'impressions');
+  
   trackEvent('experiment_impression', {
     experiment_id: experimentId,
     variant_id: variant,
@@ -205,8 +259,8 @@ export function trackExperimentImpression(experimentId: string): void {
 }
 
 /**
- * Get experiment results (for dashboard)
- * In production, this would query analytics data
+ * Get experiment results from localStorage
+ * Returns real impression/conversion data tracked during user sessions
  */
 export function getExperimentResults(experimentId: string): {
   experiment: Experiment;
@@ -216,23 +270,79 @@ export function getExperimentResults(experimentId: string): {
     impressions: number;
     conversions: number;
     rate: number;
+    isWinner: boolean;
   }>;
+  totalImpressions: number;
+  totalConversions: number;
 } {
   const experiment = EXPERIMENTS[experimentId];
   if (!experiment) {
     throw new Error(`Experiment ${experimentId} not found`);
   }
   
-  // In production, fetch from analytics
-  // For now, return structure
-  return {
-    experiment,
-    variants: experiment.variants.map((v) => ({
+  const results = readResults();
+  const expResults = results[experimentId] || {};
+  
+  let maxRate = -1;
+  const variantResults = experiment.variants.map((v) => {
+    const data = expResults[v.id] || { impressions: 0, conversions: 0 };
+    const rate = data.impressions > 0 ? data.conversions / data.impressions : 0;
+    if (rate > maxRate && data.impressions > 0) maxRate = rate;
+    return {
       id: v.id,
       name: v.name,
-      impressions: 0,
-      conversions: 0,
-      rate: 0,
-    })),
+      impressions: data.impressions,
+      conversions: data.conversions,
+      rate,
+      isWinner: false, // will be set in second pass
+    };
+  });
+  
+  // Mark winner(s)
+  variantResults.forEach((v) => {
+    v.isWinner = v.rate === maxRate && v.impressions > 0;
+  });
+  
+  const totalImpressions = variantResults.reduce((sum, v) => sum + v.impressions, 0);
+  const totalConversions = variantResults.reduce((sum, v) => sum + v.conversions, 0);
+  
+  return {
+    experiment,
+    variants: variantResults,
+    totalImpressions,
+    totalConversions,
   };
+}
+
+/**
+ * Get all experiment results at once
+ */
+type ExperimentResultsData = {
+  experiment: Experiment;
+  variants: Array<{
+    id: string;
+    name: string;
+    impressions: number;
+    conversions: number;
+    rate: number;
+    isWinner: boolean;
+  }>;
+  totalImpressions: number;
+  totalConversions: number;
+};
+
+export function getAllExperimentResults(): Record<string, ExperimentResultsData> {
+  const allResults: Record<string, ExperimentResultsData> = {};
+  for (const experimentId of Object.keys(EXPERIMENTS)) {
+    allResults[experimentId] = getExperimentResults(experimentId);
+  }
+  return allResults;
+}
+
+/**
+ * Reset all experiment results (for testing)
+ */
+export function resetExperimentResults(): void {
+  if (typeof window === 'undefined') return;
+  localStorage.removeItem(RESULTS_KEY);
 }

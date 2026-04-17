@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import { Zap, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
@@ -10,27 +10,75 @@ import { trackEvent } from '@/lib/analytics';
 export default function StickyCTA() {
   const [isVisible, setIsVisible] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
+  const dismissTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const lastScrollYRef = useRef(0);
+  const scrollIdleTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const hasReachedBottomRef = useRef(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      // Show after scrolling past hero (approx 500px)
-      const scrollY = window.scrollY;
-      const shouldShow = scrollY > 500 && !isDismissed;
-      setIsVisible(shouldShow);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [isDismissed]);
+  const scheduleReappear = useCallback(() => {
+    // Clear any existing timer
+    if (dismissTimerRef.current) {
+      clearTimeout(dismissTimerRef.current);
+    }
+    // Reappear after 45 seconds of dismissal
+    dismissTimerRef.current = setTimeout(() => {
+      setIsDismissed(false);
+      setIsVisible(true);
+    }, 45_000);
+  }, []);
 
   const handleDismiss = () => {
     setIsDismissed(true);
     setIsVisible(false);
+    scheduleReappear();
   };
 
   const handleClick = () => {
     trackEvent('sticky_cta_click');
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const scrollDelta = Math.abs(scrollY - lastScrollYRef.current);
+      lastScrollYRef.current = scrollY;
+
+      // Check if user has scrolled to page bottom
+      const scrollHeight = document.documentElement.scrollHeight;
+      const windowHeight = window.innerHeight;
+      const atBottom = scrollY + windowHeight >= scrollHeight - 200;
+
+      if (atBottom) {
+        hasReachedBottomRef.current = true;
+      }
+
+      // Reset idle timer on scroll activity
+      if (scrollIdleTimerRef.current) {
+        clearTimeout(scrollIdleTimerRef.current);
+      }
+
+      if (isDismissed) {
+        // If dismissed but user reaches bottom, reappear
+        if (hasReachedBottomRef.current && !isVisible) {
+          setIsDismissed(false);
+          setIsVisible(true);
+          hasReachedBottomRef.current = false;
+        }
+        return;
+      }
+
+      // Show after scrolling past hero (approx 500px)
+      const shouldShow = scrollY > 500;
+      setIsVisible(shouldShow);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (dismissTimerRef.current) clearTimeout(dismissTimerRef.current);
+      if (scrollIdleTimerRef.current) clearTimeout(scrollIdleTimerRef.current);
+    };
+  }, [isDismissed, isVisible]);
 
   return (
     <AnimatePresence>
