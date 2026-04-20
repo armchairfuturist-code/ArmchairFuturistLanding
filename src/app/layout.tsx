@@ -8,10 +8,6 @@ import { Toaster } from "@/components/ui/toaster";
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ScrollToTop from '@/components/ui/ScrollToTop';
-import StickyCTA from '@/components/ui/sticky-cta';
-import ScrollProgress from '@/components/ui/scroll-progress';
-import ExitIntentPopup from '@/components/ui/exit-intent-popup';
-import WhatsAppFloatingButton from '@/components/ui/whatsapp-floating';
 import { cn } from '@/lib/utils';
 import FirebaseAnalytics from '@/components/analytics/FirebaseAnalytics';
 
@@ -476,15 +472,11 @@ export default function RootLayout({
           }}
         />
         <Header />
-        <ScrollProgress />
         <main className="flex-grow">
           {children}
         </main>
         <Footer />
-        <StickyCTA />
         <ScrollToTop />
-        <ExitIntentPopup />
-        <WhatsAppFloatingButton />
         <Toaster />
 
         {/* Retargeting Pixels */}
