@@ -128,10 +128,10 @@ export default function HeroSection() {
 
           <BlurFade delay={0.2} inView>
             <h1 className="tracking-tighter sm:text-5xl xl:text-7xl/none hero-text-shadow">
-              <span className="block text-hero-title-1 text-5xl md:text-6xl xl:text-7xl font-heading font-black">
+              <span className="block text-white text-5xl md:text-6xl xl:text-7xl font-heading font-black">
                 {headline.line1}
               </span>
-              <span className="block text-hero-title-2 text-4xl md:text-5xl xl:text-6xl mt-1 md:mt-2 font-heading font-bold opacity-90">
+              <span className="block text-ps-blue text-4xl md:text-5xl xl:text-6xl mt-1 md:mt-2 font-heading font-bold opacity-90">
                 {headline.line2}
               </span>
             </h1>
