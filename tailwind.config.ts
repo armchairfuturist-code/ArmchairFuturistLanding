@@ -13,8 +13,19 @@ export default {
         sans: ['var(--font-sans)', 'sans-serif'],
         mono: ['var(--font-mono)', 'monospace'],
         heading: ['var(--font-heading)', 'sans-serif'],
+        display: ['Playfair Display', 'serif'],
+        body: ['Lora', 'serif'],
+        ui: ['Inter', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
       },
   		colors: {
+        // WIRED Design Colors
+        'wired-black': '#000000',
+        'wired-white': '#FFFFFF',
+        'link-blue': '#057dbc',
+        'footer-ink': '#1a1a1a',
+        'paper-white': '#fafafa',
+        
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
         'hero-title-1': 'hsl(var(--hero-title-color-1))',
@@ -69,10 +80,20 @@ export default {
   				ring: 'hsl(var(--sidebar-ring))'
   			}
   		},
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: theme('colors.wired-black'),
+            fontFamily: theme('fontFamily.body'),
+          },
+        },
+      }),
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
-  			sm: 'calc(var(--radius) - 4px)'
+  			sm: 'calc(var(--radius) - 4px)',
+        none: '0',
+        square: '0',
   		},
   		keyframes: {
   			'accordion-down': {
