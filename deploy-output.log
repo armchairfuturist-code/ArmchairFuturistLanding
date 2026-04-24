@@ -1,0 +1,137 @@
+
+   Thank you for trying our [3mearly preview[23m of Next.js support on Firebase Hosting.
+   [31mDuring the preview, support is best-effort and breaking changes can be expected. Proceed with caution.[39m[33m
+   The integration is known to work with Next.js version [3m12 - 15.0[23m. You may encounter errors.[39m
+
+   [1mDocumentation:[22m https://firebase.google.com/docs/hosting/frameworks/nextjs
+   [1mFile a bug:[22m https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   [1mSubmit a feature request:[22m https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of C:\Users\Administrator\package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * C:\Users\Administrator\Documents\Projects\ArmchairFuturistLanding\package-lock.json
+
+
+▲ Next.js 16.1.6 (Turbopack)
+
+- Environments: .env.local
+- Experiments (use with caution):
+  · optimizePackageImports
+
+
+  Creating an optimized production build ...
+
+✓ Compiled successfully in 3.2s
+
+  Running TypeScript ...
+
+  Collecting page data using 11 workers ...
+
+  Generating static pages using 11 workers (0/20) ...
+
+  Generating static pages using 11 workers (5/20) 
+
+  Generating static pages using 11 workers (10/20) 
+
+  Generating static pages using 11 workers (15/20) 
+
+✓ Generating static pages using 11 workers (20/20) in 311.6ms
+
+  Finalizing page optimization ...
+
+
+
+Route (app)                            Revalidate  Expire
+┌ ○ /
+├ ○ /_not-found
+├ ○ /about
+├ ƒ /api/assessment/submit
+├ ƒ /api/contact
+├ ƒ /api/substack
+├ ○ /assessment
+├ ƒ /assessment/result/[slug]
+├ ○ /blog                                      1h      1y
+├ ○ /case-studies
+├ ○ /concepts
+├ ○ /concepts/accountability-gap
+├ ○ /concepts/psychology-led-adoption
+├ ○ /concepts/results-thinkers
+├ ○ /llms.txt
+├ ○ /privacy-policy
+├ ○ /robots.txt
+├ ○ /sitemap.xml
+└ ○ /terms-of-service
+
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+
+Building a Cloud Function to run this application. This is needed due to:
+ • use of revalidate /blog
+ • non-static component /api/assessment/submit/route
+ • non-static component /api/contact/route
+ • non-static component /api/substack/route
+ • non-static component /assessment/result/[slug]/page
+
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: 'firebase-frameworks@0.11.8',
+npm warn EBADENGINE   required: { node: '^16.0.0 || ^18.0.0 || ^20.0.0 || ^22.0.0' },
+npm warn EBADENGINE   current: { node: 'v24.14.0', npm: '11.9.0' }
+npm warn EBADENGINE }
+
+up to date in 5s
+
+72 packages are looking for funding
+  run `npm fund` for details
+[36m[1mi  hosting:[22m[39m The following function(s) are pinned to site [1marmchair-futurist[22m and will be deployed as well: [1mssrarmchairfuturist[22m
+
+[1m[37m===[39m Deploying to 'armchair-futurist'...[22m
+
+[36m[1mi [22m[39m deploying [1mfunctions, hosting[22m
+[36m[1mi  functions:[22m[39m preparing codebase [1mfirebase-frameworks-armchair-futurist[22m for deployment
+[36m[1mi  functions:[22m[39m ensuring required API [1mcloudfunctions.googleapis.com[22m is enabled...
+[36m[1mi  functions:[22m[39m ensuring required API [1mcloudbuild.googleapis.com[22m is enabled...
+[36m[1mi  artifactregistry:[22m[39m ensuring required API [1martifactregistry.googleapis.com[22m is enabled...
+[32m[1m+  artifactregistry:[22m[39m required API [1martifactregistry.googleapis.com[22m is enabled
+[32m[1m+  functions:[22m[39m required API [1mcloudfunctions.googleapis.com[22m is enabled
+[32m[1m+  functions:[22m[39m required API [1mcloudbuild.googleapis.com[22m is enabled
+[33m[1m! [22m[39m [1m[33mfunctions: [39m[22mpackage.json indicates an outdated version of firebase-functions. Please upgrade using [1mnpm install --save firebase-functions@latest[22m in your functions directory.
+[33m[1m! [22m[39m [1m[33mfunctions: [39m[22mPlease note that there will be breaking changes when you upgrade.
+[36m[1mi  functions:[22m[39m Loading and analyzing source code for codebase firebase-frameworks-armchair-futurist to determine what to deploy
+Serving at port 8883
+
+[36m[1mi  extensions:[22m[39m ensuring required API [1mfirebaseextensions.googleapis.com[22m is enabled...
+[33m[1m!  extensions:[22m[39m missing required API [1mfirebaseextensions.googleapis.com[22m. Enabling now...
+[36m[1mi [22m[39m [36m[1mfunctions: [22m[39mLoaded environment variables from .env.
+[36m[1mi  functions:[22m[39m preparing [1m.firebase\armchair-futurist\functions[22m directory for uploading...
+[36m[1mi [22m[39m [36m[1mfunctions:[22m[39m packaged [1mC:\Users\Administrator\Documents\Projects\ArmchairFuturistLanding\.firebase\armchair-futurist\functions[22m (232.12 MB) for uploading
+[36m[1mi  functions:[22m[39m ensuring required API [1mrun.googleapis.com[22m is enabled...
+[36m[1mi  functions:[22m[39m ensuring required API [1meventarc.googleapis.com[22m is enabled...
+[36m[1mi  functions:[22m[39m ensuring required API [1mpubsub.googleapis.com[22m is enabled...
+[36m[1mi  functions:[22m[39m ensuring required API [1mstorage.googleapis.com[22m is enabled...
+[32m[1m+  functions:[22m[39m required API [1mpubsub.googleapis.com[22m is enabled
+[33m[1m!  functions:[22m[39m missing required API [1meventarc.googleapis.com[22m. Enabling now...
+[32m[1m+  functions:[22m[39m required API [1mrun.googleapis.com[22m is enabled
+[32m[1m+  functions:[22m[39m required API [1mstorage.googleapis.com[22m is enabled
+[36m[1mi  functions:[22m[39m generating the service identity for [1mpubsub.googleapis.com[22m...
+[36m[1mi  functions:[22m[39m generating the service identity for [1meventarc.googleapis.com[22m...
+[32m[1m+  functions:[22m[39m [1m.firebase\armchair-futurist\functions[22m source uploaded successfully
+[36m[1mi  hosting[armchair-futurist]:[22m[39m beginning deploy...
+[36m[1mi  hosting[armchair-futurist]:[22m[39m found 90 files in [1m.firebase\armchair-futurist\hosting[22m
+[36m[1mi  hosting:[22m[39m adding files to version [0/90] ([1m[32m0%[39m[22m)
+[36m[1mi  hosting:[22m[39m uploading new files [85/87] ([1m[32m97%[39m[22m)
+[36m[1mi  hosting:[22m[39m upload complete
+[32m[1m+  hosting[armchair-futurist]:[22m[39m file upload complete
+[36m[1mi  functions:[22m[39m creating Node.js 24 (2nd Gen) function [1mfirebase-frameworks-armchair-futurist:ssrarmchairfuturist(us-central1)[22m...
+[32m[1m+ [22m[39m [1m[32mfunctions[firebase-frameworks-armchair-futurist:ssrarmchairfuturist(us-central1)][39m[22m Successful create operation.
+[1mFunction URL[22m (firebase-frameworks-armchair-futurist:ssrarmchairfuturist(us-central1)): https://us-central1-armchair-futurist.cloudfunctions.net/ssrarmchairfuturist
+[33m[1m!  functions:[22m[39m No cleanup policy detected for repositories in us-central1. This may result in a small monthly bill as container images accumulate over time.
+
+[1m[31mError:[39m[22m Functions successfully deployed but could not set up cleanup policy in location us-central1. Pass the --force option to automatically set up a cleanup policy or run 'firebase functions:artifacts:setpolicy' to manually set up a cleanup policy.

@@ -49,46 +49,59 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%; /* White */
-    --foreground: 220 15% 25%; /* Dark Grey, e.g., #3A4150 */
+    /* WIRED Design Tokens */
+    --wired-black: 0 0% 0%; /* #000000 */
+    --wired-white: 0 0% 100%; /* #FFFFFF */
+    --link-blue: 201 100% 24%; /* #057dbc */
+    --footer-ink: 0 0% 10%; /* #1a1a1a */
+    --paper-white: 0 0% 98%; /* #fafafa */
+    
+    /* WIRED Typography */
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Lora', serif;
+    --font-ui: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    
+    /* Standard colors (WIRED-inspired) */
+    --background: 0 0% 98%; /* Paper white */
+    --foreground: 0 0% 0%; /* Black */
     --card: 0 0% 100%; /* White */
-    --card-foreground: 220 15% 25%;
+    --card-foreground: 0 0% 0%;
     --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 25%;
-    --primary: 208 100% 32%; /* Blue #0057A3 */
-    --primary-foreground: 0 0% 98%; /* Almost White */
-    --secondary: 210 30% 92%; /* Light Desaturated Blue, e.g., #E8EDF4 */
-    --secondary-foreground: 208 100% 32%; /* Primary Blue */
-    --section-blue-background: 208 50% 70%; /* New Blue for section backgrounds #99BADD */
-    --muted: 210 25% 88%; /* Slightly Darker Light Blue/Grey, e.g., #DCE5ED */
-    --muted-foreground: 220 9% 46%; /* Accent Slate #6B7280 */
-    --accent: 220 9% 46%; /* Accent Slate #6B7280 */
-    --accent-foreground: 0 0% 98%; /* Almost White */
+    --popover-foreground: 0 0% 0%;
+    --primary: 201 100% 24%; /* Link Blue */
+    --primary-foreground: 0 0% 100%; /* White */
+    --secondary: 0 0% 95%; /* Light gray */
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 90%; /* Light gray */
+    --muted-foreground: 0 0% 40%; /* Gray */
+    --accent: 201 100% 24%; /* Link Blue */
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 220 15% 88%; /* Light Grey, e.g., #DAE0E7 */
-    --input: 220 15% 88%;
-    --ring: 208 100% 32%; /* Primary Blue for focus rings */
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 85%; /* Light gray */
+    --input: 0 0% 85%;
+    --ring: 201 100% 24%; /* Link Blue */
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
+    --radius: 0; /* Square corners for WIRED style */
 
     /* Hero specific text colors */
-    --hero-title-color-1: 0 0% 100%; /* White */
-    --hero-title-color-2: 200 100% 90%; /* Very Pale Cyan/Blue */
+    --hero-title-color-1: 0 0% 0%; /* Black */
+    --hero-title-color-2: 201 100% 24%; /* Link Blue */
 
-    /* Sidebar specific variables - retained as they might be intentionally distinct */
+    /* Sidebar specific variables */
     --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-foreground: 0 0% 0%;
+    --sidebar-primary: 201 100% 24%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 95%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 0 0% 85%;
+    --sidebar-ring: 201 100% 24%;
   }
 
   .dark {

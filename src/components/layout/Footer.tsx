@@ -4,29 +4,28 @@ import { SUBSTACK_URL, CALENDAR_URL } from '@/lib/constants';
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border/40 bg-background/95">
-      <div className="container mx-auto px-4 md:px-6">
-        {/* Main footer */}
-        <div className="flex flex-col items-center justify-between gap-8 py-10 md:flex-row md:py-8">
+    <footer className="bg-footer-ink text-white border-t-2 border-wired-black">
+      <div className="container mx-auto px-4 md:px-6 max-w-screen-2xl">
+        <div className="flex flex-col items-center justify-between gap-8 py-12 md:flex-row md:py-10">
           {/* Left — brand + links */}
           <div className="flex flex-col items-center gap-4 md:items-start">
-            <p className="text-center text-sm text-muted-foreground md:text-left">
+            <p className="text-center text-sm text-white md:text-left font-ui">
               © {new Date().getFullYear()} Alex Myers Consulting LLC. Based in Portugal.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
-              <Link href="/#services" className="text-muted-foreground hover:text-foreground transition-colors">
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm font-ui">
+              <Link href="/#services" className="text-white hover:text-link-blue transition-colors">
                 Services
               </Link>
-              <Link href="/#case-studies" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="/#case-studies" className="text-white hover:text-link-blue transition-colors">
                 Case Studies
               </Link>
-              <Link href="/blog" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="/blog" className="text-white hover:text-link-blue transition-colors">
                 Blog
               </Link>
-              <Link href="/privacy-policy" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="/privacy-policy" className="text-white hover:text-link-blue transition-colors">
                 Privacy
               </Link>
-              <Link href="/terms-of-service" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="/terms-of-service" className="text-white hover:text-link-blue transition-colors">
                 Terms
               </Link>
             </div>
@@ -34,19 +33,19 @@ export default function Footer() {
 
           {/* Right — CTAs + social */}
           <div className="flex flex-col items-center gap-3 md:items-end">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               <a
                 href={CALENDAR_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                className="inline-flex items-center gap-1.5 text-sm font-ui text-white hover:text-link-blue transition-colors"
               >
                 <Calendar className="h-3.5 w-3.5" />
                 Book a Call
               </a>
               <a
                 href="mailto:armchairfuturist@gmail.com"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className="inline-flex items-center gap-1.5 text-sm font-ui text-white hover:text-link-blue transition-colors"
               >
                 <Mail className="h-3.5 w-3.5" />
                 Email
@@ -57,7 +56,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/in/alex-myers-34572a10/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className="text-white hover:text-link-blue transition-colors"
                 aria-label="LinkedIn Profile"
               >
                 <Linkedin className="h-5 w-5" />
@@ -66,7 +65,7 @@ export default function Footer() {
                 href={SUBSTACK_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className="text-white hover:text-link-blue transition-colors"
                 aria-label="Substack Profile"
               >
                 <svg
