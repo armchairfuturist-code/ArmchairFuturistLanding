@@ -79,14 +79,14 @@ export default {
   				ring: 'hsl(var(--sidebar-ring))'
   			}
   		},
-      typography: (theme) => ({
+      typography: ((theme: (name: string) => string) => ({
         DEFAULT: {
           css: {
             color: theme('colors.wired-black'),
             fontFamily: theme('fontFamily.body'),
           },
         },
-      }),
+      })),
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
