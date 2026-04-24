@@ -2,7 +2,6 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import Script from 'next/script';
-import { Playfair_Display, Lora, Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import Header from '@/components/layout/Header';
@@ -11,29 +10,10 @@ import ScrollToTop from '@/components/ui/ScrollToTop';
 import { cn } from '@/lib/utils';
 import FirebaseAnalytics from '@/components/analytics/FirebaseAnalytics';
 
-const playfairDisplay = Playfair_Display({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800', '900'],
-  variable: '--font-display',
-});
-
-const lora = Lora({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-body',
-});
-
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-ui',
-});
-
-const jetBrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-mono',
-});
+// PlayStation-inspired font system
+// SST (Sony proprietary) -> Arial -> Helvetica fallback
+// Display headlines use weight 300 for "quiet authority" voice
+// Body and UI use weights 500-700
 
 const siteUrl = 'https://thearmchairfuturist.com';
 
@@ -119,7 +99,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={cn(playfairDisplay.variable, lora.variable, inter.variable, jetBrainsMono.variable, "font-sans antialiased flex flex-col min-h-screen")}>
+      <body className={cn("font-sans antialiased flex flex-col min-h-screen")} style={{ fontFamily: "Arial, Helvetica, sans-serif" }}>
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <Script
             strategy="afterInteractive"

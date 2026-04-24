@@ -49,82 +49,86 @@
 
 @layer base {
   :root {
-    /* WIRED Design Tokens */
-    --wired-black: 0 0% 0%; /* #000000 */
-    --wired-white: 0 0% 100%; /* #FFFFFF */
-    --link-blue: 201 100% 24%; /* #057dbc */
-    --footer-ink: 0 0% 10%; /* #1a1a1a */
-    --paper-white: 0 0% 98%; /* #fafafa */
-    
-    /* WIRED Typography */
-    --font-display: 'Playfair Display', serif;
-    --font-body: 'Lora', serif;
-    --font-ui: 'Inter', sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
-    
-    /* Standard colors (WIRED-inspired) */
-    --background: 0 0% 98%; /* Paper white */
+    /* PlayStation Design Tokens */
+    --ps-blue: 208 100% 40%; /* #0070cc */
+    --ps-cyan: 198 100% 46%; /* #1eaedb */
+    --commerce-orange: 14 100% 43%; /* #d53b00 */
+    --commerce-orange-active: 14 100% 33%; /* #aa2f00 */
+    --paper-white: 0 0% 100%; /* #ffffff */
+    --ice-mist: 210 33% 98%; /* #f5f7fa */
+    --divider-tint: 0 0% 95%; /* #f3f3f3 */
+    --masthead-black: 0 0% 0%; /* #000000 */
+    --shadow-black: 0 0% 7%; /* #121314 */
+
+    /* PlayStation Typography */
+    --font-display: 'Arial', 'Helvetica', sans-serif;
+    --font-body: 'Arial', 'Helvetica', sans-serif;
+    --font-ui: 'Arial', 'Helvetica', sans-serif;
+    --font-mono: 'Courier New', 'Courier', monospace;
+
+    /* Standard colors (PlayStation-inspired) */
+    --background: 0 0% 100%; /* Paper white */
     --foreground: 0 0% 0%; /* Black */
     --card: 0 0% 100%; /* White */
     --card-foreground: 0 0% 0%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 0%;
-    --primary: 201 100% 24%; /* Link Blue */
+    --primary: 208 100% 40%; /* PlayStation Blue */
     --primary-foreground: 0 0% 100%; /* White */
     --secondary: 0 0% 95%; /* Light gray */
     --secondary-foreground: 0 0% 0%;
     --muted: 0 0% 90%; /* Light gray */
     --muted-foreground: 0 0% 40%; /* Gray */
-    --accent: 201 100% 24%; /* Link Blue */
+    --accent: 198 100% 46%; /* PlayStation Cyan */
     --accent-foreground: 0 0% 100%;
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 350 76% 45%; /* Warning Red */
     --destructive-foreground: 0 0% 100%;
     --border: 0 0% 85%; /* Light gray */
     --input: 0 0% 85%;
-    --ring: 201 100% 24%; /* Link Blue */
+    --ring: 208 100% 40%; /* PlayStation Blue */
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0; /* Square corners for WIRED style */
+    --radius: 999px; /* Full pill for PlayStation buttons */
 
     /* Hero specific text colors */
     --hero-title-color-1: 0 0% 0%; /* Black */
-    --hero-title-color-2: 201 100% 24%; /* Link Blue */
+    --hero-title-color-2: 208 100% 40%; /* PlayStation Blue */
 
     /* Sidebar specific variables */
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 0 0% 0%;
-    --sidebar-primary: 201 100% 24%;
+    --sidebar-primary: 208 100% 40%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 0 0% 95%;
     --sidebar-accent-foreground: 0 0% 0%;
     --sidebar-border: 0 0% 85%;
-    --sidebar-ring: 201 100% 24%;
+    --sidebar-ring: 208 100% 40%;
   }
 
   .dark {
-    --background: 222 39% 17%; /* Dark Slate Blue #1E293B */
-    --foreground: 215 20% 90%; /* Light Grey #E2E8F0 */
-    --card: 222 28% 27%; /* #334155 */
-    --card-foreground: 215 20% 90%;
-    --popover: 222 39% 17%;
-    --popover-foreground: 215 20% 90%;
-    --primary: 221 83% 58%; /* Brighter Blue #2563EB */
-    --primary-foreground: 210 100% 98%; 
-    --secondary: 221 20% 35%; /* #475569 */
-    --secondary-foreground: 215 20% 90%;
-    --section-blue-background: 208 40% 25%; /* Dark theme for New Blue #26384D */
-    --muted: 221 20% 35%;
-    --muted-foreground: 215 19% 65%; /* Lighter Slate #94A3B8 */
-    --accent: 215 19% 65%; /* Lighter Slate #94A3B8 */
-    --accent-foreground: 222 39% 10%; /* Dark color for text on light accent */
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 221 20% 35%; /* #475569 */
-    --input: 221 20% 35%;
-    --ring: 221 83% 58%; /* Primary Blue (dark theme variant) */
+    /* PlayStation dark mode - uses shadow-black as base */
+    --background: 0 0% 7%; /* #121314 - Shadow Black */
+    --foreground: 0 0% 100%; /* White */
+    --card: 0 0% 12%; /* Dark card background */
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 208 100% 40%; /* PlayStation Blue */
+    --primary-foreground: 0 0% 100%; /* White */
+    --secondary: 0 0% 18%; /* Dark gray */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 70%; /* Light gray */
+    --accent: 198 100% 46%; /* PlayStation Cyan */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 350 76% 45%; /* Warning Red */
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 18%; /* Dark gray */
+    --input: 0 0% 18%;
+    --ring: 208 100% 40%; /* PlayStation Blue */
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
@@ -133,17 +137,17 @@
 
     /* Hero specific text colors */
     --hero-title-color-1: 0 0% 100%; /* White */
-    --hero-title-color-2: 200 100% 90%; /* Very Pale Cyan/Blue - should contrast well on dark */
+    --hero-title-color-2: 208 100% 40%; /* PlayStation Blue */
 
-    /* Sidebar specific variables - dark theme, retained */
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    /* Sidebar specific variables - dark theme */
+    --sidebar-background: 0 0% 7%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 208 100% 40%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 208 100% 40%;
   }
 
   * {
