@@ -53,3 +53,6 @@ firestore-debug.log
 .next/
 out/
 build/
+
+# qwen
+.qwen/
