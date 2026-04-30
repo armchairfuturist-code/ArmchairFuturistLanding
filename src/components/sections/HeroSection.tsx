@@ -244,7 +244,7 @@ export default function HeroSection() {
 
             {/* Trust signals - simple text, no neon glows */}
             <div className="mt-4 text-xs text-primary-foreground/70 font-mono">
-              15-minute call · No commitment required · $199 entry point
+              15-minute call · No commitment required
             </div>
             <div className="mt-2 flex items-center justify-center gap-1.5 text-xs text-primary-foreground/80">
               <span className="text-green-400">★★★★★</span>
@@ -265,11 +265,6 @@ export default function HeroSection() {
                   10–20 hrs/week
                 </strong>{" "}
                 reclaimed
-              </span>
-              <span className="hidden sm:inline text-white/20">·</span>
-              <span>
-                <strong className="text-primary-foreground">$199</strong> to
-                start
               </span>
             </div>
           </BlurFade>
