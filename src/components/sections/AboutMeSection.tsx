@@ -1,21 +1,54 @@
 "use client";
-import { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
-import { Linkedin, ArrowRight } from 'lucide-react';
-import type { Certification } from '@/types';
-import { BlurFade } from '@/components/ui/blur-fade';
-import { motion } from 'motion/react';
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { Linkedin, ArrowRight } from "lucide-react";
+import type { Certification } from "@/types";
+import { BlurFade } from "@/components/ui/blur-fade";
+import { motion } from "motion/react";
 
 const certificationsData: Certification[] = [
-  { id: "genaiExpert", name: "GenAI Academy Expert", issuerInitials: "GAIE", link: "https://thegenaiacademy.com/expert-hub/alex-myers/", imageSrc: "/expert.png" },
-  { id: "ccmp", name: "Certified Change Management Professional", issuerInitials: "CCMP", imageSrc: "/CCMP.png" },
-  { id: "flta", name: "Certified Futurist & Long-Term Analyst", issuerInitials: "FLTA", imageSrc: "/Futurist.jpg" },
-  { id: "cebp", name: "Certified Enterprise Blockchain Professional", issuerInitials: "CEBP", imageSrc: "/CEBP.png" },
-  { id: "psm", name: "Professional Scrum Master", issuerInitials: "PSM", imageSrc: "/PSM.png" },
-  { id: "pal", name: "Professional Agile Leadership", issuerInitials: "PAL", imageSrc: "/PAL.png" },
+  {
+    id: "genaiExpert",
+    name: "GenAI Academy Expert",
+    issuerInitials: "GAIE",
+    link: "https://thegenaiacademy.com/expert-hub/alex-myers/",
+    imageSrc: "/expert.png",
+  },
+  {
+    id: "ccmp",
+    name: "Certified Change Management Professional",
+    issuerInitials: "CCMP",
+    imageSrc: "/CCMP.png",
+  },
+  {
+    id: "flta",
+    name: "Certified Futurist & Long-Term Analyst",
+    issuerInitials: "FLTA",
+    imageSrc: "/Futurist.jpg",
+  },
+  {
+    id: "cebp",
+    name: "Certified Enterprise Blockchain Professional",
+    issuerInitials: "CEBP",
+    imageSrc: "/CEBP.png",
+  },
+  {
+    id: "psm",
+    name: "Professional Scrum Master",
+    issuerInitials: "PSM",
+    imageSrc: "/PSM.png",
+  },
+  {
+    id: "pal",
+    name: "Professional Agile Leadership",
+    issuerInitials: "PAL",
+    imageSrc: "/PAL.png",
+  },
 ];
 
-const CertificationItem: React.FC<{ certification: Certification }> = ({ certification }) => {
+const CertificationItem: React.FC<{ certification: Certification }> = ({
+  certification,
+}) => {
   const content = (
     <>
       {certification.imageSrc ? (
@@ -27,11 +60,15 @@ const CertificationItem: React.FC<{ certification: Certification }> = ({ certifi
           className="object-contain shrink-0 rounded-sm"
         />
       ) : (
-        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground">
-          <span className="font-semibold text-xs">{certification.issuerInitials}</span>
+        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-white/20 text-primary-foreground/70">
+          <span className="font-semibold text-xs">
+            {certification.issuerInitials}
+          </span>
         </div>
       )}
-      <p className="text-xs text-foreground/80 text-left">{certification.name}</p>
+      <p className="text-xs text-primary-foreground/80 text-left">
+        {certification.name}
+      </p>
     </>
   );
 
@@ -60,12 +97,18 @@ const CertificationItem: React.FC<{ certification: Certification }> = ({ certifi
 };
 
 export default function AboutMeSection() {
-  const expertCertification = certificationsData.find(c => c.id === 'genaiExpert');
-  const otherCertifications = certificationsData.filter(c => c.id !== 'genaiExpert');
+  const expertCertification = certificationsData.find(
+    (c) => c.id === "genaiExpert",
+  );
+  const otherCertifications = certificationsData.filter(
+    (c) => c.id !== "genaiExpert",
+  );
 
   return (
-    <section id="about-me" className="relative py-12 md:py-24 bg-sectionBlue scroll-mt-20 overflow-hidden">
-
+    <section
+      id="about-me"
+      className="relative py-12 md:py-24 bg-usvc-navy text-primary-foreground scroll-mt-20 overflow-hidden"
+    >
       {/* Desktop portrait — absolute, bleeds to right edge of section */}
       <div className="hidden lg:block absolute top-0 right-0 w-[48%] bottom-0 z-0 pointer-events-none">
         <Image
@@ -74,8 +117,9 @@ export default function AboutMeSection() {
           fill
           className="object-contain object-bottom"
           style={{
-            maskImage: 'linear-gradient(to top, black 70%, transparent 95%)',
-            WebkitMaskImage: 'linear-gradient(to top, black 70%, transparent 95%)',
+            maskImage: "linear-gradient(to top, black 70%, transparent 95%)",
+            WebkitMaskImage:
+              "linear-gradient(to top, black 70%, transparent 95%)",
           }}
           loading="lazy"
           sizes="48vw"
@@ -87,13 +131,11 @@ export default function AboutMeSection() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 lg:items-center">
-
           {/* Left Column */}
           <div className="lg:col-span-6 space-y-4">
-
             <div className="flex flex-col">
               {/* Expert Badge */}
               {expertCertification && (
@@ -104,7 +146,7 @@ export default function AboutMeSection() {
                       href={expertCertification.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group inline-flex flex-col items-center p-2 rounded-md bg-white/10 backdrop-blur-sm shadow-md ring-2 ring-primary/35 hover:ring-primary hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary cursor-pointer"
+                      className="group inline-flex flex-col items-center p-2 rounded-md bg-white/10 backdrop-blur-sm shadow-md ring-2 ring-usvc-blue/35 hover:ring-usvc-blue hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-usvc-blue cursor-pointer"
                       aria-label={`${expertCertification.name} (opens in new tab)`}
                     >
                       {expertCertification.imageSrc ? (
@@ -116,11 +158,13 @@ export default function AboutMeSection() {
                           className="object-contain shrink-0 rounded-md"
                         />
                       ) : (
-                        <div className="flex h-[80px] w-[80px] shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground">
-                          <span className="font-semibold text-sm">{expertCertification.issuerInitials}</span>
+                        <div className="flex h-[80px] w-[80px] shrink-0 items-center justify-center rounded-md bg-white/20 text-primary-foreground/70">
+                          <span className="font-semibold text-sm">
+                            {expertCertification.issuerInitials}
+                          </span>
                         </div>
                       )}
-                      <span className="mt-2 text-[11px] font-mono uppercase tracking-widest text-primary/75 group-hover:text-primary transition-colors">
+                      <span className="mt-2 text-[11px] font-mono uppercase tracking-widest text-usvc-blue/75 group-hover:text-usvc-blue transition-colors">
                         Click to verify
                       </span>
                     </a>
@@ -136,8 +180,10 @@ export default function AboutMeSection() {
                   fill
                   className="object-contain object-bottom"
                   style={{
-                    maskImage: 'linear-gradient(to top, black 65%, transparent 95%)',
-                    WebkitMaskImage: 'linear-gradient(to top, black 65%, transparent 95%)',
+                    maskImage:
+                      "linear-gradient(to top, black 65%, transparent 95%)",
+                    WebkitMaskImage:
+                      "linear-gradient(to top, black 65%, transparent 95%)",
                   }}
                   loading="lazy"
                   sizes="100vw"
@@ -147,60 +193,93 @@ export default function AboutMeSection() {
               <BlurFade inView delay={0.2}>
                 <div className="mb-6 text-center lg:text-left">
                   <div className="flex items-center justify-center lg:justify-start gap-3">
-                    <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary">
+                    <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-usvc-blue">
                       Who Is Alex Myers?
                     </h2>
                     <a
                       href="https://www.linkedin.com/in/alex-myers-34572a10/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-primary/55 hover:text-primary transition-colors"
+                      className="text-usvc-blue/55 hover:text-usvc-blue transition-colors"
                       aria-label="Alex Myers LinkedIn Profile"
                     >
                       <Linkedin className="h-5 w-5" />
                     </a>
                   </div>
+                  <p className="text-sm text-usvc-blue/60 font-mono mt-1 uppercase tracking-widest">
+                    Trusted Edge Advisor
+                  </p>
                 </div>
               </BlurFade>
 
               <div className="space-y-5 md:space-y-6">
-                <p className="text-base md:text-lg text-foreground/80 font-sans leading-relaxed">
-                  Most people are exhausted by AI because they&apos;re trying to track a moving target. They see a tidal wave of new apps and feel an obligation to keep up. That pressure is a choice, and usually, it&apos;s the wrong one.
+                <p className="text-base md:text-lg text-primary-foreground/85 font-sans leading-relaxed">
+                  The questions that keep leaders up at 2 AM aren&apos;t about
+                  which API to use. They&apos;re about whether they&apos;ll
+                  still matter five years from now. That&apos;s not a technology
+                  problem. That&apos;s an existential one.
                 </p>
 
-                <p className="text-base md:text-lg text-foreground/80 font-sans leading-relaxed">
-                  I don&apos;t teach people how to use more tools. I help them see the field differently.
+                <p className="text-base md:text-lg text-primary-foreground/85 font-sans leading-relaxed">
+                  I don&apos;t help you track more tools. I help you sit with
+                  the discomfort of change and find your footing on the other
+                  side.
                 </p>
 
-                <p className="text-base md:text-lg text-foreground/80 font-sans leading-relaxed">
-                  When you fix your mental model, the overwhelm disappears. You stop reacting to noise and start making decisions from a position of clarity.
+                <p className="text-base md:text-lg text-primary-foreground/85 font-sans leading-relaxed">
+                  Clarity isn&apos;t about knowing everything. It&apos;s about
+                  knowing what actually matters to you, and what doesn&apos;t.
+                  When you fix your mental model, the overwhelm dissolves. You
+                  stop reacting to noise and start making decisions from a place
+                  of genuine conviction.
                 </p>
 
-                <p className="text-base md:text-lg text-foreground/80 font-sans leading-relaxed">
-                  Many &ldquo;consultants&rdquo; with fancy MBAs can confidently sell you solutions using AI-generated responses you could have found on your own. The game has changed. Answers alone won&apos;t create real change, especially in larger organizations pinned down by inertia, transformation paralysis, and &ldquo;safe&rdquo; thinking. In the generative AI era, that kind of thinking is a death sentence.
+                <p className="text-base md:text-lg text-primary-foreground/85 font-sans leading-relaxed">
+                  I speak two languages: the language of organizational
+                  architecture and the language of human experience. Most people
+                  are fluent in one or the other. The space between them is
+                  where real transformation lives. I help you bridge that gap so
+                  your firm can compound its gains rather than just chasing the
+                  next demo.
                 </p>
 
-                <p className="text-base md:text-lg text-foreground/80 font-sans leading-relaxed">
-                  My leverage: systems thinking, an intuitive grasp of group dynamics, and the ability to ask questions that force real movement. I tell you what I actually think, not what you want to hear. That's how we build solutions that stick. I share what I'm learning about technology's impact on work and human connection; you'll find it on podcasts and in strategic discussions.
+                <p className="text-base md:text-lg text-primary-foreground/85 font-sans leading-relaxed">
+                  My work draws on systems thinking, an intuitive grasp of group
+                  dynamics, and a knack for asking the questions nobody else
+                  will. I tell you what I actually think, not what you want to
+                  hear. That&apos;s the foundation of any solution that
+                  actually sticks.
                 </p>
 
-                <h3 className="text-lg md:text-xl font-bold text-primary pt-2">For the Executive:</h3>
-                <p className="text-base md:text-lg text-foreground/80 font-sans leading-relaxed">
-                  Future leadership requires being bilingual. You have to speak the language of organizational design and the language of AI logic in the same breath. I help you bridge that gap so your firm can actually compound its gains rather than just chasing the next demo.
+                <h3 className="text-lg md:text-xl font-bold text-usvc-blue pt-2">
+                  For the Executive:
+                </h3>
+                <p className="text-base md:text-lg text-primary-foreground/85 font-sans leading-relaxed">
+                  The edge you&apos;re navigating isn&apos;t just
+                  technological. It&apos;s structural, cultural, and deeply
+                  human. I help you see the full landscape, not just the
+                  tools&mdash;so your organization can move with intention
+                  instead of reacting to every shift.
                 </p>
 
-                <h3 className="text-lg md:text-xl font-bold text-primary pt-2">For the Individual:</h3>
-                <p className="text-base md:text-lg text-foreground/80 font-sans leading-relaxed">
-                  I help you find your footing. We work on the questions that matter: How do you live optimistically in a world where intelligence is becoming a cheap utility? How do you reclaim your time for the work that is uniquely yours?
+                <h3 className="text-lg md:text-xl font-bold text-usvc-blue pt-2">
+                  For the Individual:
+                </h3>
+                <p className="text-base md:text-lg text-primary-foreground/85 font-sans leading-relaxed">
+                  I help you find your footing on shifting ground. We work on
+                  the questions that matter: How do you live optimistically in a
+                  world where intelligence is becoming a cheap utility? How do
+                  you reclaim your time for the work that is uniquely yours?
                 </p>
 
-                <p className="flex items-center gap-2 text-base md:text-lg text-primary font-bold font-sans">
+                <p className="flex items-center gap-2 text-base md:text-lg text-usvc-blue font-bold font-sans">
                   <ArrowRight className="w-4 h-4 shrink-0" />
-                  Forget prediction. The goal is to move you from &ldquo;what happens next&rdquo; to &ldquo;here is what I am building.&rdquo;
+                  Forget prediction. The goal is to move you from &ldquo;what
+                  happens next&rdquo; to &ldquo;here is what I am
+                  building.&rdquo;
                 </p>
               </div>
             </div>
-
           </div>
 
           {/* Right Column — contains portrait and certifications */}
@@ -208,13 +287,15 @@ export default function AboutMeSection() {
             {/* Certifications - positioned in the light space below the image */}
             {otherCertifications.length > 0 && (
               <motion.div
-                className="absolute bottom-12 right-8 max-w-md bg-white/40 backdrop-blur-sm rounded-lg p-4"
+                className="absolute bottom-12 right-8 max-w-md bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/10"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.3 }}
               >
-                <p className="text-xs font-mono uppercase tracking-widest text-primary/70 mb-3">Verified Background</p>
+                <p className="text-xs font-mono uppercase tracking-widest text-usvc-blue/70 mb-3">
+                  Verified Background
+                </p>
                 <div className="flex flex-wrap gap-x-4 gap-y-2">
                   {otherCertifications.map((cert) => (
                     <CertificationItem key={cert.id} certification={cert} />
@@ -234,7 +315,9 @@ export default function AboutMeSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.3 }}
           >
-            <p className="text-xs font-mono uppercase tracking-widest text-primary/60 mb-4 text-center lg:text-left">Verified Background</p>
+            <p className="text-xs font-mono uppercase tracking-widest text-usvc-blue/60 mb-4 text-center lg:text-left">
+              Verified Background
+            </p>
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-3">
               {otherCertifications.map((cert) => (
                 <CertificationItem key={cert.id} certification={cert} />

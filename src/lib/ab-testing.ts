@@ -82,9 +82,7 @@ export const EXPERIMENTS: Record<string, Experiment> = {
     description: 'Test different headlines to improve engagement',
     goalMetric: 'hero_headline_impression',
     variants: [
-      { id: 'control', name: 'Control - Intelligence is cheap. Trust is the new scarcity.', weight: 0.33 },
-      { id: 'variant_a', name: 'Variant A - AI can do the work. You provide the trust.', weight: 0.33 },
-      { id: 'variant_b', name: 'Variant B - Stop wasting 20 hours a week on AI chaos', weight: 0.34 },
+      { id: 'variant_c', name: 'Variant C - The edge of change is lonely. You need a guide, not another tool.', weight: 1.0 },
     ],
   },
   HERO_CTA_COPY: {

@@ -360,7 +360,11 @@ export default function ServicesSection() {
           </h2>
           <div className="text-lg text-foreground/80 font-sans leading-relaxed space-y-4">
             <p>Services from $199 to $55,250. Start with the landing page or the AI assessment—then scale into implementation.</p>
-            <p><strong>My promise:</strong> If you aren't happy with our initial discussions, I'll refund you.</p>
+            <p><strong>My promise:</strong> If you aren&apos;t happy with our initial discussions, I&apos;ll refund you.</p>
+            <p className="text-sm text-foreground/60 italic border-l-2 border-primary/30 pl-4">
+              Money is energy flow. If the investment feels right, great. If it feels
+              tight, we&apos;ll find the offer that fits where you are.
+            </p>
             <p className="flex items-center gap-2 text-sm">
               <span className="text-green-500">★★★★★</span>
               <span>4.9/5 from 40+ clients · 10-20 hours/week reclaimed on average</span>
@@ -386,7 +390,7 @@ export default function ServicesSection() {
             </button>
           </div>
           <p className="text-sm text-muted-foreground font-medium animate-in fade-in slide-in-from-bottom-2 duration-700">
-            {activeTrack === 'entrepreneur' ? "For business owners ready to stop drowning in tools and start getting results." : "Structural architecture for organizational scale."}
+            {activeTrack === 'entrepreneur' ? "For business owners navigating the edge of what's next." : "Structural architecture for organizational scale."}
           </p>
         </div>
 

@@ -8,7 +8,7 @@ import { trackEvent } from '@/lib/analytics';
 
 export default function AssessmentCtaSection() {
   return (
-    <section className="py-10 md:py-14 bg-gradient-to-r from-primary/5 via-background to-primary/5 border-y border-border/30">
+    <section className="py-20 md:py-24 bg-usvc-navy border-y border-border/30 scroll-mt-20">
       <motion.div
         className="container mx-auto px-4 md:px-6 max-w-3xl"
         initial={{ opacity: 0, y: 16 }}

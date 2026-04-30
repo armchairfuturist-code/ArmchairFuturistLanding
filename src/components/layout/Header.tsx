@@ -1,26 +1,34 @@
-import React from 'react';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from '@/components/ui/sheet';
-import { Menu, Brain, BookOpen, BarChart3, FileText } from 'lucide-react';
-import Image from 'next/image';
-import { CALENDAR_URL } from '@/lib/constants';
+import React from "react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetHeader,
+  SheetTitle,
+} from "@/components/ui/sheet";
+import { Menu, FileText } from "lucide-react";
+import Image from "next/image";
+import { CALENDAR_URL } from "@/lib/constants";
 
 export default function Header() {
   const navItems = [
-    { href: '/#services', label: 'Services' },
-    { href: '/#case-studies', label: 'Case Studies' },
-    { href: '/#roi-calculator', label: 'ROI Calculator' },
-    { href: '/blog', label: 'Blog', icon: BookOpen },
-    { href: '/#about-me', label: 'About', icon: FileText },
+    { href: "/#services", label: "Services" },
+    { href: "/#case-studies", label: "Case Studies" },
+    { href: "/#roi-calculator", label: "ROI Calculator" },
+    { href: "/blog", label: "Blog" },
+    { href: "/#about-me", label: "About", icon: FileText },
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-masthead-black text-white">
-      {/* Main navigation - PlayStation style */}
-      <div className="bg-masthead-black">
-        <div className="container max-w-screen-2xl mx-auto px-4 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2">
+    <header className="sticky top-0 z-50 w-full bg-console-black text-white">
+      {/* Merged PlayStation + USVC navigation */}
+      {/* Black backdrop at every scroll position — PlayStation convention */}
+      <div className="bg-console-black border-b border-[#b2d5ff]/10">
+        <div className="container max-w-screen-2xl mx-auto px-4 h-13 flex items-center justify-between">
+          {/* Logo — left-aligned (USVC-style) */}
+          <Link href="/" className="flex items-center space-x-3">
             <Image
               src="/img.jpg"
               alt="Site Logo"
@@ -28,55 +36,62 @@ export default function Header() {
               height={32}
               className="rounded-full object-cover border border-white/20"
             />
-            <span className="font-bold text-base" style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}>
+            <span className="font-medium text-sm tracking-tight text-white font-display">
               The Armchair Futurist
             </span>
           </Link>
 
+          {/* Nav links — center (USVC-style layout) */}
           <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-sm font-medium text-white hover:text-link-hover-blue transition-colors"
+                className="text-sm font-[400] text-white/80 hover:text-usvc-blue transition-colors duration-300 underline-animate"
               >
                 {item.label}
               </Link>
             ))}
           </nav>
 
+          {/* CTAs — right-aligned (USVC-style) */}
           <div className="hidden md:flex items-center gap-4">
             <Link
               href="/assessment"
-              className="text-sm text-white hover:text-link-hover-blue transition-colors"
+              className="text-sm text-white/70 hover:text-usvc-blue transition-colors duration-300"
             >
               Free Assessment
             </Link>
-            <Button
-              asChild
-              className="bg-ps-blue text-white hover:bg-ps-cyan hover:scale-110 transition-all duration-180 rounded-full"
-            >
+            <Button asChild variant="default" size="default">
               <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer">
                 Book Call
               </a>
             </Button>
           </div>
 
+          {/* Mobile hamburger */}
           <div className="md:hidden">
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="text-white hover:text-ps-cyan">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-white hover:text-usvc-blue"
+                >
                   <Menu className="h-6 w-6" />
                   <span className="sr-only">Toggle Menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[240px] sm:w-[300px] bg-masthead-black text-white">
+              <SheetContent
+                side="right"
+                className="w-[260px] sm:w-[300px] bg-console-black text-white border-l border-[#b2d5ff]/20"
+              >
                 <SheetHeader>
                   <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
                 </SheetHeader>
                 <div className="flex flex-col space-y-4 p-4">
-                  <Link href="/" className="flex items-center space-y-2 mb-4">
-                    <div className="flex items-center space-x-2">
+                  <Link href="/" className="flex items-center space-y-3 mb-6">
+                    <div className="flex items-center space-x-3">
                       <Image
                         src="/img.jpg"
                         alt="Site Logo"
@@ -84,7 +99,7 @@ export default function Header() {
                         height={32}
                         className="rounded-full object-cover border border-white/20"
                       />
-                      <span className="font-bold text-base" style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}>
+                      <span className="font-medium text-sm tracking-tight text-white font-display">
                         The Armchair Futurist
                       </span>
                     </div>
@@ -93,7 +108,7 @@ export default function Header() {
                     <Link
                       key={item.label}
                       href={item.href}
-                      className="inline-flex items-center gap-2 text-sm font-medium text-white hover:text-ps-cyan transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ps-blue focus-visible:ring-offset-2 focus-visible:rounded-sm"
+                      className="inline-flex items-center gap-2 text-sm font-[400] text-white/80 hover:text-usvc-blue transition-colors"
                     >
                       {item.icon && <item.icon className="h-4 w-4" />}
                       {item.label}
@@ -101,13 +116,21 @@ export default function Header() {
                   ))}
                   <Link
                     href="/assessment"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-ps-blue hover:text-ps-cyan transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ps-blue focus-visible:ring-offset-2 focus-visible:rounded-sm"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-usvc-blue hover:text-ps-cyan transition-colors mt-2"
                   >
-                    <Brain className="h-4 w-4" />
                     Free AI Assessment
                   </Link>
-                  <Button asChild className="w-full bg-ps-blue text-white hover:bg-ps-cyan hover:scale-110 transition-all duration-180 rounded-full">
-                    <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer">
+                  <Button
+                    asChild
+                    variant="default"
+                    size="default"
+                    className="w-full mt-2"
+                  >
+                    <a
+                      href={CALENDAR_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Book a Free Strategy Call
                     </a>
                   </Button>

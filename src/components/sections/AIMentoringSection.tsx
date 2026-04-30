@@ -33,13 +33,17 @@ export default function AIMentoringSection() {
           <div className="text-center mb-12">
             <p className="text-xs text-muted-foreground/60 font-mono mb-2">Last updated: February 2026</p>
             <p className="text-sm font-mono text-primary uppercase tracking-widest mb-3">
-              AI Mentoring
+              One-on-One Mentoring
             </p>
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
-              What Is AI Mentoring and Who Is It For?
+              Navigating the edge isn&apos;t a solo journey
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              AI mentoring is one-on-one coaching that helps you move from AI anxiety to agency. Most AI &quot;training&quot; teaches tools. Alex mentors people. Whether you&apos;re a seasoned executive or early in your career, the real barrier isn&apos;t technical. It&apos;s the story you&apos;re telling yourself about what&apos;s coming.
+              Most &quot;training&quot; teaches tools. This is different. Whether you&apos;re
+              a seasoned executive or early in your career, the real barrier
+              isn&apos;t technical&mdash;it&apos;s the story you&apos;re telling yourself about
+              what&apos;s coming. I help you rewrite that story, one conversation at a
+              time.
             </p>
           </div>
         </BlurFade>
@@ -69,12 +73,12 @@ export default function AIMentoringSection() {
         <BlurFade inView delay={0.3}>
           <div className="text-center">
             <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-              This isn&apos;t for everyone. It&apos;s for people who want to lead their own AI journey, not be dragged along by it. Sessions start at $97.
+              This isn&apos;t for everyone. It&apos;s for people who want to lead their own journey, not be dragged along by it. Sessions start at $97.
             </p>
             <Button asChild size="lg" className="h-12 px-8 text-base font-bold">
               <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackConversion('mentoring_book_session', 97)}>
                 <CalendarDays className="mr-2 h-5 w-5" />
-                Book a Mentoring Session
+                Book a Session
               </a>
             </Button>
           </div>
