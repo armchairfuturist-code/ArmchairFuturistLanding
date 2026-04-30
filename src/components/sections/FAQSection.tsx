@@ -21,7 +21,7 @@ interface FAQItem {
 const faqItems: FAQItem[] = [
   {
     question: "What is the Armchair Futurist?",
-    answer: "The Armchair Futurist is Alex Myers' advisory practice. He helps leaders and organizations navigate AI adoption, bridging the gap between what AI produces and what businesses actually need. Services range from a $199 landing page to a $55,250 transformation lab."
+    answer: "The Armchair Futurist is Alex Myers' advisory practice. He helps leaders and organizations work through AI adoption, bridging the gap between what AI produces and what businesses actually need. Services range from a $199 landing page to a $55,250 transformation lab."
   },
   {
     question: "What is the Accountability Gap in AI adoption?",

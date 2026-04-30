@@ -14,7 +14,7 @@ const signals = [
   {
     icon: Compass,
     title: "Perspective",
-    body: "Once the fog clears, we map the full landscape. Not just the tools, but the structures, the people, the incentives, and the unspoken fears that keep organizations stuck.",
+    body: "Once the fog clears, we see the whole picture. Not just the tools, but the structures, the people, the incentives, and the unspoken fears that keep organizations stuck.",
   },
   {
     icon: ArrowRightLeft,

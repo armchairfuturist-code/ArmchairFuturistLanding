@@ -255,9 +255,9 @@ export default function AboutMeSection() {
                   For the Executive:
                 </h3>
                 <p className="text-base md:text-lg text-primary-foreground/85 font-sans leading-relaxed">
-                  The edge you&apos;re navigating isn&apos;t just
+                  The edge you&apos;re standing at isn&apos;t just
                   technological. It&apos;s structural, cultural, and deeply
-                  human. I help you see the full landscape, not just the
+                  human. I help you see the whole field, not just the
                   tools&mdash;so your organization can move with intention
                   instead of reacting to every shift.
                 </p>

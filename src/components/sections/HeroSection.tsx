@@ -159,8 +159,8 @@ export default function HeroSection() {
     >
       {/* Semantic H1 for SEO */}
       <h1 className="sr-only">
-        Alex Myers — Trusted Edge Advisor | Helping Leaders Navigate the Space
-        Between What Was and What&apos;s Next
+        Alex Myers — Trusted Edge Advisor | Helping Leaders Find Their Way
+        Through What&apos;s Next
       </h1>
 
       {/* Video background */}
@@ -202,7 +202,7 @@ export default function HeroSection() {
 
           <BlurFade delay={0.4} inView>
             <p className="text-primary-foreground/95 text-lg md:text-xl max-w-2xl mx-auto hero-text-shadow font-sans leading-relaxed">
-              I help you navigate the edge of change — the space between what
+              I help you find your way through the edge of change — the space between what
               was and what&apos;s next.
             </p>
           </BlurFade>

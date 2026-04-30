@@ -62,7 +62,7 @@ const keyFindings = [
   {
     title: "The Accountability Gap",
     finding: "67% of stalled AI projects have no clear owner for outcomes. AI produces outputs; no one translates them into business results.",
-    implication: "Assigning 'Human Architects'—people who bridge AI outputs to business outcomes—is the single highest-leverage intervention"
+    implication: "Assigning 'Human Architects'—people who bridge AI outputs to business outcomes—is the single most effective intervention"
   },
   {
     title: "Time-to-Value Compression",
