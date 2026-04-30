@@ -246,10 +246,6 @@ export default function HeroSection() {
             <div className="mt-4 text-xs text-primary-foreground/70 font-mono">
               15-minute call · No commitment required
             </div>
-            <div className="mt-2 flex items-center justify-center gap-1.5 text-xs text-primary-foreground/80">
-              <span className="text-green-400">★★★★★</span>
-              <span>4.9/5 from 40+ clients</span>
-            </div>
           </BlurFade>
 
           {/* Asymmetric layout: stats integrated into the narrative */}
