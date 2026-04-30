@@ -1,24 +1,25 @@
 "use client";
-import Link from 'next/link';
-import { Compass, Bot, ShieldCheck } from 'lucide-react';
-import { BlurFade } from '@/components/ui/blur-fade';
-import { motion } from 'motion/react';
+import Link from "next/link";
+import { Eye, Compass, ArrowRightLeft } from "lucide-react";
+import { BlurFade } from "@/components/ui/blur-fade";
+import { LetterSpacingReveal } from "@/components/ui/letter-spacing-reveal";
+import { motion } from "motion/react";
 
 const signals = [
   {
+    icon: Eye,
+    title: "Presence",
+    body: "Before we move anywhere, we stop. I help you sit with the uncertainty long enough to see what's actually there — not what the noise tells you to see.",
+  },
+  {
     icon: Compass,
-    title: 'Human Architect',
-    body: 'Direction-setting with business context, decision rights, and measurable ownership.',
+    title: "Perspective",
+    body: "Once the fog clears, we map the full landscape. Not just the tools, but the structures, the people, the incentives, and the unspoken fears that keep organizations stuck.",
   },
   {
-    icon: Bot,
-    title: 'High-Vocabulary Prompting',
-    body: 'Clear intent capture to reduce ambiguity before execution enters production.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Last Mile Polishing',
-    body: 'AI is a construction crane: it can raise most of the building, but the final finish still needs human tweezers. Middle-to-middle, not end-to-end.',
+    icon: ArrowRightLeft,
+    title: "Safe Passage",
+    body: "AI is a construction crane: it can raise most of the building, but the final finish still needs human tweezers. The bridge from fear to agency is built together, one step at a time.",
   },
 ];
 
@@ -29,14 +30,19 @@ export default function ChallengeSection() {
         <BlurFade inView>
           <div className="max-w-5xl mx-auto text-center mb-12">
             <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary mb-5">
-              Why Does AI Adoption Stall in Most Organizations?
+              <LetterSpacingReveal
+                text="The edge of change is where everything shifts"
+                className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary"
+                duration={0.8}
+              />
             </h2>
             <p className="text-lg md:text-xl text-foreground/80 font-sans leading-relaxed max-w-3xl mx-auto">
-              AI adoption stalls because of people, not technology. Most companies layer AI onto existing processes without rethinking workflows, incentives, or decision rights. The result is an{' '}
-              <Link href="/concepts/accountability-gap" className="text-primary font-semibold hover:underline">
-                Accountability Gap
-              </Link>
-              —the space between an AI output and a business result. Alex Myers bridges that gap as your Trusted Human Architect.
+              Most organizations know they need to move. What they don&apos;t
+              know is where the ground is solid. That&apos;s the
+              edge&mdash;the space between what was and what&apos;s next. I
+              help you see the full field, so you can move with intention
+              instead of reacting to every shift. The result? Fewer false
+              starts and more traction where it actually counts.
             </p>
           </div>
         </BlurFade>

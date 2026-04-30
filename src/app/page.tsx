@@ -13,7 +13,6 @@ import SpeakingSection from '@/components/sections/SpeakingSection';
 import FAQSection from '@/components/sections/FAQSection';
 import AssessmentCtaSection from '@/components/sections/AssessmentCtaSection';
 import KeyStatsSection from '@/components/sections/KeyStatsSection';
-import EmailCaptureSection from '@/components/sections/EmailCaptureSection';
 import CaseStudiesSection from '@/components/sections/CaseStudiesSection';
 import InsightsSection from '@/components/sections/InsightsSection';
 import ROICalculatorSection from '@/components/sections/ROICalculatorSection';
@@ -54,9 +53,6 @@ export default function HomePage() {
 
       {/* ROI CALCULATOR — interactive time-savings estimator */}
       <ROICalculatorSection />
-
-      {/* EMAIL CAPTURE — lead magnet for non-ready visitors */}
-      <EmailCaptureSection />
 
       {/* SPEAKING — keynotes, roundtables, workshops */}
       <SpeakingSection />

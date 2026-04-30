@@ -1,83 +1,84 @@
-
-import type { Metadata } from 'next';
-import { Suspense } from 'react';
-import Script from 'next/script';
-import './globals.css';
+import type { Metadata } from "next";
+import { Suspense } from "react";
+import Script from "next/script";
+import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
-import ScrollToTop from '@/components/ui/ScrollToTop';
-import { cn } from '@/lib/utils';
-import FirebaseAnalytics from '@/components/analytics/FirebaseAnalytics';
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import ScrollToTop from "@/components/ui/ScrollToTop";
+import { cn } from "@/lib/utils";
+import FirebaseAnalytics from "@/components/analytics/FirebaseAnalytics";
 
-// PlayStation-inspired font system
-// SST (Sony proprietary) -> Arial -> Helvetica fallback
-// Display headlines use weight 300 for "quiet authority" voice
-// Body and UI use weights 500-700
+// Apple SF Pro design system
+// Display headlines: system-ui, -apple-system, sans-serif (SF Pro on Apple, Inter substitute)
+// Body/UI: Inter, system-ui, sans-serif — SF Pro substitute with Apple tracking rules
 
-const siteUrl = 'https://thearmchairfuturist.com';
+const siteUrl = "https://thearmchairfuturist.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'The Armchair Futurist - Alex Myers | AI Strategy Advisor',
-    template: '%s | The Armchair Futurist'
+    default: "The Armchair Futurist - Alex Myers | Trusted Edge Advisor",
+    template: "%s | The Armchair Futurist",
   },
-  description: 'Alex Myers is a certified futurist and AI strategy advisor who helps leaders navigate AI adoption, close the accountability gap, and reclaim 10-20 hours per week through human-first execution. Based in Portugal, serving clients worldwide.',
+  description:
+    "Alex Myers is a certified futurist and trusted edge advisor who helps leaders navigate the space between what was and what&apos;s next. Based in Portugal, serving clients worldwide.",
   authors: [
-    { 
-      name: 'Alex Myers', 
-      url: 'https://www.linkedin.com/in/alex-myers-34572a10/' 
-    }
+    {
+      name: "Alex Myers",
+      url: "https://www.linkedin.com/in/alex-myers-34572a10/",
+    },
   ],
-  creator: 'Alex Myers',
-  publisher: 'The Armchair Futurist',
+  creator: "Alex Myers",
+  publisher: "The Armchair Futurist",
   keywords: [
-    'AI Strategy',
-    'AI Adoption',
-    'Change Management',
-    'Future of Work',
-    'Organizational Design',
-    'Digital Transformation',
-    'AI Mentoring',
-    'Workflow Automation',
-    'Accountability Gap',
-    'Psychology-Led Adoption',
-    'Alex Myers',
-    'Certified Futurist',
-    'AI Consultant'
+    "AI Strategy",
+    "AI Adoption",
+    "Change Management",
+    "Future of Work",
+    "Organizational Design",
+    "Digital Transformation",
+    "AI Mentoring",
+    "Workflow Automation",
+    "Accountability Gap",
+    "Psychology-Led Adoption",
+    "Alex Myers",
+    "Certified Futurist",
+    "AI Consultant",
   ],
   icons: {
-    icon: '/img.jpg',
-    apple: '/img.jpg',
+    icon: "/img.jpg",
+    apple: "/img.jpg",
   },
   alternates: {
-    canonical: '/',
+    canonical: "/",
   },
   openGraph: {
-    title: 'The Armchair Futurist - Alex Myers | AI Strategy Advisor',
-    description: 'Alex Myers is a certified futurist and AI strategy advisor who helps leaders navigate AI adoption, close the accountability gap, and reclaim 10-20 hours per week through human-first execution.',
-    url: '/',
-    siteName: 'The Armchair Futurist',
+    title: "The Armchair Futurist - Alex Myers | Trusted Edge Advisor",
+    description:
+      "Alex Myers is a certified futurist and trusted edge advisor who helps leaders navigate the space between what was and what&apos;s next.",
+    url: "/",
+    siteName: "The Armchair Futurist",
     images: [
       {
-        url: '/floop.jpg',
+        url: "/floop.jpg",
         width: 1200,
         height: 630,
-        alt: 'Alex Myers - The Armchair Futurist - AI Strategy Advisor',
-        type: 'image/jpeg',
+        alt: "Alex Myers - The Armchair Futurist - Trusted Edge Advisor",
+        type: "image/jpeg",
       },
     ],
-    type: 'website',
-    locale: 'en_US',
-    alternateLocale: 'en_US',
+    type: "website",
+    locale: "en_US",
+    alternateLocale: "en_US",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'The Armchair Futurist - Alex Myers | AI Strategy Advisor',
-    description: 'Alex Myers is a certified futurist and AI strategy advisor who helps leaders navigate AI adoption, close the accountability gap, and reclaim 10-20 hours per week through human-first execution.',
-    images: ['/floop.jpg'],
-    creator: '@armchairfuturist',
+    card: "summary_large_image",
+    title: "The Armchair Futurist - Alex Myers | Trusted Edge Advisor",
+    description:
+      "Alex Myers is a certified futurist and trusted edge advisor who helps leaders navigate the space between what was and what&apos;s next.",
+    images: ["/floop.jpg"],
+    creator: "@armchairfuturist",
   },
   robots: {
     index: true,
@@ -85,12 +86,24 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
 };
+
+// Apple SF Pro typography system — Inter (Google Fonts) as open-source substitute
+// Display: system-ui, -apple-system, sans-serif → resolves to SF Pro on Apple devices
+// Body: Inter via Google Fonts for cross-platform consistency
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-body",
+  weight: ["300", "400", "500", "600", "700"],
+});
 
 export default function RootLayout({
   children,
@@ -99,7 +112,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={cn("font-sans antialiased flex flex-col min-h-screen")} style={{ fontFamily: "Arial, Helvetica, sans-serif" }}>
+      <body
+        className={cn(
+          inter.variable,
+          "font-sans antialiased flex flex-col min-h-screen",
+        )}
+      >
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <Script
             strategy="afterInteractive"
@@ -107,10 +125,7 @@ export default function RootLayout({
           />
         )}
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
-          <Script
-            id="google-analytics"
-            strategy="afterInteractive"
-          >
+          <Script id="google-analytics" strategy="afterInteractive">
             {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
@@ -129,11 +144,12 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              "name": "The Armchair Futurist",
-              "url": "https://thearmchairfuturist.com",
-              "description": "Alex Myers is a certified futurist and AI strategy advisor who helps leaders navigate AI adoption, close the accountability gap, and reclaim 10-20 hours per week.",
-              "author": { "@id": "https://thearmchairfuturist.com/#person" }
-            })
+              name: "The Armchair Futurist",
+              url: "https://thearmchairfuturist.com",
+              description:
+                "Alex Myers is a certified futurist and AI strategy advisor who helps leaders navigate AI adoption, close the accountability gap, and reclaim 10-20 hours per week.",
+              author: { "@id": "https://thearmchairfuturist.com/#person" },
+            }),
           }}
         />
         {/* ProfessionalService Schema */}
@@ -143,88 +159,108 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "ProfessionalService",
-              "name": "The Armchair Futurist - Alex Myers",
-              "description": "AI strategy advisory helping leaders close the accountability gap between AI outputs and business results through human-first execution.",
-              "url": "https://thearmchairfuturist.com",
-              "image": "https://thearmchairfuturist.com/floop.jpg",
-              "logo": "https://thearmchairfuturist.com/img.jpg",
-              "founder": { "@id": "https://thearmchairfuturist.com/#person" },
-              "address": {
+              name: "The Armchair Futurist - Alex Myers",
+              description:
+                "AI strategy advisory helping leaders close the accountability gap between AI outputs and business results through human-first execution.",
+              url: "https://thearmchairfuturist.com",
+              image: "https://thearmchairfuturist.com/floop.jpg",
+              logo: "https://thearmchairfuturist.com/img.jpg",
+              founder: { "@id": "https://thearmchairfuturist.com/#person" },
+              address: {
                 "@type": "PostalAddress",
-                "addressCountry": "PT"
+                addressCountry: "PT",
               },
-              "priceRange": "$97 - $55,250",
-              "areaServed": "Worldwide",
-              "knowsAbout": ["AI Strategy", "Change Management", "Future of Work", "Digital Transformation", "AI Adoption", "Organizational Design"],
-              "hasOfferCatalog": {
+              priceRange: "$97 - $55,250",
+              areaServed: "Worldwide",
+              knowsAbout: [
+                "AI Strategy",
+                "Change Management",
+                "Future of Work",
+                "Digital Transformation",
+                "AI Adoption",
+                "Organizational Design",
+              ],
+              hasOfferCatalog: {
                 "@type": "OfferCatalog",
-                "name": "AI Strategy & Advisory Services",
-                "itemListElement": [
+                name: "AI Strategy & Advisory Services",
+                itemListElement: [
                   {
                     "@type": "Offer",
-                    "itemOffered": {
+                    itemOffered: {
                       "@type": "Service",
-                      "name": "Digital Identity Landing Page",
-                      "description": "Interview-ready digital identity site that translates your LinkedIn, resume, and social links into one professional platform you own. Delivered in 2-4 days.",
-                      "provider": { "@id": "https://thearmchairfuturist.com/#person" }
+                      name: "Digital Identity Landing Page",
+                      description:
+                        "Interview-ready digital identity site that translates your LinkedIn, resume, and social links into one professional platform you own. Delivered in 2-4 days.",
+                      provider: {
+                        "@id": "https://thearmchairfuturist.com/#person",
+                      },
                     },
-                    "price": "199",
-                    "priceCurrency": "USD"
+                    price: "199",
+                    priceCurrency: "USD",
                   },
                   {
                     "@type": "Offer",
-                    "itemOffered": {
+                    itemOffered: {
                       "@type": "Service",
-                      "name": "Custom AI Provisioning",
-                      "description": "Done-for-you private AI command center with API integrations, workflow automation, and secure infrastructure. Reclaim 10-20 hours per week.",
-                      "provider": { "@id": "https://thearmchairfuturist.com/#person" }
+                      name: "Custom AI Provisioning",
+                      description:
+                        "Done-for-you private AI command center with API integrations, workflow automation, and secure infrastructure. Reclaim 10-20 hours per week.",
+                      provider: {
+                        "@id": "https://thearmchairfuturist.com/#person",
+                      },
                     },
-                    "price": "1000",
-                    "priceCurrency": "USD",
-                    "priceSpecification": {
+                    price: "1000",
+                    priceCurrency: "USD",
+                    priceSpecification: {
                       "@type": "PriceSpecification",
-                      "minPrice": "1000",
-                      "maxPrice": "5000",
-                      "priceCurrency": "USD"
-                    }
+                      minPrice: "1000",
+                      maxPrice: "5000",
+                      priceCurrency: "USD",
+                    },
                   },
                   {
                     "@type": "Offer",
-                    "itemOffered": {
+                    itemOffered: {
                       "@type": "Service",
-                      "name": "AI Mentoring & Mindset Coaching",
-                      "description": "One-on-one AI mentoring that moves you from anxiety to agency. Combines practical tool guidance with mindset reframing for leaders and professionals.",
-                      "provider": { "@id": "https://thearmchairfuturist.com/#person" }
+                      name: "AI Mentoring & Mindset Coaching",
+                      description:
+                        "One-on-one AI mentoring that moves you from anxiety to agency. Combines practical tool guidance with mindset reframing for leaders and professionals.",
+                      provider: {
+                        "@id": "https://thearmchairfuturist.com/#person",
+                      },
                     },
-                    "price": "97",
-                    "priceCurrency": "USD",
-                    "priceSpecification": {
+                    price: "97",
+                    priceCurrency: "USD",
+                    priceSpecification: {
                       "@type": "PriceSpecification",
-                      "minPrice": "97",
-                      "maxPrice": "497",
-                      "priceCurrency": "USD"
-                    }
+                      minPrice: "97",
+                      maxPrice: "497",
+                      priceCurrency: "USD",
+                    },
                   },
                   {
                     "@type": "Offer",
-                    "itemOffered": {
+                    itemOffered: {
                       "@type": "Service",
-                      "name": "AI Infusion Lab",
-                      "description": "10-week organizational transformation lab for launching AI initiatives at the edge, validating new business models, and designing human-machine workflows.",
-                      "provider": { "@id": "https://thearmchairfuturist.com/#person" }
+                      name: "AI Infusion Lab",
+                      description:
+                        "10-week organizational transformation lab for launching AI initiatives at the edge, validating new business models, and designing human-machine workflows.",
+                      provider: {
+                        "@id": "https://thearmchairfuturist.com/#person",
+                      },
                     },
-                    "price": "38250",
-                    "priceCurrency": "USD",
-                    "priceSpecification": {
+                    price: "38250",
+                    priceCurrency: "USD",
+                    priceSpecification: {
                       "@type": "PriceSpecification",
-                      "minPrice": "38250",
-                      "maxPrice": "55250",
-                      "priceCurrency": "USD"
-                    }
-                  }
-                ]
-              }
-            })
+                      minPrice: "38250",
+                      maxPrice: "55250",
+                      priceCurrency: "USD",
+                    },
+                  },
+                ],
+              },
+            }),
           }}
         />
         {/* Person Schema - Enhanced with awards, publications, and full credentials */}
@@ -235,24 +271,25 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               "@id": "https://thearmchairfuturist.com/#person",
-              "name": "Alex Myers",
-              "givenName": "Alex",
-              "familyName": "Myers",
-              "jobTitle": "Certified Futurist & AI Strategy Advisor",
-              "url": "https://thearmchairfuturist.com",
-              "image": "https://thearmchairfuturist.com/alexheadshot-nobg.png",
-              "description": "Alex Myers is a certified futurist, AI strategy advisor, and change management professional who helps leaders and organizations bridge the accountability gap between AI outputs and business results. Based in Portugal, serving clients worldwide.",
-              "address": {
+              name: "Alex Myers",
+              givenName: "Alex",
+              familyName: "Myers",
+              jobTitle: "Certified Futurist & AI Strategy Advisor",
+              url: "https://thearmchairfuturist.com",
+              image: "https://thearmchairfuturist.com/alexheadshot-nobg.png",
+              description:
+                "Alex Myers is a certified futurist, AI strategy advisor, and change management professional who helps leaders and organizations bridge the accountability gap between AI outputs and business results. Based in Portugal, serving clients worldwide.",
+              address: {
                 "@type": "PostalAddress",
-                "addressCountry": "PT",
-                "addressLocality": "Portugal"
+                addressCountry: "PT",
+                addressLocality: "Portugal",
               },
-              "sameAs": [
+              sameAs: [
                 "https://www.linkedin.com/in/alex-myers-34572a10/",
                 "https://armchairfuturist.substack.com/",
-                "https://thegenaiacademy.com/expert-hub/alex-myers/"
+                "https://thegenaiacademy.com/expert-hub/alex-myers/",
               ],
-              "knowsAbout": [
+              knowsAbout: [
                 "Artificial Intelligence Strategy",
                 "AI Adoption & Change Management",
                 "Future of Work",
@@ -263,70 +300,73 @@ export default function RootLayout({
                 "Agile & Scrum",
                 "AI Mentoring",
                 "Psychology-Led Adoption",
-                "Human-Machine Workflow Design"
+                "Human-Machine Workflow Design",
               ],
-              "hasCredential": [
-                { 
-                  "@type": "EducationalOccupationalCredential", 
-                  "credentialCategory": "certification", 
-                  "name": "Certified Futurist & Long-Term Analyst (FLTA)",
-                  "description": "Futures thinking and scenario planning certification"
+              hasCredential: [
+                {
+                  "@type": "EducationalOccupationalCredential",
+                  credentialCategory: "certification",
+                  name: "Certified Futurist & Long-Term Analyst (FLTA)",
+                  description:
+                    "Futures thinking and scenario planning certification",
                 },
-                { 
-                  "@type": "EducationalOccupationalCredential", 
-                  "credentialCategory": "certification", 
-                  "name": "Certified Change Management Professional (CCMP)",
-                  "description": "Organizational change management methodology"
+                {
+                  "@type": "EducationalOccupationalCredential",
+                  credentialCategory: "certification",
+                  name: "Certified Change Management Professional (CCMP)",
+                  description: "Organizational change management methodology",
                 },
-                { 
-                  "@type": "EducationalOccupationalCredential", 
-                  "credentialCategory": "certification", 
-                  "name": "GenAI Academy Expert",
-                  "description": "Generative AI implementation expertise"
+                {
+                  "@type": "EducationalOccupationalCredential",
+                  credentialCategory: "certification",
+                  name: "GenAI Academy Expert",
+                  description: "Generative AI implementation expertise",
                 },
-                { 
-                  "@type": "EducationalOccupationalCredential", 
-                  "credentialCategory": "certification", 
-                  "name": "Certified Enterprise Blockchain Professional (CEBP)",
-                  "description": "Distributed systems and blockchain architecture"
+                {
+                  "@type": "EducationalOccupationalCredential",
+                  credentialCategory: "certification",
+                  name: "Certified Enterprise Blockchain Professional (CEBP)",
+                  description:
+                    "Distributed systems and blockchain architecture",
                 },
-                { 
-                  "@type": "EducationalOccupationalCredential", 
-                  "credentialCategory": "certification", 
-                  "name": "Professional Scrum Master (PSM)",
-                  "description": "Agile methodology and Scrum framework"
+                {
+                  "@type": "EducationalOccupationalCredential",
+                  credentialCategory: "certification",
+                  name: "Professional Scrum Master (PSM)",
+                  description: "Agile methodology and Scrum framework",
                 },
-                { 
-                  "@type": "EducationalOccupationalCredential", 
-                  "credentialCategory": "certification", 
-                  "name": "Professional Agile Leadership (PAL)",
-                  "description": "Organizational agility and leadership"
-                }
+                {
+                  "@type": "EducationalOccupationalCredential",
+                  credentialCategory: "certification",
+                  name: "Professional Agile Leadership (PAL)",
+                  description: "Organizational agility and leadership",
+                },
               ],
-              "worksFor": {
+              worksFor: {
                 "@type": "Organization",
-                "name": "Alex Myers Consulting LLC",
-                "url": "https://thearmchairfuturist.com"
+                name: "Alex Myers Consulting LLC",
+                url: "https://thearmchairfuturist.com",
               },
-              "award": "Certified Futurist & Long-Term Analyst",
-              "alumniOf": "GenAI Academy",
-              "hasOccupation": {
+              award: "Certified Futurist & Long-Term Analyst",
+              alumniOf: "GenAI Academy",
+              hasOccupation: {
                 "@type": "Occupation",
-                "name": "AI Strategy Advisor",
-                "occupationLocation": {
+                name: "AI Strategy Advisor",
+                occupationLocation: {
                   "@type": "Country",
-                  "name": "Portugal"
+                  name: "Portugal",
                 },
-                "estimatedSalary": {
+                estimatedSalary: {
                   "@type": "MonetaryAmountDistribution",
-                  "name": "Service Range",
-                  "currency": "USD",
-                  "minValue": 97,
-                  "maxValue": 55250
+                  name: "Service Range",
+                  currency: "USD",
+                  minValue: 97,
+                  maxValue: 55250,
                 },
-                "skills": "AI Strategy, Change Management, Future of Work, Organizational Design"
-              }
-            })
+                skills:
+                  "AI Strategy, Change Management, Future of Work, Organizational Design",
+              },
+            }),
           }}
         />
         {/* Organization Schema - Enhanced for AI entity recognition */}
@@ -337,41 +377,42 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               "@id": "https://thearmchairfuturist.com/#organization",
-              "name": "The Armchair Futurist",
-              "alternateName": "Alex Myers Consulting",
-              "url": "https://thearmchairfuturist.com",
-              "logo": {
+              name: "The Armchair Futurist",
+              alternateName: "Alex Myers Consulting",
+              url: "https://thearmchairfuturist.com",
+              logo: {
                 "@type": "ImageObject",
-                "url": "https://thearmchairfuturist.com/img.jpg",
-                "width": 600,
-                "height": 600
+                url: "https://thearmchairfuturist.com/img.jpg",
+                width: 600,
+                height: 600,
               },
-              "image": {
+              image: {
                 "@type": "ImageObject",
-                "url": "https://thearmchairfuturist.com/floop.jpg",
-                "width": 1200,
-                "height": 630
+                url: "https://thearmchairfuturist.com/floop.jpg",
+                width: 1200,
+                height: 630,
               },
-              "description": "The Armchair Futurist is the advisory practice of Alex Myers, a certified futurist and AI strategy advisor. Alex helps leaders and organizations navigate AI adoption by bridging the Accountability Gap—the space between AI outputs and business results.",
-              "founder": { "@id": "https://thearmchairfuturist.com/#person" },
-              "address": {
+              description:
+                "The Armchair Futurist is the advisory practice of Alex Myers, a certified futurist and AI strategy advisor. Alex helps leaders and organizations navigate AI adoption by bridging the Accountability Gap—the space between AI outputs and business results.",
+              founder: { "@id": "https://thearmchairfuturist.com/#person" },
+              address: {
                 "@type": "PostalAddress",
-                "addressCountry": "PT",
-                "addressLocality": "Portugal"
+                addressCountry: "PT",
+                addressLocality: "Portugal",
               },
-              "areaServed": "Worldwide",
-              "sameAs": [
+              areaServed: "Worldwide",
+              sameAs: [
                 "https://www.linkedin.com/in/alex-myers-34572a10/",
                 "https://armchairfuturist.substack.com/",
-                "https://thegenaiacademy.com/expert-hub/alex-myers/"
+                "https://thegenaiacademy.com/expert-hub/alex-myers/",
               ],
-              "contactPoint": {
+              contactPoint: {
                 "@type": "ContactPoint",
-                "contactType": "customer service",
-                "availableLanguage": "English",
-                "areaServed": "Worldwide"
+                contactType: "customer service",
+                availableLanguage: "English",
+                areaServed: "Worldwide",
               },
-              "knowsAbout": [
+              knowsAbout: [
                 "AI Strategy",
                 "AI Adoption",
                 "Change Management",
@@ -379,67 +420,71 @@ export default function RootLayout({
                 "Organizational Design",
                 "Digital Transformation",
                 "AI Mentoring",
-                "Workflow Automation"
+                "Workflow Automation",
               ],
-              "hasOfferCatalog": {
+              hasOfferCatalog: {
                 "@type": "OfferCatalog",
-                "name": "AI Strategy & Advisory Services",
-                "itemListElement": [
+                name: "AI Strategy & Advisory Services",
+                itemListElement: [
                   {
                     "@type": "Offer",
-                    "itemOffered": {
+                    itemOffered: {
                       "@type": "Service",
-                      "name": "Digital Identity Landing Page",
-                      "description": "Interview-ready digital identity site delivered in 2-4 days"
+                      name: "Digital Identity Landing Page",
+                      description:
+                        "Interview-ready digital identity site delivered in 2-4 days",
                     },
-                    "price": "199",
-                    "priceCurrency": "USD"
+                    price: "199",
+                    priceCurrency: "USD",
                   },
                   {
                     "@type": "Offer",
-                    "itemOffered": {
+                    itemOffered: {
                       "@type": "Service",
-                      "name": "AI Mentoring & Mindset Coaching",
-                      "description": "One-on-one AI mentoring from anxiety to agency"
+                      name: "AI Mentoring & Mindset Coaching",
+                      description:
+                        "One-on-one AI mentoring from anxiety to agency",
                     },
-                    "priceSpecification": {
+                    priceSpecification: {
                       "@type": "PriceSpecification",
-                      "minPrice": "97",
-                      "maxPrice": "497",
-                      "priceCurrency": "USD"
-                    }
+                      minPrice: "97",
+                      maxPrice: "497",
+                      priceCurrency: "USD",
+                    },
                   },
                   {
                     "@type": "Offer",
-                    "itemOffered": {
+                    itemOffered: {
                       "@type": "Service",
-                      "name": "Custom AI Provisioning",
-                      "description": "Private AI command center with API integrations"
+                      name: "Custom AI Provisioning",
+                      description:
+                        "Private AI command center with API integrations",
                     },
-                    "priceSpecification": {
+                    priceSpecification: {
                       "@type": "PriceSpecification",
-                      "minPrice": "1000",
-                      "maxPrice": "5000",
-                      "priceCurrency": "USD"
-                    }
+                      minPrice: "1000",
+                      maxPrice: "5000",
+                      priceCurrency: "USD",
+                    },
                   },
                   {
                     "@type": "Offer",
-                    "itemOffered": {
+                    itemOffered: {
                       "@type": "Service",
-                      "name": "AI Infusion Lab",
-                      "description": "10-week organizational transformation program"
+                      name: "AI Infusion Lab",
+                      description:
+                        "10-week organizational transformation program",
                     },
-                    "priceSpecification": {
+                    priceSpecification: {
                       "@type": "PriceSpecification",
-                      "minPrice": "38250",
-                      "maxPrice": "55250",
-                      "priceCurrency": "USD"
-                    }
-                  }
-                ]
-              }
-            })
+                      minPrice: "38250",
+                      maxPrice: "55250",
+                      priceCurrency: "USD",
+                    },
+                  },
+                ],
+              },
+            }),
           }}
         />
         {/* BreadcrumbList Schema */}
@@ -449,19 +494,37 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "BreadcrumbList",
-              "itemListElement": [
-                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://thearmchairfuturist.com" },
-                { "@type": "ListItem", "position": 2, "name": "About", "item": "https://thearmchairfuturist.com/about" },
-                { "@type": "ListItem", "position": 3, "name": "Assessment", "item": "https://thearmchairfuturist.com/assessment" },
-                { "@type": "ListItem", "position": 4, "name": "Blog", "item": "https://thearmchairfuturist.com/blog" },
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://thearmchairfuturist.com",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "About",
+                  item: "https://thearmchairfuturist.com/about",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 3,
+                  name: "Assessment",
+                  item: "https://thearmchairfuturist.com/assessment",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 4,
+                  name: "Blog",
+                  item: "https://thearmchairfuturist.com/blog",
+                },
               ],
             }),
           }}
         />
         <Header />
-        <main className="flex-grow">
-          {children}
-        </main>
+        <main className="flex-grow">{children}</main>
         <Footer />
         <ScrollToTop />
         <Toaster />
@@ -492,7 +555,7 @@ export default function RootLayout({
               <img
                 height="1"
                 width="1"
-                style={{ display: 'none' }}
+                style={{ display: "none" }}
                 alt=""
                 src={`https://www.facebook.com/tr?id=${process.env.NEXT_PUBLIC_META_PIXEL_ID}&ev=PageView&noscript=1`}
               />
