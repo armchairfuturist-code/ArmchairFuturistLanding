@@ -90,7 +90,7 @@ const faqItems: FAQItem[] = [
   },
   {
     question: "How do I get started?",
-    answer: "Three ways. The $199 landing page requires no call. Just submit the form. For mentoring, book a session starting at $97. For strategy services, schedule a free call where Alex identifies where your AI systems are leaking value."
+    answer: "Three ways. The $199 landing page requires no call. Just submit the form. For mentoring, book a session starting at $97. For strategy services, book a call where Alex identifies where your AI systems are leaking value."
   }
 ];
 

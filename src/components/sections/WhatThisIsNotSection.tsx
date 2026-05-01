@@ -47,7 +47,7 @@ const betterOptions = [
     recommendation: "Consider traditional management consultants or industry futurists who specialize in presentations"
   },
   {
-    scenario: "You want a fixed-price project with guaranteed ROI before we start",
+    scenario: "You want a fixed-price project with ROI locked in before we start",
     recommendation: "Large strategy consulting firms offer packaged assessments—you'll pay more, but you'll get the structure you're used to"
   },
   {
@@ -130,7 +130,7 @@ export default function WhatThisIsNotSection() {
               onClick={() => trackEvent('what_this_is_not_cta_click')}
             >
               <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer">
-                Book a Free Strategy Call
+                Book a Call
               </a>
             </Button>
           </div>

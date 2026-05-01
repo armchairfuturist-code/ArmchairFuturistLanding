@@ -86,7 +86,7 @@ export default function ConnectSection() {
                 onClick={() => trackConversion("connect_book_call")}
               >
                 <CalendarDays className="mr-2 h-5 w-5" />
-                Book a Free Strategy Call
+                Book a Call
               </a>
             </Button>
             <Button
@@ -106,9 +106,7 @@ export default function ConnectSection() {
             </Button>
           </motion.div>
           <p className="mt-4 text-sm text-primary-foreground/85">
-            Join 40+ leaders who've reclaimed 10-20 hrs/week ·{" "}
-            <span className="text-green-300">★★★★★</span> 4.9/5 client
-            satisfaction
+            Join 40+ leaders who've reclaimed 10-20 hrs/week
           </p>
         </BlurFade>
         {/* Contact Form */}
