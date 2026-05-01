@@ -43,7 +43,6 @@ interface ServiceDetail {
 }
 
 interface Service {
-  path: string;
   title: string;
   basePrice: number;
   maxPrice?: number;
@@ -56,14 +55,11 @@ interface Service {
   cta: string;
   ctaLink: string;
   highlight: boolean;
-  badge?: string;
-  badgeNote?: string;
   icon: React.ElementType;
 }
 
 const entrepreneurServices = [
   {
-    path: "ENTRY OFFER",
     title: "Own Your Identity: The $199 Landing Page",
     basePrice: 199,
     priceNote: "Flat",
@@ -79,20 +75,17 @@ const entrepreneurServices = [
     cta: "Claim Your $199 Page",
     ctaLink: GOOGLE_FORM_URL,
     highlight: false,
-    badge: "Entry Offer",
-    badgeNote: "Limited to 5 clients per month",
     icon: Globe2
   },
   {
-    path: "PREMIER OFFER",
     title: "AI Tools Assessment",
     basePrice: 599,
     maxPrice: 999,
     priceNote: "Fixed Project",
     duration: "1 Week",
-    description: "You've seen the demos. You've tried ChatGPT. But you're stuck. Drowning in tools with no idea which ones solve your specific problems. You need someone who can look at your workflows and say: 'This tool. This process. This is where you start.'",
+    description: "You've tried the demos. Now you need to know which tools actually move the needle for your business. I look at your workflows and tell you where to start — and where not to bother.",
     payload: ["45-Min Discovery Call", "Your Top 5 Tool Picks", "Written Report", "30-Min Review"],
-    idealFor: "Business owners who need clarity on which AI tools will actually save them time.",
+    idealFor: "Business owners who want clarity on which AI tools actually save them time.",
     details: [
       { title: "Step 1: Discovery", text: "45-minute Zoom. I ask what problems waste your time—not what you think you should automate." },
       { title: "Step 2: Analysis", text: "I find 5-7 areas where tools could save hours. Each recommendation comes with estimated time savings." },
@@ -102,17 +95,15 @@ const entrepreneurServices = [
     cta: "Start Your Assessment",
     ctaLink: CALENDAR_URL,
     highlight: true,
-    badge: "Premier Offer",
     icon: Rocket
   },
   {
-    path: "IMPLEMENTATION",
     title: "Implementation & Scaling",
     basePrice: 1000,
     maxPrice: 10000,
     priceNote: "Fixed Project",
     duration: "2-6 Weeks",
-    description: "60% of assessment clients want help implementing recommendations. That's where the real results live. I build the workflows, automate the connections, and hand you a system that works.",
+    description: "Most assessment clients want help putting recommendations into action. That's where the real results live. I build the workflows, automate the connections, and hand you a system that works.",
     payload: ["Fix Your Slow Processes", "Automate the Repetitive Stuff", "Build a Team Chatbot", "One-Click Workflows"],
     idealFor: "Assessment clients ready to move from recommendations to results.",
     details: [
@@ -125,11 +116,9 @@ const entrepreneurServices = [
     cta: "Discuss Implementation",
     ctaLink: CALENDAR_URL,
     highlight: false,
-    badge: "Where 60% Go",
     icon: Workflow
   },
   {
-    path: "MENTORING",
     title: "AI Mentoring & Mindset Coaching",
     basePrice: 97,
     maxPrice: 497,
@@ -152,7 +141,6 @@ const entrepreneurServices = [
 
 const organizationServices = [
   {
-    path: "PILLAR 1",
     title: "Adoption Strategy",
     basePrice: 10625,
     priceNote: "Fixed",
@@ -171,7 +159,6 @@ const organizationServices = [
     icon: BrainCircuit
   },
   {
-    path: "PILLAR 2",
     title: "Team Structure Redesign",
     basePrice: 12750,
     priceNote: "/Month",
@@ -190,7 +177,6 @@ const organizationServices = [
     icon: Users
   },
   {
-    path: "PILLAR 3",
     title: "10-Week Transformation Lab",
     basePrice: 38250,
     maxPrice: 55250,
@@ -207,7 +193,6 @@ const organizationServices = [
     cta: "Apply for Lab",
     ctaLink: CALENDAR_URL,
     highlight: true,
-    badge: "Most Transformative",
     icon: FlaskConical
   }
 ];
@@ -254,19 +239,6 @@ const ServiceAccordionItem = ({ service, pricingContext, index }: { service: Ser
         <AccordionTrigger className="px-4 py-6 hover:no-underline [&[data-state=open]>div>div>svg]:rotate-180">
           <div className="flex flex-col md:flex-row w-full items-start md:items-center gap-4 text-left z-10">
             <div className="flex-1">
-              <div className="flex items-center gap-3 mb-1">
-                <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest">{service.path}</span>
-                {service.highlight && (
-                  <span className="bg-primary/10 text-primary text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider border border-primary/20 flex items-center gap-1 shadow-sm">
-                    <Rocket className="w-3 h-3" /> {service.badge}
-                  </span>
-                )}
-                {service.badge && !service.highlight && (
-                  <span className="bg-amber-500/10 text-amber-600 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider border border-amber-500/20 flex items-center gap-1 shadow-sm">
-                    <Clock className="w-3 h-3" /> {service.badge}
-                  </span>
-                )}
-              </div>
               <div className="flex items-center gap-3">
                 <Icon className="w-5 h-5 text-primary" />
                 <h3 className="font-heading text-xl md:text-2xl font-bold text-foreground leading-tight group-hover:text-primary transition-colors duration-300">
@@ -320,7 +292,7 @@ const ServiceAccordionItem = ({ service, pricingContext, index }: { service: Ser
             <div className="lg:col-span-1 flex flex-col h-full bg-muted/10 rounded-xl p-6 border border-border/50">
               <div className="mb-6">
                 <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest mb-3 flex items-center gap-2">
-                  <Zap className="w-3 h-3" /> {service.path.startsWith('SERVICE') ? 'System Components' : 'Strategy Assets'}
+                  <Zap className="w-3 h-3" /> What you get
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {service.payload.map((item: string, i: number) => (
@@ -364,10 +336,6 @@ export default function ServicesSection() {
             <p className="text-sm text-foreground/60 italic border-l-2 border-primary/30 pl-4">
               Money is energy flow. If the investment feels right, great. If it feels
               tight, we&apos;ll find the offer that fits where you are.
-            </p>
-            <p className="flex items-center gap-2 text-sm">
-              <span className="text-green-500">★★★★★</span>
-              <span>4.9/5 from 40+ clients · 10-20 hours/week reclaimed on average</span>
             </p>
           </div>
         </div>

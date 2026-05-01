@@ -131,7 +131,7 @@ export default function Header() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Book a Free Strategy Call
+                      Book a Call
                     </a>
                   </Button>
                 </div>

@@ -34,18 +34,9 @@ const stats: Stat[] = [
 
 // A/B Test: CTA Copy Variants
 const ctaVariants = {
-  control: {
-    primary: "Book a Free Strategy Call",
-    secondary: "Take the Free Assessment",
-  },
-  variant_a: {
-    primary: "Book Your Free Call",
-    secondary: "Get Your Free Score",
-  },
-  variant_b: {
-    primary: "Schedule Free Consultation",
-    secondary: "Start Your Free Quiz",
-  },
+  control: { primary: "Book a Call", secondary: "Take the Free Assessment" },
+  variant_a: { primary: "Let's Talk", secondary: "Get Your Free Score" },
+  variant_b: { primary: "Book a Call", secondary: "Start Your Free Quiz" },
 };
 
 const secondaryCtaVariants = {
@@ -244,7 +235,7 @@ export default function HeroSection() {
 
             {/* Trust signals - simple text, no neon glows */}
             <div className="mt-4 text-xs text-primary-foreground/70 font-mono">
-              15-minute call · No commitment required
+              15-minute call
             </div>
           </BlurFade>
 
