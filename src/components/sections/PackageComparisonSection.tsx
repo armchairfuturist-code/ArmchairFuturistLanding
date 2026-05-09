@@ -68,10 +68,10 @@ const quickCompare = [
 
 function Cell({ content }: { content: string | boolean }) {
   if (content === false) {
-    return <Minus className="h-4 w-4 text-muted-foreground/30 mx-auto" />;
+    return <Minus className="h-4 w-4 text-muted-foreground/30 mx-auto shrink-0" />;
   }
   return (
-    <span className="text-xs sm:text-sm text-foreground/80 leading-relaxed block">
+    <span className="text-xs sm:text-sm text-foreground/80 leading-relaxed block break-words">
       {typeof content === 'string' ? content : ''}
     </span>
   );
