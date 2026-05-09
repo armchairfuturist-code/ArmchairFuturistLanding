@@ -170,7 +170,7 @@ export default function RootLayout({
                 "@type": "PostalAddress",
                 addressCountry: "PT",
               },
-              priceRange: "$97 - $55,250",
+              priceRange: "€100 - $55,250",
               areaServed: "Worldwide",
               knowsAbout: [
                 "AI Strategy",
@@ -222,21 +222,57 @@ export default function RootLayout({
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "AI Mentoring & Mindset Coaching",
+                      name: "AI Mentoring - Single Session",
                       description:
-                        "One-on-one AI mentoring that moves you from anxiety to agency. Combines practical tool guidance with mindset reframing for leaders and professionals.",
+                        "One 60-minute 1-on-1 AI mentoring session. Personal mindset coaching, practical framework, and actionable next steps.",
                       provider: {
                         "@id": "https://thearmchairfuturist.com/#person",
                       },
                     },
-                    price: "97",
-                    priceCurrency: "USD",
-                    priceSpecification: {
-                      "@type": "PriceSpecification",
-                      minPrice: "97",
-                      maxPrice: "497",
-                      priceCurrency: "USD",
+                    price: "100",
+                    priceCurrency: "EUR",
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "AI Mentoring - 5-Session Pack",
+                      description:
+                        "Five 1-on-1 AI mentoring sessions with progress tracking, priority scheduling, and personalized learning roadmap.",
+                      provider: {
+                        "@id": "https://thearmchairfuturist.com/#person",
+                      },
                     },
+                    price: "450",
+                    priceCurrency: "EUR",
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "AI Mentoring - 10-Session Pack",
+                      description:
+                        "Ten 1-on-1 AI mentoring sessions with custom AI literacy curriculum, async support, and quarterly progress review. Most popular option.",
+                      provider: {
+                        "@id": "https://thearmchairfuturist.com/#person",
+                      },
+                    },
+                    price: "900",
+                    priceCurrency: "EUR",
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "AI Mentoring - 20-Session Pack",
+                      description:
+                        "Twenty 1-on-1 AI mentoring sessions with dedicated account management, unlimited async support, and priority rescheduling. Executive-level coaching.",
+                      provider: {
+                        "@id": "https://thearmchairfuturist.com/#person",
+                      },
+                    },
+                    price: "1700",
+                    priceCurrency: "EUR",
                   },
                   {
                     "@type": "Offer",
@@ -359,8 +395,8 @@ export default function RootLayout({
                 estimatedSalary: {
                   "@type": "MonetaryAmountDistribution",
                   name: "Service Range",
-                  currency: "USD",
-                  minValue: 97,
+                  currency: "EUR",
+                  minValue: 100,
                   maxValue: 55250,
                 },
                 skills:
@@ -441,16 +477,45 @@ export default function RootLayout({
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "AI Mentoring & Mindset Coaching",
+                      name: "AI Mentoring - Single Session",
                       description:
-                        "One-on-one AI mentoring from anxiety to agency",
+                        "One 60-minute 1-on-1 AI mentoring session",
                     },
-                    priceSpecification: {
-                      "@type": "PriceSpecification",
-                      minPrice: "97",
-                      maxPrice: "497",
-                      priceCurrency: "USD",
+                    price: "100",
+                    priceCurrency: "EUR",
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "AI Mentoring - 5-Session Pack",
+                      description:
+                        "Five 1-on-1 AI mentoring sessions with progress tracking",
                     },
+                    price: "450",
+                    priceCurrency: "EUR",
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "AI Mentoring - 10-Session Pack",
+                      description:
+                        "Ten 1-on-1 AI mentoring sessions, most popular option",
+                    },
+                    price: "900",
+                    priceCurrency: "EUR",
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "AI Mentoring - 20-Session Pack",
+                      description:
+                        "Twenty 1-on-1 AI mentoring sessions, executive-level",
+                    },
+                    price: "1700",
+                    priceCurrency: "EUR",
                   },
                   {
                     "@type": "Offer",
