@@ -9,6 +9,7 @@ import ServicesSection from '@/components/sections/ServicesSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import ConnectSection from '@/components/sections/ConnectSection';
 import AIMentoringSection from '@/components/sections/AIMentoringSection';
+import PackageComparisonSection from '@/components/sections/PackageComparisonSection';
 import SpeakingSection from '@/components/sections/SpeakingSection';
 import FAQSection from '@/components/sections/FAQSection';
 import AssessmentCtaSection from '@/components/sections/AssessmentCtaSection';
@@ -32,6 +33,9 @@ export default function HomePage() {
 
       {/* MENTORING — AI mindset coaching for the overwhelmed */}
       <AIMentoringSection />
+
+      {/* PACKAGE COMPARISON — detailed feature breakdown by tier */}
+      <PackageComparisonSection />
 
       {/* KEY STATS — AI-citable statistics and facts */}
       <KeyStatsSection />
