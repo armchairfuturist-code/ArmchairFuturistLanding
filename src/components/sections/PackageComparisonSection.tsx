@@ -58,13 +58,13 @@ const categories = [
 ];
 
 const quickCompare = [
-  { label: 'Total coaching hours', five: '~5 hrs', ten: '~10–15 hrs', twenty: '~20–40 hrs' },
+  { label: 'Coaching hours', five: '~5 hrs', ten: '~10–15 hrs', twenty: '~20–40 hrs' },
   { label: 'Practical exercises', five: 'Guided demos', ten: 'Your real work', twenty: 'Real projects end-to-end' },
-  { label: 'Personalised feedback', five: 'Session-based', ten: 'Session + between-session reviews', twenty: 'Deep 1:1 + async support' },
+  { label: 'Personalised feedback', five: 'Session-based', ten: 'Session + reviews', twenty: 'Deep 1:1 + async support' },
   { label: 'Frameworks & templates', five: 'Core prompts & guides', ten: 'Full toolkit + checklists', twenty: 'Complete system + playbooks' },
-  { label: 'Post-package resources', five: 'Summary guide', ten: 'Toolkit access + community', twenty: 'Full library + ongoing support' },
-  { label: 'Skill compounding effect', five: 'Foundational', ten: 'Noticeable growth', twenty: 'Exponential' },
-];
+  { label: 'Post-package resources', five: 'Summary guide', ten: 'Toolkit + community', twenty: 'Full library + support' },
+  { label: 'Skill compounding', five: 'Foundational', ten: 'Noticeable growth', twenty: 'Exponential' },
+  ];
 
 function Cell({ content }: { content: string | boolean }) {
   if (content === false) {
@@ -95,7 +95,7 @@ function ColumnHeader({ label, sessions, price, popular }: { label: string; sess
 
 export default function PackageComparisonSection() {
   return (
-    <section id="package-comparison" className="py-16 md:py-24 px-4 bg-background scroll-mt-20">
+    <section id="package-comparison" className="py-16 md:py-24 px-4 bg-background scroll-mt-20 overflow-x-hidden">
       <div className="container max-w-6xl mx-auto">
         <BlurFade inView>
           <div className="text-center mb-12">
@@ -215,13 +215,13 @@ export default function PackageComparisonSection() {
                   sub: 'Accelerator',
                   what: 'You learn HOW to make AI work for you daily — and spot when it\'s wrong.',
                   outcome: 'A working toolkit and practice routine.',
-                  popular: true,
                 },
                 {
                   label: '20 Sessions',
                   sub: 'Transformation',
                   what: 'You learn WHY and SYSTEM — and can teach others. Your entire approach to work transforms.',
                   outcome: 'You architect AI-powered systems and compound skills faster every month.',
+                  popular: true,
                 },
               ].map((col) => (
                 <div

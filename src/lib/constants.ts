@@ -3,7 +3,7 @@ export const GOOGLE_FORM_URL = 'https://forms.gle/ASNfu9Wr1qRLBZ8C8';
 export const SUBSTACK_URL = 'https://armchairfuturist.substack.com';
 export const SPEAKING_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSe36EU0DrDTMYMsGp32-wD_HlF7M_IPH-IsqpU-hrtJTlPZAg/viewform?usp=header';
 
-// EUR → USD exchange rate (updated May 2026)
+// Round USD pricing (single session baseline: $120)
 export const EUR_USD_RATE = 1.17;
 
 export type CurrencyCode = 'EUR' | 'USD';
@@ -15,9 +15,9 @@ export const COACHING_PACKAGES = [
     name: 'Single Session',
     sessions: 1,
     totalPrice: 100,
-    totalPriceUSD: 117,
+    totalPriceUSD: 120,
     pricePerSession: 100,
-    pricePerSessionUSD: 117,
+    pricePerSessionUSD: 120,
     discountPercent: 0,
     savings: 0,
     savingsUSD: 0,
@@ -34,9 +34,9 @@ export const COACHING_PACKAGES = [
     name: '5-Session Pack',
     sessions: 5,
     totalPrice: 475,
-    totalPriceUSD: 555,
+    totalPriceUSD: 570,
     pricePerSession: 95,
-    pricePerSessionUSD: 111,
+    pricePerSessionUSD: 114,
     discountPercent: 5,
     savings: 25,
     savingsUSD: 30,
@@ -54,12 +54,12 @@ export const COACHING_PACKAGES = [
     name: '10-Session Pack',
     sessions: 10,
     totalPrice: 900,
-    totalPriceUSD: 1050,
+    totalPriceUSD: 1100,
     pricePerSession: 90,
-    pricePerSessionUSD: 105,
+    pricePerSessionUSD: 110,
     discountPercent: 10,
     savings: 100,
-    savingsUSD: 117,
+    savingsUSD: 100,
     description: 'Deep transformation with sustained support and accountability',
     features: [
       'Everything in 5-Session Pack',
@@ -67,19 +67,19 @@ export const COACHING_PACKAGES = [
       'Between-session async support',
       'Quarterly progress review',
     ],
-    popular: true,
+    popular: false,
   },
   {
     id: 'pack-20',
     name: '20-Session Pack',
     sessions: 20,
     totalPrice: 1700,
-    totalPriceUSD: 1990,
+    totalPriceUSD: 2000,
     pricePerSession: 85,
     pricePerSessionUSD: 100,
     discountPercent: 15,
     savings: 300,
-    savingsUSD: 350,
+    savingsUSD: 400,
     description: 'Executive-level coaching with maximum savings and dedicated support',
     features: [
       'Everything in 10-Session Pack',
@@ -88,7 +88,7 @@ export const COACHING_PACKAGES = [
       'Custom session planning',
       'Priority rescheduling',
     ],
-    popular: false,
+    popular: true,
   },
 ];
 
