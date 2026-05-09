@@ -15,7 +15,6 @@ import {
   Calculator,
   Layout,
   Settings,
-  BookOpen,
   BrainCircuit,
   Users,
   FlaskConical,
@@ -118,25 +117,6 @@ const entrepreneurServices = [
     highlight: false,
     icon: Workflow
   },
-  {
-    title: "AI Mentoring & Mindset Coaching",
-    basePrice: 97,
-    maxPrice: 497,
-    priceNote: "Per Session / Package",
-    duration: "Ongoing",
-    description: "AI is a thinking problem, not just a tool problem. Most people aren't overwhelmed by the technology; they're overwhelmed by what it means for their future. I help you move from anxiety to agency.",
-    payload: ["1-on-1 Mentoring", "Mindset Reframing", "Practical Tool Guidance", "Future-Optimistic Framework"],
-    idealFor: "Anyone who feels overwhelmed by AI and wants to think differently about what's coming.",
-    details: [
-      { title: "Mindset Before Toolset", text: "We start with how you think about AI, not how you use it. The shift from fear to agency unlocks everything else." },
-      { title: "Practical & Personal", text: "Every session blends hands-on tool guidance with the bigger picture: how AI changes your role and opportunities." },
-      { title: "Optimism Through Understanding", text: "I help you see AI as a lever for your ambitions instead of a threat to your relevance." }
-    ],
-    cta: "Book a Mentoring Session",
-    ctaLink: CALENDAR_URL,
-    highlight: false,
-    icon: BookOpen
-  }
 ];
 
 const organizationServices = [
@@ -328,7 +308,7 @@ export default function ServicesSection() {
         <BlurFade inView>
           <div className="max-w-3xl">
           <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary mb-6">
-            What I offer
+            Consulting &amp; Implementation
           </h2>
           <div className="text-lg text-foreground/80 font-sans leading-relaxed space-y-4">
             <p>Services from $199 to $55,250. Start with the landing page or the AI assessment—then scale into implementation.</p>
