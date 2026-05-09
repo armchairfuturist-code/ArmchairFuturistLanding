@@ -95,7 +95,7 @@ function ColumnHeader({ label, sessions, price, popular }: { label: string; sess
 
 export default function PackageComparisonSection() {
   return (
-    <section id="package-comparison" className="py-16 md:py-24 px-4 bg-background scroll-mt-20 overflow-x-hidden">
+    <section id="package-comparison" className="py-16 md:py-24 px-4 bg-background scroll-mt-20">
       <div className="container max-w-6xl mx-auto">
         <BlurFade inView>
           <div className="text-center mb-12">
@@ -115,16 +115,19 @@ export default function PackageComparisonSection() {
         <BlurFade inView delay={0.1}>
           <div className="hidden md:grid grid-cols-[200px_1fr_1fr_1fr] gap-3 mb-6 items-start">
             <div />
-            <ColumnHeader label="Foundation" sessions="5 Sessions" price="€475 / $555" />
-            <ColumnHeader label="Accelerator" sessions="10 Sessions" price="€900 / $1,050" popular />
-            <ColumnHeader label="Transformation" sessions="20 Sessions" price="€1,700 / $1,990" />
+            <ColumnHeader label="Foundation" sessions="5 Sessions" price="$570" />
+            <ColumnHeader label="Accelerator" sessions="10 Sessions" price="$1,100" />
+            <ColumnHeader label="Transformation" sessions="20 Sessions" price="$2,000" popular />
           </div>
 
           {/* Mobile column headers */}
-          <div className="md:hidden grid grid-cols-3 gap-2 mb-6">
-            <ColumnHeader label="Foundation" sessions="5 Sess" price="€475" />
-            <ColumnHeader label="Accelerator" sessions="10 Sess" price="€900" popular />
-            <ColumnHeader label="Transformation" sessions="20 Sess" price="€1,700" />
+          <div className="md:hidden overflow-x-auto -mx-4 px-4">
+            <div className="min-w-[500px] grid grid-cols-[140px_1fr_1fr_1fr] gap-2 mb-6">
+              <div />
+              <ColumnHeader label="Foundation" sessions="5" price="$570" />
+              <ColumnHeader label="Accelerator" sessions="10" price="$1,100" />
+              <ColumnHeader label="Transformation" sessions="20" price="$2,000" popular />
+            </div>
           </div>
         </BlurFade>
 
@@ -153,18 +156,18 @@ export default function PackageComparisonSection() {
                 ))}
               </div>
 
-              {/* Mobile table */}
-              <div className="md:hidden space-y-1">
-                {category.features.map((row) => (
-                  <div key={row.label} className="grid grid-cols-[1fr_3fr] gap-1 py-1.5 border-b border-border/40 last:border-0">
-                    <span className="text-[11px] text-foreground font-medium leading-tight">{row.label}</span>
-                    <div className="grid grid-cols-3 gap-1 text-center">
+              {/* Mobile table — horizontally scrollable */}
+              <div className="md:hidden overflow-x-auto -mx-4 px-4">
+                <div className="min-w-[500px]">
+                  {category.features.map((row) => (
+                    <div key={row.label} className="grid grid-cols-[140px_1fr_1fr_1fr] gap-2 py-2 border-b border-border/40 last:border-0 items-start">
+                      <span className="text-[11px] text-foreground font-medium leading-snug">{row.label}</span>
                       <Cell content={row.five} />
                       <Cell content={row.ten} />
                       <Cell content={row.twenty} />
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </BlurFade>
@@ -184,17 +187,17 @@ export default function PackageComparisonSection() {
                 </>
               ))}
             </div>
-            <div className="md:hidden space-y-1">
-              {quickCompare.map((row) => (
-                <div key={row.label} className="grid grid-cols-[1fr_3fr] gap-1 py-1.5 border-b border-border/40 last:border-0">
-                  <span className="text-[11px] text-foreground font-medium">{row.label}</span>
-                  <div className="grid grid-cols-3 gap-1 text-center">
-                    <span className="text-[11px] text-foreground/70">{row.five}</span>
-                    <span className="text-[11px] text-foreground/70">{row.ten}</span>
-                    <span className="text-[11px] text-foreground/70">{row.twenty}</span>
+            <div className="md:hidden overflow-x-auto -mx-4 px-4">
+              <div className="min-w-[500px]">
+                {quickCompare.map((row) => (
+                  <div key={row.label} className="grid grid-cols-[140px_1fr_1fr_1fr] gap-2 py-2 border-b border-border/40 last:border-0 items-start">
+                    <span className="text-[11px] text-foreground font-medium leading-snug">{row.label}</span>
+                    <span className="text-[11px] text-foreground/70 leading-snug">{row.five}</span>
+                    <span className="text-[11px] text-foreground/70 leading-snug">{row.ten}</span>
+                    <span className="text-[11px] text-foreground/70 leading-snug">{row.twenty}</span>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </BlurFade>
