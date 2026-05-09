@@ -214,7 +214,11 @@ export default function AIMentoringSection() {
         <BlurFade inView delay={0.3}>
           <div className="text-center">
             <p className="text-muted-foreground text-sm max-w-lg mx-auto">
-              Not sure which pack is right? Book a free 15-minute call to discuss your goals and find the right fit.
+              Not sure which pack is right?{' '}
+              <a href="#package-comparison" className="text-primary font-medium hover:underline">
+                Compare what each package includes
+              </a>{' '}
+              or book a free 15-minute call.
             </p>
             <Button asChild variant="link" size="sm" className="mt-2">
               <a
