@@ -220,8 +220,8 @@ export default function HeroSection() {
                 onClick={() => trackEvent("hero_mentoring_cta")}
                 className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-medium text-base px-7 py-3 rounded-full border border-white/30 hover:bg-white/20 hover:border-white/50 active:scale-[0.95] transition-all duration-200"
               >
-                <Euro className="w-4 h-4" />
-                1-on-1 Mentoring — €100/hr
+                <Zap className="w-4 h-4" />
+                1-on-1 AI Mentoring — $120/hr
               </a>
               <a
                 href={GOOGLE_FORM_URL}
@@ -244,7 +244,7 @@ export default function HeroSection() {
 
             {/* Trust signals - simple text, no neon glows */}
             <div className="mt-4 text-xs text-primary-foreground/70 font-mono">
-              Sessions from €100 · Free 15-min intro call
+              Sessions from $120 · Free 15-min intro call
             </div>
           </BlurFade>
 
