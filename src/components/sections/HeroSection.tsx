@@ -9,6 +9,7 @@ import {
   Shield,
   Clock,
   ArrowRight,
+  Euro,
 } from "lucide-react";
 import { trackEvent, trackConversion } from "@/lib/analytics";
 import { NumberTicker } from "@/components/ui/number-ticker";
@@ -199,8 +200,8 @@ export default function HeroSection() {
           </BlurFade>
 
           <BlurFade delay={0.5} inView>
-            {/* Primary CTA - Apple-style blue pill for primary action */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            {/* Primary CTA - coaching as main offer */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap">
               <a
                 href={CALENDAR_URL}
                 target="_blank"
@@ -213,6 +214,14 @@ export default function HeroSection() {
               >
                 <Zap className="w-4 h-4" />
                 {ctaText.primary}
+              </a>
+              <a
+                href="#ai-mentoring"
+                onClick={() => trackEvent("hero_mentoring_cta")}
+                className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-medium text-base px-7 py-3 rounded-full border border-white/30 hover:bg-white/20 hover:border-white/50 active:scale-[0.95] transition-all duration-200"
+              >
+                <Euro className="w-4 h-4" />
+                1-on-1 Mentoring — €100/hr
               </a>
               <a
                 href={GOOGLE_FORM_URL}
@@ -235,7 +244,7 @@ export default function HeroSection() {
 
             {/* Trust signals - simple text, no neon glows */}
             <div className="mt-4 text-xs text-primary-foreground/70 font-mono">
-              15-minute call
+              Sessions from €100 · Free 15-min intro call
             </div>
           </BlurFade>
 

@@ -1,11 +1,13 @@
 "use client";
 
+import { useState, useEffect, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
-import { Heart, Lightbulb, TrendingUp, CalendarDays } from 'lucide-react';
+import { Heart, Lightbulb, TrendingUp, CalendarDays, CheckCircle2, Sparkles, Euro, DollarSign } from 'lucide-react';
 import { trackConversion } from '@/lib/analytics';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { motion } from 'motion/react';
-import { CALENDAR_URL } from '@/lib/constants';
+import { CALENDAR_URL, COACHING_PACKAGES, CurrencyCode } from '@/lib/constants';
+import CurrencyToggle from '@/components/ui/CurrencyToggle';
 
 const pillars = [
   {
@@ -25,15 +27,33 @@ const pillars = [
   }
 ];
 
+const CurrencyIcon = ({ currency }: { currency: CurrencyCode }) =>
+  currency === 'EUR' ? <Euro className="h-4 w-4 text-foreground" /> : <DollarSign className="h-4 w-4 text-foreground" />;
+
 export default function AIMentoringSection() {
+  const [currency, setCurrency] = useState<CurrencyCode>('EUR');
+
+  useEffect(() => {
+    const saved = localStorage.getItem('af_currency');
+    if (saved === 'EUR' || saved === 'USD') setCurrency(saved);
+  }, []);
+
+  const handleCurrencyChange = useCallback((c: CurrencyCode) => {
+    setCurrency(c);
+    localStorage.setItem('af_currency', c);
+  }, []);
+
+  const fmtPrice = (eur: number, usd: number) =>
+    currency === 'EUR' ? `€${eur.toLocaleString()}` : `$${usd.toLocaleString()}`;
+
   return (
     <section id="ai-mentoring" className="py-16 md:py-24 px-4 bg-secondary scroll-mt-20">
       <div className="container max-w-5xl mx-auto">
         <BlurFade inView>
           <div className="text-center mb-12">
-            <p className="text-xs text-muted-foreground/60 font-mono mb-2">Last updated: February 2026</p>
+            <p className="text-xs text-muted-foreground/60 font-mono mb-2">Last updated: May 2026</p>
             <p className="text-sm font-mono text-primary uppercase tracking-widest mb-3">
-              One-on-One Mentoring
+              One-on-One AI Mentoring
             </p>
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
               Navigating the edge isn&apos;t a solo journey
@@ -48,7 +68,8 @@ export default function AIMentoringSection() {
           </div>
         </BlurFade>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
+        {/* Three pillars */}
+        <div className="grid md:grid-cols-3 gap-6 mb-16">
           {pillars.map((pillar, index) => (
             <motion.div
               key={pillar.title}
@@ -70,15 +91,139 @@ export default function AIMentoringSection() {
           ))}
         </div>
 
+        {/* Pricing packages */}
+        <BlurFade inView>
+          <div className="text-center mb-6">
+            <h3 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-3">
+              Choose your path
+            </h3>
+            <p className="text-muted-foreground max-w-xl mx-auto mb-4">
+              All sessions are 60 minutes, held via video call. Pick the commitment that fits your journey.
+            </p>
+            {/* Currency toggle */}
+            <div className="flex justify-center">
+              <CurrencyToggle currency={currency} onChange={handleCurrencyChange} />
+            </div>
+          </div>
+        </BlurFade>
+
+        <div className="grid md:grid-cols-4 gap-4 mb-12">
+          {COACHING_PACKAGES.map((pkg, index) => (
+            <motion.div
+              key={pkg.id}
+              className={`relative bg-background rounded-xl border ${
+                pkg.popular
+                  ? 'border-primary shadow-lg shadow-primary/10 ring-1 ring-primary'
+                  : 'border-border'
+              } transition-all duration-300 hover:shadow-lg hover:-translate-y-1 flex flex-col`}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, ease: 'easeOut', delay: index * 0.1 }}
+            >
+              {/* Most Popular badge */}
+              {pkg.popular && (
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                  <span className="inline-flex items-center gap-1 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full">
+                    <Sparkles className="h-3 w-3" />
+                    Most Popular
+                  </span>
+                </div>
+              )}
+
+              <div className="p-5 flex flex-col flex-1">
+                {/* Package name */}
+                <h4 className="text-sm font-mono text-muted-foreground uppercase tracking-widest mb-1">
+                  {pkg.name}
+                </h4>
+
+                {/* Price */}
+                <div className="flex items-baseline gap-1 mb-1">
+                  <CurrencyIcon currency={currency} />
+                  <span className="text-3xl font-heading font-bold text-foreground">
+                    {currency === 'EUR'
+                      ? pkg.totalPrice.toLocaleString()
+                      : pkg.totalPriceUSD.toLocaleString()
+                    }
+                  </span>
+                  <span className="text-sm text-muted-foreground">
+                    {pkg.sessions > 1
+                      ? ` (${currency === 'EUR' ? '€' : '$'}${currency === 'EUR' ? pkg.pricePerSession : pkg.pricePerSessionUSD}/session)`
+                      : `/${currency === 'EUR' ? 'session' : 'session'}`}
+                  </span>
+                </div>
+
+                {/* Savings badge */}
+                {pkg.savings > 0 && (
+                  <p className="text-xs font-medium text-green-600 dark:text-green-400 mb-3">
+                    {currency === 'EUR'
+                      ? `Save €${pkg.savings}`
+                      : `Save $${pkg.savingsUSD}`
+                    }
+                    {pkg.discountPercent > 0 && ` — ${pkg.discountPercent}% off`}
+                  </p>
+                )}
+
+                {/* Sessions count */}
+                <p className="text-xs text-muted-foreground mb-3">
+                  {pkg.sessions} {pkg.sessions === 1 ? 'session' : 'sessions'} · 60 min each
+                </p>
+
+                {/* Description */}
+                <p className="text-xs text-muted-foreground/80 mb-4 leading-relaxed">
+                  {pkg.description}
+                </p>
+
+                {/* Features */}
+                <ul className="space-y-1.5 mb-6 flex-1">
+                  {pkg.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-2 text-xs text-foreground/80">
+                      <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* CTA */}
+                <Button
+                  asChild
+                  size="sm"
+                  className={`w-full h-10 text-sm font-semibold ${
+                    pkg.popular
+                      ? 'bg-primary text-primary-foreground hover:bg-primary/90'
+                      : 'bg-secondary text-foreground hover:bg-secondary/80 border border-border'
+                  }`}
+                  variant={pkg.popular ? 'default' : 'outline'}
+                >
+                  <a
+                    href={CALENDAR_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackConversion(`mentoring_${pkg.id}`, pkg.totalPrice)}
+                  >
+                    <CalendarDays className="mr-1.5 h-4 w-4" />
+                    Book {pkg.sessions > 1 ? `${pkg.sessions}-Pack` : 'Now'}
+                  </a>
+                </Button>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Bottom CTA for undecided visitors */}
         <BlurFade inView delay={0.3}>
           <div className="text-center">
-            <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-              This isn&apos;t for everyone. It&apos;s for people who want to lead their own journey, not be dragged along by it. Sessions start at $97.
+            <p className="text-muted-foreground text-sm max-w-lg mx-auto">
+              Not sure which pack is right? Book a free 15-minute call to discuss your goals and find the right fit.
             </p>
-            <Button asChild size="lg" className="h-12 px-8 text-base font-bold">
-              <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackConversion('mentoring_book_session', 97)}>
-                <CalendarDays className="mr-2 h-5 w-5" />
-                Book a Session
+            <Button asChild variant="link" size="sm" className="mt-2">
+              <a
+                href={CALENDAR_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackConversion('mentoring_free_consult')}
+              >
+                Book a Free Call →
               </a>
             </Button>
           </div>

@@ -113,13 +113,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     //   priority: 0.6,
     // },
 
-    // // === BLOG/INSIGHTS (uncomment when created) ===
-    // {
-    //   url: `${baseUrl}/blog`,
-    //   lastModified: new Date(),
-    //   changeFrequency: 'weekly',
-    //   priority: 0.7,
-    // },
+    // === BLOG/INSIGHTS ===
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
     // {
     //   url: `${baseUrl}/blog/ai-adoption-checklist`,
     //   lastModified: new Date(),
