@@ -29,13 +29,13 @@ export default function HomePage() {
       <HeroSection />
 
       {/* LEAD CAPTURE — email signup right after the pitch */}
-      <section className="py-10 md:py-12 bg-gradient-to-b from-primary/5 to-background">
+      <section className="py-10 md:py-12 bg-usvc-navy">
         <div className="container mx-auto px-4 md:px-6 max-w-3xl text-center">
-          <p className="text-sm text-muted-foreground font-mono uppercase tracking-widest mb-2">Free</p>
-          <h2 className="font-heading text-xl md:text-2xl font-bold text-foreground mb-2">
+          <p className="text-sm text-usvc-blue font-mono uppercase tracking-widest mb-2">Free</p>
+          <h2 className="font-heading text-xl md:text-2xl font-bold text-white mb-2">
             Get Your AI Readiness Score
           </h2>
-          <p className="text-sm text-muted-foreground mb-5 max-w-lg mx-auto">
+          <p className="text-sm text-white/70 mb-5 max-w-lg mx-auto">
             3-minute assessment. You'll get your personalized profile, clarity score, and a recommended next step — no pitch, no pressure.
           </p>
           <LeadCaptureInline />
