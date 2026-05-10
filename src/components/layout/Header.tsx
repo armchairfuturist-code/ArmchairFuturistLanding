@@ -8,7 +8,7 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
-import { Menu, FileText } from "lucide-react";
+import { Menu, FileText, MessageCircle } from "lucide-react";
 import Image from "next/image";
 import { CALENDAR_URL } from "@/lib/constants";
 
@@ -62,6 +62,15 @@ export default function Header() {
             >
               Free Assessment
             </Link>
+            <a
+              href="https://wa.me/15157706902"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/70 hover:text-usvc-blue transition-colors duration-300"
+              aria-label="WhatsApp"
+            >
+              <MessageCircle className="h-5 w-5" />
+            </a>
             <Button asChild variant="default" size="default">
               <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer">
                 Book Call
@@ -120,6 +129,15 @@ export default function Header() {
                   >
                     Free AI Assessment
                   </Link>
+                  <a
+                    href="https://wa.me/15157706902"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-usvc-blue transition-colors"
+                  >
+                    <MessageCircle className="h-4 w-4" />
+                    WhatsApp
+                  </a>
                   <Button
                     asChild
                     variant="default"
