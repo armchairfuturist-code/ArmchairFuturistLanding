@@ -7,7 +7,7 @@ import { trackConversion } from '@/lib/analytics';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { motion } from 'motion/react';
 import { CALENDAR_URL, COACHING_PACKAGES, CurrencyCode } from '@/lib/constants';
-import CurrencyToggle from '@/components/ui/CurrencyToggle';
+// Inline currency toggle — no separate component needed
 
 const pillars = [
   {
@@ -102,7 +102,24 @@ export default function AIMentoringSection() {
             </p>
             {/* Currency toggle */}
             <div className="flex justify-center">
-              <CurrencyToggle currency={currency} onChange={handleCurrencyChange} />
+              <div className="inline-flex items-center gap-1 bg-muted rounded-full p-1 text-xs font-medium">
+                <button
+                  onClick={() => handleCurrencyChange('USD')}
+                  className={`px-3 py-1 rounded-full transition-colors ${
+                    currency === 'USD' ? 'bg-background text-foreground shadow-sm' : 'text-muted-foreground hover:text-foreground'
+                  }`}
+                >
+                  USD
+                </button>
+                <button
+                  onClick={() => handleCurrencyChange('EUR')}
+                  className={`px-3 py-1 rounded-full transition-colors ${
+                    currency === 'EUR' ? 'bg-background text-foreground shadow-sm' : 'text-muted-foreground hover:text-foreground'
+                  }`}
+                >
+                  EUR
+                </button>
+              </div>
             </div>
           </div>
         </BlurFade>
