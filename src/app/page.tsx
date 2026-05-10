@@ -2,7 +2,7 @@
 import AISummaryNugget from '@/components/seo/AISummaryNugget';
 import HeroSection from '@/components/sections/HeroSection';
 import LeadCaptureInline from '@/components/lead-capture/LeadCaptureInline';
-import AIMentoringSection from '@/components/sections/AIMentoringSection';
+import MentoringSection from '@/components/sections/MentoringSection';
 import PackageComparisonSection from '@/components/sections/PackageComparisonSection';
 import KeyStatsSection from '@/components/sections/KeyStatsSection';
 import AboutMeSection from '@/components/sections/AboutMeSection';
@@ -43,7 +43,7 @@ export default function HomePage() {
       </section>
 
       {/* MENTORING — AI mindset coaching for the overwhelmed */}
-      <AIMentoringSection />
+      <MentoringSection />
 
       {/* PACKAGE COMPARISON — detailed feature breakdown by tier */}
       <PackageComparisonSection />

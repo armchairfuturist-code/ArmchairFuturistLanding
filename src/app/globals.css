@@ -101,15 +101,6 @@
         /* Section blue background */
         --section-blue-background: 212 100% 9%; /* USVC Navy */
 
-        /* Sidebar specific variables */
-        --sidebar-background: 216 100% 99%;
-        --sidebar-foreground: 212 100% 9%;
-        --sidebar-primary: 213 100% 53%;
-        --sidebar-primary-foreground: 0 0% 100%;
-        --sidebar-accent: 0 0% 95%;
-        --sidebar-accent-foreground: 212 100% 9%;
-        --sidebar-border: 213 100% 85%;
-        --sidebar-ring: 213 100% 53%;
     }
 
     .dark {
@@ -141,14 +132,6 @@
         --hero-title-color-1: 0 0% 100%;
         --hero-title-color-2: 213 100% 53%;
 
-        --sidebar-background: 212 100% 9%;
-        --sidebar-foreground: 0 0% 100%;
-        --sidebar-primary: 213 100% 53%;
-        --sidebar-primary-foreground: 0 0% 100%;
-        --sidebar-accent: 212 100% 12%;
-        --sidebar-accent-foreground: 0 0% 100%;
-        --sidebar-border: 219 74% 31%;
-        --sidebar-ring: 213 100% 53%;
     }
 
     * {

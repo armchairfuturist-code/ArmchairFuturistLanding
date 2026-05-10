@@ -30,7 +30,7 @@ const pillars = [
 const CurrencyIcon = ({ currency }: { currency: CurrencyCode }) =>
   currency === 'EUR' ? <Euro className="h-4 w-4 text-foreground" /> : <DollarSign className="h-4 w-4 text-foreground" />;
 
-export default function AIMentoringSection() {
+export default function MentoringSection() {
   const [currency, setCurrency] = useState<CurrencyCode>('USD');
 
   useEffect(() => {
