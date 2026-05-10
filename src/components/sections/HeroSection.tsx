@@ -43,10 +43,6 @@ const ctaVariants = {
   variant_b: { primary: "Book a Call", secondary: "Start Your Free Quiz" },
 };
 
-const secondaryCtaVariants = {
-  control: "Take the Free Assessment",
-  variant_a: "Get Your Free Score",
-};
 
 // A/B Test: Headline Variants
 const headlineVariants = {
@@ -76,7 +72,6 @@ export default function HeroSection() {
   const { variant: headlineVariant } = useExperiment("HERO_HEADLINE");
   const { variant: ctaVariant, trackConversion: trackCtaConversion } =
     useExperiment("HERO_CTA_COPY");
-  const { variant: secondaryCtaVariant } = useExperiment("HERO_SECONDARY_CTA");
 
   // Solid, confident CTA buttons - no neon glows
   const ctaStyle =
@@ -87,10 +82,6 @@ export default function HeroSection() {
     headlineVariants.control;
   const ctaText =
     ctaVariants[ctaVariant as keyof typeof ctaVariants] || ctaVariants.control;
-  const secondaryCtaText =
-    secondaryCtaVariants[
-      secondaryCtaVariant as keyof typeof secondaryCtaVariants
-    ] || secondaryCtaVariants.control;
 
   // Subtle mouse parallax for hero text depth
   const mouseX = useMotionValue(0);
@@ -235,14 +226,7 @@ export default function HeroSection() {
               >
                 Get Your $199 Landing Page
               </a>
-              <a
-                href="/assessment"
-                onClick={() => trackEvent("hero_assessment_cta")}
-                className="inline-flex items-center gap-2 text-primary-foreground/80 font-medium text-base px-4 py-3 hover:text-primary-foreground hover:underline underline-offset-4 transition-all"
-              >
-                {secondaryCtaText}
-                <ArrowRight className="w-4 h-4" />
-              </a>
+              
             </div>
 
             {/* Trust signals - simple text, no neon glows */}
