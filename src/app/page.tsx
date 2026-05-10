@@ -2,18 +2,19 @@
 import AISummaryNugget from '@/components/seo/AISummaryNugget';
 import HeroSection from '@/components/sections/HeroSection';
 import ChallengeSection from '@/components/sections/ChallengeSection';
+import LeadCaptureInline from '@/components/lead-capture/LeadCaptureInline';
+import AIMentoringSection from '@/components/sections/AIMentoringSection';
+import PackageComparisonSection from '@/components/sections/PackageComparisonSection';
+import KeyStatsSection from '@/components/sections/KeyStatsSection';
 import AboutMeSection from '@/components/sections/AboutMeSection';
 import FeaturedInSection from '@/components/sections/FeaturedInSection';
 import WhyWorkWithMeSection from '@/components/sections/WhyWorkWithMeSection';
 import ServicesSection from '@/components/sections/ServicesSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import ConnectSection from '@/components/sections/ConnectSection';
-import AIMentoringSection from '@/components/sections/AIMentoringSection';
-import PackageComparisonSection from '@/components/sections/PackageComparisonSection';
 import SpeakingSection from '@/components/sections/SpeakingSection';
 import FAQSection from '@/components/sections/FAQSection';
 import AssessmentCtaSection from '@/components/sections/AssessmentCtaSection';
-import KeyStatsSection from '@/components/sections/KeyStatsSection';
 import CaseStudiesSection from '@/components/sections/CaseStudiesSection';
 import InsightsSection from '@/components/sections/InsightsSection';
 import ROICalculatorSection from '@/components/sections/ROICalculatorSection';
@@ -30,6 +31,20 @@ export default function HomePage() {
 
       {/* PROBLEM + SOLUTION — the accountability gap and how I bridge it */}
       <ChallengeSection />
+
+      {/* LEAD CAPTURE — email signup right after the pitch */}
+      <section className="py-10 md:py-12 bg-gradient-to-b from-primary/5 to-background">
+        <div className="container mx-auto px-4 md:px-6 max-w-3xl text-center">
+          <p className="text-sm text-muted-foreground font-mono uppercase tracking-widest mb-2">Free</p>
+          <h2 className="font-heading text-xl md:text-2xl font-bold text-foreground mb-2">
+            Get Your AI Readiness Score
+          </h2>
+          <p className="text-sm text-muted-foreground mb-5 max-w-lg mx-auto">
+            3-minute assessment. You'll get your personalized profile, clarity score, and a recommended next step — no pitch, no pressure.
+          </p>
+          <LeadCaptureInline />
+        </div>
+      </section>
 
       {/* MENTORING — AI mindset coaching for the overwhelmed */}
       <AIMentoringSection />

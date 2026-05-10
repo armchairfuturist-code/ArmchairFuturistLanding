@@ -10,6 +10,9 @@ import {
   Clock,
   ArrowRight,
   Euro,
+  Mail,
+  Loader2,
+  Check,
 } from "lucide-react";
 import { trackEvent, trackConversion } from "@/lib/analytics";
 import { NumberTicker } from "@/components/ui/number-ticker";
