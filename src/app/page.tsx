@@ -1,7 +1,6 @@
 
 import AISummaryNugget from '@/components/seo/AISummaryNugget';
 import HeroSection from '@/components/sections/HeroSection';
-import ChallengeSection from '@/components/sections/ChallengeSection';
 import LeadCaptureInline from '@/components/lead-capture/LeadCaptureInline';
 import AIMentoringSection from '@/components/sections/AIMentoringSection';
 import PackageComparisonSection from '@/components/sections/PackageComparisonSection';
@@ -28,9 +27,6 @@ export default function HomePage() {
 
       {/* HOOK — make the visitor feel the stakes */}
       <HeroSection />
-
-      {/* PROBLEM + SOLUTION — the accountability gap and how I bridge it */}
-      <ChallengeSection />
 
       {/* LEAD CAPTURE — email signup right after the pitch */}
       <section className="py-10 md:py-12 bg-gradient-to-b from-primary/5 to-background">
