@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Linkedin, Mail, Calendar } from "lucide-react";
+import { Linkedin, Mail, Calendar, MessageCircle } from "lucide-react";
 import { SUBSTACK_URL, CALENDAR_URL } from "@/lib/constants";
 
 export default function Footer() {
@@ -69,6 +69,15 @@ export default function Footer() {
               >
                 <Mail className="h-3.5 w-3.5" />
                 Email
+              </a>
+              <a
+                href="https://wa.me/15157706902"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm text-white/70 hover:text-usvc-blue transition-colors duration-300 font-body"
+              >
+                <MessageCircle className="h-3.5 w-3.5" />
+                WhatsApp
               </a>
             </div>
             <div className="flex items-center gap-3">
