@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowUpRight, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { SUBSTACK_URL } from '@/lib/constants';
+import { ArrowUpRight, Mail } from 'lucide-react';
 
 const siteUrl = 'https://thearmchairfuturist.com';
 
@@ -84,7 +84,7 @@ export default async function BlogPage() {
   const posts = await getSubstackPosts();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-min-h-[100dvh] bg-background">
       {/* Header */}
       <section className="py-16 md:py-24 bg-secondary">
         <div className="container mx-auto px-4 md:px-6 max-w-4xl text-center">

@@ -1,7 +1,8 @@
 "use client";
 
 import { BlurFade } from '@/components/ui/blur-fade';
-import { XCircle, AlertTriangle, Users, Clock, Wrench, ArrowRight } from 'lucide-react';
+import { Users, Clock, Wrench, ArrowRight } from 'lucide-react';
+import { XCircle, AlertTriangle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { CALENDAR_URL } from '@/lib/constants';
 import { trackEvent } from '@/lib/analytics';

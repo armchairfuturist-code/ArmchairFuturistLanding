@@ -41,50 +41,50 @@ typography:
     fontWeight: 600
     lineHeight: 1.2
   lead:
-    fontFamily: '"Inter", "system-ui", sans-serif'
+    fontFamily: '"Outfit", "system-ui", sans-serif'
     fontSize: clamp(1.1rem, 1.5vw, 1.3rem)
     fontWeight: 400
     lineHeight: 1.5
   body:
-    fontFamily: '"Inter", "system-ui", sans-serif'
+    fontFamily: '"Outfit", "system-ui", sans-serif'
     fontSize: clamp(1rem, 1.25vw, 1.1rem)
     fontWeight: 400
     lineHeight: 1.6
   body-strong:
-    fontFamily: '"Inter", "system-ui", sans-serif'
+    fontFamily: '"Outfit", "system-ui", sans-serif'
     fontSize: clamp(1rem, 1.25vw, 1.1rem)
     fontWeight: 600
     lineHeight: 1.6
   caption:
-    fontFamily: '"Inter", "system-ui", sans-serif'
+    fontFamily: '"Outfit", "system-ui", sans-serif'
     fontSize: 0.875rem
     fontWeight: 400
     lineHeight: 1.5
   caption-strong:
-    fontFamily: '"Inter", "system-ui", sans-serif'
+    fontFamily: '"Outfit", "system-ui", sans-serif'
     fontSize: 0.875rem
     fontWeight: 600
     lineHeight: 1.4
   label-caps:
-    fontFamily: '"Inter", "system-ui", sans-serif'
+    fontFamily: '"Outfit", "system-ui", sans-serif'
     fontSize: 0.75rem
     fontWeight: 500
     lineHeight: 1.4
     letterSpacing: 0.06em
     textTransform: uppercase
   button:
-    fontFamily: '"Inter", "system-ui", sans-serif'
+    fontFamily: '"Outfit", "system-ui", sans-serif'
     fontSize: 0.95rem
     fontWeight: 500
     lineHeight: 1.25
     letterSpacing: 0.01em
   nav-link:
-    fontFamily: '"Inter", "system-ui", sans-serif'
+    fontFamily: '"Outfit", "system-ui", sans-serif'
     fontSize: 0.9rem
     fontWeight: 400
     lineHeight: 1
   fine-print:
-    fontFamily: '"Inter", "system-ui", sans-serif'
+    fontFamily: '"Outfit", "system-ui", sans-serif'
     fontSize: 0.75rem
     fontWeight: 400
     lineHeight: 1.4
@@ -219,7 +219,7 @@ Density is deliberately low. Each tile occupies roughly one viewport section. Th
 - Alternating edge-to-edge tile sections: parchment ↔ navy ↔ black, with the color change itself acting as the section divider.
 - Single blue accent (`#0d84ff`) carries every interactive element. No second accent color exists.
 - Two button grammars: pill CTAs for primary actions, compact rectangles for secondary/navy.
-- Typography: SF Pro / system-ui for display headlines, Inter for body text — full Apple typography stack.
+- Typography: SF Pro / system-ui for display headlines, Outfit for body text — full Apple typography stack.
 - Negative letter-spacing at display sizes for signature "Apple tight" headline feel.
 - Generous whitespace — each section gets breathing room (80px vertical padding).
 - Tight black global nav (52px) with blue hover signal.

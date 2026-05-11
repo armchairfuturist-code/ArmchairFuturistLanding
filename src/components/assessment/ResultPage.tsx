@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, ExternalLink, RotateCcw, Zap, CheckCircle2, Clock } from 'lucide-react';
+import { ArrowRight, ExternalLink, Zap, CheckCircle2, Clock } from 'lucide-react';
+import { RotateCcw } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { motion } from 'motion/react';

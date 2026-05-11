@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -8,7 +10,7 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
-import { Menu, FileText, MessageCircle } from "lucide-react";
+import {Calculator, Menu, FileText, MessageCircle} from 'lucide-react';
 import Image from "next/image";
 import { CALENDAR_URL } from "@/lib/constants";
 

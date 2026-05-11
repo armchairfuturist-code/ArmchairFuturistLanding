@@ -2,7 +2,7 @@
 
 import { BlurFade } from "@/components/ui/blur-fade";
 import { motion } from "motion/react";
-import { ArrowRight, Clock, DollarSign, TrendingUp } from "lucide-react";
+import { Calendar,  ArrowRight, Clock, DollarSign, TrendingUp } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { CALENDAR_URL } from "@/lib/constants";
 

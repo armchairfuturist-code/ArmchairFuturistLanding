@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Clock, RefreshCw, ArrowLeft, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { BlurFade } from '@/components/ui/blur-fade';
 import Breadcrumbs from '@/components/ui/breadcrumbs';
+import { ArrowLeft, ExternalLink, RefreshCw } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Case Studies | The Armchair Futurist',
@@ -68,7 +68,7 @@ const caseStudies = [
 
 export default function CaseStudiesPage() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-min-h-[100dvh] bg-background">
       {/* Schema for Case Studies */}
       <script
         type="application/ld+json"
@@ -81,9 +81,9 @@ export default function CaseStudiesPage() {
             "author": { "@id": "https://thearmchairfuturist.com/#person" },
             "publisher": { "@id": "https://thearmchairfuturist.com/#organization" },
             "mainEntity": {
-              "@type": "ItemList",
-              "itemListElement": caseStudies.map((cs, index) => ({
-                "@type": "ListItem",
+              "@type": "ItemMenu",
+              "itemMenuElement": caseStudies.map((cs, index) => ({
+                "@type": "MenuItem",
                 "position": index + 1,
                 "item": {
                   "@type": "Article",

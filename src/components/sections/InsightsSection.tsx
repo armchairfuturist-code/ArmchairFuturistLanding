@@ -4,7 +4,7 @@ import type { FC } from 'react';
 import { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { BookOpen, ExternalLink, Calendar, Image as ImageIcon, Podcast, MessageCircle, ChevronDown, ChevronUp } from 'lucide-react';
+import { Image as ImageIcon, BookOpen, ExternalLink, Calendar, Podcast, MessageCircle, ChevronDown, ChevronUp } from 'lucide-react';
 import { format } from 'date-fns';
 import Image from 'next/image';
 import Link from 'next/link';

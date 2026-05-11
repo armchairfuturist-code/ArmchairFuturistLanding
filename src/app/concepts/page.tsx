@@ -1,6 +1,6 @@
+import { BookOpen, Brain, Users, ArrowLeft } from 'lucide-react'
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowLeft, BookOpen, Brain, Users } from 'lucide-react';
 import { BlurFade } from '@/components/ui/blur-fade';
 import Breadcrumbs from '@/components/ui/breadcrumbs';
 
@@ -54,7 +54,7 @@ const concepts = [
 
 export default function ConceptsIndexPage() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-min-h-[100dvh] bg-background">
       {/* Schema */}
       <script
         type="application/ld+json"

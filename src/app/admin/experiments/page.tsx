@@ -6,7 +6,8 @@ import { trackEvent } from '@/lib/analytics';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Trophy, RotateCcw, BarChart3, Copy, Check } from 'lucide-react';
+import { Trophy, Check } from 'lucide-react';
+import { RotateCcw, BarChart3, Copy } from 'lucide-react';
 
 export default function ExperimentsAdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -68,7 +69,7 @@ export default function ExperimentsAdminPage() {
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-background">
+      <div className="min-min-h-[100dvh] flex items-center justify-center bg-background">
         <Card className="w-full max-w-sm">
           <CardHeader>
             <CardTitle className="text-center">Experiments Admin</CardTitle>
@@ -93,7 +94,7 @@ export default function ExperimentsAdminPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background py-8 px-4">
+    <div className="min-min-h-[100dvh] bg-background py-8 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <div>

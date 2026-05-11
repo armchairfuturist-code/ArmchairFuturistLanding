@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { Linkedin, ArrowRight } from "lucide-react";
+import {ArrowRight} from 'lucide-react';
+import { Linkedin } from 'lucide-react';
 import type { Certification } from "@/types";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { motion } from "motion/react";

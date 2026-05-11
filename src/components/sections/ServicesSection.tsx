@@ -1,26 +1,8 @@
 "use client";
+import {ArrowRight, CheckCircle2, BrainCircuit, FlaskConical, Workflow, Settings, Globe2, Layout, Rocket, Users, Zap} from 'lucide-react';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
-import {
-  Rocket,
-  Zap,
-  Workflow,
-  Database,
-  ArrowRight,
-  CheckCircle2,
-  Globe2,
-  TrendingUp,
-  ShieldCheck,
-  Calculator,
-  Layout,
-  Settings,
-  BrainCircuit,
-  Users,
-  FlaskConical,
-  Trophy,
-  Clock,
-} from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {

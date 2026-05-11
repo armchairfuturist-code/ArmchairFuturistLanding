@@ -3,7 +3,8 @@
 import { motion } from 'motion/react';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { Button } from '@/components/ui/button';
-import { Check, Minus, Sparkles, ArrowRight, Brain, Cog, Building2, RefreshCw, CalendarDays } from 'lucide-react';
+import { Check, Minus, Sparkles, ArrowRight, Brain, CalendarDays } from 'lucide-react';
+import { Settings, Building2, RefreshCw } from 'lucide-react';
 import { CALENDAR_URL } from '@/lib/constants';
 
 interface FeatureRow {
@@ -25,7 +26,7 @@ const categories = [
     ],
   },
   {
-    icon: Cog,
+    icon: Settings,
     label: 'Applying AI to Real Work',
     features: [
       { label: 'Using AI as a thinking partner, not a crutch', five: 'Introduction', ten: 'Daily practice', twenty: 'Automatic habit' },
@@ -47,7 +48,7 @@ const categories = [
   },
   {
     icon: RefreshCw,
-    label: 'The Cognitive Growth Protocol',
+    label: 'The Settingsnitive Growth Protocol',
     features: [
       { label: 'Think first, prompt second', five: 'Core habit', ten: 'Embedded', twenty: 'Automatic' },
       { label: 'Verify load-bearing claims', five: 'Introduction', ten: 'Structured practice', twenty: 'Second nature' },

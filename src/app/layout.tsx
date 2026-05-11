@@ -93,12 +93,12 @@ export const metadata: Metadata = {
   },
 };
 
-// Apple SF Pro typography system — Inter (Google Fonts) as open-source substitute
+// Apple SF Pro typography system — Outfit (Google Fonts) as open-source substitute
 // Display: system-ui, -apple-system, sans-serif → resolves to SF Pro on Apple devices
-// Body: Inter via Google Fonts for cross-platform consistency
-import { Inter } from "next/font/google";
+// Body: Outfit via Google Fonts — premium sans-serif
+import { Outfit } from "next/font/google";
 
-const inter = Inter({
+const outfit = Outfit({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-body",
@@ -114,8 +114,8 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body
         className={cn(
-          inter.variable,
-          "font-sans antialiased flex flex-col min-h-screen",
+          outfit.variable,
+          "font-sans antialiased flex flex-col min-min-h-[100dvh]",
         )}
       >
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
