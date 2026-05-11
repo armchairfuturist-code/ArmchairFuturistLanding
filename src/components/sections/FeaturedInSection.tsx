@@ -21,7 +21,7 @@ function LogoCard({ logo }: { logo: typeof logos[0] }) {
       className="flex flex-col items-center text-center flex-none gap-2"
       style={{ width: '96px' }}
     >
-      <div className="relative h-16 w-16 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 border border-border/50 grayscale hover:grayscale-0">
+      <div className="relative h-16 w-16 rounded-xl overflow-hidden hover:border-primary/30 transition-all duration-300 hover:scale-105 border border-border/50 grayscale hover:grayscale-0">
         <Image
           src={logo.src}
           alt={logo.alt}

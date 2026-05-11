@@ -1,0 +1,89 @@
+"use client";
+
+import { useEffect, useState } from 'react';
+
+const sections = [
+  { id: 'stats', label: 'Stats' },
+  { id: 'about-me', label: 'About' },
+  { id: 'what-this-is-not', label: 'Fit' },
+  { id: 'services', label: 'Services' },
+  { id: 'ai-mentoring', label: 'Mentoring' },
+  { id: 'package-comparison', label: 'Packages' },
+  { id: 'case-studies', label: 'Cases' },
+  { id: 'testimonials', label: 'Reviews' },
+  { id: 'roi-calculator', label: 'ROI' },
+  { id: 'faq', label: 'FAQ' },
+  { id: 'connect', label: 'Contact' },
+];
+
+export default function SectionNavigator() {
+  const [activeSection, setActiveSection] = useState('');
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show navigator after scrolling past the hero (past 80vh)
+      const scrollY = window.scrollY;
+      const viewportHeight = window.innerHeight;
+      setVisible(scrollY > viewportHeight * 0.7);
+
+      // Determine which section is in view
+      let current = '';
+      for (const section of sections) {
+        const el = document.getElementById(section.id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= viewportHeight * 0.35) {
+            current = section.id;
+          }
+        }
+      }
+      setActiveSection(current);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  if (!visible) return null;
+
+  return (
+    <nav
+      aria-label="Section navigation"
+      className="fixed right-3 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-2"
+    >
+      {sections.map((section) => {
+        const isActive = activeSection === section.id;
+        return (
+          <button
+            key={section.id}
+            onClick={() => scrollTo(section.id)}
+            className="group relative flex items-center justify-center h-3 w-3"
+            aria-label={`Scroll to ${section.label}`}
+          >
+            {/* Dot */}
+            <span
+              className={`block rounded-full transition-all duration-300 ${
+                isActive
+                  ? 'h-2.5 w-2.5 bg-primary'
+                  : 'h-1.5 w-1.5 bg-foreground/30 group-hover:bg-foreground/60 group-hover:h-2 group-hover:w-2'
+              }`}
+            />
+            {/* Label on hover */}
+            <span className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap text-xs font-medium text-foreground/80 bg-background/90 backdrop-blur-sm px-2 py-1 rounded-md border border-border/50">
+              {section.label}
+            </span>
+          </button>
+        );
+      })}
+    </nav>
+  );
+}

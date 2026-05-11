@@ -62,7 +62,7 @@ export default function WhyWorkWithMeSection() {
           {strategyItems.map((item, index) => (
             <Card key={index} className="border-none shadow-none bg-secondary/20 hover:bg-secondary/40 transition-colors duration-300">
               <CardHeader className="pb-4">
-                <div className="mb-4 p-3 bg-background rounded-xl w-fit border border-border shadow-sm">
+                <div className="mb-4 p-3 bg-background rounded-xl w-fit border border-border">
                   {item.icon}
                 </div>
                 <CardTitle className="text-xl font-bold text-foreground">

@@ -120,7 +120,7 @@ export default function FAQSection() {
               <AccordionItem
                 key={index}
                 value={`faq-${index}`}
-                className="bg-card border border-border/60 rounded-xl px-6 shadow-sm hover:shadow-md transition-all"
+                className="bg-card border border-border/60 rounded-xl px-6 hover:border-primary/30 transition-all"
               >
                 <AccordionTrigger className="py-5 text-left font-heading font-semibold text-foreground hover:no-underline hover:text-primary transition-colors">
                   {item.question}

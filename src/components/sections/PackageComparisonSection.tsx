@@ -103,7 +103,7 @@ export default function PackageComparisonSection() {
               Compare Packages
             </p>
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
-              Choose your path
+              See what's included
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Not all packages are created equal. Here&apos;s exactly what you&apos;ll learn at each level.
