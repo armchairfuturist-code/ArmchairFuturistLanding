@@ -163,6 +163,13 @@ export default function RootLayout({
               description:
                 "AI strategy advisory helping leaders close the accountability gap between AI outputs and business results through human-first execution.",
               url: "https://thearmchairfuturist.com",
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: "4.9",
+                reviewCount: "40",
+                bestRating: "5",
+                worstRating: "1"
+              },
               image: "https://thearmchairfuturist.com/floop.jpg",
               logo: "https://thearmchairfuturist.com/img.jpg",
               founder: { "@id": "https://thearmchairfuturist.com/#person" },

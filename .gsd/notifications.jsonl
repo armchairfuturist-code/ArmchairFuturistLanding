@@ -16,3 +16,6 @@
 {"id":"e0f20506-3015-48cc-b18e-159d3e76afb8","ts":"2026-05-10T16:06:57.130Z","severity":"info","message":"Reviewing prior context...","source":"notify","read":false}
 {"id":"7e7adc18-9cc2-44b4-9b7f-590a8ece8fe4","ts":"2026-05-10T16:06:57.132Z","severity":"success","message":"✓ Reviewed prior context","source":"notify","read":false}
 {"id":"6fadd93c-3204-4a2b-9ba6-cbe5ca903507","ts":"2026-05-10T16:27:41.947Z","severity":"info","message":"discuss-milestone M001 is waiting for your approval - pausing before more tool calls run.","source":"notify","read":false}
+{"id":"6fbdd613-fdce-4c9c-bede-ed8deee072c7","ts":"2026-05-10T20:24:56.087Z","severity":"info","message":"discuss-milestone M001 is waiting for your approval - pausing before more tool calls run.","source":"notify","read":false}
+{"id":"9175d2cf-6fd4-42f7-bf6e-d763a2f28302","ts":"2026-05-11T05:09:03.451Z","severity":"info","message":"GitHub sync: bootstrapping...","source":"notify","read":false}
+{"id":"a9e05340-6446-4e46-aade-895f326dbd77","ts":"2026-05-11T05:09:03.452Z","severity":"info","message":"GitHub sync: everything already synced (or no milestones found).","source":"notify","read":false}

@@ -1,7 +1,7 @@
 # Codebase Map
 
-Generated: 2026-05-10T20:17:04Z | Files: 243 | Described: 0/243
-<!-- gsd:codebase-meta {"generatedAt":"2026-05-10T20:17:04Z","fingerprint":"2591d10d885ae7b6f07b8b7115c95280bbe03332","fileCount":243,"truncated":false} -->
+Generated: 2026-05-11T09:19:23Z | Files: 243 | Described: 0/243
+<!-- gsd:codebase-meta {"generatedAt":"2026-05-11T09:19:23Z","fingerprint":"861aaaf2be274336430d73def83336a8c2f2fd4e","fileCount":243,"truncated":false} -->
 
 ### (root)/
 - `.env.example`
@@ -56,6 +56,7 @@ Generated: 2026-05-10T20:17:04Z | Files: 243 | Described: 0/243
 - `public/header.mp4`
 - `public/header.webp`
 - `public/Lia-Savillo.webp`
+- `public/llms-full.txt`
 - `public/llms.txt`
 - `public/README.md`
 - `public/robots.txt`
@@ -112,6 +113,9 @@ Generated: 2026-05-10T20:17:04Z | Files: 243 | Described: 0/243
 ### src/app/concepts/results-thinkers/
 - `src/app/concepts/results-thinkers/page.tsx`
 
+### src/app/llms-full.txt/
+- `src/app/llms-full.txt/route.ts`
+
 ### src/app/llms.txt/
 - `src/app/llms.txt/route.ts`
 
@@ -140,22 +144,19 @@ Generated: 2026-05-10T20:17:04Z | Files: 243 | Described: 0/243
 
 ### src/components/sections/
 - `src/components/sections/AboutMeSection.tsx`
-- `src/components/sections/AIMentoringSection.tsx`
 - `src/components/sections/AssessmentCtaSection.tsx`
 - `src/components/sections/CaseStudiesSection.tsx`
 - `src/components/sections/ConnectSection.tsx`
-- `src/components/sections/EmailCaptureSection.tsx`
 - `src/components/sections/FAQSection.tsx`
 - `src/components/sections/FeaturedInSection.tsx`
 - `src/components/sections/HeroSection.tsx`
 - `src/components/sections/InsightsSection.tsx`
 - `src/components/sections/KeyStatsSection.tsx`
-- `src/components/sections/OriginalResearchSection.tsx`
+- `src/components/sections/MentoringSection.tsx`
 - `src/components/sections/PackageComparisonSection.tsx`
 - `src/components/sections/ROICalculatorSection.tsx`
 - `src/components/sections/ServicesSection.tsx`
 - `src/components/sections/SpeakingSection.tsx`
-- `src/components/sections/SpotlightSection.tsx`
 - `src/components/sections/TestimonialsSection.tsx`
 - `src/components/sections/WhatThisIsNotSection.tsx`
 - `src/components/sections/WhyWorkWithMeSection.tsx`
@@ -176,6 +177,7 @@ Generated: 2026-05-10T20:17:04Z | Files: 243 | Described: 0/243
 - `src/components/ui/marquee.tsx`
 - `src/components/ui/number-ticker.tsx`
 - `src/components/ui/ScrollToTop.tsx`
+- `src/components/ui/SectionNavigator.tsx`
 - `src/components/ui/sheet.tsx`
 - `src/components/ui/tabs.tsx`
 - `src/components/ui/textarea.tsx`
