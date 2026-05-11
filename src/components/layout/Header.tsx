@@ -14,6 +14,7 @@ import { CALENDAR_URL } from "@/lib/constants";
 
 export default function Header() {
   const navItems = [
+    { href: "/#ai-mentoring", label: "Coaching" },
     { href: "/#services", label: "Services" },
     { href: "/#case-studies", label: "Case Studies" },
     { href: "/#roi-calculator", label: "ROI Calculator" },

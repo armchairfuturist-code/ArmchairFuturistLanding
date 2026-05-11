@@ -213,7 +213,7 @@ const ServiceAccordionItem = ({ service, pricingContext, index }: { service: Ser
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35, ease: 'easeOut', delay: index * 0.06 }}
     >
-      <AccordionItem value={service.title} className={`bg-card border rounded-xl px-2 mb-4 overflow-hidden shadow-sm transition-all hover:shadow-md
+      <AccordionItem value={service.title} className={`bg-card border rounded-xl px-2 mb-4 overflow-hidden hover:border-primary/30 transition-all
                 ${service.highlight ? 'border-primary/40' : 'border-border hover:border-primary/50'}
                 data-[state=open]:ring-1 data-[state=open]:ring-primary/20 data-[state=open]:shadow-lg`}>
         <AccordionTrigger className="px-4 py-6 hover:no-underline [&[data-state=open]>div>div>svg]:rotate-180">
@@ -276,7 +276,7 @@ const ServiceAccordionItem = ({ service, pricingContext, index }: { service: Ser
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {service.payload.map((item: string, i: number) => (
-                    <div key={i} className="text-[11px] font-mono font-medium text-foreground px-2.5 py-1.5 bg-background border border-border/50 rounded-md shadow-sm flex items-center gap-2 hover:border-primary/30 transition-colors">
+                    <div key={i} className="text-[11px] font-mono font-medium text-foreground px-2.5 py-1.5 bg-background border border-border/50 rounded-md flex items-center gap-2 hover:border-primary/30 transition-colors">
                       <CheckCircle2 className="w-3 h-3 text-green-500 shrink-0" /> {item}
                     </div>
                   ))}

@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import { Heart, Lightbulb, TrendingUp, CalendarDays, CheckCircle2, Sparkles, Euro, DollarSign } from 'lucide-react';
-import { trackConversion } from '@/lib/analytics';
+import { trackConversion, trackEvent } from '@/lib/analytics';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { motion } from 'motion/react';
 import { CALENDAR_URL, COACHING_PACKAGES, CurrencyCode } from '@/lib/constants';
@@ -73,7 +73,7 @@ export default function MentoringSection() {
           {pillars.map((pillar, index) => (
             <motion.div
               key={pillar.title}
-              className="bg-background rounded-xl p-6 shadow-sm border border-border transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer"
+              className="bg-background rounded-xl p-6 border border-border transition-all duration-300 hover:border-primary/30 hover:-translate-y-1 cursor-pointer"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -106,7 +106,7 @@ export default function MentoringSection() {
                 <button
                   onClick={() => handleCurrencyChange('USD')}
                   className={`px-3 py-1 rounded-full transition-colors ${
-                    currency === 'USD' ? 'bg-background text-foreground shadow-sm' : 'text-muted-foreground hover:text-foreground'
+                    currency === 'USD' ? 'bg-background text-foreground' : 'text-muted-foreground hover:text-foreground'
                   }`}
                 >
                   USD
@@ -114,7 +114,7 @@ export default function MentoringSection() {
                 <button
                   onClick={() => handleCurrencyChange('EUR')}
                   className={`px-3 py-1 rounded-full transition-colors ${
-                    currency === 'EUR' ? 'bg-background text-foreground shadow-sm' : 'text-muted-foreground hover:text-foreground'
+                    currency === 'EUR' ? 'bg-background text-foreground' : 'text-muted-foreground hover:text-foreground'
                   }`}
                 >
                   EUR
@@ -130,9 +130,9 @@ export default function MentoringSection() {
               key={pkg.id}
               className={`relative bg-background rounded-xl border ${
                 pkg.popular
-                  ? 'border-primary shadow-lg shadow-primary/10 ring-1 ring-primary'
+                  ? 'border-primary ring-1 ring-primary'
                   : 'border-border'
-              } transition-all duration-300 hover:shadow-lg hover:-translate-y-1 flex flex-col`}
+              } transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 flex flex-col`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -231,20 +231,14 @@ export default function MentoringSection() {
         <BlurFade inView delay={0.3}>
           <div className="text-center">
             <p className="text-muted-foreground text-sm max-w-lg mx-auto">
-              Not sure which pack is right?{' '}
-              <a href="#package-comparison" className="text-primary font-medium hover:underline">
-                Compare what each package includes
-              </a>{' '}
-              or book a free 15-minute call.
+              Scroll down for a full breakdown of what each package includes.{' '}
             </p>
             <Button asChild variant="link" size="sm" className="mt-2">
               <a
-                href={CALENDAR_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackConversion('mentoring_free_consult')}
+                href="#package-comparison"
+                onClick={() => trackEvent('mentoring_to_comparison')}
               >
-                Book a Free Call →
+                Compare Packages →
               </a>
             </Button>
           </div>

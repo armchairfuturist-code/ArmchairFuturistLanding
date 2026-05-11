@@ -1,4 +1,3 @@
-
 import AISummaryNugget from '@/components/seo/AISummaryNugget';
 import HeroSection from '@/components/sections/HeroSection';
 import LeadCaptureInline from '@/components/lead-capture/LeadCaptureInline';
@@ -18,6 +17,7 @@ import CaseStudiesSection from '@/components/sections/CaseStudiesSection';
 import InsightsSection from '@/components/sections/InsightsSection';
 import ROICalculatorSection from '@/components/sections/ROICalculatorSection';
 import WhatThisIsNotSection from '@/components/sections/WhatThisIsNotSection';
+import SectionNavigator from '@/components/ui/SectionNavigator';
 
 export default function HomePage() {
   return (
@@ -28,36 +28,28 @@ export default function HomePage() {
       {/* HOOK — make the visitor feel the stakes */}
       <HeroSection />
 
-      {/* LEAD CAPTURE — email signup right after the pitch */}
-      <section className="py-10 md:py-12 bg-usvc-navy">
-        <div className="container mx-auto px-4 md:px-6 max-w-3xl text-center">
-          <p className="text-sm text-usvc-blue font-mono uppercase tracking-widest mb-2">Free</p>
-          <h2 className="font-heading text-xl md:text-2xl font-bold text-white mb-2">
-            Get Your AI Readiness Score
-          </h2>
-          <p className="text-sm text-white/70 mb-5 max-w-lg mx-auto">
-            3-minute assessment. You'll get your personalized profile, clarity score, and a recommended next step — no pitch, no pressure.
-          </p>
-          <LeadCaptureInline />
-        </div>
-      </section>
+      {/* SOCIAL PROOF — fast trust signal, lightweight at-a-glance logos */}
+      <FeaturedInSection />
 
-      {/* MENTORING — AI mindset coaching for the overwhelmed */}
-      <MentoringSection />
-
-      {/* PACKAGE COMPARISON — detailed feature breakdown by tier */}
-      <PackageComparisonSection />
-
-      {/* KEY STATS — AI-citable statistics and facts */}
+      {/* TRACK RECORD — AI-citable statistics and facts */}
       <KeyStatsSection />
 
       {/* AUTHORITY — who is Alex, why trust him */}
       <AboutMeSection />
 
-      {/* ASSESSMENT — self-qualifying diagnostic quiz */}
-      <AssessmentCtaSection />
+      {/* HONEST FIT — when this is NOT for you (E-E-A-T trust signal) */}
+      <WhatThisIsNotSection />
 
-      <FeaturedInSection />
+      {/* MENTORING — 1-on-1 AI coaching for the overwhelmed */}
+      <MentoringSection />
+
+      {/* PACKAGE COMPARISON — detailed feature breakdown by tier */}
+      <PackageComparisonSection />
+
+      {/* OFFER — the specific services available */}
+      <ServicesSection />
+
+      {/* WHY ME — differentiators */}
       <WhyWorkWithMeSection />
 
       {/* PROOF — validate the offer with social proof */}
@@ -72,20 +64,34 @@ export default function HomePage() {
       {/* SPEAKING — keynotes, roundtables, workshops */}
       <SpeakingSection />
 
-      {/* OFFER — the specific services available */}
-      <ServicesSection />
+      {/* ASSESSMENT — self-qualifying diagnostic quiz */}
+      <AssessmentCtaSection />
 
-      {/* CLOSE — main contact CTA */}
-      <ConnectSection />
-
-      {/* HONEST FIT — when this is NOT for you (E-E-A-T trust signal) */}
-      <WhatThisIsNotSection />
+      {/* LEAD CAPTURE — email signup after the visitor has seen the full offer */}
+      <section className="py-10 md:py-12 bg-usvc-navy">
+        <div className="container mx-auto px-4 md:px-6 max-w-3xl text-center">
+          <p className="text-sm text-usvc-blue font-mono uppercase tracking-widest mb-2">Free</p>
+          <h2 className="font-heading text-xl md:text-2xl font-bold text-white mb-2">
+            Get Your AI Readiness Score
+          </h2>
+          <p className="text-sm text-white/70 mb-5 max-w-lg mx-auto">
+            3-minute assessment. You'll get your personalized profile, clarity score, and a recommended next step — no pitch, no pressure.
+          </p>
+          <LeadCaptureInline />
+        </div>
+      </section>
 
       {/* CONTENT — articles + podcasts in one view */}
       <InsightsSection />
 
       {/* FAQ — question-answer content */}
       <FAQSection />
+
+      {/* CLOSE — main contact CTA */}
+      <ConnectSection />
+
+      {/* SECTION NAVIGATOR — floating dot nav for long page */}
+      <SectionNavigator />
     </div>
   );
 }

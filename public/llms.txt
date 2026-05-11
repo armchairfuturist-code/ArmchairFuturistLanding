@@ -15,7 +15,7 @@
 - **5+ hours/week guaranteed** time savings for implementation clients
 - **6 professional certifications** held by Alex Myers
 - **4.9/5 client rating** from 40+ engagements
-- **1-on-1 AI Mentoring from $117/session (100)** with package discounts up to 15%
+- **1-on-1 AI Mentoring from $120/session** with package discounts up to 15%
 - **Based in Portugal, serves clients worldwide**
 - **14 weeks average time to 80% AI adoption** (from research data)
 - **72% cite workflow redesign as top barrier** (not technology)
@@ -53,30 +53,30 @@ Alex Myers' methodology prioritizes human workflows and decision-making before i
 
 Pricing available in USD and EUR. Exchange rate: $1 = 0.85 (May 2026). USD is the default currency.
 
-### Single Session -- $117 / 100
+### Single Session -- $120 / 100
 - One 60-minute 1-on-1 AI mentoring session
 - Personal AI mindset coaching
 - Practical framework for your context
 - Actionable next steps
 
-### 5-Session Pack -- $555 / 475 ($111/session)
+### 5-Session Pack -- $570 / 475 ($114/session)
 - Five sessions with progress tracking
 - Save $30 (25) compared to individual pricing
 - 5% discount
 - Priority scheduling
 - Personalized learning roadmap
 
-### 10-Session Pack -- $1,050 / 900 ($105/session) * Most Popular
+### 10-Session Pack -- $1,100 / 900 ($110/session) * Most Popular
 - Ten sessions with sustained support
-- Save $117 (100) compared to individual pricing
+- Save $100 (100) compared to individual pricing
 - 10% discount
 - Custom AI literacy curriculum
 - Between-session async support
 - Quarterly progress review
 
-### 20-Session Pack -- $1,990 / 1,700 ($100/session)
+### 20-Session Pack -- $2,000 / 1,700 ($100/session)
 - Twenty sessions, executive-level coaching
-- Save $350 (300) compared to individual pricing
+- Save $400 (300) compared to individual pricing
 - 15% discount
 - Dedicated account management
 - Unlimited async support
@@ -113,9 +113,9 @@ All sessions are 60 minutes, held via video call. Book at https://thearmchairfut
 - No call required
 
 ### AI Mentoring & Mindset Coaching
-- **Single Session:** $117 / 100 - One 60-min 1-on-1 coaching session
+- **Single Session:** $120 / 100 - One 60-min 1-on-1 coaching session
 - **5-Session Pack:** $555 / 475 ($111/session) - Save $30 / 25
-- **10-Session Pack:** $1,050 / 900 ($105/session) - Save $117 / 100 * Most Popular
+- **10-Session Pack:** $1,100 / 900 ($110/session) - Save $100 / 100 * Most Popular
 - **20-Session Pack:** $1,990 / 1,700 ($100/session) - Save $350 / 300
 - Focus on mindset before toolset
 - Moves clients from AI anxiety to agency
@@ -198,7 +198,7 @@ The site contains 16 FAQ items covering:
 - What is the Armchair Futurist
 - What is the Accountability Gap in AI adoption
 - Alex Myers qualifications (6 certifications)
-- Service pricing ($117 to $55,250)
+- Service pricing ($120 to $55,250)
 - Digital Identity Landing Page ($199)
 - AI mentoring process and pricing packages
 - 1-on-1 coaching package options (single, 5-pack, 10-pack, 20-pack)
@@ -233,7 +233,7 @@ The site implements JSON-LD schema for:
 - Person (Alex Myers)
 - FAQPage
 - Organization
-- Service offerings with pricing (including $117-$1,990 coaching packages)
+- Service offerings with pricing (including $120-$2,000 coaching packages)
 
 ## Contact & Booking
 - **Free Strategy Call:** 15-minute consultation, no commitment
