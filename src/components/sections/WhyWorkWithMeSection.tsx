@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
 import { Workflow, Wrench, ShieldCheck } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { CALENDAR_URL } from '@/lib/constants';
 
 const strategyItems = [
@@ -58,24 +58,38 @@ export default function WhyWorkWithMeSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {strategyItems.map((item, index) => (
-            <Card key={index} className="border-none shadow-none bg-secondary/20 hover:bg-secondary/40 transition-colors duration-300">
-              <CardHeader className="pb-4">
-                <div className="mb-4 p-3 bg-background rounded-xl w-fit border border-border">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+          {/* Large feature card spanning 3 cols */}
+          <div className="md:col-span-3">
+            <div className="h-full p-8 rounded-2xl bg-gradient-to-br from-primary/5 via-background to-primary/5 border border-primary/10 hover:border-primary/20 transition-colors duration-300">
+              <div className="mb-4 p-3 bg-background rounded-xl w-fit border border-primary/10">
+                {strategyItems[0].icon}
+              </div>
+              <h3 className="text-xl font-bold text-foreground mb-3">
+                {strategyItems[0].title}
+              </h3>
+              <p className="text-foreground/70 leading-relaxed font-sans max-w-[55ch]">
+                {strategyItems[0].content}
+              </p>
+            </div>
+          </div>
+
+          {/* Two stacked cards spanning 2 cols */}
+          <div className="md:col-span-2 flex flex-col gap-6">
+            {strategyItems.slice(1).map((item, index) => (
+              <div key={index} className="flex-1 p-6 rounded-xl bg-secondary/20 border border-border hover:bg-secondary/40 hover:border-primary/20 transition-all duration-300">
+                <div className="mb-3 p-2.5 bg-background rounded-lg w-fit border border-border">
                   {item.icon}
                 </div>
-                <CardTitle className="text-xl font-bold text-foreground">
+                <h3 className="text-lg font-bold text-foreground mb-2">
                   {item.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-foreground/70 leading-relaxed font-sans">
+                </h3>
+                <p className="text-sm text-foreground/70 leading-relaxed font-sans">
                   {item.content}
                 </p>
-              </CardContent>
-            </Card>
-          ))}
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* CTA */}

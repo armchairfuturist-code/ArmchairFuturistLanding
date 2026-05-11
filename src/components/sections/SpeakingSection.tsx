@@ -53,21 +53,67 @@ export default function SpeakingSection() {
               Alex facilitates executive roundtables, strategy workshops, and team problem-solving sessions for organizations ready to move from AI discussions to AI decisions. No keynote fluff—just structured conversations that produce alignment and action.
             </p>
 
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              {offerings.map((offering, index) => (
-                <motion.div
-                  key={offering.title}
-                  className="p-5 rounded-xl bg-background border border-border"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                >
-                  <offering.icon className="h-6 w-6 text-primary mb-3" />
-                  <h3 className="font-heading font-bold text-foreground mb-2">{offering.title}</h3>
-                  <p className="text-sm text-muted-foreground">{offering.description}</p>
-                </motion.div>
-              ))}
+            <div className="grid md:grid-cols-3 gap-4 mb-8">
+              {/* First offering: spans 2 cols, larger */}
+              {(() => {
+                const first = offerings[0];
+                return (
+                  <motion.div
+                    key={first.title}
+                    className="md:col-span-2 p-6 rounded-xl bg-gradient-to-br from-primary/5 to-background border border-primary/10"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <first.icon className="h-8 w-8 text-primary mb-3" />
+                    <h3 className="font-heading font-bold text-foreground text-lg mb-2">{first.title}</h3>
+                    <p className="text-sm text-foreground/80 max-w-prose">{first.description}</p>
+                  </motion.div>
+                );
+              })()}
+              {/* Second offering: 1 col */}
+              {(() => {
+                const second = offerings[1];
+                return (
+                  <motion.div
+                    key={second.title}
+                    className="p-5 rounded-xl bg-background border border-border"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: 0.1 }}
+                  >
+                    <second.icon className="h-6 w-6 text-primary mb-3" />
+                    <h3 className="font-heading font-bold text-foreground mb-2">{second.title}</h3>
+                    <p className="text-sm text-muted-foreground">{second.description}</p>
+                  </motion.div>
+                );
+              })()}
+              {/* Third offering: full width below */}
+              {(() => {
+                const third = offerings[2];
+                return (
+                  <motion.div
+                    key={third.title}
+                    className="md:col-span-3 p-5 rounded-xl bg-background border border-border"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: 0.2 }}
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="p-2 rounded-lg bg-primary/10 shrink-0">
+                        <third.icon className="h-5 w-5 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="font-heading font-bold text-foreground mb-1">{third.title}</h3>
+                        <p className="text-sm text-muted-foreground">{third.description}</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })()}
             </div>
 
             <h3 className="font-heading font-bold text-foreground mb-4">Popular Discussion Topics:</h3>

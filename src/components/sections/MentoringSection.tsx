@@ -68,27 +68,40 @@ export default function MentoringSection() {
           </div>
         </BlurFade>
 
-        {/* Three pillars */}
-        <div className="grid md:grid-cols-3 gap-6 mb-16">
-          {pillars.map((pillar, index) => (
-            <motion.div
-              key={pillar.title}
-              className="bg-background rounded-xl p-6 border border-border transition-all duration-300 hover:border-primary/30 hover:-translate-y-1 cursor-pointer"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, ease: 'easeOut', delay: index * 0.15 }}
-              whileHover={{ scale: 1.02 }}
-            >
-              <pillar.icon className="h-8 w-8 text-primary mb-4" />
-              <h3 className="text-lg font-heading font-semibold text-foreground mb-2">
-                {pillar.title}
-              </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                {pillar.description}
-              </p>
-            </motion.div>
-          ))}
+        {/* Three pillars — staggered journey */}
+        <div className="mb-16 relative">
+          {/* Connecting line (desktop) */}
+          <div className="hidden md:block absolute top-12 left-0 right-0 h-px bg-gradient-to-r from-primary/10 via-primary/30 to-primary/10" />
+
+          <div className="grid md:grid-cols-3 gap-6 md:gap-4 relative">
+            {pillars.map((pillar, index) => (
+              <motion.div
+                key={pillar.title}
+                className={`relative bg-background rounded-xl p-6 border border-border transition-all duration-300 hover:border-primary/30 hover:-translate-y-1 cursor-pointer ${
+                  index === 1 ? 'md:mt-8' : index === 2 ? 'md:mt-4' : ''
+                }`}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, ease: 'easeOut', delay: index * 0.15 }}
+                whileHover={{ scale: 1.02 }}
+              >
+                {/* Step number badge */}
+                <div className="absolute -top-3 left-4">
+                  <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-primary text-primary-foreground text-xs font-bold shadow-sm">
+                    {index + 1}
+                  </span>
+                </div>
+                <pillar.icon className="h-8 w-8 text-primary mb-4 mt-1" />
+                <h3 className="text-lg font-heading font-semibold text-foreground mb-2">
+                  {pillar.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {pillar.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* Pricing packages */}
