@@ -1,5 +1,6 @@
+"use client";
 import Link from "next/link";
-import { Linkedin, Mail, Calendar, MessageCircle } from "lucide-react";
+import { Calendar, Linkedin, Mail, MessageCircle } from 'lucide-react';
 import { SUBSTACK_URL, CALENDAR_URL } from "@/lib/constants";
 
 export default function Footer() {

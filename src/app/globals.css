@@ -63,8 +63,8 @@
 
         /* Typography — Apple SF Pro system (Inter as open-source substitute) */
         --font-display: "system-ui", "-apple-system", sans-serif;
-        --font-body: "Inter", "system-ui", sans-serif;
-        --font-ui: "Inter", "system-ui", sans-serif;
+        --font-body: "Outfit", "system-ui", sans-serif;
+        --font-ui: "Outfit", "system-ui", sans-serif;
         --font-mono: '"JetBrains Mono"', '"Courier New"', Courier, monospace;
 
         /* Standard colors */

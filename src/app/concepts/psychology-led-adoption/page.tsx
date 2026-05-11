@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
-import { ArrowLeft, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { BlurFade } from '@/components/ui/blur-fade';
 import Breadcrumbs from '@/components/ui/breadcrumbs';
+import { ArrowLeft, ExternalLink } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Psychology-Led AI Adoption Strategy | The Armchair Futurist',
@@ -75,7 +75,7 @@ const psychologicalProfiles = [
 
 export default function PsychologyLedAdoptionPage() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-min-h-[100dvh] bg-background">
       {/* Navigation */}
       <div className="container mx-auto px-4 md:px-6 py-6">
         <Breadcrumbs items={[

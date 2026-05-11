@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'motion/react';
 import { BlurFade } from '@/components/ui/blur-fade';
-import { CheckCircle2, Award, Globe } from 'lucide-react';
+import {CheckCircle2, Trophy, Globe} from 'lucide-react';
 
 const featuredStats = [
   {

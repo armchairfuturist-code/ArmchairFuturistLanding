@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from '@/components/ui/button';
-import { Mic, Users, Brain, TrendingUp, Shield, MessageSquare } from 'lucide-react';
+import {MessageSquare, Mic, Users, Brain, TrendingUp, Shield} from 'lucide-react';
 import { trackEvent } from '@/lib/analytics';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { motion } from 'motion/react';

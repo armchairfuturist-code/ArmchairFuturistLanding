@@ -9,13 +9,13 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        // Display: system-ui → SF Pro on Apple, Inter substitute on other platforms
+        // Display: system-ui → SF Pro on Apple, Outfit substitute on other platforms
         display: ["system-ui", "-apple-system", "sans-serif"],
-        // Sans/body: Inter (Google Fonts) as SF Pro substitute
-        sans: ["Inter", "system-ui", "sans-serif"],
+        // Sans/body: Outfit (Google Fonts) — premium sans-serif
+        sans: ["Outfit", "system-ui", "sans-serif"],
         heading: ["system-ui", "-apple-system", "sans-serif"],
-        body: ["Inter", "system-ui", "sans-serif"],
-        ui: ["Inter", "system-ui", "sans-serif"],
+        body: ["Outfit", "system-ui", "sans-serif"],
+        ui: ["Outfit", "system-ui", "sans-serif"],
         mono: ['"JetBrains Mono"', '"Courier New"', "Courier", "monospace"],
       },
       letterSpacing: {

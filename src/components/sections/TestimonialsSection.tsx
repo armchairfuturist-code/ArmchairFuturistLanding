@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
 import Image from 'next/image';
-import { Quote, ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import {Quote, ChevronLeft, ChevronRight, Star} from 'lucide-react';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { Marquee } from '@/components/ui/marquee';
 import { motion, AnimatePresence } from 'motion/react';

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Mail, Loader2, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Check,  Mail, Loader2, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'motion/react';
 import { trackEvent } from '@/lib/analytics';

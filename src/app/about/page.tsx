@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { Linkedin, Mail, Calendar, Award, BookOpen, Users, Globe, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { CALENDAR_URL } from '@/lib/constants';
+import { Calendar, CheckCircle2, Linkedin, Trophy } from 'lucide-react';
 
 const siteUrl = 'https://thearmchairfuturist.com';
 
@@ -120,7 +120,7 @@ const timelineEvents = [
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-min-h-[100dvh] bg-background">
       {/* Hero Section */}
       <section className="py-16 md:py-24 bg-secondary">
         <div className="container mx-auto px-4 md:px-6">
@@ -316,7 +316,7 @@ export default function AboutPage() {
                 </Button>
                 <Button asChild size="lg" variant="outline" className="h-12 px-8">
                   <a href="/assessment">
-                    <Award className="mr-2 h-4 w-4" />
+                    <Trophy className="mr-2 h-4 w-4" />
                     Take Free Assessment
                   </a>
                 </Button>
