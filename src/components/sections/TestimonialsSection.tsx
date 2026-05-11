@@ -221,11 +221,29 @@ export default function TestimonialsSection() {
           "@context": "https://schema.org",
           "@type": "Organization",
           "@id": "https://thearmchairfuturist.com/#org",
-          "name": "The Armchair Futurist - Alex Myers",
+          "name": "The Armchair Futurist",
+          "url": "https://thearmchairfuturist.com",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "40",
+            "bestRating": "5",
+            "worstRating": "1"
+          },
           "review": testimonialsData.map((t) => ({
             "@type": "Review",
+            "itemReviewed": {
+              "@type": "Organization",
+              "@id": "https://thearmchairfuturist.com/#org",
+              "name": "The Armchair Futurist"
+            },
             "author": { "@type": "Person", "name": t.name },
             "reviewBody": t.text,
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5",
+              "bestRating": "5"
+            }
           })),
         }),
       }} />
