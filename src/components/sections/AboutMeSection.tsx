@@ -215,62 +215,29 @@ export default function AboutMeSection() {
 
               <div className="space-y-5 md:space-y-6">
                 <p className="text-base md:text-lg text-primary-foreground/85 font-sans leading-relaxed">
-                  The questions that keep leaders up at 2 AM aren&apos;t about
-                  which API to use. They&apos;re about whether they&apos;ll
-                  still matter five years from now. That&apos;s not a technology
-                  problem. That&apos;s an existential one.
+                  The questions that keep leaders up at 2 AM aren&apos;t about which API to use. They&apos;re about whether they&apos;ll still matter five years from now. That&apos;s not a technology problem. I speak two languages: organizational architecture and human experience. The space between them is where real transformation lives.
                 </p>
 
                 <p className="text-base md:text-lg text-primary-foreground/85 font-sans leading-relaxed">
-                  I don&apos;t help you track more tools. I help you sit with
-                  the discomfort of change and find your footing on the other
-                  side.
+                  Clarity isn&apos;t about knowing everything. It&apos;s about knowing what actually matters to you. When you fix your mental model, the overwhelm dissolves. You stop reacting to noise and start making decisions from genuine conviction.
                 </p>
 
                 <p className="text-base md:text-lg text-primary-foreground/85 font-sans leading-relaxed">
-                  Clarity isn&apos;t about knowing everything. It&apos;s about
-                  knowing what actually matters to you, and what doesn&apos;t.
-                  When you fix your mental model, the overwhelm dissolves. You
-                  stop reacting to noise and start making decisions from a place
-                  of genuine conviction.
-                </p>
-
-                <p className="text-base md:text-lg text-primary-foreground/85 font-sans leading-relaxed">
-                  I speak two languages: the language of organizational
-                  architecture and the language of human experience. Most people
-                  are fluent in one or the other. The space between them is
-                  where real transformation lives. I help you bridge that gap so
-                  your firm can compound its gains rather than just chasing the
-                  next demo.
-                </p>
-
-                <p className="text-base md:text-lg text-primary-foreground/85 font-sans leading-relaxed">
-                  My work draws on systems thinking, an intuitive grasp of group
-                  dynamics, and a knack for asking the questions nobody else
-                  will. I tell you what I actually think, not what you want to
-                  hear. That&apos;s the foundation of any solution that
-                  actually sticks.
+                  My work draws on systems thinking, group dynamics, and a knack for asking the questions nobody else will. I tell you what I actually think, not what you want to hear. That&apos;s the foundation of solutions that stick.
                 </p>
 
                 <h3 className="text-lg md:text-xl font-bold text-usvc-blue pt-2">
                   For the Executive:
                 </h3>
                 <p className="text-base md:text-lg text-primary-foreground/85 font-sans leading-relaxed">
-                  The edge you&apos;re standing at isn&apos;t just
-                  technological. It&apos;s structural, cultural, and deeply
-                  human. I help you see the whole field, not just the
-                  tools&mdash;so your organization can move with intention
-                  instead of reacting to every shift.
+                  The edge you&apos;re standing at isn&apos;t just technological. It&apos;s structural, cultural, and deeply human. I help you see the whole field, not just the tools — so your organization moves with intention instead of reacting to every shift.
                 </p>
 
                 <h3 className="text-lg md:text-xl font-bold text-usvc-blue pt-2">
                   For the Individual:
                 </h3>
                 <p className="text-base md:text-lg text-primary-foreground/85 font-sans leading-relaxed">
-                  I help you find your footing on shifting ground. We work on
-                  the questions that matter: How do you live optimistically in a
-                  world where intelligence is becoming a cheap utility? How do
-                  you reclaim your time for the work that is uniquely yours?
+                  I help you find your footing on shifting ground. How do you live optimistically when intelligence is becoming a cheap utility? How do you reclaim your time for the work that is uniquely yours?
                 </p>
 
                 <p className="flex items-center gap-2 text-base md:text-lg text-usvc-blue font-bold font-sans">
