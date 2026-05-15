@@ -10,7 +10,7 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
-import {Calculator, Menu, FileText, MessageCircle} from 'lucide-react';
+import {Calculator, Menu, FileText, MessageCircle, Github} from 'lucide-react';
 import Image from "next/image";
 import { CALENDAR_URL } from "@/lib/constants";
 
@@ -22,6 +22,7 @@ export default function Header() {
     { href: "/#roi-calculator", label: "ROI Calculator" },
     { href: "/blog", label: "Blog" },
     { href: "/#about-me", label: "About", icon: FileText },
+    { href: "https://github.com/armchairfuturist-code", label: "GitHub", icon: Github, external: true },
   ];
 
   return (
@@ -46,15 +47,28 @@ export default function Header() {
 
           {/* Nav links — center (USVC-style layout) */}
           <nav className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="text-sm font-[400] text-white/80 hover:text-usvc-blue transition-colors duration-300 underline-animate"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) =>
+              item.external ? (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm font-[400] text-white/80 hover:text-usvc-blue transition-colors duration-300 underline-animate"
+                >
+                  {item.icon && <item.icon className="h-4 w-4" />}
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="text-sm font-[400] text-white/80 hover:text-usvc-blue transition-colors duration-300 underline-animate"
+                >
+                  {item.label}
+                </Link>
+              )
+            )}
           </nav>
 
           {/* CTAs — right-aligned (USVC-style) */}
@@ -116,16 +130,29 @@ export default function Header() {
                       </span>
                     </div>
                   </Link>
-                  {navItems.map((item) => (
-                    <Link
-                      key={item.label}
-                      href={item.href}
-                      className="inline-flex items-center gap-2 text-sm font-[400] text-white/80 hover:text-usvc-blue transition-colors"
-                    >
-                      {item.icon && <item.icon className="h-4 w-4" />}
-                      {item.label}
-                    </Link>
-                  ))}
+                  {navItems.map((item) =>
+                    item.external ? (
+                      <a
+                        key={item.label}
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm font-[400] text-white/80 hover:text-usvc-blue transition-colors"
+                      >
+                        {item.icon && <item.icon className="h-4 w-4" />}
+                        {item.label}
+                      </a>
+                    ) : (
+                      <Link
+                        key={item.label}
+                        href={item.href}
+                        className="inline-flex items-center gap-2 text-sm font-[400] text-white/80 hover:text-usvc-blue transition-colors"
+                      >
+                        {item.icon && <item.icon className="h-4 w-4" />}
+                        {item.label}
+                      </Link>
+                    )
+                  )}
                   <Link
                     href="/assessment"
                     className="inline-flex items-center gap-2 text-sm font-medium text-usvc-blue hover:text-ps-cyan transition-colors mt-2"
