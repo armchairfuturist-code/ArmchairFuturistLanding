@@ -285,7 +285,7 @@ export default function ServicesSection() {
   const [showPricingOptions, setShowPricingOptions] = useState(false);
 
   return (
-    <section id="services" className="py-16 md:py-20 bg-background scroll-mt-20 relative">
+    <section id="services" className="py-16 md:py-20 pb-8 md:pb-12 bg-background scroll-mt-20 relative">
       <div className="container mx-auto px-4 md:px-6">
         <BlurFade inView>
           <div className="max-w-3xl">
@@ -300,7 +300,7 @@ export default function ServicesSection() {
         </BlurFade>
 
         {/* Track Selector Toggle */}
-        <div className="flex flex-col items-center mb-10">
+        <div className="flex flex-col items-center mb-10 mt-8 md:mt-10">
           <div className="bg-muted p-1.5 rounded-2xl inline-flex gap-2 mb-4 border border-border shadow-inner" role="tablist" aria-label="Service track">
             <button
               role="tab"
