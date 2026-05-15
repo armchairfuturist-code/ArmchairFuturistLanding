@@ -2,7 +2,6 @@
 import Image from 'next/image';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { Marquee } from '@/components/ui/marquee';
-import {} from 'lucide-react';
 
 const logos = [
   { src: "/thegenaiacademy.jpg", alt: "The GenAI Academy logo", name: "GenAI Academy" },

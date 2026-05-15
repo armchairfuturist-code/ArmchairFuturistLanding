@@ -203,7 +203,7 @@ export default function InsightsSection() {
                     rel="noopener noreferrer"
                     className="font-medium text-sm text-primary hover:text-accent hover:underline flex items-center gap-1"
                   >
-                    <MessageCircle className="h-3.5 w-3.5 shrink-0" />
+                    <MessageCircle className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
                     {item.name}
                     <ExternalLink className="h-3 w-3 opacity-50" />
                   </Link>
@@ -223,7 +223,7 @@ export default function InsightsSection() {
                 aria-expanded={showAllPodcasts}
               >
                 {showAllPodcasts ? 'Show Less' : `Show ${podcastItems.length - INITIAL_PODCASTS} More`}
-                {showAllPodcasts ? <ChevronUp className="ml-1 h-4 w-4" /> : <ChevronDown className="ml-1 h-4 w-4" />}
+                {showAllPodcasts ? <ChevronUp className="ml-1 h-4 w-4" aria-hidden="true" /> : <ChevronDown className="ml-1 h-4 w-4" aria-hidden="true" />}
               </Button>
             )}
           </div>

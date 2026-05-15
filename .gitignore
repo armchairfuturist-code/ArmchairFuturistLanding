@@ -56,3 +56,29 @@ build/
 
 # qwen
 .qwen/
+
+# ── GSD baseline (auto-generated) ──
+.gsd-id
+.mcp.json
+.bg-shell/
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.code-workspace
+.env
+.env.*
+node_modules/
+dist/
+__pycache__/
+*.pyc
+.venv/
+venv/
+target/
+vendor/
+*.log
+coverage/
+.cache/
+tmp/

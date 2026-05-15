@@ -148,7 +148,7 @@ export default function ROICalculatorSection() {
                           <p className="text-xs text-muted-foreground mt-0.5">{automation.description}</p>
                         </div>
                         <div className="flex items-center gap-2 shrink-0 ml-4">
-                          <Clock className="h-3.5 w-3.5 text-muted-foreground" />
+                          <Clock className="h-3.5 w-3.5 text-muted-foreground" aria-hidden="true" />
                           <span className="text-xs font-mono text-muted-foreground">~{automation.hoursPerWeek}h/wk</span>
                           <div className={`h-5 w-5 rounded border-2 flex items-center justify-center transition-colors ${
                             isSelected ? 'bg-primary border-primary' : 'border-border'
@@ -198,7 +198,7 @@ export default function ROICalculatorSection() {
               {!hasResults ? (
                 <p className="text-muted-foreground text-sm">Select at least one task to see your estimate.</p>
               ) : emailSubmitted ? (
-                <div className="space-y-6">
+                <div role="status" aria-live="polite" className="space-y-6">
                   <div className="flex flex-col items-center text-center py-4">
                     <CheckCircle2 className="h-10 w-10 text-green-500 mb-3" />
                     <h4 className="text-lg font-bold text-foreground">Your ROI Report is Ready</h4>
@@ -227,7 +227,7 @@ export default function ROICalculatorSection() {
                   </div>
 
                   <div className="p-6 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 text-center">
-                    <DollarSign className="h-6 w-6 text-primary mx-auto mb-2" />
+                    <DollarSign className="h-6 w-6 text-primary mx-auto mb-2" aria-hidden="true" />
                     <p className="text-3xl font-black text-primary">
                       ${annualSavings.toLocaleString()}
                     </p>
@@ -242,7 +242,7 @@ export default function ROICalculatorSection() {
                   <Button asChild size="lg" className="w-full">
                     <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackConversion('roi_book_call')}>
                       Get a Custom Implementation Plan
-                      <ArrowRight className="ml-2 h-4 w-4" />
+                      <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
                     </a>
                   </Button>
                 </div>
@@ -268,7 +268,7 @@ export default function ROICalculatorSection() {
                   </div>
 
                   <div className="p-6 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 text-center">
-                    <DollarSign className="h-6 w-6 text-primary mx-auto mb-2" />
+                    <DollarSign className="h-6 w-6 text-primary mx-auto mb-2" aria-hidden="true" />
                     <p className="text-3xl font-black text-primary">
                       ${annualSavings.toLocaleString()}
                     </p>
@@ -283,7 +283,7 @@ export default function ROICalculatorSection() {
                   {/* Email gate for full report */}
                   <div className="p-5 rounded-xl bg-muted/30 border border-border/50">
                     <div className="flex items-center gap-2 mb-3">
-                      <Mail className="h-4 w-4 text-primary" />
+                      <Mail className="h-4 w-4 text-primary" aria-hidden="true" />
                       <h4 className="text-sm font-bold text-foreground">Get Your Full ROI Report</h4>
                     </div>
                     <p className="text-xs text-muted-foreground mb-3">
@@ -295,6 +295,8 @@ export default function ROICalculatorSection() {
                         <input
                           id="roi-email"
                           type="email"
+                          name="email"
+                          autoComplete="email"
                           value={email}
                           onChange={(e) => { setEmail(e.target.value); setEmailError(''); }}
                           placeholder="you@company.com"
@@ -302,15 +304,17 @@ export default function ROICalculatorSection() {
                           disabled={emailLoading}
                           required
                         />
-                        {emailError && <p className="mt-1 text-xs text-destructive">{emailError}</p>}
+                        {emailError && <p className="mt-1 text-xs text-destructive" role="alert">{emailError}</p>}
                       </div>
-                      <Button type="submit" className="w-full h-10 font-bold" disabled={emailLoading}>
-                        {emailLoading ? (
-                          <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Unlocking…</>
-                        ) : (
-                          <>Unlock Full Report <ArrowRight className="ml-2 h-4 w-4" /></>
-                        )}
-                      </Button>
+                      <div role="status" aria-live="polite">
+                        <Button type="submit" className="w-full h-10 font-bold" disabled={emailLoading}>
+                          {emailLoading ? (
+                            <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Unlocking...</>
+                          ) : (
+                            <>Unlock Full Report <ArrowRight className="ml-2 h-4 w-4" /></>
+                          )}
+                        </Button>
+                      </div>
                     </form>
                   </div>
 

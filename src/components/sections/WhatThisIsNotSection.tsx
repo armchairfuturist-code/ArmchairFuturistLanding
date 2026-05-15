@@ -103,7 +103,7 @@ export default function WhatThisIsNotSection() {
         <BlurFade inView delay={0.4}>
           <div className="rounded-xl border border-border/60 bg-secondary/50 p-6 mb-8">
             <h3 className="font-heading font-bold text-foreground mb-4 flex items-center gap-2">
-              <ArrowRight className="w-4 h-4 text-primary" />
+              <ArrowRight className="w-4 h-4 text-primary" aria-hidden="true" />
               Better Options If...
             </h3>
             <div className="space-y-4">

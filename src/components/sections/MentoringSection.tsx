@@ -231,7 +231,7 @@ export default function MentoringSection() {
                     rel="noopener noreferrer"
                     onClick={() => trackConversion(`mentoring_${pkg.id}`, pkg.totalPrice)}
                   >
-                    <CalendarDays className="mr-1.5 h-4 w-4" />
+                    <CalendarDays className="mr-1.5 h-4 w-4" aria-hidden="true" />
                     Book {pkg.sessions > 1 ? `${pkg.sessions}-Pack` : 'Now'}
                   </a>
                 </Button>

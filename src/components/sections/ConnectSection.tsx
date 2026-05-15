@@ -18,10 +18,12 @@ export default function ConnectSection() {
   const [formStatus, setFormStatus] = useState<"idle" | "sending" | "sent">(
     "idle",
   );
+  const [formError, setFormError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormStatus("sending");
+    setFormError("");
 
     try {
       const response = await fetch("/api/contact", {
@@ -38,7 +40,7 @@ export default function ConnectSection() {
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       console.error("Contact form error:", error);
-      alert("Failed to send message. Please try again or reach out directly.");
+      setFormError("Failed to send message. Please try again or reach out directly.");
       setFormStatus("idle");
     }
   };
@@ -85,7 +87,7 @@ export default function ConnectSection() {
                 rel="noopener noreferrer"
                 onClick={() => trackConversion("connect_book_call")}
               >
-                <CalendarDays className="mr-2 h-5 w-5" />
+                <CalendarDays className="mr-2 h-5 w-5" aria-hidden="true" />
                 Book a Call
               </a>
             </Button>
@@ -118,53 +120,79 @@ export default function ConnectSection() {
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           {formStatus === "sent" ? (
-            <div className="bg-white/10 border border-white/20 rounded-xl p-6 text-center">
+            <div
+              role="status"
+              aria-live="polite"
+              className="bg-white/10 border border-white/20 rounded-xl p-6 text-center"
+            >
               <p className="text-white font-semibold text-lg">
                 Thanks! I'll be in touch soon.
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-3">
+            <form onSubmit={handleSubmit} className="space-y-3" noValidate>
               <p className="text-primary-foreground/80 text-sm text-center mb-4">
                 Or tell me what&apos;s on your mind and I&apos;ll write back
               </p>
-              <Input
-                placeholder="Your name"
-                value={formData.name}
-                onChange={(e) =>
-                  setFormData({ ...formData, name: e.target.value })
-                }
-                required
-                className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
-              />
-              <Input
-                type="email"
-                placeholder="Your email"
-                value={formData.email}
-                onChange={(e) =>
-                  setFormData({ ...formData, email: e.target.value })
-                }
-                required
-                className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
-              />
-              <Textarea
-                placeholder="What's on your mind?"
-                value={formData.message}
-                onChange={(e) =>
-                  setFormData({ ...formData, message: e.target.value })
-                }
-                required
-                rows={3}
-                className="bg-white/20 border-white/30 text-white placeholder:text-white/60 resize-none"
-              />
-              <Button
-                type="submit"
-                disabled={formStatus === "sending"}
-                variant="outline"
-                className="w-full bg-transparent border-white/40 text-white hover:bg-white/10 hover:border-white"
-              >
-                {formStatus === "sending" ? "Sending..." : "Send"}
-              </Button>
+              <div>
+                <label htmlFor="connect-name" className="sr-only">Your name</label>
+                <Input
+                  id="connect-name"
+                  name="name"
+                  placeholder="Your name"
+                  value={formData.name}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
+                  required
+                  autoComplete="name"
+                  className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
+                />
+              </div>
+              <div>
+                <label htmlFor="connect-email" className="sr-only">Your email</label>
+                <Input
+                  id="connect-email"
+                  type="email"
+                  name="email"
+                  placeholder="Your email"
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
+                  required
+                  autoComplete="email"
+                  className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
+                />
+              </div>
+              <div>
+                <label htmlFor="connect-message" className="sr-only">What's on your mind?</label>
+                <Textarea
+                  id="connect-message"
+                  name="message"
+                  placeholder="What's on your mind?"
+                  value={formData.message}
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
+                  required
+                  rows={3}
+                  className="bg-white/20 border-white/30 text-white placeholder:text-white/60 resize-none"
+                />
+              </div>
+              {formError && (
+                <p role="alert" className="text-red-300 text-sm">{formError}</p>
+              )}
+              <div role="status" aria-live="polite">
+                <Button
+                  type="submit"
+                  disabled={formStatus === "sending"}
+                  variant="outline"
+                  className="w-full bg-transparent border-white/40 text-white hover:bg-white/10 hover:border-white"
+                >
+                  {formStatus === "sending" ? "Sending..." : "Send"}
+                </Button>
+              </div>
             </form>
           )}
         </motion.div>

@@ -77,7 +77,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-sm text-white/70 hover:text-usvc-blue transition-colors duration-300 font-body"
               >
-                <MessageCircle className="h-3.5 w-3.5" />
+                <MessageCircle className="h-3.5 w-3.5" aria-hidden="true" />
                 WhatsApp
               </a>
             </div>
@@ -89,7 +89,7 @@ export default function Footer() {
                 className="text-white/60 hover:text-usvc-blue transition-colors duration-300"
                 aria-label="LinkedIn Profile"
               >
-                <Linkedin className="h-5 w-5" />
+                <Linkedin className="h-5 w-5" aria-hidden="true" />
               </a>
               <a
                 href={SUBSTACK_URL}
