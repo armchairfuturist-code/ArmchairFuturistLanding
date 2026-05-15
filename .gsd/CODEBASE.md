@@ -1,7 +1,7 @@
 # Codebase Map
 
-Generated: 2026-05-11T09:19:23Z | Files: 243 | Described: 0/243
-<!-- gsd:codebase-meta {"generatedAt":"2026-05-11T09:19:23Z","fingerprint":"861aaaf2be274336430d73def83336a8c2f2fd4e","fileCount":243,"truncated":false} -->
+Generated: 2026-05-15T12:35:00Z | Files: 242 | Described: 0/242
+<!-- gsd:codebase-meta {"generatedAt":"2026-05-15T12:35:00Z","fingerprint":"11c4a4beca68a3a57446b8e8e15dcab4ebaa60ea","fileCount":242,"truncated":false} -->
 
 ### (root)/
 - `.env.example`
@@ -10,10 +10,9 @@ Generated: 2026-05-11T09:19:23Z | Files: 243 | Described: 0/243
 - `apphosting.yaml`
 - `CLAUDE.md`
 - `components.json`
-- `deploy-error.log`
-- `deploy-output.log`
 - `DESIGN.md`
 - `Dockerfile`
+- `firebase.json`
 - `GEO-IMPROVEMENTS.md`
 - `next.config.ts`
 - `package-lock.json`
