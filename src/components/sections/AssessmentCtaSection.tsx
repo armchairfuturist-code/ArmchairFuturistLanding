@@ -33,7 +33,7 @@ export default function AssessmentCtaSection() {
             <Link href="/assessment" onClick={() => trackEvent('homepage_assessment_cta')}>
               <Button size="lg" className="font-bold">
                 Take the Assessment
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
               </Button>
             </Link>
           </div>

@@ -195,7 +195,7 @@ export default function CaseStudiesSection() {
             <Button asChild size="lg">
               <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer">
                 See What You Could Save
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
               </a>
             </Button>
           </div>

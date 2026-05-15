@@ -69,7 +69,7 @@ const quickCompare = [
 
 function Cell({ content }: { content: string | boolean }) {
   if (content === false) {
-    return <Minus className="h-4 w-4 text-muted-foreground/30 mx-auto shrink-0" />;
+    return <Minus className="h-4 w-4 text-muted-foreground/30 mx-auto shrink-0" aria-hidden="true" />;
   }
   return (
     <span className="text-xs sm:text-sm text-foreground/80 leading-relaxed block break-words">
@@ -114,20 +114,20 @@ export default function PackageComparisonSection() {
 
         {/* Column headers */}
         <BlurFade inView delay={0.1}>
-          <div className="hidden md:grid grid-cols-[200px_1fr_1fr_1fr] gap-3 mb-6 items-start">
-            <div />
-            <ColumnHeader label="Foundation" sessions="5 Sessions" price="$570" />
-            <ColumnHeader label="Accelerator" sessions="10 Sessions" price="$1,100" />
-            <ColumnHeader label="Transformation" sessions="20 Sessions" price="$2,000" popular />
+          <div role="table" className="hidden md:grid grid-cols-[200px_1fr_1fr_1fr] gap-3 mb-6 items-start">
+            <div role="columnheader" />
+            <div role="columnheader"><ColumnHeader label="Foundation" sessions="5 Sessions" price="$570" /></div>
+            <div role="columnheader"><ColumnHeader label="Accelerator" sessions="10 Sessions" price="$1,100" /></div>
+            <div role="columnheader"><ColumnHeader label="Transformation" sessions="20 Sessions" price="$2,000" popular /></div>
           </div>
 
           {/* Mobile column headers */}
           <div className="md:hidden overflow-x-auto -mx-4 px-4">
-            <div className="min-w-[500px] grid grid-cols-[140px_1fr_1fr_1fr] gap-2 mb-6">
-              <div />
-              <ColumnHeader label="Foundation" sessions="5" price="$570" />
-              <ColumnHeader label="Accelerator" sessions="10" price="$1,100" />
-              <ColumnHeader label="Transformation" sessions="20" price="$2,000" popular />
+            <div role="table" className="min-w-[500px] grid grid-cols-[140px_1fr_1fr_1fr] gap-2 mb-6">
+              <div role="columnheader" />
+              <div role="columnheader"><ColumnHeader label="Foundation" sessions="5" price="$570" /></div>
+              <div role="columnheader"><ColumnHeader label="Accelerator" sessions="10" price="$1,100" /></div>
+              <div role="columnheader"><ColumnHeader label="Transformation" sessions="20" price="$2,000" popular /></div>
             </div>
           </div>
         </BlurFade>
@@ -138,31 +138,31 @@ export default function PackageComparisonSection() {
             <div className="mb-8">
               {/* Category header */}
               <div className="flex items-center gap-2 mb-3">
-                <category.icon className="h-4 w-4 text-primary" />
+                <category.icon className="h-4 w-4 text-primary" aria-hidden="true" />
                 <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider">{category.label}</h3>
                 <div className="flex-1 h-px bg-border ml-2" />
               </div>
 
               {/* Desktop table */}
-              <div className="hidden md:grid grid-cols-[200px_1fr_1fr_1fr] gap-3">
-                {category.features.map((row) => (
-                  <>
-                    <div className="text-xs sm:text-sm text-foreground font-medium py-2 flex items-center">
+              <div role="table" className="hidden md:grid grid-cols-[200px_1fr_1fr_1fr] gap-3">
+                {category.features.map((row, ri) => (
+                  <div key={ri} role="row" className="contents">
+                    <div role="cell" className="text-xs sm:text-sm text-foreground font-medium py-2 flex items-center">
                       {row.label}
                     </div>
-                    <div className="py-2 flex items-center"><Cell content={row.five} /></div>
-                    <div className="py-2 flex items-center bg-primary/[0.02] rounded px-2"><Cell content={row.ten} /></div>
-                    <div className="py-2 flex items-center"><Cell content={row.twenty} /></div>
-                  </>
+                    <div role="cell" className="py-2 flex items-center"><Cell content={row.five} /></div>
+                    <div role="cell" className="py-2 flex items-center bg-primary/[0.02] rounded px-2"><Cell content={row.ten} /></div>
+                    <div role="cell" className="py-2 flex items-center"><Cell content={row.twenty} /></div>
+                  </div>
                 ))}
               </div>
 
               {/* Mobile table — horizontally scrollable */}
               <div className="md:hidden overflow-x-auto -mx-4 px-4">
-                <div className="min-w-[500px]">
+                <div role="table" className="min-w-[500px]">
                   {category.features.map((row) => (
-                    <div key={row.label} className="grid grid-cols-[140px_1fr_1fr_1fr] gap-2 py-2 border-b border-border/40 last:border-0 items-start">
-                      <span className="text-[11px] text-foreground font-medium leading-snug">{row.label}</span>
+                    <div key={row.label} role="row" className="grid grid-cols-[140px_1fr_1fr_1fr] gap-2 py-2 border-b border-border/40 last:border-0 items-start">
+                      <span role="cell" className="text-[11px] text-foreground font-medium leading-snug">{row.label}</span>
                       <Cell content={row.five} />
                       <Cell content={row.ten} />
                       <Cell content={row.twenty} />
@@ -178,24 +178,24 @@ export default function PackageComparisonSection() {
         <BlurFade inView delay={0.4}>
           <div className="mt-12">
             <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-4 text-center">Quick Comparison</h3>
-            <div className="hidden md:grid grid-cols-[200px_1fr_1fr_1fr] gap-3">
+            <div role="table" className="hidden md:grid grid-cols-[200px_1fr_1fr_1fr] gap-3">
               {quickCompare.map((row) => (
-                <>
-                  <div className="text-xs sm:text-sm text-foreground font-medium py-2 flex items-center">{row.label}</div>
-                  <div className="py-2 flex items-center"><span className="text-xs sm:text-sm text-foreground/80">{row.five}</span></div>
-                  <div className="py-2 flex items-center bg-primary/[0.02] rounded px-2"><span className="text-xs sm:text-sm text-foreground/80">{row.ten}</span></div>
-                  <div className="py-2 flex items-center"><span className="text-xs sm:text-sm text-foreground/80">{row.twenty}</span></div>
-                </>
+                <div key={row.label} role="row" className="contents">
+                  <div role="cell" className="text-xs sm:text-sm text-foreground font-medium py-2 flex items-center">{row.label}</div>
+                  <div role="cell" className="py-2 flex items-center"><span className="text-xs sm:text-sm text-foreground/80">{row.five}</span></div>
+                  <div role="cell" className="py-2 flex items-center bg-primary/[0.02] rounded px-2"><span className="text-xs sm:text-sm text-foreground/80">{row.ten}</span></div>
+                  <div role="cell" className="py-2 flex items-center"><span className="text-xs sm:text-sm text-foreground/80">{row.twenty}</span></div>
+                </div>
               ))}
             </div>
             <div className="md:hidden overflow-x-auto -mx-4 px-4">
-              <div className="min-w-[500px]">
+              <div role="table" className="min-w-[500px]">
                 {quickCompare.map((row) => (
-                  <div key={row.label} className="grid grid-cols-[140px_1fr_1fr_1fr] gap-2 py-2 border-b border-border/40 last:border-0 items-start">
-                    <span className="text-[11px] text-foreground font-medium leading-snug">{row.label}</span>
-                    <span className="text-[11px] text-foreground/70 leading-snug">{row.five}</span>
-                    <span className="text-[11px] text-foreground/70 leading-snug">{row.ten}</span>
-                    <span className="text-[11px] text-foreground/70 leading-snug">{row.twenty}</span>
+                  <div key={row.label} role="row" className="grid grid-cols-[140px_1fr_1fr_1fr] gap-2 py-2 border-b border-border/40 last:border-0 items-start">
+                    <span role="cell" className="text-[11px] text-foreground font-medium leading-snug">{row.label}</span>
+                    <span role="cell" className="text-[11px] text-foreground/70 leading-snug">{row.five}</span>
+                    <span role="cell" className="text-[11px] text-foreground/70 leading-snug">{row.ten}</span>
+                    <span role="cell" className="text-[11px] text-foreground/70 leading-snug">{row.twenty}</span>
                   </div>
                 ))}
               </div>

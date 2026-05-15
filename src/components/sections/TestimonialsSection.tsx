@@ -113,14 +113,13 @@ function FeaturedTestimonialCarousel() {
           </p>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <div className="relative h-14 w-14 shrink-0">
+              <div className="relative h-14 w-14 shrink-0" data-ai-hint={featuredTestimonials[current].dataAiHint || "profile person"}>
                 <Image
                   src={featuredTestimonials[current].imageSrc}
                   alt={`Profile picture of ${featuredTestimonials[current].name}`}
                   fill
                   sizes="56px"
                   className="rounded-full object-cover border-2 border-primary/30"
-                  data-ai-hint={featuredTestimonials[current].dataAiHint || "profile person"}
                 />
               </div>
               <div>
@@ -141,7 +140,7 @@ function FeaturedTestimonialCarousel() {
                 className="p-2 rounded-full hover:bg-muted transition-colors"
                 aria-label="Next testimonial"
               >
-                <ChevronRight className="h-5 w-5" />
+                <ChevronRight className="h-5 w-5" aria-hidden="true" />
               </button>
             </div>
           </div>
@@ -171,14 +170,13 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
         {testimonial.text}
       </p>
       <div className="flex items-center gap-3 mt-auto pt-2 border-t border-border/30">
-        <div className="relative h-10 w-10 shrink-0">
+        <div className="relative h-10 w-10 shrink-0" data-ai-hint={testimonial.dataAiHint || "profile person"}>
           <Image
             src={testimonial.imageSrc}
             alt={`Profile picture of ${testimonial.name}`}
             fill
             sizes="40px"
             className="rounded-full object-cover border-2 border-primary/20"
-            data-ai-hint={testimonial.dataAiHint || "profile person"}
           />
         </div>
         <div>

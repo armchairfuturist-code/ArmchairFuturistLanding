@@ -2,7 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "standalone",
-  /* config options here */
+  turbopack: {
+    root: process.cwd(),
+  },
   experimental: {
     optimizePackageImports: ["lucide-react", "date-fns"],
   },

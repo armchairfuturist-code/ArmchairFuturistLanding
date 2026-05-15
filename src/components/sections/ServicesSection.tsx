@@ -202,7 +202,7 @@ const ServiceAccordionItem = ({ service, pricingContext, index }: { service: Ser
           <div className="flex flex-col md:flex-row w-full items-start md:items-center gap-4 text-left z-10">
             <div className="flex-1">
               <div className="flex items-center gap-3">
-                <Icon className="w-5 h-5 text-primary" />
+                <Icon className="w-5 h-5 text-primary" aria-hidden="true" />
                 <h3 className="font-heading text-xl md:text-2xl font-bold text-foreground leading-tight group-hover:text-primary transition-colors duration-300">
                   {service.title}
                 </h3>
@@ -259,7 +259,7 @@ const ServiceAccordionItem = ({ service, pricingContext, index }: { service: Ser
                 <div className="flex flex-wrap gap-2">
                   {service.payload.map((item: string, i: number) => (
                     <div key={i} className="text-[11px] font-mono font-medium text-foreground px-2.5 py-1.5 bg-background border border-border/50 rounded-md flex items-center gap-2 hover:border-primary/30 transition-colors">
-                      <CheckCircle2 className="w-3 h-3 text-green-500 shrink-0" /> {item}
+                      <CheckCircle2 className="w-3 h-3 text-green-500 shrink-0" aria-hidden="true" /> {item}
                     </div>
                   ))}
                 </div>
@@ -301,18 +301,22 @@ export default function ServicesSection() {
 
         {/* Track Selector Toggle */}
         <div className="flex flex-col items-center mb-10">
-          <div className="bg-muted p-1.5 rounded-2xl inline-flex gap-2 mb-4 border border-border shadow-inner">
+          <div className="bg-muted p-1.5 rounded-2xl inline-flex gap-2 mb-4 border border-border shadow-inner" role="tablist" aria-label="Service track">
             <button
+              role="tab"
+              aria-selected={activeTrack === 'entrepreneur'}
               onClick={() => setActiveTrack('entrepreneur')}
               className={`px-8 py-3 rounded-xl font-bold transition-all duration-300 flex items-center gap-2 ${activeTrack === 'entrepreneur' ? 'bg-primary text-primary-foreground shadow-lg' : 'text-muted-foreground hover:text-foreground'}`}
             >
-              <Layout className="w-4 h-4" /> Founders & Small Teams
+              <Layout className="w-4 h-4" aria-hidden="true" /> Founders & Small Teams
             </button>
             <button
+              role="tab"
+              aria-selected={activeTrack === 'organization'}
               onClick={() => setActiveTrack('organization')}
               className={`px-8 py-3 rounded-xl font-bold transition-all duration-300 flex items-center gap-2 ${activeTrack === 'organization' ? 'bg-primary text-primary-foreground shadow-lg' : 'text-muted-foreground hover:text-foreground'}`}
             >
-              <Users className="w-4 h-4" /> Organizations & Enterprises
+              <Users className="w-4 h-4" aria-hidden="true" /> Organizations & Enterprises
             </button>
           </div>
           <p className="text-sm text-muted-foreground font-medium animate-in fade-in slide-in-from-bottom-2 duration-700">
