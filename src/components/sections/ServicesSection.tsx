@@ -285,7 +285,7 @@ export default function ServicesSection() {
   const [showPricingOptions, setShowPricingOptions] = useState(false);
 
   return (
-    <section id="services" className="py-24 bg-background scroll-mt-20 relative">
+    <section id="services" className="py-16 md:py-20 bg-background scroll-mt-20 relative">
       <div className="container mx-auto px-4 md:px-6">
         <BlurFade inView>
           <div className="max-w-3xl">
@@ -293,18 +293,14 @@ export default function ServicesSection() {
             Consulting &amp; Implementation
           </h2>
           <div className="text-lg text-foreground/80 font-sans leading-relaxed space-y-4">
-            <p>Services from $199 to $55,250. Start with the landing page or the AI assessment—then scale into implementation.</p>
+            <p>Services from $199 to $55,250. Start with a landing page or an AI assessment — then scale into implementation.</p>
             <p><strong>My promise:</strong> If you aren&apos;t happy with our initial discussions, I&apos;ll refund you.</p>
-            <p className="text-sm text-foreground/60 italic border-l-2 border-primary/30 pl-4">
-              Money is energy flow. If the investment feels right, great. If it feels
-              tight, we&apos;ll find the offer that fits where you are.
-            </p>
           </div>
         </div>
         </BlurFade>
 
         {/* Track Selector Toggle */}
-        <div className="flex flex-col items-center mb-16">
+        <div className="flex flex-col items-center mb-10">
           <div className="bg-muted p-1.5 rounded-2xl inline-flex gap-2 mb-4 border border-border shadow-inner">
             <button
               onClick={() => setActiveTrack('entrepreneur')}
@@ -350,7 +346,7 @@ export default function ServicesSection() {
           )}
         </div>
 
-        <div className="max-w-5xl mx-auto mb-24 min-h-[600px]">
+        <div className="max-w-5xl mx-auto mb-16 min-h-[600px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTrack}

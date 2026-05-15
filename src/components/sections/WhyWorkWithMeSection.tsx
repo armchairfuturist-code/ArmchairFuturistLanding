@@ -44,7 +44,7 @@ export default function WhyWorkWithMeSection() {
   }, []);
 
   return (
-    <section id="strategy" className="py-20 md:py-28 bg-background scroll-mt-20">
+    <section id="strategy" className="py-16 md:py-20 bg-background scroll-mt-20">
       <div
         ref={contentRef}
         className={`container mx-auto px-4 md:px-6 scroll-animate ${isContentVisible ? 'is-visible' : ''}`}
