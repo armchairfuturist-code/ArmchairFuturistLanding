@@ -300,7 +300,7 @@ export default function ServicesSection() {
         </BlurFade>
 
         {/* Track Selector Toggle */}
-        <div className="flex flex-col items-center mb-10 mt-8 md:mt-10">
+        <div className="flex flex-col items-center mb-10 mt-12 md:mt-16">
           <div className="bg-muted p-1.5 rounded-2xl inline-flex gap-2 mb-4 border border-border shadow-inner" role="tablist" aria-label="Service track">
             <button
               role="tab"
