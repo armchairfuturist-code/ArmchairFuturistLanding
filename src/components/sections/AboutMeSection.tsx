@@ -59,7 +59,7 @@ const CertificationItem: React.FC<{ certification: Certification }> = ({
           width={32}
           height={32}
           className="object-contain shrink-0 rounded-sm"
-        />
+        onError={(e) => { e.currentTarget.style.display = "none"; }} />
       ) : (
         <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-white/20 text-primary-foreground/70">
           <span className="font-semibold text-xs">
@@ -157,7 +157,7 @@ export default function AboutMeSection() {
                           width={80}
                           height={80}
                           className="object-contain shrink-0 rounded-md"
-                        />
+                        onError={(e) => { e.currentTarget.style.display = "none"; }} />
                       ) : (
                         <div className="flex h-[80px] w-[80px] shrink-0 items-center justify-center rounded-md bg-white/20 text-primary-foreground/70">
                           <span className="font-semibold text-sm">

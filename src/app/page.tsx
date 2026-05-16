@@ -1,9 +1,9 @@
 import AISummaryNugget from '@/components/seo/AISummaryNugget';
 import HeroSection from '@/components/sections/HeroSection';
-import LeadCaptureInline from '@/components/lead-capture/LeadCaptureInline';
+// import removed: LeadCaptureInline (consolidated into AssessmentCtaSection)
 import MentoringSection from '@/components/sections/MentoringSection';
 import PackageComparisonSection from '@/components/sections/PackageComparisonSection';
-import KeyStatsSection from '@/components/sections/KeyStatsSection';
+// import removed: KeyStatsSection (consolidated into AboutMeSection)
 import AboutMeSection from '@/components/sections/AboutMeSection';
 import FeaturedInSection from '@/components/sections/FeaturedInSection';
 import WhyWorkWithMeSection from '@/components/sections/WhyWorkWithMeSection';
@@ -31,8 +31,6 @@ export default function HomePage() {
       {/* SOCIAL PROOF — fast trust signal, lightweight at-a-glance logos */}
       <FeaturedInSection />
 
-      {/* TRACK RECORD — AI-citable statistics and facts */}
-      <KeyStatsSection />
 
       {/* AUTHORITY — who is Alex, why trust him */}
       <AboutMeSection />
@@ -77,7 +75,7 @@ export default function HomePage() {
           <p className="text-sm text-white/70 mb-5 max-w-lg mx-auto">
             3-minute assessment. You'll get your personalized profile, clarity score, and a recommended next step — no pitch, no pressure.
           </p>
-          <LeadCaptureInline />
+
         </div>
       </section>
 
