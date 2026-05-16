@@ -35,7 +35,22 @@ export default function MentoringSection() {
 
   useEffect(() => {
     const saved = localStorage.getItem('af_currency');
-    if (saved === 'EUR' || saved === 'USD') setCurrency(saved);
+    if (saved === 'EUR' || saved === 'USD') {
+      setCurrency(saved);
+    } else {
+      try {
+        const locale = navigator.language;
+        const region = locale.split('-')[1] || '';
+        const euroCountries = ['AT', 'BE', 'CY', 'EE', 'FI', 'FR', 'DE', 'GR', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PT', 'SK', 'SI', 'ES', 'HR'];
+        if (euroCountries.includes(region.toUpperCase())) {
+          setCurrency('EUR');
+        } else {
+          setCurrency('USD');
+        }
+      } catch {
+        setCurrency('USD');
+      }
+    }
   }, []);
 
   const handleCurrencyChange = useCallback((c: CurrencyCode) => {
@@ -260,3 +275,4 @@ export default function MentoringSection() {
     </section>
   );
 }
+

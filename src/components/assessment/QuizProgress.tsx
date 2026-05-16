@@ -11,7 +11,7 @@ export default function QuizProgress({ current, total }: QuizProgressProps) {
   const percent = Math.round((current / total) * 100);
 
   return (
-    <div className="w-full max-w-2xl mx-auto mb-8">
+    <div className="w-full max-w-2xl mx-auto mb-8" role="progressbar" aria-valuenow={current} aria-valuemin={0} aria-valuemax={total} aria-label={`Question ${current} of ${total}`}>
       <div className="flex items-center justify-between mb-2">
         <span className="text-xs font-mono text-primary/60">
           Question {current} of {total}

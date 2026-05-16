@@ -6,10 +6,12 @@ import type { Question, AnswerOption } from '@/lib/assessment/config';
 interface QuizQuestionProps {
   question: Question;
   onAnswer: (answer: AnswerOption) => void;
+  onBack?: () => void;
   questionIndex: number;
+  isFirstQuestion: boolean;
 }
 
-export default function QuizQuestion({ question, onAnswer, questionIndex }: QuizQuestionProps) {
+export default function QuizQuestion({ question, onAnswer, onBack, questionIndex, isFirstQuestion }: QuizQuestionProps) {
   return (
     <AnimatePresence mode="wait">
       <motion.div
@@ -25,6 +27,18 @@ export default function QuizQuestion({ question, onAnswer, questionIndex }: Quiz
         </h2>
 
         <div className="space-y-3">
+          {!isFirstQuestion && onBack && (
+            <button
+              onClick={onBack}
+              className="text-xs text-muted-foreground hover:text-foreground transition-colors mb-2 flex items-center gap-1 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:rounded px-1"
+              aria-label="Go back to previous question"
+            >
+              <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+              Previous question
+            </button>
+          )}
           {question.answers.map((answer, idx) => (
             <motion.button
               key={idx}

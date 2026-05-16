@@ -28,6 +28,13 @@ export default function AssessmentPage() {
     setPhase('quiz');
   }, []);
 
+  const handleBack = useCallback(() => {
+    if (currentQuestion > 0) {
+      setCurrentQuestion(currentQuestion - 1);
+      setAnswers(answers.slice(0, -1));
+    }
+  }, [currentQuestion, answers]);
+
   const handleAnswer = useCallback((answer: AnswerOption) => {
     const newAnswers = [...answers, answer];
     setAnswers(newAnswers);
@@ -102,7 +109,7 @@ export default function AssessmentPage() {
 
           <BlurFade inView delay={0.5}>
             <p className="mt-6 text-xs text-muted-foreground/50 font-mono">
-              No email required to start. Results are immediate.
+              No signup required. Results shown immediately.
             </p>
           </BlurFade>
         </div>
@@ -120,6 +127,8 @@ export default function AssessmentPage() {
             question={questions[currentQuestion]}
             onAnswer={handleAnswer}
             questionIndex={currentQuestion}
+            onBack={handleBack}
+            isFirstQuestion={currentQuestion === 0}
           />
         </div>
       </section>
