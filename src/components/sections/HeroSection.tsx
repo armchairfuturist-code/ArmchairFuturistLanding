@@ -1,5 +1,5 @@
 "use client";
-import {Copy, Zap} from 'lucide-react';
+import { Zap } from 'lucide-react';
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -100,10 +100,10 @@ export default function HeroSection() {
       setIsVideoReady(true);
     }
 
-    const prefersReduced = window.matchMedia(
+    const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
-    if (!prefersReduced) {
+    if (!prefersReducedMotion) {
       videoElement.play().catch((error) => {
         console.error("Video autoplay was prevented:", error);
       });

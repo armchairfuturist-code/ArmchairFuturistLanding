@@ -1,7 +1,8 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
+import { checkRateLimit, getRateLimitKey } from '@/lib/email-utils';
 import { XMLParser } from 'fast-xml-parser';
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 5000);

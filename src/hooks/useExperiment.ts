@@ -67,12 +67,7 @@ export function useExperiment(
  * Hook for getting multiple experiments at once
  */
 export function useExperiments(experimentIds: string[]) {
-  const experiments = useMemo(() => {
-    return experimentIds.map(id => ({
-      id,
-      ...useExperiment(id, false),
-    }));
-  }, [experimentIds.join(',')]);
-  
-  return experiments;
+  // Call hooks unconditionally - one per experiment ID
+  const results = experimentIds.map(id => useExperiment(id, false));
+  return results;
 }

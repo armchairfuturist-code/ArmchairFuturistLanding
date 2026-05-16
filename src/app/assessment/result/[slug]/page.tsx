@@ -2,13 +2,13 @@
 
 import { useParams, useSearchParams } from 'next/navigation';
 import { notFound } from 'next/navigation';
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, Suspense } from 'react';
 import { getArchetypeBySlug, ARCHETYPE_SLUGS } from '@/lib/assessment/archetypes';
 import { trackConversion } from '@/lib/analytics';
 import ResultPage from '@/components/assessment/ResultPage';
 import type { ScoreResult } from '@/lib/assessment/scoring';
 
-export default function AssessmentResultPage() {
+function AssessmentResultContent() {
   const params = useParams();
   const searchParams = useSearchParams();
   // In Next.js 16, params.slug can be string | string[]
@@ -55,5 +55,18 @@ export default function AssessmentResultPage() {
       />
       <ResultPage scores={scores} archetype={archetype} />
     </>
+  );
+}
+
+
+export default function AssessmentResultPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-[100dvh] flex items-center justify-center">
+        <p className="text-muted-foreground font-sans">Loading your results...</p>
+      </div>
+    }>
+      <AssessmentResultContent />
+    </Suspense>
   );
 }

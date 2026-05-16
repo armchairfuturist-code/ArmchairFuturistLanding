@@ -28,7 +28,7 @@ import { getAnalyticsInstance } from './firebase';
 /**
  * Send event to GA4 dataLayer (if available)
  */
-function sendToGA4(eventName: string, params?: Record<string, any>) {
+function sendToGA4(eventName: string, params?: Record<string, string | number | boolean | undefined>) {
   if (typeof window === 'undefined') return;
   const dataLayer = (window as any).dataLayer;
   if (dataLayer && Array.isArray(dataLayer)) {
@@ -45,7 +45,7 @@ function sendToGA4(eventName: string, params?: Record<string, any>) {
  * @param eventName - Name of the event (e.g., 'button_click', 'form_submit')
  * @param eventParams - Optional parameters to include with the event
  */
-export function trackEvent(eventName: string, eventParams?: Record<string, any>) {
+export function trackEvent(eventName: string, eventParams?: Record<string, string | number | boolean | undefined>) {
     const analytics = getAnalyticsInstance();
 
     if (analytics) {

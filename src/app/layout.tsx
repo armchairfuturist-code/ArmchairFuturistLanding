@@ -116,10 +116,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body
         className={cn(
           outfit.variable,
-          "font-sans antialiased flex flex-col min-min-h-[100dvh]",
+          "font-sans antialiased flex flex-col min-h-[100dvh]",
         )}
       >
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
@@ -254,7 +258,7 @@ export default function RootLayout({
                         "@id": "https://thearmchairfuturist.com/#person",
                       },
                     },
-                    price: "450",
+                    price: "475",
                     priceCurrency: "EUR",
                   },
                   {
@@ -503,7 +507,7 @@ export default function RootLayout({
                       description:
                         "Five 1-on-1 AI mentoring sessions with progress tracking",
                     },
-                    price: "450",
+                    price: "475",
                     priceCurrency: "EUR",
                   },
                   {
