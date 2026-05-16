@@ -10,7 +10,7 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
-import {Calculator, Menu, FileText, MessageCircle, Github} from 'lucide-react';
+import { Menu, FileText, MessageCircle, Github } from 'lucide-react';
 import Image from "next/image";
 import { CALENDAR_URL } from "@/lib/constants";
 

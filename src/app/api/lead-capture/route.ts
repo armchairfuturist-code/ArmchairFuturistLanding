@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getResend } from '@/lib/resend';
+import { escapeHtml, checkRateLimit, getRateLimitKey } from '@/lib/email-utils';
 
-const ALEX_EMAIL = 'armchairfuturist@gmail.com';
+const ALEX_EMAIL = process.env.ALEX_EMAIL || 'armchairfuturist@gmail.com';
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'Alex Myers <alex@thearmchairfuturist.com>';
 
 export async function POST(request: NextRequest) {
@@ -13,7 +14,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Valid email is required.' }, { status: 400 });
     }
 
-    const displayName = name || email.split('@')[0];
+    const displayName = escapeHtml(name || email.split('@')[0]);
 
     // Store lead in Firestore (gracefully skips if not configured)
     try {

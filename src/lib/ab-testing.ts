@@ -82,9 +82,13 @@ export const EXPERIMENTS: Record<string, Experiment> = {
     description: 'Test different headlines to improve engagement',
     goalMetric: 'hero_headline_impression',
     variants: [
-      { id: 'variant_c', name: 'Variant C - The edge of change is lonely. You need a guide, not another tool.', weight: 1.0 },
+      { id: 'control', name: 'Control - Intelligence is cheap. Trust is the new scarcity.', weight: 0.25 },
+      { id: 'variant_a', name: 'Variant A - AI can do the work. You provide the trust.', weight: 0.25 },
+      { id: 'variant_b', name: 'Variant B - Stop wasting 20 hours a week on AI chaos', weight: 0.25 },
+      { id: 'variant_c', name: 'Variant C - The edge of change is lonely. You need a guide, not another tool.', weight: 0.25 },
     ],
   },
+
   HERO_CTA_COPY: {
     id: 'hero_cta_copy',
     name: 'Hero CTA Button Copy',
@@ -149,7 +153,7 @@ export const EXPERIMENTS: Record<string, Experiment> = {
   },
 };
 
-// Deterministic random based on session + experiment ID
+// Deterministic random based on session + experiment ID using FNV-1a hash
 function seededRandom(seed: string): number {
   if (typeof window === 'undefined') return Math.random();
   
@@ -160,12 +164,15 @@ function seededRandom(seed: string): number {
     sessionStorage.setItem('ab_session_id', sessionId);
   }
   
-  // Simple hash function
-  const hash = `${sessionId}_${seed}`.split('').reduce((acc, char) => {
-    return ((acc << 5) - acc) + char.charCodeAt(0);
-  }, 0);
+  // FNV-1a hash for consistent, well-distributed deterministic bucketing
+  const str = `${sessionId}_${seed}`;
+  let hash = 2166136261 >>> 0;
+  for (let i = 0; i < str.length; i++) {
+    hash ^= str.charCodeAt(i);
+    hash = Math.imul(hash, 16777619) >>> 0;
+  }
   
-  return Math.abs(hash) / 2147483647;
+  return (hash % 2147483647) / 2147483646;
 }
 
 /**
