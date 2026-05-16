@@ -93,27 +93,6 @@ export default function HeroSection() {
     const videoElement = videoRef.current;
     if (!videoElement) return;
 
-    // Skip video autoplay on slow connections or mobile
-    const connection = (navigator as any).connection;
-    const isSlowConnection = connection && (
-      connection.effectiveType === "slow-2g" ||
-      connection.effectiveType === "2g" ||
-      connection.saveData === true
-    );
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-    const prefersReducedData = window.matchMedia(
-      "(prefers-reduced-data: reduce)"
-    ).matches;
-    const isMobile = window.innerWidth < 768;
-
-    if (isSlowConnection || prefersReducedData || isMobile || prefersReducedMotion) {
-      setIsVideoReady(true);
-      videoElement.pause();
-      return;
-    }
-
     const handleCanPlay = () => setIsVideoReady(true);
     videoElement.addEventListener("canplay", handleCanPlay);
 
@@ -121,22 +100,30 @@ export default function HeroSection() {
       setIsVideoReady(true);
     }
 
-    videoElement.play().catch((error) => {
-      console.error("Video autoplay was prevented:", error);
-      setIsVideoReady(true);
-    });
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (!prefersReducedMotion) {
+      videoElement.play().catch((error) => {
+        console.error("Video autoplay was prevented:", error);
+      });
 
-    const handleVideoEnd = () => {
-      if (videoElement) {
-        videoElement.currentTime = 0;
-        videoElement.play().catch((error) => {
-          console.error("Video loop play was prevented:", error);
-        });
-      }
-    };
-    videoElement.addEventListener("ended", handleVideoEnd);
+      const handleVideoEnd = () => {
+        if (videoElement) {
+          videoElement.currentTime = 0;
+          videoElement.play().catch((error) => {
+            console.error("Video loop play was prevented:", error);
+          });
+        }
+      };
+      videoElement.addEventListener("ended", handleVideoEnd);
+      return () => {
+        videoElement.removeEventListener("ended", handleVideoEnd);
+        videoElement.removeEventListener("canplay", handleCanPlay);
+      };
+    }
+
     return () => {
-      videoElement.removeEventListener("ended", handleVideoEnd);
       videoElement.removeEventListener("canplay", handleCanPlay);
     };
   }, []);
@@ -271,4 +258,3 @@ export default function HeroSection() {
     </section>
   );
 }
-
