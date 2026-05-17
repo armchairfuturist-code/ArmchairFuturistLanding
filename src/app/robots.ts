@@ -74,9 +74,6 @@ export default function robots(): MetadataRoute.Robots {
       // === TRADITIONAL SEARCH CRAWLERS ===
       // Google, Bing, etc. are covered by the default '*' rule above
     ],
-    sitemap: [
-      'https://thearmchairfuturist.com/sitemap.xml',
-      'https://thearmchairfuturist.com/sitemap-ai.xml',
-    ],
+    sitemap: 'https://thearmchairfuturist.com/sitemap.xml',
   };
 }
