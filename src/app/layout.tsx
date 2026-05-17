@@ -192,7 +192,7 @@ export default function RootLayout({
                 "@type": "PostalAddress",
                 addressCountry: "PT",
               },
-              priceRange: "€100 - $55,250",
+              priceRange: "$116 - $55,250",
               areaServed: "Worldwide",
               knowsAbout: [
                 "AI Strategy",
