@@ -11,6 +11,11 @@ export function escapeHtml(str: string): string {
     .replace(/'/g, "&#x27;");
 }
 
+/** Strip CR/LF to prevent email header injection in subjects and display names. */
+export function sanitizeEmailHeaderValue(str: string): string {
+  return str.replace(/[\r\n]/g, " ").trim().slice(0, 200);
+}
+
 /**
  * Simple in-memory rate limiter.
  * Tracks request counts per key within a sliding window.
@@ -23,6 +28,10 @@ export interface RateLimitConfig {
 }
 
 const DEFAULT_CONFIG: RateLimitConfig = { maxRequests: 10, windowMs: 60000 };
+
+export const RATE_LIMIT_LEAD_CAPTURE: RateLimitConfig = { maxRequests: 5, windowMs: 60000 };
+export const RATE_LIMIT_ASSESSMENT: RateLimitConfig = { maxRequests: 5, windowMs: 60000 };
+export const RATE_LIMIT_ADMIN_AUTH: RateLimitConfig = { maxRequests: 5, windowMs: 300000 };
 
 export function checkRateLimit(
   key: string,

@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     template: "%s | The Armchair Futurist",
   },
   description:
-    "Alex Myers is a certified futurist and trusted edge advisor who helps leaders navigate the space between what was and what&apos;s next. Based in Portugal, serving clients worldwide.",
+    "Alex Myers is a certified futurist and trusted edge advisor who helps leaders navigate the space between what was and what's next. Based in Portugal, serving clients worldwide.",
   authors: [
     {
       name: "Alex Myers",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "The Armchair Futurist - Alex Myers | Trusted Edge Advisor",
     description:
-      "Alex Myers is a certified futurist and trusted edge advisor who helps leaders navigate the space between what was and what&apos;s next.",
+      "Alex Myers is a certified futurist and trusted edge advisor who helps leaders navigate the space between what was and what's next.",
     url: "/",
     siteName: "The Armchair Futurist",
     images: [
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "The Armchair Futurist - Alex Myers | Trusted Edge Advisor",
     description:
-      "Alex Myers is a certified futurist and trusted edge advisor who helps leaders navigate the space between what was and what&apos;s next.",
+      "Alex Myers is a certified futurist and trusted edge advisor who helps leaders navigate the space between what was and what's next.",
     images: ["/floop.jpg"],
     creator: "@armchairfuturist",
   },

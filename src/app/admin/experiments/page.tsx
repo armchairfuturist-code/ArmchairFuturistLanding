@@ -16,6 +16,15 @@ export default function ExperimentsAdminPage() {
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
 
   useEffect(() => {
+    fetch('/api/admin/verify', { credentials: 'include' })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.authenticated) setIsAuthenticated(true);
+      })
+      .catch(() => {});
+  }, []);
+
+  useEffect(() => {
     if (isAuthenticated) {
       setResults(getAllExperimentResults());
     }
@@ -25,6 +34,7 @@ export default function ExperimentsAdminPage() {
     try {
       const res = await fetch('/api/admin/verify', {
         method: 'POST',
+        credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ password }),
       });
@@ -80,7 +90,7 @@ export default function ExperimentsAdminPage() {
 
   if (!isAuthenticated) {
     return (
-      <div className="min-min-h-[100dvh] flex items-center justify-center bg-background">
+      <div className="min-h-[100dvh] flex items-center justify-center bg-background">
         <Card className="w-full max-w-sm">
           <CardHeader>
             <CardTitle className="text-center">Experiments Admin</CardTitle>
@@ -105,13 +115,13 @@ export default function ExperimentsAdminPage() {
   }
 
   return (
-    <div className="min-min-h-[100dvh] bg-background py-8 px-4">
+    <div className="min-h-[100dvh] bg-background py-8 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-2xl font-bold font-heading">A/B Test Results</h1>
             <p className="text-sm text-muted-foreground mt-1">
-              Real-time experiment performance from localStorage tracking
+              Experiment performance from this browser&apos;s localStorage (per-device)
             </p>
           </div>
           <div className="flex gap-2">
@@ -219,7 +229,7 @@ export default function ExperimentsAdminPage() {
           <ul className="text-xs text-muted-foreground space-y-1">
             <li>• Impressions are tracked when a variant is first shown to a visitor</li>
             <li>• Conversions are tracked when the visitor clicks the CTA for that variant</li>
-            <li>• Data is stored in localStorage and synced to Firebase Analytics</li>
+            <li>• Data is stored in localStorage on each visitor&apos;s device; Firebase Analytics receives event copies</li>
             <li>• The winner is the variant with the highest conversion rate (min 1 impression)</li>
             <li>• Use the Copy button to get the implementation code for the winning variant</li>
           </ul>
