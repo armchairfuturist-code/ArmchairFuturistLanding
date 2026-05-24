@@ -54,7 +54,7 @@ const concepts = [
 
 export default function ConceptsIndexPage() {
   return (
-    <div className="min-min-h-[100dvh] bg-background">
+    <div className="min-h-[100dvh] bg-background">
       {/* Schema */}
       <script
         type="application/ld+json"

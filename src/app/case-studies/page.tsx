@@ -68,7 +68,7 @@ const caseStudies = [
 
 export default function CaseStudiesPage() {
   return (
-    <div className="min-min-h-[100dvh] bg-background">
+    <div className="min-h-[100dvh] bg-background">
       {/* Schema for Case Studies */}
       <script
         type="application/ld+json"

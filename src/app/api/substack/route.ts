@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { checkRateLimit, getRateLimitKey } from '@/lib/email-utils';
 import { XMLParser } from 'fast-xml-parser';
 
 export async function GET(request: NextRequest) {

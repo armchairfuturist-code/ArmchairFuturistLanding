@@ -8,6 +8,10 @@ import { BlurFade } from '@/components/ui/blur-fade';
 import { motion } from 'motion/react';
 import { questions, type AnswerOption } from '@/lib/assessment/config';
 import { calculateScores } from '@/lib/assessment/scoring';
+import {
+  saveAssessmentResult,
+  buildResultQueryParams,
+} from '@/lib/assessment/result-session';
 import { trackEvent, trackConversion } from '@/lib/analytics';
 import QuizProgress from '@/components/assessment/QuizProgress';
 import QuizQuestion from '@/components/assessment/QuizQuestion';
@@ -20,8 +24,14 @@ export default function AssessmentPage() {
   const [phase, setPhase] = useState<Phase>('landing');
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<AnswerOption[]>([]);
+  const [answerIndices, setAnswerIndices] = useState<number[]>([]);
   const [resultSlug, setResultSlug] = useState('');
-  const [resultScores, setResultScores] = useState<{ clarity: number; readiness: number; urgency: number } | null>(null);
+  const [resultScores, setResultScores] = useState<{
+    clarity: number;
+    readiness: number;
+    urgency: number;
+    individualSignals: number;
+  } | null>(null);
 
   const handleStart = useCallback(() => {
     trackEvent('assessment_start');
@@ -32,45 +42,55 @@ export default function AssessmentPage() {
     if (currentQuestion > 0) {
       setCurrentQuestion(currentQuestion - 1);
       setAnswers(answers.slice(0, -1));
+      setAnswerIndices(answerIndices.slice(0, -1));
     }
-  }, [currentQuestion, answers]);
+  }, [currentQuestion, answers, answerIndices]);
 
-  const handleAnswer = useCallback((answer: AnswerOption) => {
-    const newAnswers = [...answers, answer];
-    setAnswers(newAnswers);
-    trackEvent(`assessment_question_${currentQuestion + 1}`, {
-      question_id: questions[currentQuestion].id,
-    });
+  const handleAnswer = useCallback(
+    (answer: AnswerOption) => {
+      const question = questions[currentQuestion];
+      const answerIndex = question.answers.indexOf(answer);
+      if (answerIndex < 0) return;
 
-    if (currentQuestion + 1 < questions.length) {
-      setCurrentQuestion(currentQuestion + 1);
-    } else {
-      // All questions answered, calculate scores
-      const result = calculateScores(newAnswers);
-      setResultSlug(result.archetypeSlug);
-      setResultScores({ clarity: result.clarity, readiness: result.readiness, urgency: result.urgency });
-      setPhase('email');
-    }
-  }, [answers, currentQuestion]);
+      const newAnswers = [...answers, answer];
+      const newIndices = [...answerIndices, answerIndex];
+      setAnswers(newAnswers);
+      setAnswerIndices(newIndices);
+      trackEvent(`assessment_question_${currentQuestion + 1}`, {
+        question_id: question.id,
+      });
+
+      if (currentQuestion + 1 < questions.length) {
+        setCurrentQuestion(currentQuestion + 1);
+      } else {
+        const result = calculateScores(newAnswers);
+        setResultSlug(result.archetypeSlug);
+        setResultScores({
+          clarity: result.clarity,
+          readiness: result.readiness,
+          urgency: result.urgency,
+          individualSignals: result.individualSignals,
+        });
+        setPhase('email');
+      }
+    },
+    [answers, answerIndices, currentQuestion],
+  );
 
   const navigateToResult = useCallback(() => {
-    if (!resultSlug) return;
+    if (!resultSlug || !resultScores) return;
     setPhase('redirecting');
     trackConversion('assessment_complete', undefined);
-    router.push(`/assessment/result/${resultSlug}?${buildScoreParams()}`);
-  }, [resultSlug, router, answers]);
 
-  function buildScoreParams() {
-    if (answers.length === 0) return '';
-    const result = calculateScores(answers);
-    return new URLSearchParams({
-      c: String(result.clarity),
-      r: String(result.readiness),
-      u: String(result.urgency),
-    }).toString();
-  }
+    saveAssessmentResult({
+      archetypeSlug: resultSlug,
+      scores: resultScores,
+    });
 
-  // Landing
+    const query = buildResultQueryParams(resultScores);
+    router.push(`/assessment/result/${resultSlug}?${query}`);
+  }, [resultSlug, resultScores, router]);
+
   if (phase === 'landing') {
     return (
       <section className="min-h-[100dvh] flex items-center justify-center bg-gradient-to-b from-background to-primary/5 py-20">
@@ -117,7 +137,6 @@ export default function AssessmentPage() {
     );
   }
 
-  // Quiz
   if (phase === 'quiz') {
     return (
       <section className="min-h-[100dvh] flex flex-col items-center justify-center bg-gradient-to-b from-background to-primary/5 py-20">
@@ -135,7 +154,6 @@ export default function AssessmentPage() {
     );
   }
 
-  // Email capture
   if (phase === 'email') {
     return (
       <section className="min-h-[100dvh] flex items-center justify-center bg-gradient-to-b from-background to-primary/5 py-20">
@@ -143,15 +161,13 @@ export default function AssessmentPage() {
           <EmailCapture
             onComplete={navigateToResult}
             onSkip={navigateToResult}
-            archetypeSlug={resultSlug}
-            scores={resultScores || { clarity: 50, readiness: 50, urgency: 50 }}
+            answerIndices={answerIndices}
           />
         </div>
       </section>
     );
   }
 
-  // Redirecting
   return (
     <section className="min-h-[100dvh] flex items-center justify-center bg-gradient-to-b from-background to-primary/5">
       <motion.div

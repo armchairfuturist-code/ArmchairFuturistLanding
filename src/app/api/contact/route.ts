@@ -1,13 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getResend } from '@/lib/resend';
-import { escapeHtml, checkRateLimit, getRateLimitKey } from '@/lib/email-utils';
+import { escapeHtml, checkRateLimit, getRateLimitKey, sanitizeEmailHeaderValue } from '@/lib/email-utils';
 
 const ALEX_EMAIL = process.env.ALEX_EMAIL || 'armchairfuturist@gmail.com';
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'Alex Myers <alex@thearmchairfuturist.com>';
 
+const MAX_MESSAGE_LENGTH = 5000;
+const MAX_NAME_LENGTH = 100;
+
 export async function POST(request: NextRequest) {
   try {
-    // Rate limiting
     const rateLimitResult = checkRateLimit(getRateLimitKey(request));
     if (!rateLimitResult.allowed) {
       return NextResponse.json({ error: 'Too many requests. Please try again later.' }, { status: 429 });
@@ -20,6 +22,17 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Name, email, and message are required.' }, { status: 400 });
     }
 
+    if (typeof name !== 'string' || typeof email !== 'string' || typeof message !== 'string') {
+      return NextResponse.json({ error: 'Invalid form data.' }, { status: 400 });
+    }
+
+    const trimmedName = name.trim().slice(0, MAX_NAME_LENGTH);
+    const trimmedMessage = message.trim().slice(0, MAX_MESSAGE_LENGTH);
+
+    if (!trimmedName || !trimmedMessage) {
+      return NextResponse.json({ error: 'Name, email, and message are required.' }, { status: 400 });
+    }
+
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return NextResponse.json({ error: 'Invalid email address.' }, { status: 400 });
     }
@@ -29,14 +42,14 @@ export async function POST(request: NextRequest) {
     const emailResult = await resend.emails.send({
       from: FROM_EMAIL,
       to: ALEX_EMAIL,
-      subject: `New Contact: ${name} - ${email}`,
+      subject: `New Contact: ${sanitizeEmailHeaderValue(trimmedName)} - ${email}`,
       html: `
         <div style="font-family: system-ui, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #1a1a1a;">New Contact Form Submission</h2>
           <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
             <tr>
               <td style="padding: 10px; border-bottom: 1px solid #e5e5e5; font-weight: bold; width: 120px;">Name:</td>
-              <td style="padding: 10px; border-bottom: 1px solid #e5e5e5;">${escapeHtml(name)}</td>
+              <td style="padding: 10px; border-bottom: 1px solid #e5e5e5;">${escapeHtml(trimmedName)}</td>
             </tr>
             <tr>
               <td style="padding: 10px; border-bottom: 1px solid #e5e5e5; font-weight: bold;">Email:</td>
@@ -44,7 +57,7 @@ export async function POST(request: NextRequest) {
             </tr>
             <tr>
               <td style="padding: 10px; border-bottom: 1px solid #e5e5e5; font-weight: bold; vertical-align: top;">Message:</td>
-              <td style="padding: 10px; border-bottom: 1px solid #e5e5e5; white-space: pre-wrap;">${escapeHtml(message)}</td>
+              <td style="padding: 10px; border-bottom: 1px solid #e5e5e5; white-space: pre-wrap;">${escapeHtml(trimmedMessage)}</td>
             </tr>
           </table>
           <p style="margin-top: 20px; color: #666; font-size: 14px;">
@@ -54,13 +67,15 @@ export async function POST(request: NextRequest) {
       `,
     });
 
-    await resend.emails.send({
-      from: FROM_EMAIL,
-      to: email,
-      subject: 'Thanks for reaching out - Alex will be in touch soon',
-      html: `
+    // Auto-reply is best-effort; inbound notification is the success criterion.
+    try {
+      await resend.emails.send({
+        from: FROM_EMAIL,
+        to: email,
+        subject: 'Thanks for reaching out - Alex will be in touch soon',
+        html: `
         <div style="font-family: system-ui, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #1a1a1a;">Thanks for reaching out, ${escapeHtml(name)}!</h2>
+          <h2 style="color: #1a1a1a;">Thanks for reaching out, ${escapeHtml(trimmedName)}!</h2>
           <p style="color: #333; line-height: 1.6;">
             I've received your message and will get back to you as soon as possible—usually within 24 hours.
           </p>
@@ -72,7 +87,10 @@ export async function POST(request: NextRequest) {
           </a>
         </div>
       `,
-    });
+      });
+    } catch (autoReplyError) {
+      console.warn('Contact auto-reply failed (inbound notification was sent):', autoReplyError);
+    }
 
     return NextResponse.json({
       success: true,

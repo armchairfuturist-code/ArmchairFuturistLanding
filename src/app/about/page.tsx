@@ -120,7 +120,7 @@ const timelineEvents = [
 
 export default function AboutPage() {
   return (
-    <div className="min-min-h-[100dvh] bg-background">
+    <div className="min-h-[100dvh] bg-background">
       {/* Hero Section */}
       <section className="py-16 md:py-24 bg-secondary">
         <div className="container mx-auto px-4 md:px-6">

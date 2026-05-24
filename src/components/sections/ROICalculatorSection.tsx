@@ -95,11 +95,28 @@ export default function ROICalculatorSection() {
     }
     setEmailError('');
     setEmailLoading(true);
-    await new Promise((res) => setTimeout(res, 600));
-    setEmailSubmitted(true);
-    trackConversion('roi_report_downloaded');
-    trackEvent('roi_email_capture', { email_domain: email.split('@')[1] });
-    setEmailLoading(false);
+
+    try {
+      const res = await fetch('/api/lead-capture', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: email.trim(),
+          source: 'roi-calculator',
+        }),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || 'Failed to submit');
+      }
+      setEmailSubmitted(true);
+      trackConversion('roi_report_downloaded');
+      trackEvent('roi_email_capture', { email_domain: email.split('@')[1] });
+    } catch {
+      setEmailError('Something went wrong. Please try again.');
+    } finally {
+      setEmailLoading(false);
+    }
   };
 
   return (

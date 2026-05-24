@@ -55,7 +55,7 @@ const statistics = [
 
 export default function AccountabilityGapPage() {
   return (
-    <div className="min-min-h-[100dvh] bg-background">
+    <div className="min-h-[100dvh] bg-background">
       {/* Navigation */}
       <div className="container mx-auto px-4 md:px-6 py-6">
         <Breadcrumbs items={[

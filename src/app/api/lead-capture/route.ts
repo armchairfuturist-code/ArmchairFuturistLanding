@@ -1,12 +1,23 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getResend } from '@/lib/resend';
-import { escapeHtml, checkRateLimit, getRateLimitKey } from '@/lib/email-utils';
+import {
+  escapeHtml,
+  checkRateLimit,
+  getRateLimitKey,
+  RATE_LIMIT_LEAD_CAPTURE,
+  sanitizeEmailHeaderValue,
+} from '@/lib/email-utils';
 
 const ALEX_EMAIL = process.env.ALEX_EMAIL || 'armchairfuturist@gmail.com';
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'Alex Myers <alex@thearmchairfuturist.com>';
 
 export async function POST(request: NextRequest) {
   try {
+    const rateLimitResult = checkRateLimit(getRateLimitKey(request), RATE_LIMIT_LEAD_CAPTURE);
+    if (!rateLimitResult.allowed) {
+      return NextResponse.json({ error: 'Too many requests. Please try again later.' }, { status: 429 });
+    }
+
     const body = await request.json();
     const { name, email, source = 'hero-lead-capture' } = body;
 
@@ -14,17 +25,23 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Valid email is required.' }, { status: 400 });
     }
 
-    const displayName = escapeHtml(name || email.split('@')[0]);
+    const rawName = typeof name === 'string' ? name.trim().slice(0, 100) : '';
+    const storedName = rawName || email.split('@')[0];
+    const safeSource =
+      typeof source === 'string' ? source.trim().slice(0, 80) : 'hero-lead-capture';
 
-    // Store lead in Firestore (gracefully skips if not configured)
+    const displayNameHtml = escapeHtml(storedName);
+    const emailHtml = escapeHtml(email);
+    const sourceHtml = escapeHtml(safeSource);
+
     try {
       const { getDb } = await import('@/lib/firebase-admin');
       const db = getDb();
       const contactRef = db.collection('leads').doc();
       await contactRef.set({
-        name: displayName,
+        name: storedName,
         email,
-        source,
+        source: safeSource,
         createdAt: new Date().toISOString(),
         consulted: false,
       });
@@ -34,11 +51,10 @@ export async function POST(request: NextRequest) {
 
     const resend = getResend();
 
-    // Send welcome email to prospect with assessment link
     await resend.emails.send({
       from: FROM_EMAIL,
       to: email,
-      subject: 'Your AI Quick Wins — let\'s get started',
+      subject: "Your AI Quick Wins — let's get started",
       html: `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,7 +69,7 @@ export async function POST(request: NextRequest) {
           <tr>
             <td style="background:#1e3a5f;padding:32px 40px;text-align:center;">
               <p style="margin:0;font-size:14px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.7);">The Armchair Futurist</p>
-              <h1 style="margin:12px 0 0;font-size:24px;font-weight:700;color:#ffffff;">Thanks for signing up, ${displayName}</h1>
+              <h1 style="margin:12px 0 0;font-size:24px;font-weight:700;color:#ffffff;">Thanks for signing up, ${displayNameHtml}</h1>
             </td>
           </tr>
           <tr>
@@ -92,11 +108,10 @@ export async function POST(request: NextRequest) {
 </html>`,
     });
 
-    // Send notification to Alex
     await resend.emails.send({
       from: FROM_EMAIL,
       to: ALEX_EMAIL,
-      subject: `New Lead: ${displayName} <${email}>`,
+      subject: `New Lead: ${sanitizeEmailHeaderValue(storedName)} <${email}>`,
       html: `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -118,15 +133,15 @@ export async function POST(request: NextRequest) {
               <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
                 <tr>
                   <td style="padding:8px 0;font-size:14px;color:#6b7280;width:80px;">Name</td>
-                  <td style="padding:8px 0;font-size:14px;font-weight:600;">${displayName}</td>
+                  <td style="padding:8px 0;font-size:14px;font-weight:600;">${displayNameHtml}</td>
                 </tr>
                 <tr>
                   <td style="padding:8px 0;font-size:14px;color:#6b7280;">Email</td>
-                  <td style="padding:8px 0;font-size:14px;font-weight:600;">${email}</td>
+                  <td style="padding:8px 0;font-size:14px;font-weight:600;">${emailHtml}</td>
                 </tr>
                 <tr>
                   <td style="padding:8px 0;font-size:14px;color:#6b7280;">Source</td>
-                  <td style="padding:8px 0;font-size:14px;font-weight:600;">${source}</td>
+                  <td style="padding:8px 0;font-size:14px;font-weight:600;">${sourceHtml}</td>
                 </tr>
                 <tr>
                   <td style="padding:8px 0;font-size:14px;color:#6b7280;">Time</td>

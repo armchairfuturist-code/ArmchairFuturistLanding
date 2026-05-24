@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Check,  Mail, Loader2, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Check, Mail, Loader2, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'motion/react';
 import { trackEvent } from '@/lib/analytics';
@@ -9,11 +9,10 @@ import { trackEvent } from '@/lib/analytics';
 interface EmailCaptureProps {
   onComplete: () => void;
   onSkip: () => void;
-  archetypeSlug: string;
-  scores: { clarity: number; readiness: number; urgency: number };
+  answerIndices: number[];
 }
 
-export default function EmailCapture({ onComplete, onSkip, archetypeSlug, scores }: EmailCaptureProps) {
+export default function EmailCapture({ onComplete, onSkip, answerIndices }: EmailCaptureProps) {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -32,7 +31,7 @@ export default function EmailCapture({ onComplete, onSkip, archetypeSlug, scores
       const res = await fetch('/api/assessment/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, archetypeSlug, scores }),
+        body: JSON.stringify({ email, answerIndices }),
       });
 
       if (!res.ok) {
@@ -43,7 +42,6 @@ export default function EmailCapture({ onComplete, onSkip, archetypeSlug, scores
       trackEvent('assessment_email_capture', { email_provided: true });
       setSent(true);
 
-      // Brief pause so they see the confirmation, then navigate
       setTimeout(() => onComplete(), 1500);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');

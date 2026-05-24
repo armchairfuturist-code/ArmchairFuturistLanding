@@ -72,7 +72,7 @@ const nextConfig: NextConfig = {
           {
             key: "Content-Security-Policy",
             value:
-              "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; connect-src 'self' https://*.google-analytics.com https://*.firebase.io https://fonts.googleapis.com https://fonts.gstatic.com; img-src 'self' data: https://substackcdn.com https://substack-post-media.s3.amazonaws.com https://images.unsplash.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;",
+              "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net https://snap.licdn.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.googleapis.com https://*.firebaseio.com https://*.firebase.googleapis.com https://firebaseinstallations.googleapis.com https://www.facebook.com https://px.ads.linkedin.com https://fonts.googleapis.com https://fonts.gstatic.com; img-src 'self' data: https: https://substackcdn.com https://substack-post-media.s3.amazonaws.com https://images.unsplash.com https://www.facebook.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-src https://www.facebook.com;",
           },
         ],
       },

@@ -1,36 +1,49 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getResend } from '@/lib/resend';
 import { getArchetypeBySlug } from '@/lib/assessment/archetypes';
+import { scoreFromAnswerIndices } from '@/lib/assessment/resolve-answers';
 import {
   buildProspectResultEmail,
   buildAlexNotificationEmail,
 } from '@/lib/assessment/email-templates';
+import {
+  checkRateLimit,
+  getRateLimitKey,
+  RATE_LIMIT_ASSESSMENT,
+} from '@/lib/email-utils';
 
 const ALEX_EMAIL = process.env.ALEX_EMAIL || 'armchairfuturist@gmail.com';
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'Alex Myers <alex@thearmchairfuturist.com>';
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
-    const { email, archetypeSlug, scores } = body;
+    const rateLimitResult = checkRateLimit(getRateLimitKey(request), RATE_LIMIT_ASSESSMENT);
+    if (!rateLimitResult.allowed) {
+      return NextResponse.json({ error: 'Too many requests. Please try again later.' }, { status: 429 });
+    }
 
-    // Validate inputs
+    const body = await request.json();
+    const { email, answerIndices } = body;
+
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return NextResponse.json({ error: 'Invalid email address.' }, { status: 400 });
     }
 
-    if (!archetypeSlug || !scores) {
-      return NextResponse.json({ error: 'Missing assessment data.' }, { status: 400 });
+    let scored;
+    try {
+      scored = scoreFromAnswerIndices(answerIndices);
+    } catch {
+      return NextResponse.json({ error: 'Invalid assessment answers.' }, { status: 400 });
     }
+
+    const { archetypeSlug, clarity, readiness, urgency } = scored;
+    const scores = { clarity, readiness, urgency };
 
     const archetype = getArchetypeBySlug(archetypeSlug);
     if (!archetype) {
       return NextResponse.json({ error: 'Invalid archetype.' }, { status: 400 });
     }
 
-    const { clarity, readiness, urgency } = scores;
-
-    // Store contact in Firestore (optional - skip if not configured)
     try {
       const { getDb } = await import('@/lib/firebase-admin');
       const db = getDb();
@@ -39,7 +52,8 @@ export async function POST(request: NextRequest) {
         email,
         archetypeSlug,
         archetypeName: archetype.name,
-        scores: { clarity, readiness, urgency },
+        scores,
+        individualSignals: scored.individualSignals,
         createdAt: new Date().toISOString(),
         source: 'assessment',
       });
@@ -47,7 +61,6 @@ export async function POST(request: NextRequest) {
       console.warn('Firestore not configured, skipping lead storage:', firestoreError);
     }
 
-    // Send results email to prospect
     const resend = getResend();
     const prospectEmailResult = await resend.emails.send({
       from: FROM_EMAIL,
@@ -56,7 +69,6 @@ export async function POST(request: NextRequest) {
       html: buildProspectResultEmail({ archetype, scores, email }),
     });
 
-    // Send notification email to Alex
     await resend.emails.send({
       from: FROM_EMAIL,
       to: ALEX_EMAIL,
@@ -67,6 +79,9 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       success: true,
       emailId: prospectEmailResult.data?.id,
+      archetypeSlug,
+      scores,
+      individualSignals: scored.individualSignals,
     });
   } catch (error) {
     console.error('Assessment submission error:', error);
