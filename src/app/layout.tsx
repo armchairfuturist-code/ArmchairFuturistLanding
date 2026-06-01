@@ -101,16 +101,16 @@ export const metadata: Metadata = {
   },
 };
 
-// Apple SF Pro typography system — Outfit (Google Fonts) as open-source substitute
-// Display: system-ui, -apple-system, sans-serif → resolves to SF Pro on Apple devices
-// Body: Outfit via Google Fonts — premium sans-serif
-import { Outfit } from "next/font/google";
+// HP design system — Forma DJR Micro (proprietary) with Manrope (Google Fonts) substitute.
+// Manrope approximates Forma's geometric character with single-story 'a' and tight apertures.
+// Update font-family stack to "Forma DJR Micro" first when licensing is secured.
+import { Manrope } from "next/font/google";
 
-const outfit = Outfit({
+const manrope = Manrope({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-body",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export default function RootLayout({
@@ -126,7 +126,7 @@ export default function RootLayout({
       </head>
       <body
         className={cn(
-          outfit.variable,
+          manrope.variable,
           "font-sans antialiased flex flex-col min-h-[100dvh]",
         )}
       >

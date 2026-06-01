@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-/* === MERGED DESIGN TOKENS: PlayStation + USVC === */
+/* === HP DESIGN TOKENS === */
 
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(24px);
     }
     to {
         opacity: 1;
@@ -35,8 +35,9 @@
 
     .scroll-animate,
     .scroll-animate.is-visible {
-        opacity: 1 !important;
-        animation: none !important;
+        animation: none;
+        opacity: 1;
+        transform: none;
     }
 
     /* Marquees should still scroll (content display, not decoration) */
@@ -50,95 +51,116 @@
 
 @layer base {
     :root {
-        /* === MERGED DESIGN TOKENS === */
+        /* === HP DESIGN TOKENS === */
 
-        /* Brand Colors */
-        --usvc-blue: 213 100% 53%; /* #0d84ff */
-        --ps-blue: 208 100% 40%; /* #0070cc */
-        --ps-cyan: 198 100% 49%; /* #1eaedb */
-        --usvc-navy: 212 100% 9%; /* #00172e */
-        --usvc-off-white: 216 100% 99%; /* #fafdff */
-        --usvc-border: 213 100% 85%; /* #b2d5ff */
-        --border-dark: 219 74% 31%; /* #143d8d */
+        /* Brand Colors — HP Electric Blue system */
+        --hp-electric: 220 96% 43%; /* #024ad8 */
+        --hp-bright: 217 95% 57%; /* #296ef9 */
+        --hp-deep: 222 80% 31%; /* #0e3191 */
+        --hp-soft: 213 90% 90%; /* #c9e0fc */
 
-        /* Typography — Apple SF Pro system (Inter as open-source substitute) */
-        --font-display: "system-ui", "-apple-system", sans-serif;
-        --font-body: "Outfit", "system-ui", sans-serif;
-        --font-ui: "Outfit", "system-ui", sans-serif;
+        /* Ink (text) */
+        --ink: 0 0% 10%; /* #1a1a1a */
+        --ink-deep: 0 0% 0%; /* #000000 */
+        --ink-soft: 0 0% 16%; /* #292929 */
+
+        /* Surface */
+        --canvas: 0 0% 100%; /* #ffffff */
+        --cloud: 0 0% 97%; /* #f7f7f7 */
+        --fog: 0 0% 91%; /* #e8e8e8 */
+        --steel: 0 0% 76%; /* #c2c2c2 */
+        --graphite: 0 0% 39%; /* #636363 */
+        --charcoal: 0 0% 24%; /* #3d3d3d */
+
+        /* Hairlines */
+        --hairline: 0 0% 91%; /* #e8e8e8 */
+        --hairline-strong: 0 0% 76%; /* #c2c2c2 */
+
+        /* Accent library (reserved) */
+        --bloom-coral: 0 100% 66%; /* #ff5050 */
+        --bloom-rose: 0 81% 90%; /* #f9d4d2 */
+        --bloom-deep: 359 65% 43%; /* #b3262b */
+        --bloom-wine: 359 71% 21%; /* #5a1313 */
+        --storm-mist: 195 33% 68%; /* #8ebdce */
+        --storm-sea: 198 32% 61%; /* #7fadbe */
+        --storm-deep: 196 35% 33%; /* #356373 */
+
+        /* Typography — Forma DJR Micro (Manrope as open-source substitute) */
+        --font-display: "Forma DJR Micro", "Manrope", "Inter", system-ui, sans-serif;
+        --font-body: "Forma DJR Micro", "Manrope", "Inter", system-ui, sans-serif;
+        --font-ui: "Forma DJR Micro", "Manrope", "Inter", system-ui, sans-serif;
         --font-mono: '"JetBrains Mono"', '"Courier New"', Courier, monospace;
 
-        /* Standard colors */
-        --background: 216 100% 99%; /* USVC Off-white */
-        --foreground: 212 100% 9%; /* USVC Navy - text on light */
+        /* Standard colors — shadcn/ui contract */
+        --background: 0 0% 100%; /* HP Canvas */
+        --foreground: 0 0% 10%; /* HP Ink */
         --card: 0 0% 100%;
-        --card-foreground: 212 100% 9%;
+        --card-foreground: 0 0% 10%;
         --popover: 0 0% 100%;
-        --popover-foreground: 212 100% 9%;
-        --primary: 213 100% 53%; /* USVC Blue */
+        --popover-foreground: 0 0% 10%;
+        --primary: 220 96% 43%; /* HP Electric Blue */
         --primary-foreground: 0 0% 100%;
-        --secondary: 0 0% 95%;
-        --secondary-foreground: 212 100% 9%;
-        --muted: 0 0% 90%;
-        --muted-foreground: 0 0% 40%;
-        --accent: 198 100% 49%; /* PS Cyan */
+        --secondary: 0 0% 97%; /* HP Cloud */
+        --secondary-foreground: 0 0% 10%;
+        --muted: 0 0% 97%;
+        --muted-foreground: 0 0% 39%; /* HP Graphite */
+        --accent: 220 96% 43%;
         --accent-foreground: 0 0% 100%;
-        --destructive: 0 84% 60%; /* Warning Red #e53e3e */
+        --destructive: 359 65% 43%; /* HP Bloom Deep */
         --destructive-foreground: 0 0% 100%;
-        --border: 213 100% 85%; /* USVC Border #b2d5ff */
-        --input: 213 100% 85%;
-        --ring: 213 100% 53%; /* USVC Blue */
-        --chart-1: 12 76% 61%;
-        --chart-2: 173 58% 39%;
-        --chart-3: 197 37% 24%;
-        --chart-4: 43 74% 66%;
-        --chart-5: 27 87% 67%;
-        --radius: 8px; /* USVC default radius */
+        --border: 0 0% 91%; /* HP Fog */
+        --input: 0 0% 91%;
+        --ring: 220 96% 43%; /* HP Electric Blue */
+        --chart-1: 220 96% 43%;
+        --chart-2: 196 35% 33%;
+        --chart-3: 0 0% 10%;
+        --chart-4: 195 33% 68%;
+        --chart-5: 0 100% 66%;
+        --radius: 4px; /* HP default — tight 4px on inputs/buttons */
 
         /* Hero specific text colors */
         --hero-title-color-1: 0 0% 100%;
-        --hero-title-color-2: 213 100% 53%; /* USVC Blue */
+        --hero-title-color-2: 220 96% 43%; /* HP Electric Blue */
 
-        /* Section blue background */
-        --section-blue-background: 212 100% 9%; /* USVC Navy */
-
+        /* Section dark background (HP Ink slab) */
+        --section-blue-background: 0 0% 10%; /* HP Ink */
     }
 
     .dark {
-        --background: 212 100% 9%; /* USVC Navy */
+        --background: 0 0% 10%; /* HP Ink */
         --foreground: 0 0% 100%;
-        --card: 212 100% 12%;
+        --card: 0 0% 12%;
         --card-foreground: 0 0% 100%;
-        --popover: 212 100% 12%;
+        --popover: 0 0% 12%;
         --popover-foreground: 0 0% 100%;
-        --primary: 213 100% 53%;
+        --primary: 220 96% 43%;
         --primary-foreground: 0 0% 100%;
-        --secondary: 219 74% 31%;
+        --secondary: 0 0% 16%;
         --secondary-foreground: 0 0% 100%;
-        --muted: 212 100% 15%;
+        --muted: 0 0% 15%;
         --muted-foreground: 0 0% 70%;
-        --accent: 198 100% 49%;
+        --accent: 220 96% 43%;
         --accent-foreground: 0 0% 100%;
-        --destructive: 0 84% 60%;
+        --destructive: 359 65% 43%;
         --destructive-foreground: 0 0% 100%;
-        --border: 219 74% 31%;
-        --input: 219 74% 31%;
-        --ring: 213 100% 53%;
-        --chart-1: 220 70% 50%;
-        --chart-2: 160 60% 45%;
-        --chart-3: 30 80% 55%;
-        --chart-4: 280 65% 60%;
-        --chart-5: 340 75% 55%;
+        --border: 0 0% 16%;
+        --input: 0 0% 16%;
+        --ring: 220 96% 43%;
+        --chart-1: 220 96% 43%;
+        --chart-2: 196 35% 50%;
+        --chart-3: 0 0% 80%;
+        --chart-4: 195 33% 68%;
+        --chart-5: 0 100% 66%;
 
         --hero-title-color-1: 0 0% 100%;
-        --hero-title-color-2: 213 100% 53%;
-
+        --hero-title-color-2: 220 96% 43%;
     }
 
     * {
         @apply border-border;
     }
     body {
-        @apply bg-background text-foreground font-sans;
+        @apply bg-background text-foreground font-body;
     }
 }
 
@@ -146,48 +168,23 @@
     .hero-text-shadow {
         text-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.5);
     }
-    .text-hero-title-1 {
-        color: hsl(var(--hero-title-color-1));
+
+    /* HP chevron decoration */
+    .hp-chevron::before {
+        content: "›";
+        color: hsl(var(--primary));
+        font-weight: 700;
+        margin-right: 0.5rem;
     }
-    .text-hero-title-2 {
-        color: hsl(var(--hero-title-color-2));
-    }
-    /* USVC-style side label rotated text */
-    .side-label-text {
-        writing-mode: vertical-rl;
-        transform: rotate(180deg);
-        white-space: nowrap;
-    }
-    /* Underline animation for nav links (USVC-style) */
-    .underline-animate {
-        position: relative;
-        text-decoration: none;
-    }
-    .underline-animate::after {
-        content: "";
-        position: absolute;
-        bottom: -1px;
-        left: 0;
-        width: 100%;
-        height: 1px;
-        background-color: currentColor;
-        transform: scaleX(0);
-        transform-origin: 0 50%;
-        transition: transform 0.6s cubic-bezier(0.85, 0, 0.15, 1);
-    }
-    .underline-animate:hover::after {
-        transform: scaleX(1);
-        transform-origin: 0 50%;
-    }
-    .underline-animate:not(:hover)::after {
-        transform-origin: 100% 50%;
-    }
-    /* USVC section divider square markers */
-    .divider-square {
-        width: 3px;
-        height: 3px;
-        position: absolute;
-        top: -1px;
+
+    /* HP button signature: 14px, 600 weight, uppercase, +0.7px tracking */
+    .hp-button {
+        font-family: var(--font-body);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.4;
+        letter-spacing: 0.7px;
+        text-transform: uppercase;
     }
 }
 
@@ -211,12 +208,9 @@
 
 @keyframes shine {
     0% {
-        background-position: 0% 0%;
+        background-position: 200% 0;
     }
-    50% {
-        background-position: 100% 100%;
-    }
-    to {
-        background-position: 0% 0%;
+    100% {
+        background-position: -200% 0;
     }
 }

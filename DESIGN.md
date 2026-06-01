@@ -1,99 +1,140 @@
 ---
 name: The Armchair Futurist
-description: Apple-inspired design discipline for a certified futurist. Photography-first, typography-driven, single-blue-accent — built on SF Pro/Inter typography system with negative tracking at display sizes. Warm off-white parchment canvas, navy night-sky sections, one accent color.
+description: HP-inspired white-paper enterprise-consumer system. Geometric Forma DJR Micro sans throughout, HP Electric Blue as the lone signal CTA, near-black ink for headlines, 8-16px rounded corners, soft 16px photo frames, dark navy customer-story and closing bands. Angular blue-chevron decorations nod to the HP wordmark's slashes.
 colors:
-  primary: "#0d84ff"
-  primary-focus: "#1eaedb"
-  primary-on-dark: "#53b1ff"
-  canvas: "#fafdff"
-  canvas-parchment: "#f5f5f7"
-  surface-card: "#ffffff"
-  surface-pearl: "#fafafc"
-  surface-navy: "#00172e"
-  surface-black: "#000000"
-  ink: "#00172e"
-  ink-muted-80: "#1f1f1f"
-  ink-muted-48: "#6b6b6b"
-  ink-muted-30: "#9ca3af"
-  ink-on-dark: "#ffffff"
-  ink-muted-on-dark: "#cccccc"
-  divider-soft: "rgba(0, 0, 0, 0.06)"
-  hairline: "#b2d5ff"
-  hairline-dark: "#143d8d"
-  error: "#e53e3e"
-  success: "#38a169"
+  primary: "#024ad8"
+  primary-bright: "#296ef9"
+  primary-deep: "#0e3191"
+  primary-soft: "#c9e0fc"
+  on-primary: "#ffffff"
+  ink: "#1a1a1a"
+  ink-deep: "#000000"
+  ink-soft: "#292929"
+  on-ink: "#ffffff"
+  canvas: "#ffffff"
+  paper: "#ffffff"
+  cloud: "#f7f7f7"
+  fog: "#e8e8e8"
+  steel: "#c2c2c2"
+  graphite: "#636363"
+  charcoal: "#3d3d3d"
+  hairline: "#e8e8e8"
+  hairline-strong: "#c2c2c2"
+  link: "#024ad8"
+  link-pressed: "#0e3191"
+  bloom-coral: "#ff5050"
+  bloom-rose: "#f9d4d2"
+  bloom-deep: "#b3262b"
+  bloom-wine: "#5a1313"
+  storm-mist: "#8ebdce"
+  storm-sea: "#7fadbe"
+  storm-deep: "#356373"
+  error: "#b3262b"
 typography:
-  hero-display:
-    fontFamily: '"system-ui", "-apple-system", sans-serif'
-    fontSize: clamp(2.8rem, 5vw, 4.5rem)
-    fontWeight: 600
-    lineHeight: 1.07
-    letterSpacing: -0.02em
+  display-xxl:
+    fontFamily: Forma DJR Micro
+    fontSize: 72px
+    fontWeight: 500
+    lineHeight: 1.0
+    letterSpacing: 0
+  display-xl:
+    fontFamily: Forma DJR Micro
+    fontSize: 56px
+    fontWeight: 500
+    lineHeight: 1.0
+    letterSpacing: 0
   display-lg:
-    fontFamily: '"system-ui", "-apple-system", sans-serif'
-    fontSize: clamp(2.2rem, 4vw, 3.6rem)
-    fontWeight: 600
-    lineHeight: 1.1
-    letterSpacing: -0.015em
+    fontFamily: Forma DJR Micro
+    fontSize: 44px
+    fontWeight: 500
+    lineHeight: 1.0
+    letterSpacing: 0
   display-md:
-    fontFamily: '"system-ui", "-apple-system", sans-serif'
-    fontSize: clamp(1.5rem, 2.5vw, 2.2rem)
-    fontWeight: 600
-    lineHeight: 1.2
-  lead:
-    fontFamily: '"Outfit", "system-ui", sans-serif'
-    fontSize: clamp(1.1rem, 1.5vw, 1.3rem)
-    fontWeight: 400
-    lineHeight: 1.5
-  body:
-    fontFamily: '"Outfit", "system-ui", sans-serif'
-    fontSize: clamp(1rem, 1.25vw, 1.1rem)
-    fontWeight: 400
-    lineHeight: 1.6
-  body-strong:
-    fontFamily: '"Outfit", "system-ui", sans-serif'
-    fontSize: clamp(1rem, 1.25vw, 1.1rem)
-    fontWeight: 600
-    lineHeight: 1.6
-  caption:
-    fontFamily: '"Outfit", "system-ui", sans-serif'
-    fontSize: 0.875rem
-    fontWeight: 400
-    lineHeight: 1.5
-  caption-strong:
-    fontFamily: '"Outfit", "system-ui", sans-serif'
-    fontSize: 0.875rem
-    fontWeight: 600
-    lineHeight: 1.4
-  label-caps:
-    fontFamily: '"Outfit", "system-ui", sans-serif'
-    fontSize: 0.75rem
+    fontFamily: Forma DJR Micro
+    fontSize: 32px
     fontWeight: 500
+    lineHeight: 1.0
+    letterSpacing: 0
+  display-sm:
+    fontFamily: Forma DJR Micro
+    fontSize: 24px
+    fontWeight: 500
+    lineHeight: 1.17
+    letterSpacing: 0
+  display-xs:
+    fontFamily: Forma DJR Micro
+    fontSize: 20px
+    fontWeight: 500
+    lineHeight: 1.0
+    letterSpacing: 0
+  body-lg:
+    fontFamily: Forma DJR Micro
+    fontSize: 18px
+    fontWeight: 400
+    lineHeight: 1.33
+    letterSpacing: 0
+  body-md:
+    fontFamily: Forma DJR Micro
+    fontSize: 16px
+    fontWeight: 400
+    lineHeight: 1.38
+    letterSpacing: 0
+  body-emphasis:
+    fontFamily: Forma DJR Micro
+    fontSize: 16px
+    fontWeight: 500
+    lineHeight: 1.38
+    letterSpacing: 0
+  caption-md:
+    fontFamily: Forma DJR Micro
+    fontSize: 14px
+    fontWeight: 400
+    lineHeight: 1.5
+    letterSpacing: 0
+  caption-sm:
+    fontFamily: Forma DJR Micro
+    fontSize: 12px
+    fontWeight: 400
+    lineHeight: 1.33
+    letterSpacing: 0
+  caption-bold:
+    fontFamily: Forma DJR Micro
+    fontSize: 14px
+    fontWeight: 700
+    lineHeight: 1.3
+    letterSpacing: 0
+  link-md:
+    fontFamily: Forma DJR Micro
+    fontSize: 16px
+    fontWeight: 500
+    lineHeight: 1.38
+    letterSpacing: 0
+  button-md:
+    fontFamily: Forma DJR Micro
+    fontSize: 14px
+    fontWeight: 600
     lineHeight: 1.4
-    letterSpacing: 0.06em
+    letterSpacing: 0.7px
     textTransform: uppercase
-  button:
-    fontFamily: '"Outfit", "system-ui", sans-serif'
-    fontSize: 0.95rem
+  button-sm:
+    fontFamily: Forma DJR Micro
+    fontSize: 12.6px
+    fontWeight: 700
+    lineHeight: 1.0
+    letterSpacing: 0.126px
+  price-md:
+    fontFamily: Forma DJR Micro
+    fontSize: 24px
     fontWeight: 500
-    lineHeight: 1.25
-    letterSpacing: 0.01em
-  nav-link:
-    fontFamily: '"Outfit", "system-ui", sans-serif'
-    fontSize: 0.9rem
-    fontWeight: 400
-    lineHeight: 1
-  fine-print:
-    fontFamily: '"Outfit", "system-ui", sans-serif'
-    fontSize: 0.75rem
-    fontWeight: 400
-    lineHeight: 1.4
+    lineHeight: 1.17
+    letterSpacing: 0
 rounded:
   none: 0px
-  xs: 4px
-  sm: 8px
-  md: 12px
-  lg: 18px
+  xs: 2px
+  sm: 3px
+  md: 4px
+  lg: 8px
+  xl: 16px
   pill: 9999px
   full: 9999px
 spacing:
@@ -101,271 +142,389 @@ spacing:
   xs: 8px
   sm: 12px
   md: 16px
-  lg: 24px
-  xl: 32px
-  xxl: 48px
+  lg: 20px
+  xl: 24px
+  xxl: 32px
   section: 80px
-  container: 1280px
-  container-xl: 1600px
 components:
   button-primary:
     backgroundColor: "{colors.primary}"
-    textColor: "{colors.ink-on-dark}"
-    typography: "{typography.button}"
-    rounded: "{rounded.pill}"
-    padding: 11px 22px
-  button-primary-active:
-    transform: scale(0.95)
-  button-primary-focus:
-    outline: 2px solid "{colors.primary-focus}"
-  button-secondary-pill:
-    backgroundColor: transparent
-    textColor: "{colors.primary}"
-    typography: "{typography.button}"
-    rounded: "{rounded.pill}"
-    border: 1px solid "{colors.primary}"
-    padding: 11px 22px
-  button-navy:
+    textColor: "{colors.on-primary}"
+    typography: "{typography.button-md}"
+    rounded: "{rounded.md}"
+    padding: 12px 24px
+    height: 44px
+  button-primary-pressed:
+    backgroundColor: "{colors.primary-deep}"
+    textColor: "{colors.on-primary}"
+  button-primary-disabled:
+    backgroundColor: "{colors.steel}"
+    textColor: "{colors.on-primary}"
+  button-ink:
     backgroundColor: "{colors.ink}"
-    textColor: "{colors.ink-on-dark}"
-    typography: "{typography.button}"
-    rounded: "{rounded.sm}"
-    padding: 14px 28px
-  button-navy-hover:
-    backgroundColor: "{colors.primary}"
-  button-ghost:
-    backgroundColor: transparent
-    textColor: "{colors.ink}"
-    typography: "{typography.button}"
-    rounded: "{rounded.sm}"
-    border: 1px solid "{colors.hairline}"
-    padding: 10px 20px
-  tile-light:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.none}"
-    padding: "{spacing.section}"
-  tile-parchment:
-    backgroundColor: "{colors.canvas-parchment}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.none}"
-    padding: "{spacing.section}"
-  tile-dark:
-    backgroundColor: "{colors.surface-navy}"
-    textColor: "{colors.ink-on-dark}"
-    rounded: "{rounded.none}"
-    padding: "{spacing.section}"
-  tile-black:
-    backgroundColor: "{colors.surface-black}"
-    textColor: "{colors.ink-on-dark}"
-    rounded: "{rounded.none}"
-    padding: "{spacing.section}"
-  card-default:
-    backgroundColor: "{colors.surface-card}"
-    textColor: "{colors.ink}"
+    textColor: "{colors.on-primary}"
+    typography: "{typography.button-md}"
     rounded: "{rounded.md}"
-    border: 1px solid "{colors.hairline}"
-  card-dark:
-    backgroundColor: "{colors.surface-navy}"
-    textColor: "{colors.ink-on-dark}"
-    rounded: "{rounded.md}"
-    border: 1px solid "{colors.hairline-dark}"
-  global-nav:
-    backgroundColor: "{colors.surface-black}"
-    textColor: "{colors.ink-on-dark}"
-    typography: "{typography.nav-link}"
-    height: 52px
-  nav-link-hover:
-    textColor: "{colors.primary}"
-  side-label:
+    padding: 12px 24px
+    height: 44px
+  button-outline:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.primary}"
-    typography: "{typography.label-caps}"
-    border: 1px solid "{colors.hairline}"
-    padding: 24px 5px
-  section-divider:
+    typography: "{typography.button-md}"
+    rounded: "{rounded.md}"
+    padding: 12px 24px
+    height: 44px
+  button-outline-ink:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    typography: "{typography.button-md}"
+    rounded: "{rounded.md}"
+    padding: 12px 24px
+    height: 44px
+  button-text-link:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.primary}"
+    typography: "{typography.link-md}"
+    padding: 4px 0
+  badge-pill-ink:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.on-primary}"
+    typography: "{typography.body-md}"
+    rounded: "{rounded.lg}"
+    padding: 6px 12px
+  badge-pill-outline:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    typography: "{typography.body-md}"
+    rounded: "{rounded.lg}"
+    padding: 6px 12px
+  badge-sale-coral:
+    backgroundColor: "{colors.bloom-coral}"
+    textColor: "{colors.on-primary}"
+    typography: "{typography.caption-bold}"
+    rounded: "{rounded.sm}"
+    padding: 4px 8px
+  text-input:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    typography: "{typography.body-md}"
+    rounded: "{rounded.md}"
+    padding: 12px 16px
+    height: 44px
+  text-input-focused:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+  text-input-search:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    typography: "{typography.body-md}"
+    rounded: "{rounded.md}"
+    padding: 12px 16px
+    height: 40px
+  card-product:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.xl}"
+    padding: 24px
+  card-product-feature:
+    backgroundColor: "{colors.cloud}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.xl}"
+    padding: 32px
+  card-pricing-tier:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.xl}"
+    padding: 24px
+  card-pricing-tier-featured:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.xl}"
+    padding: 24px
+  card-customer-story:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.xl}"
+    padding: 16px
+  card-article-tile:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.xl}"
+    padding: 16px
+  card-category-icon:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    typography: "{typography.body-emphasis}"
+    rounded: "{rounded.lg}"
+    padding: 16px
+  promo-strip-dark:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.on-primary}"
+    typography: "{typography.body-md}"
+    rounded: "{rounded.xl}"
+    padding: 48px
+  hero-promo-card:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.xl}"
+    padding: 32px
+  utility-strip:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.on-primary}"
+    typography: "{typography.caption-md}"
+    height: 36px
+    padding: 0 24px
+  nav-bar-top:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    typography: "{typography.body-md}"
+    height: 64px
+    padding: 0 32px
+  nav-link:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    typography: "{typography.body-md}"
+    padding: 8px 16px
+  category-tab:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    typography: "{typography.body-emphasis}"
+    rounded: "{rounded.pill}"
+    padding: 8px 20px
+  category-tab-active:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.on-primary}"
+    typography: "{typography.body-emphasis}"
+    rounded: "{rounded.pill}"
+    padding: 8px 20px
+  promo-banner-coral:
+    backgroundColor: "{colors.bloom-coral}"
+    textColor: "{colors.on-primary}"
+    typography: "{typography.caption-bold}"
+    rounded: "{rounded.sm}"
+    padding: 8px 16px
+  chevron-decoration:
+    color: "{colors.primary}"
+    size: 12px
+    rotation: 0deg
+  hairline-divider:
     backgroundColor: "{colors.hairline}"
     height: 1px
-    marker-size: 3px
-  section-divider-dark:
-    backgroundColor: "{colors.hairline-dark}"
-    height: 1px
-    marker-size: 3px
-  text-link:
-    color: "{colors.primary}"
-    typography: "{typography.body}"
-  text-link-on-dark:
-    color: "{colors.primary-on-dark}"
-    typography: "{typography.body}"
-  stat-display:
-    textColor: "{colors.primary}"
-    typography: "{typography.display-md}"
-    fontWeight: 600
 ---
-# Design System — The Armchair Futurist
+# Design System — The Armchair Futurist (HP Edition)
 
 ## Overview
 
-The Armchair Futurist's web presence blends **Apple's design discipline** (photography-first, single accent, generous whitespace, alternating surface rhythm, SF Pro typography) with a **futurist consultant brand** (signal blue accent, warm off-white parchment canvas, deep navy night-sky sections, navy utility rects).
+The Armchair Futurist's web presence adopts HP's **white-paper enterprise-consumer design language**: a system anchored by **HP Electric Blue (`#024ad8`)** as the lone signal CTA, **near-black ink (`#1a1a1a`)** for headlines, **Forma DJR Micro** geometric sans throughout, and angular blue-chevron decorations that nod to the HP wordmark's slashes. Cards round at 8–16px, photos sit in soft 16px frames, and dark navy slabs anchor the customer-story and "how can we help" closing bands.
 
-The visual metaphor is **the observatory at the edge** — a warm, well-lit study perched at the frontier of what's next. The canvas (`#fafdff`) feels like fine paper under a desk lamp. The navy sections (`#00172e`) feel like the night sky viewed through glass. The single blue accent (`#0d84ff`) is the signal — intentional, directional, unmistakable.
-
-Every page is a stack of alternating edge-to-edge tiles — light parchment canvas, dark navy, pure black hero — each centered on a headline, a one-line tagline, one or two simple CTAs, and content that breathes. Nothing competes with the message. Typography is confident but quiet. Interactive elements are a single, intentional blue.
-
-Density is deliberately low. Each tile occupies roughly one viewport section. There is no decorative chrome — no gradients, no decorative frames, no shadows on text. The result is a page that feels like a museum gallery for ideas: the chrome disappears and the thinking takes over.
+The aesthetic is **enterprise-credible, consumer-friendly**: a white-paper technical document feel, with one strong signal color, geometric typography, and soft 16px radii. Every interactive element is one of three buttons: solid HP blue (primary), outlined HP blue (secondary), or solid ink (utility). There's no warm accent, no decorative gradient, no chrome that doesn't carry meaning.
 
 **Key Characteristics:**
-- Photography-first presentation; typography carries the voice; UI recedes.
-- Alternating edge-to-edge tile sections: parchment ↔ navy ↔ black, with the color change itself acting as the section divider.
-- Single blue accent (`#0d84ff`) carries every interactive element. No second accent color exists.
-- Two button grammars: pill CTAs for primary actions, compact rectangles for secondary/navy.
-- Typography: SF Pro / system-ui for display headlines, Outfit for body text — full Apple typography stack.
-- Negative letter-spacing at display sizes for signature "Apple tight" headline feel.
-- Generous whitespace — each section gets breathing room (80px vertical padding).
-- Tight black global nav (52px) with blue hover signal.
-- Motion adds depth without decoration: word-by-word stagger on hero, subtle mouse parallax, letter-spacing reveals on section titles.
+- **Forma DJR Micro** geometric sans throughout, weights 400/500/600/700.
+- **HP Electric Blue** (`#024ad8`) as the sole signal color — every CTA, every link, every focus ring.
+- **Ink** (`#1a1a1a`) for all headlines and primary text on light surfaces.
+- **White-paper canvas** — pure white surfaces with subtle cloud (`#f7f7f7`) for cards and fog (`#e8e8e8`) for dividers.
+- **Soft 16px radii** on cards and photos; tight 4px radii on buttons and inputs.
+- **Dark navy customer-story band** — a contrasting `#1a1a1a` slab for testimonials and closing CTA.
+- **Blue chevron decorations** — angular slashes that nod to the HP wordmark, used sparingly as section dividers.
+- **Uppercase tracked buttons** — every button is 14px Forma DJR Micro weight 600, uppercase, +0.7px tracking. No exceptions.
+- **No gradients, no shadows on text, no decorative frames.** Form carries weight; chrome disappears.
 
 ## Colors
 
-> The palette is cool and intentional. One blue, one near-ink, two off-whites, two dark surfaces. No warm accent colors exist.
+> The palette is anchored on Electric Blue, Ink, and White-paper canvas. One strong blue, one near-black, four neutrals, and a small accent library reserved for specific cases (coral for promo urgency, storm blues for cool photo frames). No warm accent colors live in the primary system.
 
 ### Brand & Accent
-- **Signal Blue** (`#0d84ff`): The single brand-level interactive color. All text links, all blue pill CTAs, and the focus ring. Slightly more vibrant than Apple's Action Blue — clearer in editorial contexts.
-- **Focus Cyan** (`#1eaedb`): A brighter sibling of Signal Blue, reserved for hover states, focus rings, and active micro-interactions. Never appears at rest.
-- **Sky Link Blue** (`#53b1ff`): Brighter blue used on dark navy tiles for inline links, where Signal Blue would lose contrast.
+- **HP Electric Blue** (`#024ad8`): The single brand-level signal color. All primary CTAs, all text links, every focus ring. The default "go" color.
+- **HP Bright Blue** (`#296ef9`): Lighter sibling, used for hover state on primary blue buttons. Provides a one-step lift on interactive feedback.
+- **HP Deep Blue** (`#0e3191`): Pressed/active state of Electric Blue, plus strong borders on dark navy slabs. Never used at rest.
+- **HP Soft Blue** (`#c9e0fc`): Tinted backgrounds for blue alert strips, low-emphasis blue surfaces, photo frame fills behind blue imagery.
+
+### Ink (Text)
+- **Ink** (`#1a1a1a`): The display headline color. All primary headlines, all body text on light surfaces.
+- **Ink Deep** (`#000000`): Reserved for absolute contrast (the global nav, hero video overlay).
+- **Ink Soft** (`#292929`): Secondary body text, table cells, dense data displays.
+- **On Ink** (`#ffffff`): All text on dark navy and black slabs.
 
 ### Surface
-- **Warm Parchment** (`#fafdff`): The dominant canvas. All light tiles, content sections, and the page background. Slightly warmer than Apple's parchment.
-- **Cool Parchment** (`#f5f5f7`): Alternating light tile variant. Creates rhythm between consecutive light sections.
-- **Pearl Button** (`#fafafc`): Near-white fill for ghost/secondary buttons.
-- **Deep Navy** (`#00172e`): The primary dark surface. Used for callout sections, dark tiles, and the footer.
-- **Pure Black** (`#000000`): Reserved for the hero section and the global nav bar.
+- **White-paper Canvas** (`#ffffff`): The dominant canvas. All light tiles, content sections, and the page background.
+- **Cloud** (`#f7f7f7`): The single secondary surface. Used for feature cards, photo frames, soft section dividers.
+- **Fog** (`#e8e8e8`): Hairline dividers, low-contrast borders on light surfaces.
 
-### Text
-- **Display Ink** (`#00172e`): Headlines and primary text on light surfaces.
-- **Ink Muted 80** (`#1f1f1f`): Body text on light surfaces.
-- **Ink Muted 48** (`#6b6b6b`): Secondary body text, metadata, fine-print.
-- **Ink Muted 30** (`#9ca3af`): Tertiary labels, disabled states, placeholder text.
-- **On Dark** (`#ffffff`): All text on dark navy and black tiles.
-- **On Dark Muted** (`#cccccc`): Secondary copy on dark surfaces.
+### Neutral Grays
+- **Steel** (`#c2c2c2`): Disabled state, placeholder text on light surfaces.
+- **Graphite** (`#636363`): Secondary metadata, captions, fine print.
+- **Charcoal** (`#3d3d3d`): Strong secondary text — denser captions, dense table content.
+- **Hairline Strong** (`#c2c2c2`): Strong 1px borders, structural dividers on white.
 
-### Hairlines & Borders
-- **Divider Soft** (`rgba(0, 0, 0, 0.06)`): Subtle ring shadow for button borders.
-- **Hairline Blue** (`#b2d5ff`): The 1px border on cards, dividers, and structural lines.
-- **Hairline Dark** (`#143d8d`): Border color on dark navy surfaces.
+### Accent Library (Reserved)
+- **Bloom Coral** (`#ff5050`): Sale/promo urgency, time-sensitive commerce alerts only.
+- **Bloom Rose** (`#f9d4d2`): Soft coral background, low-emphasis urgency states.
+- **Bloom Deep** (`#b3262b`): Error state, destructive actions.
+- **Bloom Wine** (`#5a1313`): Error text on light, dense error states.
+- **Storm Mist** (`#8ebdce`): Cool photo frame fills behind neutral imagery.
+- **Storm Sea** (`#7fadbe`): Cool secondary photo frame.
+- **Storm Deep** (`#356373`): Cool deepest photo frame, cool-toned section dividers.
+
+### Functional
+- **Error** (`#b3262b`): Form errors, validation states (alias of Bloom Deep).
+- **Link** (`#024ad8`): All text link colors (alias of Electric Blue).
+- **Link Pressed** (`#0e3191`): All text link pressed states (alias of Deep Blue).
 
 ### Brand Gradient
-**No decorative gradients.** Atmospheric depth comes from content imagery, not CSS overlays.
+**No decorative gradients.** Atmospheric depth comes from photo content, not CSS overlays.
 
 ## Typography
 
-The typography system follows **Apple's SF Pro** model: system-ui for display headlines (SF Pro Display on Apple devices), Inter for body and UI (the recommended open-source substitute for SF Pro Text).
+The typography system uses **HP's Forma DJR Micro** as the sole typeface — a geometric sans designed for HP by DJR (David Jonathan Ross). It's open enough to read at body sizes, confident at display sizes, and carries HP's engineering precision. For web delivery we substitute **Manrope** (Google Fonts), which approximates Forma's geometric character with the same single-story 'a' and tight apertures.
+
+> **Licensing note:** Forma DJR Micro is a proprietary HP corporate font. The web stack uses Manrope as a free, open-source substitute with similar geometric characteristics. Update the font-family stack to "Forma DJR Micro, Manrope, Inter, sans-serif" when licensing is secured.
 
 ### Font Family
-- **Display**: `system-ui, -apple-system, sans-serif` — resolves to SF Pro Display on macOS/iOS/Safari. For non-Apple platforms, system-ui resolves to the platform's native sans-serif.
-- **Body / UI**: `Inter, system-ui, sans-serif` — Inter is the closest open-source equivalent to SF Pro Text. Loaded via Google Fonts with weights 300–700.
-- **Mono**: `"JetBrains Mono", "Courier New", Courier, monospace`.
+- **Primary**: `"Forma DJR Micro", "Manrope", "Inter", system-ui, sans-serif` — geometric, modern, neutral.
+- **Mono**: `"JetBrains Mono", "Courier New", Courier, monospace` — for code blocks, technical labels.
 
 ### Hierarchy
 
 | Token | Size | Weight | Line Height | Letter Spacing | Use |
 |---|---|---|---|---|---|
-| `hero-display` | clamp(2.8rem, 5vw, 4.5rem) | 600 | 1.07 | -0.02em | Hero headline (Apple-tight tracking) |
-| `display-lg` | clamp(2.2rem, 4vw, 3.6rem) | 600 | 1.1 | -0.015em | Section titles |
-| `display-md` | clamp(1.5rem, 2.5vw, 2.2rem) | 600 | 1.2 | — | Module titles |
-| `lead` | clamp(1.1rem, 1.5vw, 1.3rem) | 400 | 1.5 | — | Sub-headline / deck text |
-| `body` | clamp(1rem, 1.25vw, 1.1rem) | 400 | 1.6 | — | Default paragraph |
-| `body-strong` | clamp(1rem, 1.25vw, 1.1rem) | 600 | 1.6 | — | Inline emphasis |
-| `caption` | 0.875rem | 400 | 1.5 | — | Secondary text |
-| `caption-strong` | 0.875rem | 600 | 1.4 | — | Emphasized captions |
-| `label-caps` | 0.75rem | 500 | 1.4 | 0.06em | Uppercase labels, section markers |
-| `button` | 0.95rem | 500 | 1.25 | 0.01em | Button / CTA labels |
-| `nav-link` | 0.9rem | 400 | 1 | — | Navigation |
-| `fine-print` | 0.75rem | 400 | 1.4 | — | Legal, footnotes |
+| `display-xxl` | 72px | 500 | 1.0 | 0 | Hero headline (extra-large) |
+| `display-xl` | 56px | 500 | 1.0 | 0 | Hero headline |
+| `display-lg` | 44px | 500 | 1.0 | 0 | Section titles |
+| `display-md` | 32px | 500 | 1.0 | 0 | Module titles |
+| `display-sm` | 24px | 500 | 1.17 | 0 | Card titles |
+| `display-xs` | 20px | 500 | 1.0 | 0 | Subsection titles |
+| `body-lg` | 18px | 400 | 1.33 | 0 | Large body, hero subheadline |
+| `body-md` | 16px | 400 | 1.38 | 0 | Default paragraph |
+| `body-emphasis` | 16px | 500 | 1.38 | 0 | Inline emphasis, link text |
+| `caption-md` | 14px | 400 | 1.5 | 0 | Secondary text, metadata |
+| `caption-sm` | 12px | 400 | 1.33 | 0 | Fine print, micro-labels |
+| `caption-bold` | 14px | 700 | 1.3 | 0 | Bold captions, badge text |
+| `link-md` | 16px | 500 | 1.38 | 0 | Inline text link |
+| `button-md` | 14px | 600 | 1.4 | 0.7px (uppercase) | All button labels |
+| `button-sm` | 12.6px | 700 | 1.0 | 0.126px | Compact button labels |
+| `price-md` | 24px | 500 | 1.17 | 0 | Pricing tier prices |
 
-### Apple Typography Principles
+### HP Typography Principles
 
-- **Negative letter-spacing at display sizes.** Every headline at 1rem and up carries slight tight tracking (`-0.02em` to `-0.015em`). This produces the iconic "Apple tight" headline cadence. Never used below 1rem.
-- **Weight 600 for headlines, 400 for body.** Headlines sit at weight 600. Body is 400. Captions/labels use 500. Weight 500 is deliberately absent from the display ladder (following Apple's convention: the ladder is 300/400/600/700).
-- **Weight 300 is rare.** Used only for fine-print moments where content should feel airy.
-- **Line-height is context-specific.** Display sizes use 1.07–1.2 (tight). Body uses 1.6 (generous, editorial).
-- **Inter substitute adjustments.** When using Inter (non-Apple platforms), display tracking is nudged slightly tighter by -0.01em vs. native SF Pro to account for Inter's wider default tracking.
-- **Uppercase is reserved for labels.** Only captions and section labels get `text-transform: uppercase`. Never for body text.
+- **Geometric neutrality.** Forma DJR Micro (and Manrope substitute) is geometric, modern, and unornamented. No decorative flourishes, no contrasts that distract.
+- **Weight 500 for display.** Headlines sit at 500. Body is 400. Buttons are 600. The 500 weight gives display text a confident-but-not-bold presence.
+- **Line-height 1.0 at display sizes.** Tight, dense, engineered. Display lines pack together with no extra air.
+- **Tight letter-spacing.** The system uses 0 letter-spacing everywhere; uppercase buttons add +0.7px to give each letter breathing room.
+- **Buttons are uppercase + tracked.** Every button is 14px Forma DJR Micro weight 600, uppercase, +0.7px letter-spacing. This is a non-negotiable brand signature.
+- **Inter substitute adjustments.** Manrope tracks slightly tighter than Forma's default; the 0 letter-spacing is correct for both.
+- **Uppercase is reserved for buttons + section labels.** Only buttons and section markers get `text-transform: uppercase`. Never for body text.
 
 ## Layout & Spacing
 
-- **Base unit:** 8px. Section vertical padding: 80px. Cards: 24px.
+- **Base unit:** 8px. Section vertical padding: 80px. Cards: 24px (compact) or 32px (feature).
 - **Container max-width:** 1280px (standard), 1600px (large screens).
-- **12-column responsive grid.** Hero full-width. Internal sections: 2/3-column layouts.
-- **Whitespace as premium signal.** Every tile begins with 80px of air. Content is never crowded.
+- **12-column responsive grid.** Hero full-width. Internal sections: 2/3/4-column layouts.
+- **Photo frames at 16px.** All photography sits in 16px-rounded frames with optional 1px hairline border.
+- **Whitespace as engineering precision.** Each section is 80px of air on desktop. Content is never crowded. The page feels like a technical document.
 
-### Responsive Behavior
-- **Mobile (<768px):** Single column, hamburger nav, 48px section padding.
-- **Tablet (768–1023px):** 2-column layouts, condensed nav.
-- **Desktop (1024–1439px):** Full layout, 12-column grid.
-- **Large (≥1440px):** Content caps at 1280px/1600px.
-
-## Elevation & Depth
-
-| Level | Treatment | Use |
-|---|---|---|
-| Flat | No shadow, no border | Full-bleed tiles, global nav, footer |
-| Soft hairline | 1px hairline border | Cards, dividers |
-| Card lift | `rgba(0,0,0,0.04) 0 2px 8px` | Subtle card elevation |
-| Emphasized | `rgba(0,0,0,0.08) 0 4px 12px` | Interactive card hover |
-| Hero overlay | `rgba(0,0,0,0.6)` | Hero overlay |
-
-**Shadow philosophy.** Like Apple, elevation comes from surface-color change, not drop shadows. Cards at rest have no shadow — only the hairline border.
-
-## Shapes
+## Rounded Corners
 
 | Token | Value | Use |
 |---|---|---|
-| `none` | 0px | Full-bleed tiles |
-| `xs` | 4px | Compact UI elements |
-| `sm` | 8px | Navy buttons, standard cards |
-| `md` | 12px | Feature cards |
-| `lg` | 18px | Hero cards |
-| `pill` | 9999px | Primary blue CTAs (Apple signature) |
+| `none` | 0px | Default — most surfaces are square |
+| `xs` | 2px | Micro UI, tiny chips |
+| `sm` | 3px | Sale badges, status chips |
+| `md` | 4px | **All buttons and inputs** |
+| `lg` | 8px | Pill badges, category icons |
+| `xl` | 16px | **All cards, photo frames, hero promos** |
+| `pill` | 9999px | Category tab pills |
+| `full` | 9999px | Circle avatars |
 
-Two grammars: **pills for primary actions**, **rectangles for everything else**.
+**The radius system has two anchors:** buttons and inputs are tight (4px) — controlled, engineering-precision. Cards and photos are soft (16px) — welcoming, photo-friendly. Never mix.
 
 ## Components
 
-### Global Navigation
-52px black nav bar. Logo left, links center, "Book Call" pill right. Collapses to hamburger on mobile.
+### Buttons (Three Grammars Only)
 
-### Buttons
-- **`button-primary`**: Blue pill (`#0d84ff`), white text, full pill radius, 11×22px padding. Active: scale(0.95).
-- **`button-secondary-pill`**: Transparent, blue text + border, full pill radius. Ghost pill.
-- **`button-navy`**: Navy rect (`#00172e`), white text, 8px radius, 14×28px. Hover: fills blue.
-- **`button-ghost`**: Transparent, navy text, hairline border, 8px radius.
+**1. Button Primary** — Electric Blue, white text
+- Background: `#024ad8`
+- Text: `#ffffff`
+- Typography: 14px Forma DJR Micro, 600, uppercase, +0.7px tracking
+- Radius: 4px
+- Padding: 12px 24px
+- Height: 44px
+- Hover: bright blue (`#296ef9`)
+- Pressed: deep blue (`#0e3191`)
+- Disabled: steel (`#c2c2c2`)
 
-### Tiles
-Full-bleed edge-to-edge section containers (light/parchment/navy/black), 80px vertical padding, no corner rounding. The color change IS the section divider.
+**2. Button Outline** — White background, blue border and text
+- Background: `#ffffff`
+- Text: `#024ad8`
+- Border: 1px `#024ad8`
+- Same dimensions as primary
+
+**3. Button Ink** — Solid ink, white text (for dark slabs)
+- Background: `#1a1a1a`
+- Text: `#ffffff`
+- Same dimensions
+
+**Pill category tab** is the only other button shape — used for category filters and section navigation.
 
 ### Cards
-12px radius, 1px hairline border, 24–32px padding. No shadow at rest.
 
-### Section Dividers
-1px hairline (`#b2d5ff` light / `#143d8d` dark) with 3px square markers.
+**Card Product / Pricing Tier / Article Tile** — 16px radius, 24px padding, white background, 1px hairline border (`#e8e8e8`).
+**Card Product Feature** — 16px radius, 32px padding, cloud (`#f7f7f7`) background.
+**Card Customer Story** — 16px radius, 16px padding, white background with 16px photo frame.
+**Card Category Icon** — 8px radius, 16px padding, white background, used for icon-driven content categories.
 
-## Do's and Don'ts
+### Badges
 
-### Do
-- Use `#0d84ff` for every interactive element — the single accent is non-negotiable.
-- Use system-ui / Inter for all typography — SF Pro system on Apple, Inter substitute on other platforms.
-- Set headlines with negative letter-spacing (`-0.02em` to `-0.015em`) for the signature tight cadence.
-- Alternate light and dark tiles for section rhythm — the color change IS the divider.
-- Reserve pill radius (`rounded-full`) for the primary blue CTA only.
-- Keep the global nav true black — it's the only place pure black appears.
-- Use 80px vertical padding inside every section tile.
+- **Badge Pill Ink**: 8px radius, 6px 12px padding, ink background, white text. Default "section" badge.
+- **Badge Pill Outline**: 8px radius, white background, ink border, ink text.
+- **Badge Sale Coral**: 3px radius, 4px 8px padding, coral background, white bold text. **Reserved for commerce urgency.**
 
-### Don't
-- Don't introduce a second accent color — every "click me" is Signal Blue.
-- Don't use serif fonts — this is an SF Pro / Inter system.
-- Don't add shadows to cards at rest — elevation is for interactive states only.
-- Don't use decorative gradients — atmosphere comes from content.
-- Don't round full-bleed tiles — they are edge-to-edge rectangles.
-- Don't mix radii grammars — pills for CTAs, rectangles for everything else.
-- Don't use all-caps for body text — labels and captions only.
+### Forms
+
+- **Text Input**: White background, ink text, 4px radius, 12px 16px padding, 44px height, 1px fog border. Focus state: 1px Electric Blue border, 2px Electric Blue focus ring.
+- **Text Input Search**: Same as text input but 40px height, no border by default.
+
+### Navigation
+
+- **Nav Bar Top**: 64px height, white background, ink text, 32px horizontal padding.
+- **Nav Link**: 8px 16px padding, ink text, hover to Electric Blue.
+- **Utility Strip**: 36px height, ink background, white text, used for top-bar announcements.
+
+### Customer Story Slab
+
+- **Promo Strip Dark**: 16px radius, 48px padding, ink (`#1a1a1a`) background, white text. Used for testimonials band, "how can we help" closing, and any dark contrast section.
+- **Hero Promo Card**: 16px radius, 32px padding, white background, sits in hero region with optional 16px photo frame.
+
+### Decorative Chevrons
+
+- Angular blue slashes (`#024ad8`) that nod to the HP wordmark. 12px size. Used sparingly as section dividers, before section titles, or as bullet markers in lists. Never as primary decoration.
+
+## Motion & Interaction
+
+- **Hover state:** One-step lift on color (primary → bright blue). Subtle, never bouncy.
+- **Pressed state:** One-step darken (primary → deep blue). Confirms action.
+- **Page transitions:** Fade-in on route change. 200ms ease-out. No slide.
+- **Scroll reveals:** Subtle fade-up on section entry. 400ms ease-out. No parallax.
+- **Reduced motion:** All animations disabled when `prefers-reduced-motion: reduce` is set. Instant transitions only.
+- **Stagger:** Word-by-word stagger on hero headlines. 60ms between words.
+
+## Engineering Notes
+
+- **CSS variables** in `src/app/globals.css` expose the full color system. Tokens are HSL triplets for shadcn/ui compatibility.
+- **Tailwind config** extends the system with `fontFamily.display`, `fontFamily.body`, `fontFamily.mono`, color aliases (e.g. `text-ink`, `bg-canvas`, `border-hairline`), and `borderRadius.hp-md` / `borderRadius.hp-xl`.
+- **Font loading:** Manrope (Google Fonts) is loaded via `<link>` in `app/layout.tsx` for weights 400/500/600/700 with `display=swap`.
+- **Button shape is non-negotiable.** 14px, 600 weight, uppercase, +0.7px tracking, 4px radius. All buttons in the system follow this signature.
+- **Color discipline:** Electric Blue is the ONLY signal color. Bloom Coral is reserved for commerce urgency. Storm blues are reserved for photo frames. No other accents exist.
+
+## Anti-Patterns (Things We Don't Do)
+
+- No gradients. Anywhere.
+- No drop shadows on text.
+- No decorative borders that don't carry semantic meaning.
+- No warm accent colors. The system is cool.
+- No text-transform: uppercase on body copy.
+- No letter-spacing overrides below 0 (no negative tracking).
+- No `rounded-full` on anything except avatars and pill tabs.
+- No mixing button shapes — primary and outline are both 4px radius; pill is 9999px and reserved for category tabs.
+- No card without a 16px radius. Ever.
+- No input without a 4px radius. Ever.
