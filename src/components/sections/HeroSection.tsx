@@ -5,7 +5,7 @@ import { trackEvent } from "@/lib/analytics";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { WordPullUp } from "@/components/ui/word-pull-up";
 import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from "motion/react";
-import { CALENDAR_URL } from "@/lib/constants";
+const WHATSAPP_URL = "https://wa.me/15157706902";
 type Stat = {
   value: string | null;
   numericValue?: number;
@@ -26,7 +26,7 @@ const headline = {
   line2: "Someone Using AI Better Than You Will.",
 };
 const subheadline =
-  "Don\u2019t just learn how to prompt. Learn how to architect. I provide the deep AI literacy you need to design, launch, and sell your own AI-powered services.";
+  "Don\u2019t just prompt\u2014architect. Build the technical literacy required to scale your personal leverage and launch your own AI-powered services.";
 
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -147,7 +147,7 @@ export default function HeroSection() {
             <div className="flex flex-col items-center gap-4">
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap">
                 <a
-                  href={CALENDAR_URL}
+                  href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackEvent("hero_start_building")}
