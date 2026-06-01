@@ -1,11 +1,7 @@
 import HeroSection from '@/components/sections/HeroSection';
-import LeadCaptureInline from '@/components/lead-capture/LeadCaptureInline';
 import MentoringSection from '@/components/sections/MentoringSection';
-import PackageComparisonSection from '@/components/sections/PackageComparisonSection';
 import KeyStatsSection from '@/components/sections/KeyStatsSection';
 import AboutMeSection from '@/components/sections/AboutMeSection';
-import FeaturedInSection from '@/components/sections/FeaturedInSection';
-import WhyWorkWithMeSection from '@/components/sections/WhyWorkWithMeSection';
 import ServicesSection from '@/components/sections/ServicesSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import ConnectSection from '@/components/sections/ConnectSection';
@@ -27,29 +23,20 @@ export default function HomePage() {
       <CaseStudiesSection />
       <TestimonialsSection />
 
-      {/* SOCIAL PROOF — fast trust signal, logo badges */}
-      <FeaturedInSection />
-
-      {/* TRACK RECORD — AI-citable statistics and facts */}
+      {/* TRACK RECORD — AI-citable statistics and facts (incl. logo badges) */}
       <KeyStatsSection />
 
       {/* HONEST FIT — when this is NOT for you (E-E-A-T trust signal) */}
       <WhatThisIsNotSection />
 
-      {/* CORE OFFER — the specific services available */}
+      {/* CORE OFFER — two paths: we do it together, or I do it for you */}
       <ServicesSection />
 
-      {/* WHY ME — differentiators */}
-      <WhyWorkWithMeSection />
-
-      {/* AUTHORITY — who is Alex, why trust him */}
+      {/* AUTHORITY — who is Alex, why trust him (incl. How I Work) */}
       <AboutMeSection />
 
-      {/* COACHING UPSELL — 1-on-1 AI coaching for deeper work */}
+      {/* COACHING UPSELL — 1-on-1 AI mentoring with pack comparison */}
       <MentoringSection />
-
-      {/* PACKAGE COMPARISON — detailed feature breakdown by tier */}
-      <PackageComparisonSection />
 
       {/* ROI CALCULATOR — interactive time-savings estimator */}
       <ROICalculatorSection />
@@ -57,22 +44,8 @@ export default function HomePage() {
       {/* SPEAKING — keynotes, roundtables, workshops */}
       <SpeakingSection />
 
-      {/* ASSESSMENT — self-qualifying diagnostic quiz */}
+      {/* ASSESSMENT — self-qualifying diagnostic quiz (single CTA on the page) */}
       <AssessmentCtaSection />
-
-      {/* LEAD CAPTURE — email signup after the visitor has seen the full offer */}
-      <section className="py-10 md:py-12 bg-usvc-navy">
-        <div className="container mx-auto px-4 md:px-6 max-w-3xl text-center">
-          <p className="text-sm text-usvc-blue font-mono uppercase tracking-widest mb-2">Free</p>
-          <h2 className="font-heading text-xl md:text-2xl font-bold text-white mb-2">
-            Get Your AI Readiness Score
-          </h2>
-          <p className="text-sm text-white/70 mb-5 max-w-lg mx-auto">
-            3-minute assessment. You'll get your personalized profile, clarity score, and a recommended next step — no pitch, no pressure.
-          </p>
-          <LeadCaptureInline />
-        </div>
-      </section>
 
       {/* CONTENT — articles + podcasts in one view */}
       <InsightsSection />

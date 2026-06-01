@@ -21,30 +21,26 @@ interface FAQItem {
 const faqItems: FAQItem[] = [
   {
     question: "What is the Armchair Futurist?",
-    answer: "The Armchair Futurist is Alex Myers' advisory practice. He helps leaders and organizations work through AI adoption, bridging the gap between what AI produces and what businesses actually need. Services range from a $199 landing page to a $55,250 transformation lab."
+    answer: "The Armchair Futurist is Alex Myers' AI literacy practice. He teaches individuals and businesses to design, launch, and sell their own AI-powered services. The work ranges from a $199 landing page to a $12,000 3-month intensive — with the same end-state in every case: you, independent, no dependency."
   },
   {
     question: "What is the Accountability Gap in AI adoption?",
-    answer: "It's the space between what an AI system produces and what a business actually needs. Most companies layer AI onto existing processes without rethinking workflows or decision rights. Nobody owns the outcome. Alex bridges this gap by ensuring AI outputs connect to measurable results.",
+    answer: "It's the space between what an AI system produces and what a business actually needs. Most companies layer AI onto existing processes without rethinking workflows or decision rights. Nobody owns the outcome. Alex bridges this gap by teaching the literacy required to design and own the outcome yourself.",
     hasLink: true,
     linkText: "Learn more about the Accountability Gap →",
     linkHref: "/concepts/accountability-gap"
   },
   {
     question: "What qualifications does Alex Myers have?",
-    answer: "Alex holds six certifications: Certified Futurist and Long-Term Analyst (FLTA), Certified Change Management Professional (CCMP), GenAI Academy Expert, Certified Enterprise Blockchain Professional (CEBP), Professional Scrum Master (PSM), and Professional Agile Leadership (PAL). He's deployed over 40 AI systems."
+    answer: "Alex holds six certifications: Certified Futurist and Long-Term Analyst (FLTA), Certified Change Management Professional (CCMP), GenAI Academy Expert, Certified Enterprise Blockchain Professional (CEBP), Professional Scrum Master (PSM), and Professional Agile Leadership (PAL). He's deployed 40+ AI systems and runs on evidence-based methodology — his organizational work uses data-driven profiling to segment teams, and his change management practice is grounded in certified CCMP methodology."
   },
   {
     question: "How much do services cost?",
-    answer: "From $120 (€100) for a single mentoring session to $55,250 for the 10-week AI Infusion Lab. The $199 landing page is the easiest entry point. Custom AI Provisioning runs $1,000-$5,000. Organizational services start at $10,625. Pricing adjusts for emerging markets and high-readiness organizations."
-  },
-  {
-    question: "What is the $199 Digital Identity Landing Page?",
-    answer: "A professional website that consolidates your LinkedIn, resume, and social links into one platform you own. Unlike Linktree, it translates your professional narrative into a conversion-focused homepage. Delivered in 2-4 days, no call required."
+    answer: "Two paths. 'We do it together' mentoring starts at $120 (€100) for a single 60-minute session and scales through 5, 10, and 20-session packs (up to 30% savings) up to the $12,000 AI Independence Incubator. The $199 Digital Identity Landing Page is the easiest entry point into the 'I do it for you' path. Custom AI Provisioning runs $1,000-$5,000 depending on scope. Pricing adjusts for emerging markets through Purchasing Power Parity."
   },
   {
     question: "How does AI mentoring work?",
-    answer: "One-on-one coaching starting at $120 (€100). We focus on mindset before toolset. Reframing how you think about AI rather than just teaching you tools. Each session blends practical guidance with how AI changes your role and opportunities."
+    answer: "One-on-one coaching starting at $120 (€100) per 60-minute session. We focus on mindset before toolset — reframing how you think about AI rather than just teaching you tools. Each session blends practical guidance with how AI changes your role, your business, and your opportunities. Most clients start with 5 or 10 sessions."
   },
   {
     question: "Can Alex work with organizations outside the US?",
@@ -52,45 +48,19 @@ const faqItems: FAQItem[] = [
   },
   {
     question: "What results can clients expect?",
-    answer: "Clients typically reclaim 10-20 hours per week through AI-powered automation. Individual clients gain clarity and shift from overwhelm to agency. Enterprise clients see measurable improvements in adoption rates."
-  },
-  {
-    question: "What is the AI Infusion Lab?",
-    answer: "A 10-week organizational transformation program ($38,250-$55,250) that helps enterprises prototype AI-driven initiatives at the edge before rolling them into core operations. Includes tactical prototyping and high-intensity pilots."
+    answer: "Clients typically reclaim 10-20 hours per week through AI-powered automation. Individual clients gain clarity and shift from overwhelm to agency. By the end of the AI Self-Sufficiency Program, most clients have launched their own AI-powered service or built their personal brand around the work."
   },
   {
     question: "How is Alex different from other AI consultants?",
-    answer: "Three ways. First, he executes directly. He provisions infrastructure, writes prompts, and manages integrations himself. Second, he addresses the human side through psychology-led strategies. Third, he prioritizes data sovereignty, building on open-standard stacks.",
-    hasLink: true,
-    linkText: "Learn about Psychology-Led Adoption →",
-    linkHref: "/concepts/psychology-led-adoption"
-  },
-  {
-    question: "Does Alex offer speaking engagements?",
-    answer: "Yes. Alex delivers keynotes, roundtables, and workshops on AI and the future of work, organizational trust, data sovereignty, and reframing AI overwhelm. Inquiries can be submitted through the speaking form on his website."
+    answer: "Three ways. First, he teaches rather than builds for you — you leave with the literacy to keep going, not a dependency on him. Second, he combines technical depth with psychology-led strategy, addressing the human side of adoption. Third, he prioritizes data sovereignty, building on open-standard stacks with no platform lock-in. He also delivers keynotes, roundtables, and workshops on AI and the future of work, organizational trust, and reframing AI overwhelm — inquiries via the speaking form."
   },
   {
     question: "What is Custom AI Provisioning?",
-    answer: "A done-for-you service where Alex builds a private AI command center: custom GPTs, calendar/email sync, workflow automation, and secure infrastructure. Pricing ranges $1,000-$5,000, delivered in 1-2 weeks."
-  },
-  {
-    question: "What is Managed Agent Operations?",
-    answer: "A monthly retainer ($500-$2,000) where Alex runs your AI system for you. He monitors performance, optimizes prompts as new models release, handles API maintenance, and manages security patches."
-  },
-  {
-    question: "Is the approach evidence-based?",
-    answer: "Yes. Alex combines six certifications with hands-on experience deploying 40+ AI systems. His organizational work uses data-driven profiling to segment teams. Change management is grounded in certified CCMP methodology."
-  },
-  {
-    question: "What is Adoption Strategy?",
-    answer: "A $10,625 service that addresses human barriers to AI adoption. Alex uses data-driven profiling to identify the top 5% of staff who can lead change, then coaches leaders to shift from command-and-control to managing uncertainty.",
-    hasLink: true,
-    linkText: "Learn about Results Thinkers →",
-    linkHref: "/concepts/results-thinkers"
+    answer: "A done-for-you service where Alex builds you a private AI command center: custom business workflows, agent installation (OpenClaw, Hermes), API integrations, calendar/email sync, and secure infrastructure. Pricing ranges $1,000-$5,000 depending on scope, delivered in 1-2 weeks. You own everything — code, data, infrastructure."
   },
   {
     question: "How do I get started?",
-    answer: "Three ways. The $199 landing page requires no call. Just submit the form. For mentoring, book a session starting at $120 (€100). For strategy services, book a call where Alex identifies where your AI systems are leaking value."
+    answer: "Three ways, depending on where you are. The $199 Digital Identity Landing Page requires no call — just submit the intake. For mentoring, browse session packs starting at $120 (€100) or apply for the AI Self-Sufficiency Program. For done-for-you builds, request a 30-minute fit call and Alex will scope the work."
   }
 ];
 

@@ -27,6 +27,16 @@ const pillars = [
   }
 ];
 
+// Compact comparison matrix — absorbed from PackageComparisonSection
+const quickCompare = [
+  { label: "Coaching hours", five: "~5 hrs", ten: "~10–15 hrs", twenty: "~20–40 hrs" },
+  { label: "Practical exercises", five: "Guided demos", ten: "Your real work", twenty: "Real projects end-to-end" },
+  { label: "Personalised feedback", five: "Session-based", ten: "Session + reviews", twenty: "Deep 1:1 + async support" },
+  { label: "Frameworks & templates", five: "Core prompts & guides", ten: "Full toolkit + checklists", twenty: "Complete system + playbooks" },
+  { label: "Post-package resources", five: "Summary guide", ten: "Toolkit + community", twenty: "Full library + support" },
+  { label: "Skill compounding", five: "Foundational", ten: "Noticeable growth", twenty: "Exponential" },
+];
+
 const CurrencyIcon = ({ currency }: { currency: CurrencyCode }) =>
   currency === 'EUR' ? <Euro className="h-4 w-4 text-foreground" /> : <DollarSign className="h-4 w-4 text-foreground" />;
 
@@ -254,22 +264,40 @@ export default function MentoringSection() {
             </motion.div>
           ))}
         </div>
-
-        {/* Bottom CTA for undecided visitors */}
+        {/* Comparison matrix — absorbed from PackageComparisonSection */}
         <BlurFade inView delay={0.3}>
-          <div className="text-center">
-            <p className="text-muted-foreground text-sm max-w-lg mx-auto">
-              Scroll down for a full breakdown of what each package includes.{' '}
-            </p>
-            <Button asChild variant="link" size="sm" className="mt-2">
-              <a
-                href="#package-comparison"
-                onClick={() => trackEvent('mentoring_to_comparison')}
-              >
-                Compare Packages →
-              </a>
-            </Button>
-          </div>
+          <details className="group mt-2 rounded-xl border border-border bg-background overflow-hidden">
+            <summary className="cursor-pointer list-none flex items-center justify-between gap-4 px-6 py-5 hover:bg-secondary/40 transition-colors">
+              <div>
+                <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-1">Compare what's inside</p>
+                <p className="text-base font-semibold text-foreground">Side-by-side: 5, 10, and 20-session packs</p>
+              </div>
+              <span className="text-xs font-mono uppercase tracking-widest text-primary group-open:hidden">Expand</span>
+              <span className="text-xs font-mono uppercase tracking-widest text-primary hidden group-open:inline">Collapse</span>
+            </summary>
+            <div className="border-t border-border overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="text-left">
+                    <th className="px-6 py-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">What you get</th>
+                    <th className="px-4 py-3 font-mono text-xs uppercase tracking-widest text-muted-foreground text-center">5-pack</th>
+                    <th className="px-4 py-3 font-mono text-xs uppercase tracking-widest text-muted-foreground text-center">10-pack</th>
+                    <th className="px-4 py-3 font-mono text-xs uppercase tracking-widest text-muted-foreground text-center">20-pack</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {quickCompare.map((row, idx) => (
+                    <tr key={row.label} className={idx % 2 === 0 ? "bg-secondary/20" : ""}>
+                      <td className="px-6 py-3 font-medium text-foreground/80">{row.label}</td>
+                      <td className="px-4 py-3 text-center text-foreground/70">{row.five}</td>
+                      <td className="px-4 py-3 text-center text-foreground/70">{row.ten}</td>
+                      <td className="px-4 py-3 text-center text-foreground/70">{row.twenty}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </details>
         </BlurFade>
       </div>
     </section>

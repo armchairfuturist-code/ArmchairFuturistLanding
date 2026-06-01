@@ -186,11 +186,7 @@ export default function HeroSection() {
             </div>
           </BlurFade>
 
-          <BlurFade delay={0.7} inView duration={prefersReduced ? 0 : 0.4}>
-            <p className="text-primary-foreground/70 text-sm font-mono uppercase tracking-[0.18em]">
-              From dependency to independence. One session at a time.
-            </p>
-          </BlurFade>
+          {/* Tagline removed per copy consolidation */}
         </div>
       </div>
     </section>
