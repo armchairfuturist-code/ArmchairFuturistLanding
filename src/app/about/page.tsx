@@ -9,19 +9,19 @@ import { Calendar, CheckCircle2, Linkedin, Trophy } from 'lucide-react';
 const siteUrl = 'https://thearmchairfuturist.com';
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'About Alex Myers - AI Implementation Consultant & Certified Futurist',
-  description: 'Alex Myers is an AI implementation consultant who builds AI workflows that save teams 10-20 hours a week. With 6 certifications and 40+ AI systems deployed.',
+  title: 'About Alex Myers - AI Literacy Mentor | The Armchair Futurist',
+  description: 'Alex Myers is an AI literacy mentor who teaches you to design, launch, and sell your own AI-powered services. With 6 certifications and 40+ AI systems deployed, he builds understanding you keep.',
   openGraph: {
-    title: 'About Alex Myers - AI Implementation Consultant',
-    description: 'Alex Myers builds AI workflows that save teams 10-20 hours a week. Certified futurist with 40+ AI systems deployed.',
+    title: 'About Alex Myers - AI Literacy Mentor',
+    description: 'Alex Myers is an AI literacy mentor who teaches you to design, launch, and sell your own AI-powered services. Certified Futurist with 40+ AI systems deployed.',
     url: '/about',
-    siteName: 'AI Implementation Consultant',
+    siteName: 'AI Literacy Mentor',
     images: [
       {
         url: '/alexheadshot-nobg.png',
         width: 800,
         height: 800,
-        alt: 'Alex Myers - AI Implementation Consultant',
+        alt: 'Alex Myers - AI Literacy Mentor',
         type: 'image/png',
       },
     ],
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'About Alex Myers',
-    description: 'AI implementation consultant who builds AI workflows that save teams 10-20 hours a week.',
+    description: 'AI literacy mentor who teaches you to design, launch, and sell your own AI-powered services.',
     images: ['/alexheadshot-nobg.png'],
   },
 };
@@ -129,7 +129,7 @@ export default function AboutPage() {
                 <div className="relative w-full max-w-md mx-auto aspect-square rounded-2xl overflow-hidden shadow-2xl border border-primary/20">
                   <Image
                     src="/alexheadshot-nobg.png"
-                    alt="Alex Myers - Certified Futurist & AI Strategy Advisor"
+                    alt="Alex Myers - AI Literacy Mentor"
                     fill
                     className="object-cover"
                     priority
@@ -335,10 +335,10 @@ export default function AboutPage() {
             "name": "Alex Myers",
             "givenName": "Alex",
             "familyName": "Myers",
-            "jobTitle": "Certified Futurist & AI Strategy Advisor",
+            "jobTitle": "AI Literacy Mentor",
             "url": "https://thearmchairfuturist.com",
             "image": "https://thearmchairfuturist.com/alexheadshot-nobg.png",
-            "description": "Alex Myers is a certified futurist, AI strategy advisor, and change management professional who helps leaders and organizations bridge the accountability gap between AI outputs and business results.",
+            "description": "Alex Myers is an AI literacy mentor who teaches individuals and businesses to design, launch, and sell their own AI-powered services. Based in Portugal, serving clients worldwide.",
             "address": {
               "@type": "PostalAddress",
               "addressCountry": "PT",

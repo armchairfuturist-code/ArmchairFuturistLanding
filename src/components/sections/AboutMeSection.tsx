@@ -208,7 +208,7 @@ export default function AboutMeSection() {
                     </a>
                   </div>
                   <p className="text-sm text-usvc-blue/60 font-mono mt-1 uppercase tracking-widest">
-                    Trusted Edge Advisor
+                    AI Literacy Mentor
                   </p>
                 </div>
               </BlurFade>
@@ -246,6 +246,42 @@ export default function AboutMeSection() {
                   happens next&rdquo; to &ldquo;here is what I am
                   building.&rdquo;
                 </p>
+
+                {/* How I Work — absorbed from WhyWorkWithMeSection */}
+                <div className="pt-6 mt-6 border-t border-white/10">
+                  <p className="text-xs font-mono uppercase tracking-widest text-usvc-blue/70 mb-4">
+                    How I Work
+                  </p>
+                  <ul className="space-y-4">
+                    <li className="flex items-start gap-3">
+                      <span className="shrink-0 w-8 h-8 rounded-lg bg-primary/15 text-primary flex items-center justify-center" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                      </span>
+                      <div>
+                        <p className="text-sm font-semibold text-primary-foreground">First principles, not tool tutorials</p>
+                        <p className="text-sm text-primary-foreground/75 leading-relaxed mt-1">I teach you the underlying logic so you can evaluate any new tool yourself, long after our work together ends.</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="shrink-0 w-8 h-8 rounded-lg bg-primary/15 text-primary flex items-center justify-center" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                      </span>
+                      <div>
+                        <p className="text-sm font-semibold text-primary-foreground">Teach you to fish, not fish for you</p>
+                        <p className="text-sm text-primary-foreground/75 leading-relaxed mt-1">Every engagement leaves you more capable, never more dependent. The measure of my work is how little you need me next.</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="shrink-0 w-8 h-8 rounded-lg bg-primary/15 text-primary flex items-center justify-center" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                      </span>
+                      <div>
+                        <p className="text-sm font-semibold text-primary-foreground">Your data, your stack, your call</p>
+                        <p className="text-sm text-primary-foreground/75 leading-relaxed mt-1">Open-standard infrastructure, no platform lock-in, no vendor tax. You own your logic, your data, and your infrastructure.</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>

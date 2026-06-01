@@ -166,7 +166,7 @@ export default function RootLayout({
               name: "The Armchair Futurist",
               url: "https://thearmchairfuturist.com",
               description:
-                "Alex Myers is a certified futurist and AI strategy advisor who helps leaders navigate AI adoption, close the accountability gap, and reclaim 10-20 hours per week.",
+                "Alex Myers is an AI literacy mentor who teaches you to design, launch, and sell your own AI-powered services — no dependency, no retainer, just understanding.",
               author: { "@id": "https://thearmchairfuturist.com/#person" },
             }),
           }}
@@ -180,7 +180,7 @@ export default function RootLayout({
               "@type": "ProfessionalService",
               name: "The Armchair Futurist - Alex Myers",
               description:
-                "AI strategy advisory helping leaders close the accountability gap between AI outputs and business results through human-first execution.",
+                "AI literacy mentorship and done-for-you AI implementation. Alex teaches you to design, launch, and sell your own AI-powered services.",
               url: "https://thearmchairfuturist.com",
               aggregateRating: {
                 "@type": "AggregateRating",
@@ -196,7 +196,7 @@ export default function RootLayout({
                 "@type": "PostalAddress",
                 addressCountry: "PT",
               },
-              priceRange: "$116 - $55,250",
+              priceRange: "$116 - $12,000",
               areaServed: "Worldwide",
               knowsAbout: [
                 "AI Strategy",
@@ -304,21 +304,15 @@ export default function RootLayout({
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "AI Infusion Lab",
+                      name: "AI Independence Incubator",
                       description:
-                        "10-week organizational transformation lab for launching AI initiatives at the edge, validating new business models, and designing human-machine workflows.",
+                        "3-month executive program for AI-powered service launches, with accountability, peer cohort, and full launch support.",
                       provider: {
                         "@id": "https://thearmchairfuturist.com/#person",
                       },
                     },
-                    price: "38250",
+                    price: "12000",
                     priceCurrency: "USD",
-                    priceSpecification: {
-                      "@type": "PriceSpecification",
-                      minPrice: "38250",
-                      maxPrice: "55250",
-                      priceCurrency: "USD",
-                    },
                   },
                 ],
               },
@@ -336,11 +330,11 @@ export default function RootLayout({
               name: "Alex Myers",
               givenName: "Alex",
               familyName: "Myers",
-              jobTitle: "Certified Futurist & AI Strategy Advisor",
+              jobTitle: "AI Literacy Mentor",
               url: "https://thearmchairfuturist.com",
               image: "https://thearmchairfuturist.com/alexheadshot-nobg.png",
               description:
-                "Alex Myers is a certified futurist, AI strategy advisor, and change management professional who helps leaders and organizations bridge the accountability gap between AI outputs and business results. Based in Portugal, serving clients worldwide.",
+                "Alex Myers is an AI literacy mentor who teaches individuals and businesses to design, launch, and sell their own AI-powered services. Based in Portugal, serving clients worldwide.",
               address: {
                 "@type": "PostalAddress",
                 addressCountry: "PT",
@@ -413,7 +407,7 @@ export default function RootLayout({
               alumniOf: "GenAI Academy",
               hasOccupation: {
                 "@type": "Occupation",
-                name: "AI Strategy Advisor",
+                name: "AI Literacy Mentor",
                 occupationLocation: {
                   "@type": "Country",
                   name: "Portugal",
@@ -423,7 +417,7 @@ export default function RootLayout({
                   name: "Service Range",
                   currency: "EUR",
                   minValue: 100,
-                  maxValue: 55250,
+                  maxValue: 12000,
                 },
                 skills:
                   "AI Strategy, Change Management, Future of Work, Organizational Design",
@@ -455,7 +449,7 @@ export default function RootLayout({
                 height: 630,
               },
               description:
-                "The Armchair Futurist is the advisory practice of Alex Myers, a certified futurist and AI strategy advisor. Alex helps leaders and organizations navigate AI adoption by bridging the Accountability Gap—the space between AI outputs and business results.",
+                "The Armchair Futurist is the AI literacy practice of Alex Myers. He teaches individuals and businesses to design, launch, and sell their own AI-powered services — no dependency, no retainer, just understanding.",
               founder: { "@id": "https://thearmchairfuturist.com/#person" },
               address: {
                 "@type": "PostalAddress",
@@ -486,7 +480,7 @@ export default function RootLayout({
               ],
               hasOfferCatalog: {
                 "@type": "OfferCatalog",
-                name: "AI Strategy & Advisory Services",
+                name: "AI Literacy Mentorship & Done-For-You Services",
                 itemListElement: [
                   {
                     "@type": "Offer",
@@ -562,16 +556,12 @@ export default function RootLayout({
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "AI Infusion Lab",
+                      name: "AI Independence Incubator",
                       description:
-                        "10-week organizational transformation program",
+                        "3-month executive program for launching your own AI-powered service with accountability, peer cohort, and full launch support.",
                     },
-                    priceSpecification: {
-                      "@type": "PriceSpecification",
-                      minPrice: "38250",
-                      maxPrice: "55250",
-                      priceCurrency: "USD",
-                    },
+                    price: "12000",
+                    priceCurrency: "USD",
                   },
                 ],
               },

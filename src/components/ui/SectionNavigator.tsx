@@ -8,7 +8,6 @@ const sections = [
   { id: 'what-this-is-not', label: 'Fit' },
   { id: 'services', label: 'Services' },
   { id: 'ai-mentoring', label: 'Mentoring' },
-  { id: 'package-comparison', label: 'Packages' },
   { id: 'case-studies', label: 'Cases' },
   { id: 'testimonials', label: 'Reviews' },
   { id: 'roi-calculator', label: 'ROI' },
