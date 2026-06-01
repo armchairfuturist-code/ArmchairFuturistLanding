@@ -156,6 +156,33 @@
         --hero-title-color-2: 220 96% 43%;
     }
 
+    /* HP gradient text — electric blue to bright to soft */
+    .hp-gradient-text {
+      background: linear-gradient(135deg, hsl(var(--hp-electric)) 0%, hsl(var(--hp-bright)) 45%, hsl(var(--hp-soft)) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    /* HP hero glow — for the dominant headline */
+    .hp-hero-glow {
+      text-shadow:
+        0 0 24px rgba(2, 74, 216, 0.55),
+        0 0 56px rgba(41, 110, 249, 0.35),
+        0 0 96px rgba(41, 110, 249, 0.18);
+    }
+
+    /* HP scanline overlay — subtle futuristic texture */
+    .hp-scanlines {
+      background-image: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        rgba(41, 110, 249, 0.05) 3px,
+        rgba(41, 110, 249, 0.05) 4px
+      );
+    }
     * {
         @apply border-border;
     }

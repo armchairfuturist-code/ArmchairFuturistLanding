@@ -119,22 +119,51 @@ export default function HeroSection() {
         <div className="flex flex-col space-y-8 text-center">
           <motion.div
             style={prefersReduced ? {} : { x: parallaxX, y: parallaxY }}
-            className="hero-text-shadow"
+            className="relative hero-text-shadow"
           >
+            {/* Scanline overlay — subtle futuristic texture behind the headline */}
+            <div
+              className="hp-scanlines absolute inset-0 -inset-y-6 pointer-events-none opacity-60"
+              aria-hidden="true"
+            />
+
+            {/* Pre-headline ALERT — playful pulse dot, mono, tracked, electric blue */}
+            <BlurFade delay={0.05} inView duration={prefersReduced ? 0 : 0.4}>
+              <p className="relative inline-flex items-center gap-2 font-mono text-[11px] md:text-xs uppercase tracking-[0.4em] text-hp-bright mb-4 md:mb-5">
+                <span
+                  className="inline-block h-1.5 w-1.5 rounded-full bg-hp-bright animate-pulse shadow-[0_0_10px_rgba(41,110,249,0.8)]"
+                  aria-hidden="true"
+                />
+                AI Alert · 2026
+              </p>
+            </BlurFade>
+
+            {/* Line 1 — small, uppercase, tracked, warning-label feel */}
             <WordPullUp
               text={headline.line1}
-              className="block text-white text-[clamp(2.75rem,6vw,4.75rem)] font-display font-semibold tracking-apple-tight leading-[1.05] text-balance"
-              wordClassName="font-display font-semibold text-white"
+              className="relative block text-white/90 text-[clamp(1.5rem,3.5vw,2.5rem)] font-display font-medium tracking-[0.28em] uppercase leading-[1.1] mb-4 md:mb-5"
+              wordClassName="font-display font-medium text-white/90"
               duration={prefersReduced ? 0 : 0.6}
             />
+
+            {/* Line 2 — the visual hero: gradient + glow + bold + italic pivot */}
             <WordPullUp
               text={headline.line2}
-              className="block text-usvc-blue text-[clamp(2rem,4.5vw,3.5rem)] mt-2 md:mt-3 font-display font-semibold tracking-apple-tight leading-[1.05] text-balance"
-              wordClassName="font-display font-semibold text-usvc-blue"
-              wordClassNames={{ Better: "italic" }}
+              className="relative block text-[clamp(2.75rem,7.5vw,6rem)] font-display font-bold tracking-tight leading-[0.98] text-balance hp-hero-glow"
+              wordClassName="font-display font-bold hp-gradient-text"
+              wordClassNames={{ Better: "italic hp-gradient-text" }}
               delay={0.3}
-              duration={prefersReduced ? 0 : 0.6}
+              duration={prefersReduced ? 0 : 0.7}
             />
+
+            {/* Slash tail — edgy period replacement */}
+            <BlurFade delay={1.0} inView duration={prefersReduced ? 0 : 0.4}>
+              <div className="relative mt-3 md:mt-4 flex items-center justify-center gap-3">
+                <span className="h-px w-10 bg-gradient-to-r from-transparent to-hp-bright" aria-hidden="true" />
+                <span className="font-mono text-xs uppercase tracking-[0.3em] text-hp-bright">{"// end of message"}</span>
+                <span className="h-px w-10 bg-gradient-to-l from-transparent to-hp-bright" aria-hidden="true" />
+              </div>
+            </BlurFade>
           </motion.div>
 
           <BlurFade delay={0.4} inView duration={prefersReduced ? 0 : 0.4}>
