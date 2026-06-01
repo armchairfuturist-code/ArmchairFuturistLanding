@@ -9,65 +9,87 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        // Display: system-ui → SF Pro on Apple, Outfit substitute on other platforms
-        display: ["system-ui", "-apple-system", "Outfit", "sans-serif"],
-        // Sans/body: Outfit (Google Fonts) — premium sans-serif
-        sans: ["Outfit", "system-ui", "sans-serif"],
-        heading: ["system-ui", "-apple-system", "Outfit", "sans-serif"],
-        body: ["Outfit", "system-ui", "sans-serif"],
-        ui: ["Outfit", "system-ui", "sans-serif"],
+        // HP system: Forma DJR Micro (proprietary) with Manrope (Google Fonts) substitute
+        display: ['"Forma DJR Micro"', '"Manrope"', '"Inter"', "system-ui", "sans-serif"],
+        sans: ['"Forma DJR Micro"', '"Manrope"', '"Inter"', "system-ui", "sans-serif"],
+        heading: ['"Forma DJR Micro"', '"Manrope"', '"Inter"', "system-ui", "sans-serif"],
+        body: ['"Forma DJR Micro"', '"Manrope"', '"Inter"', "system-ui", "sans-serif"],
+        ui: ['"Forma DJR Micro"', '"Manrope"', '"Inter"', "system-ui", "sans-serif"],
         mono: ['"JetBrains Mono"', '"Courier New"', "Courier", "monospace"],
       },
       letterSpacing: {
-        // Apple display tracking: negative at display sizes
-        "apple-tight": "-0.02em",
-        "apple-display": "-0.015em",
-        "apple-caption": "0.06em",
+        // HP button signature: uppercase +0.7px tracking
+        "hp-button": "0.7px",
+        "hp-button-sm": "0.126px",
+        "hp-flat": "0",
       },
       colors: {
-        // === MERGED PALETTE: PlayStation + USVC ===
+        // === HP COLOR SYSTEM ===
 
-        // Brand Anchors
-        "usvc-blue": "#0d84ff", // Primary accent — hover states, links, labels
-        "ps-blue": "#0070cc", // Secondary anchor — footer, secondary fills
-        "usvc-navy": "#00172e", // Dark surface anchor — sections, footer, cards
-        "ps-cyan": "#1eaedb", // Interaction color — hover/focus only
+        // Brand — Electric Blue system
+        "hp-electric": "#024ad8", // Primary CTA, links, focus
+        "hp-bright": "#296ef9", // Hover on primary
+        "hp-deep": "#0e3191", // Pressed, dark borders
+        "hp-soft": "#c9e0fc", // Tinted blue surfaces
+
+        // Ink (text)
+        ink: "#1a1a1a", // Display headlines, primary text
+        "ink-deep": "#000000", // Hero overlay, absolute contrast
+        "ink-soft": "#292929", // Secondary body, dense text
 
         // Surfaces
-        "usvc-off-white": "#fafdff", // Primary canvas — warm paper-like background
-        "paper-white": "#ffffff", // Pure white for cards and high-contrast zones
-        "console-black": "#000000", // Pure black for hero (PlayStation legacy)
-        "shadow-black": "#121314", // Dark section gradient start
-        "ink-navy": "#00172e", // USVC navy (alias for usvc-navy)
+        canvas: "#ffffff", // Page background
+        cloud: "#f7f7f7", // Card backgrounds, soft sections
+        fog: "#e8e8e8", // Hairline dividers
+        steel: "#c2c2c2", // Disabled, placeholder
+        graphite: "#636363", // Secondary metadata
+        charcoal: "#3d3d3d", // Strong secondary text
 
-        // Structural
-        "usvc-border": "#b2d5ff", // Borders, dividers, structural lines
-        "border-subtle": "rgba(0, 116, 255, 0.32)", // Vertical border lines
-        "border-dark": "#143d8d", // Borders on dark navy surfaces
-        "divider-tint": "#f3f3f3", // Light horizontal rules
+        // Hairlines
+        hairline: "#e8e8e8", // Light dividers
+        "hairline-strong": "#c2c2c2", // Strong 1px borders
 
-        // Text
-        "display-ink": "#00172e", // Display headlines on light surfaces
-        "deep-charcoal": "#1f1f1f", // Body headlines
-        "body-gray": "#6b6b6b", // Secondary body text
-        "mute-gray": "#9ca3af", // Tertiary labels, disabled
-        "inverse-white": "#ffffff", // Text on dark surfaces
-        "dark-link-blue-rest": "#0068bd", // Link at rest on light
-        "link-hover-blue": "#1883fd", // Link hover
-        "dark-link-blue": "#53b1ff", // Link on dark surfaces
+        // Accent library (reserved)
+        "bloom-coral": "#ff5050", // Sale urgency
+        "bloom-rose": "#f9d4d2", // Soft coral
+        "bloom-deep": "#b3262b", // Error, destructive
+        "bloom-wine": "#5a1313", // Error text
+        "storm-mist": "#8ebdce", // Cool photo frame
+        "storm-sea": "#7fadbe", // Cool photo frame
+        "storm-deep": "#356373", // Cool photo frame
 
-        // Semantic
-        "warning-red": "#e53e3e", // Form errors
-        "success-green": "#38a169", // Success states
-        "commerce-orange": "#d53b00", // Commerce CTA (PlayStation legacy)
+        // Legacy aliases (mapped to HP tokens for backward compat)
+        "usvc-blue": "#024ad8", // → hp-electric
+        "ps-blue": "#0e3191", // → hp-deep
+        "usvc-navy": "#1a1a1a", // → ink
+        "ps-cyan": "#296ef9", // → hp-bright
+        "usvc-off-white": "#ffffff", // → canvas
+        "usvc-border": "#e8e8e8", // → hairline
+        "border-dark": "#0e3191", // → hp-deep
+
+        "paper-white": "#ffffff", // → canvas
+        "console-black": "#000000", // → ink-deep
+        "shadow-black": "#1a1a1a", // → ink
+        "ink-navy": "#1a1a1a", // → ink
+
+        "display-ink": "#1a1a1a", // → ink
+        "deep-charcoal": "#1a1a1a", // → ink
+        "body-gray": "#636363", // → graphite
+        "mute-gray": "#9ca3af", // → lighter neutral
+        "inverse-white": "#ffffff", // → canvas
+        "dark-link-blue-rest": "#024ad8", // → hp-electric
+        "link-hover-blue": "#296ef9", // → hp-bright
+        "dark-link-blue": "#53b1ff", // bright link on dark
+
+        "warning-red": "#b3262b", // → bloom-deep
+        "success-green": "#38a169",
+        "commerce-orange": "#d53b00",
         "commerce-orange-active": "#aa2f00",
 
-        // Card captions
-        "card-caption-text": "#0e72da",
+        "card-caption-text": "#024ad8", // → hp-electric
 
-        // Utility / Legacy
-        "ice-mist": "#f5f7fa",
-        "masthead-black": "#000000",
+        "ice-mist": "#f7f7f7", // → cloud
+        "masthead-black": "#000000", // → ink-deep
 
         // Shadcn/ui CSS variable colors
         background: "hsl(var(--background))",
@@ -125,12 +147,21 @@ export default {
         },
       },
       borderRadius: {
-        // Merged radius scale
-        "usvc-sm": "4px", // Compact buttons, small UI
-        "usvc-md": "8px", // Primary buttons, standard cards
-        "usvc-lg": "12px", // Feature cards, content images
-        "usvc-xl": "24px", // Hero cards, feature frames
-        "ps-pill": "999px", // PlayStation pill buttons
+        // HP radius system — two anchors: 4px on buttons/inputs, 16px on cards/photos
+        "hp-xs": "2px", // micro UI
+        "hp-sm": "3px", // sale badges
+        "hp-md": "4px", // buttons, inputs (anchor)
+        "hp-lg": "8px", // pill badges
+        "hp-xl": "16px", // cards, photo frames (anchor)
+        "hp-pill": "9999px", // category tabs
+        "hp-full": "9999px", // avatars
+
+        // Legacy aliases (mapped to HP tokens for backward compat)
+        "usvc-sm": "4px", // → hp-md
+        "usvc-md": "8px", // → hp-lg
+        "usvc-lg": "12px",
+        "usvc-xl": "16px", // → hp-xl
+        "ps-pill": "9999px", // → hp-pill
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
@@ -154,7 +185,6 @@ export default {
           from: { transform: "translateY(0)" },
           to: { transform: "translateY(calc(-100% - var(--gap)))" },
         },
-        // USVC-style underline animation
         "underline-in": {
           from: { transform: "scaleX(0)", "transform-origin": "0 50%" },
           to: { transform: "scaleX(1)", "transform-origin": "0 50%" },
@@ -163,7 +193,6 @@ export default {
           from: { transform: "scaleX(1)", "transform-origin": "0 50%" },
           to: { transform: "scaleX(0)", "transform-origin": "100% 50%" },
         },
-        // Fade + slide for section reveals
         "fade-up": {
           from: { opacity: "0", transform: "translateY(24px)" },
           to: { opacity: "1", transform: "translateY(0)" },
