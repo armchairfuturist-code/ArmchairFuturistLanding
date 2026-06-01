@@ -42,8 +42,18 @@ export function WordPullUp({
         return (
           <span
             key={i}
-            className="inline-block overflow-hidden mr-[0.25em]"
-            style={{ paddingBottom: "0.18em", marginBottom: "-0.18em" }}
+            className="inline-block overflow-hidden"
+            style={{
+              // Vertical room for descenders (g, p, y) below the line-box
+              paddingBottom: "0.28em",
+              marginBottom: "-0.28em",
+              // Horizontal room for italic / oblique letter overflow on both
+              // edges (e.g. the 'r' tail on 'Better', the 'B' lead on 'Better')
+              paddingLeft: "0.08em",
+              paddingRight: "0.12em",
+              marginLeft: "-0.08em",
+              marginRight: "0.13em", // 0.25em nominal - 0.12em pad
+            }}
           >
             <motion.span
               className={wordClasses}
