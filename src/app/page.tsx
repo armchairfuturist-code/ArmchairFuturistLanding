@@ -17,42 +17,39 @@ import InsightsSection from '@/components/sections/InsightsSection';
 import ROICalculatorSection from '@/components/sections/ROICalculatorSection';
 import WhatThisIsNotSection from '@/components/sections/WhatThisIsNotSection';
 import SectionNavigator from '@/components/ui/SectionNavigator';
-
 export default function HomePage() {
   return (
     <div className="flex flex-col">
       {/* HOOK — make the visitor feel the stakes */}
       <HeroSection />
 
-      {/* SOCIAL PROOF — fast trust signal, lightweight at-a-glance logos */}
+      {/* PROOF FIRST — quantified outcomes before any offer */}
+      <CaseStudiesSection />
+      <TestimonialsSection />
+
+      {/* SOCIAL PROOF — fast trust signal, logo badges */}
       <FeaturedInSection />
 
       {/* TRACK RECORD — AI-citable statistics and facts */}
       <KeyStatsSection />
 
-      {/* AUTHORITY — who is Alex, why trust him */}
-      <AboutMeSection />
-
       {/* HONEST FIT — when this is NOT for you (E-E-A-T trust signal) */}
       <WhatThisIsNotSection />
 
-      {/* MENTORING — 1-on-1 AI coaching for the overwhelmed */}
-      <MentoringSection />
-
-      {/* PACKAGE COMPARISON — detailed feature breakdown by tier */}
-      <PackageComparisonSection />
-
-      {/* OFFER — the specific services available */}
+      {/* CORE OFFER — the specific services available */}
       <ServicesSection />
 
       {/* WHY ME — differentiators */}
       <WhyWorkWithMeSection />
 
-      {/* PROOF — validate the offer with social proof */}
-      <TestimonialsSection />
+      {/* AUTHORITY — who is Alex, why trust him */}
+      <AboutMeSection />
 
-      {/* CASE STUDIES — quantified outcomes */}
-      <CaseStudiesSection />
+      {/* COACHING UPSELL — 1-on-1 AI coaching for deeper work */}
+      <MentoringSection />
+
+      {/* PACKAGE COMPARISON — detailed feature breakdown by tier */}
+      <PackageComparisonSection />
 
       {/* ROI CALCULATOR — interactive time-savings estimator */}
       <ROICalculatorSection />

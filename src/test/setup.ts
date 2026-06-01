@@ -16,7 +16,7 @@ global.IntersectionObserver = class IntersectionObserver {
     return [];
   }
   unobserve() {}
-} as IntersectionObserver;
+} as any;
 
 global.matchMedia = Object.assign(() => ({
   matches: false,
@@ -36,7 +36,7 @@ global.matchMedia = Object.assign(() => ({
   addEventListener: () => {},
   removeEventListener: () => {},
   dispatchEvent: () => {},
-});
+}) as any;
 
 // Polyfill for HTMLMediaElement
 global.HTMLMediaElement.prototype.play = () => new Promise(() => {});
