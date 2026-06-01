@@ -115,29 +115,30 @@ export default function HeroSection() {
       </video>
       <div className="absolute top-0 left-0 w-full h-full bg-black/60 z-[1]"></div>
 
-      <div className="container relative z-10 px-4 md:px-6 max-w-4xl mx-auto">
+      <div className="container relative z-10 px-4 md:px-6 max-w-5xl mx-auto">
         <div className="flex flex-col space-y-8 text-center">
           <motion.div
             style={prefersReduced ? {} : { x: parallaxX, y: parallaxY }}
-            className="tracking-tighter sm:text-5xl xl:text-7xl/none hero-text-shadow"
+            className="hero-text-shadow"
           >
             <WordPullUp
               text={headline.line1}
-              className="block text-white text-5xl md:text-6xl xl:text-7xl font-heading font-black"
-              wordClassName="font-heading font-black text-white"
+              className="block text-white text-[clamp(2.75rem,6vw,4.75rem)] font-display font-semibold tracking-apple-tight leading-[1.05] text-balance"
+              wordClassName="font-display font-semibold text-white"
               duration={prefersReduced ? 0 : 0.6}
             />
             <WordPullUp
               text={headline.line2}
-              className="block text-usvc-blue text-4xl md:text-5xl xl:text-6xl mt-1 md:mt-2 font-heading font-bold"
-              wordClassName="font-heading font-bold text-usvc-blue"
+              className="block text-usvc-blue text-[clamp(2rem,4.5vw,3.5rem)] mt-2 md:mt-3 font-display font-semibold tracking-apple-tight leading-[1.05] text-balance"
+              wordClassName="font-display font-semibold text-usvc-blue"
+              wordClassNames={{ Better: "italic" }}
               delay={0.3}
               duration={prefersReduced ? 0 : 0.6}
             />
           </motion.div>
 
           <BlurFade delay={0.4} inView duration={prefersReduced ? 0 : 0.4}>
-            <p className="text-primary-foreground/95 text-lg md:text-xl max-w-3xl mx-auto hero-text-shadow font-sans leading-relaxed">
+            <p className="text-primary-foreground/95 text-lg md:text-xl max-w-2xl mx-auto hero-text-shadow font-sans leading-[1.55] tracking-normal text-balance">
               {subheadline}
             </p>
           </BlurFade>
@@ -186,7 +187,7 @@ export default function HeroSection() {
           </BlurFade>
 
           <BlurFade delay={0.7} inView duration={prefersReduced ? 0 : 0.4}>
-            <p className="text-primary-foreground/70 text-sm font-mono uppercase tracking-widest">
+            <p className="text-primary-foreground/70 text-sm font-mono uppercase tracking-[0.18em]">
               From dependency to independence. One session at a time.
             </p>
           </BlurFade>
