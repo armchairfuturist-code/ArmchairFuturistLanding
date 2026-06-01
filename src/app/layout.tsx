@@ -18,11 +18,11 @@ const siteUrl = "https://thearmchairfuturist.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "The Armchair Futurist - Alex Myers | Trusted Edge Advisor",
-    template: "%s | The Armchair Futurist",
+    default: "Alex Myers - AI Literacy Mentor",
+    template: "%s | Alex Myers - AI Literacy Mentor",
   },
   description:
-    "Alex Myers is a certified futurist and trusted edge advisor who helps leaders navigate the space between what was and what's next. Based in Portugal, serving clients worldwide.",
+    "Alex Myers is an AI literacy mentor who teaches you to design, launch, and sell your own AI-powered services. No dependency. No retainer. Just understanding.",
   authors: [
     {
       name: "Alex Myers",
@@ -45,6 +45,10 @@ export const metadata: Metadata = {
     "Alex Myers",
     "Certified Futurist",
     "AI Consultant",
+    "AI literacy",
+    "AI mentorship",
+    "AI training",
+    "AI education",
   ],
   icons: {
     icon: [
@@ -58,17 +62,17 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "The Armchair Futurist - Alex Myers | Trusted Edge Advisor",
+    title: "Alex Myers - AI Literacy Mentor",
     description:
-      "Alex Myers is a certified futurist and trusted edge advisor who helps leaders navigate the space between what was and what's next.",
+      "Alex Myers is an AI literacy mentor who teaches you to design, launch, and sell your own AI-powered services. No dependency. No retainer. Just understanding.",
     url: "/",
-    siteName: "The Armchair Futurist",
+    siteName: "AI Literacy Mentor",
     images: [
       {
         url: "/floop.jpg",
         width: 1200,
         height: 630,
-        alt: "Alex Myers - The Armchair Futurist - Trusted Edge Advisor",
+        alt: "Alex Myers - AI Literacy Mentor",
         type: "image/jpeg",
       },
     ],
@@ -78,9 +82,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Armchair Futurist - Alex Myers | Trusted Edge Advisor",
+    title: "Alex Myers - AI Literacy Mentor",
     description:
-      "Alex Myers is a certified futurist and trusted edge advisor who helps leaders navigate the space between what was and what's next.",
+      "Alex Myers is an AI literacy mentor who teaches you to design, launch, and sell your own AI-powered services. No dependency. No retainer. Just understanding.",
     images: ["/floop.jpg"],
     creator: "@armchairfuturist",
   },

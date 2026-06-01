@@ -85,7 +85,7 @@ export const archetypes: Archetype[] = [
       },
       {
         question: 'What services help professionals who feel overwhelmed by AI?',
-        answer: 'AI Mentoring and Mindset Coaching sessions range from $97 to $497 and focus on building your personal framework for navigating AI. The weekly Substack newsletter provides ongoing high-signal insights without the noise.',
+        answer: 'AI Mentoring and Mindset Coaching sessions range from $120 (€100) for a single session to customized packages, and focus on building your personal framework for navigating AI. The weekly Substack newsletter provides ongoing high-signal insights without the noise.',
       },
     ],
     metaTitle: 'AI Readiness: The Curious Professional | The Armchair Futurist',

@@ -26,3 +26,18 @@
 - Dev server: npm run dev (port 9002)
 - TypeScript: Enabled
 - Styling: Tailwind CSS
+
+
+## Agent skills
+
+### Issue tracker
+
+Issues and PRDs live as GitHub issues, managed via the GitHub MCP server. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Uses the five canonical triage roles with default label names. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context layout — one `CONTEXT.md` + `docs/adr/` at the repo root. See `docs/agents/domain.md`.

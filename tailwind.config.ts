@@ -10,10 +10,10 @@ export default {
     extend: {
       fontFamily: {
         // Display: system-ui → SF Pro on Apple, Outfit substitute on other platforms
-        display: ["system-ui", "-apple-system", "sans-serif"],
+        display: ["system-ui", "-apple-system", "Outfit", "sans-serif"],
         // Sans/body: Outfit (Google Fonts) — premium sans-serif
         sans: ["Outfit", "system-ui", "sans-serif"],
-        heading: ["system-ui", "-apple-system", "sans-serif"],
+        heading: ["system-ui", "-apple-system", "Outfit", "sans-serif"],
         body: ["Outfit", "system-ui", "sans-serif"],
         ui: ["Outfit", "system-ui", "sans-serif"],
         mono: ['"JetBrains Mono"', '"Courier New"', "Courier", "monospace"],

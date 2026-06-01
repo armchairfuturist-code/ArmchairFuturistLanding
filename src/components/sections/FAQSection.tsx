@@ -36,7 +36,7 @@ const faqItems: FAQItem[] = [
   },
   {
     question: "How much do services cost?",
-    answer: "From $97 for a single mentoring session to $55,250 for the 10-week AI Infusion Lab. The $199 landing page is the easiest entry point. Custom AI Provisioning runs $1,000-$5,000. Organizational services start at $10,625. Pricing adjusts for emerging markets and high-readiness organizations."
+    answer: "From $120 (€100) for a single mentoring session to $55,250 for the 10-week AI Infusion Lab. The $199 landing page is the easiest entry point. Custom AI Provisioning runs $1,000-$5,000. Organizational services start at $10,625. Pricing adjusts for emerging markets and high-readiness organizations."
   },
   {
     question: "What is the $199 Digital Identity Landing Page?",
@@ -44,7 +44,7 @@ const faqItems: FAQItem[] = [
   },
   {
     question: "How does AI mentoring work?",
-    answer: "One-on-one coaching starting at $97. We focus on mindset before toolset. Reframing how you think about AI rather than just teaching you tools. Each session blends practical guidance with how AI changes your role and opportunities."
+    answer: "One-on-one coaching starting at $120 (€100). We focus on mindset before toolset. Reframing how you think about AI rather than just teaching you tools. Each session blends practical guidance with how AI changes your role and opportunities."
   },
   {
     question: "Can Alex work with organizations outside the US?",
@@ -90,7 +90,7 @@ const faqItems: FAQItem[] = [
   },
   {
     question: "How do I get started?",
-    answer: "Three ways. The $199 landing page requires no call. Just submit the form. For mentoring, book a session starting at $97. For strategy services, book a call where Alex identifies where your AI systems are leaking value."
+    answer: "Three ways. The $199 landing page requires no call. Just submit the form. For mentoring, book a session starting at $120 (€100). For strategy services, book a call where Alex identifies where your AI systems are leaking value."
   }
 ];
 

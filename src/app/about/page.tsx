@@ -7,22 +7,21 @@ import { CALENDAR_URL } from '@/lib/constants';
 import { Calendar, CheckCircle2, Linkedin, Trophy } from 'lucide-react';
 
 const siteUrl = 'https://thearmchairfuturist.com';
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'About Alex Myers - Certified Futurist & AI Strategy Advisor',
-  description: 'Alex Myers is a certified futurist and AI strategy advisor with 6 professional certifications and 40+ AI systems deployed. Based in Portugal, serving clients worldwide.',
+  title: 'About Alex Myers - AI Implementation Consultant & Certified Futurist',
+  description: 'Alex Myers is an AI implementation consultant who builds AI workflows that save teams 10-20 hours a week. With 6 certifications and 40+ AI systems deployed.',
   openGraph: {
-    title: 'About Alex Myers - Certified Futurist & AI Strategy Advisor',
-    description: 'Alex Myers is a certified futurist and AI strategy advisor with 6 professional certifications and 40+ AI systems deployed.',
+    title: 'About Alex Myers - AI Implementation Consultant',
+    description: 'Alex Myers builds AI workflows that save teams 10-20 hours a week. Certified futurist with 40+ AI systems deployed.',
     url: '/about',
-    siteName: 'The Armchair Futurist',
+    siteName: 'AI Implementation Consultant',
     images: [
       {
         url: '/alexheadshot-nobg.png',
         width: 800,
         height: 800,
-        alt: 'Alex Myers - Certified Futurist & AI Strategy Advisor',
+        alt: 'Alex Myers - AI Implementation Consultant',
         type: 'image/png',
       },
     ],
@@ -31,7 +30,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'About Alex Myers',
-    description: 'Certified Futurist & AI Strategy Advisor with 6 professional certifications and 40+ AI systems deployed.',
+    description: 'AI implementation consultant who builds AI workflows that save teams 10-20 hours a week.',
     images: ['/alexheadshot-nobg.png'],
   },
 };
@@ -148,15 +147,14 @@ export default function AboutPage() {
               <div>
                 <p className="text-xs text-muted-foreground/60 font-mono mb-2">About Alex Myers</p>
                 <h1 className="font-heading text-4xl md:text-5xl font-bold tracking-tight text-primary mb-6">
-                  Certified Futurist & AI Strategy Advisor
+                  AI Literacy Mentor
                 </h1>
                 <p className="text-lg text-foreground/80 font-sans leading-relaxed mb-6">
-                  Alex Myers helps leaders and organizations navigate AI adoption by bridging the <strong className="text-primary">Accountability Gap</strong>—the space between AI outputs and business results.
+                  Alex Myers teaches you to design, launch, and sell your own AI-powered services. No dependency. No retainer. Just understanding so deep you never need another expert.
                 </p>
                 <p className="text-lg text-foreground/80 font-sans leading-relaxed mb-8">
-                  Based in <strong className="text-primary">Portugal</strong>, serving clients <strong className="text-primary">worldwide</strong> through remote advisory, mentoring, and hands-on implementation.
+                  Certified Futurist &amp; AI Literacy Mentor with <strong className="text-primary">6 professional certifications</strong> and <strong className="text-primary">40+ AI systems deployed</strong>. Based in <strong className="text-primary">Portugal</strong>, serving clients <strong className="text-primary">worldwide</strong>.
                 </p>
-                
                 <div className="flex flex-wrap gap-4">
                   <Button asChild size="lg" className="h-12 px-6">
                     <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer">
@@ -264,7 +262,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
           <BlurFade inView>
             <div className="text-center mb-12">
-              <p className="text-xs text-muted-foreground/60 font-mono mb-2">Journey</p>
+              <p className="text-xs text-muted-foreground/60 font-mono mb-2">Timeline</p>
               <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary mb-4">
                 Career Highlights
               </h2>

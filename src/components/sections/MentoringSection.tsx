@@ -71,7 +71,7 @@ export default function MentoringSection() {
               One-on-One AI Mentoring
             </p>
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
-              Navigating the edge isn&apos;t a solo journey
+              Navigating the edge isn&apos;t a solo endeavor
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Most &quot;training&quot; teaches tools. This is different. Whether you&apos;re
@@ -126,7 +126,7 @@ export default function MentoringSection() {
               Choose your path
             </h3>
             <p className="text-muted-foreground max-w-xl mx-auto mb-4">
-              All sessions are 60 minutes, held via video call. Pick the commitment that fits your journey.
+              All sessions are 60 minutes, held via video call. Pick the commitment that fits your goals.
             </p>
             {/* Currency toggle */}
             <div className="flex justify-center">

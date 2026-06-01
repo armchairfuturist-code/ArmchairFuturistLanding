@@ -118,15 +118,10 @@ export default function KeyStatsSection() {
                 About Alex Myers
               </h3>
               <p className="text-sm text-foreground/80 font-sans leading-relaxed">
-                <strong>Certified Futurist & AI Strategy Advisor</strong> based in Portugal, serving clients worldwide. 
+                <strong>AI Literacy Mentor</strong> based in Portugal, serving clients worldwide. 
                 With <strong>6 professional certifications</strong> and <strong>40+ AI systems deployed</strong>, 
-                Alex helps leaders bridge the{' '}
-                <Link href="/concepts/accountability-gap" className="text-primary font-semibold hover:underline">
-                  Accountability Gap
-                </Link>
-                —the space between AI outputs and business results. 
-                Clients reclaim <strong>10–20 hours per week</strong>. 
-                Services range from <strong>$199</strong> for identity pages to <strong>$55,250</strong> for enterprise transformation.
+                Alex teaches deep AI literacy so you can design, launch, and sell your own AI-powered services.
+                No dependency. No retainer. Just understanding.
               </p>
             </div>
           </div>
