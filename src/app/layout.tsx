@@ -18,11 +18,11 @@ const siteUrl = "https://thearmchairfuturist.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Alex Myers - AI Literacy Mentor",
-    template: "%s | Alex Myers - AI Literacy Mentor",
+    default: "Alex Myers - AI Guide",
+    template: "%s | Alex Myers - AI Guide",
   },
   description:
-    "Alex Myers is an AI literacy mentor who teaches you to design, launch, and sell your own AI-powered services. No dependency. No retainer. Just understanding.",
+    "Alex Myers is an AI guide who teaches you to design, launch, and sell your own AI-powered services. No dependency. No retainer. Just understanding.",
   authors: [
     {
       name: "Alex Myers",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     "Future of Work",
     "Organizational Design",
     "Digital Transformation",
-    "AI Mentoring",
+    "AI Guidance",
     "Workflow Automation",
     "Accountability Gap",
     "Psychology-Led Adoption",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     "Certified Futurist",
     "AI Consultant",
     "AI literacy",
-    "AI mentorship",
+    "AI guidance",
     "AI training",
     "AI education",
   ],
@@ -62,17 +62,17 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Alex Myers - AI Literacy Mentor",
+    title: "Alex Myers - AI Guide",
     description:
-      "Alex Myers is an AI literacy mentor who teaches you to design, launch, and sell your own AI-powered services. No dependency. No retainer. Just understanding.",
+      "Alex Myers is an AI guide who teaches you to design, launch, and sell your own AI-powered services. No dependency. No retainer. Just understanding.",
     url: "/",
-    siteName: "AI Literacy Mentor",
+    siteName: "AI Guide",
     images: [
       {
         url: "/floop.jpg",
         width: 1200,
         height: 630,
-        alt: "Alex Myers - AI Literacy Mentor",
+        alt: "Alex Myers - AI Guide",
         type: "image/jpeg",
       },
     ],
@@ -82,9 +82,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Alex Myers - AI Literacy Mentor",
+    title: "Alex Myers - AI Guide",
     description:
-      "Alex Myers is an AI literacy mentor who teaches you to design, launch, and sell your own AI-powered services. No dependency. No retainer. Just understanding.",
+      "Alex Myers is an AI guide who teaches you to design, launch, and sell your own AI-powered services. No dependency. No retainer. Just understanding.",
     images: ["/floop.jpg"],
     creator: "@armchairfuturist",
   },
@@ -175,7 +175,7 @@ export default function RootLayout({
               name: "The Armchair Futurist",
               url: "https://thearmchairfuturist.com",
               description:
-                "Alex Myers is an AI literacy mentor who teaches you to design, launch, and sell your own AI-powered services — no dependency, no retainer, just understanding.",
+                "Alex Myers is an AI guide who teaches you to design, launch, and sell your own AI-powered services — no dependency, no retainer, just understanding.",
               author: { "@id": "https://thearmchairfuturist.com/#person" },
             }),
           }}
@@ -189,7 +189,7 @@ export default function RootLayout({
               "@type": "ProfessionalService",
               name: "The Armchair Futurist - Alex Myers",
               description:
-                "AI literacy mentorship and done-for-you AI implementation. Alex teaches you to design, launch, and sell your own AI-powered services.",
+                "AI guidance and done-for-you AI implementation. Alex teaches you to design, launch, and sell your own AI-powered services.",
               url: "https://thearmchairfuturist.com",
               aggregateRating: {
                 "@type": "AggregateRating",
@@ -257,9 +257,9 @@ export default function RootLayout({
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "AI Mentoring - Single Session",
+                      name: "AI Guidance - Single Session",
                       description:
-                        "One 60-minute 1-on-1 AI mentoring session. Personal mindset coaching, practical framework, and actionable next steps.",
+                        "One 60-minute 1-on-1 AI guidance session. Personal mindset coaching, practical framework, and actionable next steps.",
                       provider: {
                         "@id": "https://thearmchairfuturist.com/#person",
                       },
@@ -271,9 +271,9 @@ export default function RootLayout({
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "AI Mentoring - 5-Session Pack",
+                      name: "AI Guidance - 5-Session Pack",
                       description:
-                        "Five 1-on-1 AI mentoring sessions with progress tracking, priority scheduling, and personalized learning roadmap.",
+                        "Five 1-on-1 AI guidance sessions with progress tracking, priority scheduling, and personalized learning roadmap.",
                       provider: {
                         "@id": "https://thearmchairfuturist.com/#person",
                       },
@@ -285,9 +285,9 @@ export default function RootLayout({
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "AI Mentoring - 10-Session Pack",
+                      name: "AI Guidance - 10-Session Pack",
                       description:
-                        "Ten 1-on-1 AI mentoring sessions with custom AI literacy curriculum, async support, and quarterly progress review. Most popular option.",
+                        "Ten 1-on-1 AI guidance sessions with custom AI literacy curriculum, async support, and quarterly progress review. Most popular option.",
                       provider: {
                         "@id": "https://thearmchairfuturist.com/#person",
                       },
@@ -299,9 +299,9 @@ export default function RootLayout({
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "AI Mentoring - 20-Session Pack",
+                      name: "AI Guidance - 20-Session Pack",
                       description:
-                        "Twenty 1-on-1 AI mentoring sessions with dedicated account management, unlimited async support, and priority rescheduling. Executive-level coaching.",
+                        "Twenty 1-on-1 AI guidance sessions with dedicated account management, unlimited async support, and priority rescheduling. Executive-level coaching.",
                       provider: {
                         "@id": "https://thearmchairfuturist.com/#person",
                       },
@@ -339,11 +339,11 @@ export default function RootLayout({
               name: "Alex Myers",
               givenName: "Alex",
               familyName: "Myers",
-              jobTitle: "AI Literacy Mentor",
+              jobTitle: "AI Guide",
               url: "https://thearmchairfuturist.com",
               image: "https://thearmchairfuturist.com/alexheadshot-nobg.png",
               description:
-                "Alex Myers is an AI literacy mentor who teaches individuals and businesses to design, launch, and sell their own AI-powered services. Based in Portugal, serving clients worldwide.",
+                "Alex Myers is an AI guide who teaches individuals and businesses to design, launch, and sell their own AI-powered services. Based in Portugal, serving clients worldwide.",
               address: {
                 "@type": "PostalAddress",
                 addressCountry: "PT",
@@ -363,7 +363,7 @@ export default function RootLayout({
                 "Blockchain & Web3",
                 "Data Sovereignty",
                 "Agile & Scrum",
-                "AI Mentoring",
+                "AI Guidance",
                 "Psychology-Led Adoption",
                 "Human-Machine Workflow Design",
               ],
@@ -416,7 +416,7 @@ export default function RootLayout({
               alumniOf: "GenAI Academy",
               hasOccupation: {
                 "@type": "Occupation",
-                name: "AI Literacy Mentor",
+                name: "AI Guide",
                 occupationLocation: {
                   "@type": "Country",
                   name: "Portugal",
@@ -484,12 +484,12 @@ export default function RootLayout({
                 "Future of Work",
                 "Organizational Design",
                 "Digital Transformation",
-                "AI Mentoring",
+                "AI Guidance",
                 "Workflow Automation",
               ],
               hasOfferCatalog: {
                 "@type": "OfferCatalog",
-                name: "AI Literacy Mentorship & Done-For-You Services",
+                name: "AI Guidance & Done-For-You Services",
                 itemListElement: [
                   {
                     "@type": "Offer",
@@ -506,9 +506,9 @@ export default function RootLayout({
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "AI Mentoring - Single Session",
+                      name: "AI Guidance - Single Session",
                       description:
-                        "One 60-minute 1-on-1 AI mentoring session",
+                        "One 60-minute 1-on-1 AI guidance session",
                     },
                     price: "100",
                     priceCurrency: "EUR",
@@ -517,9 +517,9 @@ export default function RootLayout({
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "AI Mentoring - 5-Session Pack",
+                      name: "AI Guidance - 5-Session Pack",
                       description:
-                        "Five 1-on-1 AI mentoring sessions with progress tracking",
+                        "Five 1-on-1 AI guidance sessions with progress tracking",
                     },
                     price: "475",
                     priceCurrency: "EUR",
@@ -528,9 +528,9 @@ export default function RootLayout({
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "AI Mentoring - 10-Session Pack",
+                      name: "AI Guidance - 10-Session Pack",
                       description:
-                        "Ten 1-on-1 AI mentoring sessions, most popular option",
+                        "Ten 1-on-1 AI guidance sessions, most popular option",
                     },
                     price: "900",
                     priceCurrency: "EUR",
@@ -539,9 +539,9 @@ export default function RootLayout({
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "AI Mentoring - 20-Session Pack",
+                      name: "AI Guidance - 20-Session Pack",
                       description:
-                        "Twenty 1-on-1 AI mentoring sessions, executive-level",
+                        "Twenty 1-on-1 AI guidance sessions, executive-level",
                     },
                     price: "1700",
                     priceCurrency: "EUR",

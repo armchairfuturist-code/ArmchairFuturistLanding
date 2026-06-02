@@ -13,23 +13,16 @@ interface WordPullUpProps {
    * (e.g. add `italic`) or override the base word style.
    */
   wordClassNames?: Record<string, string>;
-  /**
-   * Per-word inline style overrides, keyed by the exact word in the input
-   * string. Merged into the outer wrapper's inline style (padding/margin).
-   * Use this when a specific word needs more breathing room (e.g. an italic
-   * tail that extends past the standard right padding).
-   */
-  wordStyles?: Record<string, React.CSSProperties>;
   delay?: number;
   duration?: number;
   once?: boolean;
 }
+
 export function WordPullUp({
   text,
   className,
   wordClassName,
   wordClassNames,
-  wordStyles,
   delay = 0,
   duration = 0.5,
   once = true,
@@ -46,7 +39,6 @@ export function WordPullUp({
         const wordClasses = ["inline-block", wordClassName, extra]
           .filter(Boolean)
           .join(" ");
-        const overrides = wordStyles?.[word];
         return (
           <span
             key={i}
@@ -61,7 +53,6 @@ export function WordPullUp({
               paddingRight: "0.20em",
               marginLeft: "-0.15em",
               marginRight: "0.05em",
-              ...overrides,
             }}
           >
             <motion.span

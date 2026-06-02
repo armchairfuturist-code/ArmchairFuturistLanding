@@ -66,8 +66,8 @@ export const archetypes: Archetype[] = [
       'You don\'t need more information. You need a thinking partner who can help you build your own filter, so you stop reacting to the news cycle and start making deliberate choices about where AI fits in your work.',
     ],
     primaryCta: {
-      label: 'Start with AI Mentoring',
-      href: '/#ai-mentoring',
+      label: 'Start with AI Guidance',
+      href: '/#ai-guidance',
     },
     secondaryCta: {
       label: 'Get the weekly newsletter',
@@ -77,15 +77,15 @@ export const archetypes: Archetype[] = [
     faq: [
       {
         question: 'What does it mean if my AI readiness score shows "Curious Professional"?',
-        answer: 'It means you\'re actively interested in AI but haven\'t committed to a specific direction. You\'re consuming information without a framework for filtering it. This is the most common profile and the easiest to address with the right mentoring.',
+        answer: 'It means you\'re actively interested in AI but haven\'t committed to a specific direction. You\'re consuming information without a framework for filtering it. This is the most common profile and the easiest to address with the right guidance.',
       },
       {
         question: 'How can a curious professional build AI readiness?',
-        answer: 'Stop trying to track every tool and start building a mental model for evaluating which ones matter to your specific context. AI Mentoring with Alex Myers provides a structured framework for moving from overwhelmed consumer to confident decision-maker.',
+        answer: 'Stop trying to track every tool and start building a mental model for evaluating which ones matter to your specific context. AI Guidance with Alex Myers provides a structured framework for moving from overwhelmed consumer to confident decision-maker.',
       },
       {
         question: 'What services help professionals who feel overwhelmed by AI?',
-        answer: 'AI Mentoring and Mindset Coaching sessions range from $120 (€100) for a single session to customized packages, and focus on building your personal framework for navigating AI. The weekly Substack newsletter provides ongoing high-signal insights without the noise.',
+        answer: 'AI Guidance and Mindset Coaching sessions range from $120 (€100) for a single session to customized packages, and focus on building your personal framework for navigating AI. The weekly Substack newsletter provides ongoing high-signal insights without the noise.',
       },
     ],
     metaTitle: 'AI Readiness: The Curious Professional | The Armchair Futurist',

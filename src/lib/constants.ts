@@ -21,7 +21,7 @@ export const COACHING_PACKAGES = [
     discountPercent: 0,
     savings: 0,
     savingsUSD: 0,
-    description: 'One 60-minute 1-on-1 AI mentoring session',
+    description: 'One 60-minute 1-on-1 AI guidance session',
     features: [
       'Personal AI mindset coaching',
       'Practical framework for your context',

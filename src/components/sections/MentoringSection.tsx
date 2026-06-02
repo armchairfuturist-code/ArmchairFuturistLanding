@@ -72,13 +72,13 @@ export default function MentoringSection() {
     currency === 'EUR' ? `€${eur.toLocaleString()}` : `$${usd.toLocaleString()}`;
 
   return (
-    <section id="ai-mentoring" className="py-16 md:py-24 px-4 bg-secondary scroll-mt-20">
+    <section id="ai-guidance" className="py-16 md:py-24 px-4 bg-secondary scroll-mt-20">
       <div className="container max-w-5xl mx-auto">
         <BlurFade inView>
           <div className="text-center mb-12">
             <p className="text-xs text-muted-foreground/60 font-mono mb-2">Last updated: May 2026</p>
             <p className="text-sm font-mono text-primary uppercase tracking-widest mb-3">
-              One-on-One AI Mentoring
+              One-on-One AI Guidance
             </p>
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
               Navigating the edge isn&apos;t a solo endeavor
@@ -254,7 +254,7 @@ export default function MentoringSection() {
                     href={CALENDAR_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={() => trackConversion(`mentoring_${pkg.id}`, pkg.totalPrice)}
+                    onClick={() => trackConversion(`guidance_${pkg.id}`, pkg.totalPrice)}
                   >
                     <CalendarDays className="mr-1.5 h-4 w-4" aria-hidden="true" />
                     Book {pkg.sessions > 1 ? `${pkg.sessions}-Pack` : 'Now'}

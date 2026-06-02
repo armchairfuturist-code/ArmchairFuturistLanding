@@ -9,19 +9,19 @@ import { Calendar, CheckCircle2, Linkedin, Trophy } from 'lucide-react';
 const siteUrl = 'https://thearmchairfuturist.com';
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'About Alex Myers - AI Literacy Mentor | The Armchair Futurist',
-  description: 'Alex Myers is an AI literacy mentor who teaches you to design, launch, and sell your own AI-powered services. With 6 certifications and 40+ AI systems deployed, he builds understanding you keep.',
+  title: 'About Alex Myers - AI Guide | The Armchair Futurist',
+  description: 'Alex Myers is an AI guide who teaches you to design, launch, and sell your own AI-powered services. With 6 certifications and 40+ AI systems deployed, he builds understanding you keep.',
   openGraph: {
-    title: 'About Alex Myers - AI Literacy Mentor',
-    description: 'Alex Myers is an AI literacy mentor who teaches you to design, launch, and sell your own AI-powered services. Certified Futurist with 40+ AI systems deployed.',
+    title: 'About Alex Myers - AI Guide',
+    description: 'Alex Myers is an AI guide who teaches you to design, launch, and sell your own AI-powered services. Certified Futurist with 40+ AI systems deployed.',
     url: '/about',
-    siteName: 'AI Literacy Mentor',
+    siteName: 'AI Guide',
     images: [
       {
         url: '/alexheadshot-nobg.png',
         width: 800,
         height: 800,
-        alt: 'Alex Myers - AI Literacy Mentor',
+        alt: 'Alex Myers - AI Guide',
         type: 'image/png',
       },
     ],
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'About Alex Myers',
-    description: 'AI literacy mentor who teaches you to design, launch, and sell your own AI-powered services.',
+    description: 'AI guide who teaches you to design, launch, and sell your own AI-powered services.',
     images: ['/alexheadshot-nobg.png'],
   },
 };
@@ -82,7 +82,7 @@ const expertiseAreas = [
   "Digital Transformation",
   "Data Sovereignty",
   "Agile & Scrum",
-  "AI Mentoring",
+  "AI Guidance",
   "Psychology-Led Adoption",
   "Human-Machine Workflow Design",
   "Blockchain & Web3",
@@ -129,8 +129,7 @@ export default function AboutPage() {
                 <div className="relative w-full max-w-md mx-auto aspect-square rounded-2xl overflow-hidden shadow-2xl border border-primary/20">
                   <Image
                     src="/alexheadshot-nobg.png"
-                    alt="Alex Myers - AI Literacy Mentor"
-                    fill
+                    alt="Alex Myers - AI Guide"
                     className="object-cover"
                     priority
                   />
@@ -147,13 +146,13 @@ export default function AboutPage() {
               <div>
                 <p className="text-xs text-muted-foreground/60 font-mono mb-2">About Alex Myers</p>
                 <h1 className="font-heading text-4xl md:text-5xl font-bold tracking-tight text-primary mb-6">
-                  AI Literacy Mentor
+                  AI Guide
                 </h1>
                 <p className="text-lg text-foreground/80 font-sans leading-relaxed mb-6">
                   Alex Myers teaches you to design, launch, and sell your own AI-powered services. No dependency. No retainer. Just understanding so deep you never need another expert.
                 </p>
                 <p className="text-lg text-foreground/80 font-sans leading-relaxed mb-8">
-                  Certified Futurist &amp; AI Literacy Mentor with <strong className="text-primary">6 professional certifications</strong> and <strong className="text-primary">40+ AI systems deployed</strong>. Based in <strong className="text-primary">Portugal</strong>, serving clients <strong className="text-primary">worldwide</strong>.
+                  Certified Futurist &amp; AI Guide with <strong className="text-primary">6 professional certifications</strong> and <strong className="text-primary">40+ AI systems deployed</strong>. Based in <strong className="text-primary">Portugal</strong>, serving clients <strong className="text-primary">worldwide</strong>.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <Button asChild size="lg" className="h-12 px-6">
@@ -335,10 +334,10 @@ export default function AboutPage() {
             "name": "Alex Myers",
             "givenName": "Alex",
             "familyName": "Myers",
-            "jobTitle": "AI Literacy Mentor",
+            "jobTitle": "AI Guide",
             "url": "https://thearmchairfuturist.com",
             "image": "https://thearmchairfuturist.com/alexheadshot-nobg.png",
-            "description": "Alex Myers is an AI literacy mentor who teaches individuals and businesses to design, launch, and sell their own AI-powered services. Based in Portugal, serving clients worldwide.",
+            "description": "Alex Myers is an AI guide who teaches individuals and businesses to design, launch, and sell their own AI-powered services. Based in Portugal, serving clients worldwide.",
             "address": {
               "@type": "PostalAddress",
               "addressCountry": "PT",

@@ -118,8 +118,8 @@ export default function KeyStatsSection() {
                 About Alex Myers
               </h3>
               <p className="text-sm text-foreground/80 font-sans leading-relaxed">
-                <strong>AI Literacy Mentor</strong> based in Portugal, serving clients worldwide. 
-                With <strong>6 professional certifications</strong> and <strong>40+ AI systems deployed</strong>, 
+                <strong>AI Guide</strong> based in Portugal, serving clients worldwide.
+                With <strong>6 professional certifications</strong> and <strong>40+ AI systems deployed</strong>,
                 Alex teaches deep AI literacy so you can design, launch, and sell your own AI-powered services.
                 No dependency. No retainer. Just understanding.
               </p>

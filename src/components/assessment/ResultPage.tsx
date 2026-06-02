@@ -32,8 +32,8 @@ const hardSellConfig: Record<string, {
   'curious-professional': {
     urgencyText: 'The AI skills gap is widening every month. Start building your edge now.',
     guaranteeText: 'First session satisfaction guaranteed, or your money back.',
-    priceAnchor: 'Mentoring sessions from $120 (€100)',
-    ctaLabel: 'Book Your First Mentoring Session — $120',
+    priceAnchor: 'Guidance sessions from $120 (€100)',
+    ctaLabel: 'Book Your First Guidance Session — $120',
   },
   'ready-builder': {
     urgencyText: 'Limited to 5 clients per month. Next available slot fills fast.',

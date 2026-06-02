@@ -32,7 +32,7 @@ const paths: Path[] = [
   {
     id: "together",
     label: "We Do It Together",
-    title: "Mentoring & Education",
+    title: "Guidance & Education",
     kicker: "Build the literacy to do it yourself",
     description:
       "I teach you the AI literacy required to design, launch, and sell your own AI-powered services. From a single 60-minute session to a 3-month executive intensive — every path leads to the same place: you, independent.",
@@ -55,7 +55,7 @@ const paths: Path[] = [
         icon: Zap,
       },
       {
-        name: "1-on-1 AI Mentoring",
+        name: "1-on-1 AI Guidance",
         price: "$120 – $2,000",
         tag: "Single · 5 · 10 · 20 Packs",
         description:
@@ -68,7 +68,7 @@ const paths: Path[] = [
           "Flexible scheduling",
         ],
         cta: "Browse Session Packs",
-        ctaLink: "/#ai-mentoring",
+        ctaLink: "/#ai-guidance",
         highlighted: false,
         icon: BookOpen,
         note: "5, 10, and 20-session packs save up to 30%",
@@ -78,7 +78,7 @@ const paths: Path[] = [
         price: "$2,497",
         tag: "8 Weeks",
         description:
-          "The core transformation. An 8-week structured mentorship where you build your own AI-powered service or brand as you learn. Weekly 1-on-1 sessions, a proven playbook, and real outputs — by week 8 you're the expert.",
+          "The core transformation. An 8-week structured program where you build your own AI-powered service or brand as you learn. Weekly 1-on-1 sessions, a proven playbook, and real outputs — by week 8 you're the expert.",
         features: [
           "Weekly 1-on-1 coaching sessions",
           "Structured AI literacy playbook",
