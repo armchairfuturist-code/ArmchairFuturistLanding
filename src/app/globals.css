@@ -85,10 +85,10 @@
         --storm-sea: 198 32% 61%; /* #7fadbe */
         --storm-deep: 196 35% 33%; /* #356373 */
 
-        /* Typography — Forma DJR Micro (Manrope as open-source substitute) */
-        --font-display: "Forma DJR Micro", "Manrope", "Inter", system-ui, sans-serif;
-        --font-body: "Forma DJR Micro", "Manrope", "Inter", system-ui, sans-serif;
-        --font-ui: "Forma DJR Micro", "Manrope", "Inter", system-ui, sans-serif;
+        /* Typography — Space Grotesk (display) + Manrope (body/UI) */
+        --font-display: var(--font-display), "Space Grotesk", "Manrope", system-ui, sans-serif;
+        --font-body: "Manrope", "Inter", system-ui, sans-serif;
+        --font-ui: "Manrope", "Inter", system-ui, sans-serif;
         --font-mono: '"JetBrains Mono"', '"Courier New"', Courier, monospace;
 
         /* Standard colors — shadcn/ui contract */

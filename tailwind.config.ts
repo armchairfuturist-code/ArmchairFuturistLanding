@@ -9,12 +9,13 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        // HP system: Forma DJR Micro (proprietary) with Manrope (Google Fonts) substitute
-        display: ['"Forma DJR Micro"', '"Manrope"', '"Inter"', "system-ui", "sans-serif"],
-        sans: ['"Forma DJR Micro"', '"Manrope"', '"Inter"', "system-ui", "sans-serif"],
-        heading: ['"Forma DJR Micro"', '"Manrope"', '"Inter"', "system-ui", "sans-serif"],
-        body: ['"Forma DJR Micro"', '"Manrope"', '"Inter"', "system-ui", "sans-serif"],
-        ui: ['"Forma DJR Micro"', '"Manrope"', '"Inter"', "system-ui", "sans-serif"],
+        // Display: Space Grotesk (Google Fonts) — geometric sans, single-story 'a'
+        // Body/UI: Manrope (Google Fonts) — neutral, high readability
+        display: ['var(--font-display)', '"Space Grotesk"', '"Manrope"', "system-ui", "sans-serif"],
+        sans: ['"Manrope"', '"Inter"', "system-ui", "sans-serif"],
+        heading: ['var(--font-display)', '"Space Grotesk"', '"Manrope"', "system-ui", "sans-serif"],
+        body: ['"Manrope"', '"Inter"', "system-ui", "sans-serif"],
+        ui: ['"Manrope"', '"Inter"', "system-ui", "sans-serif"],
         mono: ['"JetBrains Mono"', '"Courier New"', "Courier", "monospace"],
       },
       letterSpacing: {
