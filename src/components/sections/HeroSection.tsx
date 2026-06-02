@@ -152,6 +152,7 @@ export default function HeroSection() {
               className="relative block text-[clamp(2.75rem,7.5vw,6rem)] font-display font-bold tracking-tight leading-[0.98] text-balance hp-hero-glow"
               wordClassName="font-display font-bold hp-gradient-text"
               wordClassNames={{ Better: "italic hp-gradient-text" }}
+              wordStyles={{ Better: { marginRight: "0.30em" } }}
               delay={0.3}
               duration={prefersReduced ? 0 : 0.7}
             />
