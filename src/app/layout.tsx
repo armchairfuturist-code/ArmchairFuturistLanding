@@ -101,16 +101,24 @@ export const metadata: Metadata = {
   },
 };
 
-// HP design system — Forma DJR Micro (proprietary) with Manrope (Google Fonts) substitute.
-// Manrope approximates Forma's geometric character with single-story 'a' and tight apertures.
-// Update font-family stack to "Forma DJR Micro" first when licensing is secured.
-import { Manrope } from "next/font/google";
+// Display font: Space Grotesk (Google Fonts) — geometric sans with
+// single-story 'a' and tight apertures. Pairs well with Manrope for body.
+// To re-add Forma DJR Micro as primary, prepend it to --font-display in
+// globals.css when licensing is secured.
+import { Manrope, Space_Grotesk } from "next/font/google";
 
 const manrope = Manrope({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-body",
   weight: ["400", "500", "600", "700"],
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-display",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export default function RootLayout({
@@ -127,6 +135,7 @@ export default function RootLayout({
       <body
         className={cn(
           manrope.variable,
+          spaceGrotesk.variable,
           "font-sans antialiased flex flex-col min-h-[100dvh]",
         )}
       >
