@@ -138,23 +138,33 @@ export default function MentoringSection() {
             <p className="text-muted-foreground max-w-xl mx-auto mb-4">
               All sessions are 60 minutes, held via video call. Pick the commitment that fits your goals.
             </p>
-            {/* Currency toggle */}
-            <div className="flex justify-center">
-              <div className="inline-flex items-center gap-1 bg-muted rounded-full p-1 text-xs font-medium">
+            {/* Currency toggle — prominent so users notice pricing is region-aware */}
+            <div className="flex justify-center mt-2">
+              <div className="inline-flex items-center gap-1.5 bg-background border-2 border-primary/30 rounded-full p-1.5 text-sm font-semibold shadow-sm">
                 <button
                   onClick={() => handleCurrencyChange('USD')}
-                  className={`px-3 py-1 rounded-full transition-colors ${
-                    currency === 'USD' ? 'bg-background text-foreground' : 'text-muted-foreground hover:text-foreground'
+                  className={`inline-flex items-center gap-1.5 px-5 py-2 rounded-full transition-all duration-200 ${
+                    currency === 'USD'
+                      ? 'bg-primary text-primary-foreground shadow-md'
+                      : 'text-foreground/70 hover:text-foreground hover:bg-muted'
                   }`}
+                  aria-pressed={currency === 'USD'}
+                  aria-label="Show prices in US Dollars"
                 >
+                  <DollarSign className="h-4 w-4" aria-hidden="true" />
                   USD
                 </button>
                 <button
                   onClick={() => handleCurrencyChange('EUR')}
-                  className={`px-3 py-1 rounded-full transition-colors ${
-                    currency === 'EUR' ? 'bg-background text-foreground' : 'text-muted-foreground hover:text-foreground'
+                  className={`inline-flex items-center gap-1.5 px-5 py-2 rounded-full transition-all duration-200 ${
+                    currency === 'EUR'
+                      ? 'bg-primary text-primary-foreground shadow-md'
+                      : 'text-foreground/70 hover:text-foreground hover:bg-muted'
                   }`}
+                  aria-pressed={currency === 'EUR'}
+                  aria-label="Show prices in Euros"
                 >
+                  <Euro className="h-4 w-4" aria-hidden="true" />
                   EUR
                 </button>
               </div>

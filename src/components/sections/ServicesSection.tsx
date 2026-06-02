@@ -135,7 +135,7 @@ const paths: Path[] = [
           "You own the code and content",
         ],
         cta: "Start the Intake",
-        ctaLink: CALENDAR_URL,
+        ctaLink: "https://forms.gle/Ak5af4CUkCfRk8mM9",
         highlighted: false,
         icon: Globe,
       },
@@ -206,7 +206,13 @@ export default function ServicesSection() {
                 </div>
               </BlurFade>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+              <div
+                className={`grid grid-cols-1 gap-6 mx-auto ${
+                  path.id === 'foryou'
+                    ? 'md:grid-cols-2 max-w-4xl'
+                    : 'md:grid-cols-2 lg:grid-cols-4 max-w-7xl'
+                }`}
+              >
                 {path.tiers.map((tier, index) => {
                   const Icon = tier.icon;
                   return (
