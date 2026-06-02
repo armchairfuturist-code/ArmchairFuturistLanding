@@ -36,11 +36,11 @@ const faqItems: FAQItem[] = [
   },
   {
     question: "How much do services cost?",
-    answer: "Two paths. 'We do it together' mentoring starts at $120 (€100) for a single 60-minute session and scales through 5, 10, and 20-session packs (up to 30% savings) up to the $12,000 AI Independence Incubator. The $199 Digital Identity Landing Page is the easiest entry point into the 'I do it for you' path. Custom AI Provisioning runs $1,000-$5,000 depending on scope. Pricing adjusts for emerging markets through Purchasing Power Parity."
+    answer: "Two paths. 'We do it together' guidance starts at $120 (€100) for a single 60-minute session and scales through 5, 10, and 20-session packs (up to 30% savings) up to the $12,000 AI Independence Incubator. The $199 Digital Identity Landing Page is the easiest entry point into the 'I do it for you' path. Custom AI Provisioning runs $1,000-$5,000 depending on scope. Pricing adjusts for emerging markets through Purchasing Power Parity.",
   },
   {
-    question: "How does AI mentoring work?",
-    answer: "One-on-one coaching starting at $120 (€100) per 60-minute session. We focus on mindset before toolset — reframing how you think about AI rather than just teaching you tools. Each session blends practical guidance with how AI changes your role, your business, and your opportunities. Most clients start with 5 or 10 sessions."
+    question: "How does AI guidance work?",
+    answer: "One-on-one coaching starting at $120 (€100) per 60-minute session. We focus on mindset before toolset — reframing how you think about AI rather than just teaching you tools. Each session blends practical guidance with how AI changes your role, your business, and your opportunities. Most clients start with 5 or 10 sessions.",
   },
   {
     question: "Can Alex work with organizations outside the US?",
@@ -60,7 +60,7 @@ const faqItems: FAQItem[] = [
   },
   {
     question: "How do I get started?",
-    answer: "Three ways, depending on where you are. The $199 Digital Identity Landing Page requires no call — just submit the intake. For mentoring, browse session packs starting at $120 (€100) or apply for the AI Self-Sufficiency Program. For done-for-you builds, request a 30-minute fit call and Alex will scope the work."
+    answer: "Three ways, depending on where you are. The $199 Digital Identity Landing Page requires no call — just submit the intake. For guidance, browse session packs starting at $120 (€100) or apply for the AI Self-Sufficiency Program. For done-for-you builds, request a 30-minute fit call and Alex will scope the work.",
   }
 ];
 

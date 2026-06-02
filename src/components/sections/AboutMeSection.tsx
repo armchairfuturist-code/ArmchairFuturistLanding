@@ -208,7 +208,7 @@ export default function AboutMeSection() {
                     </a>
                   </div>
                   <p className="text-sm text-usvc-blue/60 font-mono mt-1 uppercase tracking-widest">
-                    AI Literacy Mentor
+                    AI Guide
                   </p>
                 </div>
               </BlurFade>

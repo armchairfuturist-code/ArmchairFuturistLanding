@@ -35,7 +35,7 @@ export default function HomePage() {
       {/* AUTHORITY — who is Alex, why trust him (incl. How I Work) */}
       <AboutMeSection />
 
-      {/* COACHING UPSELL — 1-on-1 AI mentoring with pack comparison */}
+      {/* COACHING UPSELL — 1-on-1 AI guidance with pack comparison */}
       <MentoringSection />
 
       {/* ROI CALCULATOR — interactive time-savings estimator */}

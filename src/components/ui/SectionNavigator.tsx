@@ -7,7 +7,7 @@ const sections = [
   { id: 'about-me', label: 'About' },
   { id: 'what-this-is-not', label: 'Fit' },
   { id: 'services', label: 'Services' },
-  { id: 'ai-mentoring', label: 'Mentoring' },
+  { id: 'ai-guidance', label: 'Guidance' },
   { id: 'case-studies', label: 'Cases' },
   { id: 'testimonials', label: 'Reviews' },
   { id: 'roi-calculator', label: 'ROI' },
