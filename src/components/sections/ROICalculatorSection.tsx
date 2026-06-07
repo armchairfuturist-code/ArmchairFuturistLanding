@@ -7,6 +7,7 @@ import { Calculator, Clock, DollarSign, ArrowRight, Mail, CheckCircle2, Loader2 
 import { Button } from '@/components/ui/button';
 import { CALENDAR_URL } from '@/lib/constants';
 import { trackEvent, trackConversion } from '@/lib/analytics';
+import { isValidEmail } from '@/lib/email-utils';
 
 const commonAutomations = [
   {
@@ -89,7 +90,7 @@ export default function ROICalculatorSection() {
 
   const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    if (!email || !isValidEmail(email)) {
       setEmailError('Please enter a valid email address.');
       return;
     }
