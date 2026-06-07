@@ -9,6 +9,7 @@ import {
 import {
   checkRateLimit,
   getRateLimitKey,
+  isValidEmail,
   RATE_LIMIT_ASSESSMENT,
 } from '@/lib/email-utils';
 
@@ -25,7 +26,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { email, answerIndices } = body;
 
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    if (!email || !isValidEmail(email)) {
       return NextResponse.json({ error: 'Invalid email address.' }, { status: 400 });
     }
 

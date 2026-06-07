@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getResend } from '@/lib/resend';
-import { escapeHtml, checkRateLimit, getRateLimitKey, sanitizeEmailHeaderValue } from '@/lib/email-utils';
+import { checkRateLimit, getRateLimitKey, isValidEmail, sanitizeEmailHeaderValue } from '@/lib/email-utils';
+import {
+  buildContactNotificationEmail,
+  buildContactAutoReplyEmail,
+} from '@/lib/contact/email-templates';
 
 const ALEX_EMAIL = process.env.ALEX_EMAIL || 'armchairfuturist@gmail.com';
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'Alex Myers <alex@thearmchairfuturist.com>';
@@ -33,7 +37,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Name, email, and message are required.' }, { status: 400 });
     }
 
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    if (!isValidEmail(email)) {
       return NextResponse.json({ error: 'Invalid email address.' }, { status: 400 });
     }
 
@@ -43,28 +47,7 @@ export async function POST(request: NextRequest) {
       from: FROM_EMAIL,
       to: ALEX_EMAIL,
       subject: `New Contact: ${sanitizeEmailHeaderValue(trimmedName)} - ${email}`,
-      html: `
-        <div style="font-family: system-ui, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #1a1a1a;">New Contact Form Submission</h2>
-          <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
-            <tr>
-              <td style="padding: 10px; border-bottom: 1px solid #e5e5e5; font-weight: bold; width: 120px;">Name:</td>
-              <td style="padding: 10px; border-bottom: 1px solid #e5e5e5;">${escapeHtml(trimmedName)}</td>
-            </tr>
-            <tr>
-              <td style="padding: 10px; border-bottom: 1px solid #e5e5e5; font-weight: bold;">Email:</td>
-              <td style="padding: 10px; border-bottom: 1px solid #e5e5e5;">${escapeHtml(email)}</td>
-            </tr>
-            <tr>
-              <td style="padding: 10px; border-bottom: 1px solid #e5e5e5; font-weight: bold; vertical-align: top;">Message:</td>
-              <td style="padding: 10px; border-bottom: 1px solid #e5e5e5; white-space: pre-wrap;">${escapeHtml(trimmedMessage)}</td>
-            </tr>
-          </table>
-          <p style="margin-top: 20px; color: #666; font-size: 14px;">
-            Submitted at: ${new Date().toLocaleString()}
-          </p>
-        </div>
-      `,
+      html: buildContactNotificationEmail({ name: trimmedName, email, message: trimmedMessage }),
     });
 
     // Auto-reply is best-effort; inbound notification is the success criterion.
@@ -73,20 +56,7 @@ export async function POST(request: NextRequest) {
         from: FROM_EMAIL,
         to: email,
         subject: 'Thanks for reaching out - Alex will be in touch soon',
-        html: `
-        <div style="font-family: system-ui, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #1a1a1a;">Thanks for reaching out, ${escapeHtml(trimmedName)}!</h2>
-          <p style="color: #333; line-height: 1.6;">
-            I've received your message and will get back to you as soon as possible—usually within 24 hours.
-          </p>
-          <p style="color: #333; line-height: 1.6;">
-            In the meantime, feel free to book a free strategy call if you'd like to speed things up:
-          </p>
-          <a href="https://calendar.app.google/nAHHwNMfhDvXGv7P7" style="display: inline-block; margin-top: 10px; padding: 12px 24px; background: #2563eb; color: white; text-decoration: none; border-radius: 6px; font-weight: bold;">
-            Book a Free Strategy Call
-          </a>
-        </div>
-      `,
+        html: buildContactAutoReplyEmail({ name: trimmedName }),
       });
     } catch (autoReplyError) {
       console.warn('Contact auto-reply failed (inbound notification was sent):', autoReplyError);

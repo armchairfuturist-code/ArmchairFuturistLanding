@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Mail, Loader2, Check, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { isValidEmail } from '@/lib/email-utils';
 
 export default function LeadCaptureInline() {
   const [name, setName] = useState('');
@@ -13,7 +14,7 @@ export default function LeadCaptureInline() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    if (!email || !isValidEmail(email)) {
       setError('Please enter a valid email.');
       return;
     }

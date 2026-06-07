@@ -5,6 +5,7 @@ import { Check, Mail, Loader2, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'motion/react';
 import { trackEvent } from '@/lib/analytics';
+import { isValidEmail } from '@/lib/email-utils';
 
 interface EmailCaptureProps {
   onComplete: () => void;
@@ -20,7 +21,7 @@ export default function EmailCapture({ onComplete, onSkip, answerIndices }: Emai
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    if (!email || !isValidEmail(email)) {
       setError('Please enter a valid email address.');
       return;
     }
