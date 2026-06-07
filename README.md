@@ -26,7 +26,7 @@ This is a high-conversion marketing platform that:
 - **class-variance-authority** - Conditional styling utilities
 
 ### Backend & Infrastructure
-- **Firebase Hosting** - Global CDN deployment platform
+- **Firebase App Hosting** (Cloud Run) - Serverless deployment platform for the Next.js app (auto-deploys on push to `main`)
 - **Firebase Firestore** - NoSQL database for storing assessment leads
 - **Firebase Analytics** - Built-in analytics for conversion tracking
 - **Resend** - Transactional email service API
@@ -208,34 +208,36 @@ The build output will be in the `.next` directory.
 
 ## 🚢 Deployment
 
-### Firebase Deployment
+### Firebase App Hosting (auto-deploy on push)
 
-1. **Authenticate with Firebase**
+This project uses **Firebase App Hosting** (Cloud Run-based) — not the legacy "Firebase Hosting" CDN product. The Firebase App Hosting GitHub App is installed on this repo and watches the `main` branch. A push to `main` automatically triggers a container build and deploy — no manual `firebase deploy` command is needed.
+
+1. **Make your changes and push to `main`**
    ```bash
-   firebase login
+   git add .
+   git commit -m "Your change"
+   git push origin main
    ```
 
-2. **Deploy to Firebase Hosting**
-   ```bash
-   firebase deploy --only hosting
-   ```
-
-**Deployment Details:**
-- **Production URL**: https://thearmchairfuturist.com
-- **Site ID**: `armchair-futurist`
-- **Cloud Function**: SSR Cloud Function (2nd Gen) built in Google Cloud Build
-- **Estimated Deployment Time**: 3-4 minutes
-  - Firebase Hosting: ~2 minutes
-  - SSR Cloud Function build: ~200 seconds (container image creation)
+2. **Watch the deploy** — the App Hosting build runs as a `event: dynamic` "Push on main" GitHub Actions run. It is not a workflow you maintain; it is the App Hosting GitHub App's pipeline. A build typically takes 2-3 minutes.
 
 3. **Post-Deploy Health Check**
    ```bash
    curl -sf https://thearmchairfuturist.com
    ```
 
+**Deployment Details:**
+- **Production URL**: https://thearmchairfuturist.com
+- **Platform**: Firebase App Hosting (Cloud Run, `us-central1`)
+- **Build source**: `Dockerfile` (Next.js standalone output)
+- **Config files**: `apphosting.yaml` (env vars) + `firebase.json` (the `hosting` block with `frameworksBackend` for the Next.js runtime)
+- **Estimated Deploy Time**: 2-3 minutes (build + container push + traffic shift)
+
+**Do NOT** add a `firebase-hosting-merge.yml` workflow — that deploys to the legacy Firebase Hosting product, not App Hosting, and would conflict with the auto-deploy pipeline.
+
 ### Custom Domain Configuration
 
-The production URL uses a custom domain (thearmchairfuturist.com). The Firebase site ID is `armchair-futurist` (not `thearmchairfuturist`).
+The production URL (`thearmchairfuturist.com`) is a custom domain mapped to the App Hosting backend in the Firebase console.
 
 ### Environment Variables
 

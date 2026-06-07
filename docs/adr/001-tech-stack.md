@@ -8,7 +8,7 @@ The Armchair Futurist landing page is a Next.js web application serving as a mar
 - Rapid development and iteration
 - Excellent performance for SEO and user experience
 - Built-in testing capabilities
-- Easy deployment to Firebase Hosting
+- Easy deployment to Firebase App Hosting (Cloud Run)
 
 ## Decision
 We selected the following technology stack:
@@ -24,7 +24,7 @@ We selected the following technology stack:
 - **Lucide React**: Icon library.
 
 ### Backend & Infrastructure
-- **Firebase Hosting**: Deployment platform for production.
+- **Firebase App Hosting** (Cloud Run): Serverless deployment platform for production. Auto-deploys on push to `main` via the Firebase App Hosting GitHub App.
 - **Firebase Firestore**: NoSQL database for storing assessment leads.
 - **Firebase Analytics**: Built-in analytics for conversion tracking.
 - **Resend**: Email service API for automated communications.
@@ -41,7 +41,7 @@ We selected the following technology stack:
 - **Server Components**: Improved performance and SEO.
 - **API Routes**: Built-in backend functionality (e.g., assessment submission).
 - **TypeScript Support**: First-class TypeScript integration.
-- **Firebase Integration**: Native support for Firebase Hosting deployment.
+- **Firebase Integration**: Native support for Firebase App Hosting (Cloud Run) deployment.
 
 ### Why Firebase?
 - **Global CDN**: Fast content delivery worldwide.
@@ -63,14 +63,14 @@ We selected the following technology stack:
 
 ### Positive
 - **Fast Development**: Modern tooling and component libraries accelerate development.
-- **Excellent Performance**: Next.js SSR and Firebase CDN ensure fast load times.
+- **Excellent Performance**: Next.js SSR and App Hosting's container runtime ensure fast load times.
 - **Scalability**: Firebase handles traffic spikes automatically.
 - **Maintainability**: TypeScript and modular architecture reduce bugs.
 - **SEO**: Server-side rendering improves search engine rankings.
 
 ### Negative
 - **Firebase Lock-in**: Vendor lock-in with Firebase ecosystem.
-- **Firebase Costs**: Firestore and Hosting costs increase with scale.
+- **Firebase Costs**: Firestore and App Hosting costs increase with scale.
 - **Email Service**: Resend dependency for critical communications.
 - **Learning Curve**: Team needs familiarity with Next.js and Firebase patterns.
 
@@ -98,5 +98,5 @@ We selected the following technology stack:
 
 ## References
 - [Next.js Documentation](https://nextjs.org/docs)
-- [Firebase Hosting](https://firebase.google.com/docs/hosting)
+- [Firebase App Hosting](https://firebase.google.com/docs/app-hosting)
 - [Radix UI](https://www.radix-ui.com/)
