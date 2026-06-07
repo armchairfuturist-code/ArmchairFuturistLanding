@@ -42,7 +42,7 @@
 
 | Term | Definition |
 |------|------------|
-| **Firebase Hosting** | The hosting platform for the Next.js application, deployed at `thearmchairfuturist.com`. |
+| **Firebase App Hosting** | The serverless, Cloud Run-based hosting platform for the Next.js application, deployed at `thearmchairfuturist.com`. Auto-deploys on push to `main` via the Firebase App Hosting GitHub App. **Not** the same as legacy Firebase Hosting. |
 | **Firebase Firestore** | NoSQL database for storing assessment leads and contact information. |
 | **Resend** | Email service API used for sending automated emails. |
 | **Next.js App Router** | The modern routing system used in Next.js 16 for building the application. |
