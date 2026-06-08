@@ -4,7 +4,7 @@ import { checkRateLimit, getRateLimitKey, isValidEmail, sanitizeEmailHeaderValue
 import {
   buildContactNotificationEmail,
   buildContactAutoReplyEmail,
-} from '@/lib/contact/email-templates';
+} from '@/lib/email/templates';
 
 const ALEX_EMAIL = process.env.ALEX_EMAIL || 'armchairfuturist@gmail.com';
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'Alex Myers <alex@thearmchairfuturist.com>';

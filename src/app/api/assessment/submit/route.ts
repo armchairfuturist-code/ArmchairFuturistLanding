@@ -5,7 +5,7 @@ import { scoreFromAnswerIndices } from '@/lib/assessment/resolve-answers';
 import {
   buildProspectResultEmail,
   buildAlexNotificationEmail,
-} from '@/lib/assessment/email-templates';
+} from '@/lib/email/templates';
 import {
   checkRateLimit,
   getRateLimitKey,
