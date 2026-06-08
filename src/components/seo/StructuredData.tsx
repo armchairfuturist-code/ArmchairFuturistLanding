@@ -1,4 +1,4 @@
-import { PRICING, PRICE_RANGE } from "@/lib/pricing";
+import { PRICING, PRICE_RANGE, COACHING_PRICING } from "@/lib/pricing";
 
 const siteUrl = "https://thearmchairfuturist.com";
 const personId = `${siteUrl}/#person`;
@@ -97,45 +97,45 @@ export default function StructuredData() {
                   "@type": "Offer",
                   itemOffered: {
                     "@type": "Service",
-                    name: PRICING.aiGuidanceSingle.name,
-                    description: PRICING.aiGuidanceSingle.description,
+                    name: COACHING_PRICING.single.name,
+                    description: COACHING_PRICING.single.description,
                     provider: { "@id": personId },
                   },
-                  price: String(PRICING.aiGuidanceSingle.price),
-                  priceCurrency: PRICING.aiGuidanceSingle.currency,
+                  price: String(COACHING_PRICING.single.price),
+                  priceCurrency: COACHING_PRICING.single.currency,
                 },
                 {
                   "@type": "Offer",
                   itemOffered: {
                     "@type": "Service",
-                    name: PRICING.aiGuidance5Pack.name,
-                    description: PRICING.aiGuidance5Pack.description,
+                    name: COACHING_PRICING['pack-5'].name,
+                    description: COACHING_PRICING['pack-5'].description,
                     provider: { "@id": personId },
                   },
-                  price: String(PRICING.aiGuidance5Pack.price),
-                  priceCurrency: PRICING.aiGuidance5Pack.currency,
+                  price: String(COACHING_PRICING['pack-5'].price),
+                  priceCurrency: COACHING_PRICING['pack-5'].currency,
                 },
                 {
                   "@type": "Offer",
                   itemOffered: {
                     "@type": "Service",
-                    name: PRICING.aiGuidance10Pack.name,
-                    description: PRICING.aiGuidance10Pack.description,
+                    name: COACHING_PRICING['pack-10'].name,
+                    description: COACHING_PRICING['pack-10'].description,
                     provider: { "@id": personId },
                   },
-                  price: String(PRICING.aiGuidance10Pack.price),
-                  priceCurrency: PRICING.aiGuidance10Pack.currency,
+                  price: String(COACHING_PRICING['pack-10'].price),
+                  priceCurrency: COACHING_PRICING['pack-10'].currency,
                 },
                 {
                   "@type": "Offer",
                   itemOffered: {
                     "@type": "Service",
-                    name: PRICING.aiGuidance20Pack.name,
-                    description: PRICING.aiGuidance20Pack.description,
+                    name: COACHING_PRICING['pack-20'].name,
+                    description: COACHING_PRICING['pack-20'].description,
                     provider: { "@id": personId },
                   },
-                  price: String(PRICING.aiGuidance20Pack.price),
-                  priceCurrency: PRICING.aiGuidance20Pack.currency,
+                  price: String(COACHING_PRICING['pack-20'].price),
+                  priceCurrency: COACHING_PRICING['pack-20'].currency,
                 },
                 {
                   "@type": "Offer",

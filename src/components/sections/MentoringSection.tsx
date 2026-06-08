@@ -6,7 +6,8 @@ import { Heart, Lightbulb, TrendingUp, CalendarDays, CheckCircle2, Sparkles, Eur
 import { trackConversion, trackEvent } from '@/lib/analytics';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { motion } from 'motion/react';
-import { CALENDAR_URL, COACHING_PACKAGES, CurrencyCode } from '@/lib/constants';
+import { CALENDAR_URL } from '@/lib/constants';
+import { COACHING_PACKAGES, type CurrencyCode } from '@/lib/pricing';
 // Inline currency toggle — no separate component needed
 
 const pillars = [
