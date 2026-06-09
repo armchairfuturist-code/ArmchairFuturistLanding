@@ -86,6 +86,8 @@ tmp/
 # ── GSD baseline (auto-generated) ──
 nul
 nul.*
+# Shell artifact files
+^
 con
 con.*
 prn
