@@ -34,8 +34,8 @@ const siteUrl = "https://thearmchairfuturist.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Alex Myers - AI Guide",
-    template: "%s | Alex Myers - AI Guide",
+    default: "Alex Myers | AI Guide — Design, Launch & Sell AI Services",
+    template: "%s | Alex Myers — AI Guide",
   },
   description:
     "Alex Myers is an AI guide who teaches you to design, launch, and sell your own AI-powered services. No dependency. No retainer. Just understanding.",
@@ -78,29 +78,19 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Alex Myers - AI Guide",
+    title: "Alex Myers | AI Guide — Design, Launch & Sell AI Services",
     description:
       "Alex Myers is an AI guide who teaches you to design, launch, and sell your own AI-powered services. No dependency. No retainer. Just understanding.",
     url: "/",
-    siteName: "AI Guide",
-    images: [
-      {
-        url: "/og-default.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Alex Myers - AI Guide",
-        type: "image/jpeg",
-      },
-    ],
+    siteName: "The Armchair Futurist",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Alex Myers - AI Guide",
+    title: "Alex Myers | AI Guide — Design, Launch & Sell AI Services",
     description:
       "Alex Myers is an AI guide who teaches you to design, launch, and sell your own AI-powered services. No dependency. No retainer. Just understanding.",
-    images: ["/og-default.jpg"],
     creator: "@armchairfuturist",
   },
   robots: {
