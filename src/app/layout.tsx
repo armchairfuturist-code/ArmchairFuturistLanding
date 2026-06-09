@@ -34,11 +34,11 @@ const siteUrl = "https://thearmchairfuturist.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Alex Myers | AI Guide — Design, Launch & Sell AI Services",
-    template: "%s | Alex Myers — AI Guide",
+    default: "Alex Myers — AI Consultant & Instructor",
+    template: "%s | Alex Myers — AI Consultant & Instructor",
   },
   description:
-    "Alex Myers is an AI guide who teaches you to design, launch, and sell your own AI-powered services. No dependency. No retainer. Just understanding.",
+    "Alex Myers teaches builders, professionals, and creatives how to leverage practical AI to automate workflows, build custom solutions, and scale daily output — turning AI capabilities into competitive business and personal leverage.",
   authors: [
     {
       name: "Alex Myers",
@@ -48,23 +48,22 @@ export const metadata: Metadata = {
   creator: "Alex Myers",
   publisher: "The Armchair Futurist",
   keywords: [
-    "AI Strategy",
+    "AI Consultant",
+    "AI Instructor",
+    "AI Technical Literacy",
+    "AI Workflow Strategy",
+    "AI Workflow Automation",
     "AI Adoption",
     "Change Management",
     "Future of Work",
-    "Organizational Design",
     "Digital Transformation",
-    "AI Guidance",
-    "Workflow Automation",
-    "Accountability Gap",
-    "Psychology-Led Adoption",
+    "AI Strategy",
+    "Personal Leverage",
+    "Business Leverage",
     "Alex Myers",
-    "Certified Futurist",
-    "AI Consultant",
-    "AI literacy",
-    "AI guidance",
-    "AI training",
-    "AI education",
+    "AI Guidance",
+    "AI Training",
+    "AI Education",
   ],
   icons: {
     icon: [
@@ -78,9 +77,9 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Alex Myers | AI Guide — Design, Launch & Sell AI Services",
+    title: "Alex Myers — AI Consultant & Instructor",
     description:
-      "Alex Myers is an AI guide who teaches you to design, launch, and sell your own AI-powered services. No dependency. No retainer. Just understanding.",
+      "Core Focus: AI Technical Literacy & Personal Leverage. Alex teaches builders, professionals, and creatives how to leverage practical AI to automate workflows, build custom solutions, and scale daily output.",
     url: "/",
     siteName: "The Armchair Futurist",
     type: "website",
@@ -88,9 +87,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Alex Myers | AI Guide — Design, Launch & Sell AI Services",
+    title: "Alex Myers — AI Consultant & Instructor",
     description:
-      "Alex Myers is an AI guide who teaches you to design, launch, and sell your own AI-powered services. No dependency. No retainer. Just understanding.",
+      "Core Focus: AI Technical Literacy & Personal Leverage. Turning AI capabilities into competitive business and personal advantage.",
     creator: "@armchairfuturist",
   },
   robots: {

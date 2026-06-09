@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Alex Myers — AI Guide";
+export const alt = "Alex Myers — AI Consultant & Instructor";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -56,7 +56,7 @@ export default function Image() {
             marginBottom: "12px",
           }}
         >
-          AI Guide — Design, Launch &amp; Sell AI Services
+          AI Consultant & Instructor
         </div>
 
         {/* Bottom tagline */}

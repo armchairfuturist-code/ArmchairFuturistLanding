@@ -35,7 +35,7 @@ export default function StructuredData() {
             "@type": "ProfessionalService",
             name: "The Armchair Futurist - Alex Myers",
             description:
-              "AI guidance and done-for-you AI implementation. Alex teaches you to design, launch, and sell your own AI-powered services.",
+              "AI technical literacy and workflow strategy consulting. Alex teaches professionals, creators, and entrepreneurs how to leverage practical AI to automate workflows, build custom solutions, and scale output.",
             url: siteUrl,
             aggregateRating: {
               "@type": "AggregateRating",
@@ -54,12 +54,14 @@ export default function StructuredData() {
             priceRange: `$${PRICE_RANGE.min} - $${PRICE_RANGE.max}`,
             areaServed: "Worldwide",
             knowsAbout: [
-              "AI Strategy",
+              "AI Technical Literacy",
+              "AI Workflow Strategy",
+              "AI Workflow Automation",
               "Change Management",
               "Future of Work",
               "Digital Transformation",
               "AI Adoption",
-              "Organizational Design",
+              "Personal Leverage",
             ],
             hasOfferCatalog: {
               "@type": "OfferCatalog",
@@ -165,11 +167,11 @@ export default function StructuredData() {
             name: "Alex Myers",
             givenName: "Alex",
             familyName: "Myers",
-            jobTitle: "AI Guide",
+            jobTitle: "AI Technical Literacy & Workflow Strategy Consultant",
             url: siteUrl,
             image: `${siteUrl}/alexheadshot-nobg.png`,
             description:
-              "Alex Myers is an AI guide who teaches individuals and businesses to design, launch, and sell their own AI-powered services. Based in Portugal, serving clients worldwide.",
+              "Alex Myers is an AI technical literacy and workflow strategy consultant. He teaches professionals, creators, and entrepreneurs how to integrate AI tools to maximize personal leverage — build custom AI workflows, automate operations, and scale creative or business output without a tech background.",
             address: {
               "@type": "PostalAddress",
               addressCountry: "PT",
@@ -181,17 +183,16 @@ export default function StructuredData() {
               "https://thegenaiacademy.com/expert-hub/alex-myers/",
             ],
             knowsAbout: [
-              "Artificial Intelligence Strategy",
+              "AI Technical Literacy",
+              "AI Workflow Strategy",
+              "AI Workflow Automation",
               "AI Adoption & Change Management",
               "Future of Work",
-              "Organizational Design",
               "Digital Transformation",
-              "Blockchain & Web3",
-              "Data Sovereignty",
-              "Agile & Scrum",
-              "AI Guidance",
-              "Psychology-Led Adoption",
-              "Human-Machine Workflow Design",
+              "AI Consulting",
+              "AI Instruction",
+              "Personal Leverage",
+              "Business Leverage",
             ],
             hasCredential: [
               {
@@ -240,7 +241,7 @@ export default function StructuredData() {
             alumniOf: "GenAI Academy",
             hasOccupation: {
               "@type": "Occupation",
-              name: "AI Guide",
+              name: "AI Consultant & Instructor",
               occupationLocation: {
                 "@type": "Country",
                 name: "Portugal",
