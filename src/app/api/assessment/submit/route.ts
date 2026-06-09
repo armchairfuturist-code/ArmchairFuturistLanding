@@ -12,9 +12,7 @@ import {
   isValidEmail,
   RATE_LIMIT_ASSESSMENT,
 } from '@/lib/email-utils';
-
-const ALEX_EMAIL = process.env.ALEX_EMAIL || 'armchairfuturist@gmail.com';
-const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'Alex Myers <alex@thearmchairfuturist.com>';
+import { ALEX_EMAIL, FROM_EMAIL } from '@/lib/email/config';
 
 export async function POST(request: NextRequest) {
   try {

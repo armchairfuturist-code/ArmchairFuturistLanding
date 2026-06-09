@@ -7,13 +7,11 @@ import {
   RATE_LIMIT_LEAD_CAPTURE,
   sanitizeEmailHeaderValue,
 } from '@/lib/email-utils';
+import { ALEX_EMAIL, FROM_EMAIL } from '@/lib/email/config';
 import {
   buildLeadProspectEmail,
   buildLeadNotificationEmail,
 } from '@/lib/email/templates';
-
-const ALEX_EMAIL = process.env.ALEX_EMAIL || 'armchairfuturist@gmail.com';
-const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'Alex Myers <alex@thearmchairfuturist.com>';
 
 export async function POST(request: NextRequest) {
   try {

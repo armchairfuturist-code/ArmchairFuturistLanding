@@ -57,9 +57,13 @@ export function trackEvent(eventName: string, eventParams?: Record<string, strin
 }
 
 /**
- * Track a conversion event (useful for tracking goals)
- * Sends to both Firebase Analytics AND GA4 as a conversion event.
- * 
+ * Track a conversion event in Firebase Analytics and GA4.
+ *
+ * NOTE: `trackEvent` already sends to GA4 via dataLayer, so we only need
+ * the additional generic 'conversion' wrapper event for GA4 conversion tracking.
+ * The conversion name is sent as both the primary event (via trackEvent) and
+ * nested inside a 'conversion' event for GA4's conversion-marking system.
+ *
  * @param conversionName - Name of the conversion (e.g., 'newsletter_signup', 'purchase')
  * @param value - Optional monetary value
  * @param currency - Optional currency code (default: 'USD')
@@ -75,16 +79,10 @@ export function trackConversion(
         timestamp: new Date().toISOString(),
     };
 
-    // Firebase Analytics
+    // Firebase Analytics + GA4 (single sendToGA4 via trackEvent)
     trackEvent(conversionName, params);
 
-    // GA4 conversion event — this is what GA4 marks as a conversion
-    // GA4 automatically treats events with these names as conversions:
-    // purchase, generate_lead, sign_up, login, etc.
-    // For custom conversions, mark them in GA4 admin.
-    sendToGA4(conversionName, params);
-
-    // Also send a generic 'conversion' event that GA4 can catch
+    // Also send a generic 'conversion' event wrapper for GA4
     sendToGA4('conversion', {
         conversion_name: conversionName,
         ...params,

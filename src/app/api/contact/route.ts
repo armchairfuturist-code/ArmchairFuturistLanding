@@ -1,13 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getResend } from '@/lib/resend';
 import { checkRateLimit, getRateLimitKey, isValidEmail, sanitizeEmailHeaderValue } from '@/lib/email-utils';
+import { ALEX_EMAIL, FROM_EMAIL } from '@/lib/email/config';
 import {
   buildContactNotificationEmail,
   buildContactAutoReplyEmail,
 } from '@/lib/email/templates';
-
-const ALEX_EMAIL = process.env.ALEX_EMAIL || 'armchairfuturist@gmail.com';
-const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'Alex Myers <alex@thearmchairfuturist.com>';
 
 const MAX_MESSAGE_LENGTH = 5000;
 const MAX_NAME_LENGTH = 100;
