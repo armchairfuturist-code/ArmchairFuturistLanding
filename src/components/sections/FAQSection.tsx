@@ -59,6 +59,18 @@ const faqItems: FAQItem[] = [
     answer: "A done-for-you service where Alex builds you a private AI command center: custom business workflows, agent installation (OpenClaw, Hermes), API integrations, calendar/email sync, and secure infrastructure. Pricing ranges $1,000-$5,000 depending on scope, delivered in 1-2 weeks. You own everything — code, data, infrastructure."
   },
   {
+    question: "How do I choose the right AI consultant for my business?",
+    answer: "Look for three things. First, results over credentials — ask for specific numbers: hours reclaimed, systems deployed, adoption rates achieved. Alex has deployed 40+ AI systems with a 4.9/5 client rating. Second, approach — do they teach you to be independent or create dependency? Alex's core principle is 'no retainer, no dependency.' Third, scope — can they handle both strategy AND hands-on execution? Alex does both: from $199 landing pages to $12,000 incubator programs. Avoid consultants who only do slide decks without touching tools.",
+  },
+  {
+    question: "What's the difference between an AI consultant and an AI agency?",
+    answer: "An AI agency typically assigns a rotating team, charges retainers, and builds on proprietary stacks you can't control. An AI consultant like Alex works directly with you 1-on-1 — no account managers, no blended rates, no platform lock-in. You get the person who builds the systems, not a project manager relaying messages. Alex's models start at self-serve ($199 digital identity) and scale to intensive coaching, so you only pay for what you actually need — not a monthly retainer for bench time."
+  },
+  {
+    question: "Who is Alex Myers best suited to work with — and who isn't a fit?",
+    answer: "Best fit: professionals, creators, and entrepreneurs who want AI literacy and leverage — not another dependency. Leaders who are willing to touch the tools themselves. Organizations ready to identify and empower their internal Results Thinkers. Not a fit: companies seeking presentation theatre for board meetings. Leaders who want AI 'in theory' without readiness to execute. Anyone expecting AI to solve underlying culture problems. If your team won't touch the tools, Alex isn't the right consultant."
+  },
+  {
     question: "How do I get started?",
     answer: "Three ways, depending on where you are. The $199 Digital Identity Landing Page requires no call — just submit the intake. For guidance, browse session packs starting at $120 (€100) or apply for the AI Self-Sufficiency Program. For done-for-you builds, request a 30-minute fit call and Alex will scope the work.",
   }
