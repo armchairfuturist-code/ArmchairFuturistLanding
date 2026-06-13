@@ -49,7 +49,7 @@ export default function AssessmentPage() {
   const handleAnswer = useCallback(
     (answer: AnswerOption) => {
       const question = questions[currentQuestion];
-      const answerIndex = question.answers.indexOf(answer);
+      const answerIndex = question.answers.findIndex((a) => a.text === answer.text);
       if (answerIndex < 0) return;
 
       const newAnswers = [...answers, answer];
