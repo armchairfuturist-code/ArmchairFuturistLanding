@@ -52,7 +52,7 @@ export default function HeroSection() {
 
   useEffect(() => {
     const videoElement = videoRef.current;
-    if (!videoElement) return;
+    if (prefersReduced) return;
 
     const handleCanPlay = () => setIsVideoReady(true);
     videoElement.addEventListener("canplay", handleCanPlay);
@@ -61,30 +61,22 @@ export default function HeroSection() {
       setIsVideoReady(true);
     }
 
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-    if (!prefersReducedMotion) {
-      videoElement.play().catch((error) => {
-        console.error("Video autoplay was prevented:", error);
-      });
+    videoElement.play().catch((error) => {
+      console.error("Video autoplay was prevented:", error);
+    });
 
-      const handleVideoEnd = () => {
-        if (videoElement) {
-          videoElement.currentTime = 0;
-          videoElement.play().catch((error) => {
-            console.error("Video loop play was prevented:", error);
-          });
-        }
-      };
-      videoElement.addEventListener("ended", handleVideoEnd);
-      return () => {
-        videoElement.removeEventListener("ended", handleVideoEnd);
-        videoElement.removeEventListener("canplay", handleCanPlay);
-      };
-    }
+    const handleVideoEnd = () => {
+      if (videoElement) {
+        videoElement.currentTime = 0;
+        videoElement.play().catch((error) => {
+          console.error("Video loop play was prevented:", error);
+        });
+      }
+    };
+    videoElement.addEventListener("ended", handleVideoEnd);
 
     return () => {
+      videoElement.removeEventListener("ended", handleVideoEnd);
       videoElement.removeEventListener("canplay", handleCanPlay);
     };
   }, []);
@@ -101,7 +93,7 @@ export default function HeroSection() {
       {/* Video background */}
       <video
         ref={videoRef}
-        autoPlay
+        autoPlay={!prefersReduced}
         loop
         muted
         playsInline
