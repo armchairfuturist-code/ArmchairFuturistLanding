@@ -10,13 +10,23 @@ export function getDb(): Firestore {
     if (getApps().length > 0) {
       app = getApps()[0];
     } else {
-      // Firebase App Hosting provides default credentials automatically.
-      // For local dev, set GOOGLE_APPLICATION_CREDENTIALS or FIREBASE_SERVICE_ACCOUNT_KEY.
-      app = initializeApp({
-        credential: process.env.FIREBASE_SERVICE_ACCOUNT_KEY
-          ? cert(JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY))
-          : applicationDefault(),
-      });
+      // The FIREBASE_SERVICE_ACCOUNT_KEY path is a local-dev fallback: if the env var
+      // is malformed (escaped quotes, partial JSON), fall back to applicationDefault()
+      // rather than crashing the request handler.
+      let credential;
+      if (process.env.FIREBASE_SERVICE_ACCOUNT_KEY) {
+        try {
+          credential = cert(JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY));
+        } catch {
+          console.warn(
+            'FIREBASE_SERVICE_ACCOUNT_KEY is set but invalid JSON. Falling back to applicationDefault().'
+          );
+          credential = applicationDefault();
+        }
+      } else {
+        credential = applicationDefault();
+      }
+      app = initializeApp({ credential });
     }
     _db = getFirestore(app);
   }
