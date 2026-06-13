@@ -64,14 +64,14 @@ describe('AssessmentPage', () => {
   it('renders landing phase initially', () => {
     render(<AssessmentPage />);
     expect(screen.getByText(/How Ready Are You for AI\?/i)).toBeInTheDocument();
-    expect(screen.getByText(/Start the Assessment/i)).toBeInTheDocument();
+    expect(screen.getByText(/See My AI Readiness/i)).toBeInTheDocument();
   });
 
   it('transitions to quiz phase after clicking Start', async () => {
     const user = userEvent.setup();
     render(<AssessmentPage />);
 
-    const startButton = screen.getByText(/Start the Assessment/i);
+    const startButton = screen.getByText(/See My AI Readiness/i);
     await user.click(startButton);
 
     expect(screen.getByTestId('quiz-progress')).toBeInTheDocument();
@@ -83,7 +83,7 @@ describe('AssessmentPage', () => {
     const user = userEvent.setup();
     render(<AssessmentPage />);
 
-    const startButton = screen.getByText(/Start the Assessment/i);
+    const startButton = screen.getByText(/See My AI Readiness/i);
     await user.click(startButton);
 
     expect(trackEvent).toHaveBeenCalledWith('assessment_start');
@@ -94,7 +94,7 @@ describe('AssessmentPage', () => {
     render(<AssessmentPage />);
 
     // Start quiz
-    const startButton = screen.getByText(/Start the Assessment/i);
+    const startButton = screen.getByText(/See My AI Readiness/i);
     await user.click(startButton);
 
     // Answer question
@@ -116,7 +116,7 @@ describe('AssessmentPage', () => {
     render(<AssessmentPage />);
 
     // Start quiz
-    const startButton = screen.getByText(/Start the Assessment/i);
+    const startButton = screen.getByText(/See My AI Readiness/i);
     await user.click(startButton);
 
     // Answer all questions (9 questions total)
