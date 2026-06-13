@@ -12,7 +12,7 @@ Generated against commit `68d76a5a`.
 |------|-------|----------|--------|------------|--------|
 | 001  | Fix Stale Tests and Answer Identity Bug | P1 | S | -- | DONE |
 | 002  | Add Assessment Scoring Unit Tests | P1 | S | 001 | DONE |
-| 003  | Firebase Admin Crash Resilience | P2 | S | -- | TODO |
+| 003  | Firebase Admin Crash Resilience | P2 | S | -- | DONE |
 | 004  | Section Registry and Dynamic Imports | P2 | M | -- | TODO |
 
 ## Dependency notes
