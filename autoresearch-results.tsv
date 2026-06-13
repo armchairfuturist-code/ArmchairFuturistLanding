@@ -1,0 +1,9 @@
+iter	commit	metric	delta	status	description
+0	68d76a5a	8	0.0	baseline	initial state
+1	dcbb1d02	9	+1	keep	fix indexOf bug + mock uses real answers[0] ref
+2	32e02a83	10	+1	keep	fix test loop + validating EmailCapture mock
+3	4c044490	10	+0	keep	mark plan 001 DONE in plans/README.md status table
+
+# Plan 002 baseline
+4	HEAD	10	0.0	baseline	plan 002 start: 10/10 passing
+5	031f1c40	25	+15	keep	plan 002: add 3 assessment test files (scoring 6, resolve-answers 6, archetypes 3)
