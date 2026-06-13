@@ -52,6 +52,7 @@ export default function HeroSection() {
 
   useEffect(() => {
     const videoElement = videoRef.current;
+    if (!videoElement) return;
     if (prefersReduced) return;
 
     const handleCanPlay = () => setIsVideoReady(true);
