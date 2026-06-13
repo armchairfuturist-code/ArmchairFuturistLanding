@@ -7,3 +7,5 @@ iter	commit	metric	delta	status	description
 # Plan 002 baseline
 4	HEAD	10	0.0	baseline	plan 002 start: 10/10 passing
 5	031f1c40	25	+15	keep	plan 002: add 3 assessment test files (scoring 6, resolve-answers 6, archetypes 3)
+2026-06-13T08:49:36Z	armchair-futurist	003	done	922ca1fa	baseline=lint0/test25	final=lint0/test25+safe-parse	JSON.parse wrapped in try/catch with applicationDefault fallback
+
