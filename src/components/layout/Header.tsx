@@ -83,7 +83,7 @@ export default function Header() {
               href="https://wa.me/15157706902"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/70 hover:text-usvc-blue transition-colors duration-300"
+              className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] -m-2 p-2 text-white/70 hover:text-usvc-blue transition-colors duration-300"
               aria-label="WhatsApp"
             >
               <MessageCircle className="h-5 w-5" />
@@ -102,7 +102,7 @@ export default function Header() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="text-white hover:text-usvc-blue"
+                  className="text-white hover:text-usvc-blue h-11 w-11 min-h-[44px] min-w-[44px]"
                 >
                   <Menu className="h-6 w-6" />
                   <span className="sr-only">Toggle Menu</span>

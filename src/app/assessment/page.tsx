@@ -121,15 +121,24 @@ export default function AssessmentPage() {
           </BlurFade>
 
           <BlurFade inView delay={0.4}>
-            <Button size="lg" className="font-bold text-base px-8" onClick={handleStart}>
-              Start the Assessment
+            <Button
+              size="lg"
+              className="font-bold text-base px-8 min-h-[48px]"
+              onClick={handleStart}
+            >
+              See My AI Readiness
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </BlurFade>
 
           <BlurFade inView delay={0.5}>
-            <p className="mt-6 text-xs text-muted-foreground/50 font-mono">
-              No signup required. Results shown immediately.
+            <p className="mt-4 text-xs text-muted-foreground font-mono">
+              Free. No credit card. Email used only to send your results.
+            </p>
+          </BlurFade>
+          <BlurFade inView delay={0.6}>
+            <p className="mt-2 text-xs text-muted-foreground/60 font-mono">
+              No signup required to see results.
             </p>
           </BlurFade>
         </div>
