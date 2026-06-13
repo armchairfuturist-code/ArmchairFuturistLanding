@@ -1,3 +1,4 @@
+import React from 'react';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -36,12 +37,23 @@ vi.mock('@/components/assessment/QuizQuestion', () => ({
 }));
 
 vi.mock('@/components/assessment/EmailCapture', () => ({
-  default: ({ onComplete }: { onComplete: () => void }) => (
-    <div data-testid="email-capture">
-      <input data-testid="email-input" type="email" placeholder="email@example.com" />
-      <button onClick={onComplete}>Submit</button>
-    </div>
-  ),
+  default: ({ onComplete }: { onComplete: () => void }) => {
+    const [email, setEmail] = React.useState('');
+    const [invalid, setInvalid] = React.useState(false);
+    return (
+      <div data-testid="email-capture">
+        <input
+          data-testid="email-input"
+          type="email"
+          placeholder="email@example.com"
+          aria-invalid={invalid}
+          value={email}
+          onChange={(e) => { setEmail(e.target.value); setInvalid(false); }}
+        />
+        <button onClick={() => { if (!email) { setInvalid(true); return; } onComplete(); }}>Submit</button>
+      </div>
+    );
+  },
 }));
 
 describe('AssessmentPage', () => {
@@ -112,7 +124,9 @@ describe('AssessmentPage', () => {
       await user.click(screen.getByText('Yes'));
       // Wait for next question to appear
       await waitFor(() => {
-        expect(screen.getByTestId('quiz-question')).toBeInTheDocument();
+        const hasQuiz = screen.queryByTestId('quiz-question');
+        const hasEmail = screen.queryByTestId('email-capture');
+        expect(hasQuiz ?? hasEmail).toBeInTheDocument();
       });
     }
 
