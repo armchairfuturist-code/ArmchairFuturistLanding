@@ -1,24 +1,23 @@
 /**
- * Firebase Analytics Utilities
- * 
- * This module provides utilities for tracking custom events in Firebase Analytics
- * AND sending them to the gtag (GA4) dataLayer for Google Analytics conversion tracking.
- * 
+ * Firebase Analytics + GA4 dataLayer utilities.
+ *
+ * Cross-site convention: see `analytics-contract.md` at the workspace root
+ * for the shared `trackEvent` / `trackConversion` shape used across all
+ * three projects. This file is the armchair-specific implementation —
+ * the universal API is the same; the backend (Firebase + GA4) is what
+ * differs from `rooted-leader-site` (Firebase only) and `mindscape-site`
+ * (GA4 + Meta Pixel + Google Ads, no Firebase).
+ *
+ * This module provides utilities for tracking custom events in Firebase
+ * Analytics AND sending them to the gtag (GA4) dataLayer for Google
+ * Analytics conversion tracking.
+ *
  * Example usage:
  * ```tsx
  * import { trackEvent } from '@/lib/analytics';
- * 
- * // Track a button click
- * trackEvent('button_click', {
- *   button_name: 'subscribe',
- *   location: 'hero_section'
- * });
- * 
- * // Track a form submission
- * trackEvent('form_submit', {
- *   form_name: 'contact_form',
- *   success: true
- * });
+ *
+ * trackEvent('button_click', { button_name: 'subscribe', location: 'hero_section' });
+ * trackEvent('form_submit', { form_name: 'contact_form', success: true });
  * ```
  */
 
