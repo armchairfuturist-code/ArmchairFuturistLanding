@@ -3,8 +3,7 @@
 import { BlurFade } from '@/components/ui/blur-fade';
 import { Users, Clock, Wrench, ArrowRight } from 'lucide-react';
 import { XCircle, AlertTriangle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { CALENDAR_URL } from '@/lib/constants';
+import { BookCallButton } from '@/components/ui/BookCallButton';
 import { trackEvent } from '@/lib/analytics';
 
 /**
@@ -124,16 +123,15 @@ export default function WhatThisIsNotSection() {
             <p className="text-base text-foreground/80 mb-6 max-w-xl mx-auto">
               Still not sure? Book a 15-minute call. If I'm not the right fit, I'll tell you—and point you toward someone who is.
             </p>
-            <Button 
-              asChild 
-              size="lg" 
+            <BookCallButton
+              location="what_this_is_not"
+              size="lg"
               className="font-bold"
+              trackOnClick={false}
               onClick={() => trackEvent('what_this_is_not_cta_click')}
             >
-              <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer">
-                Book a Call
-              </a>
-            </Button>
+              Book a Call
+            </BookCallButton>
           </div>
         </BlurFade>
       </div>

@@ -5,7 +5,7 @@ import { BlurFade } from '@/components/ui/blur-fade';
 import { motion } from 'motion/react';
 import { Calculator, Clock, DollarSign, ArrowRight, Mail, CheckCircle2, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { CALENDAR_URL } from '@/lib/constants';
+import { BookCallButton } from '@/components/ui/BookCallButton';
 import { trackEvent, trackConversion } from '@/lib/analytics';
 import { isValidEmail } from '@/lib/email-utils';
 
@@ -257,12 +257,17 @@ export default function ROICalculatorSection() {
                     </p>
                   </div>
 
-                  <Button asChild size="lg" className="w-full">
-                    <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackConversion('roi_book_call')}>
-                      Get a Custom Implementation Plan
-                      <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
-                    </a>
-                  </Button>
+                  <BookCallButton
+                    location="roi_plan"
+                    size="lg"
+                    icon="arrow"
+                    iconClassName="ml-2 h-4 w-4"
+                    className="w-full"
+                    trackOnClick={false}
+                    onClick={() => trackConversion('roi_book_call')}
+                  >
+                    Get a Custom Implementation Plan
+                  </BookCallButton>
                 </div>
               ) : (
                 <div className="space-y-6">
@@ -336,12 +341,16 @@ export default function ROICalculatorSection() {
                     </form>
                   </div>
 
-                  <Button asChild variant="outline" size="lg" className="w-full">
-                    <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer">
-                      Get a Custom Estimate
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </a>
-                  </Button>
+                  <BookCallButton
+                    location="roi_estimate"
+                    variant="outline"
+                    size="lg"
+                    icon="arrow"
+                    iconClassName="ml-2 h-4 w-4"
+                    className="w-full"
+                  >
+                    Get a Custom Estimate
+                  </BookCallButton>
                 </div>
               )}
             </div>

@@ -2,9 +2,8 @@
 
 import { BlurFade } from "@/components/ui/blur-fade";
 import { motion } from "motion/react";
-import { Calendar,  ArrowRight, Clock, DollarSign, TrendingUp } from 'lucide-react';
-import { Button } from "@/components/ui/button";
-import { CALENDAR_URL } from "@/lib/constants";
+import { Clock, DollarSign, TrendingUp } from 'lucide-react';
+import { BookCallButton } from "@/components/ui/BookCallButton";
 
 const caseStudies = [
   {
@@ -192,12 +191,14 @@ export default function CaseStudiesSection() {
               These are typical outcomes. Your situation is different - but the
               math usually works out similar.
             </p>
-            <Button asChild size="lg">
-              <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer">
-                See What You Could Save
-                <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
-              </a>
-            </Button>
+            <BookCallButton
+              location="case_studies"
+              size="lg"
+              icon="arrow"
+              iconClassName="ml-2 h-4 w-4"
+            >
+              See What You Could Save
+            </BookCallButton>
           </div>
         </BlurFade>
       </div>
