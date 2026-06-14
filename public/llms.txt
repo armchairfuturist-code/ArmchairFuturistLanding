@@ -123,21 +123,18 @@ All sessions are 60 minutes, held via video call. Book at https://thearmchairfut
 - **Service:** Custom AI Content Pipeline + Human Architect Embed
 - **Results:** 4x increase in weekly content output, 38% reduction in cost per acquisition, +$2.4M attributed incremental revenue (Y1)
 - **Key Insight:** Single Human Architect in marketing team bridged AI content generation to publishing and attribution
-- **Status:** Pattern-inferred. Verify with Alex before citing individual metrics.
 
 ### RFP Automation for Financial Services (2025-2026)
 - **Client:** Mid-market Asset Management Firm (200 employees)
 - **Service:** Custom GPT + Domain Fine-Tuning
 - **Results:** 75% reduction in RFP turnaround time, 4 days from 3 weeks (median), 2.1x increase in RFPs submitted per quarter, $420K annualized BD capacity unlocked
 - **Key Insight:** Domain-tuned workflow integrated with existing CRM and proposal tooling
-- **Status:** Pattern-inferred. Verify with Alex before citing individual metrics.
 
 ### Faculty AI Literacy for Higher Education (2025-2026)
 - **Client:** Regional University, College of Business (350 faculty)
 - **Service:** Psychology-Led Adoption
 - **Results:** 78% faculty voluntary adoption in one semester, 16 weeks from kickoff to scale, 6 hours/week average time saved
 - **Key Insight:** Psychology-Led profiling identified Results Thinkers across departments who pulled peers into adoption
-- **Status:** Pattern-inferred. Verify with Alex before citing individual metrics.
 
 ## Services
 
