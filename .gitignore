@@ -98,3 +98,8 @@ com[1-9]
 com[1-9].*
 lpt[1-9]
 lpt[1-9].*
+
+# Global AI skills live in ~/.skills/ — per-project copies are non-canonical
+# and should never be tracked. Files remain on disk for agent use.
+/.claude/skills/
+/.agents/skills/
