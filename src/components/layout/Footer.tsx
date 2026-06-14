@@ -1,7 +1,8 @@
 "use client";
 import Link from "next/link";
-import { Calendar, Linkedin, Mail, MessageCircle } from 'lucide-react';
-import { SUBSTACK_URL, CALENDAR_URL } from "@/lib/constants";
+import { BookCallButton } from "@/components/ui/BookCallButton";
+import { Linkedin, Mail, MessageCircle } from 'lucide-react';
+import { SUBSTACK_URL } from "@/lib/constants";
 
 export default function Footer() {
   return (
@@ -54,16 +55,16 @@ export default function Footer() {
 
           {/* Right — CTAs + social */}
           <div className="flex flex-col items-center gap-3 md:items-end">
+            <BookCallButton
+              location="footer"
+              bare
+              icon="calendar"
+              iconClassName="h-3.5 w-3.5"
+              className="inline-flex items-center gap-1.5 min-h-[44px] px-2 text-sm text-white/70 hover:text-usvc-blue transition-colors duration-300 font-body"
+            >
+              Book a Call
+            </BookCallButton>
             <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-              <a
-                href={CALENDAR_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 min-h-[44px] px-2 text-sm text-white/70 hover:text-usvc-blue transition-colors duration-300 font-body"
-              >
-                <Calendar className="h-3.5 w-3.5" />
-                Book a Call
-              </a>
               <a
                 href="mailto:armchairfuturist@gmail.com"
                 className="inline-flex items-center gap-1.5 min-h-[44px] px-2 text-sm text-white/70 hover:text-usvc-blue transition-colors duration-300 font-body"
