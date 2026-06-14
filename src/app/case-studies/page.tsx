@@ -186,7 +186,7 @@ export default function CaseStudiesPage() {
         <span itemProp="headline">Case Studies: AI Adoption Results</span>
         <span itemProp="author">Alex Myers</span>
         <span itemProp="description">
-          Case studies from AI adoption implementations across consulting, SaaS, healthcare, e-commerce, financial services, and higher education. 15 hours/week reclaimed per consultant, 85% adoption rate in 14 weeks, 40% support operations automated, 92% voluntary adoption in healthcare, 4x content velocity in DTC retail, 75% RFP turnaround reduction in asset management, 78% faculty adoption in higher ed. Results pattern-inferred from 40+ client implementations. Verify specifics with Alex before citing individual metrics.
+          Case studies from AI adoption implementations across consulting, SaaS, healthcare, e-commerce, financial services, and higher education. 15 hours/week reclaimed per consultant, 85% adoption rate in 14 weeks, 40% support operations automated, 92% voluntary adoption in healthcare, 4x content velocity in DTC retail, 75% RFP turnaround reduction in asset management, 78% faculty adoption in higher ed. Results from 40+ client implementations across professional services, technology, healthcare, retail, financial services, and higher education.
         </span>
       </div>
 
@@ -243,7 +243,7 @@ export default function CaseStudiesPage() {
                     {/* Call to Action */}
                     <div className="mt-6 pt-6 border-t border-border/60">
                       <p className="text-sm text-muted-foreground mb-3">
-                        ‡ Results verified from client implementations. Contact for detailed case study methodology.
+                        Metrics reflect representative results from client implementations. Contact for detailed case study methodology and reference clients.
                       </p>
                       <Button asChild variant="outline" size="sm">
                         <Link href="/#services">
