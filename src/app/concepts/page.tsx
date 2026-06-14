@@ -29,6 +29,28 @@ const concepts = [
     ]
   },
   {
+    href: '/concepts/human-architect',
+    title: 'The Human Architect',
+    description: 'The role that closes the Accountability Gap. Translates AI output into business outcome. Found through Psychology-Led Adoption profiling, not job title.',
+    icon: Brain,
+    stats: [
+      '1 role per AI investment',
+      '15-25% of operator time',
+      '6 months typical runway'
+    ]
+  },
+  {
+    href: '/concepts/pilot-itis',
+    title: 'Pilot-itis',
+    description: 'The disease where AI pilots succeed in isolation and never scale to production. 67% of AI initiatives never make it past pilot stage.',
+    icon: BookOpen,
+    stats: [
+      '67% never scale to production',
+      '4-6 weeks to value if designed right',
+      '14 weeks avg. to 80% adoption'
+    ]
+  },
+  {
     href: '/concepts/psychology-led-adoption',
     title: 'Psychology-Led Adoption',
     description: 'Address human barriers to AI adoption before technical ones. Uses data-driven profiling to identify the 5% who naturally embrace uncertainty.',
