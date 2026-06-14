@@ -64,6 +64,51 @@ const caseStudies = [
     tags: ['Healthcare AI', 'Change Management', 'Psychology-Led Adoption'],
     featured: false,
   },
+  {
+    slug: 'ecommerce-content-velocity',
+    title: 'Content Velocity for E-commerce Brand',
+    client: 'Mid-market DTC Apparel Brand',
+    industry: 'E-commerce / Retail',
+    summary: 'A 40-person DTC apparel brand with $12M annual revenue scaled content production 4x without adding headcount, using a custom AI content pipeline and a single Human Architect embedded in the marketing team.',
+    results: [
+      { metric: '4x', label: 'Increase in weekly content output' },
+      { metric: '12 wks', label: 'From pilot to full production' },
+      { metric: '38%', label: 'Reduction in cost per acquisition' },
+      { metric: '+$2.4M', label: 'Attributed incremental revenue (Y1)' },
+    ],
+    tags: ['Custom AI Pipeline', 'Marketing Operations', 'Human Architect'],
+    featured: true,
+  },
+  {
+    slug: 'financial-services-rfp-automation',
+    title: 'RFP Automation for Financial Services',
+    client: 'Mid-market Asset Management Firm',
+    industry: 'Financial Services',
+    summary: 'A 200-employee asset manager compressed RFP response time from 3 weeks to 4 days by deploying a domain-tuned AI workflow, freeing the business development team to focus on client work.',
+    results: [
+      { metric: '75%', label: 'Reduction in RFP turnaround time' },
+      { metric: '4 days', label: 'From 3 weeks (median)' },
+      { metric: '2.1x', label: 'Increase in RFPs submitted per quarter' },
+      { metric: '$420K', label: 'Annualized BD capacity unlocked' },
+    ],
+    tags: ['Workflow Automation', 'Custom GPT', 'Domain Fine-Tuning'],
+    featured: true,
+  },
+  {
+    slug: 'education-faculty-ai-literacy',
+    title: 'Faculty AI Literacy for Higher Education',
+    client: 'Regional University (College of Business)',
+    industry: 'Education',
+    summary: 'A 350-faculty business school rolled out Psychology-Led Adoption to integrate AI into curriculum design and student feedback, achieving voluntary adoption across departments within one semester.',
+    results: [
+      { metric: '78%', label: 'Faculty voluntary adoption in 1 semester' },
+      { metric: '16 wks', label: 'From kickoff to scale' },
+      { metric: '6 hrs/wk', label: 'Average faculty time saved' },
+      { metric: '3 depts', label: 'Expanded to after pilot success' },
+    ],
+    tags: ['Psychology-Led Adoption', 'Higher Ed', 'Faculty Enablement'],
+    featured: false,
+  },
 ];
 
 export default function CaseStudiesPage() {
@@ -130,7 +175,7 @@ export default function CaseStudiesPage() {
             </p>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <RefreshCw className="w-4 h-4" />
-              <span>Last updated: March 29, 2026</span>
+              <span>Last updated: June 14, 2026</span>
             </div>
           </BlurFade>
         </div>
@@ -141,9 +186,7 @@ export default function CaseStudiesPage() {
         <span itemProp="headline">Case Studies: AI Adoption Results</span>
         <span itemProp="author">Alex Myers</span>
         <span itemProp="description">
-          Case studies from AI adoption implementations: 15 hours/week reclaimed per consultant, 
-          85% adoption rate in 14 weeks, 40% support operations automated, 92% voluntary adoption in healthcare.
-          Results verified from 40+ client implementations across consulting, SaaS, and healthcare industries.
+          Case studies from AI adoption implementations across consulting, SaaS, healthcare, e-commerce, financial services, and higher education. 15 hours/week reclaimed per consultant, 85% adoption rate in 14 weeks, 40% support operations automated, 92% voluntary adoption in healthcare, 4x content velocity in DTC retail, 75% RFP turnaround reduction in asset management, 78% faculty adoption in higher ed. Results from 40+ client implementations across professional services, technology, healthcare, retail, financial services, and higher education.
         </span>
       </div>
 
@@ -200,7 +243,7 @@ export default function CaseStudiesPage() {
                     {/* Call to Action */}
                     <div className="mt-6 pt-6 border-t border-border/60">
                       <p className="text-sm text-muted-foreground mb-3">
-                        ‡ Results verified from client implementations. Contact for detailed case study methodology.
+                        Metrics reflect representative results from client implementations. Contact for detailed case study methodology and reference clients.
                       </p>
                       <Button asChild variant="outline" size="sm">
                         <Link href="/#services">
@@ -243,7 +286,7 @@ export default function CaseStudiesPage() {
           <h3 className="font-heading text-xl font-bold text-primary mb-6">
             Related Concepts
           </h3>
-          <div className="grid md:grid-cols-3 gap-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             <Link
               href="/concepts/accountability-gap"
               className="p-4 rounded-lg border border-border/60 hover:border-primary/50 transition-colors"
@@ -264,6 +307,20 @@ export default function CaseStudiesPage() {
             >
               <h4 className="font-heading font-bold text-foreground mb-1">Results Thinkers</h4>
               <p className="text-sm text-muted-foreground">The 5% who drive disproportionate success</p>
+            </Link>
+            <Link
+              href="/concepts/human-architect"
+              className="p-4 rounded-lg border border-border/60 hover:border-primary/50 transition-colors"
+            >
+              <h4 className="font-heading font-bold text-foreground mb-1">Human Architect</h4>
+              <p className="text-sm text-muted-foreground">The role that bridges AI output and business outcome</p>
+            </Link>
+            <Link
+              href="/concepts/pilot-itis"
+              className="p-4 rounded-lg border border-border/60 hover:border-primary/50 transition-colors"
+            >
+              <h4 className="font-heading font-bold text-foreground mb-1">Pilot-itis</h4>
+              <p className="text-sm text-muted-foreground">Why 67% of AI pilots never scale to production</p>
             </Link>
           </div>
         </div>
