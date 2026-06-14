@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { BookCallButton } from "@/components/ui/BookCallButton";
 import {
   Sheet,
   SheetContent,
@@ -12,7 +13,6 @@ import {
 } from "@/components/ui/sheet";
 import { Menu, FileText, MessageCircle, Github } from 'lucide-react';
 import Image from "next/image";
-import { CALENDAR_URL } from "@/lib/constants";
 
 export default function Header() {
   const navItems = [
@@ -88,11 +88,9 @@ export default function Header() {
             >
               <MessageCircle className="h-5 w-5" />
             </a>
-            <Button asChild variant="default" size="default">
-              <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer">
-                Book Call
-              </a>
-            </Button>
+            <BookCallButton location="header_desktop" size="default" variant="default">
+              Book Call
+            </BookCallButton>
           </div>
 
           {/* Mobile hamburger */}
@@ -168,20 +166,14 @@ export default function Header() {
                     <MessageCircle className="h-4 w-4" />
                     WhatsApp
                   </a>
-                  <Button
-                    asChild
-                    variant="default"
+                  <BookCallButton
+                    location="header_mobile"
                     size="default"
+                    variant="default"
                     className="w-full mt-2"
                   >
-                    <a
-                      href={CALENDAR_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Book a Call
-                    </a>
-                  </Button>
+                    Book a Call
+                  </BookCallButton>
                 </div>
               </SheetContent>
             </Sheet>

@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
+import { BookCallButton } from '@/components/ui/BookCallButton';
 import { Card, CardContent } from '@/components/ui/card';
 import { BlurFade } from '@/components/ui/blur-fade';
-import { CALENDAR_URL } from '@/lib/constants';
-import { Calendar, CheckCircle2, Linkedin, Trophy } from 'lucide-react';
+import { CheckCircle2, Linkedin, Trophy } from 'lucide-react';
 
 const siteUrl = 'https://thearmchairfuturist.com';
 export const metadata: Metadata = {
@@ -155,12 +155,15 @@ export default function AboutPage() {
                   Certified Futurist &amp; AI Guide with <strong className="text-primary">6 professional certifications</strong> and <strong className="text-primary">40+ AI systems deployed</strong>. Based in <strong className="text-primary">Portugal</strong>, serving clients <strong className="text-primary">worldwide</strong>.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <Button asChild size="lg" className="h-12 px-6">
-                    <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer">
-                      <Calendar className="mr-2 h-4 w-4" />
-                      Book Free Strategy Call
-                    </a>
-                  </Button>
+                  <BookCallButton
+                    location="about_hero"
+                    size="lg"
+                    icon="calendar"
+                    iconClassName="mr-2 h-4 w-4"
+                    className="h-12 px-6"
+                  >
+                    Book Free Strategy Call
+                  </BookCallButton>
                   <Button asChild size="lg" variant="outline" className="h-12 px-6">
                     <a href="https://www.linkedin.com/in/alex-myers-34572a10/" target="_blank" rel="noopener noreferrer">
                       <Linkedin className="mr-2 h-4 w-4" />
@@ -305,12 +308,15 @@ export default function AboutPage() {
                 Schedule a free 15-minute strategy call to discuss your AI adoption challenges and opportunities.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button asChild size="lg" className="h-12 px-8">
-                  <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer">
-                    <Calendar className="mr-2 h-4 w-4" />
-                    Book Free Strategy Call
-                  </a>
-                </Button>
+                <BookCallButton
+                  location="about_bottom_cta"
+                  size="lg"
+                  icon="calendar"
+                  iconClassName="mr-2 h-4 w-4"
+                  className="h-12 px-8"
+                >
+                  Book Free Strategy Call
+                </BookCallButton>
                 <Button asChild size="lg" variant="outline" className="h-12 px-8">
                   <a href="/assessment">
                     <Trophy className="mr-2 h-4 w-4" />

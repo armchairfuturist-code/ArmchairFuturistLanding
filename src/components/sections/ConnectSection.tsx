@@ -1,13 +1,13 @@
 "use client";
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { motion } from "motion/react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { CalendarDays, MessageCircle } from 'lucide-react';
-import { trackConversion } from "@/lib/analytics";
 import { BlurFade } from "@/components/ui/blur-fade";
-import { motion } from "motion/react";
-import { CALENDAR_URL } from "@/lib/constants";
+import { BookCallButton } from "@/components/ui/BookCallButton";
+import { CalendarDays, MessageCircle } from "lucide-react";
 
 export default function ConnectSection() {
   const [formData, setFormData] = useState({
@@ -76,21 +76,15 @@ export default function ConnectSection() {
             transition={{ type: "spring", stiffness: 400, damping: 15 }}
             className="inline-flex flex-col sm:flex-row gap-3"
           >
-            <Button
-              asChild
+            <BookCallButton
+              location="connect_book_call"
               size="lg"
+              icon="calendar-days"
+              iconClassName="mr-2 h-5 w-5"
               className="bg-white text-primary hover:bg-white/90 shadow-lg transition-transform duration-200"
             >
-              <a
-                href={CALENDAR_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackConversion("connect_book_call")}
-              >
-                <CalendarDays className="mr-2 h-5 w-5" aria-hidden="true" />
-                Book a Call
-              </a>
-            </Button>
+              Book a Call
+            </BookCallButton>
             <Button
               asChild
               size="lg"
