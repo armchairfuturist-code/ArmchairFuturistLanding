@@ -249,7 +249,8 @@ export default function InsightsSection() {
               "@type": "Organization",
               "name": "The Armchair Futurist"
             },
-            "datePublished": "2026-02-01"
+            "datePublished": "2026-02-01",
+            "dateModified": "2026-03-29"
           })
         }}
       />

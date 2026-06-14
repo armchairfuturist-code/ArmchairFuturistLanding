@@ -1,12 +1,11 @@
 "use client";
 
 import { useState, useEffect, useCallback } from 'react';
-import { Button } from '@/components/ui/button';
 import { Heart, Lightbulb, TrendingUp, CalendarDays, CheckCircle2, Sparkles, Euro, DollarSign } from 'lucide-react';
-import { trackConversion, trackEvent } from '@/lib/analytics';
+import { BookCallButton } from '@/components/ui/BookCallButton';
+import { trackConversion } from '@/lib/analytics';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { motion } from 'motion/react';
-import { CALENDAR_URL } from '@/lib/constants';
 import { COACHING_PACKAGES, type CurrencyCode } from '@/lib/pricing';
 // Inline currency toggle — no separate component needed
 
@@ -250,27 +249,23 @@ export default function MentoringSection() {
                   ))}
                 </ul>
 
-                {/* CTA */}
-                <Button
-                  asChild
+                <BookCallButton
                   size="sm"
+                  icon="calendar-days"
+                  iconClassName="mr-1.5 h-4 w-4"
                   className={`w-full h-10 text-sm font-semibold ${
                     pkg.popular
                       ? 'bg-primary text-primary-foreground hover:bg-primary/90'
                       : 'bg-secondary text-foreground hover:bg-secondary/80 border border-border'
                   }`}
                   variant={pkg.popular ? 'default' : 'outline'}
+                  location={`guidance_${pkg.id}`}
+                  value={pkg.totalPrice}
+                  trackOnClick={false}
+                  onClick={() => trackConversion(`guidance_${pkg.id}`, pkg.totalPrice)}
                 >
-                  <a
-                    href={CALENDAR_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => trackConversion(`guidance_${pkg.id}`, pkg.totalPrice)}
-                  >
-                    <CalendarDays className="mr-1.5 h-4 w-4" aria-hidden="true" />
-                    Book {pkg.sessions > 1 ? `${pkg.sessions}-Pack` : 'Now'}
-                  </a>
-                </Button>
+                  {`Book ${pkg.sessions > 1 ? `${pkg.sessions}-Pack` : 'Now'}`}
+                </BookCallButton>
               </div>
             </motion.div>
           ))}
