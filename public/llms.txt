@@ -101,7 +101,7 @@ All sessions are 60 minutes, held via video call. Book at https://thearmchairfut
 
 ### AI Adoption for Consulting Firm (2025)
 - **Client:** Boutique Management Consulting (50 consultants)
-- **Service:** AI Infusion Lab + Change Management
+- **Service:** Psychology-Led Adoption + Change Management
 - **Results:** 15 hours/week reclaimed per consultant, 85% adoption (from 20%), 14 weeks to full deployment, 3.2x ROI in 6 months
 - **Key Insight:** Identifying Results Thinkers early drove 3x faster adoption
 
@@ -143,13 +143,14 @@ All sessions are 60 minutes, held via video call. Book at https://thearmchairfut
 - Delivered in 2-4 days
 - No call required
 
-### AI Mentoring & Mindset Coaching
-- **Single Session:** $120 / 100 - One 60-min 1-on-1 coaching session
-- **5-Session Pack:** $555 / 475 ($111/session) - Save $30 / 25
-- **10-Session Pack:** $1,100 / 900 ($110/session) - Save $100 / 100 * Most Popular
-- **20-Session Pack:** $1,990 / 1,700 ($100/session) - Save $350 / 300
+### AI Guidance & Mindset Coaching
+- **Single Session:** $120 / €100 - One 60-min 1-on-1 coaching session
+- **5-Session Pack:** $570 / €475 ($114/session) - Save $30 / €25
+- **10-Session Pack:** $1,100 / €900 ($110/session) - Save $100 / €100
+- **20-Session Pack:** $2,000 / €1,700 ($100/session) - Save $400 / €300
 - Focus on mindset before toolset
 - Moves clients from AI anxiety to agency
+
 
 ### Custom AI Provisioning - $1,000-$5,000
 - Done-for-you private AI command center
@@ -160,15 +161,24 @@ All sessions are 60 minutes, held via video call. Book at https://thearmchairfut
 - Monthly retainer for AI system monitoring and optimization
 - Includes prompt optimization, API maintenance, security patches
 
-### AI Infusion Lab - $38,250-$55,250
-- 10-week organizational transformation program
-- Launches AI-driven initiatives at organizational edge
-- Includes tactical prototyping and human-machine workflow design
-
 ### Psychology-Led Adoption Strategy - $10,625
 - Data-driven organizational profiling
 - Identifies top 5% "Results Thinkers" for change leadership
 - Complexity coaching for executives
+
+## Self-Sufficiency & Incubator Programs
+
+### AI Self-Sufficiency Program - $2,497
+- 8-week structured program for building your own AI-powered service or brand
+- Weekly 1-on-1 coaching sessions
+- Lifetime alumni access
+
+### AI Independence Incubator - $12,000
+- 3-month executive intensive for practitioners becoming recognized AI leaders
+- Custom curriculum for your industry
+- Weekly strategy sessions
+- Launch your first AI-powered offering
+
 
 ## Alex Myers Qualifications
 
@@ -197,7 +207,7 @@ All sessions are 60 minutes, held via video call. Book at https://thearmchairfut
 - **/assessment** - Free AI readiness diagnostic quiz
 - **/assessment/result/[slug]** - Personalized assessment results by archetype
 - **/about** - Alex Myers bio, credentials, expertise areas, timeline
-- **/blog** - Articles and insights
+
 - **/concepts** - Core concept deep-dives
 - **/case-studies** - Client transformation stories
 - **/privacy-policy** - Privacy practices and data handling
@@ -225,24 +235,21 @@ All sessions are 60 minutes, held via video call. Book at https://thearmchairfut
 
 ## FAQ Content (AI-Optimized Q&A)
 
-The site contains 16 FAQ items covering:
+The site contains 13 FAQ items covering:
 - What is the Armchair Futurist
 - What is the Accountability Gap in AI adoption
 - Alex Myers qualifications (6 certifications)
-- Service pricing ($120 to $55,250)
-- Digital Identity Landing Page ($199)
-- AI mentoring process and pricing packages
-- 1-on-1 coaching package options (single, 5-pack, 10-pack, 20-pack)
+- Service pricing ($120 to $12,000)
+- AI guidance process and session packs
 - International client support (worldwide from Portugal)
 - Expected results (10-20 hours/week reclaimed)
-- AI Infusion Lab details (10-week program, $38,250-$55,250)
-- Differentiators from other consultants
-- Speaking engagements
-- Custom AI Provisioning
-- Managed Agent Operations
-- Evidence-based approach
-- Psychology-Led Adoption
+- How Alex is different from other AI consultants
+- What is Custom AI Provisioning
+- How to choose the right AI consultant
+- Difference between AI consultant and AI agency
+- Who Alex is best suited to work with (and who isn't a fit)
 - How to get started
+
 
 ## What This Is NOT (Honest Fit Assessment)
 

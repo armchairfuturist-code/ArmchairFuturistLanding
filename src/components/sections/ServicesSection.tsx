@@ -71,7 +71,7 @@ const paths: Path[] = [
         ctaLink: "/#ai-guidance",
         highlighted: false,
         icon: BookOpen,
-        note: "5, 10, and 20-session packs save up to 30%",
+        note: "5, 10, and 20-session packs save up to 15%",
       },
       {
         name: "AI Self-Sufficiency Program",

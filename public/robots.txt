@@ -1,8 +1,10 @@
 # robots.txt for thearmchairfuturist.com
 # Static backup of robots.ts for crawler redundancy
+# Mirrors src/app/robots.ts — keep in sync.
 
 User-agent: *
 Allow: /
+Disallow: /admin/
 
 # AI Search Crawlers - Allow for AI Overview, ChatGPT, Claude, Perplexity citations
 User-agent: GPTBot
@@ -34,6 +36,9 @@ User-agent: anthropic-ai
 Disallow: /
 
 User-agent: Bytespider
+Disallow: /
+
+User-agent: cohere-ai
 Disallow: /
 
 # Sitemap location

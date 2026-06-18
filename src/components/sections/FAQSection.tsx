@@ -36,7 +36,7 @@ const faqItems: FAQItem[] = [
   },
   {
     question: "How much do services cost?",
-    answer: "Two paths. 'We do it together' guidance starts at $120 (€100) for a single 60-minute session and scales through 5, 10, and 20-session packs (up to 30% savings) up to the $12,000 AI Independence Incubator. The $199 Digital Identity Landing Page is the easiest entry point into the 'I do it for you' path. Custom AI Provisioning runs $1,000-$5,000 depending on scope. Pricing adjusts for emerging markets through Purchasing Power Parity.",
+    answer: "Two paths. 'We do it together' guidance starts at $120 (€100) for a single 60-minute session and scales through 5, 10, and 20-session packs (up to 15% savings) up to the $12,000 AI Independence Incubator. The $199 Digital Identity Landing Page is the easiest entry point into the 'I do it for you' path. Custom AI Provisioning runs $1,000-$5,000 depending on scope. Pricing is in USD and EUR."
   },
   {
     question: "How does AI guidance work?",
@@ -44,7 +44,7 @@ const faqItems: FAQItem[] = [
   },
   {
     question: "Can Alex work with organizations outside the US?",
-    answer: "Yes. Alex serves clients worldwide from Portugal. All services are delivered remotely. Pricing adjusts for emerging markets through Purchasing Power Parity."
+    answer: "Yes. Alex serves clients worldwide from Portugal. All services are delivered remotely. Pricing is available in USD and EUR."
   },
   {
     question: "What results can clients expect?",
