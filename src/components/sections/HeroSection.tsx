@@ -53,7 +53,7 @@ export default function HeroSection() {
       {/* Mobile-only soft scrim — anchors blue text on white without changing desktop look */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 z-0 pointer-events-none md:hidden bg-[radial-gradient(ellipse_at_center,rgba(201,224,252,0.45)_0%,rgba(247,247,247,0.25)_55%,rgba(255,255,255,0)_85%)]"
+        className="absolute inset-0 z-0 pointer-events-none md:hidden bg-[linear-gradient(180deg,rgba(201,224,252,0.5)_0%,rgba(230,238,252,0.35)_35%,rgba(247,247,247,0.2)_65%,rgba(255,255,255,0)_100%)]"
       />
 
       {/* Reactive chevron accents — HP angular wordmark nod */}
@@ -88,9 +88,9 @@ export default function HeroSection() {
 
 
             <BlurFade delay={0.05} inView duration={prefersReduced ? 0 : 0.4}>
-              <p className="relative inline-flex items-center gap-2 font-mono text-[11px] md:text-xs uppercase tracking-[0.4em] text-hp-bright mb-4 md:mb-5">
+              <p className="relative inline-flex items-center gap-2 font-mono text-[11px] md:text-xs uppercase tracking-[0.4em] text-hp-electric md:text-hp-bright mb-4 md:mb-5">
                 <span
-                  className="inline-block h-1.5 w-1.5 rounded-full bg-hp-bright animate-pulse shadow-[0_0_10px_rgba(41,110,249,0.8)]"
+                  className="inline-block h-1.5 w-1.5 rounded-full bg-hp-electric md:bg-hp-bright animate-pulse shadow-[0_0_10px_rgba(2,74,216,0.8)] md:shadow-[0_0_10px_rgba(41,110,249,0.8)]"
                   aria-hidden="true"
                 />
                 AI Alert · 2026
@@ -104,7 +104,7 @@ export default function HeroSection() {
             >
               <WordPullUp
                 text={headline.line1}
-                className="relative block text-hp-bright text-[clamp(1.5rem,3.5vw,2.5rem)] font-display font-medium tracking-[0.28em] uppercase leading-[1.1] mb-4 md:mb-5"
+                className="relative block text-hp-electric md:text-hp-bright text-[clamp(1.5rem,3.5vw,2.5rem)] font-display font-medium tracking-[0.28em] uppercase leading-[1.1] mb-4 md:mb-5"
                 wordClassName="font-display font-medium"
                 duration={prefersReduced ? 0 : 0.6}
               />
@@ -122,9 +122,9 @@ export default function HeroSection() {
             {/* Slash tail — edgy period replacement */}
             <BlurFade delay={1.0} inView duration={prefersReduced ? 0 : 0.4}>
               <div className="relative mt-3 md:mt-4 flex items-center justify-center gap-3">
-                <span className="h-px w-10 bg-gradient-to-r from-transparent to-hp-bright" aria-hidden="true" />
-                <span className="font-mono text-xs uppercase tracking-[0.3em] text-hp-bright">{"// end of message"}</span>
-                <span className="h-px w-10 bg-gradient-to-l from-transparent to-hp-bright" aria-hidden="true" />
+                <span className="h-px w-10 bg-gradient-to-r from-transparent to-hp-electric md:to-hp-bright" aria-hidden="true" />
+                <span className="font-mono text-xs uppercase tracking-[0.3em] text-hp-electric md:text-hp-bright">{"// end of message"}</span>
+                <span className="h-px w-10 bg-gradient-to-l from-transparent to-hp-electric md:to-hp-bright" aria-hidden="true" />
               </div>
             </BlurFade>
           </motion.div>
