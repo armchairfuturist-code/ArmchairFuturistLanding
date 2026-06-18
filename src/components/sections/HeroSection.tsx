@@ -1,5 +1,4 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { WordPullUp } from "@/components/ui/word-pull-up";
@@ -28,12 +27,8 @@ const subheadline =
   "Don\u2019t just prompt\u2014architect. Build the technical literacy required to scale your personal leverage and launch your own AI-powered services.";
 
 export default function HeroSection() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isVideoReady, setIsVideoReady] = useState(false);
   const prefersReduced = useReducedMotion();
 
-  // A/B Testing — CTA copy variants only
-  // Solid, confident CTA buttons
   // Subtle mouse parallax for hero text depth
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -50,76 +45,43 @@ export default function HeroSection() {
     mouseY.set(y);
   };
 
-  useEffect(() => {
-    const videoElement = videoRef.current;
-    if (!videoElement) return;
-    if (prefersReduced) return;
-
-    const handleCanPlay = () => setIsVideoReady(true);
-    videoElement.addEventListener("canplay", handleCanPlay);
-
-    if (videoElement.readyState >= 3) {
-      setIsVideoReady(true);
-    }
-
-    videoElement.play().catch((error) => {
-      console.error("Video autoplay was prevented:", error);
-    });
-
-    const handleVideoEnd = () => {
-      if (videoElement) {
-        videoElement.currentTime = 0;
-        videoElement.play().catch((error) => {
-          console.error("Video loop play was prevented:", error);
-        });
-      }
-    };
-    videoElement.addEventListener("ended", handleVideoEnd);
-
-    return () => {
-      videoElement.removeEventListener("ended", handleVideoEnd);
-      videoElement.removeEventListener("canplay", handleCanPlay);
-    };
-  }, []);
-
   return (
     <section
-      className="relative w-full min-h-[80vh] lg:min-h-[85vh] overflow-hidden flex items-center justify-center bg-black"
+      className="relative w-full min-h-[80vh] lg:min-h-[85vh] overflow-hidden flex items-center justify-center bg-canvas bg-hp-grid"
       onMouseMove={handleMouseMove}
     >
-      <h1 className="sr-only">
-        Alex Myers — AI Guide | I Teach You to Design, Launch, and Sell Your Own AI-Powered Services
-      </h1>
 
-      {/* Video background */}
-      <video
-        ref={videoRef}
-        autoPlay={!prefersReduced}
-        loop
-        muted
-        playsInline
-        preload="metadata"
-        poster="/header.webp"
-        className={`absolute top-0 left-0 w-full h-full object-cover z-0 transition-opacity duration-700 ${isVideoReady ? "opacity-100" : "opacity-0"}`}
-        src="/header.mp4"
+      {/* Reactive chevron accents — HP angular wordmark nod */}
+      <motion.div
+        style={prefersReduced ? {} : { x: parallaxX, y: parallaxY }}
+        className="absolute top-[12%] right-[6%] opacity-[0.06] pointer-events-none z-0"
+        aria-hidden="true"
       >
-        Your browser does not support the video tag.
-      </video>
-      <div className="absolute top-0 left-0 w-full h-full bg-black/60 z-[1]"></div>
+        <svg width="120" height="400" viewBox="0 0 120 400"><polyline points="100,10 15,200 100,390" fill="none" stroke="#024ad8" strokeWidth="2" /></svg>
+      </motion.div>
+      <motion.div
+        style={prefersReduced ? {} : { x: parallaxX, y: parallaxY }}
+        className="absolute bottom-[10%] left-[5%] opacity-[0.04] pointer-events-none z-0"
+        aria-hidden="true"
+      >
+        <svg width="80" height="260" viewBox="0 0 80 260"><polyline points="65,8 10,130 65,252" fill="none" stroke="#296ef9" strokeWidth="1.5" /></svg>
+      </motion.div>
+      <motion.div
+        style={prefersReduced ? {} : { x: parallaxX, y: parallaxY }}
+        className="absolute top-[50%] right-[3%] opacity-[0.10] pointer-events-none z-0"
+        aria-hidden="true"
+      >
+        <svg width="60" height="200" viewBox="0 0 60 200"><polyline points="50,6 8,100 50,194" fill="none" stroke="#c9e0fc" strokeWidth="1.5" /></svg>
+      </motion.div>
 
       <div className="container relative z-10 px-4 md:px-6 max-w-5xl mx-auto">
         <div className="flex flex-col space-y-8 text-center">
           <motion.div
             style={prefersReduced ? {} : { x: parallaxX, y: parallaxY }}
-            className="relative hero-text-shadow"
+            className="relative"
           >
-            {/* Scanline overlay — subtle futuristic texture behind the headline */}
-            <div
-              className="hp-scanlines absolute inset-0 -inset-y-6 pointer-events-none opacity-60"
-              aria-hidden="true"
-            />
 
-            {/* Pre-headline ALERT — playful pulse dot, mono, tracked, electric blue */}
+
             <BlurFade delay={0.05} inView duration={prefersReduced ? 0 : 0.4}>
               <p className="relative inline-flex items-center gap-2 font-mono text-[11px] md:text-xs uppercase tracking-[0.4em] text-hp-bright mb-4 md:mb-5">
                 <span
@@ -131,21 +93,26 @@ export default function HeroSection() {
             </BlurFade>
 
             {/* Line 1 — small, uppercase, tracked, warning-label feel */}
-            <WordPullUp
-              text={headline.line1}
-              className="relative block text-white/90 text-[clamp(1.5rem,3.5vw,2.5rem)] font-display font-medium tracking-[0.28em] uppercase leading-[1.1] mb-4 md:mb-5"
-              wordClassName="font-display font-medium text-white/90"
-              duration={prefersReduced ? 0 : 0.6}
-            />
+            <h1
+              aria-label={`${headline.line1} ${headline.line2}`}
+              className="contents"
+            >
+              <WordPullUp
+                text={headline.line1}
+                className="relative block text-hp-bright text-[clamp(1.5rem,3.5vw,2.5rem)] font-display font-medium tracking-[0.28em] uppercase leading-[1.1] mb-4 md:mb-5"
+                wordClassName="font-display font-medium"
+                duration={prefersReduced ? 0 : 0.6}
+              />
 
-            {/* Line 2 — the visual hero: gradient + glow + bold */}
-            <WordPullUp
-              text={headline.line2}
-              className="relative block text-[clamp(2.75rem,7.5vw,6rem)] font-display font-bold tracking-tight leading-[0.98] text-balance hp-hero-glow"
-              wordClassName="font-display font-bold hp-gradient-text"
-              delay={0.3}
-              duration={prefersReduced ? 0 : 0.7}
-            />
+              {/* Line 2 — the visual hero: bold display headline */}
+              <WordPullUp
+                text={headline.line2}
+                className="relative block text-ink text-[clamp(2.75rem,7.5vw,6rem)] font-display font-bold tracking-tight leading-[0.98] text-balance"
+                wordClassName="font-display font-bold"
+                delay={0.3}
+                duration={prefersReduced ? 0 : 0.7}
+              />
+            </h1>
 
             {/* Slash tail — edgy period replacement */}
             <BlurFade delay={1.0} inView duration={prefersReduced ? 0 : 0.4}>
@@ -158,7 +125,7 @@ export default function HeroSection() {
           </motion.div>
 
           <BlurFade delay={0.4} inView duration={prefersReduced ? 0 : 0.4}>
-            <p className="text-primary-foreground/95 text-lg md:text-xl max-w-2xl mx-auto hero-text-shadow font-sans leading-[1.55] tracking-normal text-balance">
+            <p className="text-charcoal text-lg md:text-xl max-w-2xl mx-auto font-sans leading-[1.55] tracking-normal text-balance">
               {subheadline}
             </p>
           </BlurFade>
@@ -187,26 +154,26 @@ export default function HeroSection() {
                 <a
                   href="/#services"
                   onClick={() => trackEvent("hero_see_programs")}
-                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-medium text-base px-7 py-3 rounded-full border border-white/30 hover:bg-white/20 hover:border-white/50 active:scale-[0.95] transition-all duration-200"
+                  className="inline-flex items-center gap-2 text-primary font-medium text-base px-7 py-3 rounded-full border border-primary/20 hover:bg-primary/5 hover:border-primary/40 active:scale-[0.95] transition-all duration-200"
                 >
                   See Programs
                 </a>
               </div>
-              <p className="text-xs text-primary-foreground/60 font-mono">
+              <p className="text-xs text-graphite font-mono">
                 No pressure. No pitch. Just clarity.
               </p>
             </div>
           </BlurFade>
           {/* Social proof — teaching outcomes */}
           <BlurFade delay={0.55} inView>
-            <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-primary-foreground/85">
+            <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-charcoal">
               <span>
-                <strong className="text-primary-foreground">40+</strong>{" "}
+                <strong className="text-ink">40+</strong>{" "}
                 AI systems deployed
               </span>
-              <span className="hidden sm:inline text-white/20">·</span>
+              <span className="hidden sm:inline text-hairline-strong">·</span>
               <span>
-                <strong className="text-primary-foreground">
+                <strong className="text-ink">
                   100+ hours
                 </strong>{" "}
                 of 1-on-1 AI guidance

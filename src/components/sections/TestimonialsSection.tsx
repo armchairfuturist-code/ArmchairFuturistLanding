@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
 import Image from 'next/image';
-import {Quote, ChevronLeft, ChevronRight, Star} from 'lucide-react';
+import {Quote, ChevronLeft, ChevronRight, Star, Pause, Play} from 'lucide-react';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { Marquee } from '@/components/ui/marquee';
 import { motion, AnimatePresence } from 'motion/react';
@@ -189,6 +189,8 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
 }
 
 export default function TestimonialsSection() {
+  const [isPaused, setIsPaused] = useState(false);
+
   return (
     <section id="testimonials" className="py-12 md:py-24 bg-secondary scroll-mt-20 overflow-hidden">
       <BlurFade inView>
@@ -203,11 +205,20 @@ export default function TestimonialsSection() {
       </BlurFade>
 
       {/* Featured testimonial carousel */}
-      <FeaturedTestimonialCarousel />
-
       <div className="relative [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+        <div className="flex justify-end pr-4 mb-2">
+          <button
+            type="button"
+            onClick={() => setIsPaused((p) => !p)}
+            aria-pressed={isPaused}
+            aria-label={isPaused ? "Resume scrolling testimonials" : "Pause scrolling testimonials"}
+            className="inline-flex items-center justify-center h-8 w-8 rounded-full bg-card/80 border border-border/60 text-foreground/80 hover:bg-card hover:text-foreground transition-colors backdrop-blur-sm"
+          >
+            {isPaused ? <Play className="h-4 w-4" aria-hidden="true" /> : <Pause className="h-4 w-4" aria-hidden="true" />}
+          </button>
+        </div>
         <p className="absolute bottom-2 right-4 z-10 text-[10px] text-muted-foreground/40 font-mono pointer-events-none select-none">hover to pause</p>
-        <Marquee pauseOnHover className="[--duration:70s] [--gap:1.5rem] md:[--gap:2rem]">
+        <Marquee pauseOnHover className={`[--duration:70s] [--gap:1.5rem] md:[--gap:2rem] ${isPaused ? "[&_.animate-marquee]:[animation-play-state:paused]" : ""}`}>
           {testimonialsData.map((testimonial) => (
             <TestimonialCard key={testimonial.name} testimonial={testimonial} />
           ))}

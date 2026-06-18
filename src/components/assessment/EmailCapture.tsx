@@ -99,7 +99,7 @@ export default function EmailCapture({ onComplete, onSkip, answerIndices }: Emai
             disabled={loading}
             required
           />
-          {error && <p className="mt-1.5 text-xs text-destructive">{error}</p>}
+          {error && <p role="alert" aria-live="polite" className="mt-1.5 text-xs text-destructive">{error}</p>}
         </div>
         <Button type="submit" className="w-full h-11 font-bold" disabled={loading}>
           {loading ? (

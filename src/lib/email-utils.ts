@@ -70,9 +70,9 @@ export function getRateLimitKey(request: Request): string {
 }
 
 export const EMAIL_BRAND = {
-  brandColor: "#1e3a5f",
-  accentColor: "#3b82f6",
-  textColor: "#1a1a2e",
+  brandColor: "#024ad8",
+  accentColor: "#296ef9",
+  textColor: "#1a1a1a",
   mutedColor: "#6b7280",
   bgColor: "#f8fafc",
   calendarUrl: "https://calendar.app.google/nAHHwNMfhDvXGv7P7",

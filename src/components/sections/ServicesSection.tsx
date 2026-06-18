@@ -221,23 +221,12 @@ export default function ServicesSection() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.4, delay: index * 0.1 }}
-                      className={`flex flex-col rounded-2xl border overflow-hidden transition-all duration-300 ${
-                        tier.highlighted
-                          ? 'border-primary/50 bg-primary/[0.03] shadow-lg shadow-primary/5 ring-1 ring-primary/20 scale-[1.02] md:scale-105 relative'
-                          : 'border-border bg-card hover:border-primary/30 hover:shadow-md'
-                      }`}
+                      className="flex flex-col rounded-2xl border border-border bg-card overflow-hidden transition-all duration-300 hover:border-primary/30 hover:shadow-md"
                     >
-                      {tier.highlighted && (
-                        <div className="absolute top-0 left-0 right-0 bg-primary text-primary-foreground text-xs font-bold py-1.5 text-center font-mono uppercase tracking-wider">
-                          Most Popular
-                        </div>
-                      )}
 
-                      <CardHeader className={`${tier.highlighted ? 'pt-10' : 'pt-6'} pb-4`}>
-                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3 ${
-                          tier.highlighted ? 'bg-primary text-primary-foreground' : 'bg-primary/10 text-primary'
-                        }`}>
-                          <Icon className="w-5 h-5" aria-hidden="true" />
+                      <CardHeader className="pt-6 pb-4">
+                        <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-3 bg-primary/10 text-primary">
+                          <Icon className="w-5 h-5" />
                         </div>
                         <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-1">
                           {tier.tag}
@@ -266,9 +255,7 @@ export default function ServicesSection() {
                         <ul className="space-y-2.5">
                           {tier.features.map((feature) => (
                             <li key={feature} className="flex items-start gap-2.5 text-sm text-foreground/70">
-                              <CheckCircle2 className={`w-4 h-4 mt-0.5 shrink-0 ${
-                                tier.highlighted ? 'text-primary' : 'text-green-500'
-                              }`} aria-hidden="true" />
+                              <CheckCircle2 className="w-4 h-4 mt-0.5 shrink-0 text-green-500" />
                               <span>{feature}</span>
                             </li>
                           ))}
@@ -279,11 +266,7 @@ export default function ServicesSection() {
                         <Button
                           asChild
                           size="lg"
-                          className={`w-full font-semibold ${
-                            tier.highlighted
-                              ? 'bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg'
-                              : 'bg-background text-foreground border-2 border-foreground/10 hover:border-primary hover:text-primary'
-                          }`}
+                          className="w-full font-semibold bg-background text-foreground border-2 border-foreground/10 hover:border-primary hover:text-primary"
                         >
                           <a
                             href={tier.ctaLink}

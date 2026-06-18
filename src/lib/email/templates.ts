@@ -59,9 +59,9 @@ export function buildProspectResultEmail(data: AssessmentResultData): string {
       <tr>
         <td style="padding:16px 0 24px;">
           <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
-            ${buildScoreRow('Clarity', scores.clarity, '#3b82f6')}
-            ${buildScoreRow('Readiness', scores.readiness, '#10b981')}
-            ${buildScoreRow('Urgency', scores.urgency, '#f59e0b')}
+            ${buildScoreRow('Clarity', scores.clarity, '#296ef9')}
+            ${buildScoreRow('Readiness', scores.readiness, '#10b981' /* semantic-success */)}
+            ${buildScoreRow('Urgency', scores.urgency, '#f59e0b' /* semantic-warning */)}
           </table>
         </td>
       </tr>

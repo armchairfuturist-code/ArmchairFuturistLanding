@@ -9,9 +9,9 @@ interface ScoreChartProps {
 }
 
 const dimensions = [
-  { key: 'clarity', label: 'Clarity', color: 'bg-blue-500' },
-  { key: 'readiness', label: 'Readiness', color: 'bg-emerald-500' },
-  { key: 'urgency', label: 'Urgency', color: 'bg-amber-500' },
+  { key: 'clarity', label: 'Clarity', color: 'bg-hp-electric' },
+  { key: 'readiness', label: 'Readiness', color: 'bg-success' },
+  { key: 'urgency', label: 'Urgency', color: 'bg-warning' },
 ] as const;
 
 export default function ScoreChart({ clarity, readiness, urgency }: ScoreChartProps) {

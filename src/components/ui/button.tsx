@@ -5,31 +5,31 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-250 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-usvc-blue focus-visible:ring-offset-2 active:scale-[0.95] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-250 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hp-electric focus-visible:ring-offset-2 active:scale-[0.95] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
         // Apple-style primary pill — blue capsule for main CTA
-        default: "bg-usvc-blue text-white hover:bg-ps-blue rounded-full",
-        // Navy utility rect — for secondary / dark-surface CTAs
-        navy: "bg-usvc-navy text-white hover:bg-usvc-blue rounded-[8px]",
+        default: "bg-hp-electric text-white hover:bg-hp-bright rounded-full",
+        // Deep-blue utility rect — for secondary / dark-surface CTAs
+        navy: "bg-hp-deep text-white hover:bg-hp-electric rounded-[8px]",
         // Apple-style secondary pill — ghost blue with 1px border
         pillGhost:
-          "bg-transparent border border-usvc-blue text-usvc-blue hover:bg-usvc-blue hover:text-white rounded-full",
+          "bg-transparent border border-hp-electric text-hp-electric hover:bg-hp-electric hover:text-white rounded-full",
         // Light / secondary option
         secondary:
-          "bg-[#f2f3f9] text-usvc-navy hover:bg-usvc-blue hover:text-white rounded-[8px]",
+          "bg-[#f2f3f9] text-ink hover:bg-hp-electric hover:text-white rounded-[8px]",
         // Ghost rectangle with hairline border
         outline:
-          "bg-transparent border border-usvc-border text-usvc-navy hover:bg-usvc-blue hover:text-white hover:border-usvc-blue rounded-[8px]",
+          "bg-transparent border border-hairline text-ink hover:bg-hp-electric hover:text-white hover:border-hp-electric rounded-[8px]",
         // Destructive
         destructive:
-          "bg-commerce-orange text-white hover:bg-commerce-orange-active rounded-full",
+          "bg-hp-electric text-white hover:bg-hp-deep rounded-full",
         // Ghost on dark surfaces
         ghost:
-          "bg-transparent text-white hover:text-usvc-blue hover:bg-white/10 rounded-[8px]",
+          "bg-transparent text-white hover:text-hp-electric hover:bg-white/10 rounded-[8px]",
         // Link
-        link: "text-usvc-blue underline-offset-4 hover:text-ps-cyan",
+        link: "text-hp-electric underline-offset-4 hover:text-hp-bright",
       },
       size: {
         default: "h-11 px-7 py-2 text-[0.95rem]",

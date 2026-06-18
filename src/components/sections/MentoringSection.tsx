@@ -176,25 +176,12 @@ export default function MentoringSection() {
           {COACHING_PACKAGES.map((pkg, index) => (
             <motion.div
               key={pkg.id}
-              className={`relative bg-background rounded-xl border ${
-                pkg.popular
-                  ? 'border-primary ring-1 ring-primary'
-                  : 'border-border'
-              } transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 flex flex-col`}
+              className="relative bg-background rounded-xl border border-border transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 flex flex-col"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, ease: 'easeOut', delay: index * 0.1 }}
             >
-              {/* Most Popular badge */}
-              {pkg.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <span className="inline-flex items-center gap-1 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full">
-                    <Sparkles className="h-3 w-3" />
-                    Most Popular
-                  </span>
-                </div>
-              )}
 
               <div className="p-5 flex flex-col flex-1">
                 {/* Package name */}
@@ -220,7 +207,7 @@ export default function MentoringSection() {
 
                 {/* Savings badge */}
                 {pkg.savings > 0 && (
-                  <p className="text-xs font-medium text-green-600 dark:text-green-400 mb-3">
+                  <p className="text-xs font-medium text-green-600 mb-3">
                     {currency === 'EUR'
                       ? `Save €${pkg.savings}`
                       : `Save $${pkg.savingsUSD}`
@@ -253,12 +240,7 @@ export default function MentoringSection() {
                   size="sm"
                   icon="calendar-days"
                   iconClassName="mr-1.5 h-4 w-4"
-                  className={`w-full h-10 text-sm font-semibold ${
-                    pkg.popular
-                      ? 'bg-primary text-primary-foreground hover:bg-primary/90'
-                      : 'bg-secondary text-foreground hover:bg-secondary/80 border border-border'
-                  }`}
-                  variant={pkg.popular ? 'default' : 'outline'}
+                  className="w-full h-10 text-sm font-semibold bg-secondary text-foreground hover:bg-secondary/80 border border-border"
                   location={`guidance_${pkg.id}`}
                   value={pkg.totalPrice}
                   trackOnClick={false}
