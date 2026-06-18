@@ -27,13 +27,7 @@ export const SERVICES_PRICING = {
     description:
       "Done-for-you private AI command center with API integrations, workflow automation, and secure infrastructure. Reclaim 10-20 hours per week.",
   },
-  aiIndependenceIncubator: {
-    name: "AI Independence Incubator",
-    price: 12000,
-    currency: "USD" as const,
-    description:
-      "3-month executive program for AI-powered service launches, with accountability, peer cohort, and full launch support.",
-  },
+
 } as const;
 
 // ── Coaching / mentoring packages (used by MentoringSection) ──

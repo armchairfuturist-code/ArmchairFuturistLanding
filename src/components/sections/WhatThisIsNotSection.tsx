@@ -19,24 +19,24 @@ import { trackEvent } from '@/lib/analytics';
 const notForYou = [
   {
     icon: Users,
-    title: "Not for organizations seeking a deck for the board",
-    description: "I execute. I provision infrastructure, write prompts, and build workflows myself. If you need slides to show leadership, other consultants are better suited.",
+    title: "Not for enterprise transformation programs",
+    description: "I work with founders, operators, and small teams — not large organizations running the 2023 playbook with better tools. That's the dabbling trap. If you need a vendor to manage your AI rollout across 500 employees, other consultants are better suited.",
     bold: true
   },
   {
     icon: Clock,
     title: "Not for leaders still evaluating whether AI matters",
-    description: "If you're still forming committees to study AI, start elsewhere. I work with organizations and individuals who are ready to execute—not to write reports."
+    description: "If you're still forming committees to study AI, start elsewhere. I work with people who are ready to execute — not to write reports."
   },
   {
     icon: Wrench,
-    title: "Not for teams who want AI to do the work for them",
-    description: "I build systems you understand and operate. If you want AI magic that runs on its own, this isn't the right fit. Someone on your team needs to own the process."
+    title: "Not for people who want AI to do the work for them",
+    description: "I build systems you understand and operate. If you want AI magic that runs on its own, this isn't the right fit. You need to own the process."
   },
   {
     icon: AlertTriangle,
     title: "Not if you expect AI to fix team dysfunction",
-    description: "AI amplifies what's already there. If your team struggles with accountability, trust, or decision rights, AI won't fix that—it will expose it. I can help you address it, but you have to be willing to do the work.",
+    description: "AI amplifies what's already there. If your team struggles with accountability, trust, or decision rights, AI won't fix that — it will expose it. I can help you address it, but you have to be willing to do the work.",
     bold: true
   }
 ];
@@ -48,11 +48,11 @@ const betterOptions = [
   },
   {
     scenario: "You want a fixed-price project with ROI locked in before we start",
-    recommendation: "Large strategy consulting firms offer packaged assessments—you'll pay more, but you'll get the structure you're used to"
+    recommendation: "Large strategy consulting firms offer packaged assessments — you'll pay more, but you'll get the structure you're used to"
   },
   {
-    scenario: "Your organization is looking for a vendor to blame if things go wrong",
-    recommendation: "This work requires shared ownership. I can't care more about your outcomes than you do."
+    scenario: "You're an enterprise looking for a vendor to manage a company-wide AI rollout",
+    recommendation: "Enterprise transformation consultancies specialize in large-scale adoption programs. I work best with founders and small teams who want to own their own AI capabilities."
   }
 ];
 
@@ -149,7 +149,7 @@ export default function WhatThisIsNotSection() {
                 "name": "What is Alex Myers' consulting service NOT for?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Alex Myers' services are not for: organizations seeking presentation theatre rather than execution, leaders who want AI 'in theory' without readiness to act, teams who won't touch the tools themselves, or organizations expecting AI to solve culture problems. He works best with clients at the point of execution—where readiness meets action."
+                  "text": "Alex Myers' services are not for: large enterprises seeking presentation theatre rather than execution, leaders who want AI 'in theory' without readiness to act, people who won't touch the tools themselves, or anyone expecting AI to solve culture problems. He works best with founders, operators, and small teams at the point of execution — where readiness meets action."
                 }
               },
               {
@@ -157,7 +157,7 @@ export default function WhatThisIsNotSection() {
                 "name": "Who should not hire Alex Myers?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "You should not hire Alex Myers if you: need polished slide decks for board meetings theatre, expect AI to solve underlying culture or accountability problems, want a black-box solution you never have to understand, or are still forming committees to evaluate whether AI is relevant. Other consultants are better suited for those needs."
+                  "text": "You should not hire Alex Myers if you: need polished slide decks for board meetings, expect AI to solve underlying culture or accountability problems, want a black-box solution you never have to understand, are a large enterprise seeking a company-wide AI rollout, or are still forming committees to evaluate whether AI is relevant. Other consultants are better suited for those needs."
                 }
               }
             ]

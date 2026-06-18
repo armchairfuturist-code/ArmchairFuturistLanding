@@ -21,7 +21,7 @@ interface FAQItem {
 const faqItems: FAQItem[] = [
   {
     question: "What is the Armchair Futurist?",
-    answer: "The Armchair Futurist is Alex Myers' AI literacy practice. He teaches individuals and businesses to design, launch, and sell their own AI-powered services. The work ranges from a $199 landing page to a $12,000 3-month intensive — with the same end-state in every case: you, independent, no dependency."
+    answer: "The Armchair Futurist is Alex Myers' AI literacy practice. He teaches individuals, founders, and small teams to design, launch, and sell their own AI-powered services — from a $199 landing page to $2,497 for the 8-week Self-Sufficiency Program. The end-state in every case: you, independent, no dependency."
   },
   {
     question: "What is the Accountability Gap in AI adoption?",
@@ -36,7 +36,7 @@ const faqItems: FAQItem[] = [
   },
   {
     question: "How much do services cost?",
-    answer: "Two paths. 'We do it together' guidance starts at $120 (€100) for a single 60-minute session and scales through 5, 10, and 20-session packs (up to 15% savings) up to the $12,000 AI Independence Incubator. The $199 Digital Identity Landing Page is the easiest entry point into the 'I do it for you' path. Custom AI Provisioning runs $1,000-$5,000 depending on scope. Pricing is in USD and EUR."
+    answer: "Two paths. 'We do it together' guidance starts at $120 (€100) for a single 60-minute session and scales through 5, 10, and 20-session packs (up to 15% savings), with the $2,497 AI Self-Sufficiency Program as the core transformation. The $199 Digital Identity Landing Page is the easiest entry point into the 'I do it for you' path. Custom AI Provisioning runs $1,000-$5,000 depending on scope. Pricing is in USD and EUR."
   },
   {
     question: "How does AI guidance work?",
@@ -60,7 +60,7 @@ const faqItems: FAQItem[] = [
   },
   {
     question: "How do I choose the right AI consultant for my business?",
-    answer: "Look for three things. First, results over credentials — ask for specific numbers: hours reclaimed, systems deployed, adoption rates achieved. Alex has deployed 40+ AI systems with a 4.9/5 client rating. Second, approach — do they teach you to be independent or create dependency? Alex's core principle is 'no retainer, no dependency.' Third, scope — can they handle both strategy AND hands-on execution? Alex does both: from $199 landing pages to $12,000 incubator programs. Avoid consultants who only do slide decks without touching tools.",
+    answer: "Look for three things. First, results over credentials — ask for specific numbers: hours reclaimed, systems deployed, adoption rates achieved. Alex has deployed 40+ AI systems with a 4.9/5 client rating. Second, approach — do they teach you to be independent or create dependency? Alex's core principle is 'no retainer, no dependency.' Third, scope — can they handle both strategy AND hands-on execution? Alex does both: from $199 landing pages to the $2,497 Self-Sufficiency Program. Avoid consultants who only do slide decks without touching tools.",
   },
   {
     question: "What's the difference between an AI consultant and an AI agency?",
@@ -68,7 +68,7 @@ const faqItems: FAQItem[] = [
   },
   {
     question: "Who is Alex Myers best suited to work with — and who isn't a fit?",
-    answer: "Best fit: professionals, creators, and entrepreneurs who want AI literacy and leverage — not another dependency. Leaders who are willing to touch the tools themselves. Organizations ready to identify and empower their internal Results Thinkers. Not a fit: companies seeking presentation theatre for board meetings. Leaders who want AI 'in theory' without readiness to execute. Anyone expecting AI to solve underlying culture problems. If your team won't touch the tools, Alex isn't the right consultant."
+    answer: "Best fit: founders, creators, and independent professionals who want AI literacy and leverage — not another dependency. People willing to touch the tools themselves. Small teams ready to build their own AI-powered services. Not a fit: large enterprises seeking presentation theatre for board meetings. Leaders who want AI 'in theory' without readiness to execute. Anyone expecting AI to solve underlying culture problems. If your team won't touch the tools, Alex isn't the right consultant."
   },
   {
     question: "How do I get started?",
