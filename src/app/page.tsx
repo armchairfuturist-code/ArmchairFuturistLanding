@@ -1,4 +1,5 @@
 import HeroSection from '@/components/sections/HeroSection';
+import LogoBannerSection from '@/components/sections/LogoBannerSection';
 import AboutMeSection from '@/components/sections/AboutMeSection';
 import ServicesSection from '@/components/sections/ServicesSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
@@ -20,6 +21,9 @@ export default function HomePage() {
     <div className="flex flex-col">
       {/* HOOK — make the visitor feel the stakes */}
       <HeroSection />
+
+      {/* SOCIAL PROOF — scrolling logo banner */}
+      <LogoBannerSection />
 
       {/* PROOF FIRST — quantified outcomes before any offer */}
       <CaseStudiesSection />
