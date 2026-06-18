@@ -7,7 +7,7 @@ import { Calculator, Clock, ArrowRight, Mail, CheckCircle2, Loader2 } from 'luci
 import { Button } from '@/components/ui/button';
 import { BookCallButton } from '@/components/ui/BookCallButton';
 import { trackEvent, trackConversion } from '@/lib/analytics';
-import { isValidEmail } from '@/lib/email-utils';
+import { useFormSubmission } from '@/lib/hooks/useFormSubmission';
 
 const commonAutomations = [
   {
@@ -64,9 +64,13 @@ export default function ROICalculatorSection() {
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [teamSize, setTeamSize] = useState(1);
   const [email, setEmail] = useState('');
-  const [emailSubmitted, setEmailSubmitted] = useState(false);
-  const [emailLoading, setEmailLoading] = useState(false);
-  const [emailError, setEmailError] = useState('');
+  const { loading: emailLoading, success: emailSubmitted, error: emailError, submit, setError: setEmailError } = useFormSubmission({
+    endpoint: '/api/lead-capture',
+    onSuccess: () => {
+      trackConversion('roi_report_downloaded');
+      trackEvent('roi_email_capture', { email_domain: email.split('@')[1] });
+    },
+  });
 
   const toggleAutomation = (id: string) => {
     setSelected(prev => {
@@ -89,34 +93,7 @@ export default function ROICalculatorSection() {
 
   const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !isValidEmail(email)) {
-      setEmailError('Please enter a valid email address.');
-      return;
-    }
-    setEmailError('');
-    setEmailLoading(true);
-
-    try {
-      const res = await fetch('/api/lead-capture', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: email.trim(),
-          source: 'roi-calculator',
-        }),
-      });
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data.error || 'Failed to submit');
-      }
-      setEmailSubmitted(true);
-      trackConversion('roi_report_downloaded');
-      trackEvent('roi_email_capture', { email_domain: email.split('@')[1] });
-    } catch {
-      setEmailError('Something went wrong. Please try again.');
-    } finally {
-      setEmailLoading(false);
-    }
+    await submit({ email: email.trim(), source: 'roi-calculator' });
   };
 
   return (

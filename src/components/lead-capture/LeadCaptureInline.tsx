@@ -4,38 +4,21 @@ import { useState } from 'react';
 import { Mail, Loader2, Check, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { isValidEmail } from '@/lib/email-utils';
+import { useFormSubmission } from '@/lib/hooks/useFormSubmission';
 
 export default function LeadCaptureInline() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle');
-  const [error, setError] = useState('');
+  const { loading, success, error, submit } = useFormSubmission({
+    endpoint: '/api/lead-capture',
+  });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !isValidEmail(email)) {
-      setError('Please enter a valid email.');
-      return;
-    }
-    setError('');
-    setStatus('loading');
-
-    try {
-      const res = await fetch('/api/lead-capture', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name.trim(), email: email.trim(), source: 'homepage-inline' }),
-      });
-      if (!res.ok) throw new Error('Failed');
-      setStatus('success');
-    } catch {
-      setError('Something went wrong. Try again or email me directly.');
-      setStatus('idle');
-    }
+    await submit({ name: name.trim(), email: email.trim(), source: 'homepage-inline' });
   };
 
-  if (status === 'success') {
+  if (success) {
     return (
       <div className="flex items-center gap-3 justify-center py-3">
         <Check className="h-5 w-5 text-green-400" />
@@ -65,10 +48,10 @@ export default function LeadCaptureInline() {
       </div>
       <Button
         type="submit"
-        disabled={status === 'loading'}
+        disabled={loading}
         className="bg-white text-primary hover:bg-white/90 h-10 px-5 font-semibold text-sm whitespace-nowrap"
       >
-        {status === 'loading' ? (
+        {loading ? (
           <Loader2 className="h-4 w-4 animate-spin" />
         ) : (
           <>
