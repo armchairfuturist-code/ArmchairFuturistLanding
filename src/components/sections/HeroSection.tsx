@@ -50,10 +50,10 @@ export default function HeroSection() {
       className="relative w-full min-h-[80vh] lg:min-h-[85vh] overflow-hidden flex items-center justify-center bg-canvas bg-hp-grid"
       onMouseMove={handleMouseMove}
     >
-      {/* Mobile-only soft scrim — anchors blue text on white without changing desktop look */}
+      {/* Mobile-only soft scrim — stronger opacity for text readability */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 z-0 pointer-events-none md:hidden bg-[linear-gradient(180deg,rgba(201,224,252,0.5)_0%,rgba(230,238,252,0.35)_35%,rgba(247,247,247,0.2)_65%,rgba(255,255,255,0)_100%)]"
+        className="absolute inset-0 z-0 pointer-events-none md:hidden bg-[linear-gradient(180deg,rgba(180,210,252,0.7)_0%,rgba(200,220,252,0.5)_40%,rgba(230,240,252,0.3)_70%,rgba(255,255,255,0)_100%)]"
       />
 
       {/* Reactive chevron accents — HP angular wordmark nod */}
@@ -79,7 +79,7 @@ export default function HeroSection() {
         <svg width="60" height="200" viewBox="0 0 60 200"><polyline points="50,6 8,100 50,194" fill="none" stroke="#c9e0fc" strokeWidth="1.5" /></svg>
       </motion.div>
 
-      <div className="container relative z-10 px-4 md:px-6 max-w-5xl mx-auto overflow-visible">
+      <div className="container relative z-10 px-6 sm:px-8 md:px-6 max-w-5xl mx-auto overflow-visible">
         <div className="flex flex-col space-y-8 text-center">
           <motion.div
             style={prefersReduced ? {} : { x: parallaxX, y: parallaxY }}
