@@ -51,7 +51,7 @@ const certifications = [
   {
     name: "GenAI Academy Expert",
     issuer: "GenAI Academy",
-    description: "Generative AI implementation and enterprise deployment",
+    description: "Generative AI implementation and AI-powered service design",
     icon: "🤖"
   },
   {
@@ -98,7 +98,7 @@ const timelineEvents = [
   {
     year: "2025",
     title: "GenAI Academy Expert Certification",
-    description: "Recognized as expert in generative AI implementation and enterprise deployment"
+    description: "Recognized as expert in generative AI implementation and service design"
   },
   {
     year: "2024",

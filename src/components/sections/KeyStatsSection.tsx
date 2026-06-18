@@ -35,7 +35,7 @@ export default function KeyStatsSection() {
               Track record
             </h2>
             <p className="text-foreground/70 font-sans text-lg max-w-xl">
-              From individual professionals to enterprise teams. Measurable results.
+              For founders, operators, and independent professionals building AI-powered services.
             </p>
           </div>
         </BlurFade>
@@ -72,8 +72,8 @@ export default function KeyStatsSection() {
               Selected engagements
             </p>
             <p className="text-sm text-foreground/80 font-sans leading-relaxed max-w-2xl">
-              Techstars, NTT Data, and teams in professional services, manufacturing,
-              and education. Names of recent clients withheld by request.
+              Founders, solo operators, and small teams building AI-powered services.
+              Names of recent clients withheld by request.
             </p>
           </div>
         </BlurFade>

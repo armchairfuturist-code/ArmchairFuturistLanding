@@ -139,17 +139,7 @@ export default function StructuredData() {
                   price: String(COACHING_PRICING['pack-20'].price),
                   priceCurrency: COACHING_PRICING['pack-20'].currency,
                 },
-                {
-                  "@type": "Offer",
-                  itemOffered: {
-                    "@type": "Service",
-                    name: PRICING.aiIndependenceIncubator.name,
-                    description: PRICING.aiIndependenceIncubator.description,
-                    provider: { "@id": personId },
-                  },
-                  price: String(PRICING.aiIndependenceIncubator.price),
-                  priceCurrency: PRICING.aiIndependenceIncubator.currency,
-                },
+
               ],
             },
           }),
@@ -251,7 +241,7 @@ export default function StructuredData() {
                 name: "Service Range",
                 currency: "EUR",
                 minValue: 100,
-                maxValue: 12000,
+                maxValue: 5000,
               },
             },
           }),

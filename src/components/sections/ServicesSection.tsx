@@ -1,5 +1,5 @@
 "use client";
-import { ArrowRight, CheckCircle2, Zap, BookOpen, Target, Rocket, Sparkles, Wrench, Globe } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Zap, BookOpen, Target, Sparkles, Wrench, Globe } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from 'motion/react';
@@ -91,25 +91,6 @@ const paths: Path[] = [
         ctaLink: CALENDAR_URL,
         highlighted: true,
         icon: Target,
-      },
-      {
-        name: "AI Independence Incubator",
-        price: "$12,000",
-        tag: "3 Months",
-        description:
-          "A high-touch intensive for practitioners who want to become recognized AI leaders in their field. Custom curriculum, weekly strategy sessions, and launching your first AI-powered offering together.",
-        features: [
-          "3-month 1-on-1 intensive",
-          "Custom curriculum for your industry",
-          "Weekly strategy sessions",
-          "Launch your first AI offering",
-          "Lifetime alumni access",
-          "Priority ongoing support",
-        ],
-        cta: "Book a Discovery Call",
-        ctaLink: CALENDAR_URL,
-        highlighted: false,
-        icon: Rocket,
       },
     ],
   },
@@ -210,7 +191,7 @@ export default function ServicesSection() {
                 className={`grid grid-cols-1 gap-6 mx-auto ${
                   path.id === 'foryou'
                     ? 'md:grid-cols-2 max-w-4xl'
-                    : 'md:grid-cols-2 lg:grid-cols-4 max-w-7xl'
+                    : 'md:grid-cols-2 lg:grid-cols-3 max-w-6xl'
                 }`}
               >
                 {path.tiers.map((tier, index) => {
