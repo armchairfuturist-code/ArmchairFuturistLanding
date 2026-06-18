@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { BookCallButton } from "@/components/ui/BookCallButton";
 import { CalendarDays, MessageCircle } from "lucide-react";
+import { useFormSubmission } from "@/lib/hooks/useFormSubmission";
 
 export default function ConnectSection() {
   const [formData, setFormData] = useState({
@@ -15,34 +16,14 @@ export default function ConnectSection() {
     email: "",
     message: "",
   });
-  const [formStatus, setFormStatus] = useState<"idle" | "sending" | "sent">(
-    "idle",
-  );
-  const [formError, setFormError] = useState("");
+  const { loading, success, error, submit } = useFormSubmission({
+    endpoint: "/api/contact",
+    validateEmail: false,
+  });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setFormStatus("sending");
-    setFormError("");
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to send message");
-      }
-
-      setFormStatus("sent");
-      setFormData({ name: "", email: "", message: "" });
-    } catch (error) {
-      console.error("Contact form error:", error);
-      setFormError("Failed to send message. Please try again or reach out directly.");
-      setFormStatus("idle");
-    }
+    await submit(formData);
   };
 
   return (
@@ -113,7 +94,7 @@ export default function ConnectSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          {formStatus === "sent" ? (
+          {success ? (
             <div
               role="status"
               aria-live="polite"
@@ -174,17 +155,17 @@ export default function ConnectSection() {
                   className="bg-white/20 border-white/30 text-white placeholder:text-white/60 resize-none"
                 />
               </div>
-              {formError && (
-                <p role="alert" className="text-red-300 text-sm">{formError}</p>
+              {error && (
+                <p role="alert" className="text-red-300 text-sm">{error}</p>
               )}
               <div role="status" aria-live="polite">
                 <Button
                   type="submit"
-                  disabled={formStatus === "sending"}
+                  disabled={loading}
                   variant="outline"
                   className="w-full bg-transparent border-white/40 text-white hover:bg-white/10 hover:border-white"
                 >
-                  {formStatus === "sending" ? "Sending..." : "Send"}
+                  {loading ? "Sending..." : "Send"}
                 </Button>
               </div>
             </form>

@@ -1,11 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Check, Mail, Loader2, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'motion/react';
 import { trackEvent } from '@/lib/analytics';
-import { isValidEmail } from '@/lib/email-utils';
+import { useFormSubmission } from '@/lib/hooks/useFormSubmission';
 
 interface EmailCaptureProps {
   onComplete: () => void;
@@ -15,42 +15,26 @@ interface EmailCaptureProps {
 
 export default function EmailCapture({ onComplete, onSkip, answerIndices }: EmailCaptureProps) {
   const [email, setEmail] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-  const [sent, setSent] = useState(false);
+  const { loading, success, error, submit } = useFormSubmission({
+    endpoint: '/api/assessment/submit',
+    onSuccess: () => {
+      trackEvent('assessment_email_capture', { email_provided: true });
+    },
+  });
+
+  useEffect(() => {
+    if (success) {
+      const timer = setTimeout(() => onComplete(), 1500);
+      return () => clearTimeout(timer);
+    }
+  }, [success, onComplete]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !isValidEmail(email)) {
-      setError('Please enter a valid email address.');
-      return;
-    }
-    setError('');
-    setLoading(true);
-
-    try {
-      const res = await fetch('/api/assessment/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, answerIndices }),
-      });
-
-      if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.error || 'Failed to send results.');
-      }
-
-      trackEvent('assessment_email_capture', { email_provided: true });
-      setSent(true);
-
-      setTimeout(() => onComplete(), 1500);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
-      setLoading(false);
-    }
+    await submit({ email, answerIndices });
   };
 
-  if (sent) {
+  if (success) {
     return (
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
