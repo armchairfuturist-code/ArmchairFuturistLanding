@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   AI-Optimized Sitemap for LLM Discovery
-  
+
   This sitemap prioritizes high-value, AI-citable content for AI crawlers.
   Placed at /sitemap-ai.xml for easy discovery by GPTBot, ClaudeBot, PerplexityBot.
-  
-  Last updated: 2026-03-29
+
+  Last updated: 2026-06-18
+  Note: Mirrors src/app/sitemap.ts. Keep in sync.
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Homepage - Primary entity page -->
   <url>
     <loc>https://thearmchairfuturist.com/</loc>
-    <lastmod>2026-03-29</lastmod>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -19,7 +20,7 @@
   <!-- About Page - E-E-A-T signals, Person entity -->
   <url>
     <loc>https://thearmchairfuturist.com/about</loc>
-    <lastmod>2026-03-29</lastmod>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -34,25 +35,25 @@
 
   <!-- Assessment Results - Individual archetypes -->
   <url>
-    <loc>https://thearmchairfuturist.com/assessment/result/the-overwhelmed-explorer</loc>
+    <loc>https://thearmchairfuturist.com/assessment/result/the-stalled-executive</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thearmchairfuturist.com/assessment/result/the-cautious-observer</loc>
+    <loc>https://thearmchairfuturist.com/assessment/result/the-curious-professional</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thearmchairfuturist.com/assessment/result/the-pragmatic-experimenter</loc>
+    <loc>https://thearmchairfuturist.com/assessment/result/the-ready-builder</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thearmchairfuturist.com/assessment/result/the-results-thinker</loc>
+    <loc>https://thearmchairfuturist.com/assessment/result/the-overwhelmed-leader</loc>
     <lastmod>2026-03-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -61,13 +62,13 @@
   <!-- Legal pages - Lower priority but included for completeness -->
   <url>
     <loc>https://thearmchairfuturist.com/privacy-policy</loc>
-    <lastmod>2026-03-29</lastmod>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://thearmchairfuturist.com/terms-of-service</loc>
-    <lastmod>2026-03-29</lastmod>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -75,25 +76,37 @@
   <!-- Concept Pages - Core concept definitions for LLM citation -->
   <url>
     <loc>https://thearmchairfuturist.com/concepts</loc>
-    <lastmod>2026-03-29</lastmod>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thearmchairfuturist.com/concepts/accountability-gap</loc>
-    <lastmod>2026-03-29</lastmod>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://thearmchairfuturist.com/concepts/psychology-led-adoption</loc>
-    <lastmod>2026-03-29</lastmod>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://thearmchairfuturist.com/concepts/results-thinkers</loc>
-    <lastmod>2026-03-29</lastmod>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://thearmchairfuturist.com/concepts/human-architect</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://thearmchairfuturist.com/concepts/pilot-itis</loc>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -101,18 +114,16 @@
   <!-- Case Studies - Evidence and proof points -->
   <url>
     <loc>https://thearmchairfuturist.com/case-studies</loc>
-    <lastmod>2026-03-29</lastmod>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-</urlset>
-    FUTURE PAGES - Add when created:
-    
-    /blog/ai-adoption-checklist
-    /blog/what-is-accountability-gap
-    /case-studies/ai-infusion-lab
-    /concepts/accountability-gap
-    /concepts/psychology-led-adoption
-  -->
+  <!-- Blog - Substack aggregator -->
+  <url>
+    <loc>https://thearmchairfuturist.com/blog</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

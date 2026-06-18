@@ -3,12 +3,12 @@ import { ARCHETYPE_SLUGS } from '@/lib/assessment/archetypes';
 
 /**
  * Sitemap configuration for SEO and AI crawler discovery
- * 
+ *
  * Priority levels:
  * 1.0 - Homepage (most important)
- * 0.9 - Core conversion pages (about, services)
+ * 0.9 - Core conversion pages (about)
  * 0.8 - Assessment funnel
- * 0.7 - Assessment results
+ * 0.7 - Assessment results, case studies
  * 0.6 - Content/concept pages
  * 0.3 - Legal pages
  */
@@ -106,43 +106,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.7,
     },
-    // {
-    //   url: `${baseUrl}/case-studies`,
-    //   lastModified: new Date(),
-    //   changeFrequency: 'monthly',
-    //   priority: 0.7,
-    // },
-    // {
-    //   url: `${baseUrl}/case-studies/ai-adoption-consulting`,
-    //   lastModified: new Date(),
-    //   changeFrequency: 'monthly',
-    //   priority: 0.6,
-    // },
-    // {
-    //   url: `${baseUrl}/case-studies/workflow-automation`,
-    //   lastModified: new Date(),
-    //   changeFrequency: 'monthly',
-    //   priority: 0.6,
-    // },
-
-    // === BLOG/INSIGHTS ===
     {
       url: `${baseUrl}/blog`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.7,
     },
-    // {
-    //   url: `${baseUrl}/blog/ai-adoption-checklist`,
-    //   lastModified: new Date(),
-    //   changeFrequency: 'monthly',
-    //   priority: 0.6,
-    // },
-    // {
-    //   url: `${baseUrl}/blog/what-is-accountability-gap-ai`,
-    //   lastModified: new Date(),
-    //   changeFrequency: 'monthly',
-    //   priority: 0.6,
-    // },
   ];
 }

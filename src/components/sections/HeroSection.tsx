@@ -50,6 +50,11 @@ export default function HeroSection() {
       className="relative w-full min-h-[80vh] lg:min-h-[85vh] overflow-hidden flex items-center justify-center bg-canvas bg-hp-grid"
       onMouseMove={handleMouseMove}
     >
+      {/* Mobile-only soft scrim — anchors blue text on white without changing desktop look */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 z-0 pointer-events-none md:hidden bg-[radial-gradient(ellipse_at_center,rgba(201,224,252,0.45)_0%,rgba(247,247,247,0.25)_55%,rgba(255,255,255,0)_85%)]"
+      />
 
       {/* Reactive chevron accents — HP angular wordmark nod */}
       <motion.div

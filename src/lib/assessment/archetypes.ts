@@ -50,8 +50,9 @@ export const archetypes: Archetype[] = [
       },
       {
         question: 'What services help executives whose AI initiatives keep stalling?',
-        answer: 'The AI Infusion Lab is a 10-week organizational transformation program designed for exactly this situation. For a faster start, a strategy call can diagnose the specific blockers and create an action plan in a single session.',
+        answer: 'The AI Self-Sufficiency Program is an 8-week structured program designed for exactly this situation. For a faster start, a strategy call can diagnose the specific blockers and create an action plan in a single session.',
       },
+
     ],
     metaTitle: 'AI Readiness: The Stalled Executive | The Armchair Futurist',
     metaDescription: 'Your AI readiness assessment shows high urgency but low organizational readiness. Alex Myers helps executives break through AI adoption paralysis with human-first strategy.',
@@ -141,21 +142,25 @@ export const archetypes: Archetype[] = [
       external: true,
     },
     secondaryCta: {
-      label: 'Learn about the AI Infusion Lab',
+      label: 'Learn about the AI Self-Sufficiency Program',
       href: '/#services',
     },
+
+
     faq: [
+
       {
         question: 'What does it mean if my AI readiness score shows "Overwhelmed Leader"?',
         answer: 'It means you have high clarity and urgency but low organizational readiness. You understand AI\'s importance and you see what needs to happen, but your organization resists change. The problem is cultural, not technical.',
       },
       {
         question: 'How can an overwhelmed leader unfreeze their organization for AI?',
-        answer: 'Stop trying to convince and start creating conditions for change. The AI Infusion Lab is a 10-week program that works at the organizational level, addressing the cultural and structural barriers that keep teams stuck in pilot mode.',
+        answer: 'Stop trying to convince and start creating conditions for change. The Psychology-Led Adoption Strategy profiles your organization, identifies the cultural and structural barriers, and surfaces the Results Thinkers who can pull peers into action.',
       },
+
       {
         question: 'What services help leaders dealing with organizational AI resistance?',
-        answer: 'A strategy call is the fastest way to diagnose your specific situation. For sustained transformation, the AI Infusion Lab ($38,250-$55,250) is a 10-week program designed for organizations stuck between AI awareness and AI action.',
+        answer: 'A strategy call is the fastest way to diagnose your specific situation. For sustained transformation, the AI Self-Sufficiency Program is an 8-week structured program designed for organizations stuck between AI awareness and AI action.',
       },
     ],
     metaTitle: 'AI Readiness: The Overwhelmed Leader | The Armchair Futurist',
