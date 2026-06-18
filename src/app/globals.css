@@ -4,6 +4,24 @@
 
 /* === HP DESIGN TOKENS === */
 
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.scroll-animate {
+    opacity: 0;
+}
+
+.scroll-animate.is-visible {
+    animation: fadeInUp 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
 
 @media (prefers-reduced-motion: reduce) {
     *,
@@ -15,6 +33,12 @@
         scroll-behavior: auto !important;
     }
 
+    .scroll-animate,
+    .scroll-animate.is-visible {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
 
     /* Marquees should still scroll (content display, not decoration) */
     .animate-marquee {
@@ -102,8 +126,75 @@
         --section-blue-background: 0 0% 10%; /* HP Ink */
     }
 
+    .dark {
+        --background: 0 0% 10%; /* HP Ink */
+        --foreground: 0 0% 100%;
+        --card: 0 0% 12%;
+        --card-foreground: 0 0% 100%;
+        --popover: 0 0% 12%;
+        --popover-foreground: 0 0% 100%;
+        --primary: 220 96% 43%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 0 0% 16%;
+        --secondary-foreground: 0 0% 100%;
+        --muted: 0 0% 15%;
+        --muted-foreground: 0 0% 70%;
+        --accent: 220 96% 43%;
+        --accent-foreground: 0 0% 100%;
+        --destructive: 359 65% 43%;
+        --destructive-foreground: 0 0% 100%;
+        --border: 0 0% 16%;
+        --input: 0 0% 16%;
+        --ring: 220 96% 43%;
+        --chart-1: 220 96% 43%;
+        --chart-2: 196 35% 50%;
+        --chart-3: 0 0% 80%;
+        --chart-4: 195 33% 68%;
+        --chart-5: 0 100% 66%;
 
+        --hero-title-color-1: 0 0% 100%;
+        --hero-title-color-2: 220 96% 43%;
+    }
 
+    /* HP gradient text — electric blue to bright to soft */
+    .hp-gradient-text {
+      background: linear-gradient(135deg, hsl(var(--hp-electric)) 0%, hsl(var(--hp-bright)) 45%, hsl(var(--hp-soft)) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    /* HP hero glow — pseudo-element approach (prevents mobile clipping) */
+    .hp-hero-glow {
+      position: relative;
+    }
+
+    .hp-hero-glow::before {
+      content: "";
+      position: absolute;
+      inset: -15px;
+      background: radial-gradient(
+        ellipse at center,
+        rgba(41, 110, 249, 0.4) 0%,
+        rgba(2, 74, 216, 0.2) 40%,
+        transparent 70%
+      );
+      filter: blur(28px);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* HP scanline overlay — subtle futuristic texture */
+    .hp-scanlines {
+      background-image: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        rgba(41, 110, 249, 0.05) 3px,
+        rgba(41, 110, 249, 0.05) 4px
+      );
+    }
     * {
         @apply border-border;
     }
@@ -113,15 +204,8 @@
 }
 
 @layer utilities {
-    /* Geometric reference grid — HP white-paper hero background.
-       80px spacing, 1px lines at 4% black, radial mask fading to edges. */
-    .bg-hp-grid {
-        background-color: #ffffff;
-        background-image:
-            repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(0,0,0,0.04) 79px, rgba(0,0,0,0.04) 80px),
-            repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(0,0,0,0.04) 79px, rgba(0,0,0,0.04) 80px);
-        mask-image: radial-gradient(ellipse 80% 80% at 50% 40%, black 40%, transparent 70%);
-        -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 40%, black 40%, transparent 70%);
+    .hero-text-shadow {
+        text-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.5);
     }
 
     /* HP chevron decoration */
@@ -161,3 +245,11 @@
     }
 }
 
+@keyframes shine {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
