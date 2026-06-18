@@ -9,16 +9,13 @@ concurrency:
   group: deploy-${{ github.ref }}
   cancel-in-progress: false
 
-jobs:
-  ci:
-    uses: ./.github/workflows/ci.yml
+permissions:
+  contents: read
 
+jobs:
   deploy:
-    needs: ci
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    permissions:
-      contents: read
     steps:
       - uses: actions/checkout@v4
 
@@ -28,6 +25,12 @@ jobs:
           cache: npm
 
       - run: npm ci
+
+      - name: Lint & typecheck
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
 
       - name: Deploy to Firebase Hosting
         uses: w9jds/firebase-action@v14
