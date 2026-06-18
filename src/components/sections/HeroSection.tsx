@@ -79,7 +79,7 @@ export default function HeroSection() {
         <svg width="60" height="200" viewBox="0 0 60 200"><polyline points="50,6 8,100 50,194" fill="none" stroke="#c9e0fc" strokeWidth="1.5" /></svg>
       </motion.div>
 
-      <div className="container relative z-10 px-4 md:px-6 max-w-5xl mx-auto">
+      <div className="container relative z-10 px-4 md:px-6 max-w-5xl mx-auto overflow-visible">
         <div className="flex flex-col space-y-8 text-center">
           <motion.div
             style={prefersReduced ? {} : { x: parallaxX, y: parallaxY }}
