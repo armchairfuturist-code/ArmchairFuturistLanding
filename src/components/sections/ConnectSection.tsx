@@ -48,7 +48,7 @@ export default function ConnectSection() {
   return (
     <section
       id="connect"
-      className="py-20 md:py-24 bg-usvc-blue text-primary-foreground scroll-mt-20"
+      className="py-20 md:py-24 bg-hp-electric text-primary-foreground scroll-mt-20"
     >
       <motion.div
         className="container mx-auto px-4 md:px-6 text-center"
@@ -102,7 +102,7 @@ export default function ConnectSection() {
             </Button>
           </motion.div>
           <p className="mt-4 text-sm text-primary-foreground/85">
-            Join 40+ leaders who've reclaimed 10-20 hrs/week
+            15 minutes. No pitch. Just clarity.
           </p>
         </BlurFade>
         {/* Contact Form */}

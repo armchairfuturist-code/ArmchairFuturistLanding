@@ -2,7 +2,6 @@
 
 import { BlurFade } from "@/components/ui/blur-fade";
 import { motion } from "motion/react";
-import { Clock, DollarSign, TrendingUp } from 'lucide-react';
 import { BookCallButton } from "@/components/ui/BookCallButton";
 
 const caseStudies = [
@@ -10,25 +9,13 @@ const caseStudies = [
     title: "Automated Client Response System",
     client: "Professional Services Firm",
     problem:
-      "Team spent 3-4 hours daily answering repetitive client queries across email and WhatsApp. Response times averaged 6 hours. Clients complained about slow turnaround.",
+      "Team spent a large share of the day answering repetitive client queries across email and WhatsApp. Response times stretched across the working day. Clients complained about slow turnaround.",
     solution:
       "Built an n8n workflow that routes incoming queries, drafts context-aware responses using AI, and sends them through approved channels. Human reviews only edge cases.",
-    results: [
-      {
-        metric: "18 hrs/week",
-        label: "Saved on email & WhatsApp",
-        icon: Clock,
-      },
-      {
-        metric: "6 hrs -> 15 min",
-        label: "Average response time",
-        icon: TrendingUp,
-      },
-      {
-        metric: "$4,200/mo",
-        label: "Equivalent staff time saved",
-        icon: DollarSign,
-      },
+    patterns: [
+      "Mapped 14 repetitive query categories across email and WhatsApp",
+      "Drafted 6 reusable response templates with human-review escalation rules",
+      "Handed off a runbook plus a 2-person training session for the ops team",
     ],
     timeline: "Built in 5 days",
   },
@@ -36,25 +23,13 @@ const caseStudies = [
     title: "Frictionless Service Purchase Flow",
     client: "Consulting & Advisory Practice",
     problem:
-      "Potential clients bounced during service booking. The payment backend required 4 steps, no live chat support, and complex queries went unanswered. 60% drop-off at checkout.",
+      "Potential clients bounced during service booking. The payment backend required multiple steps, no live chat support, and complex queries went unanswered. High abandonment at checkout.",
     solution:
       "Redesigned the purchase UX to 2 steps. Added a custom chatbot that handles pricing questions, service comparisons, and booking. Integrated payment backend with one-click checkout.",
-    results: [
-      {
-        metric: "60% -> 18%",
-        label: "Checkout drop-off rate",
-        icon: TrendingUp,
-      },
-      {
-        metric: "12 hrs/week",
-        label: "Saved on pre-sales queries",
-        icon: Clock,
-      },
-      {
-        metric: "3.2x",
-        label: "Increase in completed bookings",
-        icon: DollarSign,
-      },
+    patterns: [
+      "Redesigned checkout to a 2-step flow with one-click payment",
+      "Built a pricing-comparison chatbot covering the top service questions",
+      "Wrote a short sales-script guide for the team to handle chatbot handoffs",
     ],
     timeline: "Delivered in 2 weeks",
   },
@@ -62,21 +37,13 @@ const caseStudies = [
     title: "Automated Meeting-to-Action Pipeline",
     client: "Remote Operations Team",
     problem:
-      "Team of 12 held 40+ meetings weekly. Action items got lost in notes. Follow-up took 2 hours per person per week. Critical decisions slipped through gaps between tools.",
+      "Distributed team held many recurring meetings weekly. Action items got lost in notes. Follow-up ate into everyone's week. Critical decisions slipped through gaps between tools.",
     solution:
       "Built a pipeline that transcribes meetings, extracts action items, assigns owners, creates calendar reminders, and sends weekly digests. Connected Slack, Calendar, and project management tools.",
-    results: [
-      { metric: "24 hrs/week", label: "Saved across the team", icon: Clock },
-      {
-        metric: "94%",
-        label: "Action items completed on time",
-        icon: TrendingUp,
-      },
-      {
-        metric: "$6,800/mo",
-        label: "Recovered productivity value",
-        icon: DollarSign,
-      },
+    patterns: [
+      "Transcribed and tagged action items from every recurring meeting",
+      "Wired owner-assignment, calendar reminders, and a weekly digest to Slack",
+      "Ran a 30-minute team walkthrough plus a written handoff doc",
     ],
     timeline: "Built in 10 days",
   },
@@ -90,18 +57,22 @@ export default function CaseStudiesSection() {
     >
       <div className="container mx-auto px-4 md:px-6 max-w-6xl">
         <BlurFade inView>
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <p className="text-xs font-mono mb-3 text-foreground/60">
-              Real Results
+              Engagement Patterns
             </p>
             <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary mb-4">
               What Happens When AI Actually Works
             </h2>
             <p className="text-lg text-foreground/80 font-sans max-w-2xl mx-auto">
-              Three recent projects. Measurable outcomes. No strategy decks.
+              Three recent projects. Anonymized and composited. No strategy decks.
             </p>
           </div>
         </BlurFade>
+
+        <p className="text-center text-sm text-muted-foreground max-w-2xl mx-auto mb-12 italic">
+          Composite, anonymized — illustrative patterns from real engagements, not specific client outcomes.
+        </p>
 
         <div className="space-y-12">
           {caseStudies.map((study, i) => (
@@ -152,31 +123,25 @@ export default function CaseStudiesSection() {
                     </div>
                   </div>
 
-                  {/* Right: Results */}
+                  {/* Right: Engagement patterns */}
                   <div>
                     <p className="text-xs font-mono text-foreground/60 mb-4">
-                      Results
+                      What I Worked On
                     </p>
-                    <div className="space-y-4">
-                      {study.results.map((result) => (
-                        <div
-                          key={result.metric}
-                          className="flex items-start gap-4"
+                    <ul className="space-y-3">
+                      {study.patterns.map((pattern) => (
+                        <li
+                          key={pattern}
+                          className="flex items-start gap-3 text-sm text-foreground/80 leading-relaxed"
                         >
-                          <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                            <result.icon className="h-5 w-5 text-primary" />
-                          </div>
-                          <div>
-                            <p className="text-lg font-bold text-primary">
-                              {result.metric}
-                            </p>
-                            <p className="text-xs text-muted-foreground">
-                              {result.label}
-                            </p>
-                          </div>
-                        </div>
+                          <span
+                            aria-hidden="true"
+                            className="mt-2 h-1.5 w-1.5 rounded-full bg-primary shrink-0"
+                          />
+                          <span>{pattern}</span>
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   </div>
                 </div>
               </motion.div>
@@ -188,8 +153,7 @@ export default function CaseStudiesSection() {
         <BlurFade inView>
           <div className="text-center mt-12">
             <p className="text-lg text-foreground/80 mb-6">
-              These are typical outcomes. Your situation is different - but the
-              math usually works out similar.
+              Every engagement is different. Bring your situation and we will work out what fits.
             </p>
             <BookCallButton
               location="case_studies"
@@ -197,7 +161,7 @@ export default function CaseStudiesSection() {
               icon="arrow"
               iconClassName="ml-2 h-4 w-4"
             >
-              See What You Could Save
+              Talk Through Your Situation
             </BookCallButton>
           </div>
         </BlurFade>

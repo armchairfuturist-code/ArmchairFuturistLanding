@@ -1,10 +1,8 @@
 "use client";
 
-import Link from 'next/link';
-import Image from 'next/image';
 import { motion } from 'motion/react';
 import { BlurFade } from '@/components/ui/blur-fade';
-import {CheckCircle2, Trophy, Globe} from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 
 const featuredStats = [
   {
@@ -24,17 +22,6 @@ const featuredStats = [
   },
 ];
 
-const logos = [
-  { src: "/thegenaiacademy.jpg", alt: "GenAI Academy" },
-  { src: "/aragonp.jpg", alt: "Aragon.org" },
-  { src: "/culminate.jpg", alt: "Culminate Strategy" },
-  { src: "/techstars.jpg", alt: "Techstars" },
-  { src: "/launch.jpg", alt: "NTT Data" },
-  { src: "/kemin.jpg", alt: "Kemin" },
-  { src: "/shiftdsm.jpg", alt: "Shift DSM" },
-  { src: "/p2p.png", alt: "P2P" },
-  { src: "/mindscape.png", alt: "Mindscape" },
-];
 
 export default function KeyStatsSection() {
   return (
@@ -78,28 +65,16 @@ export default function KeyStatsSection() {
           ))}
         </div>
 
-        {/* Static logo grid - no marquee, no animation */}
+        {/* Honest engagements list - no fabricated logo wall */}
         <BlurFade inView>
           <div className="border-t border-border pt-10">
-            <p className="text-xs text-muted-foreground/60 font-mono uppercase tracking-widest mb-6">
-              Organizations I&apos;ve worked with
+            <p className="text-xs text-muted-foreground/60 font-mono uppercase tracking-widest mb-4">
+              Selected engagements
             </p>
-            <div className="flex flex-wrap gap-x-8 gap-y-4 items-center">
-              {logos.map((logo) => (
-                <div
-                  key={logo.alt}
-                  className="relative h-10 w-10 grayscale hover:grayscale-0 transition-all duration-300"
-                >
-                  <Image
-                    src={logo.src}
-                    alt={logo.alt}
-                    fill
-                    sizes="40px"
-                    className="object-contain"
-                  />
-                </div>
-              ))}
-            </div>
+            <p className="text-sm text-foreground/80 font-sans leading-relaxed max-w-2xl">
+              Techstars, NTT Data, and teams in professional services, manufacturing,
+              and education. Names of recent clients withheld by request.
+            </p>
           </div>
         </BlurFade>
 

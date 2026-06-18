@@ -1,18 +1,20 @@
 import HeroSection from '@/components/sections/HeroSection';
-import MentoringSection from '@/components/sections/MentoringSection';
-import KeyStatsSection from '@/components/sections/KeyStatsSection';
 import AboutMeSection from '@/components/sections/AboutMeSection';
 import ServicesSection from '@/components/sections/ServicesSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import ConnectSection from '@/components/sections/ConnectSection';
 import SpeakingSection from '@/components/sections/SpeakingSection';
+import MentoringSection from '@/components/sections/MentoringSection';
 import FAQSection from '@/components/sections/FAQSection';
-import AssessmentCtaSection from '@/components/sections/AssessmentCtaSection';
-import CaseStudiesSection from '@/components/sections/CaseStudiesSection';
-import InsightsSection from '@/components/sections/InsightsSection';
-import ROICalculatorSection from '@/components/sections/ROICalculatorSection';
 import WhatThisIsNotSection from '@/components/sections/WhatThisIsNotSection';
 import SectionNavigator from '@/components/ui/SectionNavigator';
+import {
+  CaseStudiesSection,
+  KeyStatsSection,
+  ROICalculatorSection,
+  AssessmentCtaSection,
+  InsightsSection,
+} from '@/components/sections/DynamicSections';
 export default function HomePage() {
   return (
     <div className="flex flex-col">

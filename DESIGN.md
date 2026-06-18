@@ -1,6 +1,6 @@
 ---
 name: The Armchair Futurist
-description: HP-inspired white-paper enterprise-consumer system. Geometric Forma DJR Micro sans throughout, HP Electric Blue as the lone signal CTA, near-black ink for headlines, 8-16px rounded corners, soft 16px photo frames, dark navy customer-story and closing bands. Angular blue-chevron decorations nod to the HP wordmark's slashes.
+description: HP-inspired white-paper enterprise-consumer system. Geometric Space Grotesk for display, Manrope for body/UI, HP Electric Blue as the lone signal CTA, near-black ink for headlines, 8-16px rounded corners, soft 16px photo frames, dark navy customer-story and closing bands. Angular blue-chevron decorations nod to the HP wordmark's slashes.
 colors:
   primary: "#024ad8"
   primary-bright: "#296ef9"
@@ -32,98 +32,98 @@ colors:
   error: "#b3262b"
 typography:
   display-xxl:
-    fontFamily: Forma DJR Micro
+    fontFamily: Space Grotesk
     fontSize: 72px
     fontWeight: 500
     lineHeight: 1.0
     letterSpacing: 0
   display-xl:
-    fontFamily: Forma DJR Micro
+    fontFamily: Space Grotesk
     fontSize: 56px
     fontWeight: 500
     lineHeight: 1.0
     letterSpacing: 0
   display-lg:
-    fontFamily: Forma DJR Micro
+    fontFamily: Space Grotesk
     fontSize: 44px
     fontWeight: 500
     lineHeight: 1.0
     letterSpacing: 0
   display-md:
-    fontFamily: Forma DJR Micro
+    fontFamily: Space Grotesk
     fontSize: 32px
     fontWeight: 500
     lineHeight: 1.0
     letterSpacing: 0
   display-sm:
-    fontFamily: Forma DJR Micro
+    fontFamily: Space Grotesk
     fontSize: 24px
     fontWeight: 500
     lineHeight: 1.17
     letterSpacing: 0
   display-xs:
-    fontFamily: Forma DJR Micro
+    fontFamily: Space Grotesk
     fontSize: 20px
     fontWeight: 500
     lineHeight: 1.0
     letterSpacing: 0
   body-lg:
-    fontFamily: Forma DJR Micro
+    fontFamily: Manrope
     fontSize: 18px
     fontWeight: 400
     lineHeight: 1.33
     letterSpacing: 0
   body-md:
-    fontFamily: Forma DJR Micro
+    fontFamily: Manrope
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.38
     letterSpacing: 0
   body-emphasis:
-    fontFamily: Forma DJR Micro
+    fontFamily: Manrope
     fontSize: 16px
     fontWeight: 500
     lineHeight: 1.38
     letterSpacing: 0
   caption-md:
-    fontFamily: Forma DJR Micro
+    fontFamily: Manrope
     fontSize: 14px
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: 0
   caption-sm:
-    fontFamily: Forma DJR Micro
+    fontFamily: Manrope
     fontSize: 12px
     fontWeight: 400
     lineHeight: 1.33
     letterSpacing: 0
   caption-bold:
-    fontFamily: Forma DJR Micro
+    fontFamily: Manrope
     fontSize: 14px
     fontWeight: 700
     lineHeight: 1.3
     letterSpacing: 0
   link-md:
-    fontFamily: Forma DJR Micro
+    fontFamily: Manrope
     fontSize: 16px
     fontWeight: 500
     lineHeight: 1.38
     letterSpacing: 0
   button-md:
-    fontFamily: Forma DJR Micro
+    fontFamily: Manrope
     fontSize: 14px
     fontWeight: 600
     lineHeight: 1.4
     letterSpacing: 0.7px
     textTransform: uppercase
   button-sm:
-    fontFamily: Forma DJR Micro
+    fontFamily: Manrope
     fontSize: 12.6px
     fontWeight: 700
     lineHeight: 1.0
     letterSpacing: 0.126px
   price-md:
-    fontFamily: Forma DJR Micro
+    fontFamily: Manrope
     fontSize: 24px
     fontWeight: 500
     lineHeight: 1.17
@@ -315,19 +315,19 @@ components:
 
 ## Overview
 
-The Armchair Futurist's web presence adopts HP's **white-paper enterprise-consumer design language**: a system anchored by **HP Electric Blue (`#024ad8`)** as the lone signal CTA, **near-black ink (`#1a1a1a`)** for headlines, **Forma DJR Micro** geometric sans throughout, and angular blue-chevron decorations that nod to the HP wordmark's slashes. Cards round at 8–16px, photos sit in soft 16px frames, and dark navy slabs anchor the customer-story and "how can we help" closing bands.
+The Armchair Futurist's web presence adopts HP's **white-paper enterprise-consumer design language**: a system anchored by **HP Electric Blue (`#024ad8`)** as the lone signal CTA, **near-black ink (`#1a1a1a`)** for headlines, **Space Grotesk** geometric sans for display with **Manrope** for body/UI, and angular blue-chevron decorations that nod to the HP wordmark's slashes. Cards round at 8–16px, photos sit in soft 16px frames, and dark navy slabs anchor the customer-story and "how can we help" closing bands.
 
 The aesthetic is **enterprise-credible, consumer-friendly**: a white-paper technical document feel, with one strong signal color, geometric typography, and soft 16px radii. Every interactive element is one of three buttons: solid HP blue (primary), outlined HP blue (secondary), or solid ink (utility). There's no warm accent, no decorative gradient, no chrome that doesn't carry meaning.
 
 **Key Characteristics:**
-- **Forma DJR Micro** geometric sans throughout, weights 400/500/600/700.
+- **Space Grotesk** geometric sans for display (weights 300/400/500/600/700), **Manrope** for body and UI (weights 400/500/600/700).
 - **HP Electric Blue** (`#024ad8`) as the sole signal color — every CTA, every link, every focus ring.
 - **Ink** (`#1a1a1a`) for all headlines and primary text on light surfaces.
 - **White-paper canvas** — pure white surfaces with subtle cloud (`#f7f7f7`) for cards and fog (`#e8e8e8`) for dividers.
 - **Soft 16px radii** on cards and photos; tight 4px radii on buttons and inputs.
 - **Dark navy customer-story band** — a contrasting `#1a1a1a` slab for testimonials and closing CTA.
 - **Blue chevron decorations** — angular slashes that nod to the HP wordmark, used sparingly as section dividers.
-- **Uppercase tracked buttons** — every button is 14px Forma DJR Micro weight 600, uppercase, +0.7px tracking. No exceptions.
+- **Uppercase tracked buttons** — every button is 14px Manrope weight 600, uppercase, +0.7px tracking. No exceptions.
 - **No gradients, no shadows on text, no decorative frames.** Form carries weight; chrome disappears.
 
 ## Colors
@@ -376,12 +376,12 @@ The aesthetic is **enterprise-credible, consumer-friendly**: a white-paper techn
 
 ## Typography
 
-The typography system uses **HP's Forma DJR Micro** as the sole typeface — a geometric sans designed for HP by DJR (David Jonathan Ross). It's open enough to read at body sizes, confident at display sizes, and carries HP's engineering precision. For web delivery we substitute **Manrope** (Google Fonts), which approximates Forma's geometric character with the same single-story 'a' and tight apertures.
+The typography system uses two geometric sans faces — **Space Grotesk** for display and **Manrope** for body/UI. Space Grotesk carries HP-inspired engineering precision with single-story 'a' and tight apertures; Manrope is its high-readability counterpart for paragraphs, UI chrome, and button labels.
 
-> **Licensing note:** Forma DJR Micro is a proprietary HP corporate font. The web stack uses Manrope as a free, open-source substitute with similar geometric characteristics. Update the font-family stack to "Forma DJR Micro, Manrope, Inter, sans-serif" when licensing is secured.
+> **Display:** Space Grotesk (weights 300/400/500/600/700). **Body/UI:** Manrope (weights 400/500/600/700). Both loaded via `next/font/google` in `src/app/layout.tsx` and exposed as CSS variables (`--font-display`, `--font-body`).
 
 ### Font Family
-- **Primary**: `"Forma DJR Micro", "Manrope", "Inter", system-ui, sans-serif` — geometric, modern, neutral.
+- **Primary**: `"Space Grotesk", "Manrope", "Inter", system-ui, sans-serif` — geometric, modern, neutral. Display tokens resolve to Space Grotesk; body/UI/button tokens resolve to Manrope via the `fontFamily.display` / `fontFamily.body` Tailwind keys.
 - **Mono**: `"JetBrains Mono", "Courier New", Courier, monospace` — for code blocks, technical labels.
 
 ### Hierarchy
@@ -407,12 +407,12 @@ The typography system uses **HP's Forma DJR Micro** as the sole typeface — a g
 
 ### HP Typography Principles
 
-- **Geometric neutrality.** Forma DJR Micro (and Manrope substitute) is geometric, modern, and unornamented. No decorative flourishes, no contrasts that distract.
+- **Geometric neutrality.** Space Grotesk (display) and Manrope (body/UI) are geometric, modern, and unornamented. No decorative flourishes, no contrasts that distract.
 - **Weight 500 for display.** Headlines sit at 500. Body is 400. Buttons are 600. The 500 weight gives display text a confident-but-not-bold presence.
 - **Line-height 1.0 at display sizes.** Tight, dense, engineered. Display lines pack together with no extra air.
 - **Tight letter-spacing.** The system uses 0 letter-spacing everywhere; uppercase buttons add +0.7px to give each letter breathing room.
-- **Buttons are uppercase + tracked.** Every button is 14px Forma DJR Micro weight 600, uppercase, +0.7px letter-spacing. This is a non-negotiable brand signature.
-- **Inter substitute adjustments.** Manrope tracks slightly tighter than Forma's default; the 0 letter-spacing is correct for both.
+- **Buttons are uppercase + tracked.** Every button is 14px Manrope weight 600, uppercase, +0.7px letter-spacing. This is a non-negotiable brand signature.
+- **Tracking calibration.** Manrope tracks slightly tighter than Space Grotesk's defaults; the 0 letter-spacing baseline applies to both faces consistently.
 - **Uppercase is reserved for buttons + section labels.** Only buttons and section markers get `text-transform: uppercase`. Never for body text.
 
 ## Layout & Spacing
@@ -445,7 +445,7 @@ The typography system uses **HP's Forma DJR Micro** as the sole typeface — a g
 **1. Button Primary** — Electric Blue, white text
 - Background: `#024ad8`
 - Text: `#ffffff`
-- Typography: 14px Forma DJR Micro, 600, uppercase, +0.7px tracking
+- Typography: 14px Manrope, 600, uppercase, +0.7px tracking
 - Radius: 4px
 - Padding: 12px 24px
 - Height: 44px
@@ -512,7 +512,7 @@ The typography system uses **HP's Forma DJR Micro** as the sole typeface — a g
 
 - **CSS variables** in `src/app/globals.css` expose the full color system. Tokens are HSL triplets for shadcn/ui compatibility.
 - **Tailwind config** extends the system with `fontFamily.display`, `fontFamily.body`, `fontFamily.mono`, color aliases (e.g. `text-ink`, `bg-canvas`, `border-hairline`), and `borderRadius.hp-md` / `borderRadius.hp-xl`.
-- **Font loading:** Manrope (Google Fonts) is loaded via `<link>` in `app/layout.tsx` for weights 400/500/600/700 with `display=swap`.
+- **Font loading:** Space Grotesk (display) and Manrope (body/UI) are loaded via `next/font/google` in `src/app/layout.tsx` and exposed as `--font-display` and `--font-body` CSS variables. Weights match the token table above.
 - **Button shape is non-negotiable.** 14px, 600 weight, uppercase, +0.7px tracking, 4px radius. All buttons in the system follow this signature.
 - **Color discipline:** Electric Blue is the ONLY signal color. Bloom Coral is reserved for commerce urgency. Storm blues are reserved for photo frames. No other accents exist.
 

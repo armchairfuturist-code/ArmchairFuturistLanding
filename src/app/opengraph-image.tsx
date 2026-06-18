@@ -16,7 +16,7 @@ export default function Image() {
           flexDirection: "column",
           alignItems: "flex-start",
           justifyContent: "center",
-          background: "linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%)",
+          background: "linear-gradient(135deg, #1a1a1a 0%, #024ad8 50%, #1a1a1a 100%)",
           padding: "80px 100px",
           fontFamily: "system-ui, -apple-system, sans-serif",
         }}
@@ -26,7 +26,7 @@ export default function Image() {
           style={{
             width: "120px",
             height: "6px",
-            background: "#3b82f6",
+            background: "#296ef9",
             borderRadius: "3px",
             marginBottom: "40px",
           }}
@@ -51,7 +51,7 @@ export default function Image() {
           style={{
             fontSize: "36px",
             fontWeight: "500",
-            color: "#94a3b8",
+            color: "#636363",
             lineHeight: "1.3",
             marginBottom: "12px",
           }}
@@ -64,7 +64,7 @@ export default function Image() {
           style={{
             fontSize: "22px",
             fontWeight: "400",
-            color: "#64748b",
+            color: "#636363",
             marginTop: "auto",
           }}
         >

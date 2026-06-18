@@ -116,7 +116,7 @@ export default function AboutMeSection() {
   return (
     <section
       id="about-me"
-      className="relative py-12 md:py-24 bg-usvc-navy text-primary-foreground scroll-mt-20 overflow-hidden"
+      className="relative py-12 md:py-24 bg-hp-deep text-primary-foreground scroll-mt-20 overflow-hidden"
     >
       {/* Desktop portrait — absolute, bleeds to right edge of section */}
       <div className="hidden lg:block absolute top-0 right-0 w-[48%] bottom-0 z-0 pointer-events-none">
@@ -155,7 +155,7 @@ export default function AboutMeSection() {
                       href={expertCertification.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group inline-flex flex-col items-center p-2 rounded-md bg-white/10 backdrop-blur-sm shadow-md ring-2 ring-usvc-blue/35 hover:ring-usvc-blue hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-usvc-blue cursor-pointer"
+                      className="group inline-flex flex-col items-center p-2 rounded-md bg-white/10 backdrop-blur-sm shadow-md ring-2 ring-hp-electric/35 hover:ring-hp-electric hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hp-electric cursor-pointer"
                       aria-label={`${expertCertification.name} (opens in new tab)`}
                     >
                       {expertCertification.imageSrc ? (
@@ -173,7 +173,7 @@ export default function AboutMeSection() {
                           </span>
                         </div>
                       )}
-                      <span className="mt-2 text-[11px] font-mono uppercase tracking-widest text-usvc-blue/75 group-hover:text-usvc-blue transition-colors">
+                      <span className="mt-2 text-[11px] font-mono uppercase tracking-widest text-hp-electric/75 group-hover:text-hp-electric transition-colors">
                         Click to verify
                       </span>
                     </a>
@@ -202,20 +202,20 @@ export default function AboutMeSection() {
               <BlurFade inView delay={0.2}>
                 <div className="mb-6 text-center lg:text-left">
                   <div className="flex items-center justify-center lg:justify-start gap-3">
-                    <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-usvc-blue">
+                    <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-hp-electric">
                       Who Is Alex Myers?
                     </h2>
                     <a
                       href="https://www.linkedin.com/in/alex-myers-34572a10/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-usvc-blue/55 hover:text-usvc-blue transition-colors"
+                      className="text-hp-electric/55 hover:text-hp-electric transition-colors"
                       aria-label="Alex Myers LinkedIn Profile"
                     >
                       <Linkedin className="h-5 w-5" />
                     </a>
                   </div>
-                  <p className="text-sm text-usvc-blue/60 font-mono mt-1 uppercase tracking-widest">
+                  <p className="text-sm text-hp-electric/60 font-mono mt-1 uppercase tracking-widest">
                     AI Guide
                   </p>
                 </div>
@@ -234,21 +234,21 @@ export default function AboutMeSection() {
                   My work draws on systems thinking, group dynamics, and a knack for asking the questions nobody else will. I tell you what I actually think, not what you want to hear. That&apos;s the foundation of solutions that stick.
                 </p>
 
-                <h3 className="text-lg md:text-xl font-bold text-usvc-blue pt-2">
+                <h3 className="text-lg md:text-xl font-bold text-hp-electric pt-2">
                   For the Executive:
                 </h3>
                 <p className="text-base md:text-lg text-primary-foreground/85 font-sans leading-relaxed">
                   The edge you&apos;re standing at isn&apos;t just technological. It&apos;s structural, cultural, and deeply human. I help you see the whole field, not just the tools — so your organization moves with intention instead of reacting to every shift.
                 </p>
 
-                <h3 className="text-lg md:text-xl font-bold text-usvc-blue pt-2">
+                <h3 className="text-lg md:text-xl font-bold text-hp-electric pt-2">
                   For the Individual:
                 </h3>
                 <p className="text-base md:text-lg text-primary-foreground/85 font-sans leading-relaxed">
                   I help you find your footing on shifting ground. How do you live optimistically when intelligence is becoming a cheap utility? How do you reclaim your time for the work that is uniquely yours?
                 </p>
 
-                <p className="flex items-center gap-2 text-base md:text-lg text-usvc-blue font-bold font-sans">
+                <p className="flex items-center gap-2 text-base md:text-lg text-hp-electric font-bold font-sans">
                   <ArrowRight className="w-4 h-4 shrink-0" />
                   Forget prediction. The goal is to move you from &ldquo;what
                   happens next&rdquo; to &ldquo;here is what I am
@@ -257,7 +257,7 @@ export default function AboutMeSection() {
 
                 {/* How I Work — absorbed from WhyWorkWithMeSection */}
                 <div className="pt-6 mt-6 border-t border-white/10">
-                  <p className="text-xs font-mono uppercase tracking-widest text-usvc-blue/70 mb-4">
+                  <p className="text-xs font-mono uppercase tracking-widest text-hp-electric/70 mb-4">
                     How I Work
                   </p>
                   <ul className="space-y-4">
@@ -305,7 +305,7 @@ export default function AboutMeSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.3 }}
               >
-                <p className="text-xs font-mono uppercase tracking-widest text-usvc-blue/70 mb-3">
+                <p className="text-xs font-mono uppercase tracking-widest text-hp-electric/70 mb-3">
                   Verified Background
                 </p>
                 <div className="flex flex-wrap gap-x-4 gap-y-2">
@@ -327,7 +327,7 @@ export default function AboutMeSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.3 }}
           >
-            <p className="text-xs font-mono uppercase tracking-widest text-usvc-blue/60 mb-4 text-center lg:text-left">
+            <p className="text-xs font-mono uppercase tracking-widest text-hp-electric/60 mb-4 text-center lg:text-left">
               Verified Background
             </p>
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-3">

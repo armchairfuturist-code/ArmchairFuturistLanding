@@ -1,7 +1,6 @@
 import type { Config } from "tailwindcss";
 
 export default {
-  darkMode: ["class"],
   content: [
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
@@ -59,38 +58,8 @@ export default {
         "storm-sea": "#7fadbe", // Cool photo frame
         "storm-deep": "#356373", // Cool photo frame
 
-        // Legacy aliases (mapped to HP tokens for backward compat)
-        "usvc-blue": "#024ad8", // → hp-electric
-        "ps-blue": "#0e3191", // → hp-deep
-        "usvc-navy": "#1a1a1a", // → ink
-        "ps-cyan": "#296ef9", // → hp-bright
-        "usvc-off-white": "#ffffff", // → canvas
-        "usvc-border": "#e8e8e8", // → hairline
-        "border-dark": "#0e3191", // → hp-deep
-
-        "paper-white": "#ffffff", // → canvas
-        "console-black": "#000000", // → ink-deep
-        "shadow-black": "#1a1a1a", // → ink
-        "ink-navy": "#1a1a1a", // → ink
-
-        "display-ink": "#1a1a1a", // → ink
-        "deep-charcoal": "#1a1a1a", // → ink
-        "body-gray": "#636363", // → graphite
-        "mute-gray": "#9ca3af", // → lighter neutral
-        "inverse-white": "#ffffff", // → canvas
-        "dark-link-blue-rest": "#024ad8", // → hp-electric
-        "link-hover-blue": "#296ef9", // → hp-bright
-        "dark-link-blue": "#53b1ff", // bright link on dark
-
-        "warning-red": "#b3262b", // → bloom-deep
-        "success-green": "#38a169",
-        "commerce-orange": "#d53b00",
-        "commerce-orange-active": "#aa2f00",
-
-        "card-caption-text": "#024ad8", // → hp-electric
-
-        "ice-mist": "#f7f7f7", // → cloud
-        "masthead-black": "#000000", // → ink-deep
+        // Semantic surfaces (HP paper = off-white soft section background)
+        paper: "#f7f7f7",
 
         // Shadcn/ui CSS variable colors
         background: "hsl(var(--background))",
@@ -156,13 +125,6 @@ export default {
         "hp-xl": "16px", // cards, photo frames (anchor)
         "hp-pill": "9999px", // category tabs
         "hp-full": "9999px", // avatars
-
-        // Legacy aliases (mapped to HP tokens for backward compat)
-        "usvc-sm": "4px", // → hp-md
-        "usvc-md": "8px", // → hp-lg
-        "usvc-lg": "12px",
-        "usvc-xl": "16px", // → hp-xl
-        "ps-pill": "9999px", // → hp-pill
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",

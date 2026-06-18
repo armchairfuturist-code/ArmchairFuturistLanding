@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView } from "motion/react";
+import { motion, type Variants } from "motion/react";
 
 interface WordPullUpProps {
   text: string;
@@ -18,6 +18,28 @@ interface WordPullUpProps {
   once?: boolean;
 }
 
+const containerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.06,
+      delayChildren: 0,
+    },
+  },
+};
+
+const wordVariants: Variants = {
+  hidden: { y: "100%", opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: [0.25, 0.1, 0.25, 1],
+    },
+  },
+};
+
 export function WordPullUp({
   text,
   className,
@@ -28,12 +50,19 @@ export function WordPullUp({
   once = true,
 }: WordPullUpProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once });
 
   const words = text.split(" ");
 
   return (
-    <span ref={ref} className={className}>
+    <motion.span
+      ref={ref}
+      className={className}
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once, amount: 0.1 }}
+      transition={{ delayChildren: delay, staggerChildren: 0.06 }}
+    >
       {words.map((word, i) => {
         const extra = wordClassNames?.[word];
         const wordClasses = ["inline-block", wordClassName, extra]
@@ -57,19 +86,14 @@ export function WordPullUp({
           >
             <motion.span
               className={wordClasses}
-              initial={{ y: "0.35em", opacity: 0 }}
-              animate={isInView ? { y: 0, opacity: 1 } : {}}
-              transition={{
-                duration,
-                ease: [0.25, 0.1, 0.25, 1],
-                delay: delay + i * 0.06,
-              }}
+              variants={wordVariants}
+              transition={{ duration }}
             >
               {word}
             </motion.span>
           </span>
         );
       })}
-    </span>
+    </motion.span>
   );
 }

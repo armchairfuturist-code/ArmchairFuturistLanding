@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { motion } from 'motion/react';
-import { Calculator, Clock, DollarSign, ArrowRight, Mail, CheckCircle2, Loader2 } from 'lucide-react';
+import { Calculator, Clock, ArrowRight, Mail, CheckCircle2, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { BookCallButton } from '@/components/ui/BookCallButton';
 import { trackEvent, trackConversion } from '@/lib/analytics';
@@ -84,7 +84,6 @@ export default function ROICalculatorSection() {
   const hoursPerMonth = hoursPerWeek * 4;
   const hoursPerYear = hoursPerWeek * 52;
   const teamHoursPerYear = hoursPerYear * teamSize;
-  const annualSavings = teamHoursPerYear * 50;
 
   const hasResults = selected.size > 0;
 
@@ -157,6 +156,7 @@ export default function ROICalculatorSection() {
                           : 'border-border/40 bg-background hover:border-border'
                       }`}
                       whileTap={{ scale: 0.98 }}
+                      aria-pressed={isSelected}
                     >
                       <div className="flex items-center justify-between">
                         <div>
@@ -191,14 +191,14 @@ export default function ROICalculatorSection() {
                 </label>
                 <div className="flex items-center gap-4">
                   <button
-                    onClick={() => setTeamSize(Math.max(1, teamSize - 1))}
+                    aria-label="Decrease team size"
                     className="h-10 w-10 rounded-lg border border-border bg-background hover:bg-muted transition-colors font-bold text-foreground"
                   >
                     -
                   </button>
                   <span className="text-2xl font-bold text-primary w-12 text-center">{teamSize}</span>
                   <button
-                    onClick={() => setTeamSize(Math.min(50, teamSize + 1))}
+                    aria-label="Increase team size"
                     className="h-10 w-10 rounded-lg border border-border bg-background hover:bg-muted transition-colors font-bold text-foreground"
                   >
                     +
@@ -210,7 +210,7 @@ export default function ROICalculatorSection() {
 
           {/* Right: Results */}
           <BlurFade inView delay={0.15}>
-            <div className="bg-card rounded-2xl border border-border/60 p-6 md:p-8 sticky top-24">
+            <div className="bg-card rounded-2xl border border-border/60 p-6 md:p-8 lg:sticky lg:top-24">
               <h3 className="font-heading font-bold text-foreground mb-6">Your Estimated Savings</h3>
 
               {!hasResults ? (
@@ -245,15 +245,15 @@ export default function ROICalculatorSection() {
                   </div>
 
                   <div className="p-6 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 text-center">
-                    <DollarSign className="h-6 w-6 text-primary mx-auto mb-2" aria-hidden="true" />
-                    <p className="text-3xl font-black text-primary">
-                      ${annualSavings.toLocaleString()}
+                    <Clock className="h-6 w-6 text-primary mx-auto mb-2" aria-hidden="true" />
+                    <p className="text-2xl font-semibold text-primary">
+                      {hoursPerWeek} hours per week per person
                     </p>
                     <p className="text-sm text-muted-foreground mt-1">
-                      Estimated annual value recovered
+                      {teamHoursPerYear.toLocaleString()} hours per year for your team of {teamSize}
                     </p>
-                    <p className="text-xs text-muted-foreground/60 mt-2">
-                      Based on $50/hr fully-loaded cost. Actual savings vary by role and region.
+                    <p className="text-xs text-muted-foreground/80 mt-3">
+                      Planning estimate, not a forecast. Actual recovery depends on workflow, tooling, and adoption.
                     </p>
                   </div>
 
@@ -291,15 +291,15 @@ export default function ROICalculatorSection() {
                   </div>
 
                   <div className="p-6 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 text-center">
-                    <DollarSign className="h-6 w-6 text-primary mx-auto mb-2" aria-hidden="true" />
-                    <p className="text-3xl font-black text-primary">
-                      ${annualSavings.toLocaleString()}
+                    <Clock className="h-6 w-6 text-primary mx-auto mb-2" aria-hidden="true" />
+                    <p className="text-2xl font-semibold text-primary">
+                      {hoursPerWeek} hours per week per person
                     </p>
                     <p className="text-sm text-muted-foreground mt-1">
-                      Estimated annual value recovered
+                      {teamHoursPerYear.toLocaleString()} hours per year for your team of {teamSize}
                     </p>
-                    <p className="text-xs text-muted-foreground/60 mt-2">
-                      Based on $50/hr fully-loaded cost. Actual savings vary by role and region.
+                    <p className="text-xs text-muted-foreground/80 mt-3">
+                      Planning estimate, not a forecast. Actual recovery depends on workflow, tooling, and adoption.
                     </p>
                   </div>
 
