@@ -7,8 +7,11 @@ import Breadcrumbs from '@/components/ui/breadcrumbs';
 export const metadata: Metadata = {
   title: 'Core Concepts | The Armchair Futurist',
   description: 'Key concepts in AI adoption and organizational change: The Accountability Gap, Psychology-Led Adoption, and Results Thinkers. Understand the frameworks that drive successful AI implementation.',
+  alternates: {
+    canonical: '/concepts',
+  },
   openGraph: {
-    title: 'Core Concepts | The Armchair Futurist',
+  title: 'Core Concepts',
     description: 'Key concepts in AI adoption and organizational change. Understand the frameworks that drive successful AI implementation.',
     url: '/concepts',
     siteName: 'The Armchair Futurist',

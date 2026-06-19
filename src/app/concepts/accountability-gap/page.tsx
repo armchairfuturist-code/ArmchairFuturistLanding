@@ -7,8 +7,11 @@ import LastUpdated from '@/components/ui/last-updated';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'The Accountability Gap in AI Adoption | The Armchair Futurist',
+  title: 'The Accountability Gap in AI Adoption',
   description: 'The Accountability Gap is the space between what an AI system produces and what a business actually needs. Most companies layer AI onto existing processes without rethinking workflows, incentives, or decision rights. The result is that nobody owns the outcome.',
+  alternates: {
+    canonical: '/concepts/accountability-gap',
+  },
   openGraph: {
     title: 'The Accountability Gap in AI Adoption',
     description: 'The space between AI outputs and business results—where AI adoption stalls because no one owns the outcome.',

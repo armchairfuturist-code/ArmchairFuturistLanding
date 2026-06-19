@@ -9,9 +9,9 @@ export const metadata: Metadata = {
   title: 'Privacy Policy | The Armchair Futurist',
   description: 'Privacy policy for The Armchair Futurist — how Alex Myers collects, uses, and protects your personal information.',
   openGraph: {
-    title: 'Privacy Policy | The Armchair Futurist',
+  title: 'Privacy Policy',
     description: 'Privacy policy for The Armchair Futurist.',
-    url: `${siteUrl}/privacy-policy`,
+    url: '/privacy-policy',
     siteName: 'The Armchair Futurist',
     type: 'website',
   },

@@ -2,6 +2,7 @@ import { PRICING, PRICE_RANGE, COACHING_PRICING } from "@/lib/pricing";
 
 const siteUrl = "https://thearmchairfuturist.com";
 const personId = `${siteUrl}/#person`;
+const orgId = `${siteUrl}/#organization`;
 
 /**
  * Structured data (JSON-LD) for the site.
@@ -146,6 +147,38 @@ export default function StructuredData() {
         }}
       />
 
+      {/* Organization Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "@id": orgId,
+            name: "The Armchair Futurist",
+            alternateName: "Alex Myers Consulting",
+            url: siteUrl,
+            logo: {
+              "@type": "ImageObject",
+              url: `${siteUrl}/img.jpg`,
+              width: 32,
+              height: 32,
+            },
+            founder: { "@id": personId },
+            contactPoint: {
+              "@type": "ContactPoint",
+              contactType: "customer service",
+              email: "armchairfuturist@gmail.com",
+              availableLanguage: "English",
+            },
+            sameAs: [
+              "https://www.linkedin.com/in/alex-myers-34572a10/",
+              "https://armchairfuturist.substack.com/",
+            ],
+          }),
+        }}
+      />
+
       {/* Person Schema */}
       <script
         type="application/ld+json"
@@ -222,11 +255,7 @@ export default function StructuredData() {
                 description: "Organizational agility and leadership",
               },
             ],
-            worksFor: {
-              "@type": "Organization",
-              name: "Alex Myers Consulting LLC",
-              url: siteUrl,
-            },
+            worksFor: { "@id": orgId },
             award: "Certified Futurist & Long-Term Analyst",
             alumniOf: "GenAI Academy",
             hasOccupation: {

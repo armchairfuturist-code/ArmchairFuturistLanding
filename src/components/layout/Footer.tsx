@@ -27,10 +27,22 @@ export default function Footer() {
                 Services
               </Link>
               <Link
+                href="/concepts"
+                className="text-white/70 hover:text-hp-electric transition-colors duration-300 underline-animate"
+              >
+                Concepts
+              </Link>
+              <Link
                 href="/#case-studies"
                 className="text-white/70 hover:text-hp-electric transition-colors duration-300 underline-animate"
               >
                 Case Studies
+              </Link>
+              <Link
+                href="/assessment"
+                className="text-white/70 hover:text-hp-electric transition-colors duration-300 underline-animate"
+              >
+                Assessment
               </Link>
               <Link
                 href="/blog"

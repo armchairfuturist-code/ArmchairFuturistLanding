@@ -229,7 +229,7 @@ export default function TestimonialsSection() {
         __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",
-          "@id": "https://thearmchairfuturist.com/#org",
+          "@id": "https://thearmchairfuturist.com/#organization",
           "name": "The Armchair Futurist",
           "url": "https://thearmchairfuturist.com",
           "aggregateRating": {
@@ -243,7 +243,7 @@ export default function TestimonialsSection() {
             "@type": "Review",
             "itemReviewed": {
               "@type": "Organization",
-              "@id": "https://thearmchairfuturist.com/#org",
+              "@id": "https://thearmchairfuturist.com/#organization",
               "name": "The Armchair Futurist"
             },
             "author": { "@type": "Person", "name": t.name },
