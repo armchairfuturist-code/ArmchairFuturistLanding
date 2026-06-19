@@ -26,13 +26,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // === CORE PAGES ===
     {
       url: baseUrl,
-      lastModified: new Date(),
+      lastModified: new Date('2026-06-19'),
       changeFrequency: 'weekly',
       priority: 1,
     },
     {
       url: `${baseUrl}/about`,
-      lastModified: new Date(),
+      lastModified: new Date('2026-06-19'),
       changeFrequency: 'monthly',
       priority: 0.9,
     },
@@ -49,13 +49,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // === LEGAL PAGES ===
     {
       url: `${baseUrl}/privacy-policy`,
-      lastModified: new Date(),
+      lastModified: new Date('2026-03-04'),
       changeFrequency: 'yearly',
       priority: 0.3,
     },
     {
       url: `${baseUrl}/terms-of-service`,
-      lastModified: new Date(),
+      lastModified: new Date('2026-03-04'),
       changeFrequency: 'yearly',
       priority: 0.3,
     },
@@ -64,37 +64,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // These pages target long-tail keywords and provide AI-citable definitions
     {
       url: `${baseUrl}/concepts`,
-      lastModified: new Date(),
+      lastModified: new Date('2026-06-19'),
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${baseUrl}/concepts/accountability-gap`,
-      lastModified: new Date(),
+      lastModified: new Date('2026-03-29'),
       changeFrequency: 'monthly',
       priority: 0.6,
     },
     {
       url: `${baseUrl}/concepts/psychology-led-adoption`,
-      lastModified: new Date(),
+      lastModified: new Date('2026-03-29'),
       changeFrequency: 'monthly',
       priority: 0.6,
     },
     {
       url: `${baseUrl}/concepts/results-thinkers`,
-      lastModified: new Date(),
+      lastModified: new Date('2026-03-29'),
       changeFrequency: 'monthly',
       priority: 0.6,
     },
     {
       url: `${baseUrl}/concepts/human-architect`,
-      lastModified: new Date(),
+      lastModified: new Date('2026-06-14'),
       changeFrequency: 'monthly',
       priority: 0.6,
     },
     {
       url: `${baseUrl}/concepts/pilot-itis`,
-      lastModified: new Date(),
+      lastModified: new Date('2026-06-14'),
       changeFrequency: 'monthly',
       priority: 0.6,
     },
@@ -102,13 +102,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // === CASE STUDIES ===
     {
       url: `${baseUrl}/case-studies`,
-      lastModified: new Date(),
+      lastModified: new Date('2026-06-19'),
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${baseUrl}/blog`,
-      lastModified: new Date(),
+      lastModified: new Date('2026-06-19'),
       changeFrequency: 'weekly',
       priority: 0.7,
     },

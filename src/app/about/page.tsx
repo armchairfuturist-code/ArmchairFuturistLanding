@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: 'About Alex Myers - AI Guide',
     description: 'Alex Myers is an AI guide who teaches you to design, launch, and sell your own AI-powered services. Certified Futurist with 40+ AI systems deployed.',
     url: '/about',
-    siteName: 'AI Guide',
+    siteName: 'The Armchair Futurist',
     images: [
       {
         url: '/alexheadshot-nobg.png',

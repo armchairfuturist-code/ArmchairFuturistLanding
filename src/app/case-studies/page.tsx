@@ -19,6 +19,11 @@ export const metadata: Metadata = {
     siteName: 'The Armchair Futurist',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AI Guide — Case Studies',
+    description: 'Real results from AI guidance and done-for-you AI implementations.',
+  },
 };
 
 const caseStudies = [

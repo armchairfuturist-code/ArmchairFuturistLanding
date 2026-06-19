@@ -27,6 +27,12 @@ export const SERVICES_PRICING = {
     description:
       "Done-for-you private AI command center with API integrations, workflow automation, and secure infrastructure. Reclaim 10-20 hours per week.",
   },
+  speakingFacilitation: {
+    name: "Executive Roundtables & Workshops",
+    currency: "USD" as const,
+    description:
+      "Facilitated AI strategy sessions for leadership teams. Executive roundtables, team workshops, and strategy facilitation to move from AI discussions to AI decisions.",
+  },
 
 } as const;
 
@@ -140,7 +146,9 @@ export const COACHING_PACKAGES_BY_ID: Record<string, CoachingPackage> = Object.f
 
 /** All prices from services + coaching for priceRange display */
 const ALL_PRICES: number[] = [
-  ...Object.values(SERVICES_PRICING).map((s) => s.price),
+  ...Object.values(SERVICES_PRICING)
+    .filter((s): s is typeof s & { price: number } => 'price' in s)
+    .map((s) => s.price),
   ...COACHING_PACKAGES.flatMap((p) => [p.totalPrice, p.totalPriceUSD]),
 ];
 
