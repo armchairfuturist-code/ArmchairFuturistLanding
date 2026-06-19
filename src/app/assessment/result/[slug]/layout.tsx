@@ -17,10 +17,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     metadataBase: new URL(siteUrl),
     title: archetype.metaTitle,
     description: archetype.metaDescription,
+    alternates: {
+      canonical: `/assessment/result/${slug}`,
+    },
     openGraph: {
       title: archetype.metaTitle,
       description: archetype.metaDescription,
-      url: `${siteUrl}/assessment/result/${slug}`,
+      url: `/assessment/result/${slug}`,
       siteName: 'The Armchair Futurist',
       type: 'website',
     },

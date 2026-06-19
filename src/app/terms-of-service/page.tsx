@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: 'Terms of Service | The Armchair Futurist',
   description: 'Terms of service for The Armchair Futurist — legal terms governing your use of thearmchairfuturist.com.',
+  alternates: {
+    canonical: '/terms-of-service',
+  },
   openGraph: {
   title: 'Terms of Service',
     description: 'Terms of service for The Armchair Futurist.',

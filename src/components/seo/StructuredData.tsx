@@ -141,6 +141,16 @@ export default function StructuredData() {
                   priceCurrency: COACHING_PRICING['pack-20'].currency,
                 },
 
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: PRICING.speakingFacilitation.name,
+                    description: PRICING.speakingFacilitation.description,
+                    provider: { "@id": personId },
+                  },
+                },
+
               ],
             },
           }),
@@ -277,42 +287,7 @@ export default function StructuredData() {
         }}
       />
 
-      {/* BreadcrumbList Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              {
-                "@type": "ListItem",
-                position: 1,
-                name: "Home",
-                item: siteUrl,
-              },
-              {
-                "@type": "ListItem",
-                position: 2,
-                name: "About",
-                item: `${siteUrl}/about`,
-              },
-              {
-                "@type": "ListItem",
-                position: 3,
-                name: "Assessment",
-                item: `${siteUrl}/assessment`,
-              },
-              {
-                "@type": "ListItem",
-                position: 4,
-                name: "Blog",
-                item: `${siteUrl}/blog`,
-              },
-            ],
-          }),
-        }}
-      />
+      {/* BreadcrumbList Schema — page-specific breadcrumbs are managed by the Breadcrumbs component */}
     </>
   );
 }

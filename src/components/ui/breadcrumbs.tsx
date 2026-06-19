@@ -26,16 +26,24 @@ interface BreadcrumbsProps {
  * ]} />
  */
 export default function Breadcrumbs({ items }: BreadcrumbsProps) {
-  // Build JSON-LD for breadcrumbs
+  // Build JSON-LD for breadcrumbs — always start with Home
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": items.map((item, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "name": item.label,
-      "item": `https://thearmchairfuturist.com${item.href}`
-    }))
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://thearmchairfuturist.com"
+      },
+      ...items.map((item, index) => ({
+        "@type": "ListItem",
+        "position": index + 2,
+        "name": item.label,
+        "item": `https://thearmchairfuturist.com${item.href}`
+      }))
+    ]
   };
 
   return (

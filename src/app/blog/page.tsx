@@ -21,6 +21,11 @@ export const metadata: Metadata = {
     siteName: 'The Armchair Futurist',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blog — AI Strategy, Adoption & The Future of Work',
+    description: 'Weekly insights from Alex Myers on AI adoption, organizational change, and navigating the future of work.',
+  },
 };
 
 interface SubstackPost {

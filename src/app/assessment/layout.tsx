@@ -8,10 +8,17 @@ export const metadata: Metadata = {
     canonical: '/assessment',
   },
   openGraph: {
-  title: 'AI Readiness Assessment',
+    title: 'AI Readiness Assessment',
     description:
       'How ready are you for AI? 9 honest questions. 3 minutes. A personalized diagnosis and action plan from Alex Myers.',
     url: '/assessment',
+    siteName: 'The Armchair Futurist',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AI Readiness Assessment',
+    description:
+      'How ready are you for AI? 9 honest questions. 3 minutes. A personalized diagnosis and action plan from Alex Myers.',
   },
 };
 

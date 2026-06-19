@@ -21,6 +21,12 @@ export default function Footer() {
             </p>
             <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm font-body">
               <Link
+                href="/about"
+                className="text-white/70 hover:text-hp-electric transition-colors duration-300 underline-animate"
+              >
+                About
+              </Link>
+              <Link
                 href="/#services"
                 className="text-white/70 hover:text-hp-electric transition-colors duration-300 underline-animate"
               >
@@ -33,7 +39,7 @@ export default function Footer() {
                 Concepts
               </Link>
               <Link
-                href="/#case-studies"
+                href="/case-studies"
                 className="text-white/70 hover:text-hp-electric transition-colors duration-300 underline-animate"
               >
                 Case Studies
