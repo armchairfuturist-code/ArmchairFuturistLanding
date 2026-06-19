@@ -9,7 +9,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   
   if (!archetype) {
     return {
-      title: 'Assessment Not Found | The Armchair Futurist',
+      title: 'Assessment Not Found',
     };
   }
 

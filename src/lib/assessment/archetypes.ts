@@ -54,7 +54,7 @@ export const archetypes: Archetype[] = [
       },
 
     ],
-    metaTitle: 'AI Readiness: The Stalled Executive | The Armchair Futurist',
+    metaTitle: 'AI Readiness: The Stalled Executive',
     metaDescription: 'Your AI readiness assessment shows high urgency but low organizational readiness. Alex Myers helps executives break through AI adoption paralysis with human-first strategy.',
   },
   {
@@ -89,7 +89,7 @@ export const archetypes: Archetype[] = [
         answer: 'AI Guidance and Mindset Coaching sessions range from $120 (€100) for a single session to customized packages, and focus on building your personal framework for navigating AI. The weekly Substack newsletter provides ongoing high-signal insights without the noise.',
       },
     ],
-    metaTitle: 'AI Readiness: The Curious Professional | The Armchair Futurist',
+    metaTitle: 'AI Readiness: The Curious Professional',
     metaDescription: 'Your AI readiness assessment shows curiosity without direction. Alex Myers helps professionals build a personal framework for navigating AI with clarity and confidence.',
   },
   {
@@ -124,7 +124,7 @@ export const archetypes: Archetype[] = [
         answer: 'The Digital Identity Landing Page ($199) delivers a professional site in 2-4 days. Custom AI Provisioning ($1,000-$5,000) builds private AI command centers with API integrations and workflow automation.',
       },
     ],
-    metaTitle: 'AI Readiness: The Ready Builder | The Armchair Futurist',
+    metaTitle: 'AI Readiness: The Ready Builder',
     metaDescription: 'Your AI readiness assessment shows high clarity and readiness. Alex Myers helps builders execute with Digital Identity pages and custom AI solutions.',
   },
   {
@@ -163,7 +163,7 @@ export const archetypes: Archetype[] = [
         answer: 'A strategy call is the fastest way to diagnose your specific situation. For sustained transformation, the AI Self-Sufficiency Program is an 8-week structured program designed for organizations stuck between AI awareness and AI action.',
       },
     ],
-    metaTitle: 'AI Readiness: The Overwhelmed Leader | The Armchair Futurist',
+    metaTitle: 'AI Readiness: The Overwhelmed Leader',
     metaDescription: 'Your AI readiness assessment shows high clarity but frozen organizational readiness. Alex Myers helps leaders break through cultural resistance to AI adoption.',
   },
 ];

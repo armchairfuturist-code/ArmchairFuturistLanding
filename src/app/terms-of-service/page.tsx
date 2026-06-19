@@ -9,9 +9,9 @@ export const metadata: Metadata = {
   title: 'Terms of Service | The Armchair Futurist',
   description: 'Terms of service for The Armchair Futurist — legal terms governing your use of thearmchairfuturist.com.',
   openGraph: {
-    title: 'Terms of Service | The Armchair Futurist',
+  title: 'Terms of Service',
     description: 'Terms of service for The Armchair Futurist.',
-    url: `${siteUrl}/terms-of-service`,
+    url: '/terms-of-service',
     siteName: 'The Armchair Futurist',
     type: 'website',
   },

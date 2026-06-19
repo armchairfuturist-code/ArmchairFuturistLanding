@@ -7,8 +7,11 @@ import LastUpdated from '@/components/ui/last-updated';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'The Human Architect Role: Who Closes the AI Accountability Gap | The Armchair Futurist',
+  title: 'The Human Architect Role: Who Closes the AI Accountability Gap',
   description: 'The Human Architect is the person who translates AI output into business outcome. Without this role, AI investments stall in the Accountability Gap. Here is what the role does, who should fill it, and how to set them up for success.',
+  alternates: {
+    canonical: '/concepts/human-architect',
+  },
   openGraph: {
     title: 'The Human Architect: Closing the AI Accountability Gap',
     description: 'The role that bridges AI output and business outcome—without it, AI investments stall.',

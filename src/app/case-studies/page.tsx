@@ -7,8 +7,11 @@ import Breadcrumbs from '@/components/ui/breadcrumbs';
 import { ArrowLeft, ExternalLink, RefreshCw } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'AI Guide — Case Studies | The Armchair Futurist',
+  title: 'AI Guide — Case Studies',
   description: 'Real results from AI guidance and done-for-you AI implementations. See how Alex Myers helps individuals and teams design, launch, and sell their own AI-powered services.',
+  alternates: {
+    canonical: '/case-studies',
+  },
   openGraph: {
     title: 'Case Studies | The Armchair Futurist',
     description: 'Real results from AI adoption implementations. See measurable success stories from organizations that partnered with Alex Myers.',

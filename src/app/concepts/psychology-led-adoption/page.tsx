@@ -6,8 +6,11 @@ import Breadcrumbs from '@/components/ui/breadcrumbs';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Psychology-Led AI Adoption Strategy | The Armchair Futurist',
+  title: 'Psychology-Led AI Adoption Strategy',
   description: 'Psychology-Led Adoption is an organizational service that addresses human barriers to AI adoption through data-driven profiling. It identifies psychological barriers before technical ones, finding the 5% of staff who are naturally wired for uncertainty.',
+  alternates: {
+    canonical: '/concepts/psychology-led-adoption',
+  },
   openGraph: {
     title: 'Psychology-Led AI Adoption Strategy',
     description: 'Address human barriers to AI adoption before technical ones. Find the 5% who lead change.',

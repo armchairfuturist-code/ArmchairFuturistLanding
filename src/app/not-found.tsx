@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowLeft, Home, Brain, BookOpen, Mail } from "lucide-react";
 
 export const metadata = {
-  title: "Page Not Found — The Armchair Futurist",
+  title: "Page Not Found",
   description: "We couldn't find the page you were looking for. Try the free AI assessment or explore other resources.",
 };
 

@@ -9,6 +9,9 @@ import { ArrowLeft, ExternalLink } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'Pilot-itis: Why AI Pilots Die in Production | The Armchair Futurist',
   description: 'Pilot-itis is the organizational disease where AI pilots launch with fanfare, demonstrate value in isolation, and never scale to production. 67% of AI initiatives never make it past pilot stage. Here is why—and what breaks the pattern.',
+  alternates: {
+    canonical: '/concepts/pilot-itis',
+  },
   openGraph: {
     title: 'Pilot-itis: Why AI Pilots Die in Production',
     description: 'The disease where AI pilots launch, demonstrate value, and never scale. 67% of AI initiatives never make it past pilot stage.',
@@ -18,7 +21,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Pilot-itis: Why AI Pilots Die in Production | The Armchair Futurist',
+  title: 'Pilot-itis: Why AI Pilots Die in Production',
     description: 'The disease that keeps 67% of AI pilots from ever scaling. What causes it and what fixes it.',
   },
 };

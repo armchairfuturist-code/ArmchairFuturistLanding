@@ -9,8 +9,11 @@ import { CheckCircle2, Linkedin, Trophy } from 'lucide-react';
 const siteUrl = 'https://thearmchairfuturist.com';
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'About Alex Myers - AI Guide | The Armchair Futurist',
-  description: 'Alex Myers is an AI guide who teaches you to design, launch, and sell your own AI-powered services. With 6 certifications and 40+ AI systems deployed, he builds understanding you keep.',
+  title: 'About Alex Myers — AI Consultant & Instructor',
+  description: 'Alex Myers is an AI consultant who teaches you to design, launch, and sell your own AI-powered services. With 6 certifications and 40+ AI systems deployed, he builds understanding you keep.',
+  alternates: {
+    canonical: '/about',
+  },
   openGraph: {
     title: 'About Alex Myers - AI Guide',
     description: 'Alex Myers is an AI guide who teaches you to design, launch, and sell your own AI-powered services. Certified Futurist with 40+ AI systems deployed.',
@@ -329,41 +332,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* JSON-LD Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "@id": "https://thearmchairfuturist.com/#person",
-            "name": "Alex Myers",
-            "givenName": "Alex",
-            "familyName": "Myers",
-            "jobTitle": "AI Guide",
-            "url": "https://thearmchairfuturist.com",
-            "image": "https://thearmchairfuturist.com/alexheadshot-nobg.png",
-            "description": "Alex Myers is an AI guide who teaches individuals and businesses to design, launch, and sell their own AI-powered services. Based in Portugal, serving clients worldwide.",
-            "address": {
-              "@type": "PostalAddress",
-              "addressCountry": "PT",
-              "addressLocality": "Portugal"
-            },
-            "sameAs": [
-              "https://www.linkedin.com/in/alex-myers-34572a10/",
-              "https://armchairfuturist.substack.com/",
-              "https://thegenaiacademy.com/expert-hub/alex-myers/"
-            ],
-            "knowsAbout": expertiseAreas,
-            "hasCredential": certifications.map(cert => ({
-              "@type": "EducationalOccupationalCredential",
-              "credentialCategory": "certification",
-              "name": cert.name,
-              "description": cert.description
-            }))
-          })
-        }}
-      />
     </div>
   );
 }

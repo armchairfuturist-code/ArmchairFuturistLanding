@@ -6,8 +6,11 @@ import Breadcrumbs from '@/components/ui/breadcrumbs';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Results Thinkers: The 5% Who Lead AI Change | The Armchair Futurist',
+  title: 'Results Thinkers: The 5% Who Lead AI Change',
   description: 'Results Thinkers are the top 5% of your organization who naturally embrace uncertainty and drive AI adoption. They ask "What outcome do I need?" instead of "What can AI do?"—and they\'re your highest-leverage asset for change.',
+  alternates: {
+    canonical: '/concepts/results-thinkers',
+  },
   openGraph: {
     title: 'Results Thinkers: The 5% Who Lead AI Change',
     description: 'The top 5% who ask "What outcome do I need?" instead of "What can AI do?"—your highest-leverage asset for change.',
