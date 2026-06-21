@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { BookCallButton } from "@/components/ui/BookCallButton";
 import { Linkedin, Mail, MessageCircle } from 'lucide-react';
-import { SUBSTACK_URL } from "@/lib/constants";
+import { SUBSTACK_URL, WHATSAPP_URL } from "@/lib/constants";
 
 export default function Footer() {
   return (
@@ -91,7 +91,7 @@ export default function Footer() {
                 Email
               </a>
               <a
-                href="https://wa.me/15157706902"
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 min-h-[44px] px-2 text-sm text-white/70 hover:text-hp-electric transition-colors duration-300 font-body"

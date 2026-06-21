@@ -7,6 +7,7 @@ import { trackConversion } from '@/lib/analytics';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { motion } from 'motion/react';
 import { COACHING_PACKAGES, type CurrencyCode } from '@/lib/pricing';
+import { CALENDAR_URL } from '@/lib/constants';
 // Inline currency toggle — no separate component needed
 
 const pillars = [
@@ -245,6 +246,7 @@ export default function MentoringSection() {
                   value={pkg.totalPrice}
                   trackOnClick={false}
                   onClick={() => trackConversion(`guidance_${pkg.id}`, pkg.totalPrice)}
+                  href={`${CALENDAR_URL}?utm_source=site&utm_medium=cta&utm_campaign=mentoring-${pkg.id}`}
                 >
                   {`Book ${pkg.sessions > 1 ? `${pkg.sessions}-Pack` : 'Now'}`}
                 </BookCallButton>

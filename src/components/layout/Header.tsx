@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/sheet";
 import { Menu, FileText, MessageCircle, Github } from 'lucide-react';
 import Image from "next/image";
+import { WHATSAPP_URL } from "@/lib/constants";
 
 export default function Header() {
   const navItems = [
@@ -80,7 +81,7 @@ export default function Header() {
               Free Assessment
             </Link>
             <a
-              href="https://wa.me/15157706902"
+              href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] -m-2 p-2 text-white/70 hover:text-hp-electric transition-colors duration-300"
@@ -93,8 +94,26 @@ export default function Header() {
             </BookCallButton>
           </div>
 
-          {/* Mobile hamburger */}
-          <div className="md:hidden">
+          {/* Mobile — compact CTAs always visible, plus hamburger for nav */}
+          <div className="md:hidden flex items-center gap-1">
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Message Alex on WhatsApp"
+              className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] -m-1 p-2 text-white/80 hover:text-hp-electric transition-colors duration-300"
+            >
+              <MessageCircle className="h-5 w-5" />
+            </a>
+            <BookCallButton
+              location="header_mobile_compact"
+              size="sm"
+              variant="default"
+              icon="none"
+              className="text-xs px-3 h-9 min-h-[36px]"
+            >
+              Book
+            </BookCallButton>
             <Sheet>
               <SheetTrigger asChild>
                 <Button
@@ -158,7 +177,7 @@ export default function Header() {
                     Free AI Assessment
                   </Link>
                   <a
-                    href="https://wa.me/15157706902"
+                    href={WHATSAPP_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-hp-electric transition-colors"
