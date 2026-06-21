@@ -71,6 +71,12 @@ export interface BookCallButtonProps
    * package-specific `trackConversion` call).
    */
   onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
+  /**
+   * Override the calendar URL. Useful for tier-specific booking (e.g. the
+   * "5-Pack" mentoring tier pre-fills the package on the calendar page).
+   * Falls back to the default `CALENDAR_URL` when omitted.
+   */
+  href?: string;
 }
 
 /**
@@ -121,6 +127,7 @@ export const BookCallButton = React.forwardRef<
     className,
     variant,
     size,
+    href: hrefProp,
     ...rest
   },
   ref,
@@ -143,7 +150,7 @@ export const BookCallButton = React.forwardRef<
   if (bare) {
     return (
       <a
-        href={CALENDAR_URL}
+        href={hrefProp ?? CALENDAR_URL}
         target="_blank"
         rel="noopener noreferrer"
         aria-label={ariaLabel}
@@ -167,7 +174,7 @@ export const BookCallButton = React.forwardRef<
       {...rest}
     >
       <a
-        href={CALENDAR_URL}
+        href={hrefProp ?? CALENDAR_URL}
         target="_blank"
         rel="noopener noreferrer"
         aria-label={ariaLabel}

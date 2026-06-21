@@ -9,6 +9,7 @@ import { BlurFade } from "@/components/ui/blur-fade";
 import { BookCallButton } from "@/components/ui/BookCallButton";
 import { CalendarDays, MessageCircle } from "lucide-react";
 import { useFormSubmission } from "@/lib/hooks/useFormSubmission";
+import { WHATSAPP_URL } from "@/lib/constants";
 
 export default function ConnectSection() {
   const [formData, setFormData] = useState({
@@ -73,7 +74,7 @@ export default function ConnectSection() {
               className="bg-transparent border-white/40 text-white hover:bg-white/10 hover:border-white transition-all duration-200"
             >
               <a
-                href="https://wa.me/15157706902"
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
               >

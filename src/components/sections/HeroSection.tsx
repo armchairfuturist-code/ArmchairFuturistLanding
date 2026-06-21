@@ -3,7 +3,7 @@ import { trackEvent } from "@/lib/analytics";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { WordPullUp } from "@/components/ui/word-pull-up";
 import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from "motion/react";
-const WHATSAPP_URL = "https://wa.me/15157706902";
+import { WHATSAPP_URL } from "@/lib/constants";
 type Stat = {
   value: string | null;
   numericValue?: number;
