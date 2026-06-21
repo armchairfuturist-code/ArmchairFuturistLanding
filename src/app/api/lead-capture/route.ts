@@ -1,17 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { createSubmissionPipeline } from '@/lib/submission-pipeline';
+import { createResendEmailSender } from '@/lib/email-sender';
+import { createFirestoreLeadStore } from '@/lib/lead-store';
 import { getResend } from '@/lib/resend';
-import {
-  checkRateLimit,
-  getRateLimitKey,
-  isValidEmail,
-  RATE_LIMIT_LEAD_CAPTURE,
-  sanitizeEmailHeaderValue,
-} from '@/lib/email-utils';
-import { ALEX_EMAIL, FROM_EMAIL } from '@/lib/email/config';
-import {
-  buildLeadProspectEmail,
-  buildLeadNotificationEmail,
-} from '@/lib/email/templates';
+import { getDb } from '@/lib/firebase-admin';
+import { checkRateLimit, getRateLimitKey, RATE_LIMIT_LEAD_CAPTURE } from '@/lib/email-utils';
 
 export async function POST(request: NextRequest) {
   try {
@@ -23,45 +16,16 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { name, email, source = 'hero-lead-capture' } = body;
 
-    if (!email || !isValidEmail(email)) {
-      return NextResponse.json({ error: 'Valid email is required.' }, { status: 400 });
-    }
-
-    const rawName = typeof name === 'string' ? name.trim().slice(0, 100) : '';
-    const storedName = rawName || email.split('@')[0];
-    const safeSource =
-      typeof source === 'string' ? source.trim().slice(0, 80) : 'hero-lead-capture';
-
-    try {
-      const { getDb } = await import('@/lib/firebase-admin');
-      const db = getDb();
-      const contactRef = db.collection('leads').doc();
-      await contactRef.set({
-        name: storedName,
-        email,
-        source: safeSource,
-        createdAt: new Date().toISOString(),
-        consulted: false,
-      });
-    } catch (firestoreError) {
-      console.warn('Firestore not configured, skipping lead storage:', firestoreError);
-    }
-
-    const resend = getResend();
-
-    await resend.emails.send({
-      from: FROM_EMAIL,
-      to: email,
-      subject: "Your AI Quick Wins — let's get started",
-      html: buildLeadProspectEmail({ displayName: storedName }),
+    const submit = createSubmissionPipeline({
+      emailSender: createResendEmailSender(getResend()),
+      leadStore: createFirestoreLeadStore(() => getDb()),
     });
 
-    await resend.emails.send({
-      from: FROM_EMAIL,
-      to: ALEX_EMAIL,
-      subject: `New Lead: ${sanitizeEmailHeaderValue(storedName)} <${email}>`,
-      html: buildLeadNotificationEmail({ name: storedName, email, source: safeSource }),
-    });
+    const result = await submit({ kind: 'lead-capture', name, email, source });
+
+    if (!result.ok) {
+      return NextResponse.json({ error: result.error }, { status: result.status });
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {

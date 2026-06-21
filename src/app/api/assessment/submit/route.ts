@@ -1,18 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { createSubmissionPipeline } from '@/lib/submission-pipeline';
+import { createResendEmailSender } from '@/lib/email-sender';
+import { createFirestoreLeadStore } from '@/lib/lead-store';
 import { getResend } from '@/lib/resend';
-import { getArchetypeBySlug } from '@/lib/assessment/archetypes';
-import { scoreFromAnswerIndices } from '@/lib/assessment/resolve-answers';
-import {
-  buildProspectResultEmail,
-  buildAlexNotificationEmail,
-} from '@/lib/email/templates';
-import {
-  checkRateLimit,
-  getRateLimitKey,
-  isValidEmail,
-  RATE_LIMIT_ASSESSMENT,
-} from '@/lib/email-utils';
-import { ALEX_EMAIL, FROM_EMAIL } from '@/lib/email/config';
+import { getDb } from '@/lib/firebase-admin';
+import { checkRateLimit, getRateLimitKey, RATE_LIMIT_ASSESSMENT } from '@/lib/email-utils';
+import type { AssessmentResult } from '@/lib/submission-pipeline';
 
 export async function POST(request: NextRequest) {
   try {
@@ -24,63 +17,24 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { email, answerIndices } = body;
 
-    if (!email || !isValidEmail(email)) {
-      return NextResponse.json({ error: 'Invalid email address.' }, { status: 400 });
-    }
-
-    let scored;
-    try {
-      scored = scoreFromAnswerIndices(answerIndices);
-    } catch {
-      return NextResponse.json({ error: 'Invalid assessment answers.' }, { status: 400 });
-    }
-
-    const { archetypeSlug, clarity, readiness, urgency } = scored;
-    const scores = { clarity, readiness, urgency };
-
-    const archetype = getArchetypeBySlug(archetypeSlug);
-    if (!archetype) {
-      return NextResponse.json({ error: 'Invalid archetype.' }, { status: 400 });
-    }
-
-    try {
-      const { getDb } = await import('@/lib/firebase-admin');
-      const db = getDb();
-      const contactRef = db.collection('assessment_leads').doc();
-      await contactRef.set({
-        email,
-        archetypeSlug,
-        archetypeName: archetype.name,
-        scores,
-        individualSignals: scored.individualSignals,
-        createdAt: new Date().toISOString(),
-        source: 'assessment',
-      });
-    } catch (firestoreError) {
-      console.warn('Firestore not configured, skipping lead storage:', firestoreError);
-    }
-
-    const resend = getResend();
-    const prospectEmailResult = await resend.emails.send({
-      from: FROM_EMAIL,
-      to: email,
-      subject: `Your AI Readiness Profile: ${archetype.name}`,
-      html: buildProspectResultEmail({ archetype, scores, email }),
+    const submit = createSubmissionPipeline({
+      emailSender: createResendEmailSender(getResend()),
+      leadStore: createFirestoreLeadStore(() => getDb()),
     });
 
-    await resend.emails.send({
-      from: FROM_EMAIL,
-      to: ALEX_EMAIL,
-      subject: `New Assessment Lead: ${archetype.name}`,
-      html: buildAlexNotificationEmail({ archetype, scores, email }),
-    });
+    const result = await submit({ kind: 'assessment', email, answerIndices });
 
+    if (!result.ok) {
+      return NextResponse.json({ error: result.error }, { status: result.status });
+    }
+
+    const data = result.data as AssessmentResult;
     return NextResponse.json({
       success: true,
-      emailId: prospectEmailResult.data?.id,
-      archetypeSlug,
-      scores,
-      individualSignals: scored.individualSignals,
+      emailId: data.emailId,
+      archetypeSlug: data.archetypeSlug,
+      scores: data.scores,
+      individualSignals: data.individualSignals,
     });
   } catch (error) {
     console.error('Assessment submission error:', error);
