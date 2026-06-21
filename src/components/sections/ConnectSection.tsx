@@ -7,9 +7,12 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { BookCallButton } from "@/components/ui/BookCallButton";
-import { CalendarDays, MessageCircle } from "lucide-react";
+import { CalendarDays, MessageCircle, Loader2, CheckCircle2 } from "lucide-react";
 import { useFormSubmission } from "@/lib/hooks/useFormSubmission";
+import { isValidEmail } from "@/lib/email-utils";
 import { WHATSAPP_URL } from "@/lib/constants";
+
+type FieldErrors = Partial<Record<"name" | "email" | "message", string>>;
 
 export default function ConnectSection() {
   const [formData, setFormData] = useState({
@@ -17,15 +20,48 @@ export default function ConnectSection() {
     email: "",
     message: "",
   });
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
   const { loading, success, error, submit } = useFormSubmission({
     endpoint: "/api/contact",
     validateEmail: false,
   });
 
+  const validate = (data: typeof formData): FieldErrors => {
+    const errs: FieldErrors = {};
+    if (!data.name.trim()) errs.name = "Please enter your name.";
+    if (!data.email.trim()) errs.email = "Please enter your email.";
+    else if (!isValidEmail(data.email)) errs.email = "That doesn't look like a valid email address.";
+    if (!data.message.trim()) errs.message = "Please tell me a little about what you're working on.";
+    return errs;
+  };
+
+  const handleChange = (field: keyof typeof formData) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const next = { ...formData, [field]: e.target.value };
+    setFormData(next);
+    if (touched[field]) {
+      // Re-validate just this field as the user types once they've blurred it.
+      const errs = validate(next);
+      setFieldErrors((prev) => ({ ...prev, [field]: errs[field] }));
+    }
+  };
+
+  const handleBlur = (field: keyof typeof formData) => () => {
+    setTouched((prev) => ({ ...prev, [field]: true }));
+    const errs = validate(formData);
+    setFieldErrors((prev) => ({ ...prev, [field]: errs[field] }));
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const errs = validate(formData);
+    setFieldErrors(errs);
+    setTouched({ name: true, email: true, message: true });
+    if (Object.keys(errs).length > 0) return;
     await submit(formData);
   };
+
+
 
   return (
     <section
@@ -101,6 +137,7 @@ export default function ConnectSection() {
               aria-live="polite"
               className="bg-white/10 border border-white/20 rounded-xl p-6 text-center"
             >
+              <CheckCircle2 className="mx-auto h-8 w-8 text-white mb-3" aria-hidden="true" />
               <p className="text-white font-semibold text-lg">
                 Thanks! I'll be in touch soon.
               </p>
@@ -117,13 +154,19 @@ export default function ConnectSection() {
                   name="name"
                   placeholder="Your name"
                   value={formData.name}
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
+                  onChange={handleChange("name")}
+                  onBlur={handleBlur("name")}
                   required
                   autoComplete="name"
-                  className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
+                  aria-invalid={touched.name && !!fieldErrors.name}
+                  aria-describedby={touched.name && fieldErrors.name ? "connect-name-error" : undefined}
+                  className={`bg-white/20 border-white/30 text-white placeholder:text-white/60 ${touched.name && fieldErrors.name ? "border-red-300 focus-visible:ring-red-300/50" : ""}`}
                 />
+                {touched.name && fieldErrors.name && (
+                  <p id="connect-name-error" role="alert" className="mt-1.5 text-xs text-red-200">
+                    {fieldErrors.name}
+                  </p>
+                )}
               </div>
               <div>
                 <label htmlFor="connect-email" className="sr-only">Your email</label>
@@ -133,13 +176,19 @@ export default function ConnectSection() {
                   name="email"
                   placeholder="Your email"
                   value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
+                  onChange={handleChange("email")}
+                  onBlur={handleBlur("email")}
                   required
                   autoComplete="email"
-                  className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
+                  aria-invalid={touched.email && !!fieldErrors.email}
+                  aria-describedby={touched.email && fieldErrors.email ? "connect-email-error" : undefined}
+                  className={`bg-white/20 border-white/30 text-white placeholder:text-white/60 ${touched.email && fieldErrors.email ? "border-red-300 focus-visible:ring-red-300/50" : ""}`}
                 />
+                {touched.email && fieldErrors.email && (
+                  <p id="connect-email-error" role="alert" className="mt-1.5 text-xs text-red-200">
+                    {fieldErrors.email}
+                  </p>
+                )}
               </div>
               <div>
                 <label htmlFor="connect-message" className="sr-only">What's on your mind?</label>
@@ -148,27 +197,38 @@ export default function ConnectSection() {
                   name="message"
                   placeholder="What's on your mind?"
                   value={formData.message}
-                  onChange={(e) =>
-                    setFormData({ ...formData, message: e.target.value })
-                  }
+                  onChange={handleChange("message")}
+                  onBlur={handleBlur("message")}
                   required
                   rows={3}
-                  className="bg-white/20 border-white/30 text-white placeholder:text-white/60 resize-none"
+                  aria-invalid={touched.message && !!fieldErrors.message}
+                  aria-describedby={touched.message && fieldErrors.message ? "connect-message-error" : undefined}
+                  className={`bg-white/20 border-white/30 text-white placeholder:text-white/60 resize-none ${touched.message && fieldErrors.message ? "border-red-300 focus-visible:ring-red-300/50" : ""}`}
                 />
+                {touched.message && fieldErrors.message && (
+                  <p id="connect-message-error" role="alert" className="mt-1.5 text-xs text-red-200">
+                    {fieldErrors.message}
+                  </p>
+                )}
               </div>
               {error && (
-                <p role="alert" className="text-red-300 text-sm">{error}</p>
+                <p role="alert" className="text-red-200 text-sm">{error}</p>
               )}
-              <div role="status" aria-live="polite">
-                <Button
-                  type="submit"
-                  disabled={loading}
-                  variant="outline"
-                  className="w-full bg-transparent border-white/40 text-white hover:bg-white/10 hover:border-white"
-                >
-                  {loading ? "Sending..." : "Send"}
-                </Button>
-              </div>
+              <Button
+                type="submit"
+                disabled={loading}
+                variant="outline"
+                className="w-full bg-transparent border-white/40 text-white hover:bg-white/10 hover:border-white disabled:opacity-70 disabled:cursor-not-allowed"
+              >
+                {loading ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" aria-hidden="true" />
+                    Sending...
+                  </>
+                ) : (
+                  "Send"
+                )}
+              </Button>
             </form>
           )}
         </motion.div>
