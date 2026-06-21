@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, ExternalLink } from 'lucide-react';
+import { ArrowRight, CalendarDays } from 'lucide-react';
 import { RotateCcw } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { BlurFade } from '@/components/ui/blur-fade';
@@ -48,28 +48,23 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
         </div>
       </BlurFade>
 
-      {/* Diagnosis */}
+      {/* CTAs — moved above the diagnosis so the highest-intent action
+          appears right after the score chart. The card uses the brand
+          HP Electric Blue so it reads as "the next step is a call" rather
+          than a soft suggestion. The Calendar icon replaces the previous
+          external-link glyph: the destination is the booking calendar, not
+          a third-party site. Microcopy is the proven Connect-section line
+          ("15 minutes. No pitch. Just clarity.") so visitors get a single,
+          consistent promise of what the call is. */}
       <BlurFade inView delay={0.3}>
-        <div className="space-y-5 mb-10">
-          <h2 className="font-heading text-xl md:text-2xl font-bold text-foreground">
-            What this means
-          </h2>
-          {archetype.diagnosis.map((paragraph, idx) => (
-            <p key={idx} className="text-base md:text-lg text-foreground/80 font-sans leading-relaxed">
-              {paragraph}
-            </p>
-          ))}
-        </div>
-      </BlurFade>
-
-      {/* CTAs */}
-      <BlurFade inView delay={0.4}>
-        <div className="bg-gradient-to-br from-primary/5 via-background to-primary/5 rounded-2xl border border-border p-6 md:p-8 mb-8">
-          <h2 className="font-heading text-lg font-bold text-foreground mb-2">
+        <div className="bg-hp-electric text-white rounded-2xl p-6 md:p-8 mb-10 shadow-lg shadow-hp-electric/20">
+          <h2 className="font-heading text-xl md:text-2xl font-bold tracking-tight mb-2">
             Your next step
           </h2>
-          <p className="text-sm text-muted-foreground mb-6 font-sans">
-            Based on your profile, here is what I recommend.
+          <p className="text-sm md:text-base text-white/80 font-sans leading-relaxed mb-6 max-w-xl">
+            Based on your profile, here is what I recommend. Most clients
+            book a 15-minute call to turn this diagnosis into a concrete
+            next move.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3">
@@ -81,16 +76,22 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
                 className="inline-flex"
                 onClick={() => trackConversion('assessment_primary_cta')}
               >
-                <Button size="lg" className="font-bold w-full sm:w-auto">
+                <Button
+                  size="lg"
+                  className="font-bold w-full sm:w-auto bg-white text-hp-electric hover:bg-white/90"
+                >
                   {archetype.primaryCta.label}
-                  <ExternalLink className="ml-2 h-4 w-4" />
+                  <CalendarDays className="ml-2 h-5 w-5" aria-hidden="true" />
                 </Button>
               </a>
             ) : (
               <Link href={archetype.primaryCta.href} onClick={() => trackConversion('assessment_primary_cta')}>
-                <Button size="lg" className="font-bold w-full sm:w-auto">
+                <Button
+                  size="lg"
+                  className="font-bold w-full sm:w-auto bg-white text-hp-electric hover:bg-white/90"
+                >
                   {archetype.primaryCta.label}
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
                 </Button>
               </Link>
             )}
@@ -102,20 +103,46 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
                 rel="noopener noreferrer"
                 onClick={() => trackEvent('assessment_secondary_cta')}
               >
-                <Button variant="outline" size="lg" className="font-bold w-full sm:w-auto">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="font-bold w-full sm:w-auto bg-transparent border-white/40 text-white hover:bg-white/10 hover:border-white"
+                >
                   {archetype.secondaryCta.label}
-                  <ExternalLink className="ml-2 h-4 w-4" />
+                  <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
                 </Button>
               </a>
             ) : (
               <Link href={archetype.secondaryCta.href} onClick={() => trackEvent('assessment_secondary_cta')}>
-                <Button variant="outline" size="lg" className="font-bold w-full sm:w-auto">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="font-bold w-full sm:w-auto bg-transparent border-white/40 text-white hover:bg-white/10 hover:border-white"
+                >
                   {archetype.secondaryCta.label}
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
                 </Button>
               </Link>
             )}
           </div>
+
+          <p className="mt-4 text-sm text-white/80 font-sans">
+            15 minutes. No pitch. Just clarity on your next step.
+          </p>
+        </div>
+      </BlurFade>
+
+      {/* Diagnosis — moved below the CTA so depth is opt-in, not a gate. */}
+      <BlurFade inView delay={0.4}>
+        <div className="space-y-5 mb-10">
+          <h2 className="font-heading text-xl md:text-2xl font-bold text-foreground">
+            What this means
+          </h2>
+          {archetype.diagnosis.map((paragraph, idx) => (
+            <p key={idx} className="text-base md:text-lg text-foreground/80 font-sans leading-relaxed">
+              {paragraph}
+            </p>
+          ))}
         </div>
       </BlurFade>
       <p className="text-graphite text-sm font-sans text-center mb-8">

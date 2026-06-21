@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { motion } from "motion/react";
 import { Input } from "@/components/ui/input";
@@ -11,7 +12,7 @@ import { CalendarDays, MessageCircle, Loader2, CheckCircle2 } from "lucide-react
 import { useFormSubmission } from "@/lib/hooks/useFormSubmission";
 import { isValidEmail } from "@/lib/email-utils";
 import { WHATSAPP_URL } from "@/lib/constants";
-
+import { trackEvent } from "@/lib/analytics";
 type FieldErrors = Partial<Record<"name" | "email" | "message", string>>;
 
 export default function ConnectSection() {
@@ -121,6 +122,17 @@ export default function ConnectSection() {
           </motion.div>
           <p className="mt-4 text-sm text-primary-foreground/85">
             15 minutes. No pitch. Just clarity.
+          </p>
+          <p className="mt-2 text-sm text-primary-foreground/75">
+            Not sure if it&apos;s a fit?{" "}
+            <Link
+              href="/assessment"
+              onClick={() => trackEvent("connect_assessment_link")}
+              className="underline underline-offset-4 hover:text-white transition-colors"
+            >
+              Take the 3-minute assessment
+            </Link>{" "}
+            first.
           </p>
         </BlurFade>
         {/* Contact Form */}
