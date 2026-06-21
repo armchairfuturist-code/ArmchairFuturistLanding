@@ -34,7 +34,7 @@
 
 ### Issue tracker
 
-Issues and PRDs live as GitHub issues, managed via the GitHub MCP server. See `docs/agents/issue-tracker.md`.
+Issues and PRDs live as GitHub issues, managed via the GitHub MCP server. External PRs are **not** a triage surface — only issues are triaged. See `docs/agents/issue-tracker.md`.
 
 ### Triage labels
 
