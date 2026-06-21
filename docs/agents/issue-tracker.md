@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Issue tracker: GitHub (via MCP)
 
 Issues and PRDs for this repo live as GitHub issues. Use the **GitHub MCP server** (`@modelcontextprotocol/server-github`) for all operations — not the `gh` CLI.
@@ -15,6 +14,10 @@ Issues and PRDs for this repo live as GitHub issues. Use the **GitHub MCP server
 
 Infer the repo from `git remote -v`. All GitHub MCP operations are scoped to the repo the agent is working in.
 
+## External PRs as a request surface
+
+External PRs are **not** a triage surface for this repo. Only issues are triaged; collaborators' in-flight PRs and external PRs alike are left alone by the `triage` skill. (PRs are worked on directly, not funnelled through the issue queue.)
+
 ## When a skill says "publish to the issue tracker"
 
 Create a GitHub issue via the GitHub MCP.
@@ -22,27 +25,3 @@ Create a GitHub issue via the GitHub MCP.
 ## When a skill says "fetch the relevant ticket"
 
 Use the GitHub MCP issue read tool with the issue number.
-=======
-# Issue tracker: GitHub
-
-Issues and PRDs for this repo live as GitHub issues. Use the `gh` CLI for all operations.
-
-## Conventions
-
-- **Create an issue**: `gh issue create --title "..." --body "..."`. Use a heredoc for multi-line bodies.
-- **Read an issue**: `gh issue view <number> --comments`, filtering comments by `jq` and also fetching labels.
-- **List issues**: `gh issue list --state open --json number,title,body,labels,comments --jq '[.[] | {number, title, body, labels: [.labels[].name], comments: [.comments[].body]}]'` with appropriate `--label` and `--state` filters.
-- **Comment on an issue**: `gh issue comment <number> --body "..."`
-- **Apply / remove labels**: `gh issue edit <number> --add-label "..."` / `--remove-label "..."`
-- **Close**: `gh issue close <number> --comment "..."`
-
-Infer the repo from `git remote -v` — `gh` does this automatically when run inside a clone.
-
-## When a skill says "publish to the issue tracker"
-
-Create a GitHub issue.
-
-## When a skill says "fetch the relevant ticket"
-
-Run `gh issue view <number> --comments`.
->>>>>>> fdf275e (fix: replace hero glow text-shadow with pseudo-element to prevent mobile clipping)
