@@ -133,6 +133,7 @@ export default function HeroSection() {
 
           <BlurFade delay={0.4} inView duration={prefersReduced ? 0 : 0.4}>
             <p className="text-charcoal text-lg md:text-xl max-w-2xl mx-auto font-sans leading-[1.55] tracking-normal text-balance">
+              {subheadline}
             </p>
           </BlurFade>
           {/* CTAs — primary is the booking calendar (the 1:1 client goal).
