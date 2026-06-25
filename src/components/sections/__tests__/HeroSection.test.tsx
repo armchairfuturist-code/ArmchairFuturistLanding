@@ -24,11 +24,10 @@ it('renders the secondary CTA link', () => {
 
 it('renders an accessible h1 with the brand summary', () => {
   render(<HeroSection />);
-  // The sr-only h1 carries the full brand summary for screen readers / SEO
   expect(
     screen.getByRole('heading', {
       level: 1,
-      name: /AI Guide/i,
+      name: /AI Won't Replace You/i,
     }),
   ).toBeInTheDocument();
 });
