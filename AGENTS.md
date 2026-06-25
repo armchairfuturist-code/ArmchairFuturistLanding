@@ -27,6 +27,16 @@
 - TypeScript: Enabled
 - Styling: Tailwind CSS
 
+## Deploy
+
+- **Platform**: Firebase Hosting with App Hosting (SSR Cloud Function, `us-central1`)
+- **Trigger**: Push to `main` (via `.github/workflows/deploy.yml`)
+- **Domain**: thearmchairfuturist.com
+- **Firebase project**: `armchair-futurist`
+- **Secrets**: Firebase service account (`FIREBASE_SERVICE_ACCOUNT_ARMCHAIR_FUTURIST`), `RESEND_API_KEY` (via `apphosting.yaml`)
+- **Deploy time**: ~3-4 min (Google Cloud Build builds a container image for the 2nd Gen Cloud Function — do not interrupt)
+- **PR previews**: built-in via `FirebaseExtended/action-hosting-deploy@v0`
+
 
 ## Agent skills
 

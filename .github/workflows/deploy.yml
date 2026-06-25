@@ -1,12 +1,12 @@
-name: CI
+name: Deploy to Firebase Hosting
 
 on:
   push:
     branches: [main]
-  pull_request:
+  workflow_dispatch:
 
 jobs:
-  ci:
+  build_and_deploy:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -27,3 +27,11 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ARMCHAIR_FUTURIST }}
+          channelId: live
+          projectId: armchair-futurist
