@@ -27,7 +27,7 @@ it('renders an accessible h1 with the brand summary', () => {
   expect(
     screen.getByRole('heading', {
       level: 1,
-      name: /AI Won't Replace You/i,
+      name: /AI Won\u2019t Replace You/i,
     }),
   ).toBeInTheDocument();
 });
