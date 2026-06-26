@@ -56,25 +56,6 @@ export interface CoachingPackage {
 
 export const COACHING_PACKAGES: CoachingPackage[] = [
   {
-    id: 'single',
-    name: 'Single Session',
-    sessions: 1,
-    totalPrice: 100,
-    totalPriceUSD: 120,
-    pricePerSession: 100,
-    pricePerSessionUSD: 120,
-    discountPercent: 0,
-    savings: 0,
-    savingsUSD: 0,
-    description: 'One 60-minute 1-on-1 AI guidance session',
-    features: [
-      'Personal AI mindset coaching',
-      'Practical framework for your context',
-      'Actionable next steps',
-    ],
-    popular: false,
-  },
-  {
     id: 'pack-5',
     name: '5-Session Pack',
     sessions: 5,
@@ -87,7 +68,7 @@ export const COACHING_PACKAGES: CoachingPackage[] = [
     savingsUSD: 30,
     description: 'Five sessions with progress tracking and priority scheduling',
     features: [
-      'Everything in Single Session',
+      'Personal AI mindset coaching',
       'Priority scheduling',
       'Progress tracking between sessions',
       'Personalized learning roadmap',

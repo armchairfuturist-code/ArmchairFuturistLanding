@@ -144,14 +144,14 @@ export default function InsightsSection() {
                       viewport={{ once: true }}
                       transition={{ duration: 0.35, delay: index * 0.08 }}
                     >
-                      <Card className="flex flex-col shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group">
+                      <Card className="flex flex-col shadow-md hover:shadow-xl transition-[box-shadow] duration-300 overflow-hidden group">
                         <div className="relative h-36 w-full bg-muted overflow-hidden">
                           {post.imageUrl ? (
                             <Image
                               src={post.imageUrl}
                               alt={post.title}
                               fill
-                              className="object-cover group-hover:scale-105 transition-transform duration-300"
+                              className="object-cover group-hover:scale-105 transition-transform duration-300 outline outline-1 -outline-offset-1 outline-black/10 dark:outline-white/10"
                               sizes="(max-width: 768px) 100vw, 33vw"
                             />
                           ) : (

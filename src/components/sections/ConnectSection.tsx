@@ -91,8 +91,8 @@ export default function ConnectSection() {
         </BlurFade>
         <BlurFade inView delay={0.25}>
           <motion.div
-            whileHover={{ scale: 1.03 }}
-            transition={{ type: "spring", stiffness: 400, damping: 15 }}
+            whileHover={{ y: -2 }}
+            transition={{ type: "spring", stiffness: 400, damping: 25 }}
             className="inline-flex flex-col sm:flex-row gap-3"
           >
             <BookCallButton
@@ -108,7 +108,7 @@ export default function ConnectSection() {
               asChild
               size="lg"
               variant="outline"
-              className="bg-transparent border-white/40 text-white hover:bg-white/10 hover:border-white transition-all duration-200"
+              className="bg-transparent border-white/40 text-white hover:bg-white/10 hover:border-white transition-[background-color,border-color,color] duration-200"
             >
               <a
                 href={WHATSAPP_URL}

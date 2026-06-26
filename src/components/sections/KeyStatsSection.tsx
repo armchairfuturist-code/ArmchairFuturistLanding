@@ -68,9 +68,6 @@ export default function KeyStatsSection() {
         {/* Honest engagements list - no fabricated logo wall */}
         <BlurFade inView>
           <div className="border-t border-border pt-10">
-            <p className="text-xs text-muted-foreground/60 font-mono uppercase tracking-widest mb-4">
-              Selected engagements
-            </p>
             <p className="text-sm text-foreground/80 font-sans leading-relaxed max-w-2xl">
               Founders, solo operators, and small teams building AI-powered services.
               Names of recent clients withheld by request.

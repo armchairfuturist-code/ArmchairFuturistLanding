@@ -78,7 +78,7 @@ export default function MentoringSection() {
         <BlurFade inView>
           <div className="text-center mb-12">
             <p className="text-xs text-muted-foreground/60 font-mono mb-2">Last updated: May 2026</p>
-            <p className="text-sm font-mono text-primary uppercase tracking-widest mb-3">
+            <p className="inline-flex items-center px-3 py-1 rounded-md bg-primary/10 text-primary text-xs font-mono mb-3">
               One-on-One AI Guidance
             </p>
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
@@ -97,13 +97,13 @@ export default function MentoringSection() {
         {/* Three pillars — staggered journey */}
         <div className="mb-16 relative">
           {/* Connecting line (desktop) */}
-          <div className="hidden md:block absolute top-12 left-0 right-0 h-px bg-gradient-to-r from-primary/10 via-primary/30 to-primary/10" />
+          <div className="hidden md:block absolute top-12 left-0 right-0 h-px bg-hairline" />
 
           <div className="grid md:grid-cols-3 gap-6 md:gap-4 relative">
             {pillars.map((pillar, index) => (
               <motion.div
                 key={pillar.title}
-                className={`relative bg-background rounded-xl p-6 border border-border transition-all duration-300 hover:border-primary/30 hover:-translate-y-1 cursor-pointer ${
+                className={`relative bg-background rounded-xl p-6 border border-border transition-[border-color,transform,box-shadow] duration-300 hover:border-primary/30 hover:-translate-y-1 cursor-pointer ${
                   index === 1 ? 'md:mt-8' : index === 2 ? 'md:mt-4' : ''
                 }`}
                 initial={{ opacity: 0, y: 30 }}
@@ -144,7 +144,7 @@ export default function MentoringSection() {
               <div className="inline-flex items-center gap-1.5 bg-background border-2 border-primary/30 rounded-full p-1.5 text-sm font-semibold shadow-sm">
                 <button
                   onClick={() => handleCurrencyChange('USD')}
-                  className={`inline-flex items-center gap-1.5 px-5 py-2 rounded-full transition-all duration-200 ${
+                  className={`inline-flex items-center gap-1.5 px-5 py-2 rounded-md transition-[background-color,color,box-shadow] duration-200 ${
                     currency === 'USD'
                       ? 'bg-primary text-primary-foreground shadow-md'
                       : 'text-foreground/70 hover:text-foreground hover:bg-muted'
@@ -157,7 +157,7 @@ export default function MentoringSection() {
                 </button>
                 <button
                   onClick={() => handleCurrencyChange('EUR')}
-                  className={`inline-flex items-center gap-1.5 px-5 py-2 rounded-full transition-all duration-200 ${
+                  className={`inline-flex items-center gap-1.5 px-5 py-2 rounded-md transition-[background-color,color,box-shadow] duration-200 ${
                     currency === 'EUR'
                       ? 'bg-primary text-primary-foreground shadow-md'
                       : 'text-foreground/70 hover:text-foreground hover:bg-muted'
@@ -177,7 +177,7 @@ export default function MentoringSection() {
           {COACHING_PACKAGES.map((pkg, index) => (
             <motion.div
               key={pkg.id}
-              className="relative bg-background rounded-xl border border-border transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 flex flex-col"
+              className="relative bg-background rounded-xl border border-border transition-[border-color,transform,box-shadow] duration-300 hover:border-primary/50 hover:-translate-y-1 flex flex-col"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -193,22 +193,23 @@ export default function MentoringSection() {
                 {/* Price */}
                 <div className="flex items-baseline gap-1 mb-1">
                   <CurrencyIcon currency={currency} />
-                  <span className="text-3xl font-heading font-bold text-foreground">
+                  <span className="text-3xl font-heading font-bold text-foreground tabular-nums">
                     {currency === 'EUR'
                       ? pkg.totalPrice.toLocaleString()
                       : pkg.totalPriceUSD.toLocaleString()
                     }
                   </span>
-                  <span className="text-sm text-muted-foreground">
+                  <span className="text-sm text-muted-foreground tabular-nums">
                     {pkg.sessions > 1
                       ? ` (${currency === 'EUR' ? '€' : '$'}${currency === 'EUR' ? pkg.pricePerSession : pkg.pricePerSessionUSD}/session)`
-                      : `/${currency === 'EUR' ? 'session' : 'session'}`}
+                      : `/${currency === 'EUR' ? 'session' : 'session'}`
+                    }
                   </span>
                 </div>
 
                 {/* Savings badge */}
                 {pkg.savings > 0 && (
-                  <p className="text-xs font-medium text-green-600 mb-3">
+                  <p className="text-xs font-medium text-green-600 mb-3 tabular-nums">
                     {currency === 'EUR'
                       ? `Save €${pkg.savings}`
                       : `Save $${pkg.savingsUSD}`
@@ -218,7 +219,7 @@ export default function MentoringSection() {
                 )}
 
                 {/* Sessions count */}
-                <p className="text-xs text-muted-foreground mb-3">
+                <p className="text-xs text-muted-foreground mb-3 tabular-nums">
                   {pkg.sessions} {pkg.sessions === 1 ? 'session' : 'sessions'} · 60 min each
                 </p>
 

@@ -155,7 +155,7 @@ export default function AboutMeSection() {
                       href={expertCertification.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group inline-flex flex-col items-center p-2 rounded-md bg-white/10 backdrop-blur-sm shadow-md ring-2 ring-hp-electric/35 hover:ring-hp-electric hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hp-electric cursor-pointer"
+                      className="group inline-flex flex-col items-center p-2 rounded-md bg-white/10 backdrop-blur-sm shadow-md ring-2 ring-hp-electric/35 hover:ring-4 hover:ring-hp-electric hover:shadow-xl transition-[box-shadow,transform] duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hp-electric cursor-pointer"
                       aria-label={`${expertCertification.name} (opens in new tab)`}
                     >
                       {expertCertification.imageSrc ? (
@@ -257,9 +257,9 @@ export default function AboutMeSection() {
 
                 {/* How I Work — absorbed from WhyWorkWithMeSection */}
                 <div className="pt-6 mt-6 border-t border-white/10">
-                  <p className="text-xs font-mono uppercase tracking-widest text-hp-electric/70 mb-4">
-                    How I Work
-                  </p>
+                <p className="hp-chevron text-sm text-hp-electric font-medium mb-4">
+                  How I Work
+                </p>
                   <ul className="space-y-4">
                     <li className="flex items-start gap-3">
                       <span className="shrink-0 w-8 h-8 rounded-lg bg-primary/15 text-primary flex items-center justify-center" aria-hidden="true">
@@ -305,7 +305,7 @@ export default function AboutMeSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.3 }}
               >
-                <p className="text-xs font-mono uppercase tracking-widest text-hp-electric/70 mb-3">
+                <p className="hp-chevron text-sm text-hp-electric font-medium mb-3">
                   Verified Background
                 </p>
                 <div className="flex flex-wrap gap-x-4 gap-y-2">
@@ -327,7 +327,7 @@ export default function AboutMeSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.3 }}
           >
-            <p className="text-xs font-mono uppercase tracking-widest text-hp-electric/60 mb-4 text-center lg:text-left">
+            <p className="hp-chevron text-sm text-hp-electric font-medium mb-4 text-center lg:text-left">
               Verified Background
             </p>
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-3">

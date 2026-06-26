@@ -36,11 +36,11 @@ const faqItems: FAQItem[] = [
   },
   {
     question: "How much do services cost?",
-    answer: "Two paths. 'We do it together' guidance starts at $120 (€100) for a single 60-minute session and scales through 5, 10, and 20-session packs (up to 15% savings), with the $2,497 AI Self-Sufficiency Program as the core transformation. The $199 Digital Identity Landing Page is the easiest entry point into the 'I do it for you' path. Custom AI Provisioning runs $1,000-$5,000 depending on scope. Pricing is in USD and EUR."
+    answer: "Two paths. 'We do it together' guidance starts at the 5-session pack ($570 / €475) and scales through 10 and 20-session packs (up to 15% savings), with the $2,497 AI Self-Sufficiency Program as the core transformation. The $199 Digital Identity Landing Page is the easiest entry point into the 'I do it for you' path. Custom AI Provisioning runs $1,000-$5,000 depending on scope. Pricing is in USD and EUR."
   },
   {
     question: "How does AI guidance work?",
-    answer: "One-on-one coaching starting at $120 (€100) per 60-minute session. We focus on mindset before toolset — reframing how you think about AI rather than just teaching you tools. Each session blends practical guidance with how AI changes your role, your business, and your opportunities. Most clients start with 5 or 10 sessions.",
+    answer: "One-on-one coaching starting at $95 (€90) per 60-minute session for the 5-session pack, with deeper discounts at 10 and 20 sessions. We focus on mindset before toolset — reframing how you think about AI rather than just teaching you tools. Each session blends practical guidance with how AI changes your role, your business, and your opportunities. Most clients start with 5 or 10 sessions."
   },
   {
     question: "Can Alex work with organizations outside the US?",
@@ -102,9 +102,9 @@ export default function FAQSection() {
               <AccordionItem
                 key={index}
                 value={`faq-${index}`}
-                className="bg-card border border-border/60 rounded-xl px-6 hover:border-primary/30 transition-all"
+                className="bg-card border border-border/60 rounded-xl px-6 hover:border-primary/30 transition-[border-color]"
               >
-                <AccordionTrigger className="py-5 text-left font-heading font-semibold text-foreground hover:no-underline hover:text-primary transition-colors">
+                <AccordionTrigger className="py-5 text-left font-heading font-semibold text-foreground hover:no-underline hover:text-primary transition-colors duration-150">
                   {item.question}
                 </AccordionTrigger>
                 <AccordionContent className="pb-5 text-foreground/80 font-sans leading-relaxed">

@@ -32,7 +32,7 @@ export default function LogoBannerSection() {
         {logos.map((logo) => (
           <div
             key={logo.alt}
-            className="relative h-12 w-32 shrink-0 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex items-center justify-center"
+            className="relative h-12 w-32 shrink-0 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-[filter,opacity] duration-300 flex items-center justify-center"
           >
             <Image
               src={logo.src}

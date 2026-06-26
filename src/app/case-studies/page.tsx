@@ -204,7 +204,7 @@ export default function CaseStudiesPage() {
           <div className="grid gap-8">
             {caseStudies.map((cs, index) => (
               <BlurFade inView key={cs.slug} delay={index * 0.1}>
-                <Card className={`border-border/60 hover:border-primary/30 transition-all ${cs.featured ? 'ring-1 ring-primary/10' : ''}`}>
+                <Card className={`border-border/60 hover:border-primary/30 transition-[border-color,box-shadow] ${cs.featured ? 'ring-1 ring-primary/10' : ''}`}>
                   <CardContent className="p-6 md:p-8">
                     <div className="flex flex-col md:flex-row gap-6">
                       {/* Content */}
@@ -212,7 +212,7 @@ export default function CaseStudiesPage() {
                         <div className="flex flex-wrap items-center gap-2 mb-3">
                           <span className="text-xs text-muted-foreground font-mono">{cs.industry}</span>
                           {cs.featured && (
-                            <span className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full font-semibold">
+                            <span className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-md font-semibold">
                               Featured
                             </span>
                           )}
@@ -228,7 +228,7 @@ export default function CaseStudiesPage() {
                         </p>
                         <div className="flex flex-wrap gap-2">
                           {cs.tags.map((tag) => (
-                            <span key={tag} className="text-xs bg-muted px-2.5 py-1 rounded-full">
+                            <span key={tag} className="text-xs bg-muted px-2.5 py-1 rounded-md">
                               {tag}
                             </span>
                           ))}

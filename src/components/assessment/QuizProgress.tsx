@@ -16,7 +16,7 @@ export default function QuizProgress({ current, total }: QuizProgressProps) {
         <span className="text-xs font-mono text-primary/60">
           Question {current} of {total}
         </span>
-        <span className="text-xs font-mono text-primary/60">
+        <span className="text-xs font-mono text-primary/60 tabular-nums">
           {percent}%
         </span>
       </div>

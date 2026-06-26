@@ -46,9 +46,8 @@ export default function QuizQuestion({ question, onAnswer, onBack, questionIndex
               className="w-full text-left p-4 md:p-5 rounded-xl border border-border bg-card
                 hover:border-primary/40 hover:bg-primary/5
                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40
-                transition-colors duration-150 cursor-pointer group"
-              whileHover={{ scale: 1.01 }}
-              whileTap={{ scale: 0.99 }}
+                transition-[background-color,border-color] duration-150 cursor-pointer group"
+              whileTap={{ scale: 0.96 }}
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: idx * 0.06 }}

@@ -60,7 +60,7 @@ export default function SpeakingSection() {
                 return (
                   <motion.div
                     key={first.title}
-                    className="md:col-span-2 p-6 rounded-xl bg-gradient-to-br from-primary/5 to-background border border-primary/10"
+                    className="md:col-span-2 p-6 rounded-xl bg-primary/5 border border-primary/10"
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}

@@ -119,7 +119,7 @@ function FeaturedTestimonialCarousel() {
                   alt={`Profile picture of ${featuredTestimonials[current].name}`}
                   fill
                   sizes="56px"
-                  className="rounded-full object-cover border-2 border-primary/30"
+                  className="rounded-full object-cover outline outline-1 -outline-offset-1 outline-black/10 dark:outline-white/10"
                 />
               </div>
               <div>
@@ -130,15 +130,15 @@ function FeaturedTestimonialCarousel() {
             <div className="flex gap-2">
               <button
                 onClick={prev}
-                className="p-2 rounded-full hover:bg-muted transition-colors"
                 aria-label="Previous testimonial"
+                className="relative inline-flex items-center justify-center p-2 rounded-md hover:bg-muted transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 after:absolute after:inset-0 after:content-[''] after:-m-2"
               >
-                <ChevronLeft className="h-5 w-5" />
+                <ChevronLeft className="h-5 w-5" aria-hidden="true" />
               </button>
               <button
                 onClick={next}
-                className="p-2 rounded-full hover:bg-muted transition-colors"
                 aria-label="Next testimonial"
+                className="relative inline-flex items-center justify-center p-2 rounded-md hover:bg-muted transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 after:absolute after:inset-0 after:content-[''] after:-m-2"
               >
                 <ChevronRight className="h-5 w-5" aria-hidden="true" />
               </button>
@@ -149,7 +149,7 @@ function FeaturedTestimonialCarousel() {
               <button
                 key={i}
                 onClick={() => setCurrent(i)}
-                className={`h-2 rounded-full transition-all duration-300 ${
+                className={`h-2 rounded-full transition-[width,background-color] duration-300 ${
                   i === current ? 'w-6 bg-primary' : 'w-2 bg-muted'
                 }`}
                 aria-label={`Go to testimonial ${i + 1}`}
@@ -164,7 +164,7 @@ function FeaturedTestimonialCarousel() {
 
 function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <div className="flex-none w-80 md:w-96 bg-card rounded-xl border border-border/50 shadow-md p-5 md:p-6 flex flex-col gap-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+    <div className="flex-none w-80 md:w-96 bg-card rounded-xl border border-border/50 shadow-md p-5 md:p-6 flex flex-col gap-4 transition-[box-shadow,transform] duration-300 hover:shadow-xl hover:-translate-y-1">
       <Quote className="h-5 w-5 text-primary/30 shrink-0" />
       <p className="text-sm text-foreground/80 font-sans leading-relaxed line-clamp-7">
         {testimonial.text}
@@ -176,7 +176,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
             alt={`Profile picture of ${testimonial.name}`}
             fill
             sizes="40px"
-            className="rounded-full object-cover border-2 border-primary/20"
+            className="rounded-full object-cover outline outline-1 -outline-offset-1 outline-black/10 dark:outline-white/10"
           />
         </div>
         <div>
@@ -212,7 +212,7 @@ export default function TestimonialsSection() {
             onClick={() => setIsPaused((p) => !p)}
             aria-pressed={isPaused}
             aria-label={isPaused ? "Resume scrolling testimonials" : "Pause scrolling testimonials"}
-            className="inline-flex items-center justify-center h-8 w-8 rounded-full bg-card/80 border border-border/60 text-foreground/80 hover:bg-card hover:text-foreground transition-colors backdrop-blur-sm"
+            className="inline-flex items-center justify-center h-10 w-10 rounded-md bg-card/80 border border-border/60 text-foreground/80 hover:bg-card hover:text-foreground transition-colors duration-150 backdrop-blur-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
           >
             {isPaused ? <Play className="h-4 w-4" aria-hidden="true" /> : <Pause className="h-4 w-4" aria-hidden="true" />}
           </button>

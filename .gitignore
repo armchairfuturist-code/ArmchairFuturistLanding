@@ -103,3 +103,6 @@ lpt[1-9].*
 # and should never be tracked. Files remain on disk for agent use.
 /.claude/skills/
 /.agents/skills/
+# Impeccable skill artifacts
+.impeccable/
+.audit-passes/

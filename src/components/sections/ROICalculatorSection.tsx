@@ -127,13 +127,12 @@ export default function ROICalculatorSection() {
                     <motion.button
                       key={automation.id}
                       onClick={() => toggleAutomation(automation.id)}
-                      className={`w-full text-left p-4 rounded-xl border transition-all ${
+                      className={`w-full text-left p-4 rounded-xl border transition-[border-color,background-color] duration-150 ${
                         isSelected
                           ? 'border-primary/40 bg-primary/5'
                           : 'border-border/40 bg-background hover:border-border'
                       }`}
-                      whileTap={{ scale: 0.98 }}
-                      aria-pressed={isSelected}
+                      whileTap={{ scale: 0.96 }}
                     >
                       <div className="flex items-center justify-between">
                         <div>
@@ -169,14 +168,14 @@ export default function ROICalculatorSection() {
                 <div className="flex items-center gap-4">
                   <button
                     aria-label="Decrease team size"
-                    className="h-10 w-10 rounded-lg border border-border bg-background hover:bg-muted transition-colors font-bold text-foreground"
+                    className="h-10 w-10 rounded-lg border border-border bg-background hover:bg-muted transition-colors duration-150 font-bold text-foreground"
                   >
                     -
                   </button>
-                  <span className="text-2xl font-bold text-primary w-12 text-center">{teamSize}</span>
+                  <span className="text-2xl font-bold text-primary w-12 text-center tabular-nums">{teamSize}</span>
                   <button
                     aria-label="Increase team size"
-                    className="h-10 w-10 rounded-lg border border-border bg-background hover:bg-muted transition-colors font-bold text-foreground"
+                    className="h-10 w-10 rounded-lg border border-border bg-background hover:bg-muted transition-colors duration-150 font-bold text-foreground"
                   >
                     +
                   </button>
@@ -204,29 +203,29 @@ export default function ROICalculatorSection() {
 
                   <div className="grid grid-cols-2 gap-4">
                     <div className="p-4 rounded-xl bg-secondary/50">
-                      <p className="text-2xl font-bold text-primary">{hoursPerWeek}h</p>
+                      <p className="text-2xl font-bold text-primary tabular-nums">{hoursPerWeek}h</p>
                       <p className="text-xs text-muted-foreground">Per week</p>
                     </div>
                     <div className="p-4 rounded-xl bg-secondary/50">
-                      <p className="text-2xl font-bold text-primary">{hoursPerMonth}h</p>
+                      <p className="text-2xl font-bold text-primary tabular-nums">{hoursPerMonth}h</p>
                       <p className="text-xs text-muted-foreground">Per month</p>
                     </div>
                     <div className="p-4 rounded-xl bg-secondary/50">
-                      <p className="text-2xl font-bold text-primary">{hoursPerYear.toLocaleString()}h</p>
+                      <p className="text-2xl font-bold text-primary tabular-nums">{hoursPerYear.toLocaleString()}h</p>
                       <p className="text-xs text-muted-foreground">Per person / year</p>
                     </div>
                     <div className="p-4 rounded-xl bg-primary/10 border border-primary/20">
-                      <p className="text-2xl font-bold text-primary">{teamHoursPerYear.toLocaleString()}h</p>
-                      <p className="text-xs text-muted-foreground">Team of {teamSize} / year</p>
+                      <p className="text-2xl font-bold text-primary tabular-nums">{teamHoursPerYear.toLocaleString()}h</p>
+                      <p className="text-xs text-muted-foreground tabular-nums">Team of {teamSize} / year</p>
                     </div>
                   </div>
 
-                  <div className="p-6 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 text-center">
+                  <div className="p-6 rounded-xl bg-primary/5 border border-primary/20 text-center">
                     <Clock className="h-6 w-6 text-primary mx-auto mb-2" aria-hidden="true" />
-                    <p className="text-2xl font-semibold text-primary">
+                    <p className="text-2xl font-semibold text-primary tabular-nums">
                       {hoursPerWeek} hours per week per person
                     </p>
-                    <p className="text-sm text-muted-foreground mt-1">
+                    <p className="text-sm text-muted-foreground mt-1 tabular-nums">
                       {teamHoursPerYear.toLocaleString()} hours per year for your team of {teamSize}
                     </p>
                     <p className="text-xs text-muted-foreground/80 mt-3">
@@ -250,29 +249,29 @@ export default function ROICalculatorSection() {
                 <div className="space-y-6">
                   <div className="grid grid-cols-2 gap-4">
                     <div className="p-4 rounded-xl bg-secondary/50">
-                      <p className="text-2xl font-bold text-primary">{hoursPerWeek}h</p>
+                      <p className="text-2xl font-bold text-primary tabular-nums">{hoursPerWeek}h</p>
                       <p className="text-xs text-muted-foreground">Per week</p>
                     </div>
                     <div className="p-4 rounded-xl bg-secondary/50">
-                      <p className="text-2xl font-bold text-primary">{hoursPerMonth}h</p>
+                      <p className="text-2xl font-bold text-primary tabular-nums">{hoursPerMonth}h</p>
                       <p className="text-xs text-muted-foreground">Per month</p>
                     </div>
                     <div className="p-4 rounded-xl bg-secondary/50">
-                      <p className="text-2xl font-bold text-primary">{hoursPerYear.toLocaleString()}h</p>
+                      <p className="text-2xl font-bold text-primary tabular-nums">{hoursPerYear.toLocaleString()}h</p>
                       <p className="text-xs text-muted-foreground">Per person / year</p>
                     </div>
                     <div className="p-4 rounded-xl bg-primary/10 border border-primary/20">
-                      <p className="text-2xl font-bold text-primary">{teamHoursPerYear.toLocaleString()}h</p>
-                      <p className="text-xs text-muted-foreground">Team of {teamSize} / year</p>
+                      <p className="text-2xl font-bold text-primary tabular-nums">{teamHoursPerYear.toLocaleString()}h</p>
+                      <p className="text-xs text-muted-foreground tabular-nums">Team of {teamSize} / year</p>
                     </div>
                   </div>
 
-                  <div className="p-6 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 text-center">
+                  <div className="p-6 rounded-xl bg-primary/5 border border-primary/20 text-center">
                     <Clock className="h-6 w-6 text-primary mx-auto mb-2" aria-hidden="true" />
-                    <p className="text-2xl font-semibold text-primary">
+                    <p className="text-2xl font-semibold text-primary tabular-nums">
                       {hoursPerWeek} hours per week per person
                     </p>
-                    <p className="text-sm text-muted-foreground mt-1">
+                    <p className="text-sm text-muted-foreground mt-1 tabular-nums">
                       {teamHoursPerYear.toLocaleString()} hours per year for your team of {teamSize}
                     </p>
                     <p className="text-xs text-muted-foreground/80 mt-3">

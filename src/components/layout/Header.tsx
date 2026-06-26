@@ -39,7 +39,7 @@ export default function Header() {
               alt=""
               width={32}
               height={32}
-              className="rounded-full object-cover border border-white/20"
+              className="rounded-full object-cover outline outline-1 -outline-offset-1 outline-white/10"
             />
             <span className="font-medium text-sm tracking-tight text-white font-display">
               The Armchair Futurist
@@ -140,7 +140,7 @@ export default function Header() {
                         alt=""
                         width={32}
                         height={32}
-                        className="rounded-full object-cover border border-white/20"
+                        className="rounded-full object-cover outline outline-1 -outline-offset-1 outline-white/10"
                       />
                       <span className="font-medium text-sm tracking-tight text-white font-display">
                         The Armchair Futurist
