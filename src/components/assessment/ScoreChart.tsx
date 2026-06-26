@@ -25,7 +25,7 @@ export default function ScoreChart({ clarity, readiness, urgency }: ScoreChartPr
             <span className="text-sm font-medium text-foreground/70 font-sans">
               {dim.label}
             </span>
-            <span className="text-sm font-mono text-foreground/50">
+            <span className="text-sm font-mono text-foreground/50 tabular-nums">
               {scores[dim.key]}%
             </span>
           </div>

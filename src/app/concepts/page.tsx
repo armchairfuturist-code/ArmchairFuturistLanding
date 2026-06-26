@@ -137,7 +137,7 @@ export default function ConceptsIndexPage() {
                 <BlurFade inView key={concept.href} delay={index * 0.1}>
                   <Link
                     href={concept.href}
-                    className="group block p-6 rounded-xl border border-border/60 bg-card hover:border-primary/30 hover:shadow-lg transition-all h-full"
+                    className="group block p-6 rounded-xl border border-border/60 bg-card hover:border-primary/30 hover:shadow-lg transition-[border-color,box-shadow] h-full"
                   >
                     <div className="flex items-start gap-4 mb-4">
                       <div className="p-2 rounded-lg bg-primary/10">

@@ -100,17 +100,6 @@ export default function StructuredData() {
                   "@type": "Offer",
                   itemOffered: {
                     "@type": "Service",
-                    name: COACHING_PRICING.single.name,
-                    description: COACHING_PRICING.single.description,
-                    provider: { "@id": personId },
-                  },
-                  price: String(COACHING_PRICING.single.price),
-                  priceCurrency: COACHING_PRICING.single.currency,
-                },
-                {
-                  "@type": "Offer",
-                  itemOffered: {
-                    "@type": "Service",
                     name: COACHING_PRICING['pack-5'].name,
                     description: COACHING_PRICING['pack-5'].description,
                     provider: { "@id": personId },

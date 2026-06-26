@@ -1,10 +1,8 @@
 import HeroSection from '@/components/sections/HeroSection';
-import LogoBannerSection from '@/components/sections/LogoBannerSection';
 import AboutMeSection from '@/components/sections/AboutMeSection';
 import ServicesSection from '@/components/sections/ServicesSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import ConnectSection from '@/components/sections/ConnectSection';
-import SpeakingSection from '@/components/sections/SpeakingSection';
 import MentoringSection from '@/components/sections/MentoringSection';
 import FAQSection from '@/components/sections/FAQSection';
 import WhatThisIsNotSection from '@/components/sections/WhatThisIsNotSection';
@@ -14,7 +12,6 @@ import {
   KeyStatsSection,
   ROICalculatorSection,
   AssessmentCtaSection,
-  InsightsSection,
 } from '@/components/sections/DynamicSections';
 export default function HomePage() {
   return (
@@ -22,14 +19,11 @@ export default function HomePage() {
       {/* HOOK — make the visitor feel the stakes */}
       <HeroSection />
 
-      {/* SOCIAL PROOF — scrolling logo banner */}
-      <LogoBannerSection />
-
       {/* PROOF FIRST — quantified outcomes before any offer */}
       <CaseStudiesSection />
       <TestimonialsSection />
 
-      {/* TRACK RECORD — AI-citable statistics and facts (incl. logo badges) */}
+      {/* TRACK RECORD — AI-citable statistics and facts */}
       <KeyStatsSection />
 
       {/* HONEST FIT — when this is NOT for you (E-E-A-T trust signal) */}
@@ -38,7 +32,7 @@ export default function HomePage() {
       {/* CORE OFFER — two paths: we do it together, or I do it for you */}
       <ServicesSection />
 
-      {/* AUTHORITY — who is Alex, why trust him (incl. How I Work) */}
+      {/* AUTHORITY — who is Alex, why trust him */}
       <AboutMeSection />
 
       {/* COACHING UPSELL — 1-on-1 AI guidance with pack comparison */}
@@ -47,14 +41,8 @@ export default function HomePage() {
       {/* ROI CALCULATOR — interactive time-savings estimator */}
       <ROICalculatorSection />
 
-      {/* SPEAKING — keynotes, roundtables, workshops */}
-      <SpeakingSection />
-
-      {/* ASSESSMENT — self-qualifying diagnostic quiz (single CTA on the page) */}
+      {/* ASSESSMENT — self-qualifying diagnostic quiz */}
       <AssessmentCtaSection />
-
-      {/* CONTENT — articles + podcasts in one view */}
-      <InsightsSection />
 
       {/* FAQ — question-answer content */}
       <FAQSection />

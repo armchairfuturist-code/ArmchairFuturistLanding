@@ -18,7 +18,7 @@ export default function AssessmentCtaSection() {
       >
         <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
           <div className="flex-1 text-center md:text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-xs font-mono mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white/10 border border-white/20 text-white text-xs font-mono mb-3">
               <Brain className="w-3 h-3" />
               <span>Free Assessment</span>
             </div>

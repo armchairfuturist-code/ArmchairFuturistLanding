@@ -65,19 +65,19 @@ export default function SectionNavigator() {
           <button
             key={section.id}
             onClick={() => scrollTo(section.id)}
-            className="group relative flex items-center justify-center h-3 w-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:rounded-full"
+            className="group relative flex items-center justify-center h-10 w-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:rounded-full"
             aria-label={`Scroll to ${section.label}`}
           >
-            {/* Dot */}
+            {/* Dot — 12px visible, button itself is 40×40 hit area */}
             <span
-              className={`block rounded-full transition-all duration-300 ${
+              className={`block rounded-full transition-[transform,background-color] duration-300 ${
                 isActive
                   ? 'h-2.5 w-2.5 bg-primary'
                   : 'h-1.5 w-1.5 bg-foreground/30 group-hover:bg-foreground/60 group-hover:h-2 group-hover:w-2'
               }`}
             />
             {/* Label on hover */}
-            <span className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap text-xs font-medium text-foreground/80 bg-background/90 backdrop-blur-sm px-2 py-1 rounded-md border border-border/50">
+            <span className="absolute right-12 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap text-xs font-medium text-foreground/80 bg-background/90 backdrop-blur-sm px-2 py-1 rounded-md border border-border/50">
               {section.label}
             </span>
           </button>

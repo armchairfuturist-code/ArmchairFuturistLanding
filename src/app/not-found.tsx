@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function NotFound() {
   return (
-    <section className="min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-background to-primary/5 px-4 py-20">
+    <section className="min-h-[80vh] flex items-center justify-center bg-cloud px-4 py-20">
       <div className="max-w-2xl w-full text-center">
         <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground mb-4">
           404 Error

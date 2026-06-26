@@ -93,7 +93,7 @@ export default function AssessmentPage() {
 
   if (phase === 'landing') {
     return (
-      <section className="min-h-[100dvh] flex items-center justify-center bg-gradient-to-b from-background to-primary/5 py-20">
+      <section className="min-h-[100dvh] flex items-center justify-center bg-cloud py-20">
         <div className="container mx-auto px-4 md:px-6 max-w-2xl text-center">
           <BlurFade inView delay={0.1}>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-mono mb-6">
@@ -148,7 +148,7 @@ export default function AssessmentPage() {
 
   if (phase === 'quiz') {
     return (
-      <section className="min-h-[100dvh] flex flex-col items-center justify-center bg-gradient-to-b from-background to-primary/5 py-20">
+      <section className="min-h-[100dvh] flex flex-col items-center justify-center bg-cloud py-20">
         <div className="container mx-auto px-4 md:px-6 w-full">
           <QuizProgress current={currentQuestion + 1} total={questions.length} />
           <QuizQuestion
@@ -165,7 +165,7 @@ export default function AssessmentPage() {
 
   if (phase === 'email') {
     return (
-      <section className="min-h-[100dvh] flex items-center justify-center bg-gradient-to-b from-background to-primary/5 py-20">
+      <section className="min-h-[100dvh] flex items-center justify-center bg-cloud py-20">
         <div className="container mx-auto px-4 md:px-6">
           <EmailCapture
             onComplete={navigateToResult}
@@ -178,7 +178,7 @@ export default function AssessmentPage() {
   }
 
   return (
-    <section className="min-h-[100dvh] flex items-center justify-center bg-gradient-to-b from-background to-primary/5">
+    <section className="min-h-[100dvh] flex items-center justify-center bg-cloud">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

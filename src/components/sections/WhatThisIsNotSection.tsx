@@ -62,7 +62,7 @@ export default function WhatThisIsNotSection() {
       <div className="container mx-auto px-4 md:px-6 max-w-5xl">
         <BlurFade inView>
           <div className="max-w-2xl mb-12">
-            <p className="text-xs text-muted-foreground/60 font-mono mb-2 uppercase tracking-widest">
+            <p className="hp-chevron text-sm text-hp-electric font-medium mb-2">
               Honest Fit Assessment
             </p>
             <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary mb-4">

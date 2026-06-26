@@ -78,7 +78,7 @@ export default function CaseStudiesSection() {
           {caseStudies.map((study, i) => (
             <BlurFade inView key={study.title} delay={i * 0.1}>
               <motion.div
-                className="rounded-2xl border border-border/60 bg-card overflow-hidden"
+                className="rounded-2xl border border-border/60 bg-card overflow-hidden transition-[border-color,box-shadow] duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -95,7 +95,7 @@ export default function CaseStudiesSection() {
                         {study.client}
                       </p>
                     </div>
-                    <span className="text-xs font-mono text-foreground/60 bg-muted/80 px-3 py-1.5 rounded-full shrink-0">
+                    <span className="text-xs font-mono text-foreground/60 bg-muted/80 px-3 py-1.5 rounded-md shrink-0">
                       {study.timeline}
                     </span>
                   </div>

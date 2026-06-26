@@ -35,7 +35,7 @@ const paths: Path[] = [
     title: "Guidance & Education",
     kicker: "Build the literacy to do it yourself",
     description:
-      "I teach you the AI literacy required to design, launch, and sell your own AI-powered services. From a single 60-minute session to a 3-month executive intensive — every path leads to the same place: you, independent.",
+      "I teach you the AI literacy required to design, launch, and sell your own AI-powered services. From a session pack to a 3-month executive intensive — every path leads to the same place: you, independent.",
     tiers: [
       {
         name: "AI Readiness Assessment",
@@ -56,10 +56,10 @@ const paths: Path[] = [
       },
       {
         name: "1-on-1 AI Guidance",
-        price: "$120 – $2,000",
-        tag: "Single · 5 · 10 · 20 Packs",
+        price: "$570 – $2,000",
+        tag: "5 · 10 · 20 Packs",
         description:
-          "The proven foundation. Start with a single 60-minute session and scale up. Most clients start with 5 or 10 sessions. Each one builds your AI literacy — from understanding to agency to independence.",
+          "The proven foundation. Start with a 5-session pack and scale up. Most clients start with 5 or 10 sessions. Each one builds your AI literacy — from understanding to agency to independence.",
         features: [
           "60-minute 1-on-1 video sessions",
           "From fear to understanding to action",
@@ -150,7 +150,7 @@ export default function ServicesSection() {
       <div className="container mx-auto px-4 md:px-6">
         <BlurFade inView>
           <div className="max-w-3xl mb-16">
-            <p className="text-sm font-mono text-primary uppercase tracking-widest mb-2">Your Path to AI Independence</p>
+            <p className="text-sm font-mono text-primary mb-2">Your Path to AI Independence</p>
             <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary mb-6">
               From Dependency to Independence
             </h2>
@@ -202,7 +202,7 @@ export default function ServicesSection() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.4, delay: index * 0.1 }}
-                      className="flex flex-col rounded-2xl border border-border bg-card overflow-hidden transition-all duration-300 hover:border-primary/30 hover:shadow-md"
+                      className="flex flex-col rounded-2xl border border-border bg-card overflow-hidden transition-[border-color,box-shadow] duration-300 hover:border-primary/30 hover:shadow-md"
                     >
 
                       <CardHeader className="pt-6 pb-4">

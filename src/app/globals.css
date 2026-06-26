@@ -42,10 +42,10 @@
 
     /* Marquees should still scroll (content display, not decoration) */
     .animate-marquee {
-        animation: marquee 60s linear infinite !important;
+        animation: marquee 60s linear infinite;
     }
     .animate-marquee-slow {
-        animation: marquee 120s linear infinite !important;
+        animation: marquee 120s linear infinite;
     }
 }
 
@@ -156,57 +156,23 @@
         --hero-title-color-2: 220 96% 43%;
     }
 
-    /* HP gradient text — electric blue to bright to soft */
-    .hp-gradient-text {
-      background: linear-gradient(135deg, hsl(var(--hp-electric)) 0%, hsl(var(--hp-bright)) 45%, hsl(var(--hp-soft)) 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      color: transparent;
-    }
-
-    /* HP hero glow — pseudo-element approach (prevents mobile clipping) */
-    .hp-hero-glow {
-      position: relative;
-    }
-
-    .hp-hero-glow::before {
-      content: "";
-      position: absolute;
-      inset: -15px;
-      background: radial-gradient(
-        ellipse at center,
-        rgba(41, 110, 249, 0.4) 0%,
-        rgba(2, 74, 216, 0.2) 40%,
-        transparent 70%
-      );
-      filter: blur(28px);
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    /* Mobile text readability — subtle dark text-shadow on blue text */
-    @media (max-width: 768px) {
-      .hp-hero-glow {
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
-      }
-    }
-
-    /* HP scanline overlay — subtle futuristic texture */
-    .hp-scanlines {
-      background-image: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 3px,
-        rgba(41, 110, 249, 0.05) 3px,
-        rgba(41, 110, 249, 0.05) 4px
-      );
-    }
     * {
         @apply border-border;
     }
     body {
         @apply bg-background text-foreground font-body;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Headings — even line lengths, no orphans */
+    h1, h2, h3 {
+        text-wrap: balance;
+    }
+
+    /* Body text — prevent single-word last lines */
+    p, li, blockquote, figcaption {
+        text-wrap: pretty;
     }
 }
 
@@ -234,21 +200,23 @@
     }
 }
 
-@keyframes marquee {
-    from {
-        transform: translateX(0);
+@media (prefers-reduced-motion: no-preference) {
+    @keyframes marquee {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(calc(-100% - var(--gap)));
+        }
     }
-    to {
-        transform: translateX(calc(-100% - var(--gap)));
-    }
-}
 
-@keyframes marquee-vertical {
-    from {
-        transform: translateY(0);
-    }
-    to {
-        transform: translateY(calc(-100% - var(--gap)));
+    @keyframes marquee-vertical {
+        from {
+            transform: translateY(0);
+        }
+        to {
+            transform: translateY(calc(-100% - var(--gap)));
+        }
     }
 }
 

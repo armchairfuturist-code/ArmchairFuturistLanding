@@ -49,15 +49,9 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative w-full min-h-[80vh] lg:min-h-[85vh] overflow-hidden flex items-center justify-center bg-canvas bg-hp-grid"
+      className="relative w-full min-h-[80vh] lg:min-h-[85vh] overflow-hidden flex items-center justify-center bg-canvas"
       onMouseMove={handleMouseMove}
     >
-      {/* Mobile-only soft scrim — stronger opacity for text readability */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 z-0 pointer-events-none md:hidden bg-[linear-gradient(180deg,rgba(180,210,252,0.7)_0%,rgba(200,220,252,0.5)_40%,rgba(230,240,252,0.3)_70%,rgba(255,255,255,0)_100%)]"
-      />
-
       {/* Reactive chevron accents — HP angular wordmark nod */}
       <motion.div
         style={prefersReduced ? {} : { x: parallaxX, y: parallaxY }}
@@ -90,11 +84,7 @@ export default function HeroSection() {
 
 
             <BlurFade delay={0.05} inView duration={prefersReduced ? 0 : 0.4}>
-              <p className="relative inline-flex items-center gap-2 font-mono text-[11px] md:text-xs uppercase tracking-[0.4em] text-hp-electric md:text-hp-bright mb-4 md:mb-5">
-                <span
-                  className="inline-block h-1.5 w-1.5 rounded-full bg-hp-electric md:bg-hp-bright animate-pulse shadow-[0_0_10px_rgba(2,74,216,0.8)] md:shadow-[0_0_10px_rgba(41,110,249,0.8)]"
-                  aria-hidden="true"
-                />
+              <p className="relative inline-flex items-center gap-2 font-mono text-[11px] md:text-xs uppercase tracking-[0.4em] text-hp-electric md:text-hp-electric mb-4 md:mb-5">
                 AI Alert · 2026
               </p>
             </BlurFade>
@@ -123,10 +113,10 @@ export default function HeroSection() {
 
             {/* Slash tail — edgy period replacement */}
             <BlurFade delay={1.0} inView duration={prefersReduced ? 0 : 0.4}>
-              <div className="relative mt-3 md:mt-4 flex items-center justify-center gap-3">
-                <span className="h-px w-10 bg-gradient-to-r from-transparent to-hp-electric md:to-hp-bright" aria-hidden="true" />
-                <span className="font-mono text-xs uppercase tracking-[0.3em] text-hp-electric md:text-hp-bright">{"// end of message"}</span>
-                <span className="h-px w-10 bg-gradient-to-l from-transparent to-hp-electric md:to-hp-bright" aria-hidden="true" />
+              <div className="relative mt-3 md:mt-4 flex items-center justify-center gap-2">
+                <span className="h-px w-8 bg-hairline" aria-hidden="true" />
+                <svg width="16" height="16" viewBox="0 0 16 16" className="text-hp-electric" aria-hidden="true"><polyline points="2,2 14,8 2,14" fill="none" stroke="currentColor" strokeWidth="1.5" /></svg>
+                <span className="h-px w-8 bg-hairline" aria-hidden="true" />
               </div>
             </BlurFade>
           </motion.div>
@@ -149,14 +139,14 @@ export default function HeroSection() {
                   location="hero"
                   size="lg"
                   icon="calendar-days"
-                  className="rounded-full font-bold px-7 py-3 text-base shadow-md shadow-hp-electric/20"
+                  className="rounded-md font-medium px-7 py-3 text-base uppercase tracking-[0.7px]"
                 >
                   Book a 15-min Call
                 </BookCallButton>
                 <a
                   href="/#services"
                   onClick={() => trackEvent("hero_see_programs")}
-                  className="inline-flex items-center gap-2 text-primary font-medium text-base px-7 py-3 rounded-full border border-primary/20 hover:bg-primary/5 hover:border-primary/40 active:scale-[0.95] transition-all duration-200"
+                  className="inline-flex items-center gap-2 text-primary font-medium text-base px-7 py-3 rounded-md border border-primary/20 hover:bg-primary/5 hover:border-primary/40 active:scale-[0.96] transition-[background-color,border-color,color] duration-200"
                 >
                   See Programs
                   <ArrowRight className="w-4 h-4" aria-hidden="true" />
