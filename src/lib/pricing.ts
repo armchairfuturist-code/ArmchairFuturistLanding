@@ -56,6 +56,26 @@ export interface CoachingPackage {
 
 export const COACHING_PACKAGES: CoachingPackage[] = [
   {
+    id: 'single',
+    name: 'Single Session',
+    sessions: 1,
+    totalPrice: 100,
+    totalPriceUSD: 120,
+    pricePerSession: 100,
+    pricePerSessionUSD: 120,
+    discountPercent: 0,
+    savings: 0,
+    savingsUSD: 0,
+    description: 'One focused session. No commitment, no package. You bring a specific question or a mixed scope; we work through it together. Ideal for discovery, or when you\'re not sure what you need yet.',
+    features: [
+      'One 60-minute video session',
+      'Focused on your specific challenge or question',
+      'No commitment or package to manage',
+      'Session summary with key insights',
+    ],
+    popular: false,
+  },
+  {
     id: 'pack-5',
     name: '5-Session Pack',
     sessions: 5,

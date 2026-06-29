@@ -30,12 +30,12 @@ const pillars = [
 
 // Compact comparison matrix — absorbed from PackageComparisonSection
 const quickCompare = [
-  { label: "Coaching hours", five: "~5 hrs", ten: "~10–15 hrs", twenty: "~20–40 hrs" },
-  { label: "Practical exercises", five: "Guided demos", ten: "Your real work", twenty: "Real projects end-to-end" },
-  { label: "Personalised feedback", five: "Session-based", ten: "Session + reviews", twenty: "Deep 1:1 + async support" },
-  { label: "Frameworks & templates", five: "Core prompts & guides", ten: "Full toolkit + checklists", twenty: "Complete system + playbooks" },
-  { label: "Post-package resources", five: "Summary guide", ten: "Toolkit + community", twenty: "Full library + support" },
-  { label: "Skill compounding", five: "Foundational", ten: "Noticeable growth", twenty: "Exponential" },
+  { label: "Coaching hours", single: "~1 hr", five: "~5 hrs", ten: "~10–15 hrs", twenty: "~20–40 hrs" },
+  { label: "Practical exercises", single: "Focused problem-solving", five: "Guided demos", ten: "Your real work", twenty: "Real projects end-to-end" },
+  { label: "Personalised feedback", single: "Session-based", five: "Session-based", ten: "Session + reviews", twenty: "Deep 1:1 + async support" },
+  { label: "Frameworks & templates", single: "Key insights & next steps", five: "Core prompts & guides", ten: "Full toolkit + checklists", twenty: "Complete system + playbooks" },
+  { label: "Post-package resources", single: "Session summary", five: "Summary guide", ten: "Toolkit + community", twenty: "Full library + support" },
+  { label: "Skill compounding", single: "Immediate impact", five: "Foundational", ten: "Noticeable growth", twenty: "Exponential" },
 ];
 
 const CurrencyIcon = ({ currency }: { currency: CurrencyCode }) =>
@@ -173,7 +173,7 @@ export default function MentoringSection() {
           </div>
         </BlurFade>
 
-        <div className="grid md:grid-cols-4 gap-4 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-12">
           {COACHING_PACKAGES.map((pkg, index) => (
             <motion.div
               key={pkg.id}
@@ -261,7 +261,7 @@ export default function MentoringSection() {
             <summary className="cursor-pointer list-none flex items-center justify-between gap-4 px-6 py-5 hover:bg-secondary/40 transition-colors">
               <div>
                 <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-1">Compare what's inside</p>
-                <p className="text-base font-semibold text-foreground">Side-by-side: 5, 10, and 20-session packs</p>
+                <p className="text-base font-semibold text-foreground">Side-by-side: Single, 5, 10, and 20-session packs</p>
               </div>
               <span className="text-xs font-mono uppercase tracking-widest text-primary group-open:hidden">Expand</span>
               <span className="text-xs font-mono uppercase tracking-widest text-primary hidden group-open:inline">Collapse</span>
@@ -271,6 +271,7 @@ export default function MentoringSection() {
                 <thead>
                   <tr className="text-left">
                     <th className="px-6 py-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">What you get</th>
+                    <th className="px-4 py-3 font-mono text-xs uppercase tracking-widest text-muted-foreground text-center">Single</th>
                     <th className="px-4 py-3 font-mono text-xs uppercase tracking-widest text-muted-foreground text-center">5-pack</th>
                     <th className="px-4 py-3 font-mono text-xs uppercase tracking-widest text-muted-foreground text-center">10-pack</th>
                     <th className="px-4 py-3 font-mono text-xs uppercase tracking-widest text-muted-foreground text-center">20-pack</th>
@@ -280,6 +281,7 @@ export default function MentoringSection() {
                   {quickCompare.map((row, idx) => (
                     <tr key={row.label} className={idx % 2 === 0 ? "bg-secondary/20" : ""}>
                       <td className="px-6 py-3 font-medium text-foreground/80">{row.label}</td>
+                      <td className="px-4 py-3 text-center text-foreground/70">{row.single}</td>
                       <td className="px-4 py-3 text-center text-foreground/70">{row.five}</td>
                       <td className="px-4 py-3 text-center text-foreground/70">{row.ten}</td>
                       <td className="px-4 py-3 text-center text-foreground/70">{row.twenty}</td>
