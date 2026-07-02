@@ -202,20 +202,20 @@ export default function AboutMeSection() {
               <BlurFade inView delay={0.2}>
                 <div className="mb-6 text-center lg:text-left">
                   <div className="flex items-center justify-center lg:justify-start gap-3">
-                    <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-hp-electric">
+                    <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary-foreground">
                       Who Is Alex Myers?
                     </h2>
                     <a
                       href="https://www.linkedin.com/in/alex-myers-34572a10/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-hp-electric/55 hover:text-hp-electric transition-colors"
+                      className="text-primary-foreground/55 hover:text-primary-foreground transition-colors"
                       aria-label="Alex Myers LinkedIn Profile"
                     >
                       <Linkedin className="h-5 w-5" />
                     </a>
                   </div>
-                  <p className="text-sm text-hp-electric/60 font-mono mt-1 uppercase tracking-widest">
+                  <p className="text-sm text-primary-foreground/60 font-mono mt-1 uppercase tracking-widest">
                     AI Guide
                   </p>
                 </div>
@@ -234,21 +234,21 @@ export default function AboutMeSection() {
                   My work draws on systems thinking, group dynamics, and a knack for asking the questions nobody else will. I tell you what I actually think, not what you want to hear. That&apos;s the foundation of solutions that stick.
                 </p>
 
-                <h3 className="text-lg md:text-xl font-bold text-hp-electric pt-2">
+                <h3 className="text-lg md:text-xl font-bold text-primary-foreground pt-2">
                   For the Executive:
                 </h3>
                 <p className="text-base md:text-lg text-primary-foreground/85 font-sans leading-relaxed">
                   The edge you&apos;re standing at isn&apos;t just technological. It&apos;s structural, cultural, and deeply human. I help you see the whole field, not just the tools — so your organization moves with intention instead of reacting to every shift.
                 </p>
 
-                <h3 className="text-lg md:text-xl font-bold text-hp-electric pt-2">
+                <h3 className="text-lg md:text-xl font-bold text-primary-foreground pt-2">
                   For the Individual:
                 </h3>
                 <p className="text-base md:text-lg text-primary-foreground/85 font-sans leading-relaxed">
                   I help you find your footing on shifting ground. How do you live optimistically when intelligence is becoming a cheap utility? How do you reclaim your time for the work that is uniquely yours?
                 </p>
 
-                <p className="flex items-center gap-2 text-base md:text-lg text-hp-electric font-bold font-sans">
+                <p className="flex items-center gap-2 text-base md:text-lg text-primary-foreground font-bold font-sans">
                   <ArrowRight className="w-4 h-4 shrink-0" />
                   Forget prediction. The goal is to move you from &ldquo;what
                   happens next&rdquo; to &ldquo;here is what I am
@@ -257,12 +257,12 @@ export default function AboutMeSection() {
 
                 {/* How I Work — absorbed from WhyWorkWithMeSection */}
                 <div className="pt-6 mt-6 border-t border-white/10">
-                <p className="hp-chevron text-sm text-hp-electric font-medium mb-4">
+                <p className="hp-chevron text-sm text-primary-foreground font-medium mb-4">
                   How I Work
                 </p>
                   <ul className="space-y-4">
                     <li className="flex items-start gap-3">
-                      <span className="shrink-0 w-8 h-8 rounded-lg bg-primary/15 text-primary flex items-center justify-center" aria-hidden="true">
+                      <span className="shrink-0 w-8 h-8 rounded-lg bg-white/15 text-primary-foreground flex items-center justify-center" aria-hidden="true">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
                       </span>
                       <div>
@@ -271,7 +271,7 @@ export default function AboutMeSection() {
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="shrink-0 w-8 h-8 rounded-lg bg-primary/15 text-primary flex items-center justify-center" aria-hidden="true">
+                      <span className="shrink-0 w-8 h-8 rounded-lg bg-white/15 text-primary-foreground flex items-center justify-center" aria-hidden="true">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
                       </span>
                       <div>
@@ -280,7 +280,7 @@ export default function AboutMeSection() {
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="shrink-0 w-8 h-8 rounded-lg bg-primary/15 text-primary flex items-center justify-center" aria-hidden="true">
+                      <span className="shrink-0 w-8 h-8 rounded-lg bg-white/15 text-primary-foreground flex items-center justify-center" aria-hidden="true">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                       </span>
                       <div>
