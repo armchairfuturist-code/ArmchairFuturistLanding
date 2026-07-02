@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Brain } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'motion/react';
@@ -8,7 +9,19 @@ import { trackEvent } from '@/lib/analytics';
 
 export default function AssessmentCtaSection() {
   return (
-    <section className="py-20 md:py-24 bg-hp-deep border-y border-border/30 scroll-mt-20">
+    <section className="relative overflow-hidden py-20 md:py-24 border-y border-border/30 scroll-mt-20">
+      {/* Background image with dark overlay */}
+      <div className="absolute inset-0">
+        <Image
+          src="/marketing4.jpeg"
+          alt=""
+          fill
+          className="object-cover brightness-[0.25]"
+          sizes="100vw"
+          priority
+        />
+      </div>
+      <div className="absolute inset-0 bg-hp-deep/60" />
       <motion.div
         className="container mx-auto px-4 md:px-6 max-w-3xl"
         initial={{ opacity: 0, y: 16 }}

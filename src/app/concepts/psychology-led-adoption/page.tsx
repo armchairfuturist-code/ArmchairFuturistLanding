@@ -107,12 +107,12 @@ export default function PsychologyLedAdoptionPage() {
               Psychology-Led Adoption
             </h1>
             <p className="text-xl text-foreground/80 font-sans leading-relaxed mb-8">
-              An organizational approach that addresses human barriers to AI adoption 
+              An organizational approach that addresses human barriers to AI adoption
               before technical ones—identifying the 5% who are naturally wired for change.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button asChild size="lg">
-                <Link href="/#services">Explore Organizational Services</Link>
+                <Link href="/#services">Find Your 5%</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
                 <Link href="/assessment">Take Free Assessment</Link>

@@ -1,6 +1,7 @@
 "use client";
 
 import { BlurFade } from '@/components/ui/blur-fade';
+import Image from 'next/image';
 import { Users, Clock, Wrench, ArrowRight } from 'lucide-react';
 import { XCircle, AlertTriangle } from 'lucide-react';
 import { BookCallButton } from '@/components/ui/BookCallButton';
@@ -71,6 +72,20 @@ export default function WhatThisIsNotSection() {
             <p className="text-lg text-foreground/80 font-sans max-w-2xl mx-auto">
               I'd rather lose a sale than take on work I can't deliver. If these describe you, there are better options.
             </p>
+          </div>
+        </BlurFade>
+
+        {/* Social proof banner — Alex speaking to a group, proving the authority behind the honesty */}
+        <BlurFade inView delay={0.1}>
+          <div className="relative w-full h-[300px] md:h-[400px] rounded-xl overflow-hidden mb-12 border border-border/60">
+            <Image
+              src="/marketing2.webp"
+              alt="Alex Myers speaking to a group — real AI guidance in practice"
+              fill
+              className="object-cover"
+              sizes="100vw"
+              priority
+            />
           </div>
         </BlurFade>
 

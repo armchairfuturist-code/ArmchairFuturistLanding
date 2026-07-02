@@ -66,7 +66,7 @@ export default function KeyStatsSection() {
         </div>
 
         {/* Honest engagements list - no fabricated logo wall */}
-        <BlurFade inView>
+        <BlurFade inView className="mb-8">
           <div className="border-t border-border pt-10">
             <p className="text-sm text-foreground/80 font-sans leading-relaxed max-w-2xl">
               Founders, solo operators, and small teams building AI-powered services.
