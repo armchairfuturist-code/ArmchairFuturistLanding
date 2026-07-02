@@ -87,7 +87,7 @@ export default function AccountabilityGapPage() {
               The Accountability Gap
             </h1>
             <p className="text-xl text-foreground/80 font-sans leading-relaxed mb-8">
-              The space between what an AI system produces and what a business actually needs. 
+              The space between what an AI system produces and what a business actually needs.
               Where AI adoption stalls because no one owns the outcome.
             </p>
             <div className="flex flex-wrap gap-4">

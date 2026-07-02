@@ -94,8 +94,8 @@ export default function ResultsThinkersPage() {
               Results Thinkers
             </h1>
             <p className="text-xl text-foreground/80 font-sans leading-relaxed mb-8">
-              The top 5% of your organization who naturally embrace uncertainty. 
-              Your highest-leverage asset for driving AI adoption—because they don\'t wait for permission.
+              The top 5% of your organization who naturally embrace uncertainty.
+              Your highest-leverage asset for driving AI adoption—because they don't wait for permission.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button asChild size="lg">
