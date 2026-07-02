@@ -27,17 +27,16 @@ it('renders an accessible h1 with the brand summary', () => {
   expect(
     screen.getByRole('heading', {
       level: 1,
-      name: /AI Won\u2019t Replace You/i,
+      name: /own what AI does for you/i,
     }),
   ).toBeInTheDocument();
 });
 
 it('renders the main headline text', () => {
   render(<HeroSection />);
-  // The pull-up animation splits each line into per-word <span>s, so we
-  // assert by word rather than by a single contiguous string. Pick words
-  // unique to each line to avoid matching the shared "AI" / "You".
-  for (const word of ['Won’t', 'Replace', 'Someone', 'Using', 'Better', 'Will.']) {
-    expect(screen.getByText(word)).toBeInTheDocument();
-  }
+  // The pull-up animation splits each line into per-word <span>s,
+  // so assert via the h1's textContent to avoid word-boundary issues.
+  const h1 = screen.getByRole('heading', { level: 1 });
+  expect(h1.textContent).toMatch(/needmoreAItools/i);
+  expect(h1.textContent).toMatch(/ownwhatAIdoes/i);
 });
