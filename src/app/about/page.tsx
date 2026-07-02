@@ -263,39 +263,32 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Marketing gallery */}
-      <section className="py-16 md:py-24 bg-secondary">
+      {/* Marketing gallery — photos of Alex in action */}
+      <section className="py-20 md:py-28 bg-[#f3f3f3] border-y border-border/60">
         <div className="container mx-auto px-4 md:px-6 max-w-5xl">
-          <BlurFade inView>
-            <div className="text-center mb-12">
-              <p className="text-xs text-muted-foreground/60 font-mono mb-2">In Practice</p>
-              <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary mb-4">
-                Real Work, Real Settings
-              </h2>
-              <p className="text-lg text-foreground/80 font-sans max-w-2xl mx-auto">
-                Speaking, advising, and building — across stages, workshops, and strategy sessions.
-              </p>
-            </div>
-          </BlurFade>
+          <div className="text-center mb-10">
+            <p className="text-xs text-muted-foreground/60 font-mono mb-2">In Practice</p>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary mb-3">
+              Photos
+            </h2>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
               { src: "/marketing1.webp", alt: "Alex working with a group on AI strategy" },
               { src: "/marketing2.webp", alt: "Alex speaking to an audience about AI adoption" },
               { src: "/marketing3.jpeg", alt: "Alex presenting at a conference" },
               { src: "/marketing4.jpeg", alt: "Alex in a consulting session" },
-            ].map((img, i) => (
-              <BlurFade inView key={img.src} delay={i * 0.1}>
-                <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-border/60">
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </div>
-              </BlurFade>
+            ].map((img) => (
+              <div key={img.src} className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-border/60 bg-white shadow-sm">
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 100vw, 50vw"
+                />
+              </div>
             ))}
           </div>
         </div>
