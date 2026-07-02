@@ -3,11 +3,11 @@
 import { useState } from 'react';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { motion } from 'motion/react';
-import { Calculator, Clock, ArrowRight, Mail, CheckCircle2, Loader2 } from 'lucide-react';
+import { Calculator, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { BookCallButton } from '@/components/ui/BookCallButton';
 import { trackEvent, trackConversion } from '@/lib/analytics';
-import { useFormSubmission } from '@/lib/hooks/useFormSubmission';
+
 
 const commonAutomations = [
   {
@@ -63,14 +63,6 @@ const commonAutomations = [
 export default function ROICalculatorSection() {
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [teamSize, setTeamSize] = useState(1);
-  const [email, setEmail] = useState('');
-  const { loading: emailLoading, success: emailSubmitted, error: emailError, submit, setError: setEmailError } = useFormSubmission({
-    endpoint: '/api/lead-capture',
-    onSuccess: () => {
-      trackConversion('roi_report_downloaded');
-      trackEvent('roi_email_capture', { email_domain: email.split('@')[1] });
-    },
-  });
 
   const toggleAutomation = (id: string) => {
     setSelected(prev => {
@@ -90,11 +82,6 @@ export default function ROICalculatorSection() {
   const teamHoursPerYear = hoursPerYear * teamSize;
 
   const hasResults = selected.size > 0;
-
-  const handleEmailSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    await submit({ email: email.trim(), source: 'roi-calculator' });
-  };
 
   return (
     <section id="roi-calculator" className="py-16 md:py-24 bg-secondary scroll-mt-20">
@@ -168,6 +155,7 @@ export default function ROICalculatorSection() {
                 <div className="flex items-center gap-4">
                   <button
                     aria-label="Decrease team size"
+                    onClick={() => setTeamSize(prev => Math.max(1, prev - 1))}
                     className="h-10 w-10 rounded-lg border border-border bg-background hover:bg-muted transition-colors duration-150 font-bold text-foreground"
                   >
                     -
@@ -175,6 +163,7 @@ export default function ROICalculatorSection() {
                   <span className="text-2xl font-bold text-primary w-12 text-center tabular-nums">{teamSize}</span>
                   <button
                     aria-label="Increase team size"
+                    onClick={() => setTeamSize(prev => prev + 1)}
                     className="h-10 w-10 rounded-lg border border-border bg-background hover:bg-muted transition-colors duration-150 font-bold text-foreground"
                   >
                     +
@@ -191,60 +180,6 @@ export default function ROICalculatorSection() {
 
               {!hasResults ? (
                 <p className="text-muted-foreground text-sm">Select at least one task to see your estimate.</p>
-              ) : emailSubmitted ? (
-                <div role="status" aria-live="polite" className="space-y-6">
-                  <div className="flex flex-col items-center text-center py-4">
-                    <CheckCircle2 className="h-10 w-10 text-green-500 mb-3" />
-                    <h4 className="text-lg font-bold text-foreground">Your ROI Report is Ready</h4>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      We've calculated your savings. Book a call to get a custom implementation plan.
-                    </p>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="p-4 rounded-xl bg-secondary/50">
-                      <p className="text-2xl font-bold text-primary tabular-nums">{hoursPerWeek}h</p>
-                      <p className="text-xs text-muted-foreground">Per week</p>
-                    </div>
-                    <div className="p-4 rounded-xl bg-secondary/50">
-                      <p className="text-2xl font-bold text-primary tabular-nums">{hoursPerMonth}h</p>
-                      <p className="text-xs text-muted-foreground">Per month</p>
-                    </div>
-                    <div className="p-4 rounded-xl bg-secondary/50">
-                      <p className="text-2xl font-bold text-primary tabular-nums">{hoursPerYear.toLocaleString()}h</p>
-                      <p className="text-xs text-muted-foreground">Per person / year</p>
-                    </div>
-                    <div className="p-4 rounded-xl bg-primary/10 border border-primary/20">
-                      <p className="text-2xl font-bold text-primary tabular-nums">{teamHoursPerYear.toLocaleString()}h</p>
-                      <p className="text-xs text-muted-foreground tabular-nums">Team of {teamSize} / year</p>
-                    </div>
-                  </div>
-
-                  <div className="p-6 rounded-xl bg-primary/5 border border-primary/20 text-center">
-                    <Clock className="h-6 w-6 text-primary mx-auto mb-2" aria-hidden="true" />
-                    <p className="text-2xl font-semibold text-primary tabular-nums">
-                      {hoursPerWeek} hours per week per person
-                    </p>
-                    <p className="text-sm text-muted-foreground mt-1 tabular-nums">
-                      {teamHoursPerYear.toLocaleString()} hours per year for your team of {teamSize}
-                    </p>
-                    <p className="text-xs text-muted-foreground/80 mt-3">
-                      Planning estimate, not a forecast. Actual recovery depends on workflow, tooling, and adoption.
-                    </p>
-                  </div>
-
-                  <BookCallButton
-                    location="roi_plan"
-                    size="lg"
-                    icon="arrow"
-                    iconClassName="ml-2 h-4 w-4"
-                    className="w-full"
-                    trackOnClick={false}
-                    onClick={() => trackConversion('roi_book_call')}
-                  >
-                    Get a Custom Implementation Plan
-                  </BookCallButton>
-                </div>
               ) : (
                 <div className="space-y-6">
                   <div className="grid grid-cols-2 gap-4">
@@ -277,44 +212,6 @@ export default function ROICalculatorSection() {
                     <p className="text-xs text-muted-foreground/80 mt-3">
                       Planning estimate, not a forecast. Actual recovery depends on workflow, tooling, and adoption.
                     </p>
-                  </div>
-
-                  {/* Email gate for full report */}
-                  <div className="p-5 rounded-xl bg-muted/30 border border-border/50">
-                    <div className="flex items-center gap-2 mb-3">
-                      <Mail className="h-4 w-4 text-primary" aria-hidden="true" />
-                      <h4 className="text-sm font-bold text-foreground">Get Your Full ROI Report</h4>
-                    </div>
-                    <p className="text-xs text-muted-foreground mb-3">
-                      Enter your email to unlock your personalized savings breakdown and implementation roadmap.
-                    </p>
-                    <form onSubmit={handleEmailSubmit} className="space-y-3">
-                      <div>
-                        <label htmlFor="roi-email" className="sr-only">Email address</label>
-                        <input
-                          id="roi-email"
-                          type="email"
-                          name="email"
-                          autoComplete="email"
-                          value={email}
-                          onChange={(e) => { setEmail(e.target.value); setEmailError(''); }}
-                          placeholder="you@company.com"
-                          className="w-full h-10 px-3 rounded-lg border border-border bg-background text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/40 transition"
-                          disabled={emailLoading}
-                          required
-                        />
-                        {emailError && <p className="mt-1 text-xs text-destructive" role="alert">{emailError}</p>}
-                      </div>
-                      <div role="status" aria-live="polite">
-                        <Button type="submit" className="w-full h-10 font-bold" disabled={emailLoading}>
-                          {emailLoading ? (
-                            <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Unlocking...</>
-                          ) : (
-                            <>Unlock Full Report <ArrowRight className="ml-2 h-4 w-4" /></>
-                          )}
-                        </Button>
-                      </div>
-                    </form>
                   </div>
 
                   <BookCallButton

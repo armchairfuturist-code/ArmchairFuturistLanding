@@ -9,7 +9,7 @@ const caseStudies = [
     title: "Automated Client Response System",
     client: "Professional Services Firm",
     problem:
-      "Team spent a large share of the day answering repetitive client queries across email and WhatsApp. Response times stretched across the working day. Clients complained about slow turnaround.",
+      "Team spent 4-6 hours per day answering repetitive client queries across email and WhatsApp. Response times stretched 8+ hours. Clients complained about slow turnaround.",
     solution:
       "Built an n8n workflow that routes incoming queries, drafts context-aware responses using AI, and sends them through approved channels. Human reviews only edge cases.",
     patterns: [
@@ -70,9 +70,7 @@ export default function CaseStudiesSection() {
           </div>
         </BlurFade>
 
-        <p className="text-center text-sm text-muted-foreground max-w-2xl mx-auto mb-12 italic">
-          Composite, anonymized — illustrative patterns from real engagements, not specific client outcomes.
-        </p>
+
 
         <div className="space-y-12">
           {caseStudies.map((study, i) => (

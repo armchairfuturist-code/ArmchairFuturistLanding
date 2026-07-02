@@ -1,5 +1,6 @@
 "use client";
 
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import {MessageSquare, Mic, Users, Brain, TrendingUp, Shield} from 'lucide-react';
 import { trackEvent } from '@/lib/analytics';
@@ -138,12 +139,32 @@ export default function SpeakingSection() {
                   Request a Session
                 </a>
               </Button>
-              <p className="text-sm text-muted-foreground self-center">
-                Also available for podcast appearances and conference keynotes.
-              </p>
+
             </div>
           </div>
         </BlurFade>
+
+        {/* Event photos — visual proof of speaking engagements */}
+        <div className="mt-8 grid grid-cols-2 gap-4">
+          <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
+            <Image
+              src="/marketing3.jpeg"
+              alt="Alex Myers presenting at Sunsetpreneurs 2026 on AI strategy"
+              fill
+              className="object-cover object-[60%_35%]"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
+          <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
+            <Image
+              src="/marketing4.jpeg"
+              alt="Alex Myers facilitating at Startup Braga on AI adoption"
+              fill
+              className="object-cover object-[50%_30%]"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
+        </div>
       </div>
     </section>
   );

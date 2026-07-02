@@ -21,18 +21,18 @@ interface FAQItem {
 const faqItems: FAQItem[] = [
   {
     question: "What is the Armchair Futurist?",
-    answer: "The Armchair Futurist is Alex Myers' AI literacy practice. He teaches individuals, founders, and small teams to design, launch, and sell their own AI-powered services — from a $199 landing page to $2,497 for the 8-week Self-Sufficiency Program. The end-state in every case: you, independent, no dependency."
+    answer: "My AI literacy practice. I teach individuals, founders, and small teams to design, launch, and sell their own AI-powered services — from a $199 landing page to $2,497 for the 8-week Self-Sufficiency Program. The end-state in every case: you, independent, no dependency."
   },
   {
     question: "What is the Accountability Gap in AI adoption?",
-    answer: "It's the space between what an AI system produces and what a business actually needs. Most companies layer AI onto existing processes without rethinking workflows or decision rights. Nobody owns the outcome. Alex bridges this gap by teaching the literacy required to design and own the outcome yourself.",
+    answer: "It's the space between what an AI system produces and what a business actually needs. Most companies layer AI onto existing processes without rethinking workflows or decision rights. Nobody owns the outcome. I bridge this gap by teaching the literacy required to design and own the outcome yourself.",
     hasLink: true,
     linkText: "Learn more about the Accountability Gap →",
     linkHref: "/concepts/accountability-gap"
   },
   {
-    question: "What qualifications does Alex Myers have?",
-    answer: "Alex holds six certifications: Certified Futurist and Long-Term Analyst (FLTA), Certified Change Management Professional (CCMP), GenAI Academy Expert, Certified Enterprise Blockchain Professional (CEBP), Professional Scrum Master (PSM), and Professional Agile Leadership (PAL). He's deployed 40+ AI systems and runs on evidence-based methodology — his organizational work uses data-driven profiling to segment teams, and his change management practice is grounded in certified CCMP methodology."
+    question: "What qualifications do you have?",
+    answer: "I hold six certifications: Certified Futurist and Long-Term Analyst (FLTA), Certified Change Management Professional (CCMP), GenAI Academy Expert, Certified Enterprise Blockchain Professional (CEBP), Professional Scrum Master (PSM), and Professional Agile Leadership (PAL). I've deployed 40+ AI systems and run on evidence-based methodology — my organizational work uses data-driven profiling to segment teams, and my change management practice is grounded in certified CCMP methodology."
   },
   {
     question: "How much do services cost?",
@@ -40,39 +40,31 @@ const faqItems: FAQItem[] = [
   },
   {
     question: "How does AI guidance work?",
-    answer: "One-on-one coaching starting at $95 (€90) per 60-minute session for the 5-session pack, with deeper discounts at 10 and 20 sessions. We focus on mindset before toolset — reframing how you think about AI rather than just teaching you tools. Each session blends practical guidance with how AI changes your role, your business, and your opportunities. Most clients start with 5 or 10 sessions."
+    answer: "One-on-one coaching starting at $95 (€90) per 60-minute session for the 5-session pack, with deeper discounts at 10 and 20 sessions. I focus on mindset before toolset — reframing how you think about AI rather than just teaching you tools. Each session blends practical guidance with how AI changes your role, your business, and your opportunities. Most clients start with 5 or 10 sessions."
   },
   {
-    question: "Can Alex work with organizations outside the US?",
-    answer: "Yes. Alex serves clients worldwide from Portugal. All services are delivered remotely. Pricing is available in USD and EUR."
+    question: "Can you work with organizations outside the US?",
+    answer: "Yes. I serve clients worldwide from Portugal. All services are delivered remotely. Pricing is available in USD and EUR."
   },
   {
     question: "What results can clients expect?",
     answer: "Clients typically reclaim 10-20 hours per week through AI-powered automation. Individual clients gain clarity and shift from overwhelm to agency. By the end of the AI Self-Sufficiency Program, most clients have launched their own AI-powered service or built their personal brand around the work."
   },
   {
-    question: "How is Alex different from other AI consultants?",
-    answer: "Three ways. First, he teaches rather than builds for you — you leave with the literacy to keep going, not a dependency on him. Second, he combines technical depth with psychology-led strategy, addressing the human side of adoption. Third, he prioritizes data sovereignty, building on open-standard stacks with no platform lock-in. He also delivers keynotes, roundtables, and workshops on AI and the future of work, organizational trust, and reframing AI overwhelm — inquiries via the speaking form."
+    question: "How are you different from other AI consultants?",
+    answer: "Three ways. First, I teach rather than build for you — you leave with the literacy to keep going, not a dependency on me. Second, I combine technical depth with psychology-led strategy, addressing the human side of adoption. Third, I prioritize data sovereignty, building on open-standard stacks with no platform lock-in. I also deliver keynotes, roundtables, and workshops on AI and the future of work, organizational trust, and reframing AI overwhelm — inquiries via the speaking form."
   },
   {
     question: "What is Custom AI Provisioning?",
-    answer: "A done-for-you service where Alex builds you a private AI command center: custom business workflows, agent installation (OpenClaw, Hermes), API integrations, calendar/email sync, and secure infrastructure. Pricing ranges $1,000-$5,000 depending on scope, delivered in 1-2 weeks. You own everything — code, data, infrastructure."
+    answer: "A done-for-you service where I build you a private AI command center: custom business workflows, agent installation (OpenClaw, Hermes), API integrations, calendar/email sync, and secure infrastructure. Pricing ranges $1,000-$5,000 depending on scope, delivered in 1-2 weeks. You own everything — code, data, infrastructure."
   },
   {
-    question: "How do I choose the right AI consultant for my business?",
-    answer: "Look for three things. First, results over credentials — ask for specific numbers: hours reclaimed, systems deployed, adoption rates achieved. Alex has deployed 40+ AI systems with a 4.9/5 client rating. Second, approach — do they teach you to be independent or create dependency? Alex's core principle is 'no retainer, no dependency.' Third, scope — can they handle both strategy AND hands-on execution? Alex does both: from $199 landing pages to the $2,497 Self-Sufficiency Program. Avoid consultants who only do slide decks without touching tools.",
-  },
-  {
-    question: "What's the difference between an AI consultant and an AI agency?",
-    answer: "An AI agency typically assigns a rotating team, charges retainers, and builds on proprietary stacks you can't control. An AI consultant like Alex works directly with you 1-on-1 — no account managers, no blended rates, no platform lock-in. You get the person who builds the systems, not a project manager relaying messages. Alex's models start at self-serve ($199 digital identity) and scale to intensive coaching, so you only pay for what you actually need — not a monthly retainer for bench time."
-  },
-  {
-    question: "Who is Alex Myers best suited to work with — and who isn't a fit?",
-    answer: "Best fit: founders, creators, and independent professionals who want AI literacy and leverage — not another dependency. People willing to touch the tools themselves. Small teams ready to build their own AI-powered services. Not a fit: large enterprises seeking presentation theatre for board meetings. Leaders who want AI 'in theory' without readiness to execute. Anyone expecting AI to solve underlying culture problems. If your team won't touch the tools, Alex isn't the right consultant."
+    question: "Who do you work best with — and who isn't a fit?",
+    answer: "Best fit: founders, creators, and independent professionals who want AI literacy and leverage — not another dependency. People willing to touch the tools themselves. Small teams ready to build their own AI-powered services. Not a fit: large enterprises seeking presentation theatre for board meetings. Leaders who want AI 'in theory' without readiness to execute. Anyone expecting AI to solve underlying culture problems. If your team won't touch the tools, I'm not the right consultant."
   },
   {
     question: "How do I get started?",
-    answer: "Three ways, depending on where you are. The $199 Digital Identity Landing Page requires no call — just submit the intake. For guidance, browse session packs starting at $120 (€100) or apply for the AI Self-Sufficiency Program. For done-for-you builds, request a 30-minute fit call and Alex will scope the work.",
+    answer: "Three ways, depending on where you are. The $199 Digital Identity Landing Page requires no call — just submit the intake. For guidance, browse session packs starting at $120 (€100) or apply for the AI Self-Sufficiency Program. For done-for-you builds, request a 30-minute fit call and I'll scope the work.",
   }
 ];
 
@@ -83,10 +75,10 @@ export default function FAQSection() {
         <BlurFade inView>
           <div className="text-center mb-12">
             <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary mb-4">
-              Frequently Asked Questions
+              Real questions people ask me
             </h2>
             <p className="text-lg text-foreground/80 font-sans max-w-2xl mx-auto">
-              Common questions about Alex Myers and AI strategy services.
+              Straight answers about working together, pricing, and what to expect.
             </p>
           </div>
         </BlurFade>

@@ -203,7 +203,7 @@ export default function AboutMeSection() {
                 <div className="mb-6 text-center lg:text-left">
                   <div className="flex items-center justify-center lg:justify-start gap-3">
                     <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary-foreground">
-                      Who Is Alex Myers?
+                      What I build for my clients
                     </h2>
                     <a
                       href="https://www.linkedin.com/in/alex-myers-34572a10/"
@@ -223,29 +223,14 @@ export default function AboutMeSection() {
 
               <div className="space-y-5 md:space-y-6">
                 <p className="text-base md:text-lg text-primary-foreground/85 font-sans leading-relaxed">
-                  The questions that keep leaders up at 2 AM aren&apos;t about which API to use. They&apos;re about whether they&apos;ll still matter five years from now. That&apos;s not a technology problem. I speak two languages: organizational architecture and human experience. The space between them is where real transformation lives.
-                </p>
-
-                <p className="text-base md:text-lg text-primary-foreground/85 font-sans leading-relaxed">
-                  Clarity isn&apos;t about knowing everything. It&apos;s about knowing what actually matters to you. When you fix your mental model, the overwhelm dissolves. You stop reacting to noise and start making decisions from genuine conviction.
-                </p>
-
-                <p className="text-base md:text-lg text-primary-foreground/85 font-sans leading-relaxed">
-                  My work draws on systems thinking, group dynamics, and a knack for asking the questions nobody else will. I tell you what I actually think, not what you want to hear. That&apos;s the foundation of solutions that stick.
+                  I teach AI literacy to founders, consultants, and small teams — the kind that builds vendor-agnostic judgment, not dependency. Six certifications, 40+ systems deployed, and a bias toward first principles over tool tutorials.
                 </p>
 
                 <h3 className="text-lg md:text-xl font-bold text-primary-foreground pt-2">
-                  For the Executive:
+                  What my clients walk away with:
                 </h3>
                 <p className="text-base md:text-lg text-primary-foreground/85 font-sans leading-relaxed">
-                  The edge you&apos;re standing at isn&apos;t just technological. It&apos;s structural, cultural, and deeply human. I help you see the whole field, not just the tools — so your organization moves with intention instead of reacting to every shift.
-                </p>
-
-                <h3 className="text-lg md:text-xl font-bold text-primary-foreground pt-2">
-                  For the Individual:
-                </h3>
-                <p className="text-base md:text-lg text-primary-foreground/85 font-sans leading-relaxed">
-                  I help you find your footing on shifting ground. How do you live optimistically when intelligence is becoming a cheap utility? How do you reclaim your time for the work that is uniquely yours?
+                  The judgment to evaluate any AI tool without needing a consultant. The systems to reclaim 10+ hours a week. The confidence to build and sell your own AI-powered services — whether you run a team or work solo.
                 </p>
 
                 <p className="flex items-center gap-2 text-base md:text-lg text-primary-foreground font-bold font-sans">

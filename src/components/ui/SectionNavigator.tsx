@@ -1,19 +1,9 @@
 "use client";
 
 import { useEffect, useState } from 'react';
+import { getNavigatorItems } from '@/lib/section-registry';
 
-const sections = [
-  { id: 'stats', label: 'Stats' },
-  { id: 'about-me', label: 'About' },
-  { id: 'what-this-is-not', label: 'Fit' },
-  { id: 'services', label: 'Services' },
-  { id: 'ai-guidance', label: 'Guidance' },
-  { id: 'case-studies', label: 'Cases' },
-  { id: 'testimonials', label: 'Reviews' },
-  { id: 'roi-calculator', label: 'ROI' },
-  { id: 'faq', label: 'FAQ' },
-  { id: 'connect', label: 'Contact' },
-];
+const sections = getNavigatorItems();
 
 export default function SectionNavigator() {
   const [activeSection, setActiveSection] = useState('');
@@ -68,7 +58,7 @@ export default function SectionNavigator() {
             className="group relative flex items-center justify-center h-10 w-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:rounded-full"
             aria-label={`Scroll to ${section.label}`}
           >
-            {/* Dot — 12px visible, button itself is 40×40 hit area */}
+            {/* Dot — 12px visible, button itself is 40x40 hit area */}
             <span
               className={`block rounded-full transition-[transform,background-color] duration-300 ${
                 isActive
