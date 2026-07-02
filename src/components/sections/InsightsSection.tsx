@@ -111,11 +111,8 @@ export default function InsightsSection() {
         <BlurFade inView>
           <div className="text-center mb-12">
             <h2 className="font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-              What Does the Armchair Futurist Write and Talk About?
+              Latest Writing & Podcasts
             </h2>
-            <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto font-sans">
-              Alex Myers publishes weekly articles and appears on podcasts about AI strategy, the future of work, and human-first technology adoption.
-            </p>
           </div>
         </BlurFade>
 

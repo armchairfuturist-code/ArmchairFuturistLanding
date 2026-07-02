@@ -31,11 +31,11 @@ const pillars = [
 // Compact comparison matrix — absorbed from PackageComparisonSection
 const quickCompare = [
   { label: "Coaching hours", single: "~1 hr", five: "~5 hrs", ten: "~10–15 hrs", twenty: "~20–40 hrs" },
-  { label: "Practical exercises", single: "Focused problem-solving", five: "Guided demos", ten: "Your real work", twenty: "Real projects end-to-end" },
-  { label: "Personalised feedback", single: "Session-based", five: "Session-based", ten: "Session + reviews", twenty: "Deep 1:1 + async support" },
-  { label: "Frameworks & templates", single: "Key insights & next steps", five: "Core prompts & guides", ten: "Full toolkit + checklists", twenty: "Complete system + playbooks" },
-  { label: "Post-package resources", single: "Session summary", five: "Summary guide", ten: "Toolkit + community", twenty: "Full library + support" },
-  { label: "Skill compounding", single: "Immediate impact", five: "Foundational", ten: "Noticeable growth", twenty: "Exponential" },
+  { label: "Practical exercises", single: "Solve your current bottleneck", five: "Build 1 automation from scratch", ten: "Design a multi-step workflow", twenty: "Launch your own AI service" },
+  { label: "Personalised feedback", single: "In-session guidance", five: "In-session + summary", ten: "Session + mid-pack review", twenty: "Deep 1:1 + async throughout" },
+  { label: "Frameworks & templates", single: "Session notes + 3 action items", five: "Prompts + mini-playbook", ten: "Full toolkit + checklists", twenty: "Complete system + deployable playbooks" },
+  { label: "Post-package resources", single: "Session summary", five: "Summary guide + prompts", ten: "Toolkit + community access", twenty: "Full library + alumni support" },
+  { label: "Skill compounding", single: "Solve one problem", five: "Foundational literacy", ten: "Noticeable independence", twenty: "You're the expert" },
 ];
 
 const CurrencyIcon = ({ currency }: { currency: CurrencyCode }) =>
@@ -77,7 +77,6 @@ export default function MentoringSection() {
       <div className="container max-w-5xl mx-auto">
         <BlurFade inView>
           <div className="text-center mb-12">
-            <p className="text-xs text-muted-foreground/60 font-mono mb-2">Last updated: May 2026</p>
             <p className="inline-flex items-center px-3 py-1 rounded-md bg-primary/10 text-primary text-xs font-mono mb-3">
               One-on-One AI Guidance
             </p>

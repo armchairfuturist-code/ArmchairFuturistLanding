@@ -22,11 +22,11 @@ const stats: Stat[] = [
 
 // Unified headline — independence-first positioning
 const headline = {
-  line1: "AI Won\u2019t Replace You.",
-  line2: "Someone Using AI Better Than You Will.",
+  line1: "You don\u2019t need more AI tools.",
+  line2: "You need to own what AI does for you.",
 };
 const subheadline =
-  "Don\u2019t just prompt\u2014architect. Build the technical literacy required to scale your personal leverage and launch your own AI-powered services.";
+  "The edge of change is real, and it\u2019s okay to feel the weight of it. I teach founders, operators, and teams to design and run their own AI-powered systems\u2014no dependency, no retainer, no hype.";
 
 export default function HeroSection() {
   const prefersReduced = useReducedMotion();
@@ -52,6 +52,8 @@ export default function HeroSection() {
       className="relative w-full min-h-[80vh] lg:min-h-[85vh] overflow-hidden flex items-center justify-center bg-canvas"
       onMouseMove={handleMouseMove}
     >
+      {/* Subtle sky-blue atmospheric tint */}
+      <div className="absolute inset-0 bg-gradient-to-br from-sky-50/40 via-transparent to-blue-50/30 pointer-events-none" aria-hidden="true" />
       {/* Reactive chevron accents — HP angular wordmark nod */}
       <motion.div
         style={prefersReduced ? {} : { x: parallaxX, y: parallaxY }}
@@ -85,7 +87,7 @@ export default function HeroSection() {
 
             <BlurFade delay={0.05} inView duration={prefersReduced ? 0 : 0.4}>
               <p className="relative inline-flex items-center gap-2 font-mono text-[11px] md:text-xs uppercase tracking-[0.4em] text-hp-electric md:text-hp-electric mb-4 md:mb-5">
-                AI Alert · 2026
+                AI Strategy
               </p>
             </BlurFade>
 
