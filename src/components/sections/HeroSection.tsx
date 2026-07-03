@@ -20,13 +20,13 @@ const stats: Stat[] = [
   { value: "4.9/5", label: "client satisfaction" },
 ];
 
-// Slogan — AI adoption urgency
+// Slogan — AI tension + mental models
 const headline = {
   line1: "AI won\u2019t replace you.",
-  line2: "Someone using AI better than you will",
+  line2: "Someone using AI better than you will.",
 };
 const subheadline =
-  "The edge of change is real, and it\u2019s okay to feel the weight of it. I teach founders, operators, and teams to design and run their own AI-powered systems\u2014no dependency, no retainer, no hype.";
+  "AI is the most exciting thing in years \u2014 and the most anxiety-inducing. I don\u2019t give you answers \u2014 I give you mental models that scale how you think about AI. So you build with real confidence, not FOMO, and walk away able to decide for yourself.";
 
 export default function HeroSection() {
   const prefersReduced = useReducedMotion();
