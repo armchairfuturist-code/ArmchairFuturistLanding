@@ -21,7 +21,7 @@ interface FAQItem {
 const faqItems: FAQItem[] = [
   {
     question: "What is the Armchair Futurist?",
-    answer: "My AI literacy practice. I teach individuals, founders, and small teams to design, launch, and sell their own AI-powered services — from a $199 landing page to $2,497 for the 8-week Self-Sufficiency Program. The end-state in every case: you, independent, no dependency."
+    answer: "I teach founders, creators, and small teams to design, launch, and sell AI-powered services \u2014 on their own terms. The end-state in every case: you, independent, no dependency."
   },
   {
     question: "What is the Accountability Gap in AI adoption?",
@@ -52,7 +52,7 @@ const faqItems: FAQItem[] = [
   },
   {
     question: "How are you different from other AI consultants?",
-    answer: "Three ways. First, I teach rather than build for you — you leave with the literacy to keep going, not a dependency on me. Second, I combine technical depth with psychology-led strategy, addressing the human side of adoption. Third, I prioritize data sovereignty, building on open-standard stacks with no platform lock-in. I also deliver keynotes, roundtables, and workshops on AI and the future of work, organizational trust, and reframing AI overwhelm — inquiries via the speaking form."
+    answer: "Three ways. First, I teach rather than build for you \u2014 you leave with the literacy to keep going, not a dependency on me. Second, I combine technical depth with psychology-led strategy, addressing the human side of adoption. Third, I build on open-standard stacks with no platform lock-in. You own your data, your logic, and your infrastructure."
   },
   {
     question: "What is Custom AI Provisioning?",

@@ -31,8 +31,8 @@ interface Path {
 const paths: Path[] = [
   {
     id: "together",
-    label: "We Do It Together",
-    title: "Guidance & Education",
+    label: "Guidance & Education",
+    title: "We Do It Together",
     kicker: "Build the literacy to do it yourself",
     description:
       "I teach you the AI literacy required to design, launch, and sell your own AI-powered services. From a session pack to a 3-month executive intensive — every path leads to the same place: you, independent.",
@@ -96,8 +96,8 @@ const paths: Path[] = [
   },
   {
     id: "foryou",
-    label: "I Do It For You",
-    title: "Done-For-You Implementation",
+    label: "Done-For-You Implementation",
+    title: "I Do It For You",
     kicker: "Production-ready AI, built and shipped",
     description:
       "When you need a working AI system this week — not a curriculum. I provision the servers, install the agents, connect the tools, and hand you a system you actually own.",

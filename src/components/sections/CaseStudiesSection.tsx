@@ -9,7 +9,7 @@ const caseStudies = [
     title: "Automated Client Response System",
     client: "Professional Services Firm",
     problem:
-      "Team spent 4-6 hours per day answering repetitive client queries across email and WhatsApp. Response times stretched 8+ hours. Clients complained about slow turnaround.",
+      "Team spent 4-6 hours per day answering repetitive client queries across email and WhatsApp. Response times stretched 8+ hours. Clients complained about slow turnaround. The team was drowning in busywork, watching their real priorities slip.",
     solution:
       "Built an n8n workflow that routes incoming queries, drafts context-aware responses using AI, and sends them through approved channels. Human reviews only edge cases.",
     patterns: [
@@ -23,7 +23,7 @@ const caseStudies = [
     title: "Frictionless Service Purchase Flow",
     client: "Consulting & Advisory Practice",
     problem:
-      "Potential clients bounced during service booking. The payment backend required multiple steps, no live chat support, and complex queries went unanswered. High abandonment at checkout.",
+      "Potential clients bounced during service booking. The payment backend required multiple steps, no live chat support, and complex queries went unanswered. High abandonment at checkout. Potential revenue walked away while the checkout flow stood in the way.",
     solution:
       "Redesigned the purchase UX to 2 steps. Added a custom chatbot that handles pricing questions, service comparisons, and booking. Integrated payment backend with one-click checkout.",
     patterns: [
@@ -37,7 +37,7 @@ const caseStudies = [
     title: "Automated Meeting-to-Action Pipeline",
     client: "Remote Operations Team",
     problem:
-      "Distributed team held many recurring meetings weekly. Action items got lost in notes. Follow-up ate into everyone's week. Critical decisions slipped through gaps between tools.",
+      "Distributed team held many recurring meetings weekly. Action items got lost in notes. Follow-up ate into everyone's week. Critical decisions slipped through gaps between tools. The team was putting in hours but seeing nothing stick.",
     solution:
       "Built a pipeline that transcribes meetings, extracts action items, assigns owners, creates calendar reminders, and sends weekly digests. Connected Slack, Calendar, and project management tools.",
     patterns: [
@@ -58,9 +58,6 @@ export default function CaseStudiesSection() {
       <div className="container mx-auto px-4 md:px-6 max-w-6xl">
         <BlurFade inView>
           <div className="text-center mb-12">
-            <p className="text-xs font-mono mb-3 text-foreground/60">
-              Engagement Patterns
-            </p>
             <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary mb-4">
               What Happens When AI Actually Works
             </h2>
