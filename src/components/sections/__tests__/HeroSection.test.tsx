@@ -27,7 +27,7 @@ it('renders an accessible h1 with the brand summary', () => {
   expect(
     screen.getByRole('heading', {
       level: 1,
-      name: /own what AI does for you/i,
+      name: /AI won.*t replace you/i,
     }),
   ).toBeInTheDocument();
 });
@@ -37,6 +37,7 @@ it('renders the main headline text', () => {
   // The pull-up animation splits each line into per-word <span>s,
   // so assert via the h1's textContent to avoid word-boundary issues.
   const h1 = screen.getByRole('heading', { level: 1 });
-  expect(h1.textContent).toMatch(/needmoreAItools/i);
-  expect(h1.textContent).toMatch(/ownwhatAIdoes/i);
+  expect(h1.textContent).toMatch(/AIwon.*treplace/i);
+  expect(h1.textContent).toMatch(/SomeoneusingAIbetter/i);
 });
+

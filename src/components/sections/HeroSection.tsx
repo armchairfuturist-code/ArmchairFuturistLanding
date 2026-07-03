@@ -20,10 +20,10 @@ const stats: Stat[] = [
   { value: "4.9/5", label: "client satisfaction" },
 ];
 
-// Unified headline — independence-first positioning
+// Slogan — AI adoption urgency
 const headline = {
-  line1: "You don\u2019t need more AI tools.",
-  line2: "You need to own what AI does for you.",
+  line1: "AI won\u2019t replace you.",
+  line2: "Someone using AI better than you will",
 };
 const subheadline =
   "The edge of change is real, and it\u2019s okay to feel the weight of it. I teach founders, operators, and teams to design and run their own AI-powered systems\u2014no dependency, no retainer, no hype.";
@@ -49,7 +49,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative w-full min-h-[80vh] lg:min-h-[85vh] overflow-hidden flex items-center justify-center bg-canvas"
+      className="relative w-full min-h-[80vh] lg:min-h-[85vh] overflow-hidden flex items-center justify-center bg-sky-50"
       onMouseMove={handleMouseMove}
     >
       {/* Subtle sky-blue atmospheric tint */}
