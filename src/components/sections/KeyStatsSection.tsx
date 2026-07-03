@@ -8,7 +8,7 @@ const featuredStats = [
   {
     value: "40+",
     label: "AI systems deployed",
-    detail: "Across organizations of all sizes"
+    detail: "From automated response pipelines to meeting-to-action workflows"
   },
   {
     value: "10–20h",
@@ -18,7 +18,7 @@ const featuredStats = [
   {
     value: "6",
     label: "certifications",
-    detail: "FLTA, CCMP, GenAI, CEBP, PSM, PAL"
+    detail: "Certified Futurist, Change Management Professional, GenAI Expert"
   },
 ];
 
@@ -32,7 +32,7 @@ export default function KeyStatsSection() {
         <BlurFade inView>
           <div className="mb-12">
             <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary mb-3">
-              Proof that works
+              Proof
             </h2>
             <p className="text-foreground/70 font-sans text-lg max-w-xl">
               What happens when AI is actually owned, not just prompted.
