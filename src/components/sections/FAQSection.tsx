@@ -36,11 +36,11 @@ const faqItems: FAQItem[] = [
   },
   {
     question: "How much do services cost?",
-    answer: "Two paths. 'We do it together' guidance starts at the 5-session pack ($570 / €475) and scales through 10 and 20-session packs (up to 15% savings), with the $2,497 AI Self-Sufficiency Program as the core transformation. The $199 Digital Identity Landing Page is the easiest entry point into the 'I do it for you' path. Custom AI Provisioning runs $1,000-$5,000 depending on scope. Pricing is in USD and EUR."
+    answer: "Two paths. 'We do it together' guidance starts at the 5-session pack ($600 / €500) and scales through 10 and 20-session packs (up to 15% savings), with the $2,497 AI Self-Sufficiency Program as the core transformation. The $199 Digital Identity Landing Page is the easiest entry point into the 'I do it for you' path. Custom AI Provisioning runs $1,000-$5,000 depending on scope. Pricing is in USD and EUR."
   },
   {
     question: "How does AI guidance work?",
-    answer: "One-on-one coaching starting at $95 (€90) per 60-minute session for the 5-session pack, with deeper discounts at 10 and 20 sessions. I focus on mindset before toolset — reframing how you think about AI rather than just teaching you tools. Each session blends practical guidance with how AI changes your role, your business, and your opportunities. Most clients start with 5 or 10 sessions."
+    answer: "One-on-one coaching starting at $120 (€100) per 60-minute session for the 5-session pack, with deeper discounts at 10 and 20 sessions. I focus on mindset before toolset — reframing how you think about AI rather than just teaching you tools. Each session blends practical guidance with how AI changes your role, your business, and your opportunities. Most clients start with 5 or 10 sessions."
   },
   {
     question: "Can you work with organizations outside the US?",

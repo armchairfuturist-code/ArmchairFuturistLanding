@@ -56,7 +56,7 @@ const paths: Path[] = [
       },
       {
         name: "1-on-1 AI Guidance",
-        price: "$570 – $2,000",
+        price: "$600 – $2,000",
         tag: "5 · 10 · 20 Packs",
         description:
           "The proven foundation. Start with a 5-session pack and scale up. Most clients start with 5 or 10 sessions. Each one builds your AI literacy — from understanding to agency to independence.",
