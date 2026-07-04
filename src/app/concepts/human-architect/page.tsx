@@ -38,7 +38,7 @@ const keyPoints = [
   },
   {
     title: 'Why the Role Exists',
-    content: 'Most companies deploy AI tools and assume usage equals value. It does not. AI output arrives in a dashboard, a Slack thread, or an email. Someone must own what happens next: review, route, decide, action, and close the loop. When no one owns that path, the output decays into noise. The Human Architect owns the path.'
+    content: 'The Human Architect closes the gap between AI output and business outcome. Most companies deploy AI tools and assume usage equals value \u2014 it does not. Research on Generative Engine Optimization (GEO) confirms that without structured ownership, information decays into noise (Princeton KDD 2024). AI output arrives in a dashboard, a Slack thread, or an email. Someone must own what happens next: review, route, decide, action, and close the loop. When no one owns that path, the output stalls. The Human Architect owns the path.'
   },
   {
     title: 'Where to Find Them',
@@ -225,6 +225,51 @@ export default function HumanArchitectPage() {
             },
             "articleSection": "Core Concepts",
             "keywords": ["Human Architect", "AI Accountability", "Change Management", "AI Implementation", "Alex Myers"]
+          })
+        }}
+      />
+
+      {/* ponytail: FAQPage schema for What It's NOT section — GEO optimization */  }
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Is the Human Architect a new VP or C-suite hire?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. The Human Architect is best filled by an existing operator with cross-functional reach, not a new senior hire."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is the Human Architect a part-time AI champion?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. A part-time AI champion with no outcome ownership becomes ceremonial fast. The role needs clear ownership over a business outcome."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is the Human Architect the person who built the AI workflow?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. Builders tend to defend the tool rather than close the loop. The Human Architect must evaluate outcomes dispassionately."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is the Human Architect a consultant or vendor role?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. Ownership must live inside the organization to stick. A consultant cannot own the path from AI output to business outcome."
+                }
+              }
+            ]
           })
         }}
       />

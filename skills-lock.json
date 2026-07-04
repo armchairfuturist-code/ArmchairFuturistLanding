@@ -127,6 +127,12 @@
       "skillPath": "plugins/cicd-automation/skills/secrets-management/SKILL.md",
       "computedHash": "ac5378fb8ad478d159f74a61c43f6db43fa7bf71e0c4bf27febb60e07efc3bb2"
     },
+    "seo-geo": {
+      "source": "resciencelab/opc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/seo-geo/SKILL.md",
+      "computedHash": "56f90ba46b36563bb5461feb8462aed9283e74dfc4cdac2a98c42c4bc86a95be"
+    },
     "shadcn": {
       "source": "shadcn/ui",
       "sourceType": "github",
