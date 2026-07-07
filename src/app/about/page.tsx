@@ -280,7 +280,7 @@ export default function AboutPage() {
               { src: "/marketing3.jpeg", alt: "Alex presenting at a conference" },
               { src: "/marketing4.jpeg", alt: "Alex in a consulting session" },
             ].map((img) => (
-              <div key={img.src} className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-border/60 bg-white shadow-sm">
+              <div key={img.src} className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-border/60 bg-card shadow-tint-sm">
                 <Image
                   src={img.src}
                   alt={img.alt}
@@ -318,7 +318,7 @@ export default function AboutPage() {
                   
                   {/* Content */}
                   <div className={`ml-12 md:ml-0 md:w-1/2 ${i % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12'}`}>
-                    <div className="p-6 rounded-xl bg-card border border-border/60 shadow-sm">
+                    <div className="p-6 rounded-xl bg-card border border-border/60 shadow-tint-sm">
                       <p className="text-sm font-bold text-primary mb-1">{event.year}</p>
                       <h3 className="font-heading font-bold text-foreground mb-2">{event.title}</h3>
                       <p className="text-sm text-foreground/80">{event.description}</p>

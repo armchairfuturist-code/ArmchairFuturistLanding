@@ -49,7 +49,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative w-full min-h-[80vh] lg:min-h-[85vh] overflow-hidden flex items-center justify-center bg-sky-50"
+      className="relative w-full min-h-[80vh] lg:min-h-[85vh] overflow-hidden flex items-center justify-center bg-paper"
       onMouseMove={handleMouseMove}
     >
 
@@ -61,7 +61,7 @@ export default function HeroSection() {
         </div>
       </div>
       {/* Subtle sky-blue atmospheric tint */}
-      <div className="absolute inset-0 bg-gradient-to-br from-sky-50/40 via-transparent to-blue-50/30 pointer-events-none" aria-hidden="true" />
+      <div className="absolute inset-0 bg-gradient-to-br from-hp-soft/30 via-transparent to-hp-electric/[0.07] pointer-events-none" aria-hidden="true" />
       {/* Reactive chevron accents — HP angular wordmark nod */}
       <motion.div
         style={prefersReduced ? {} : { x: parallaxX, y: parallaxY }}

@@ -51,3 +51,7 @@ Uses the five canonical triage roles with default label names. See `docs/agents/
 ### Domain docs
 
 Single-context layout — one `CONTEXT.md` + `docs/adr/` at the repo root. See `docs/agents/domain.md`.
+
+## Global behavior
+
+> Output style: see `~/.claude/CLAUDE.md` § Maximum Terseness — zero preamble, fragments over sentences. Both agents (MiMo Code, OMP) enforce identical rules.

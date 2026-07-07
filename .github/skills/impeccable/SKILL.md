@@ -60,6 +60,10 @@ Produce ready-to-ship, production-grade code, not prototypes or starting points.
 
 - Dropdowns rendered with `position: absolute` inside an `overflow: hidden` or `overflow: auto` container will be clipped. Use the native `<dialog>` / popover API, `position: fixed`, or a portal to escape the stacking context.
 
+#### Browser & Automation Tooling
+
+- **Handle Browser timeouts gracefully.** The `browser` tool is prone to timeouts on local Next.js/Vite development servers. If it fails or hangs, do not loop. Fall back immediately to `curl`, raw HTML parsing, or ask the user to verify the visual state.
+
 ### New projects only (when no prior work exists)
 
 #### Color & Theme
