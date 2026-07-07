@@ -27,6 +27,7 @@ export const SECTION_IDS = {
   speaking: 'speaking',
   assessment: 'assessment',
   insights: 'latest-insights',
+  substack: 'newsletter',
   faq: 'faq',
   connect: 'connect',
 } as const;
@@ -107,6 +108,14 @@ const sections: SectionEntry[] = [
     }),
     homepage: false,
     navigable: false,
+  },
+  {
+    id: SECTION_IDS.substack,
+    label: 'Newsletter',
+    component: dynamic(() => import('@/components/sections/SubstackSection'), {
+      loading: () => <SectionSkeleton minHeight="min-h-[600px]" label="Loading newsletter" />,
+    }),
+    homepage: true,
   },
   {
     id: SECTION_IDS.faq,
