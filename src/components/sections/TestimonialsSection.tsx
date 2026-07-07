@@ -105,7 +105,7 @@ function FeaturedTestimonialCarousel() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.4 }}
-          className="relative bg-card rounded-2xl border border-border p-8 md:p-10 shadow-xl"
+          className="relative bg-card rounded-2xl border border-border p-8 md:p-10 shadow-tint-lg"
         >
           <Quote className="h-10 w-10 text-primary/20 mb-4" />
           <p className="text-lg md:text-xl text-foreground/90 font-sans leading-relaxed mb-8">
@@ -164,7 +164,7 @@ function FeaturedTestimonialCarousel() {
 
 function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <div className="flex-none w-80 md:w-96 bg-card rounded-xl border border-border/50 shadow-md p-5 md:p-6 flex flex-col gap-4 transition-[box-shadow,transform] duration-300 hover:shadow-xl hover:-translate-y-1">
+    <div className="flex-none w-80 md:w-96 bg-card rounded-xl border border-border/50 shadow-tint p-5 md:p-6 flex flex-col gap-4 transition-[box-shadow,transform] duration-300 hover:shadow-tint-lg hover:-translate-y-1">
       <Quote className="h-5 w-5 text-primary/30 shrink-0" />
       <p className="text-sm text-foreground/80 font-sans leading-relaxed line-clamp-7">
         {testimonial.text}

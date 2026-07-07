@@ -228,3 +228,42 @@
         background-position: -200% 0;
     }
 }
+/* === REDESIGN: texture, depth, motion === */
+
+/* Smooth anchor scrolling (reduced-motion already forces auto) */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Subtle film grain — breaks digital flatness on large surfaces.
+   Fixed, non-interactive, very low opacity so it never touches legibility. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 140px 140px;
+}
+
+/* Tinted shadows — carry the brand hue instead of pure black */
+.shadow-tint-sm {
+  box-shadow: 0 1px 2px hsl(var(--primary) / 0.07);
+}
+.shadow-tint {
+  box-shadow: 0 6px 20px -6px hsl(var(--primary) / 0.14);
+}
+.shadow-tint-lg {
+  box-shadow: 0 16px 40px -12px hsl(var(--primary) / 0.2);
+}
+.dark .shadow-tint-sm {
+  box-shadow: 0 1px 2px hsl(var(--primary) / 0.18);
+}
+.dark .shadow-tint {
+  box-shadow: 0 6px 20px -6px hsl(var(--primary) / 0.26);
+}
+.dark .shadow-tint-lg {
+  box-shadow: 0 16px 40px -12px hsl(var(--primary) / 0.34);
+}
