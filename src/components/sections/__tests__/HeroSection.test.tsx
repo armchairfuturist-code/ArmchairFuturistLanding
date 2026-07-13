@@ -18,7 +18,7 @@ it('renders the secondary CTA link', () => {
   render(<HeroSection />);
   // The secondary CTA scrolls to the services section
   expect(
-    screen.getByRole('link', { name: /See Programs/i }),
+    screen.getByRole('link', { name: /See Coaching & Services/i }),
   ).toBeInTheDocument();
 });
 
