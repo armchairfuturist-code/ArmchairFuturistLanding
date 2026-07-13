@@ -26,7 +26,7 @@ const headline = {
   line2: "Someone using AI better than you will.",
 };
 const subheadline =
-"Teaches individuals, founders, and teams to design, launch, and sell AI-powered services — and builds the systems when you need them done this week. I don't give you answers — I give you mental models that scale how you think about AI. So you build with real confidence, not FOMO, and walk away able to decide for yourself."
+"I teach individuals and teams to design and launch AI-powered services — and build the systems when you need them. Not FOMO. Real confidence."
 
 export default function HeroSection() {
   const prefersReduced = useReducedMotion();
@@ -57,7 +57,7 @@ export default function HeroSection() {
       <div className="sr-only" aria-hidden="true">
         <div itemProp="headline">Alex Myers — AI Consultant &amp; Instructor: AI Technical Literacy and Workflow Strategy</div>
         <div itemProp="description">
-          Alex Myers teaches individuals, founders, and teams to design, launch, and sell AI-powered services. With 40+ AI systems deployed and 100+ hours of 1-on-1 guidance, he specializes in AI technical literacy, workflow automation, and change management. Clients reclaim 10-20 hours per week. Based in Portugal, serving worldwide.
+          Alex Myers teaches individuals and teams to design and launch AI-powered services — and builds the systems when you need them. 40+ AI systems deployed. Clients reclaim 10-20 hours per week.
         </div>
       </div>
       {/* Subtle sky-blue atmospheric tint */}
