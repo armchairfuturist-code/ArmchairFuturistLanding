@@ -26,7 +26,7 @@ const headline = {
   line2: "Someone using AI better than you will.",
 };
 const subheadline =
-  "AI is the most exciting thing in years \u2014 and the most anxiety-inducing. I don\u2019t give you answers \u2014 I give you mental models that scale how you think about AI. So you build with real confidence, not FOMO, and walk away able to decide for yourself.";
+"Teaches individuals, founders, and teams to design, launch, and sell AI-powered services — and builds the systems when you need them done this week. I don't give you answers — I give you mental models that scale how you think about AI. So you build with real confidence, not FOMO, and walk away able to decide for yourself."
 
 export default function HeroSection() {
   const prefersReduced = useReducedMotion();
@@ -57,7 +57,7 @@ export default function HeroSection() {
       <div className="sr-only" aria-hidden="true">
         <div itemProp="headline">Alex Myers — AI Consultant &amp; Instructor: AI Technical Literacy and Workflow Strategy</div>
         <div itemProp="description">
-          Alex Myers teaches founders, creators, and small teams to design, launch, and sell AI-powered services. With 40+ AI systems deployed and 100+ hours of 1-on-1 guidance, he specializes in AI technical literacy, workflow automation, and change management. Clients reclaim 10-20 hours per week. Based in Portugal, serving worldwide.
+          Alex Myers teaches individuals, founders, and teams to design, launch, and sell AI-powered services. With 40+ AI systems deployed and 100+ hours of 1-on-1 guidance, he specializes in AI technical literacy, workflow automation, and change management. Clients reclaim 10-20 hours per week. Based in Portugal, serving worldwide.
         </div>
       </div>
       {/* Subtle sky-blue atmospheric tint */}
@@ -95,7 +95,7 @@ export default function HeroSection() {
 
             <BlurFade delay={0.05} inView duration={prefersReduced ? 0 : 0.4}>
               <p className="relative inline-flex items-center gap-2 font-mono text-[11px] md:text-xs uppercase tracking-[0.4em] text-hp-electric md:text-hp-electric mb-4 md:mb-5">
-                AI Strategy
+                AI Literacy & Implementation
               </p>
             </BlurFade>
 
@@ -140,7 +140,7 @@ export default function HeroSection() {
           {/* CTAs — primary is the booking calendar (the 1:1 client goal).
               WhatsApp is demoted to a small text link below, so the channel
               stays reachable for visitors who prefer it, without competing
-              with the on-brand signal CTA above the fold. "See Programs"
+              with the on-brand signal CTA above the fold. "See Coaching & Services"
               is the secondary outline anchor. Microcopy matches the
               Connect section and the result page for one consistent promise. */}
           <BlurFade delay={0.5} inView duration={prefersReduced ? 0 : 0.4}>
@@ -152,14 +152,14 @@ export default function HeroSection() {
                   icon="calendar-days"
                   className="rounded-md font-medium px-7 py-3 text-base uppercase tracking-[0.7px]"
                 >
-                  Book a 15-min Call
+                  Book a Free AI Clarity Call
                 </BookCallButton>
                 <a
                   href="/#services"
                   onClick={() => trackEvent("hero_see_programs")}
                   className="inline-flex items-center gap-2 text-primary font-medium text-base px-7 py-3 rounded-md border border-primary/20 hover:bg-primary/5 hover:border-primary/40 active:scale-[0.96] transition-[background-color,border-color,color] duration-200"
                 >
-                  See Programs
+                  See Coaching & Services
                   <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </a>
               </div>
@@ -179,22 +179,22 @@ export default function HeroSection() {
               </p>
             </div>
           </BlurFade>
-          {/* Social proof — teaching outcomes */}
-          <BlurFade delay={0.55} inView>
-            <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-charcoal">
-              <span>
-                <strong className="text-ink">40+</strong>{" "}
-                AI systems deployed
-              </span>
-              <span className="hidden sm:inline text-hairline-strong">·</span>
-              <span>
-                <strong className="text-ink">
-                  100+ hours
-                </strong>{" "}
-                of 1-on-1 AI guidance
-              </span>
-            </div>
-          </BlurFade>
+{/* Social proof — teaching outcomes */}
+<BlurFade delay={0.55} inView>
+  <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-charcoal">
+    <span>
+      <strong className="text-ink">40+</strong> AI systems deployed
+    </span>
+    <span className="hidden sm:inline text-hairline-strong">·</span>
+    <span>
+      <strong className="text-ink">50+ hours</strong> of coaching delivered
+    </span>
+    <span className="hidden sm:inline text-hairline-strong">·</span>
+    <span>
+      <strong className="text-ink">10–20 hrs/week</strong> reclaimed per client
+    </span>
+  </div>
+</BlurFade>
 
           {/* Tagline removed per copy consolidation */}
         </div>
