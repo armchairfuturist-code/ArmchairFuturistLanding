@@ -187,7 +187,7 @@ export default function HeroSection() {
     </span>
     <span className="hidden sm:inline text-hairline-strong">·</span>
     <span>
-      <strong className="text-ink">50+ hours</strong> of coaching delivered
+      <strong className="text-ink">hundreds of hours</strong> of coaching delivered
     </span>
     <span className="hidden sm:inline text-hairline-strong">·</span>
     <span>
