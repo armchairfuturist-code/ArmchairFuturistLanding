@@ -151,7 +151,7 @@ export default function SpeakingSection() {
               src="/marketing3.jpeg"
               alt="Alex Myers presenting at Sunsetpreneurs 2026 on AI strategy"
               fill
-              className="object-cover object-[60%_35%]"
+              className="object-cover object-[60%_35%] outline outline-1 -outline-offset-1 outline-black/10 dark:outline-white/10"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
@@ -160,7 +160,7 @@ export default function SpeakingSection() {
               src="/marketing4.jpeg"
               alt="Alex Myers facilitating at Startup Braga on AI adoption"
               fill
-              className="object-cover object-[50%_30%]"
+              className="object-cover object-[50%_30%] outline outline-1 -outline-offset-1 outline-black/10 dark:outline-white/10"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>

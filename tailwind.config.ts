@@ -25,38 +25,40 @@ export default {
       },
       colors: {
         // === HP COLOR SYSTEM ===
+        // Colors expressed in OKLCH (better-colors skill): perceptually
+        // uniform, stable hue across lightness, constant-chroma ramps.
 
         // Brand — Electric Blue system
-        "hp-electric": "#024ad8", // Primary CTA, links, focus
-        "hp-bright": "#296ef9", // Hover on primary
-        "hp-deep": "#0e3191", // Pressed, dark borders
-        "hp-soft": "#c9e0fc", // Tinted blue surfaces
+        "hp-electric": "oklch(51.6% 0.243 264.05)", // #024ad8 — Primary CTA, links, focus
+        "hp-bright": "oklch(63.6% 0.207 259.82)", // #296ef9 — Hover on primary
+        "hp-deep": "oklch(41.4% 0.169 264.4)", // #0e3191 — Pressed, dark borders
+        "hp-soft": "oklch(91.4% 0.048 258.4)", // #c9e0fc — Tinted blue surfaces
 
         // Ink (text)
-        ink: "#1a1a1a", // Display headlines, primary text
-        "ink-deep": "#000000", // Hero overlay, absolute contrast
-        "ink-soft": "#292929", // Secondary body, dense text
+        ink: "oklch(17.5% 0 0)", // #1a1a1a — Display headlines, primary text
+        "ink-deep": "oklch(0% 0 0)", // #000000 — Hero overlay, absolute contrast
+        "ink-soft": "oklch(22.5% 0 0)", // #292929 — Secondary body, dense text
 
         // Surfaces
-        canvas: "#ffffff", // Page background
-        cloud: "#f7f7f7", // Card backgrounds, soft sections
-        fog: "#e8e8e8", // Hairline dividers
-        steel: "#c2c2c2", // Disabled, placeholder
-        graphite: "#636363", // Secondary metadata
-        charcoal: "#3d3d3d", // Strong secondary text
+        canvas: "oklch(100% 0 0)", // #ffffff — Page background
+        cloud: "oklch(97.1% 0 0)", // #f7f7f7 — Card backgrounds, soft sections
+        fog: "oklch(91.1% 0 0)", // #e8e8e8 — Hairline dividers
+        steel: "oklch(76.1% 0 0)", // #c2c2c2 — Disabled, placeholder
+        graphite: "oklch(38.9% 0 0)", // #636363 — Secondary metadata
+        charcoal: "oklch(24.1% 0 0)", // #3d3d3d — Strong secondary text
 
         // Hairlines
-        hairline: "#e8e8e8", // Light dividers
-        "hairline-strong": "#c2c2c2", // Strong 1px borders
+        hairline: "oklch(91.1% 0 0)", // #e8e8e8 — Light dividers
+        "hairline-strong": "oklch(76.1% 0 0)", // #c2c2c2 — Strong 1px borders
 
         // Accent library (reserved)
-        "bloom-coral": "#ff5050", // Sale urgency
-        "bloom-rose": "#f9d4d2", // Soft coral
-        "bloom-deep": "#b3262b", // Error, destructive
-        "bloom-wine": "#5a1313", // Error text
-        "storm-mist": "#8ebdce", // Cool photo frame
-        "storm-sea": "#7fadbe", // Cool photo frame
-        "storm-deep": "#356373", // Cool photo frame
+        "bloom-coral": "oklch(68.5% 0.217 12.6)", // #ff5050 — Sale urgency
+        "bloom-rose": "oklch(89.9% 0.044 16.5)", // #f9d4d2 — Soft coral
+        "bloom-deep": "oklch(43.4% 0.183 27.5)", // #b3262b — Error, destructive
+        "bloom-wine": "oklch(22.2% 0.108 18.4)", // #5a1313 — Error text
+        "storm-mist": "oklch(80.3% 0.047 213.2)", // #8ebdce — Cool photo frame
+        "storm-sea": "oklch(71.4% 0.055 220.5)", // #7fadbe — Cool photo frame
+        "storm-deep": "oklch(46.2% 0.062 224.3)", // #356373 — Cool photo frame
 
         // Semantic surfaces (HP paper = off-white soft section background)
         paper: "#f7f7f7",

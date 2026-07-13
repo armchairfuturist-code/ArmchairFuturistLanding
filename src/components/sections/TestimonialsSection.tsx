@@ -214,7 +214,18 @@ export default function TestimonialsSection() {
             aria-label={isPaused ? "Resume scrolling testimonials" : "Pause scrolling testimonials"}
             className="inline-flex items-center justify-center h-10 w-10 rounded-md bg-card/80 border border-border/60 text-foreground/80 hover:bg-card hover:text-foreground transition-colors duration-150 backdrop-blur-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
           >
-            {isPaused ? <Play className="h-4 w-4" aria-hidden="true" /> : <Pause className="h-4 w-4" aria-hidden="true" />}
+            <AnimatePresence initial={false} mode="wait">
+              <motion.span
+                key={isPaused ? "play" : "pause"}
+                initial={{ opacity: 0, scale: 0.25, filter: "blur(4px)" }}
+                animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                exit={{ opacity: 0, scale: 0.25, filter: "blur(4px)" }}
+                transition={{ type: "spring", duration: 0.3, bounce: 0 }}
+                className="flex items-center justify-center"
+              >
+                {isPaused ? <Play className="h-4 w-4" aria-hidden="true" /> : <Pause className="h-4 w-4" aria-hidden="true" />}
+              </motion.span>
+            </AnimatePresence>
           </button>
         </div>
         <p className="absolute bottom-2 right-4 z-10 text-[10px] text-muted-foreground/40 font-mono pointer-events-none select-none">hover to pause</p>
