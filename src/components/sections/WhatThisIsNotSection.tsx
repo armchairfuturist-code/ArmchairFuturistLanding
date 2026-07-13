@@ -82,7 +82,7 @@ export default function WhatThisIsNotSection() {
               src="/marketing2.webp"
               alt="Alex Myers speaking to a group — real AI guidance in practice"
               fill
-              className="object-cover"
+              className="object-cover outline outline-1 -outline-offset-1 outline-black/10 dark:outline-white/10"
               sizes="100vw"
               priority
             />
