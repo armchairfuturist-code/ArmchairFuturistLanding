@@ -2,60 +2,16 @@
 
 import { BlurFade } from '@/components/ui/blur-fade';
 import Image from 'next/image';
-import { Users, Clock, Wrench, ArrowRight } from 'lucide-react';
-import { XCircle, AlertTriangle } from 'lucide-react';
 import { BookCallButton } from '@/components/ui/BookCallButton';
 import { trackEvent } from '@/lib/analytics';
 
 /**
  * What This Is NOT Section
- * 
- * Per SEO-AGI guidelines, every page should include a section honestly
- * telling the reader when this option is a BAD fit. This is the ultimate
- * E-E-A-T trust signal - it shows honesty and builds credibility.
- * 
- * This section should include at least one line a competitor would never
- * say because it might scare off a lead.
+ *
+ * Simplified version — keeps the hero image, distills to one core message:
+ * Alex works with people ready to execute, not those paying a consultant
+ * to validate what they already know but won't change.
  */
-const notForYou = [
-  {
-    icon: Users,
-    title: "Not for enterprise transformation programs",
-    description: "I work with founders, operators, and small teams — not large organizations running the 2023 playbook with better tools. That's the dabbling trap. If you need a vendor to manage your AI rollout across 500 employees, other consultants are better suited.",
-    bold: true
-  },
-  {
-    icon: Clock,
-    title: "Not for leaders still evaluating whether AI matters",
-    description: "If you're still forming committees to study AI, start elsewhere. I work with people who are ready to execute — not to write reports."
-  },
-  {
-    icon: Wrench,
-    title: "Not for people who want AI to do the work for them",
-    description: "I build systems you understand and operate. If you want AI magic that runs on its own, this isn't the right fit. You need to own the process."
-  },
-  {
-    icon: AlertTriangle,
-    title: "Not if you expect AI to fix team dysfunction",
-    description: "AI amplifies what's already there. If your team struggles with accountability, trust, or decision rights, AI won't fix that — it will expose it. I can help you address it, but you have to be willing to do the work.",
-    bold: true
-  }
-];
-
-const betterOptions = [
-  {
-    scenario: "You need a keynote speaker who delivers polished, non-technical talks",
-    recommendation: "Consider traditional management consultants or industry futurists who specialize in presentations"
-  },
-  {
-    scenario: "You want a fixed-price project with ROI locked in before we start",
-    recommendation: "Large strategy consulting firms offer packaged assessments — you'll pay more, but you'll get the structure you're used to"
-  },
-  {
-    scenario: "You're an enterprise looking for a vendor to manage a company-wide AI rollout",
-    recommendation: "Enterprise transformation consultancies specialize in large-scale adoption programs. I work best with founders and small teams who want to own their own AI capabilities."
-  }
-];
 
 export default function WhatThisIsNotSection() {
   return (
@@ -70,12 +26,12 @@ export default function WhatThisIsNotSection() {
               What this is NOT for
             </h2>
             <p className="text-lg text-foreground/80 font-sans max-w-2xl mx-auto">
-              I'd rather lose a sale than take on work I can't deliver. If these describe you, there are better options.
+              I&apos;d rather lose a sale than take on work I can&apos;t deliver.
             </p>
           </div>
         </BlurFade>
 
-        {/* Social proof banner — Alex speaking to a group, proving the authority behind the honesty */}
+        {/* Image — real-world credibility signal */}
         <BlurFade inView delay={0.1}>
           <div className="relative w-full h-[300px] md:h-[400px] rounded-xl overflow-hidden mb-12 border border-border/60">
             <Image
@@ -89,54 +45,37 @@ export default function WhatThisIsNotSection() {
           </div>
         </BlurFade>
 
-        <div className="grid gap-5 md:grid-cols-2 mb-12">
-          {notForYou.map((item, index) => {
-            const Icon = item.icon;
-            return (
-              <BlurFade inView key={item.title} delay={index * 0.1}>
-                <div className={`rounded-xl border ${item.bold ? 'border-primary/30 bg-primary/5' : 'border-border/60 bg-card'} p-6 h-full`}>
-                  <div className="flex items-start gap-3">
-                    <div className={`p-2 rounded-lg ${item.bold ? 'bg-primary/10' : 'bg-muted'}`}>
-                      <Icon className={`w-5 h-5 ${item.bold ? 'text-primary' : 'text-muted-foreground'}`} />
-                    </div>
-                    <div>
-                      <h3 className={`font-heading font-bold text-foreground mb-2 ${item.bold ? 'text-lg' : 'text-base'}`}>
-                        {item.title}
-                      </h3>
-                      <p className="text-sm text-foreground/70 leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </BlurFade>
-            );
-          })}
-        </div>
-
-        <BlurFade inView delay={0.4}>
-          <div className="rounded-xl border border-border/60 bg-secondary/50 p-6 mb-8">
-            <h3 className="font-heading font-bold text-foreground mb-4 flex items-center gap-2">
-              <ArrowRight className="w-4 h-4 text-primary" aria-hidden="true" />
-              Better Options If...
+        {/* Core message — one block, not four */}
+        <BlurFade inView delay={0.2}>
+          <div className="rounded-xl border border-primary/30 bg-primary/5 p-8 mb-12">
+            <h3 className="font-heading font-bold text-lg text-foreground mb-4">
+              Not for you if...
             </h3>
-            <div className="space-y-4">
-              {betterOptions.map((item, index) => (
-                <div key={index} className="pl-4 border-l-2 border-border">
-                  <p className="text-sm text-foreground/80 mb-1">
-                    <span className="font-semibold">{item.scenario}</span>
-                  </p>
-                  <p className="text-sm text-muted-foreground">{item.recommendation}</p>
-                </div>
-              ))}
+            <div className="space-y-4 text-foreground/80">
+              <p>
+                <strong>You already know what to do — you just want someone to confirm it.</strong>{" "}
+                I work with people ready to execute, not organizations paying a consultant
+                to articulate what they already believe but won&apos;t change.
+              </p>
+              <p>
+                <strong>You need a vendor to manage change for you.</strong>{" "}
+                I build systems you own and operate. If you want AI magic that runs on its own
+                without your team touching it, other consultants are better suited.
+              </p>
+              <p>
+                <strong>You&apos;re still evaluating whether AI matters.</strong>{" "}
+                If you&apos;re forming committees to study the opportunity, start elsewhere.
+                I work with people who are ready — not those building consensus.
+              </p>
             </div>
           </div>
         </BlurFade>
 
-        <BlurFade inView delay={0.5}>
+        <BlurFade inView delay={0.3}>
           <div className="text-center">
             <p className="text-base text-foreground/80 mb-6 max-w-xl mx-auto">
-              Still not sure? Book a 15-minute call. If I'm not the right fit, I'll tell you—and point you toward someone who is.
+              Still not sure? Book a 15-minute call. If I&apos;m not the right fit, I&apos;ll tell you
+              — and point you toward someone who is.
             </p>
             <BookCallButton
               location="what_this_is_not"
@@ -164,15 +103,7 @@ export default function WhatThisIsNotSection() {
                 "name": "What is Alex Myers' consulting service NOT for?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Alex Myers' services are not for: large enterprises seeking presentation theatre rather than execution, leaders who want AI 'in theory' without readiness to act, people who won't touch the tools themselves, or anyone expecting AI to solve culture problems. He works best with founders, operators, and small teams at the point of execution — where readiness meets action."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Who should not hire Alex Myers?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "You should not hire Alex Myers if you: need polished slide decks for board meetings, expect AI to solve underlying culture or accountability problems, want a black-box solution you never have to understand, are a large enterprise seeking a company-wide AI rollout, or are still forming committees to evaluate whether AI is relevant. Other consultants are better suited for those needs."
+                  "text": "Alex Myers' services are not for organizations that want a consultant to confirm what they already know but won't change, teams that want AI to run without their involvement, or leaders still evaluating whether AI matters. He works with founders, operators, and small teams ready to execute."
                 }
               }
             ]
