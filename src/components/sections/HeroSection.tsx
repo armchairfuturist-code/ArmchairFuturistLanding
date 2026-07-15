@@ -6,6 +6,7 @@ import { BookCallButton } from "@/components/ui/BookCallButton";
 import { WordPullUp } from "@/components/ui/word-pull-up";
 import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from "motion/react";
 import { WHATSAPP_URL } from "@/lib/constants";
+import { useTextScramble } from "@/hooks/useTextScramble";
 type Stat = {
   value: string | null;
   numericValue?: number;
@@ -46,6 +47,12 @@ export default function HeroSection() {
     mouseX.set(x);
     mouseY.set(y);
   };
+
+  // Text scramble for kicker — fires once on mount
+  const scrambleRef = useTextScramble("AI Literacy & Implementation", {
+    trigger: !prefersReduced,
+    speed: 25,
+  });
 
   return (
     <section
@@ -95,7 +102,7 @@ export default function HeroSection() {
 
             <BlurFade delay={0.05} inView duration={prefersReduced ? 0 : 0.4}>
               <p className="relative inline-flex items-center gap-2 font-mono text-[11px] md:text-xs uppercase tracking-[0.4em] text-hp-electric md:text-hp-electric mb-4 md:mb-5">
-                AI Literacy & Implementation
+                <span ref={scrambleRef} />
               </p>
             </BlurFade>
 

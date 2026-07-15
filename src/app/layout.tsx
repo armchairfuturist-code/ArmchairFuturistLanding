@@ -13,6 +13,7 @@ import TrackingPixels from "@/components/analytics/TrackingPixels";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { SmoothScrollProvider } from "@/components/ui/SmoothScrollProvider";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
+import { CursorSpotlight } from "@/components/ui/CursorSpotlight";
 
 // Fonts: Manrope (body/UI) + Space Grotesk (display/headlines)
 import { Manrope, Space_Grotesk } from "next/font/google";
@@ -134,6 +135,7 @@ export default function RootLayout({
         <ErrorBoundary>
           <SmoothScrollProvider>
             <ScrollProgress />
+            <CursorSpotlight />
           {/* Skip to content — first focusable element for keyboard users */}
           <a
             href="#main-content"
