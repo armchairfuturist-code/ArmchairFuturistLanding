@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { BlurFade } from '@/components/ui/blur-fade';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { Calculator, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { BookCallButton } from '@/components/ui/BookCallButton';
@@ -178,10 +178,27 @@ export default function ROICalculatorSection() {
             <div className="bg-card rounded-2xl border border-border/60 p-6 md:p-8 lg:sticky lg:top-24">
               <h3 className="font-heading font-bold text-foreground mb-6">Your Estimated Savings</h3>
 
-              {!hasResults ? (
-                <p className="text-muted-foreground text-sm">Select at least one task to see your estimate.</p>
-              ) : (
-                <div className="space-y-6">
+              <AnimatePresence mode="wait">
+                {!hasResults ? (
+                  <motion.p
+                    key="empty"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-muted-foreground text-sm"
+                  >
+                    Select at least one task to see your estimate.
+                  </motion.p>
+                ) : (
+                  <motion.div
+                    key="results"
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className="space-y-6"
+                  >
                   <div className="grid grid-cols-2 gap-4">
                     <div className="p-4 rounded-xl bg-secondary/50">
                       <p className="text-2xl font-bold text-primary tabular-nums">{hoursPerWeek}h</p>
@@ -224,8 +241,9 @@ export default function ROICalculatorSection() {
                   >
                     Book a Call to Discuss Your Estimate
                   </BookCallButton>
-                </div>
-              )}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </BlurFade>
         </div>

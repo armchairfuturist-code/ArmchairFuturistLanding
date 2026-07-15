@@ -11,6 +11,7 @@ interface NumberTickerProps extends ComponentPropsWithoutRef<"span"> {
   direction?: "up" | "down"
   delay?: number
   decimalPlaces?: number
+  suffix?: string
 }
 
 export function NumberTicker({
@@ -20,6 +21,7 @@ export function NumberTicker({
   delay = 0,
   className,
   decimalPlaces = 0,
+  suffix = "",
   ...props
 }: NumberTickerProps) {
   const ref = useRef<HTMLSpanElement>(null)
@@ -43,13 +45,14 @@ export function NumberTicker({
     () =>
       springValue.on("change", (latest) => {
         if (ref.current) {
-          ref.current.textContent = Intl.NumberFormat("en-US", {
-            minimumFractionDigits: decimalPlaces,
-            maximumFractionDigits: decimalPlaces,
-          }).format(Number(latest.toFixed(decimalPlaces)))
+          ref.current.textContent =
+            Intl.NumberFormat("en-US", {
+              minimumFractionDigits: decimalPlaces,
+              maximumFractionDigits: decimalPlaces,
+            }).format(Number(latest.toFixed(decimalPlaces))) + suffix
         }
       }),
-    [springValue, decimalPlaces]
+    [springValue, decimalPlaces, suffix]
   )
 
   return (

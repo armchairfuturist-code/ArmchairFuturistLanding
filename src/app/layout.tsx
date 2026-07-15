@@ -11,6 +11,8 @@ import FirebaseAnalytics from "@/components/analytics/FirebaseAnalytics";
 import StructuredData from "@/components/seo/StructuredData";
 import TrackingPixels from "@/components/analytics/TrackingPixels";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import { SmoothScrollProvider } from "@/components/ui/SmoothScrollProvider";
+import { ScrollProgress } from "@/components/ui/ScrollProgress";
 
 // Fonts: Manrope (body/UI) + Space Grotesk (display/headlines)
 import { Manrope, Space_Grotesk } from "next/font/google";
@@ -111,7 +113,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -130,6 +132,8 @@ export default function RootLayout({
         )}
       >
         <ErrorBoundary>
+          <SmoothScrollProvider>
+            <ScrollProgress />
           {/* Skip to content — first focusable element for keyboard users */}
           <a
             href="#main-content"
@@ -170,6 +174,7 @@ export default function RootLayout({
 
           {/* Retargeting pixels */}
           <TrackingPixels />
+          </SmoothScrollProvider>
         </ErrorBoundary>
       </body>
     </html>

@@ -5,6 +5,7 @@ import { Heart, Lightbulb, TrendingUp, CalendarDays, CheckCircle2, Sparkles, Eur
 import { BookCallButton } from '@/components/ui/BookCallButton';
 import { trackConversion } from '@/lib/analytics';
 import { BlurFade } from '@/components/ui/blur-fade';
+import { staggerContainer, staggerItem } from '@/lib/animation-variants';
 import { motion } from 'motion/react';
 import { COACHING_PACKAGES, type CurrencyCode } from '@/lib/pricing';
 import { CALENDAR_URL } from '@/lib/constants';
@@ -98,17 +99,20 @@ export default function MentoringSection() {
           {/* Connecting line (desktop) */}
           <div className="hidden md:block absolute top-12 left-0 right-0 h-px bg-hairline" />
 
-          <div className="grid md:grid-cols-3 gap-6 md:gap-4 relative">
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid md:grid-cols-3 gap-6 md:gap-4 relative"
+          >
             {pillars.map((pillar, index) => (
               <motion.div
                 key={pillar.title}
+                variants={staggerItem}
                 className={`relative bg-background rounded-xl p-6 border border-border transition-[border-color,transform,box-shadow] duration-300 hover:border-primary/30 hover:-translate-y-1 cursor-pointer ${
                   index === 1 ? 'md:mt-8' : index === 2 ? 'md:mt-4' : ''
                 }`}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, ease: 'easeOut', delay: index * 0.15 }}
                 whileHover={{ scale: 1.02 }}
               >
                 {/* Step number badge */}
@@ -126,7 +130,7 @@ export default function MentoringSection() {
                 </p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
 
         {/* Pricing packages */}
@@ -172,15 +176,18 @@ export default function MentoringSection() {
           </div>
         </BlurFade>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-          {COACHING_PACKAGES.map((pkg, index) => (
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-12"
+        >
+          {COACHING_PACKAGES.map((pkg) => (
             <motion.div
               key={pkg.id}
+              variants={staggerItem}
               className="relative bg-background rounded-xl border border-border transition-[border-color,transform,box-shadow] duration-300 hover:border-primary/50 hover:-translate-y-1 flex flex-col"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, ease: 'easeOut', delay: index * 0.1 }}
             >
 
               <div className="p-5 flex flex-col flex-1">
@@ -253,7 +260,7 @@ export default function MentoringSection() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
         {/* Comparison matrix — absorbed from PackageComparisonSection */}
         <BlurFade inView delay={0.3}>
           <details className="group mt-2 rounded-xl border border-border bg-background overflow-hidden">

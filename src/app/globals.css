@@ -15,14 +15,6 @@
     }
 }
 
-.scroll-animate {
-    opacity: 0;
-}
-
-.scroll-animate.is-visible {
-    animation: fadeInUp 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
-}
-
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -31,13 +23,6 @@
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
-    }
-
-    .scroll-animate,
-    .scroll-animate.is-visible {
-        animation: none;
-        opacity: 1;
-        transform: none;
     }
 
     /* Marquees should still scroll (content display, not decoration) */
@@ -230,7 +215,7 @@
 }
 /* === REDESIGN: texture, depth, motion === */
 
-/* Smooth anchor scrolling (reduced-motion already forces auto) */
+/* Smooth anchor scrolling — Lenis takes over when active; CSS fallback for reduced-motion */
 html {
   scroll-behavior: smooth;
 }
