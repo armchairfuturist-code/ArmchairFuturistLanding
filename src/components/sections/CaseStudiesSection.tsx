@@ -6,8 +6,6 @@ import { BookCallButton } from "@/components/ui/BookCallButton";
 import { useMagneticHover } from "@/hooks/useMagneticHover";
 import { MagneticCard } from "@/components/ui/MagneticCard";
 import { cardStagger, magneticCard } from "@/lib/animation-variants";
-import { HorizontalScroll } from "@/components/ui/HorizontalScroll";
-import { GlitchCard } from "@/components/ui/GlitchCard";
 
 const caseStudies = [
   {
@@ -74,21 +72,18 @@ export default function CaseStudiesSection() {
 
 
 
-        <HorizontalScroll>
-          <motion.div
-            variants={cardStagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="flex gap-8 items-stretch"
-          >
-            {caseStudies.map((study) => (
-              <GlitchCard key={study.title} className="min-w-[85vw] md:min-w-[600px] max-w-[700px] h-full">
-                <MagneticCard className="h-full rounded-2xl border border-border/60 bg-card overflow-hidden">
-                  <motion.div
-                    variants={magneticCard}
-                    className="h-full"
-                  >
+        <motion.div
+          variants={cardStagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="space-y-12"
+        >
+          {caseStudies.map((study, i) => (
+            <MagneticCard key={study.title} className="rounded-2xl border border-border/60 bg-card overflow-hidden transition-[border-color,box-shadow] duration-300">
+              <motion.div
+                variants={magneticCard}
+              >
                 {/* Header */}
                 <div className="p-6 md:p-8 border-b border-border/40 bg-secondary/50">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
@@ -151,10 +146,8 @@ export default function CaseStudiesSection() {
                 </div>
               </motion.div>
             </MagneticCard>
-            </GlitchCard>
           ))}
-          </motion.div>
-        </HorizontalScroll>
+        </motion.div>
 
         {/* CTA */}
         <BlurFade inView>

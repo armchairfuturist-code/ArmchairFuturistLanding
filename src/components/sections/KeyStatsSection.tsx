@@ -4,7 +4,6 @@ import { motion } from 'motion/react';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { NumberTicker } from '@/components/ui/number-ticker';
 import { staggerContainer, staggerItem } from '@/lib/animation-variants';
-import { GradientText } from '@/components/ui/GradientText';
 import { CheckCircle2 } from 'lucide-react';
 
 const featuredStats = [
@@ -38,7 +37,7 @@ export default function KeyStatsSection() {
         <BlurFade inView>
           <div className="mb-12">
             <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary mb-3">
-              <GradientText>Proof</GradientText>
+              Proof
             </h2>
             <p className="text-foreground/70 font-sans text-lg max-w-xl">
               What happens when AI is actually owned, not just prompted.
