@@ -155,6 +155,7 @@ export default function CaseStudiesSection() {
               size="lg"
               icon="arrow"
               iconClassName="ml-2 h-4 w-4"
+              className="w-full sm:w-auto whitespace-normal sm:whitespace-nowrap"
             >
               Talk Through Your Situation
             </BookCallButton>

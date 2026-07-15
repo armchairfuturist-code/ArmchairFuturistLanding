@@ -47,7 +47,7 @@ export default function Header() {
           </Link>
 
           {/* Nav links — center (USVC-style layout) */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-8">
             {navItems.map((item) =>
               item.external ? (
                 <a
@@ -73,7 +73,7 @@ export default function Header() {
           </nav>
 
           {/* CTAs — right-aligned (USVC-style) */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-4">
             <Link
               href="/assessment"
               className="text-sm text-white/70 hover:text-hp-electric transition-colors duration-300"
@@ -95,7 +95,7 @@ export default function Header() {
           </div>
 
           {/* Mobile — compact CTAs always visible, plus hamburger for nav */}
-          <div className="md:hidden flex items-center gap-1">
+          <div className="lg:hidden flex items-center gap-1">
             <a
               href={WHATSAPP_URL}
               target="_blank"
@@ -127,7 +127,7 @@ export default function Header() {
               </SheetTrigger>
               <SheetContent
                 side="right"
-                className="w-[260px] sm:w-[300px] bg-ink text-white border-l border-[#b2d5ff]/20"
+                className="w-[260px] sm:w-[300px] bg-ink text-white border-l border-[#b2d5ff]/20 overflow-y-auto"
               >
                 <SheetHeader>
                   <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
