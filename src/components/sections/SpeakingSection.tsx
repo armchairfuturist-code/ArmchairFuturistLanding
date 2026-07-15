@@ -7,6 +7,7 @@ import { trackEvent } from '@/lib/analytics';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { motion } from 'motion/react';
 import { SPEAKING_FORM_URL } from '@/lib/constants';
+import { rotateReveal, slideFromLeft } from '@/lib/animation-variants';
 
 const offerings = [
   { 
@@ -37,7 +38,13 @@ export default function SpeakingSection() {
     <section className="py-12 md:py-16 px-4 scroll-mt-20 bg-secondary">
       <div className="max-w-4xl mx-auto">
         <BlurFade inView>
-          <div className="rounded-2xl border border-border p-8 md:p-12 bg-card">
+          <motion.div
+            variants={rotateReveal}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="rounded-2xl border border-border p-8 md:p-12 bg-card"
+          >
             <div className="flex items-center gap-3 mb-6">
               <div className="p-2 rounded-lg bg-primary/10">
                 <Mic className="h-5 w-5 text-primary" />
@@ -141,7 +148,7 @@ export default function SpeakingSection() {
               </Button>
 
             </div>
-          </div>
+          </motion.div>
         </BlurFade>
 
         {/* Event photos — visual proof of speaking engagements */}

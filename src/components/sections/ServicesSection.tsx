@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from 'motion/react';
 import { CALENDAR_URL } from '@/lib/constants';
 import { BlurFade } from '@/components/ui/blur-fade';
+import { MagneticCard } from '@/components/ui/MagneticCard';
 import { staggerContainer, staggerItem } from '@/lib/animation-variants';
 
 interface Tier {
@@ -202,11 +203,14 @@ export default function ServicesSection() {
                 {path.tiers.map((tier) => {
                   const Icon = tier.icon;
                   return (
-                    <motion.div
+                    <MagneticCard
                       key={tier.name}
-                      variants={staggerItem}
-                      className="flex flex-col rounded-2xl border border-border bg-card overflow-hidden transition-[border-color,box-shadow] duration-300 hover:border-primary/30 hover:shadow-tint"
+                      strength={0.1}
                     >
+                      <motion.div
+                        variants={staggerItem}
+                        className="flex flex-col rounded-2xl border border-border bg-card overflow-hidden transition-[border-color,box-shadow] duration-300 hover:border-primary/30 hover:shadow-tint"
+                      >
 
                       <CardHeader className="pt-6 pb-4">
                         <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-3 bg-primary/10 text-primary">
@@ -262,6 +266,7 @@ export default function ServicesSection() {
                         </Button>
                       </CardFooter>
                     </motion.div>
+                    </MagneticCard>
                   );
                 })}
               </motion.div>

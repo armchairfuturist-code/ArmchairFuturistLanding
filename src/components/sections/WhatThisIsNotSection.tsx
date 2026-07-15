@@ -1,6 +1,9 @@
 "use client";
 
 import { BlurFade } from '@/components/ui/blur-fade';
+import { ScrollHighlight } from '@/components/ui/ScrollHighlight';
+import { diagonalWipe } from '@/lib/animation-variants';
+import { motion } from 'motion/react';
 import Image from 'next/image';
 import { BookCallButton } from '@/components/ui/BookCallButton';
 import { trackEvent } from '@/lib/analytics';
@@ -33,7 +36,13 @@ export default function WhatThisIsNotSection() {
 
         {/* Image — real-world credibility signal */}
         <BlurFade inView delay={0.1}>
-          <div className="relative w-full h-[300px] md:h-[400px] rounded-xl overflow-hidden mb-12 border border-border/60">
+          <motion.div
+            variants={diagonalWipe}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="relative w-full h-[300px] md:h-[400px] rounded-xl overflow-hidden mb-12 border border-border/60"
+          >
             <Image
               src="/marketing2.webp"
               alt="Alex Myers speaking to a group — real AI guidance in practice"
@@ -42,7 +51,7 @@ export default function WhatThisIsNotSection() {
               sizes="100vw"
               priority
             />
-          </div>
+          </motion.div>
         </BlurFade>
 
         {/* Core message — one block, not four */}
@@ -52,21 +61,21 @@ export default function WhatThisIsNotSection() {
               Not for you if...
             </h3>
             <div className="space-y-4 text-foreground/80">
-              <p>
+              <ScrollHighlight>
                 <strong>You already know what to do — you just want someone to confirm it.</strong>{" "}
                 I work with people ready to execute, not organizations paying a consultant
                 to articulate what they already believe but won&apos;t change.
-              </p>
-              <p>
+              </ScrollHighlight>
+              <ScrollHighlight>
                 <strong>You need a vendor to manage change for you.</strong>{" "}
                 I build systems you own and operate. If you want AI magic that runs on its own
                 without your team touching it, other consultants are better suited.
-              </p>
-              <p>
+              </ScrollHighlight>
+              <ScrollHighlight>
                 <strong>You&apos;re still evaluating whether AI matters.</strong>{" "}
                 If you&apos;re forming committees to study the opportunity, start elsewhere.
                 I work with people who are ready — not those building consensus.
-              </p>
+              </ScrollHighlight>
             </div>
           </div>
         </BlurFade>

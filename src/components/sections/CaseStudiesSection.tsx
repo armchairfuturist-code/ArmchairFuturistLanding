@@ -3,6 +3,9 @@
 import { BlurFade } from "@/components/ui/blur-fade";
 import { motion } from "motion/react";
 import { BookCallButton } from "@/components/ui/BookCallButton";
+import { useMagneticHover } from "@/hooks/useMagneticHover";
+import { MagneticCard } from "@/components/ui/MagneticCard";
+import { cardStagger, magneticCard } from "@/lib/animation-variants";
 
 const caseStudies = [
   {
@@ -69,15 +72,17 @@ export default function CaseStudiesSection() {
 
 
 
-        <div className="space-y-12">
+        <motion.div
+          variants={cardStagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="space-y-12"
+        >
           {caseStudies.map((study, i) => (
-            <BlurFade inView key={study.title} delay={i * 0.1}>
+            <MagneticCard key={study.title} className="rounded-2xl border border-border/60 bg-card overflow-hidden transition-[border-color,box-shadow] duration-300">
               <motion.div
-                className="rounded-2xl border border-border/60 bg-card overflow-hidden transition-[border-color,box-shadow] duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4 }}
+                variants={magneticCard}
               >
                 {/* Header */}
                 <div className="p-6 md:p-8 border-b border-border/40 bg-secondary/50">
@@ -140,9 +145,9 @@ export default function CaseStudiesSection() {
                   </div>
                 </div>
               </motion.div>
-            </BlurFade>
+            </MagneticCard>
           ))}
-        </div>
+        </motion.div>
 
         {/* CTA */}
         <BlurFade inView>

@@ -4,6 +4,7 @@ import Image from "next/image";
 import {ArrowRight} from 'lucide-react';
 import { Linkedin } from 'lucide-react';
 import { BlurFade } from "@/components/ui/blur-fade";
+import { ScrollHighlight } from "@/components/ui/ScrollHighlight";
 import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
 
 interface Certification {
@@ -124,6 +125,16 @@ export default function AboutMeSection() {
     [0, 1],
     prefersReduced ? [0, 0] : [40, -40]
   );
+  const certY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    prefersReduced ? [0, 0] : [20, -20]
+  );
+  const contentY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    prefersReduced ? [0, 0] : [10, -10]
+  );
 
   return (
     <section
@@ -152,6 +163,7 @@ export default function AboutMeSection() {
       </motion.div>
 
       <motion.div
+        style={{ y: contentY }}
         className="container mx-auto px-4 md:px-6 relative z-10 w-full"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -238,9 +250,9 @@ export default function AboutMeSection() {
               </BlurFade>
 
               <div className="space-y-5 md:space-y-6">
-                <p className="text-base md:text-lg text-primary-foreground/85 font-sans leading-relaxed">
+                <ScrollHighlight className="text-base md:text-lg text-primary-foreground/85 font-sans leading-relaxed">
                   I teach AI literacy to founders, consultants, and small teams — the kind that builds vendor-agnostic judgment, not dependency. Six certifications, 40+ systems deployed, and a bias toward first principles over tool tutorials.
-                </p>
+                </ScrollHighlight>
 
                 <h3 className="text-lg md:text-xl font-bold text-primary-foreground pt-2">
                   What my clients walk away with:
@@ -300,6 +312,7 @@ export default function AboutMeSection() {
             {/* Certifications - positioned in the light space below the image */}
             {otherCertifications.length > 0 && (
               <motion.div
+                style={{ y: certY }}
                 className="absolute bottom-12 right-8 max-w-md bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/10"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}

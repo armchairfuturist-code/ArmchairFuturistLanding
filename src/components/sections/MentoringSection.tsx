@@ -5,6 +5,7 @@ import { Heart, Lightbulb, TrendingUp, CalendarDays, CheckCircle2, Sparkles, Eur
 import { BookCallButton } from '@/components/ui/BookCallButton';
 import { trackConversion } from '@/lib/analytics';
 import { BlurFade } from '@/components/ui/blur-fade';
+import { MagneticCard } from '@/components/ui/MagneticCard';
 import { staggerContainer, staggerItem } from '@/lib/animation-variants';
 import { motion } from 'motion/react';
 import { COACHING_PACKAGES, type CurrencyCode } from '@/lib/pricing';
@@ -184,11 +185,11 @@ export default function MentoringSection() {
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-12"
         >
           {COACHING_PACKAGES.map((pkg) => (
-            <motion.div
-              key={pkg.id}
-              variants={staggerItem}
-              className="relative bg-background rounded-xl border border-border transition-[border-color,transform,box-shadow] duration-300 hover:border-primary/50 hover:-translate-y-1 flex flex-col"
-            >
+            <MagneticCard key={pkg.id} strength={0.08}>
+              <motion.div
+                variants={staggerItem}
+                className="relative bg-background rounded-xl border border-border transition-[border-color,transform,box-shadow] duration-300 hover:border-primary/50 hover:-translate-y-1 flex flex-col"
+              >
 
               <div className="p-5 flex flex-col flex-1">
                 {/* Package name */}
@@ -259,6 +260,7 @@ export default function MentoringSection() {
                 </BookCallButton>
               </div>
             </motion.div>
+            </MagneticCard>
           ))}
         </motion.div>
         {/* Comparison matrix — absorbed from PackageComparisonSection */}
