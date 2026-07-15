@@ -6,6 +6,7 @@ import { motion } from 'motion/react';
 import { CALENDAR_URL } from '@/lib/constants';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { MagneticCard } from '@/components/ui/MagneticCard';
+import { GlitchCard } from '@/components/ui/GlitchCard';
 import { staggerContainer, staggerItem } from '@/lib/animation-variants';
 
 interface Tier {
@@ -203,8 +204,8 @@ export default function ServicesSection() {
                 {path.tiers.map((tier) => {
                   const Icon = tier.icon;
                   return (
+                    <GlitchCard key={tier.name}>
                     <MagneticCard
-                      key={tier.name}
                       strength={0.1}
                     >
                       <motion.div
@@ -267,6 +268,7 @@ export default function ServicesSection() {
                       </CardFooter>
                     </motion.div>
                     </MagneticCard>
+                    </GlitchCard>
                   );
                 })}
               </motion.div>

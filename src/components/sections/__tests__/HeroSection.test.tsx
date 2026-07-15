@@ -38,6 +38,6 @@ it('renders the main headline text', () => {
   // so assert via the h1's textContent to avoid word-boundary issues.
   const h1 = screen.getByRole('heading', { level: 1 });
   expect(h1.textContent).toMatch(/AIwon.*treplace/i);
-  expect(h1.textContent).toMatch(/SomeoneusingAIbetter/i);
+  expect(h1.textContent).toMatch(/Someone using AI better/i);
 });
 
