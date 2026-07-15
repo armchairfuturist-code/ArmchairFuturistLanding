@@ -4,7 +4,7 @@ import Image from "next/image";
 import {ArrowRight} from 'lucide-react';
 import { Linkedin } from 'lucide-react';
 import { BlurFade } from "@/components/ui/blur-fade";
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
 
 interface Certification {
   id: string;
@@ -113,13 +113,29 @@ export default function AboutMeSection() {
     (c) => c.id !== "genaiExpert",
   );
 
+  const sectionRef = useRef<HTMLElement>(null);
+  const prefersReduced = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  const portraitY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    prefersReduced ? [0, 0] : [40, -40]
+  );
+
   return (
     <section
+      ref={sectionRef}
       id="about-me"
       className="relative py-12 md:py-24 bg-hp-deep text-primary-foreground scroll-mt-20 overflow-hidden"
     >
       {/* Desktop portrait — absolute, bleeds to right edge of section */}
-      <div className="hidden lg:block absolute top-0 right-0 w-[48%] bottom-0 z-0 pointer-events-none">
+      <motion.div
+        style={{ y: portraitY }}
+        className="hidden lg:block absolute top-0 right-0 w-[48%] bottom-0 z-0 pointer-events-none"
+      >
         <Image
           src="/alexheadshot-nobg.png"
           alt=""
@@ -133,7 +149,7 @@ export default function AboutMeSection() {
           loading="lazy"
           sizes="48vw"
         />
-      </div>
+      </motion.div>
 
       <motion.div
         className="container mx-auto px-4 md:px-6 relative z-10 w-full"

@@ -2,11 +2,15 @@
 
 import { motion } from 'motion/react';
 import { BlurFade } from '@/components/ui/blur-fade';
+import { NumberTicker } from '@/components/ui/number-ticker';
+import { staggerContainer, staggerItem } from '@/lib/animation-variants';
 import { CheckCircle2 } from 'lucide-react';
 
 const featuredStats = [
   {
     value: "40+",
+    numericValue: 40,
+    suffix: "+",
     label: "AI systems deployed",
     detail: "From automated response pipelines to meeting-to-action workflows"
   },
@@ -17,6 +21,7 @@ const featuredStats = [
   },
   {
     value: "6",
+    numericValue: 6,
     label: "certifications",
     detail: "Certified Futurist, Change Management Professional, GenAI Expert"
   },
@@ -41,20 +46,29 @@ export default function KeyStatsSection() {
         </BlurFade>
 
         {/* Featured stats - varied sizing, no card containers */}
-        <div className="grid md:grid-cols-3 gap-8 md:gap-12 mb-16">
-          {featuredStats.map((stat, index) => (
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid md:grid-cols-3 gap-8 md:gap-12 mb-16"
+        >
+          {featuredStats.map((stat) => (
             <motion.div
               key={stat.label}
+              variants={staggerItem}
               className="relative"
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, ease: 'easeOut', delay: index * 0.1 }}
             >
               {/* Large number - typography doing the work */}
-              <p className="text-5xl md:text-6xl font-black text-primary leading-none mb-1">
-                {stat.value}
-              </p>
+              {stat.numericValue != null ? (
+                <p className="text-5xl md:text-6xl font-black text-primary leading-none mb-1">
+                  <NumberTicker value={stat.numericValue} suffix={stat.suffix} />
+                </p>
+              ) : (
+                <p className="text-5xl md:text-6xl font-black text-primary leading-none mb-1">
+                  {stat.value}
+                </p>
+              )}
               <p className="text-xl font-semibold text-foreground mb-1">
                 {stat.label}
               </p>
@@ -63,7 +77,7 @@ export default function KeyStatsSection() {
               </p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Honest engagements list - no fabricated logo wall */}
         <BlurFade inView className="mb-8">

@@ -106,3 +106,4 @@ lpt[1-9].*
 # Impeccable skill artifacts
 .impeccable/
 .audit-passes/
+.pi/

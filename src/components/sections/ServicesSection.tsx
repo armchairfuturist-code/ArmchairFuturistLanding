@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from 'motion/react';
 import { CALENDAR_URL } from '@/lib/constants';
 import { BlurFade } from '@/components/ui/blur-fade';
+import { staggerContainer, staggerItem } from '@/lib/animation-variants';
 
 interface Tier {
   name: string;
@@ -187,21 +188,23 @@ export default function ServicesSection() {
                 </div>
               </BlurFade>
 
-              <div
+              <motion.div
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
                 className={`grid grid-cols-1 gap-6 mx-auto ${
                   path.id === 'foryou'
                     ? 'md:grid-cols-2 max-w-4xl'
                     : 'md:grid-cols-2 lg:grid-cols-3 max-w-6xl'
                 }`}
               >
-                {path.tiers.map((tier, index) => {
+                {path.tiers.map((tier) => {
                   const Icon = tier.icon;
                   return (
                     <motion.div
                       key={tier.name}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                      variants={staggerItem}
                       className="flex flex-col rounded-2xl border border-border bg-card overflow-hidden transition-[border-color,box-shadow] duration-300 hover:border-primary/30 hover:shadow-tint"
                     >
 
@@ -261,7 +264,7 @@ export default function ServicesSection() {
                     </motion.div>
                   );
                 })}
-              </div>
+              </motion.div>
             </div>
           ))}
         </div>
