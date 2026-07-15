@@ -7,6 +7,8 @@ import { WordPullUp } from "@/components/ui/word-pull-up";
 import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from "motion/react";
 import { WHATSAPP_URL } from "@/lib/constants";
 import { useTextScramble } from "@/hooks/useTextScramble";
+import { CharStagger } from "@/components/ui/CharStagger";
+import { GradientText } from "@/components/ui/GradientText";
 type Stat = {
   value: string | null;
   numericValue?: number;
@@ -69,6 +71,20 @@ export default function HeroSection() {
       </div>
       {/* Subtle sky-blue atmospheric tint */}
       <div className="absolute inset-0 bg-gradient-to-br from-hp-soft/30 via-transparent to-hp-electric/[0.07] pointer-events-none" aria-hidden="true" />
+      {/* Animated gradient pulse */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none z-0"
+        aria-hidden="true"
+        animate={{
+          background: [
+            "radial-gradient(ellipse 80% 60% at 50% 40%, hsl(220 96% 43% / 0.04) 0%, transparent 70%)",
+            "radial-gradient(ellipse 80% 60% at 55% 45%, hsl(217 95% 57% / 0.06) 0%, transparent 70%)",
+            "radial-gradient(ellipse 80% 60% at 45% 50%, hsl(198 32% 61% / 0.04) 0%, transparent 70%)",
+            "radial-gradient(ellipse 80% 60% at 50% 40%, hsl(220 96% 43% / 0.04) 0%, transparent 70%)",
+          ],
+        }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      />
       {/* Reactive chevron accents — HP angular wordmark nod */}
       <motion.div
         style={prefersReduced ? {} : { x: parallaxX, y: parallaxY }}
@@ -119,13 +135,15 @@ export default function HeroSection() {
               />
 
               {/* Line 2 — the visual hero: bold display headline */}
-              <WordPullUp
-                text={headline.line2}
-                className="relative block text-ink text-[clamp(2.75rem,7.5vw,6rem)] font-display font-bold tracking-tight leading-[0.98] text-balance"
-                wordClassName="font-display font-bold"
-                delay={0.3}
-                duration={prefersReduced ? 0 : 0.7}
-              />
+              <span className="relative block text-[clamp(2.75rem,7.5vw,6rem)] font-display font-bold tracking-tight leading-[0.98] text-balance">
+                <CharStagger
+                  text={headline.line2}
+                  delay={0.4}
+                  staggerDelay={0.015}
+                  className="relative"
+                  charClassName="font-display font-bold"
+                />
+              </span>
 
             </h1>
 
