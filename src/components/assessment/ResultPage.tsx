@@ -18,7 +18,7 @@ interface ResultPageProps {
 
 export default function ResultPage({ archetype, scores }: ResultPageProps) {
   return (
-    <div className="w-full max-w-3xl mx-auto">
+    <div className="w-full max-w-3xl mx-auto px-4 md:px-6">
       {/* Archetype badge */}
       <BlurFade inView delay={0.1}>
         <div className="text-center mb-8">
@@ -67,7 +67,7 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
             next move.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3">
+          <div className="flex flex-col lg:flex-row gap-3">
             {archetype.primaryCta.external ? (
               <a
                 href={archetype.primaryCta.href}
@@ -78,7 +78,7 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
               >
                 <Button
                   size="lg"
-                  className="font-bold w-full sm:w-auto bg-white text-hp-electric hover:bg-white/90"
+                  className="font-bold w-full lg:w-auto bg-white text-hp-electric hover:bg-white/90 whitespace-normal lg:whitespace-nowrap"
                 >
                   {archetype.primaryCta.label}
                   <CalendarDays className="ml-2 h-5 w-5" aria-hidden="true" />
@@ -88,7 +88,7 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
               <Link href={archetype.primaryCta.href} onClick={() => trackConversion('assessment_primary_cta')}>
                 <Button
                   size="lg"
-                  className="font-bold w-full sm:w-auto bg-white text-hp-electric hover:bg-white/90"
+                  className="font-bold w-full lg:w-auto bg-white text-hp-electric hover:bg-white/90 whitespace-normal lg:whitespace-nowrap"
                 >
                   {archetype.primaryCta.label}
                   <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
@@ -106,7 +106,7 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="font-bold w-full sm:w-auto bg-transparent border-white/40 text-white hover:bg-white/10 hover:border-white"
+                  className="font-bold w-full lg:w-auto bg-transparent border-white/40 text-white hover:bg-white/10 hover:border-white whitespace-normal lg:whitespace-nowrap"
                 >
                   {archetype.secondaryCta.label}
                   <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
@@ -117,7 +117,7 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="font-bold w-full sm:w-auto bg-transparent border-white/40 text-white hover:bg-white/10 hover:border-white"
+                  className="font-bold w-full lg:w-auto bg-transparent border-white/40 text-white hover:bg-white/10 hover:border-white whitespace-normal lg:whitespace-nowrap"
                 >
                   {archetype.secondaryCta.label}
                   <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />

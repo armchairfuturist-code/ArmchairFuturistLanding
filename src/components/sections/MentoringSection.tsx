@@ -190,7 +190,7 @@ export default function MentoringSection() {
                 </h4>
 
                 {/* Price */}
-                <div className="flex items-baseline gap-1 mb-1">
+                <div className="flex flex-wrap items-baseline gap-1 mb-1">
                   <CurrencyIcon currency={currency} />
                   <span className="text-3xl font-heading font-bold text-foreground tabular-nums">
                     {currency === 'EUR'

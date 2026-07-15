@@ -186,7 +186,7 @@ export default function PsychologyLedAdoptionPage() {
       {/* Main Content */}
       <section className="py-12 md:py-16">
         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
-          <div className="grid gap-8">
+          <div className="grid grid-cols-1 gap-8">
             {keyPoints.map((point, index) => (
               <BlurFade inView key={point.title} delay={index * 0.1}>
                 <article className="p-6 rounded-xl border border-border/60 bg-card">

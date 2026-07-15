@@ -47,7 +47,7 @@ export default function SectionNavigator() {
   return (
     <nav
       aria-label="Section navigation"
-      className="fixed right-3 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-2"
+      className="hidden lg:flex fixed right-3 top-1/2 -translate-y-1/2 z-50 flex-col gap-2"
     >
       {sections.map((section) => {
         const isActive = activeSection === section.id;

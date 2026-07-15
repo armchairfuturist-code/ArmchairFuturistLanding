@@ -93,14 +93,14 @@ export default function ConnectSection() {
           <motion.div
             whileHover={{ y: -2 }}
             transition={{ type: "spring", stiffness: 400, damping: 25 }}
-            className="inline-flex flex-col sm:flex-row gap-3"
+            className="inline-flex flex-col sm:flex-row w-full sm:w-auto items-stretch sm:items-center justify-center gap-3"
           >
             <BookCallButton
               location="connect_book_call"
               size="lg"
               icon="calendar-days"
               iconClassName="mr-2 h-5 w-5"
-              className="bg-white text-primary hover:bg-white/90 shadow-lg transition-transform duration-200"
+              className="bg-white text-primary hover:bg-white/90 shadow-lg transition-transform duration-200 whitespace-normal sm:whitespace-nowrap"
             >
               Book a Call
             </BookCallButton>
@@ -108,7 +108,7 @@ export default function ConnectSection() {
               asChild
               size="lg"
               variant="outline"
-              className="bg-transparent border-white/40 text-white hover:bg-white/10 hover:border-white transition-[background-color,border-color,color] duration-200"
+              className="bg-transparent border-white/40 text-white hover:bg-white/10 hover:border-white transition-[background-color,border-color,color] duration-200 w-full sm:w-auto whitespace-normal sm:whitespace-nowrap"
             >
               <a
                 href={WHATSAPP_URL}

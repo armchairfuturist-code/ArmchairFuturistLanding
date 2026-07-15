@@ -201,7 +201,7 @@ export default function CaseStudiesPage() {
       {/* Case Studies Grid */}
       <section className="py-12 md:py-16">
         <div className="container mx-auto px-4 md:px-6 max-w-6xl">
-          <div className="grid gap-8">
+          <div className="grid grid-cols-1 gap-8">
             {caseStudies.map((cs, index) => (
               <BlurFade inView key={cs.slug} delay={index * 0.1}>
                 <Card className={`border-border/60 hover:border-primary/30 transition-[border-color,box-shadow] ${cs.featured ? 'ring-1 ring-primary/10' : ''}`}>
@@ -253,7 +253,7 @@ export default function CaseStudiesPage() {
                       <p className="text-sm text-muted-foreground mb-3">
                         Metrics reflect representative results from client implementations. Contact for detailed case study methodology and reference clients.
                       </p>
-                      <Button asChild variant="outline" size="sm">
+                      <Button asChild variant="outline" size="sm" className="w-full sm:w-auto whitespace-normal sm:whitespace-nowrap">
                         <Link href="/#services">
                           Discuss Your Implementation
                           <ExternalLink className="ml-2 w-4 h-4" />
