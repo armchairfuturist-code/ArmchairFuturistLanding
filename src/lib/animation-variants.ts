@@ -92,3 +92,7 @@ export const magneticCard: Variants = {
     transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
   },
 };
+
+// Spring-driven stagger — weightier, premium feel on card grids
+export const springStaggerContainer: Variants = { hidden: {}, visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 }, }, };
+export const springStaggerItem: Variants = { hidden: { opacity: 0, y: 36, filter: "blur(6px)" }, visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { type: "spring", stiffness: 120, damping: 18, mass: 0.8 }, }, };

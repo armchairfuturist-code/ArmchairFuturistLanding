@@ -140,7 +140,7 @@ export default function AboutMeSection() {
     <section
       ref={sectionRef}
       id="about-me"
-      className="relative py-12 md:py-24 bg-hp-deep text-primary-foreground scroll-mt-20 overflow-hidden"
+      className="relative py-12 md:py-24 bg-hp-deep bg-pattern-chevrons text-primary-foreground scroll-mt-20 overflow-hidden"
     >
       {/* Desktop portrait — absolute, bleeds to right edge of section */}
       <motion.div

@@ -3,7 +3,7 @@
 import { motion } from 'motion/react';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { NumberTicker } from '@/components/ui/number-ticker';
-import { staggerContainer, staggerItem } from '@/lib/animation-variants';
+import { springStaggerContainer, springStaggerItem } from '@/lib/animation-variants';
 import { CheckCircle2 } from 'lucide-react';
 
 const featuredStats = [
@@ -47,7 +47,7 @@ export default function KeyStatsSection() {
 
         {/* Featured stats - varied sizing, no card containers */}
         <motion.div
-          variants={staggerContainer}
+          variants={springStaggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -56,7 +56,7 @@ export default function KeyStatsSection() {
           {featuredStats.map((stat) => (
             <motion.div
               key={stat.label}
-              variants={staggerItem}
+              variants={springStaggerItem}
               className="relative"
             >
               {/* Large number - typography doing the work */}

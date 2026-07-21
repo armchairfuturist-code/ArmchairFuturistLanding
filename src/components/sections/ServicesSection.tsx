@@ -6,7 +6,8 @@ import { motion } from 'motion/react';
 import { CALENDAR_URL } from '@/lib/constants';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { MagneticCard } from '@/components/ui/MagneticCard';
-import { staggerContainer, staggerItem } from '@/lib/animation-variants';
+import { SectionSpotlight } from '@/components/ui/SectionSpotlight';
+import { staggerContainer, staggerItem, springStaggerContainer, springStaggerItem } from '@/lib/animation-variants';
 
 interface Tier {
   name: string;
@@ -148,7 +149,8 @@ const paths: Path[] = [
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="py-16 md:py-20 bg-background scroll-mt-20 relative">
+    <SectionSpotlight opacity={0.05} size={450}>
+<section id="services" className="py-16 md:py-20 bg-background scroll-mt-20 relative">
       <div className="container mx-auto px-4 md:px-6">
         <BlurFade inView>
           <div className="max-w-3xl mb-16">
@@ -208,7 +210,7 @@ export default function ServicesSection() {
                       strength={0.1}
                     >
                       <motion.div
-                        variants={staggerItem}
+                        variants={springStaggerItem}
                         className="flex flex-col rounded-2xl border border-border bg-card overflow-hidden transition-[border-color,box-shadow] duration-300 hover:border-primary/30 hover:shadow-tint"
                       >
 
@@ -287,5 +289,6 @@ export default function ServicesSection() {
         </BlurFade>
       </div>
     </section>
+</SectionSpotlight>
   );
 }
