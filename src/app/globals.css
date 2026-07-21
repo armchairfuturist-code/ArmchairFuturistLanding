@@ -221,9 +221,32 @@
 @property --reveal-opacity  { syntax: "<number>";  initial-value: 0;    inherits: false; }
 @property --reveal-blur     { syntax: "<length>";  initial-value: 8px;  inherits: false; }
 
-/* 2. color-mix() perceptually-smooth hover transitions */
-/*    Uses OKLCH space for perceptually uniform interpolation. */
-/*    Non-destructive: unsupported browsers fall back to Tailwind classes. */
+/* 2. color-mix(in oklch) button hover transitions */
+/*    Perceptually uniform interpolation for all HP button variants. */
+@supports (color-mix(in oklch, red, blue)) {
+  .btn-hp-smooth {
+    transition: background-color 0.2s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .btn-hp-smooth[data-variant="default"]:hover {
+    background-color: color-mix(in oklch, oklch(51.6% 0.243 264.05) 80%, oklch(95% 0 0));
+    box-shadow: 0 4px 14px -4px color-mix(in oklch, oklch(51.6% 0.243 264.05) 30%, transparent);
+  }
+  .btn-hp-smooth[data-variant="navy"]:hover {
+    background-color: color-mix(in oklch, oklch(41.4% 0.169 264.4) 82%, oklch(51.6% 0.243 264.05));
+  }
+  .btn-hp-smooth[data-variant="pillGhost"]:hover {
+    background-color: color-mix(in oklch, oklch(51.6% 0.243 264.05) 92%, oklch(95% 0 0));
+    box-shadow: 0 2px 6px -2px color-mix(in oklch, oklch(51.6% 0.243 264.05) 18%, transparent);
+  }
+  .btn-hp-smooth[data-variant="outline"]:hover {
+    background-color: color-mix(in oklch, oklch(51.6% 0.243 264.05) 92%, oklch(95% 0 0));
+    border-color: color-mix(in oklch, oklch(51.6% 0.243 264.05) 70%, oklch(95% 0 0));
+  }
+  .btn-hp-smooth[data-variant="ghost"]:hover {
+    background-color: color-mix(in oklch, oklch(0% 0 0) 80%, oklch(51.6% 0.243 264.05));
+  }
+}
+
 /* Smooth anchor scrolling — Lenis takes over when active; CSS fallback for reduced-motion */
 html {
   scroll-behavior: smooth;
