@@ -215,6 +215,78 @@
 }
 /* === REDESIGN: texture, depth, motion === */
 
+/* === CSS 2026 ENHANCEMENTS === */
+/* 1. @property registrations — animatable custom properties for scroll reveals + hover */
+@property --reveal-y       { syntax: "<length>";  initial-value: 28px; inherits: false; }
+@property --reveal-opacity  { syntax: "<number>";  initial-value: 0;    inherits: false; }
+@property --reveal-blur     { syntax: "<length>";  initial-value: 8px;  inherits: false; }
+
+/* 2. Native scroll-driven section reveals (zero JS overhead) */
+@supports (animation-timeline: view()) {
+  .view-reveal {
+    --reveal-y: 28px; --reveal-opacity: 0;
+    animation: viewReveal linear both;
+    animation-timeline: view();
+    animation-range: entry 8% cover 22%;
+  }
+  .view-reveal-blur {
+    --reveal-y: 20px; --reveal-opacity: 0; --reveal-blur: 8px;
+    animation: viewRevealBlur linear both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 18%;
+  }
+  .view-reveal-stagger > *:nth-child(1) { animation-delay: 0ms;   }
+  .view-reveal-stagger > *:nth-child(2) { animation-delay: 60ms;  }
+  .view-reveal-stagger > *:nth-child(3) { animation-delay: 120ms; }
+  .view-reveal-stagger > *:nth-child(4) { animation-delay: 180ms; }
+  .view-reveal-stagger > *:nth-child(5) { animation-delay: 240ms; }
+  .view-reveal-stagger > *:nth-child(6) { animation-delay: 300ms; }
+  @keyframes viewReveal {
+    from { opacity: var(--reveal-opacity); transform: translateY(var(--reveal-y)); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes viewRevealBlur {
+    from { opacity: var(--reveal-opacity); transform: translateY(var(--reveal-y)); filter: blur(var(--reveal-blur)); }
+    to   { opacity: 1; transform: translateY(0); filter: blur(0px); }
+  }
+}
+/* When native scroll-timeline IS available, suppress JS-driven initial states */
+@supports (animation-timeline: view()) {
+  .js-reveal-suppressed { opacity: 1 !important; transform: none !important; filter: none !important; }
+}
+
+/* 3. content-visibility for scroll performance */
+.section-cv {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+  contain: layout style paint;
+}
+
+/* 4. color-mix() perceptually-smooth hover transitions */
+@supports (color-mix(in oklch, red, blue)) {
+  .btn-hp-smooth {
+    transition: background-color 0.25s cubic-bezier(0.25, 0.1, 0.25, 1),
+                box-shadow 0.25s ease,
+                border-color 0.25s ease;
+  }
+  .btn-hp-smooth[data-variant="default"]:hover {
+    background-color: color-mix(in oklch, oklch(51.6% 0.243 264.05) 75%, oklch(95% 0 0));
+    box-shadow: 0 4px 16px -4px color-mix(in oklch, oklch(51.6% 0.243 264.05) 35%, transparent);
+  }
+  .btn-hp-smooth[data-variant="navy"]:hover {
+    background-color: color-mix(in oklch, oklch(41.4% 0.169 264.4) 80%, oklch(51.6% 0.243 264.05));
+  }
+  .btn-hp-smooth[data-variant="pillGhost"]:hover {
+    background-color: color-mix(in oklch, oklch(51.6% 0.243 264.05) 92%, oklch(95% 0 0));
+    box-shadow: 0 2px 8px -2px color-mix(in oklch, oklch(51.6% 0.243 264.05) 20%, transparent);
+  }
+  .btn-hp-smooth[data-variant="outline"]:hover {
+    background-color: color-mix(in oklch, oklch(51.6% 0.243 264.05) 92%, oklch(95% 0 0));
+    border-color: color-mix(in oklch, oklch(51.6% 0.243 264.05) 70%, oklch(95% 0 0));
+  }
+}
+
+
 /* Smooth anchor scrolling — Lenis takes over when active; CSS fallback for reduced-motion */
 html {
   scroll-behavior: smooth;

@@ -1,21 +1,14 @@
 'use client';
-
 import Link from 'next/link';
 import { ArrowRight, Brain } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { motion } from 'motion/react';
+import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { trackEvent } from '@/lib/analytics';
 
 export default function AssessmentCtaSection() {
   return (
     <section className="py-20 md:py-24 bg-hp-deep border-y border-border/30 scroll-mt-20">
-      <motion.div
-        className="container mx-auto px-4 md:px-6 max-w-3xl"
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.4, ease: 'easeOut' }}
-      >
+      <ScrollReveal className="container mx-auto px-4 md:px-6 max-w-3xl">
         <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
           <div className="flex-1 text-center md:text-left">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white/10 border border-white/20 text-white text-xs font-mono mb-3">
@@ -38,7 +31,7 @@ export default function AssessmentCtaSection() {
             </Link>
           </div>
         </div>
-      </motion.div>
+      </ScrollReveal>
     </section>
   );
 }
