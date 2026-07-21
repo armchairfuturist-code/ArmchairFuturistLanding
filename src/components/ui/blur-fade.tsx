@@ -11,12 +11,6 @@ import {
 
 type MarginType = UseInViewOptions["margin"]
 
-/** Feature-detect CSS scroll-timeline support once at module load */
-const SUPPORTS_VIEW_TIMELINE =
-  typeof window !== "undefined" &&
-  "CSS" in window &&
-  CSS.supports?.("animation-timeline: view()")
-
 interface BlurFadeProps extends MotionProps {
   children: React.ReactNode
   className?: string
@@ -31,8 +25,6 @@ interface BlurFadeProps extends MotionProps {
   inView?: boolean
   inViewMargin?: MarginType
   blur?: string
-  /** Force native CSS scroll-timeline reveal (default: auto-detect) */
-  native?: boolean
 }
 
 export function BlurFade({
@@ -46,29 +38,8 @@ export function BlurFade({
   inView = false,
   inViewMargin = "-50px",
   blur = "6px",
-  native,
   ...props
 }: BlurFadeProps) {
-  /* ── Native CSS path (zero JS overhead) ──────────────────────── */
-  const useNative =
-    native !== false &&
-    SUPPORTS_VIEW_TIMELINE &&
-    direction === "down" &&
-    delay < 0.15 /* stagger handled by parent class */ &&
-    !variant
-
-  if (useNative) {
-    return (
-      <div
-        className={className ? `${className} view-reveal-blur` : "view-reveal-blur"}
-        {...(props as React.HTMLAttributes<HTMLDivElement>)}
-      >
-        {children}
-      </div>
-    )
-  }
-
-  /* ── Framer Motion fallback ─────────────────────────────────── */
   const ref = useRef(null)
   const inViewResult = useInView(ref, { once: true, margin: inViewMargin })
   const isInView = !inView || inViewResult
