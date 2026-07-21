@@ -2,49 +2,33 @@
 import { motion } from "motion/react";
 
 /**
- * Progressive scroll-reveal wrapper.
+ * Scroll-reveal wrapper using Framer Motion whileInView.
  *
- * Browsers with `animation-timeline: view()` get native CSS-only reveals
- * (zero JS overhead, no layout thrashing).
- *
- * Older browsers fall back to Framer Motion `whileInView`.
+ * NOTE: Native CSS animation-timeline: view() was tested but caused
+ * content to render invisible on Chromium due to fill-mode: both
+ * keeping elements at opacity: 0 when the timeline didn't catch up.
+ * Sticking with the proven Framer Motion path until browsers stabilize.
  */
-const HAS_NATIVE_TIMELINE =
-  typeof window !== "undefined" &&
-  "CSS" in window &&
-  CSS.supports?.("animation-timeline: view()");
-
 interface ScrollRevealProps {
   children: React.ReactNode;
   className?: string;
-  /** Use the blur-fade variant (default: plain fade-up) */
-  blur?: boolean;
   /** Initial Y offset in px (default: 24) */
   y?: number;
+  /** Blur amount (default: 0 = no blur) */
+  blur?: number;
 }
 
 export function ScrollReveal({
   children,
   className,
-  blur = false,
   y = 24,
+  blur = 0,
 }: ScrollRevealProps) {
-  // Native CSS path — zero JS, GPU-composited
-  if (HAS_NATIVE_TIMELINE) {
-    const nativeClass = blur ? "view-reveal-blur" : "view-reveal";
-    return (
-      <div className={className ? `${className} ${nativeClass}` : nativeClass}>
-        {children}
-      </div>
-    );
-  }
-
-  // Fallback: Framer Motion (already bundled, already working)
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y, filter: blur ? `blur(${blur}px)` : "none" }}
+      whileInView={{ opacity: 1, y: 0, filter: "none" }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
