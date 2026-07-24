@@ -7,13 +7,13 @@ import { ArrowLeft, ExternalLink } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Results Thinkers: The 5% Who Lead AI Change',
-  description: 'Results Thinkers are the top 5% of your organization who naturally embrace uncertainty and drive AI adoption. They ask "What outcome do I need?" instead of "What can AI do?"—and they\'re your highest-leverage asset for change.',
+  description: 'Results Thinkers are the top 5% of your organization who naturally embrace uncertainty and drive AI adoption. They ask "What outcome do I need?" instead of "What can AI do?" And they\'re your highest-leverage asset for change.',
   alternates: {
     canonical: '/concepts/results-thinkers',
   },
   openGraph: {
     title: 'Results Thinkers: The 5% Who Lead AI Change',
-    description: 'The top 5% who ask "What outcome do I need?" instead of "What can AI do?"—your highest-leverage asset for change.',
+    description: 'The top 5% who ask "What outcome do I need?" instead of "What can AI do?" Your highest-leverage asset for change.',
     url: '/concepts/results-thinkers',
     siteName: 'The Armchair Futurist',
     type: 'article',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Results Thinkers: The 5% Who Lead AI Change',
-    description: 'The top 5% who ask "What outcome do I need?" instead of "What can AI do?"—your highest-leverage asset for change.',
+    description: 'The top 5% who ask "What outcome do I need?" instead of "What can AI do?" Your highest-leverage asset for change.',
   },
 };
 
@@ -33,19 +33,19 @@ const relatedConcepts = [
 const keyPoints = [
   {
     title: 'The Definition',
-    content: 'Results Thinkers are the top 5% of any organization who naturally embrace uncertainty. They ask "What outcome do I need?" instead of "What can AI do?" They don\'t need training on AI tools—they need permission to use them, and they\'ll figure out the best applications themselves.'
+    content: 'Results Thinkers are the top 5% of any organization who naturally embrace uncertainty. They ask "What outcome do I need?" instead of "What can AI do?" They don\'t need training on AI tools; they need permission to use them, and they\'ll figure out the best applications themselves.'
   },
   {
     title: 'The Pattern',
-    content: 'In every AI deployment Alex has led (40+ as of 2026), the same pattern appears: a small subset of people adopt AI quickly, experiment without being asked, and find creative applications. These are Results Thinkers. They\'re not early adopters in the technology sense—they\'re outcome-obsessed in any context.'
+    content: 'In every AI deployment Alex has led (40+ as of 2026), the same pattern appears: a small subset of people adopt AI quickly, experiment without being asked, and find creative applications. These are Results Thinkers. They\'re not early adopters in the technology sense; they\'re outcome-obsessed in any context.'
   },
   {
     title: 'The Opportunity',
-    content: 'Most organizations try to drive AI adoption from the top down—a mandate, training program, or technology rollout. This fights organizational antibodies and takes months. Results Thinkers bypass resistance by modeling success for peers. Adoption spreads through their networks, not through mandates.'
+    content: 'Most organizations try to drive AI adoption from the top down: a mandate, training program, or technology rollout. This fights organizational antibodies and takes months. Results Thinkers bypass resistance by modeling success for peers. Adoption spreads through their networks, not through mandates.'
   },
   {
     title: 'The Method',
-    content: 'Psychology-Led Adoption uses data-driven profiling to identify your Results Thinkers. They get put on change leadership teams, given early access to tools, and supported to experiment. Their peers see results—real outcomes, not theoretical potential—and resistance drops naturally.'
+    content: 'Psychology-Led Adoption uses data-driven profiling to identify your Results Thinkers. They get put on change leadership teams, given early access to tools, and supported to experiment. Their peers see results (real outcomes, not theoretical potential), and resistance drops naturally.'
   }
 ];
 
@@ -95,7 +95,7 @@ export default function ResultsThinkersPage() {
             </h1>
             <p className="text-xl text-foreground/80 font-sans leading-relaxed mb-8">
               The top 5% of your organization who naturally embrace uncertainty.
-              Your highest-leverage asset for driving AI adoption—because they don't wait for permission.
+              Your highest-leverage asset for driving AI adoption, because they don't wait for permission.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button asChild size="lg">
@@ -191,10 +191,10 @@ export default function ResultsThinkersPage() {
                 What It\'s NOT
               </h3>
               <ul className="space-y-2 text-foreground/80">
-                <li>• A personality type or permanent trait—it\'s observable behavior in context</li>
-                <li>• An excuse to ignore everyone else—Process Guardians need structural roles</li>
-                <li>• Only for technical people—it\'s about orientation to uncertainty, not tools</li>
-                <li>• A hiring criterion—you find them inside your organization</li>
+                <li>• A personality type or permanent trait: it\'s observable behavior in context</li>
+                <li>• An excuse to ignore everyone else: Process Guardians need structural roles</li>
+                <li>• Only for technical people: it\'s about orientation to uncertainty, not tools</li>
+                <li>• A hiring criterion: you find them inside your organization</li>
               </ul>
             </div>
           </BlurFade>
@@ -207,7 +207,7 @@ export default function ResultsThinkersPage() {
               </h3>
               <p className="text-primary-foreground/90 mb-6 max-w-xl mx-auto">
                 Take our free AI Readiness Assessment to discover your archetype. 
-                Results Thinkers aren\'t born—they\'re identified through their approach to uncertainty.
+                Results Thinkers aren\'t born; they\'re identified through their approach to uncertainty.
               </p>
               <Button asChild size="lg" variant="secondary" className="font-bold w-full sm:w-auto whitespace-normal sm:whitespace-nowrap">
                 <Link href="/assessment">Take the Free Assessment</Link>

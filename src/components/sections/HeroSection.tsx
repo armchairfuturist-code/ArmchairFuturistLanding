@@ -7,27 +7,13 @@ import { WordPullUp } from "@/components/ui/word-pull-up";
 import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from "motion/react";
 import { WHATSAPP_URL } from "@/lib/constants";
 import { useTextScramble } from "@/hooks/useTextScramble";
-type Stat = {
-  value: string | null;
-  numericValue?: number;
-  suffix?: string;
-  label: string;
-};
-
-// Contextual stats - integrated into copy rather than generic metrics
-const stats: Stat[] = [
-  { value: "40+", numericValue: 40, suffix: "", label: "AI systems deployed" },
-  { value: null, label: "10–20 hours/week reclaimed per client" },
-  { value: "4.9/5", label: "client satisfaction" },
-];
-
 // Slogan — AI tension + mental models
 const headline = {
   line1: "AI won\u2019t replace you.",
   line2: "Someone using AI better than you will.",
 };
 const subheadline =
-"I teach individuals and teams to design and launch AI-powered services — and build the systems when you need them. Not FOMO. Real confidence."
+"A partner in learning. We build the mental models that make AI make sense, then test them live on your real work. When you'd rather have it built, I build it."
 
 export default function HeroSection() {
   const prefersReduced = useReducedMotion();
@@ -64,7 +50,7 @@ export default function HeroSection() {
       <div className="sr-only" aria-hidden="true">
         <div itemProp="headline">Alex Myers — AI Consultant &amp; Instructor: AI Technical Literacy and Workflow Strategy</div>
         <div itemProp="description">
-          Alex Myers teaches individuals and teams to design and launch AI-powered services — and builds the systems when you need them. 40+ AI systems deployed. Clients reclaim 10-20 hours per week.
+          Alex Myers is a partner in learning for individuals and teams. We build mental models for how AI works and test them live on real work. He also builds the systems when you’d rather have it built. 40+ AI systems deployed. Clients reclaim 10-20 hours per week.
         </div>
       </div>
       {/* Subtle sky-blue atmospheric tint */}

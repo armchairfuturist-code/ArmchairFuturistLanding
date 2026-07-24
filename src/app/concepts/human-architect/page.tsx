@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'The Human Architect: Closing the AI Accountability Gap',
-    description: 'The role that bridges AI output and business outcome—without it, AI investments stall.',
+    description: 'The role that bridges AI output and business outcome. Without it, AI investments stall.',
     url: '/concepts/human-architect',
     siteName: 'The Armchair Futurist',
     type: 'article',
@@ -34,7 +34,7 @@ const relatedConcepts = [
 const keyPoints = [
   {
     title: 'The Definition',
-    content: 'A Human Architect is the person assigned to translate AI output into business outcome. They are not the AI user, the AI builder, or the AI buyer. Their job is to ensure that what the AI produces actually gets used—reaches a decision, drives an action, and connects to a measurable result. Without this role, the Accountability Gap stays open.'
+    content: 'A Human Architect is the person assigned to translate AI output into business outcome. They are not the AI user, the AI builder, or the AI buyer. Their job is to ensure that what the AI produces actually gets used: it reaches a decision, drives an action, and connects to a measurable result. Without this role, the Accountability Gap stays open.'
   },
   {
     title: 'Why the Role Exists',
@@ -42,7 +42,7 @@ const keyPoints = [
   },
   {
     title: 'Where to Find Them',
-    content: 'The best Human Architects are usually existing operators who already sit between teams, tools, and decisions. They are not the most senior leader and not the most junior. They are the people who already translate between functions—product to sales, ops to finance, customer to engineering. Psychology-Led Adoption profiles identify them through behavior, not job title.'
+    content: 'The best Human Architects are usually existing operators who already sit between teams, tools, and decisions. They are not the most senior leader and not the most junior. They are the people who already translate between functions (product to sales, ops to finance, customer to engineering). Psychology-Led Adoption profiles identify them through behavior, not job title.'
   },
   {
     title: 'How to Set Them Up',
@@ -151,10 +151,10 @@ export default function HumanArchitectPage() {
                 What It&apos;s NOT
               </h3>
               <ul className="space-y-2 text-foreground/80">
-                <li>• A new VP or C-suite hire—best done by an existing operator with cross-functional reach</li>
-                <li>• A part-time AI champion with no outcome ownership—it becomes ceremonial fast</li>
-                <li>• The person who built the AI workflow—builders tend to defend the tool, not close the loop</li>
-                <li>• A consultant or vendor role—ownership must live inside the organization to stick</li>
+                <li>• A new VP or C-suite hire: best done by an existing operator with cross-functional reach</li>
+                <li>• A part-time AI champion with no outcome ownership: it becomes ceremonial fast</li>
+                <li>• The person who built the AI workflow: builders tend to defend the tool, not close the loop</li>
+                <li>• A consultant or vendor role: ownership must live inside the organization to stick</li>
               </ul>
             </div>
           </BlurFade>
@@ -195,7 +195,7 @@ export default function HumanArchitectPage() {
               Need a Human Architect on Your Team?
             </h2>
             <p className="text-lg text-foreground/80 mb-8">
-              Book a free 15-minute strategy call. Alex will help you identify who on your team already plays this role—and how to set them up to succeed.
+              Book a free 15-minute strategy call. Alex will help you identify who on your team already plays this role, and how to set them up to succeed.
             </p>
             <Button asChild size="lg" className="font-bold">
               <a href="https://calendar.google.com/calendar/appointments/schedules/AcYQvIlvMqTfGJQBxIV-BM6tVxBNjOcv1KBiagvHB6rJ8GoQuVEvTPWGDyGCFzxeJXkVDTpv1FCL4vQNSPCxbB13i9O_c5pBNA==?gv=true" target="_blank" rel="noopener noreferrer">
@@ -229,7 +229,7 @@ export default function HumanArchitectPage() {
         }}
       />
 
-      {/* ponytail: FAQPage schema for What It's NOT section — GEO optimization */  }
+      {/* ponytail: FAQPage schema for What It's NOT section (GEO optimization) */  }
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

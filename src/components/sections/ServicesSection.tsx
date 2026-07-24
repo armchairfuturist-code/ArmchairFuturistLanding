@@ -1,13 +1,13 @@
 "use client";
 import { ArrowRight, CheckCircle2, Zap, BookOpen, Target, Sparkles, Wrench, Globe } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardFooter } from "@/components/ui/card";
+import { CardContent, CardHeader, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from 'motion/react';
 import { CALENDAR_URL } from '@/lib/constants';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { MagneticCard } from '@/components/ui/MagneticCard';
 import { SectionSpotlight } from '@/components/ui/SectionSpotlight';
-import { staggerContainer, staggerItem, springStaggerContainer, springStaggerItem } from '@/lib/animation-variants';
+import { staggerContainer, springStaggerItem } from '@/lib/animation-variants';
 
 interface Tier {
   name: string;
@@ -38,7 +38,7 @@ const paths: Path[] = [
     title: "We Do It Together",
     kicker: "Build the literacy to do it yourself",
     description:
-      "I teach you the AI literacy required to design, launch, and sell your own AI-powered services. From a session pack to a 3-month executive intensive — every path leads to the same place: you, independent.",
+      "A partnership in learning. We build the mental models and test them live on your work, from a single session pack to a 3-month executive intensive. Every path ends with you independent.",
     tiers: [
       {
         name: "AI Readiness Assessment",
@@ -62,10 +62,10 @@ const paths: Path[] = [
         price: "$600 – $2,000",
         tag: "5 · 10 · 20 Packs",
         description:
-          "The proven foundation. Start with a 5-session pack and scale up. Most clients start with 5 or 10 sessions. Each one builds your AI literacy — from understanding to agency to independence.",
+          "The proven foundation. Start with a 5-session pack and scale up. Most clients start with 5 or 10 sessions. Each one builds your AI literacy, from understanding to agency to independence.",
         features: [
           "60-minute 1-on-1 video sessions",
-          "From fear to understanding to action",
+          "From understanding to agency to action",
           "Custom to your role and goals",
           "Recording + follow-up notes",
           "Flexible scheduling",
@@ -103,7 +103,7 @@ const paths: Path[] = [
     title: "I Do It For You",
     kicker: "Production-ready AI, built and shipped",
     description:
-      "When you need a working AI system this week — not a curriculum. I provision the servers, install the agents, connect the tools, and hand you a system you actually own.",
+      "When you need a working AI system this week, not a curriculum. I provision the servers, install the agents, connect the tools, and hand you a system you own.",
     tiers: [
       {
         name: "Digital Identity Landing Page",
@@ -159,7 +159,7 @@ export default function ServicesSection() {
               From Dependency to Independence
             </h2>
             <p className="text-lg text-foreground/80 font-sans leading-relaxed">
-              Most AI consultants build systems you depend on. I build understanding you keep — so deep you can design, launch, and sell your own AI-powered services. Pick the path that fits where you are today.
+              Most AI consultants build systems you depend on. I work as a partner in learning, and you leave with the mental models and live practice to design, launch, and sell your own AI-powered services. Pick the path that fits where you are today.
             </p>
           </div>
         </BlurFade>

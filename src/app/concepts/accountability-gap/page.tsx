@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'The Accountability Gap in AI Adoption',
-    description: 'The space between AI outputs and business results—where AI adoption stalls because no one owns the outcome.',
+    description: 'The space between AI outputs and business results, where AI adoption stalls because no one owns the outcome.',
     url: '/concepts/accountability-gap',
     siteName: 'The Armchair Futurist',
     type: 'article',
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'The Accountability Gap in AI Adoption',
-    description: 'The space between AI outputs and business results—where AI adoption stalls because no one owns the outcome.',
+    description: 'The space between AI outputs and business results, where AI adoption stalls because no one owns the outcome.',
   },
 };
 
@@ -34,7 +34,7 @@ const relatedConcepts = [
 const keyPoints = [
   {
     title: 'The Definition',
-    content: 'The Accountability Gap is the space between what an AI system produces and what a business actually needs. It\'s where AI outputs—reports, predictions, recommendations—fail to translate into business results because no one is responsible for turning AI output into business outcome.'
+    content: 'The Accountability Gap is the space between what an AI system produces and what a business actually needs. It\'s where AI outputs (reports, predictions, recommendations) fail to translate into business results because no one is responsible for turning AI output into business outcome.'
   },
   {
     title: 'The Pattern',
@@ -46,12 +46,12 @@ const keyPoints = [
   },
   {
     title: 'The Fix',
-    content: 'Assign a Human Architect—someone who bridges AI outputs to business outcomes. Their job isn\'t to use AI; it\'s to ensure AI output connects to decisions, actions, and measurable results. This is the highest-leverage intervention in AI adoption.'
+    content: 'Assign a Human Architect, someone who bridges AI outputs to business outcomes. Their job isn\'t to use AI; it\'s to ensure AI output connects to decisions, actions, and measurable results. This is the highest-leverage intervention in AI adoption.'
   }
 ];
 
 const statistics = [
-  { value: '72%', label: 'Cite workflow redesign as top barrier—not technology' },
+  { value: '72%', label: 'Cite workflow redesign as top barrier, not technology' },
   { value: '67%', label: 'Pilot-only initiatives that never scale' },
   { value: '14 weeks', label: 'Average time to 80% team adoption with proper ownership' },
 ];
@@ -158,7 +158,7 @@ export default function AccountabilityGapPage() {
                 <li>• A technology problem that better AI tools can solve</li>
                 <li>• A training problem that more workshops can fix</li>
                 <li>• A communication problem that better documentation addresses</li>
-                <li>• Temporary—it requires structural change, not band-aids</li>
+                <li>• Temporary: it requires structural change, not band-aids</li>
               </ul>
             </div>
           </BlurFade>

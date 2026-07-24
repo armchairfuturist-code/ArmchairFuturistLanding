@@ -8,7 +8,7 @@ import { ArrowLeft, ExternalLink } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Pilot-itis: Why AI Pilots Die in Production | The Armchair Futurist',
-  description: 'Pilot-itis is the organizational disease where AI pilots launch with fanfare, demonstrate value in isolation, and never scale to production. 67% of AI initiatives never make it past pilot stage. Here is why—and what breaks the pattern.',
+  description: 'Pilot-itis is the organizational disease where AI pilots launch with fanfare, demonstrate value in isolation, and never scale to production. 67% of AI initiatives never make it past pilot stage. Here is why, and what breaks the pattern.',
   alternates: {
     canonical: '/concepts/pilot-itis',
   },
@@ -43,7 +43,7 @@ const keyPoints = [
   },
   {
     title: 'The Root Cause',
-    content: 'Pilots are designed to minimize risk. Production is designed to maximize reliability. These are different engineering problems. Pilots have a champion, a budget, and a deadline. Production has an owner, an integration plan, and a change-management process. The handoff between pilot and production is where most AI initiatives die—no one is accountable for the transition.'
+    content: 'Pilots are designed to minimize risk. Production is designed to maximize reliability. These are different engineering problems. Pilots have a champion, a budget, and a deadline. Production has an owner, an integration plan, and a change-management process. The handoff between pilot and production is where most AI initiatives die: no one is accountable for the transition.'
   },
   {
     title: 'The Cure',
@@ -152,10 +152,10 @@ export default function PilotItisPage() {
                 What It&apos;s NOT
               </h3>
               <ul className="space-y-2 text-foreground/80">
-                <li>• A failure of the AI tool—the pilot typically proved the tool works</li>
-                <li>• A budget problem—most stalled pilots had funding; they lacked an owner</li>
-                <li>• A technical integration issue—integration is solvable with the right Human Architect</li>
-                <li>• A unique problem—67% of organizations hit this same pattern with the same cause</li>
+                <li>• A failure of the AI tool: the pilot typically proved the tool works</li>
+                <li>• A budget problem: most stalled pilots had funding; they lacked an owner</li>
+                <li>• A technical integration issue: integration is solvable with the right Human Architect</li>
+                <li>• A unique problem: 67% of organizations hit this same pattern with the same cause</li>
               </ul>
             </div>
           </BlurFade>

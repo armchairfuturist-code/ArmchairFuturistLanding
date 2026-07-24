@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from 'react';
-import { Heart, Lightbulb, TrendingUp, CalendarDays, CheckCircle2, Sparkles, Euro, DollarSign } from 'lucide-react';
+import { Lightbulb, TrendingUp, CheckCircle2, Euro, DollarSign, FlaskConical } from 'lucide-react';
 import { BookCallButton } from '@/components/ui/BookCallButton';
 import { trackConversion } from '@/lib/analytics';
 import { BlurFade } from '@/components/ui/blur-fade';
@@ -14,19 +14,19 @@ import { CALENDAR_URL } from '@/lib/constants';
 
 const pillars = [
   {
-    icon: Heart,
-    title: "From Fear to Understanding",
-    description: "AI anxiety is real and valid. We start by acknowledging what you're feeling. Then we replace uncertainty with clarity about what AI actually means for your work and life."
+  icon: Lightbulb,
+  title: "Build the mental model",
+  description: "AI feels overwhelming until you have a frame for it. We start with how it actually works, in plain terms, mapped to your role. The mental model that lets you evaluate any new tool yourself."
   },
   {
-    icon: Lightbulb,
-    title: "From Understanding to Agency",
-    description: "Once the fog lifts, we build your personal AI literacy. Not generic training, but the specific skills and mental models that matter for your role and ambitions."
+  icon: FlaskConical,
+  title: "Test it live",
+  description: "Then we run that model against your real work. The bottleneck you walked in with, the workflow eating your week. You watch it hold up or break, and adjust."
   },
   {
     icon: TrendingUp,
-    title: "From Agency to Optimism",
-    description: "The future isn't something that happens to you. With the right frame, AI becomes a lever for your goals: more time, more creative output, more impact."
+  title: "Own the judgment",
+  description: "By the end you're making the calls about where AI fits in your work and building from there."
   }
 ];
 
@@ -71,9 +71,6 @@ export default function MentoringSection() {
     localStorage.setItem('af_currency', c);
   }, []);
 
-  const fmtPrice = (eur: number, usd: number) =>
-    currency === 'EUR' ? `€${eur.toLocaleString()}` : `$${usd.toLocaleString()}`;
-
   return (
     <section id="ai-guidance" className="py-16 md:py-24 px-4 bg-secondary scroll-mt-20">
       <div className="container max-w-5xl mx-auto">
@@ -86,11 +83,9 @@ export default function MentoringSection() {
               Navigating the edge isn&apos;t a solo endeavor
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Most &quot;training&quot; teaches tools. This is different. Whether you&apos;re
-              a seasoned executive or early in your career, the real barrier
-              isn&apos;t technical&mdash;it&apos;s the story you&apos;re telling yourself about
-              what&apos;s coming. I help you rewrite that story, one conversation at a
-              time.
+ Most &quot;training&quot; hands you tools and leaves. This is a partnership. We build the
+ mental models that make AI click, then test them live on your real work. You
+ leave with judgment you keep.
             </p>
           </div>
         </BlurFade>

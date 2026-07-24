@@ -251,14 +251,14 @@ export default function AboutMeSection() {
 
               <div className="space-y-5 md:space-y-6">
                 <ScrollHighlight className="text-base md:text-lg text-primary-foreground/85 font-sans leading-relaxed">
-                  I teach AI literacy to founders, consultants, and small teams — the kind that builds vendor-agnostic judgment, not dependency. Six certifications, 40+ systems deployed, and a bias toward first principles over tool tutorials.
+                  I’m a partner in learning for founders, consultants, and small teams. We build vendor-agnostic judgment through mental models and live practice, not dependency. Six certifications, 40+ systems deployed, first principles over tool tutorials.
                 </ScrollHighlight>
 
                 <h3 className="text-lg md:text-xl font-bold text-primary-foreground pt-2">
                   What my clients walk away with:
                 </h3>
                 <p className="text-base md:text-lg text-primary-foreground/85 font-sans leading-relaxed">
-                  The judgment to evaluate any AI tool without needing a consultant. The systems to reclaim 10+ hours a week. The confidence to build and sell your own AI-powered services — whether you run a team or work solo.
+                  The judgment to evaluate any AI tool without needing a consultant. The systems to reclaim 10+ hours a week. The confidence to build and sell your own AI-powered services, whether you run a team or work solo.
                 </p>
 
                 <p className="flex items-center gap-2 text-base md:text-lg text-primary-foreground font-bold font-sans">
@@ -288,7 +288,7 @@ export default function AboutMeSection() {
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
                       </span>
                       <div>
-                        <p className="text-sm font-semibold text-primary-foreground">Teach you to fish, not fish for you</p>
+                        <p className="text-sm font-semibold text-primary-foreground">You own the skill</p>
                         <p className="text-sm text-primary-foreground/75 leading-relaxed mt-1">Every engagement leaves you more capable, never more dependent. The measure of my work is how little you need me next.</p>
                       </div>
                     </li>

@@ -33,7 +33,7 @@ const relatedConcepts = [
 const keyPoints = [
   {
     title: 'The Principle',
-    content: 'Most AI adoption efforts fail because they address technology barriers first. But the real blockers are human: fear of obsolescence, loss of status, uncertainty about new roles, and organizational antibodies that attack change. Psychology-Led Adoption flips the sequence—address human barriers before technical ones.'
+    content: 'Most AI adoption efforts fail because they address technology barriers first. But the real blockers are human: fear of obsolescence, loss of status, uncertainty about new roles, and organizational antibodies that attack change. Psychology-Led Adoption flips the sequence: address human barriers before technical ones.'
   },
   {
     title: 'The Method',
@@ -41,16 +41,16 @@ const keyPoints = [
   },
   {
     title: 'The Finding',
-    content: '72% of stalled AI projects cite workflow redesign as the top barrier—but the underlying cause is people, not process. The people who struggle most are those who derive identity and security from predictable, repeatable processes. They need different support than the change enthusiasts.'
+    content: '72% of stalled AI projects cite workflow redesign as the top barrier, but the underlying cause is people, not process. The people who struggle most are those who derive identity and security from predictable, repeatable processes. They need different support than the change enthusiasts.'
   },
   {
     title: 'The Outcome',
-    content: 'Organizations that use Psychology-Led Adoption see 3x faster adoption because change propagates through natural advocates rather than forced mandates. Resistance doesn\'t disappear—it gets addressed through structural roles and clear decision rights.'
+    content: 'Organizations that use Psychology-Led Adoption see 3x faster adoption because change propagates through natural advocates rather than forced mandates. Resistance doesn\'t disappear; it gets addressed through structural roles and clear decision rights.'
   }
 ];
 
 const statistics = [
-  { value: '72%', label: 'Cite workflow redesign as top barrier—but people are the root cause' },
+  { value: '72%', label: 'Cite workflow redesign as top barrier, but people are the root cause' },
   { value: '5%', label: 'Of staff are Results Thinkers who naturally embrace uncertainty' },
   { value: '3x', label: 'Faster adoption when change flows through natural advocates' },
 ];
@@ -60,7 +60,7 @@ const psychologicalProfiles = [
     name: 'Results Thinkers',
     percentage: '5%',
     trait: 'Naturally embrace uncertainty',
-    approach: 'Put them on change leadership teams—they\'ll drive faster than any mandate'
+    approach: 'Put them on change leadership teams; they\'ll drive faster than any mandate'
   },
   {
     name: 'Process Guardians',
@@ -108,7 +108,7 @@ export default function PsychologyLedAdoptionPage() {
             </h1>
             <p className="text-xl text-foreground/80 font-sans leading-relaxed mb-8">
               An organizational approach that addresses human barriers to AI adoption
-              before technical ones—identifying the 5% who are naturally wired for change.
+              before technical ones, identifying the 5% who are naturally wired for change.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button asChild size="lg">
