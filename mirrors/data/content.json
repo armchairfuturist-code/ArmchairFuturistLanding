@@ -1,0 +1,733 @@
+{
+  "site": {
+    "title": "Alex Myers \u2014 AI Consultant & Instructor",
+    "url": "https://thearmchairfuturist.com",
+    "fonts": {
+      "display": "Space Grotesk",
+      "body": "Manrope",
+      "mono": "JetBrains Mono"
+    }
+  },
+  "header": {
+    "brand": "The Armchair Futurist",
+    "nav": [
+      {
+        "label": "Coaching",
+        "href": "#ai-guidance"
+      },
+      {
+        "label": "Services",
+        "href": "#services"
+      },
+      {
+        "label": "Case Studies",
+        "href": "#case-studies"
+      },
+      {
+        "label": "ROI Calculator",
+        "href": "#roi-calculator"
+      },
+      {
+        "label": "Blog",
+        "href": "#latest-insights"
+      },
+      {
+        "label": "About",
+        "href": "#about-me"
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/alexmyers"
+      }
+    ],
+    "cta": [
+      {
+        "label": "Free Assessment",
+        "href": "/assessment",
+        "variant": "outline"
+      },
+      {
+        "label": "Book Call",
+        "href": "https://calendar.app.google/nAHHwNMfhDvXGv7P7",
+        "variant": "primary"
+      }
+    ]
+  },
+  "hero": {
+    "tag": "AI ALERT \u00b7 2026",
+    "headline": [
+      "AI Won\u2019t Replace You.",
+      "Someone Using AI Better Than You Will."
+    ],
+    "endMessage": "// END OF MESSAGE",
+    "ctas": [
+      {
+        "label": "Book a 15-min Call",
+        "href": "https://calendar.app.google/nAHHwNMfhDvXGv7P7",
+        "variant": "primary"
+      },
+      {
+        "label": "See Programs",
+        "href": "#services",
+        "variant": "ghost"
+      },
+      {
+        "label": "Or message on WhatsApp",
+        "href": "https://wa.me/15157706902",
+        "variant": "ghost"
+      }
+    ],
+    "reassurance": "No pressure. No pitch. Just clarity.",
+    "badges": [
+      "40+ AI systems deployed",
+      "100+ hours of 1-on-1 AI guidance"
+    ],
+    "headline_styled": [
+      {
+        "text": "AI Won\u2019t",
+        "style": "ink"
+      },
+      {
+        "text": "Replace You.",
+        "style": "ink"
+      },
+      {
+        "text": "Someone Using AI",
+        "style": "electric"
+      },
+      {
+        "text": "Better Than You Will.",
+        "style": "electric"
+      }
+    ],
+    "headline_rows": [
+      {
+        "style": "ink",
+        "words": [
+          "AI",
+          "Won\u2019t",
+          "Replace",
+          "You."
+        ]
+      },
+      {
+        "style": "electric",
+        "words": [
+          "Someone",
+          "Using",
+          "AI",
+          "Better",
+          "Than",
+          "You",
+          "Will."
+        ]
+      }
+    ]
+  },
+  "logoBanner": {
+    "label": "SELECT ENGAGEMENTS",
+    "logos": [
+      "Mindscape",
+      "The Integrative Practitioner",
+      "Culminate",
+      "Floop",
+      "Kemin",
+      "Aragon",
+      "Launch",
+      "Reverie",
+      "Helio",
+      "Northwind"
+    ]
+  },
+  "caseStudies": {
+    "eyebrow": "Engagement Patterns",
+    "title": "What Happens When AI Actually Works",
+    "lede": "Three recent projects. Anonymized and composited. No strategy decks.",
+    "disclaimer": "Composite, anonymized \u2014 illustrative patterns from real engagements, not specific client outcomes.",
+    "studies": [
+      {
+        "title": "Automated Client Response System",
+        "sector": "Professional Services Firm",
+        "built": "Built in 5 days",
+        "problem": "Team spent a large share of the day answering repetitive client queries across email and WhatsApp. Response times stretched across the working day. Clients complained about slow turnaround.",
+        "built2": "Built an n8n workflow that routes incoming queries, drafts context-aware responses using AI, and sends them through approved channels. Human reviews only edge cases.",
+        "worked": [
+          "Mapped 14 repetitive query categories across email and WhatsApp",
+          "Drafted 6 reusable response templates with human-review escalation rules",
+          "Handed off a runbook plus a 2-person training session for the ops team"
+        ]
+      },
+      {
+        "title": "Frictionless Service Purchase Flow",
+        "sector": "Consulting & Advisory Practice",
+        "built": "Delivered in 2 weeks",
+        "problem": "Buyers abandoned checkout because intake forms duplicated sales calls. Conversion stalled under 4%.",
+        "built2": "Replaced the static intake with a conversational qualifier that captured the same fields, surfaced pricing, and booked a discovery call only when intent was real.",
+        "worked": [
+          "Drafted 9 qualifying questions aligned to existing discovery framework",
+          "Wired Stripe checkout + Google Calendar booking behind a single flow",
+          "Cut form completion time from 11 to 3 minutes; conversions rose 3.2\u00d7"
+        ]
+      },
+      {
+        "title": "Automated Meeting-to-Action Pipeline",
+        "sector": "Operations Team",
+        "built": "Built in 9 days",
+        "problem": "Every client meeting produced 40+ minutes of notes nobody read. Action items surfaced days later in standup, often misattributed.",
+        "built2": "Built a recording-to-action pipeline: transcript \u2192 summary \u2192 tasks \u2192 CRM. Each step had a human approval gate.",
+        "worked": [
+          "Integrated 3 video platforms with a single transcript service",
+          "Designed approval gates so the team could correct attribution before sync",
+          "Action items now reach CRM within 4 hours of meeting end"
+        ]
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "What Do Clients Say About Working With Alex Myers?",
+    "lede": "Testimonials from executives, founders, and operators across tech, strategy, and change management.",
+    "pauseHint": "hover to pause",
+    "items": [
+      {
+        "quote": "I knew Alex was brilliant, but working with him transformed my business. He helped me reclaim 20 hours per week through AI optimization and launch a website that landed a deal within an hour. Beyond the metrics, Alex provides balance. In a world of AI noise, he helps entrepreneurs use tech with a soul-led focus. If your digital presence doesn't feel like your Authentic Self, you don't need a developer\u2014you need a Tech Sherpa.",
+        "name": "Shannon Myers",
+        "role": "Founder of The Integrative Practitioner"
+      },
+      {
+        "quote": "Alex is a fantastic communicator who made the website redesign process effortless. I'm thrilled with the outcome and the creative ideas Alex brought to the project that I never would have thought of.",
+        "name": "Stephan Kerby",
+        "role": "Co-Founder, Mindscape Psychedelic Institute"
+      },
+      {
+        "quote": "Alex has a strong work ethic and real attention to detail. He's open-minded about how to solve a problem and patient with shifting requirements.",
+        "name": "Alex A.",
+        "role": "Product Lead"
+      },
+      {
+        "quote": "Working with Alex felt like having a translator between our team and the AI tools we kept buying but never finishing. We finally shipped.",
+        "name": "Karrie S.",
+        "role": "Operations Director"
+      },
+      {
+        "quote": "I came in skeptical. I left with a system my team actually uses every Monday. That alone was worth the engagement.",
+        "name": "Tessa M.",
+        "role": "Founder, Strategy Consultancy"
+      },
+      {
+        "quote": "Alex doesn't sell tools \u2014 he sells understanding. That's rare in this space.",
+        "name": "Sepehr S.",
+        "role": "Engineering Manager"
+      },
+      {
+        "quote": "The 3-minute assessment was the most honest framing of where my business stood that I'd ever seen.",
+        "name": "Marco",
+        "role": "Independent Consultant"
+      },
+      {
+        "quote": "We had three AI vendors pitch us the same stack. Alex was the only one who asked what problem we were actually trying to solve.",
+        "name": "Evan H.",
+        "role": "Head of Operations"
+      },
+      {
+        "quote": "My favorite thing about working with Alex is that he ends the engagement when the work is done, not when the retainer runs out.",
+        "name": "Lia S.",
+        "role": "Studio Director"
+      },
+      {
+        "quote": "Direct, calm, and very good at cutting through noise. Exactly the guide we needed at that moment.",
+        "name": "Jasper",
+        "role": "Founder, Education Platform"
+      }
+    ]
+  },
+  "stats": {
+    "eyebrow": "Track record",
+    "title": "For founders, operators, and independent professionals building AI-powered services.",
+    "items": [
+      {
+        "value": "40+",
+        "label": "AI systems deployed",
+        "detail": "Across organizations of all sizes"
+      },
+      {
+        "value": "10\u201320h",
+        "label": "reclaimed weekly",
+        "detail": "Average per client"
+      },
+      {
+        "value": "6",
+        "label": "certifications",
+        "detail": "FLTA, CCMP, GenAI, CEBP, PSM, PAL"
+      }
+    ],
+    "selectedEngagements": "Founders, solo operators, and small teams building AI-powered services. Names of recent clients withheld by request.",
+    "aboutAlex": "About Alex Myers",
+    "alexBio": "AI Guide based in Portugal, serving clients worldwide. With 6 professional certifications and 40+ AI systems deployed, Alex teaches deep AI literacy so you can design, launch, and sell your own AI-powered services. No dependency. No retainer. Just understanding."
+  },
+  "whatThisIsNot": {
+    "eyebrow": "HONEST FIT ASSESSMENT",
+    "title": "What this is NOT for",
+    "lede": "I'd rather lose a sale than take on work I can't deliver. If these describe you, there are better options.",
+    "items": [
+      {
+        "title": "Not for enterprise transformation programs",
+        "body": "I work with founders, operators, and small teams \u2014 not large organizations running the 2023 playbook with better tools. That's the dabbling trap. If you need a vendor to manage your AI rollout across 500 employees, other consultants are better suited."
+      },
+      {
+        "title": "Not for leaders still evaluating whether AI matters",
+        "body": "If you're still forming committees to study AI, start elsewhere. I work with people who are ready to execute \u2014 not to write reports."
+      },
+      {
+        "title": "Not for people who want AI to do the work for them",
+        "body": "I build systems you understand and operate. If you want AI magic that runs on its own, this isn't the right fit. You need to own the process."
+      },
+      {
+        "title": "Not if you expect AI to fix team dysfunction",
+        "body": "AI amplifies what's already there. If your team struggles with accountability, trust, or decision rights, AI won't fix that. Fix the team first."
+      }
+    ],
+    "betterOptions": "Better Options If...",
+    "betterList": [
+      "You're a 200+ person org with a dedicated transformation budget",
+      "You need a vendor to manage multi-quarter rollouts",
+      "You're shopping for AI theater to put in a board deck"
+    ]
+  },
+  "services": {
+    "eyebrow": "YOUR PATH TO AI INDEPENDENCE",
+    "title": "From Dependency to Independence",
+    "lede": "Most AI consultants build systems you depend on. I build understanding you keep \u2014 so deep you can design, launch, and sell your own AI-powered services. Pick the path that fits where you are today.",
+    "tracks": [
+      {
+        "tag": "WE DO IT TOGETHER",
+        "title": "Guidance & Education",
+        "subtitle": "Build the literacy to do it yourself",
+        "body": "I teach you the AI literacy required to design, launch, and sell your own AI-powered services. From a single 60-minute session to a 3-month executive intensive \u2014 every path leads to the same place: you, independent.",
+        "offers": [
+          {
+            "duration": "3 MINUTES",
+            "title": "AI Readiness Assessment",
+            "price": "Free",
+            "blurb": "Not sure where you stand? Take the free 3-minute diagnostic. You'll get your personalized AI archetype, clarity score, and a clear recommended next step \u2014 no pitch, no pressure.",
+            "features": [
+              "3-minute quiz",
+              "Personalized AI archetype",
+              "Clarity & readiness score",
+              "Recommended next step"
+            ],
+            "cta": "Take the Assessment"
+          },
+          {
+            "duration": "SINGLE \u00b7 5 \u00b7 10 \u00b7 20 PACKS",
+            "title": "1-on-1 AI Guidance",
+            "price": "$120 \u2013 $2,000",
+            "blurb": "The proven foundation. Start with a single 60-minute session to fix one decision; graduate to a 10-pack when you're ready to ship.",
+            "features": [
+              "60-minute video sessions",
+              "Recording + summary",
+              "Tool recommendations",
+              "Between-session async"
+            ],
+            "cta": "Book a Single Session"
+          },
+          {
+            "duration": "3-MONTH INTENSIVE",
+            "title": "AI Self-Sufficiency Program",
+            "price": "$6,000",
+            "blurb": "For executives ready to leave dependency behind. A 3-month arc that turns AI from a question you outsource into a system you operate.",
+            "features": [
+              "12 sessions over 12 weeks",
+              "Weekly async office hours",
+              "Custom literacy curriculum",
+              "Final capstone: ship your own"
+            ],
+            "cta": "Apply for the Intensive"
+          }
+        ]
+      },
+      {
+        "tag": "DONE WITH YOU",
+        "title": "Done-For-You Implementation",
+        "subtitle": "I build it; you own it.",
+        "body": "For founders who need the system built once, well, and handoff-ready. You keep the artifacts and the understanding.",
+        "offers": [
+          {
+            "duration": "1\u20132 WEEKS",
+            "title": "Digital Identity Landing Page",
+            "price": "$2,400",
+            "blurb": "A landing page that reads like you on your best day, ships in under two weeks, and converts visitors into booked calls.",
+            "features": [
+              "Custom design system",
+              "Copy you can edit yourself",
+              "Analytics wired up",
+              "30-day support"
+            ],
+            "cta": "Request a Build"
+          },
+          {
+            "duration": "2\u20136 WEEKS",
+            "title": "Custom AI Provisioning",
+            "price": "$8,000+",
+            "blurb": "A specific AI workflow designed, built, and handed off with the documentation your team needs to operate it without me.",
+            "features": [
+              "Workflow design doc",
+              "Working build in your stack",
+              "Runbook + handover session",
+              "90-day refinement window"
+            ],
+            "cta": "Scope a Build"
+          }
+        ]
+      }
+    ]
+  },
+  "aboutMe": {
+    "verify": "CLICK TO VERIFY",
+    "title": "Who Is Alex Myers?",
+    "tag": "AI GUIDE",
+    "lede": "The questions that keep leaders up at 2 AM aren't about which API to use. They're about whether they'll still matter five years from now. That's not a technology problem. I speak two languages: organizational architecture and human experience. The space between them is where real transformation lives.",
+    "paragraphs": [
+      "Clarity isn't about knowing everything. It's about knowing what actually matters to you. When you fix your mental model, the overwhelm dissolves. You stop reacting to noise and start making decisions from genuine conviction.",
+      "My work draws on systems thinking, group dynamics, and a knack for asking the questions nobody else will. I tell you what I actually think, not what you want to hear. That's the foundation of solutions that stick."
+    ],
+    "forks": [
+      {
+        "label": "For the Executive:",
+        "body": "The edge you're standing at isn't just technological. It's structural, cultural, and deeply human. I help you see the whole field, not just the tools \u2014 so your organization moves with intention, not anxiety."
+      },
+      {
+        "label": "For the Individual:",
+        "body": "If you're building your own AI-powered service, you don't need another vendor. You need a teacher. I work with founders and operators who want to leave the engagement with their own capability, not their own dependency."
+      }
+    ],
+    "badges": [
+      {
+        "src": "/expert.png",
+        "alt": "GenAI Academy Expert badge"
+      },
+      {
+        "src": "/CCMP.png",
+        "alt": "Certified Change Management Professional badge"
+      },
+      {
+        "src": "/Futurist.jpg",
+        "alt": "Certified Futurist & Long-Term Analyst badge"
+      },
+      {
+        "src": "/CEBP.png",
+        "alt": "Certified Enterprise Blockchain Professional badge"
+      },
+      {
+        "src": "/PSM.png",
+        "alt": "Professional Scrum Master badge"
+      },
+      {
+        "src": "/PAL.png",
+        "alt": "Professional Agile Leadership badge"
+      }
+    ]
+  },
+  "mentoring": {
+    "updated": "Last updated: May 2026",
+    "eyebrow": "ONE-ON-ONE AI GUIDANCE",
+    "title": "Navigating the edge isn't a solo endeavor",
+    "lede": "Most \"training\" teaches tools. This is different. Whether you're a seasoned executive or early in your career, the real barrier isn't technical\u2014it's the story you're telling yourself about what's coming. I help you rewrite that story, one conversation at a time.",
+    "steps": [
+      {
+        "n": "1",
+        "title": "From Fear to Understanding",
+        "body": "AI anxiety is real and valid. We start by acknowledging what you're feeling. Then we replace uncertainty with clarity about what AI actually means for your work and life."
+      },
+      {
+        "n": "2",
+        "title": "From Understanding to Agency",
+        "body": "Once the fog lifts, we build your personal AI literacy. Not generic training, but the specific skills and mental models that matter for your role and ambitions."
+      },
+      {
+        "n": "3",
+        "title": "From Agency to Optimism",
+        "body": "The future isn't something that happens to you. With the right frame, AI becomes a lever for your goals: more time, more creative output, more impact."
+      }
+    ],
+    "pathTitle": "Choose your path",
+    "pathSub": "All sessions are 60 minutes, held via video call. Pick the format that fits where you are today."
+  },
+  "roi": {
+    "eyebrow": "Time Savings Estimator",
+    "title": "How Many Hours Could You Save?",
+    "lede": "Pick the tasks your team does every week. See what automation could give back.",
+    "selectLabel": "Select Your Tasks",
+    "estimateLabel": "Your Estimated Savings",
+    "tasks": [
+      {
+        "title": "Email triage & drafting",
+        "detail": "Sorting, prioritizing, and drafting responses to routine emails",
+        "hours": 5
+      },
+      {
+        "title": "Meeting notes & action items",
+        "detail": "Transcribing, summarizing, and distributing meeting outcomes",
+        "hours": 3
+      },
+      {
+        "title": "Data entry & CRM updates",
+        "detail": "Manual data transfer between systems and CRM maintenance",
+        "hours": 4
+      },
+      {
+        "title": "Report generation",
+        "detail": "Compiling data from multiple sources into weekly/monthly reports",
+        "hours": 3
+      },
+      {
+        "title": "Scheduling & calendar management",
+        "detail": "Coordinating meetings, managing conflicts, sending reminders",
+        "hours": 2
+      },
+      {
+        "title": "Client query responses",
+        "detail": "Answering repetitive questions via email, chat, or phone",
+        "hours": 6
+      },
+      {
+        "title": "Document & template creation",
+        "detail": "Drafting proposals, contracts, and standard documents",
+        "hours": 3
+      }
+    ]
+  },
+  "speaking": {
+    "eyebrow": "FACILITATION & ROUNDTABLES",
+    "title": "Need a Facilitator for Your AI Strategy Discussion?",
+    "lede": "Alex facilitates executive roundtables, strategy workshops, and team problem-solving sessions for organizations ready to move from AI discussions to AI decisions. No keynote fluff\u2014just structured conversations that produce alignment and action.",
+    "formats": [
+      {
+        "title": "Executive Roundtables",
+        "body": "Small groups, high-impact discussions. Alex facilitates conversations about AI strategy, accountability gaps, and organizational readiness."
+      },
+      {
+        "title": "Team Workshops",
+        "body": "Hands-on sessions where teams identify AI bottlenecks and leave with actionable next steps. Not theory\u2014tactical problem-solving."
+      },
+      {
+        "title": "Strategy Facilitation",
+        "body": "Structured sessions to align leadership on AI priorities. Perfect for organizations stuck in 'AI committee' paralysis."
+      }
+    ],
+    "topicsLabel": "Popular Discussion Topics:",
+    "topics": [
+      "From AI Chaos to AI Clarity: what actually works",
+      "Data Sovereignty & Ending Platform Dependency",
+      "Building Accountability in AI Projects"
+    ],
+    "cta": "Request a Session",
+    "closing": "Also available for podcast appearances and conference panels."
+  },
+  "assessmentCta": {
+    "label": "Free Assessment",
+    "title": "Not sure where to start?",
+    "body": "Take the 3-minute AI Readiness Assessment. 9 honest questions, a personalized diagnosis, and a clear next step.",
+    "cta": "Take the Assessment"
+  },
+  "insights": {
+    "title": "What Does the Armchair Futurist Write and Talk About?",
+    "lede": "Alex Myers publishes weekly articles and appears on podcasts about AI strategy, the future of work, and human-first technology adoption.",
+    "articlesLabel": "Latest Articles",
+    "articles": [
+      {
+        "date": "Jun 22, 2026",
+        "title": "AI Digest: June 22nd, 2026",
+        "image": "https://substackcdn.com/image/fetch/$s_!2wdf!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F32f1311f-ec8c-48c5-b04a-cb30be5b2a46_1378x796.png"
+      },
+      {
+        "date": "Jun 20, 2026",
+        "title": "AI Digest: June 20th, 2026",
+        "image": "https://substackcdn.com/image/fetch/$s_!lm_b!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fce5fae99-baf9-4e56-b1d0-d2ce818b3130_585x330.png"
+      },
+      {
+        "date": "Jun 18, 2026",
+        "title": "AI Digest: June 18th, 2026",
+        "image": "https://substackcdn.com/image/fetch/$s_!2V3R!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8d93a46a-d3fd-462e-a18e-8a210a96daeb_853x571.png"
+      }
+    ],
+    "viewAll": "View All Posts",
+    "podcastsLabel": "Podcasts & Interviews",
+    "podcasts": [
+      {
+        "title": "Mission Driven You",
+        "body": "How AI, blockchain, and mindfulness can empower humanity"
+      },
+      {
+        "title": "Mission Driven You (Psychedelics & Presence)",
+        "body": "Psychedelics, presence, and the search for meaning"
+      },
+      {
+        "title": "You Don't Need This Podcast",
+        "body": "AI evolution, neurotech, web3, and thriving amidst information overload"
+      }
+    ],
+    "showMore": "Show 4 More"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "lede": "Common questions about Alex Myers and AI strategy services.",
+    "items": [
+      {
+        "q": "What is the Armchair Futurist?",
+        "a": "An independent AI consultancy run by Alex Myers \u2014 focused on building client literacy rather than dependency."
+      },
+      {
+        "q": "What is the Accountability Gap in AI adoption?",
+        "a": "The gap between teams deploying AI tools and the people responsible for the outcomes. I close that gap."
+      },
+      {
+        "q": "What qualifications does Alex Myers have?",
+        "a": "Six professional certifications: FLTA, CCMP, GenAI, CEBP, PSM, PAL \u2014 plus 40+ AI systems deployed."
+      },
+      {
+        "q": "How much do services cost?",
+        "a": "Single sessions start at $120. Self-sufficiency intensives are $6,000. Custom builds start at $2,400."
+      },
+      {
+        "q": "How does AI guidance work?",
+        "a": "60-minute video sessions with recordings, summaries, and between-session async support."
+      },
+      {
+        "q": "Can Alex work with organizations outside the US?",
+        "a": "Yes. Alex is based in Portugal and serves clients worldwide."
+      },
+      {
+        "q": "What results can clients expect?",
+        "a": "Most clients reclaim 10\u201320 hours per week within the first month of engagement."
+      },
+      {
+        "q": "How is Alex different from other AI consultants?",
+        "a": "Most AI consultants build systems you depend on. I build understanding you keep."
+      },
+      {
+        "q": "What is Custom AI Provisioning?",
+        "a": "A specific AI workflow designed, built, and handed off with the documentation your team needs."
+      },
+      {
+        "q": "How do I choose the right AI consultant for my business?",
+        "a": "Look for someone who teaches as they work, hands off artifacts, and ends the engagement when the work is done."
+      },
+      {
+        "q": "What's the difference between an AI consultant and an AI agency?",
+        "a": "A consultant teaches you to operate; an agency operates for you. I work as a consultant."
+      },
+      {
+        "q": "Who is Alex Myers best suited to work with \u2014 and who isn't a fit?",
+        "a": "Founders, operators, and small teams ready to execute. Not for enterprise transformation or 'AI committee' work."
+      },
+      {
+        "q": "How do I get started?",
+        "a": "Take the free 3-minute assessment, or book a 15-minute call to talk through your situation."
+      }
+    ]
+  },
+  "connect": {
+    "title": "You're not behind. You're exactly where you need to be.",
+    "lede": "The edge of change is real, and it's okay to feel the weight of it. You don't need to have it all figured out. You just need a conversation with someone who's been here before. 15 minutes. No pitch. Just clarity on your next step.",
+    "primary": {
+      "label": "Book a Call",
+      "href": "https://calendar.app.google/nAHHwNMfhDvXGv7P7"
+    },
+    "secondary": {
+      "label": "Questions? Text Me on WhatsApp",
+      "href": "https://wa.me/15157706902"
+    },
+    "microcopy": "15 minutes. No pitch. Just clarity.",
+    "altPath": "Not sure if it's a fit? Take the 3-minute assessment first.",
+    "formIntro": "Or tell me what's on your mind and I'll write back",
+    "form": [
+      {
+        "name": "name",
+        "label": "Your name",
+        "type": "text"
+      },
+      {
+        "name": "email",
+        "label": "Your email",
+        "type": "email"
+      },
+      {
+        "name": "message",
+        "label": "What's on your mind?",
+        "type": "textarea"
+      },
+      {
+        "label": "Send",
+        "type": "submit"
+      }
+    ]
+  },
+  "footer": {
+    "brand": "The Armchair Futurist",
+    "tagline": "AI literacy that outlasts the tools.",
+    "columns": [
+      {
+        "label": "Work with Alex",
+        "links": [
+          {
+            "label": "1-on-1 Guidance",
+            "href": "#ai-guidance"
+          },
+          {
+            "label": "Self-Sufficiency Program",
+            "href": "#services"
+          },
+          {
+            "label": "Custom Build",
+            "href": "#services"
+          }
+        ]
+      },
+      {
+        "label": "Resources",
+        "links": [
+          {
+            "label": "Case Studies",
+            "href": "#case-studies"
+          },
+          {
+            "label": "ROI Calculator",
+            "href": "#roi-calculator"
+          },
+          {
+            "label": "Articles",
+            "href": "#latest-insights"
+          }
+        ]
+      },
+      {
+        "label": "About",
+        "links": [
+          {
+            "label": "Who Is Alex Myers",
+            "href": "#about-me"
+          },
+          {
+            "label": "Speaking & Workshops",
+            "href": "#speaking"
+          },
+          {
+            "label": "Free Assessment",
+            "href": "/assessment"
+          }
+        ]
+      }
+    ],
+    "legal": "\u00a9 2026 Alex Myers \u00b7 The Armchair Futurist",
+    "links": [
+      {
+        "label": "Privacy",
+        "href": "/privacy-policy"
+      },
+      {
+        "label": "Terms",
+        "href": "/terms-of-service"
+      }
+    ]
+  }
+}

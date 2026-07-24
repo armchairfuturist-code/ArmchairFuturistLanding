@@ -1,0 +1,1151 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Alex Myers — AI Consultant & Instructor</title>
+<meta name="description" content="AI literacy that outlasts the tools. 1-on-1 guidance, custom builds, and a 3-minute readiness assessment." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  /* === TOKENS === */
+  :root {
+    --hp-electric: 220 96% 43%;     /* #024ad8 */
+    --hp-bright:   217 95% 57%;     /* #296ef9 */
+    --hp-deep:     222 81% 31%;     /* #0e3191 = hsl(222, 81%, 31%) → rgb(14,49,145) */
+    --hp-soft:     213 90% 90%;
+    --ink:         0 0% 10%;        /* #1a1a1a */
+    --ink-deep:    0 0% 0%;
+    --ink-soft:    0 0% 16%;
+    --canvas:      0 0% 100%;
+    --cloud:       0 0% 97%;        /* #f7f7f7 */
+    --fog:         0 0% 91%;
+    --steel:       0 0% 76%;
+    --graphite:    0 0% 39%;
+    --charcoal:    0 0% 24%;
+    --hairline:    0 0% 91%;
+    --bloom-coral: 0 100% 66%;
+    --bloom-deep:  359 65% 43%;
+    --font-body:   "Manrope", "Inter", system-ui, sans-serif;
+    --font-display:"Space Grotesk", "Manrope", system-ui, sans-serif;
+    --font-mono:   "JetBrains Mono", "Courier New", Courier, monospace;
+    --radius:      4px;
+    --gap:         2rem;
+    --marquee-dur: 50s;
+  }
+
+  /* === BASE === */
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--font-body);
+    color: hsl(var(--ink));
+    background: hsl(var(--canvas));
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  main { display: block; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .display { font-family: var(--font-display); }
+  .mono    { font-family: var(--font-mono); }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 14px; letter-spacing: 1.4px; text-transform: uppercase;
+    color: hsl(var(--graphite));
+  }
+
+  /* === BUTTONS === */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.7px;
+    border: 1px solid transparent;
+    transition: background 180ms ease, color 180ms ease, transform 180ms ease, border-color 180ms ease;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .btn--primary { background: hsl(var(--hp-electric)); color: #fff; }
+  .btn--primary:hover { background: hsl(var(--hp-bright)); transform: translateY(-1px); }
+  .btn--ghost   { background: transparent; color: hsl(var(--ink)); border-color: hsl(var(--hairline-strong)); }
+  .btn--ghost:hover { background: hsl(var(--cloud)); }
+  .btn--on-blue { background: #fff; color: hsl(var(--hp-electric)); }
+  .btn--on-blue:hover { background: hsl(var(--cloud)); }
+  .btn--lg { padding: 16px 32px; font-size: 16px; }
+
+  /* === HEADER === */
+  .site-header {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.78);
+    border-bottom: 1px solid hsl(var(--hairline));
+  }
+  .header-inner {
+    display: flex; align-items: center; gap: 24px;
+    height: 64px;
+  }
+  .brand {
+    font-family: var(--font-display); font-weight: 700; font-size: 17px;
+    color: hsl(var(--ink));
+  }
+  .nav { display: none; gap: 24px; margin-left: 24px; }
+  .nav a { color: hsl(var(--ink-soft)); font-size: 14px; font-weight: 500; }
+  .nav a:hover { color: hsl(var(--hp-electric)); }
+  .header-cta { margin-left: auto; display: flex; gap: 12px; align-items: center; }
+  .header-cta .btn { padding: 8px 16px; font-size: 14px; }
+  @media (min-width: 1024px) { .nav { display: flex; } }
+  .menu-toggle { display: inline-flex; align-items: center; gap: 6px; background: transparent; border: 0; padding: 8px; border-radius: 8px; color: hsl(var(--ink)); }
+  @media (min-width: 1024px) { .menu-toggle { display: none; } }
+
+  /* === HERO === */
+  .hero {
+    position: relative; width: 100%;
+    min-height: 80vh;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    background:
+      linear-gradient(to bottom, rgba(255,255,255,0.92), rgba(255,255,255,0.96)),
+      repeating-linear-gradient(0deg, hsl(var(--hairline)) 0 1px, transparent 1px 64px),
+      repeating-linear-gradient(90deg, hsl(var(--hairline)) 0 1px, transparent 1px 64px);
+    background-color: hsl(var(--canvas));
+    padding: 48px 24px;
+  }
+  @media (min-width: 1024px) {
+    .hero { min-height: 85vh; padding: 96px 24px; }
+  }
+  .hero-inner { text-align: center; max-width: 1100px; width: 100%; }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-mono); font-size: 12px;
+    letter-spacing: 1.4px; text-transform: uppercase;
+    color: hsl(var(--graphite));
+    padding: 8px 14px; border-radius: 9999px;
+    border: 1px solid hsl(var(--hairline));
+    background: rgba(255,255,255,0.7);
+    margin-bottom: 28px;
+  }
+  .hero-tag .pulse {
+    display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+    background: hsl(var(--hp-electric));
+    box-shadow: 0 0 10px hsl(var(--hp-electric) / 0.6);
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+  .hero h1 {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(40px, 7vw, 96px);
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+    color: hsl(var(--ink));
+    margin: 0 0 18px;
+  }
+  .hero h1 .line-2 { color: hsl(var(--hp-electric)); display: block; }
+  .hero h1 .end {
+    display: block;
+    font-family: var(--font-mono); font-weight: 400; font-size: 0.35em;
+    letter-spacing: 1.4px; color: hsl(var(--graphite));
+    margin-top: 24px;
+  }
+  .hero-headline { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .hero-headline .row { display: block; text-align: center; letter-spacing: -0.015em; }
+  .hero-headline .word { display: inline; white-space: nowrap; }
+  .hero-headline .row--ink .word { color: hsl(var(--ink)); }
+  .hero-headline .row--electric .word { color: hsl(var(--hp-electric)); }
+  @media (max-width: 768px) { .hero-headline .row { letter-spacing: -0.025em; } }
+  .hero-ctas {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;
+    margin: 36px 0 24px;
+  }
+  .hero-reassure { color: hsl(var(--graphite)); font-size: 14px; margin-bottom: 24px; }
+  .hero-badges {
+    display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 12px;
+    font-size: 13px; color: hsl(var(--graphite));
+  }
+  .hero-badges span:not(:last-child)::after { content: "·"; margin-left: 12px; }
+
+  /* === LOGO BANNER / MARQUEE === */
+  .logo-banner {
+    background: hsl(var(--cloud) / 0.5);
+    border-top: 1px solid hsl(var(--hairline) / 0.4);
+    border-bottom: 1px solid hsl(var(--hairline) / 0.4);
+    padding: 40px 0;
+    overflow: hidden;
+  }
+  .logo-banner-label {
+    text-align: center;
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: hsl(var(--graphite));
+    margin-bottom: 20px;
+  }
+  .marquee {
+    display: flex; overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+            mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  }
+  .marquee-track {
+    display: flex; flex-shrink: 0; gap: var(--gap);
+    padding-right: var(--gap);
+    animation: marquee var(--marquee-dur) linear infinite;
+  }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(calc(-100% - var(--gap))); }
+  }
+  .marquee-item {
+    flex-shrink: 0;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 22px;
+    color: hsl(var(--charcoal));
+    opacity: 0.78;
+    padding: 0 24px;
+    white-space: nowrap;
+    letter-spacing: -0.01em;
+  }
+
+  /* === SECTION SHELL === */
+  section { scroll-margin-top: 80px; }
+  .section { padding: 64px 0; }
+  @media (min-width: 768px) { .section { padding: 96px 0; } }
+  .section--paper  { background: hsl(var(--cloud)); }
+  .section--blue   { background: hsl(var(--hp-deep)); color: #fff; }
+  .section--electric { background: hsl(var(--hp-electric)); color: #fff; }
+  .section-head { max-width: 760px; margin-bottom: 48px; }
+  .section-head--center { margin-left: auto; margin-right: auto; text-align: center; }
+  .section-head h2 {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 30px; line-height: 1.1;
+    letter-spacing: -0.025em; color: hsl(var(--hp-electric));
+    margin: 12px 0 16px;
+  }
+  @media (min-width: 768px) {
+    .section-head h2 { font-size: 36px; }
+  }
+  .section--blue h2, .section--electric h2 { color: #fff; }
+  .section-head p { color: hsl(var(--ink-soft)); font-size: 18px; line-height: 1.55; max-width: 60ch; margin: 0; }
+  .section--blue .section-head p, .section--electric .section-head p { color: rgba(255,255,255,0.85); }
+
+  /* === CASE STUDIES === */
+  .case-grid { display: grid; gap: 24px; grid-template-columns: 1fr; }
+  @media (min-width: 768px) { .case-grid { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1024px) { .case-grid { grid-template-columns: repeat(3, 1fr); } }
+  .case-card {
+    background: #fff; border: 1px solid hsl(var(--hairline));
+    border-radius: 12px; padding: 28px;
+    display: flex; flex-direction: column; gap: 18px;
+    transition: transform 200ms ease, box-shadow 200ms ease;
+  }
+  .case-card:hover { transform: translateY(-2px); box-shadow: 0 12px 32px hsl(var(--ink) / 0.06); }
+  .case-card h3 { font-family: var(--font-display); font-size: 22px; line-height: 1.25; margin: 0; color: hsl(var(--ink)); }
+  .case-card .sector { font-size: 14px; color: hsl(var(--graphite)); }
+  .case-card .built {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+    padding: 6px 10px; border-radius: 9999px; background: hsl(var(--hp-soft)); color: hsl(var(--hp-deep));
+    width: fit-content;
+  }
+  .case-card .label { font-family: var(--font-mono); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: hsl(var(--hp-electric)); }
+  .case-card p, .case-card li { font-size: 15px; line-height: 1.55; color: hsl(var(--ink-soft)); }
+  .case-card ul { padding-left: 18px; margin: 0; }
+
+  .disclaimer {
+    margin-top: 32px; padding: 12px 16px; border-radius: 8px;
+    background: hsl(var(--cloud)); color: hsl(var(--graphite));
+    font-size: 13px; font-style: italic;
+  }
+
+  /* === TESTIMONIALS === */
+  .testimonials { background: hsl(var(--cloud)); }
+  .marquee--vertical {
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 8%, #000 92%, transparent);
+            mask-image: linear-gradient(to bottom, transparent, #000 8%, #000 92%, transparent);
+  }
+  .testimonial-track {
+    display: flex; flex-shrink: 0; gap: 20px;
+    animation: marquee var(--marquee-dur) linear infinite;
+    padding-right: 20px;
+  }
+  .testimonial-track--alt { animation-direction: reverse; animation-duration: 70s; }
+  .testimonial-track:hover { animation-play-state: paused; }
+  .testimonial {
+    flex-shrink: 0;
+    width: 380px;
+    background: #fff; border: 1px solid hsl(var(--hairline));
+    border-radius: 14px; padding: 24px;
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .testimonial blockquote { margin: 0; font-size: 15px; line-height: 1.55; color: hsl(var(--ink-soft)); }
+  .testimonial cite { font-style: normal; font-weight: 600; font-size: 14px; color: hsl(var(--ink)); }
+  .testimonial .role { font-size: 13px; color: hsl(var(--graphite)); }
+  .testimonial .avatar {
+    width: 40px; height: 40px; border-radius: 9999px; background: hsl(var(--cloud));
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 700; color: hsl(var(--hp-electric));
+  }
+  .testimonial-head { display: flex; align-items: center; gap: 12px; }
+  .pause-hint {
+    text-align: center; font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 1.4px; text-transform: uppercase; color: hsl(var(--graphite));
+    margin-top: 12px;
+  }
+
+  /* === STATS === */
+  .stats-grid { display: grid; gap: 16px; grid-template-columns: 1fr; }
+  @media (min-width: 768px) { .stats-grid { grid-template-columns: repeat(3, 1fr); } }
+  .stat {
+    padding: 28px; border: 1px solid hsl(var(--hairline));
+    border-radius: 12px; background: #fff;
+  }
+  .stat .value { font-family: var(--font-display); font-weight: 700; font-size: 56px; line-height: 1; color: hsl(var(--hp-electric)); }
+  .stat .label { font-family: var(--font-display); font-weight: 600; font-size: 18px; margin-top: 8px; color: hsl(var(--ink)); }
+  .stat .detail { font-size: 14px; color: hsl(var(--graphite)); margin-top: 4px; }
+  .stats-secondary {
+    display: grid; gap: 32px; grid-template-columns: 1fr; margin-top: 48px;
+    padding-top: 32px; border-top: 1px solid hsl(var(--hairline));
+  }
+  @media (min-width: 1024px) { .stats-secondary { grid-template-columns: 1fr 1fr; } }
+  .stats-secondary h3 { font-family: var(--font-display); font-size: 16px; letter-spacing: 1px; text-transform: uppercase; color: hsl(var(--graphite)); margin: 0 0 8px; font-weight: 700; }
+  .stats-secondary p { color: hsl(var(--ink-soft)); font-size: 15px; line-height: 1.6; margin: 0; }
+
+  /* === WHAT THIS IS NOT === */
+  .notfor-grid { display: grid; gap: 16px; grid-template-columns: 1fr; }
+  @media (min-width: 768px) { .notfor-grid { grid-template-columns: 1fr 1fr; } }
+  .notfor {
+    padding: 24px; border-radius: 12px;
+    background: hsl(var(--cloud)); border-left: 4px solid hsl(var(--bloom-deep));
+  }
+  .notfor h3 { font-family: var(--font-display); font-size: 18px; margin: 0 0 8px; color: hsl(var(--ink)); }
+  .notfor p { color: hsl(var(--ink-soft)); font-size: 15px; line-height: 1.55; margin: 0; }
+  .better-options {
+    margin-top: 32px; padding: 28px; border-radius: 12px;
+    border: 1px dashed hsl(var(--hairline-strong));
+    background: #fff;
+  }
+  .better-options h3 { font-family: var(--font-display); font-size: 16px; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 12px; color: hsl(var(--graphite)); }
+  .better-options ul { padding-left: 18px; margin: 0; color: hsl(var(--ink-soft)); }
+  .better-options li { margin-bottom: 6px; }
+
+  /* === SERVICES === */
+  .services-tracks { display: grid; gap: 32px; grid-template-columns: 1fr; }
+  @media (min-width: 1024px) { .services-tracks { grid-template-columns: 1fr 1fr; } }
+  .track {
+    border: 1px solid hsl(var(--hairline));
+    border-radius: 16px;
+    padding: 28px;
+    background: #fff;
+    display: flex; flex-direction: column; gap: 18px;
+  }
+  .track-tag {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase;
+    color: hsl(var(--hp-electric));
+  }
+  .track h3 { font-family: var(--font-display); font-size: 28px; margin: 0; color: hsl(var(--ink)); }
+  .track .subtitle { color: hsl(var(--graphite)); font-size: 16px; margin: 0; }
+  .track .body { color: hsl(var(--ink-soft)); font-size: 15px; line-height: 1.6; margin: 0; }
+  .offer {
+    border-top: 1px solid hsl(var(--hairline));
+    padding-top: 18px;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .offer-duration {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase;
+    color: hsl(var(--graphite));
+  }
+  .offer h4 { font-family: var(--font-display); font-size: 20px; margin: 0; color: hsl(var(--ink)); }
+  .offer .price { font-family: var(--font-display); font-weight: 600; color: hsl(var(--hp-electric)); }
+  .offer .blurb { color: hsl(var(--ink-soft)); font-size: 14px; line-height: 1.55; margin: 0; }
+  .offer ul { padding-left: 18px; margin: 0; color: hsl(var(--ink-soft)); font-size: 14px; }
+  .offer ul li { margin-bottom: 4px; }
+  .offer .btn { align-self: flex-start; padding: 10px 20px; font-size: 14px; }
+
+  /* === ABOUT ME (deep blue) === */
+  .about { position: relative; overflow: hidden; }
+  .about-grid { display: grid; gap: 48px; grid-template-columns: 1fr; align-items: center; }
+  @media (min-width: 1024px) { .about-grid { grid-template-columns: 1.05fr 1fr; gap: 80px; } }
+  .about h2 { color: #fff; }
+  .about-verify { font-family: var(--font-mono); font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 12px; }
+  .about-tag {
+    display: inline-block; padding: 4px 12px; border-radius: 9999px;
+    background: hsl(var(--hp-electric)); color: #fff;
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .about p { color: rgba(255,255,255,0.85); font-size: 16px; line-height: 1.65; margin: 0 0 16px; }
+  .about-forks { margin-top: 32px; display: grid; gap: 20px; grid-template-columns: 1fr; }
+  @media (min-width: 640px) { .about-forks { grid-template-columns: 1fr 1fr; } }
+  .about-forks h3 { color: hsl(var(--hp-electric)); font-family: var(--font-body); font-size: 18px; margin: 0 0 6px; }
+  .about-forks p { color: rgba(255,255,255,0.78); font-size: 14px; margin: 0; }
+  .about-portrait {
+    width: 100%; max-width: 460px; aspect-ratio: 3/4;
+    background: linear-gradient(180deg, transparent, rgba(255,255,255,0.06));
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex; align-items: flex-end; justify-content: center;
+  }
+  .about-portrait-placeholder {
+    width: 70%; aspect-ratio: 3/4; background: rgba(255,255,255,0.08);
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.5);
+    font-family: var(--font-display); font-weight: 700; font-size: 64px;
+  }
+  .about-badges { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+  .about-badges img { width: 56px; height: 56px; border-radius: 8px; background: rgba(255,255,255,0.08); }
+
+  /* === MENTORING (steps) === */
+  .steps { display: grid; gap: 24px; grid-template-columns: 1fr; }
+  @media (min-width: 768px) { .steps { grid-template-columns: repeat(3, 1fr); } }
+  .step { background: #fff; border: 1px solid hsl(var(--hairline)); border-radius: 12px; padding: 24px; }
+  .step .n { font-family: var(--font-display); font-weight: 700; font-size: 36px; color: hsl(var(--hp-electric)); }
+  .step h3 { font-family: var(--font-display); font-size: 18px; margin: 8px 0; }
+  .step p { color: hsl(var(--ink-soft)); font-size: 14px; line-height: 1.55; margin: 0; }
+
+  /* === ROI === */
+  .roi { background: hsl(var(--cloud)); }
+  .roi-grid { display: grid; gap: 32px; grid-template-columns: 1fr; }
+  @media (min-width: 1024px) { .roi-grid { grid-template-columns: 1fr 1fr; gap: 48px; } }
+  .roi-tasks { display: grid; gap: 12px; }
+  .roi-task {
+    display: grid; grid-template-columns: auto 1fr auto;
+    gap: 16px; align-items: center;
+    padding: 16px; border: 1px solid hsl(var(--hairline) / 0.4);
+    border-radius: 12px; background: #fff;
+    cursor: pointer;
+    transition: border-color 150ms ease, background 150ms ease;
+  }
+  .roi-task.is-checked { border-color: hsl(var(--hp-electric)); background: hsl(var(--hp-soft) / 0.3); }
+  .roi-task input { accent-color: hsl(var(--hp-electric)); width: 18px; height: 18px; }
+  .roi-task .title { font-weight: 600; color: hsl(var(--ink)); }
+  .roi-task .detail { color: hsl(var(--graphite)); font-size: 13px; }
+  .roi-task .hours { font-family: var(--font-mono); font-size: 14px; color: hsl(var(--hp-electric)); white-space: nowrap; }
+  .roi-estimate {
+    background: #fff; border-radius: 16px; padding: 32px;
+    border: 1px solid hsl(var(--hairline));
+    display: flex; flex-direction: column; gap: 16px; align-items: flex-start;
+  }
+  .roi-estimate .value { font-family: var(--font-display); font-weight: 700; font-size: 64px; color: hsl(var(--hp-electric)); line-height: 1; }
+  .roi-estimate .label-text { font-size: 16px; color: hsl(var(--ink-soft)); }
+  .roi-estimate .breakdown { color: hsl(var(--graphite)); font-size: 14px; }
+
+  /* === SPEAKING === */
+  .speaking { background: hsl(var(--cloud)); }
+  .speaking-grid { display: grid; gap: 16px; grid-template-columns: 1fr; }
+  @media (min-width: 768px) { .speaking-grid { grid-template-columns: repeat(3, 1fr); } }
+  .speak { background: #fff; border: 1px solid hsl(var(--hairline)); border-radius: 12px; padding: 24px; }
+  .speak h3 { font-family: var(--font-display); font-size: 18px; margin: 0 0 8px; }
+  .speak p { color: hsl(var(--ink-soft)); font-size: 14px; line-height: 1.55; margin: 0; }
+  .topics { margin-top: 24px; }
+  .topics h4 { font-family: var(--font-display); font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: hsl(var(--graphite)); margin: 0 0 8px; }
+  .topics ul { padding-left: 18px; margin: 0; color: hsl(var(--ink-soft)); }
+
+  /* === ASSESSMENT CTA === */
+  .assessment-cta { background: hsl(var(--hp-deep)); color: #fff; padding: 80px 0; text-align: center; border-top: 1px solid hsl(var(--hairline) / 0.3); border-bottom: 1px solid hsl(var(--hairline) / 0.3); }
+  .assessment-cta .label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; color: hsl(var(--bloom-coral)); margin-bottom: 16px; }
+  .assessment-cta h2 { font-family: var(--font-display); font-weight: 700; font-size: 28px; line-height: 1.15; letter-spacing: -0.025em; color: #fff; margin: 0 0 12px; }
+  .assessment-cta p { color: rgba(255,255,255,0.85); font-size: 16px; max-width: 60ch; margin: 0 auto 24px; }
+
+  /* === INSIGHTS === */
+  .insights-grid { display: grid; gap: 32px; grid-template-columns: 1fr; }
+  @media (min-width: 1024px) { .insights-grid { grid-template-columns: 1fr 1fr; gap: 48px; } }
+  .articles { display: grid; gap: 16px; }
+  .article { display: grid; grid-template-columns: 96px 1fr; gap: 16px; align-items: center; padding: 12px; border-radius: 10px; transition: background 150ms ease; }
+  .article:hover { background: hsl(var(--cloud)); }
+  .article img { width: 96px; height: 64px; object-fit: cover; border-radius: 6px; background: hsl(var(--fog)); }
+  .article .date { font-family: var(--font-mono); font-size: 11px; color: hsl(var(--graphite)); letter-spacing: 0.5px; }
+  .article .title { font-family: var(--font-body); font-weight: 600; font-size: 14px; color: hsl(var(--ink)); margin-top: 4px; }
+  .podcasts { display: grid; gap: 12px; }
+  .podcast { padding: 16px; border: 1px solid hsl(var(--hairline)); border-radius: 10px; }
+  .podcast h4 { font-family: var(--font-body); font-weight: 600; font-size: 15px; margin: 0 0 4px; color: hsl(var(--ink)); }
+  .podcast p { margin: 0; color: hsl(var(--graphite)); font-size: 13px; }
+
+  /* === FAQ === */
+  .faq { background: hsl(var(--cloud)); }
+  .faq details {
+    background: #fff; border: 1px solid hsl(var(--hairline));
+    border-radius: 10px; padding: 18px 20px; margin-bottom: 12px;
+  }
+  .faq summary {
+    list-style: none; cursor: pointer;
+    font-family: var(--font-display); font-weight: 600; font-size: 16px; color: hsl(var(--ink));
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; font-family: var(--font-mono); font-size: 20px; color: hsl(var(--hp-electric)); }
+  .faq details[open] summary::after { content: "−"; }
+  .faq details p { margin: 12px 0 0; color: hsl(var(--ink-soft)); font-size: 15px; line-height: 1.55; }
+
+  /* === CONNECT === */
+  .connect { background: hsl(var(--hp-electric)); color: #fff; padding: 96px 0; }
+  .connect h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(28px, 4vw, 48px); line-height: 1.1; color: #fff; margin: 0 0 16px; letter-spacing: -0.02em; max-width: 24ch; }
+  .connect p { color: rgba(255,255,255,0.85); font-size: 17px; line-height: 1.6; max-width: 60ch; margin: 0 0 32px; }
+  .connect-grid { display: grid; gap: 32px; grid-template-columns: 1fr; }
+  @media (min-width: 1024px) { .connect-grid { grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; } }
+  .connect-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+  .connect .micro { font-size: 13px; color: rgba(255,255,255,0.7); margin-top: 8px; }
+  .connect .alt-path { font-size: 14px; color: rgba(255,255,255,0.85); margin: 24px 0 16px; }
+  .connect-form { background: rgba(255,255,255,0.08); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 12px; }
+  .connect-form label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+  .connect-form input, .connect-form textarea {
+    width: 100%; padding: 12px 14px; border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.06); color: #fff;
+    font: inherit;
+  }
+  .connect-form textarea { min-height: 96px; resize: vertical; }
+  .connect-form button { align-self: flex-start; background: #fff; color: hsl(var(--hp-electric)); }
+
+  /* === FOOTER === */
+  .site-footer { background: hsl(var(--ink)); color: rgba(255,255,255,0.85); padding: 64px 0 32px; }
+  .footer-grid { display: grid; gap: 32px; grid-template-columns: 1fr; }
+  @media (min-width: 768px) { .footer-grid { grid-template-columns: 1.5fr repeat(3, 1fr); } }
+  .footer-grid h4 { font-family: var(--font-mono); font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin: 0 0 12px; }
+  .footer-grid ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+  .footer-grid a { color: rgba(255,255,255,0.85); font-size: 14px; }
+  .footer-grid a:hover { color: #fff; }
+  .footer-meta { margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.12); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 13px; color: rgba(255,255,255,0.5); }
+  .footer-meta a { color: rgba(255,255,255,0.6); }
+
+  /* === UTILITIES === */
+  .visually-hidden {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+</style>
+</head>
+<body>
+<a href="#main-content" class="visually-hidden">Skip to content</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="#" class="brand">The Armchair Futurist</a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#ai-guidance">Coaching</a>
+      <a href="#services">Services</a>
+      <a href="#case-studies">Case Studies</a>
+      <a href="#roi-calculator">ROI Calculator</a>
+      <a href="#latest-insights">Blog</a>
+      <a href="#about-me">About</a>
+      <a href="https://github.com/alexmyers" rel="noopener" target="_blank">GitHub</a>
+    </nav>
+    <div class="header-cta">
+      <a class="btn btn--ghost" href="/assessment">Free Assessment</a>
+      <a class="btn btn--primary" href="https://calendar.app.google/nAHHwNMfhDvXGv7P7" rel="noopener" target="_blank">Book Call</a>
+      <button class="menu-toggle" type="button" aria-label="Toggle Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Hero">
+    <div class="hero-inner">
+      <span class="hero-tag"><span class="pulse"></span>AI ALERT · 2026</span>
+      <h1 class="hero-headline" aria-label="AI Won't Replace You. Someone Using AI Better Than You Will.">
+        <span class="row row--ink"><span class="word">AI</span><span class="word">Won&rsquo;t</span><span class="word">Replace</span><span class="word">You.</span></span>
+        <span class="row row--electric"><span class="word">Someone</span><span class="word">Using</span><span class="word">AI</span><span class="word">Better</span><span class="word">Than</span><span class="word">You</span><span class="word">Will.</span></span>
+        <span class="end">// END OF MESSAGE</span>
+      </h1>
+      <div class="hero-ctas">
+        <a class="btn btn--primary btn--lg" href="https://calendar.app.google/nAHHwNMfhDvXGv7P7" rel="noopener" target="_blank">Book a 15-min Call</a>
+        <a class="btn btn--ghost btn--lg" href="#services">See Programs</a>
+        <a class="btn btn--ghost btn--lg" href="https://wa.me/15157706902" rel="noopener" target="_blank">Or message on WhatsApp</a>
+      </div>
+      <p class="hero-reassure">No pressure. No pitch. Just clarity.</p>
+      <div class="hero-badges">
+        <span>40+ AI systems deployed</span>
+        <span>100+ hours of 1-on-1 AI guidance</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGO BANNER -->
+  <section class="logo-banner" aria-label="Engagements">
+    <p class="logo-banner-label">SELECT ENGAGEMENTS</p>
+    <div class="marquee" role="marquee">
+      <div class="marquee-track" style="--marquee-dur: 50s;">
+        <span class="marquee-item">Mindscape</span>
+        <span class="marquee-item">The Integrative Practitioner</span>
+        <span class="marquee-item">Culminate</span>
+        <span class="marquee-item">Floop</span>
+        <span class="marquee-item">Kemin</span>
+        <span class="marquee-item">Aragon</span>
+        <span class="marquee-item">Launch</span>
+        <span class="marquee-item">Reverie</span>
+        <span class="marquee-item">Helio</span>
+        <span class="marquee-item">Northwind</span>
+      </div>
+      <div class="marquee-track" aria-hidden="true" style="--marquee-dur: 50s;">
+        <span class="marquee-item">Mindscape</span>
+        <span class="marquee-item">The Integrative Practitioner</span>
+        <span class="marquee-item">Culminate</span>
+        <span class="marquee-item">Floop</span>
+        <span class="marquee-item">Kemin</span>
+        <span class="marquee-item">Aragon</span>
+        <span class="marquee-item">Launch</span>
+        <span class="marquee-item">Reverie</span>
+        <span class="marquee-item">Helio</span>
+        <span class="marquee-item">Northwind</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section id="case-studies" class="section" aria-label="Engagement Patterns">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Engagement Patterns</p>
+        <h2>What Happens When AI Actually Works</h2>
+        <p>Three recent projects. Anonymized and composited. No strategy decks.</p>
+      </div>
+      <div class="case-grid">
+        <article class="case-card">
+          <span class="built">Built in 5 days</span>
+          <h3>Automated Client Response System</h3>
+          <p class="sector">Professional Services Firm</p>
+          <div>
+            <p class="label">The Problem</p>
+            <p>Team spent a large share of the day answering repetitive client queries across email and WhatsApp. Response times stretched across the working day. Clients complained about slow turnaround.</p>
+          </div>
+          <div>
+            <p class="label">What I Built</p>
+            <p>Built an n8n workflow that routes incoming queries, drafts context-aware responses using AI, and sends them through approved channels. Human reviews only edge cases.</p>
+          </div>
+          <div>
+            <p class="label">What I Worked On</p>
+            <ul>
+              <li>Mapped 14 repetitive query categories across email and WhatsApp</li>
+              <li>Drafted 6 reusable response templates with human-review escalation rules</li>
+              <li>Handed off a runbook plus a 2-person training session for the ops team</li>
+            </ul>
+          </div>
+        </article>
+        <article class="case-card">
+          <span class="built">Delivered in 2 weeks</span>
+          <h3>Frictionless Service Purchase Flow</h3>
+          <p class="sector">Consulting & Advisory Practice</p>
+          <div>
+            <p class="label">The Problem</p>
+            <p>Buyers abandoned checkout because intake forms duplicated sales calls. Conversion stalled under 4%.</p>
+          </div>
+          <div>
+            <p class="label">What I Built</p>
+            <p>Replaced the static intake with a conversational qualifier that captured the same fields, surfaced pricing, and booked a discovery call only when intent was real.</p>
+          </div>
+          <div>
+            <p class="label">What I Worked On</p>
+            <ul>
+              <li>Drafted 9 qualifying questions aligned to existing discovery framework</li>
+              <li>Wired Stripe checkout + Google Calendar booking behind a single flow</li>
+              <li>Cut form completion time from 11 to 3 minutes; conversions rose 3.2×</li>
+            </ul>
+          </div>
+        </article>
+        <article class="case-card">
+          <span class="built">Built in 9 days</span>
+          <h3>Automated Meeting-to-Action Pipeline</h3>
+          <p class="sector">Operations Team</p>
+          <div>
+            <p class="label">The Problem</p>
+            <p>Every client meeting produced 40+ minutes of notes nobody read. Action items surfaced days later in standup, often misattributed.</p>
+          </div>
+          <div>
+            <p class="label">What I Built</p>
+            <p>Built a recording-to-action pipeline: transcript → summary → tasks → CRM. Each step had a human approval gate.</p>
+          </div>
+          <div>
+            <p class="label">What I Worked On</p>
+            <ul>
+              <li>Integrated 3 video platforms with a single transcript service</li>
+              <li>Designed approval gates so the team could correct attribution before sync</li>
+              <li>Action items now reach CRM within 4 hours of meeting end</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+      <p class="disclaimer">Composite, anonymized — illustrative patterns from real engagements, not specific client outcomes.</p>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="section testimonials" aria-label="Testimonials">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>What Do Clients Say About Working With Alex Myers?</h2>
+        <p>Testimonials from executives, founders, and operators across tech, strategy, and change management.</p>
+      </div>
+      <div class="marquee marquee--vertical" style="height: 320px;">
+        <div class="testimonial-track">
+          <article class="testimonial">
+            <blockquote>I knew Alex was brilliant, but working with him transformed my business. He helped me reclaim 20 hours per week through AI optimization and launch a website that landed a deal within an hour. Beyond the metrics, Alex provides balance. In a world of AI noise, he helps entrepreneurs use tech with a soul-led focus. If your digital presence doesn't feel like your Authentic Self, you don't need a developer—you need a Tech Sherpa.</blockquote>
+            <div class="testimonial-head">
+              <span class="avatar">SM</span>
+              <div><cite>Shannon Myers</cite><div class="role">Founder of The Integrative Practitioner</div></div>
+            </div>
+          </article>
+          <article class="testimonial">
+            <blockquote>Alex is a fantastic communicator who made the website redesign process effortless. I'm thrilled with the outcome and the creative ideas Alex brought to the project that I never would have thought of.</blockquote>
+            <div class="testimonial-head">
+              <span class="avatar">SK</span>
+              <div><cite>Stephan Kerby</cite><div class="role">Co-Founder, Mindscape Psychedelic Institute</div></div>
+            </div>
+          </article>
+          <article class="testimonial">
+            <blockquote>Alex has a strong work ethic and real attention to detail. He's open-minded about how to solve a problem and patient with shifting requirements.</blockquote>
+            <div class="testimonial-head">
+              <span class="avatar">AA</span>
+              <div><cite>Alex A.</cite><div class="role">Product Lead</div></div>
+            </div>
+          </article>
+          <article class="testimonial">
+            <blockquote>Working with Alex felt like having a translator between our team and the AI tools we kept buying but never finishing. We finally shipped.</blockquote>
+            <div class="testimonial-head">
+              <span class="avatar">KS</span>
+              <div><cite>Karrie S.</cite><div class="role">Operations Director</div></div>
+            </div>
+          </article>
+          <article class="testimonial">
+            <blockquote>I came in skeptical. I left with a system my team actually uses every Monday. That alone was worth the engagement.</blockquote>
+            <div class="testimonial-head">
+              <span class="avatar">TM</span>
+              <div><cite>Tessa M.</cite><div class="role">Founder, Strategy Consultancy</div></div>
+            </div>
+          </article>
+        </div>
+        <div class="testimonial-track" aria-hidden="true">
+          <article class="testimonial">
+            <blockquote>Alex doesn't sell tools — he sells understanding. That's rare in this space.</blockquote>
+            <div class="testimonial-head">
+              <span class="avatar">SS</span>
+              <div><cite>Sepehr S.</cite><div class="role">Engineering Manager</div></div>
+            </div>
+          </article>
+          <article class="testimonial">
+            <blockquote>The 3-minute assessment was the most honest framing of where my business stood that I'd ever seen.</blockquote>
+            <div class="testimonial-head">
+              <span class="avatar">M</span>
+              <div><cite>Marco</cite><div class="role">Independent Consultant</div></div>
+            </div>
+          </article>
+          <article class="testimonial">
+            <blockquote>We had three AI vendors pitch us the same stack. Alex was the only one who asked what problem we were actually trying to solve.</blockquote>
+            <div class="testimonial-head">
+              <span class="avatar">EH</span>
+              <div><cite>Evan H.</cite><div class="role">Head of Operations</div></div>
+            </div>
+          </article>
+          <article class="testimonial">
+            <blockquote>My favorite thing about working with Alex is that he ends the engagement when the work is done, not when the retainer runs out.</blockquote>
+            <div class="testimonial-head">
+              <span class="avatar">LS</span>
+              <div><cite>Lia S.</cite><div class="role">Studio Director</div></div>
+            </div>
+          </article>
+          <article class="testimonial">
+            <blockquote>Direct, calm, and very good at cutting through noise. Exactly the guide we needed at that moment.</blockquote>
+            <div class="testimonial-head">
+              <span class="avatar">J</span>
+              <div><cite>Jasper</cite><div class="role">Founder, Education Platform</div></div>
+            </div>
+          </article>
+        </div>
+      </div>
+      <p class="pause-hint">hover to pause</p>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section id="stats" class="section" aria-label="Track record">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Track record</p>
+        <h2>For founders, operators, and independent professionals building AI-powered services.</h2>
+      </div>
+      <div class="stats-grid">
+        <div class="stat"><div class="value">40+</div><div class="label">AI systems deployed</div><div class="detail">Across organizations of all sizes</div></div>
+        <div class="stat"><div class="value">10–20h</div><div class="label">reclaimed weekly</div><div class="detail">Average per client</div></div>
+        <div class="stat"><div class="value">6</div><div class="label">certifications</div><div class="detail">FLTA, CCMP, GenAI, CEBP, PSM, PAL</div></div>
+      </div>
+      <div class="stats-secondary">
+        <div>
+          <h3>SELECTED ENGAGEMENTS</h3>
+          <p>Founders, solo operators, and small teams building AI-powered services. Names of recent clients withheld by request.</p>
+        </div>
+        <div>
+          <h3>About Alex Myers</h3>
+          <p>AI Guide based in Portugal, serving clients worldwide. With 6 professional certifications and 40+ AI systems deployed, Alex teaches deep AI literacy so you can design, launch, and sell your own AI-powered services. No dependency. No retainer. Just understanding.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT THIS IS NOT -->
+  <section id="what-this-is-not" class="section" aria-label="What this is NOT for">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">HONEST FIT ASSESSMENT</p>
+        <h2>What this is NOT for</h2>
+        <p>I'd rather lose a sale than take on work I can't deliver. If these describe you, there are better options.</p>
+      </div>
+      <div class="notfor-grid">
+        <div class="notfor">
+          <h3>Not for enterprise transformation programs</h3>
+          <p>I work with founders, operators, and small teams — not large organizations running the 2023 playbook with better tools. That's the dabbling trap. If you need a vendor to manage your AI rollout across 500 employees, other consultants are better suited.</p>
+        </div>
+        <div class="notfor">
+          <h3>Not for leaders still evaluating whether AI matters</h3>
+          <p>If you're still forming committees to study AI, start elsewhere. I work with people who are ready to execute — not to write reports.</p>
+        </div>
+        <div class="notfor">
+          <h3>Not for people who want AI to do the work for them</h3>
+          <p>I build systems you understand and operate. If you want AI magic that runs on its own, this isn't the right fit. You need to own the process.</p>
+        </div>
+        <div class="notfor">
+          <h3>Not if you expect AI to fix team dysfunction</h3>
+          <p>AI amplifies what's already there. If your team struggles with accountability, trust, or decision rights, AI won't fix that. Fix the team first.</p>
+        </div>
+      </div>
+      <div class="better-options">
+        <h3>Better Options If...</h3>
+        <ul>
+          <li>You're a 200+ person org with a dedicated transformation budget</li>
+          <li>You need a vendor to manage multi-quarter rollouts</li>
+          <li>You're shopping for AI theater to put in a board deck</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section" aria-label="From Dependency to Independence">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">YOUR PATH TO AI INDEPENDENCE</p>
+        <h2>From Dependency to Independence</h2>
+        <p>Most AI consultants build systems you depend on. I build understanding you keep — so deep you can design, launch, and sell your own AI-powered services. Pick the path that fits where you are today.</p>
+      </div>
+      <div class="services-tracks">
+        <div class="track">
+          <span class="track-tag">WE DO IT TOGETHER</span>
+          <h3>Guidance & Education</h3>
+          <p class="subtitle">Build the literacy to do it yourself</p>
+          <p class="body">I teach you the AI literacy required to design, launch, and sell your own AI-powered services. From a single 60-minute session to a 3-month executive intensive — every path leads to the same place: you, independent.</p>
+          <div class="offer">
+            <span class="offer-duration">3 MINUTES</span>
+            <h4>AI Readiness Assessment</h4>
+            <p class="price">Free</p>
+            <p class="blurb">Not sure where you stand? Take the free 3-minute diagnostic. You'll get your personalized AI archetype, clarity score, and a clear recommended next step — no pitch, no pressure.</p>
+            <ul><li>3-minute quiz</li><li>Personalized AI archetype</li><li>Clarity & readiness score</li><li>Recommended next step</li></ul>
+            <a class="btn btn--primary" href="/assessment">Take the Assessment</a>
+          </div>
+          <div class="offer">
+            <span class="offer-duration">SINGLE · 5 · 10 · 20 PACKS</span>
+            <h4>1-on-1 AI Guidance</h4>
+            <p class="price">$120 – $2,000</p>
+            <p class="blurb">The proven foundation. Start with a single 60-minute session to fix one decision; graduate to a 10-pack when you're ready to ship.</p>
+            <ul><li>60-minute video sessions</li><li>Recording + summary</li><li>Tool recommendations</li><li>Between-session async</li></ul>
+            <a class="btn btn--ghost" href="#ai-guidance">Book a Single Session</a>
+          </div>
+          <div class="offer">
+            <span class="offer-duration">3-MONTH INTENSIVE</span>
+            <h4>AI Self-Sufficiency Program</h4>
+            <p class="price">$6,000</p>
+            <p class="blurb">For executives ready to leave dependency behind. A 3-month arc that turns AI from a question you outsource into a system you operate.</p>
+            <ul><li>12 sessions over 12 weeks</li><li>Weekly async office hours</li><li>Custom literacy curriculum</li><li>Final capstone: ship your own</li></ul>
+            <a class="btn btn--ghost" href="#connect">Apply for the Intensive</a>
+          </div>
+        </div>
+        <div class="track">
+          <span class="track-tag">DONE WITH YOU</span>
+          <h3>Done-For-You Implementation</h3>
+          <p class="subtitle">I build it; you own it.</p>
+          <p class="body">For founders who need the system built once, well, and handoff-ready. You keep the artifacts and the understanding.</p>
+          <div class="offer">
+            <span class="offer-duration">1–2 WEEKS</span>
+            <h4>Digital Identity Landing Page</h4>
+            <p class="price">$2,400</p>
+            <p class="blurb">A landing page that reads like you on your best day, ships in under two weeks, and converts visitors into booked calls.</p>
+            <ul><li>Custom design system</li><li>Copy you can edit yourself</li><li>Analytics wired up</li><li>30-day support</li></ul>
+            <a class="btn btn--primary" href="#connect">Request a Build</a>
+          </div>
+          <div class="offer">
+            <span class="offer-duration">2–6 WEEKS</span>
+            <h4>Custom AI Provisioning</h4>
+            <p class="price">$8,000+</p>
+            <p class="blurb">A specific AI workflow designed, built, and handed off with the documentation your team needs to operate it without me.</p>
+            <ul><li>Workflow design doc</li><li>Working build in your stack</li><li>Runbook + handover session</li><li>90-day refinement window</li></ul>
+            <a class="btn btn--ghost" href="#connect">Scope a Build</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT ME -->
+  <section id="about-me" class="section section--blue about" aria-label="Who Is Alex Myers?">
+    <div class="container">
+      <div class="about-grid">
+        <div>
+          <p class="about-verify">CLICK TO VERIFY</p>
+          <span class="about-tag">AI GUIDE</span>
+          <h2>Who Is Alex Myers?</h2>
+          <p>The questions that keep leaders up at 2 AM aren't about which API to use. They're about whether they'll still matter five years from now. That's not a technology problem. I speak two languages: organizational architecture and human experience. The space between them is where real transformation lives.</p>
+          <p>Clarity isn't about knowing everything. It's about knowing what actually matters to you. When you fix your mental model, the overwhelm dissolves. You stop reacting to noise and start making decisions from genuine conviction.</p>
+          <p>My work draws on systems thinking, group dynamics, and a knack for asking the questions nobody else will. I tell you what I actually think, not what you want to hear. That's the foundation of solutions that stick.</p>
+          <div class="about-forks">
+            <div><h3>For the Executive:</h3><p>The edge you're standing at isn't just technological. It's structural, cultural, and deeply human. I help you see the whole field, not just the tools — so your organization moves with intention, not anxiety.</p></div>
+            <div><h3>For the Individual:</h3><p>If you're building your own AI-powered service, you don't need another vendor. You need a teacher. I work with founders and operators who want to leave the engagement with their own capability, not their own dependency.</p></div>
+          </div>
+          <div class="about-badges">
+            <img alt="GenAI Academy Expert badge" />
+            <img alt="Certified Change Management Professional badge" />
+            <img alt="Certified Futurist & Long-Term Analyst badge" />
+            <img alt="Certified Enterprise Blockchain Professional badge" />
+            <img alt="Professional Scrum Master badge" />
+            <img alt="Professional Agile Leadership badge" />
+          </div>
+        </div>
+        <div class="about-portrait">
+          <div class="about-portrait-placeholder">AM</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENTORING / GUIDANCE STEPS -->
+  <section id="ai-guidance" class="section section--paper" aria-label="One-on-One AI Guidance">
+    <div class="container">
+      <p class="eyebrow">Last updated: May 2026</p>
+      <div class="section-head">
+        <p class="eyebrow">ONE-ON-ONE AI GUIDANCE</p>
+        <h2>Navigating the edge isn't a solo endeavor</h2>
+        <p>Most "training" teaches tools. This is different. Whether you're a seasoned executive or early in your career, the real barrier isn't technical—it's the story you're telling yourself about what's coming. I help you rewrite that story, one conversation at a time.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="n">1</div><h3>From Fear to Understanding</h3><p>AI anxiety is real and valid. We start by acknowledging what you're feeling. Then we replace uncertainty with clarity about what AI actually means for your work and life.</p></div>
+        <div class="step"><div class="n">2</div><h3>From Understanding to Agency</h3><p>Once the fog lifts, we build your personal AI literacy. Not generic training, but the specific skills and mental models that matter for your role and ambitions.</p></div>
+        <div class="step"><div class="n">3</div><h3>From Agency to Optimism</h3><p>The future isn't something that happens to you. With the right frame, AI becomes a lever for your goals: more time, more creative output, more impact.</p></div>
+      </div>
+      <h3 class="display" style="font-size: 28px; margin: 48px 0 8px;">Choose your path</h3>
+      <p style="color: var(--ink-soft); max-width: 60ch;">All sessions are 60 minutes, held via video call. Pick the format that fits where you are today.</p>
+    </div>
+  </section>
+
+  <!-- ROI -->
+  <section id="roi-calculator" class="section roi" aria-label="ROI Calculator">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Time Savings Estimator</p>
+        <h2>How Many Hours Could You Save?</h2>
+        <p>Pick the tasks your team does every week. See what automation could give back.</p>
+      </div>
+      <div class="roi-grid">
+        <div class="roi-tasks" id="roi-tasks">
+          <h3 class="display" style="font-size: 16px; margin: 0 0 8px; text-transform: none;">Select Your Tasks</h3>
+          <label class="roi-task"><input type="checkbox" data-hours="5" /><div><div class="title">Email triage & drafting</div><div class="detail">Sorting, prioritizing, and drafting responses to routine emails</div></div><span class="hours">~5h/wk</span></label>
+          <label class="roi-task"><input type="checkbox" data-hours="3" /><div><div class="title">Meeting notes & action items</div><div class="detail">Transcribing, summarizing, and distributing meeting outcomes</div></div><span class="hours">~3h/wk</span></label>
+          <label class="roi-task"><input type="checkbox" data-hours="4" /><div><div class="title">Data entry & CRM updates</div><div class="detail">Manual data transfer between systems and CRM maintenance</div></div><span class="hours">~4h/wk</span></label>
+          <label class="roi-task"><input type="checkbox" data-hours="3" /><div><div class="title">Report generation</div><div class="detail">Compiling data from multiple sources into weekly/monthly reports</div></div><span class="hours">~3h/wk</span></label>
+          <label class="roi-task"><input type="checkbox" data-hours="2" /><div><div class="title">Scheduling & calendar management</div><div class="detail">Coordinating meetings, managing conflicts, sending reminders</div></div><span class="hours">~2h/wk</span></label>
+          <label class="roi-task"><input type="checkbox" data-hours="6" /><div><div class="title">Client query responses</div><div class="detail">Answering repetitive questions via email, chat, or phone</div></div><span class="hours">~6h/wk</span></label>
+          <label class="roi-task"><input type="checkbox" data-hours="3" /><div><div class="title">Document & template creation</div><div class="detail">Drafting proposals, contracts, and standard documents</div></div><span class="hours">~3h/wk</span></label>
+        </div>
+        <div class="roi-estimate">
+          <h3 class="display" style="font-size: 16px; margin: 0; text-transform: none;">Your Estimated Savings</h3>
+          <div class="value" id="roi-value">0h</div>
+          <div class="label-text">reclaimed per week</div>
+          <div class="breakdown" id="roi-breakdown">Pick tasks to see your number.</div>
+          <a class="btn btn--primary" href="#connect">Talk through your savings</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEAKING -->
+  <section class="section speaking" aria-label="Facilitation & Roundtables">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">FACILITATION & ROUNDTABLES</p>
+        <h2>Need a Facilitator for Your AI Strategy Discussion?</h2>
+        <p>Alex facilitates executive roundtables, strategy workshops, and team problem-solving sessions for organizations ready to move from AI discussions to AI decisions. No keynote fluff—just structured conversations that produce alignment and action.</p>
+      </div>
+      <div class="speaking-grid">
+        <div class="speak"><h3>Executive Roundtables</h3><p>Small groups, high-impact discussions. Alex facilitates conversations about AI strategy, accountability gaps, and organizational readiness.</p></div>
+        <div class="speak"><h3>Team Workshops</h3><p>Hands-on sessions where teams identify AI bottlenecks and leave with actionable next steps. Not theory—tactical problem-solving.</p></div>
+        <div class="speak"><h3>Strategy Facilitation</h3><p>Structured sessions to align leadership on AI priorities. Perfect for organizations stuck in 'AI committee' paralysis.</p></div>
+      </div>
+      <div class="topics">
+        <h4>Popular Discussion Topics:</h4>
+        <ul>
+          <li>From AI Chaos to AI Clarity: what actually works</li>
+          <li>Data Sovereignty & Ending Platform Dependency</li>
+          <li>Building Accountability in AI Projects</li>
+        </ul>
+        <a class="btn btn--primary" style="margin-top: 16px;" href="#connect">Request a Session</a>
+        <p style="margin-top: 16px; color: var(--graphite); font-size: 14px;">Also available for podcast appearances and conference panels.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ASSESSMENT CTA -->
+  <section class="assessment-cta" aria-label="Free Assessment">
+    <div class="container">
+      <p class="label">Free Assessment</p>
+      <h2>Not sure where to start?</h2>
+      <p>Take the 3-minute AI Readiness Assessment. 9 honest questions, a personalized diagnosis, and a clear next step.</p>
+      <a class="btn btn--on-blue btn--lg" href="/assessment">Take the Assessment</a>
+    </div>
+  </section>
+
+  <!-- INSIGHTS -->
+  <section id="latest-insights" class="section" aria-label="Latest Insights">
+    <div class="container">
+      <div class="section-head">
+        <h2>What Does the Armchair Futurist Write and Talk About?</h2>
+        <p>Alex Myers publishes weekly articles and appears on podcasts about AI strategy, the future of work, and human-first technology adoption.</p>
+      </div>
+      <div class="insights-grid">
+        <div>
+          <h3 class="display" style="font-size: 18px; margin: 0 0 12px;">Latest Articles</h3>
+          <div class="articles">
+            <a class="article" href="#"><img alt="AI Digest: June 22nd, 2026" /><div><div class="date">Jun 22, 2026</div><div class="title">AI Digest: June 22nd, 2026</div></div></a>
+            <a class="article" href="#"><img alt="AI Digest: June 20th, 2026" /><div><div class="date">Jun 20, 2026</div><div class="title">AI Digest: June 20th, 2026</div></div></a>
+            <a class="article" href="#"><img alt="AI Digest: June 18th, 2026" /><div><div class="date">Jun 18, 2026</div><div class="title">AI Digest: June 18th, 2026</div></div></a>
+          </div>
+          <a class="btn btn--ghost" style="margin-top: 16px;" href="#">View All Posts</a>
+        </div>
+        <div>
+          <h3 class="display" style="font-size: 18px; margin: 0 0 12px;">Podcasts & Interviews</h3>
+          <div class="podcasts">
+            <div class="podcast"><h4>Mission Driven You</h4><p>How AI, blockchain, and mindfulness can empower humanity</p></div>
+            <div class="podcast"><h4>Mission Driven You (Psychedelics & Presence)</h4><p>Psychedelics, presence, and the search for meaning</p></div>
+            <div class="podcast"><h4>You Don't Need This Podcast</h4><p>AI evolution, neurotech, web3, and thriving amidst information overload</p></div>
+          </div>
+          <a class="btn btn--ghost" style="margin-top: 16px;" href="#">Show 4 More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section faq" aria-label="FAQ">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>Frequently Asked Questions</h2>
+        <p>Common questions about Alex Myers and AI strategy services.</p>
+      </div>
+      <details><summary>What is the Armchair Futurist?</summary><p>An independent AI consultancy run by Alex Myers — focused on building client literacy rather than dependency.</p></details>
+      <details><summary>What is the Accountability Gap in AI adoption?</summary><p>The gap between teams deploying AI tools and the people responsible for the outcomes. I close that gap.</p></details>
+      <details><summary>What qualifications does Alex Myers have?</summary><p>Six professional certifications: FLTA, CCMP, GenAI, CEBP, PSM, PAL — plus 40+ AI systems deployed.</p></details>
+      <details><summary>How much do services cost?</summary><p>Single sessions start at $120. Self-sufficiency intensives are $6,000. Custom builds start at $2,400.</p></details>
+      <details><summary>How does AI guidance work?</summary><p>60-minute video sessions with recordings, summaries, and between-session async support.</p></details>
+      <details><summary>Can Alex work with organizations outside the US?</summary><p>Yes. Alex is based in Portugal and serves clients worldwide.</p></details>
+      <details><summary>What results can clients expect?</summary><p>Most clients reclaim 10–20 hours per week within the first month of engagement.</p></details>
+      <details><summary>How is Alex different from other AI consultants?</summary><p>Most AI consultants build systems you depend on. I build understanding you keep.</p></details>
+      <details><summary>What is Custom AI Provisioning?</summary><p>A specific AI workflow designed, built, and handed off with the documentation your team needs.</p></details>
+      <details><summary>How do I choose the right AI consultant for my business?</summary><p>Look for someone who teaches as they work, hands off artifacts, and ends the engagement when the work is done.</p></details>
+      <details><summary>What's the difference between an AI consultant and an AI agency?</summary><p>A consultant teaches you to operate; an agency operates for you. I work as a consultant.</p></details>
+      <details><summary>Who is Alex Myers best suited to work with — and who isn't a fit?</summary><p>Founders, operators, and small teams ready to execute. Not for enterprise transformation or 'AI committee' work.</p></details>
+      <details><summary>How do I get started?</summary><p>Take the free 3-minute assessment, or book a 15-minute call to talk through your situation.</p></details>
+    </div>
+  </section>
+
+  <!-- CONNECT -->
+  <section id="connect" class="connect" aria-label="Connect">
+    <div class="container">
+      <div class="connect-grid">
+        <div>
+          <h2>You're not behind. You're exactly where you need to be.</h2>
+          <p>The edge of change is real, and it's okay to feel the weight of it. You don't need to have it all figured out. You just need a conversation with someone who's been here before. 15 minutes. No pitch. Just clarity on your next step.</p>
+          <div class="connect-ctas">
+            <a class="btn btn--on-blue btn--lg" href="https://calendar.app.google/nAHHwNMfhDvXGv7P7" rel="noopener" target="_blank">Book a Call</a>
+            <a class="btn btn--ghost btn--lg" style="color:#fff;border-color:rgba(255,255,255,0.4);" href="https://wa.me/15157706902" rel="noopener" target="_blank">Questions? Text Me on WhatsApp</a>
+          </div>
+          <p class="micro">15 minutes. No pitch. Just clarity.</p>
+          <p class="alt-path">Not sure if it's a fit? Take the 3-minute assessment first.</p>
+        </div>
+        <form class="connect-form" onsubmit="event.preventDefault();">
+          <p style="margin: 0 0 8px;">Or tell me what's on your mind and I'll write back</p>
+          <label>Your name<input type="text" name="name" /></label>
+          <label>Your email<input type="email" name="email" /></label>
+          <label>What's on your mind?<textarea name="message"></textarea></label>
+          <button type="submit" class="btn btn--on-blue">Send</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>The Armchair Futurist</h4>
+        <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin: 0;">AI literacy that outlasts the tools.</p>
+      </div>
+      <div>
+        <h4>Work with Alex</h4>
+        <ul>
+          <li><a href="#ai-guidance">1-on-1 Guidance</a></li>
+          <li><a href="#services">Self-Sufficiency Program</a></li>
+          <li><a href="#services">Custom Build</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#case-studies">Case Studies</a></li>
+          <li><a href="#roi-calculator">ROI Calculator</a></li>
+          <li><a href="#latest-insights">Articles</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About</h4>
+        <ul>
+          <li><a href="#about-me">Who Is Alex Myers</a></li>
+          <li><a href="#speaking">Speaking & Workshops</a></li>
+          <li><a href="/assessment">Free Assessment</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-meta">
+      <span>© 2026 Alex Myers · The Armchair Futurist</span>
+      <span><a href="/privacy-policy">Privacy</a> · <a href="/terms-of-service">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ROI calculator
+  const tasks = document.querySelectorAll('#roi-tasks input');
+  const valueEl = document.getElementById('roi-value');
+  const breakdownEl = document.getElementById('roi-breakdown');
+  function recompute() {
+    let total = 0; let picked = 0;
+    tasks.forEach(t => {
+      const wrap = t.closest('.roi-task');
+      if (t.checked) { total += +t.dataset.hours; picked++; wrap.classList.add('is-checked'); }
+      else { wrap.classList.remove('is-checked'); }
+    });
+    valueEl.textContent = total + 'h';
+    if (total === 0) breakdownEl.textContent = 'Pick tasks to see your number.';
+    else breakdownEl.textContent = `Across ${picked} ${picked === 1 ? 'task' : 'tasks'} — that's roughly ${(total * 4).toFixed(0)}h reclaimed per month.`;
+  }
+  tasks.forEach(t => t.addEventListener('change', recompute));
+  recompute();
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<script>
+  const tasks = document.querySelectorAll('#roi-tasks input');
+  const valueEl = document.getElementById('roi-value');
+  const breakdownEl = document.getElementById('roi-breakdown');
+  function recompute() {
+    let total = 0; let picked = 0;
+    tasks.forEach(t => {
+      const wrap = t.closest('.roi-task');
+      if (t.checked) { total += +t.dataset.hours; picked++; wrap.classList.add('is-checked'); }
+      else { wrap.classList.remove('is-checked'); }
+    });
+    valueEl.textContent = total + 'h';
+    if (total === 0) breakdownEl.textContent = 'Pick tasks to see your number.';
+    else breakdownEl.textContent = `Across ${picked} ${picked === 1 ? 'task' : 'tasks'} — that's roughly ${(total * 4).toFixed(0)}h reclaimed per month.`;
+  }
+  tasks.forEach(t => t.addEventListener('change', recompute));
+  recompute();
+</script>

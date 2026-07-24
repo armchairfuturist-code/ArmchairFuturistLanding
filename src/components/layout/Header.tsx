@@ -11,7 +11,7 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
-import { Menu, FileText, MessageCircle, Github } from 'lucide-react';
+import { Menu, FileText, MessageCircle } from 'lucide-react';
 import Image from "next/image";
 import { WHATSAPP_URL } from "@/lib/constants";
 
@@ -23,7 +23,7 @@ export default function Header() {
     { href: "/#roi-calculator", label: "ROI Calculator" },
     { href: "/blog", label: "Blog" },
     { href: "/#about-me", label: "About", icon: FileText },
-    { href: "https://github.com/armchairfuturist-code", label: "GitHub", icon: Github, external: true },
+    { href: "/how-i-work", label: "How I Work" },
   ];
 
   return (
@@ -48,19 +48,7 @@ export default function Header() {
 
           {/* Nav links — center (USVC-style layout) */}
           <nav className="hidden lg:flex items-center gap-8">
-            {navItems.map((item) =>
-              item.external ? (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sm font-[400] text-white/80 hover:text-hp-electric transition-colors duration-300 underline-animate"
-                >
-                  {item.icon && <item.icon className="h-4 w-4" />}
-                  {item.label}
-                </a>
-              ) : (
+            {navItems.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
@@ -68,8 +56,7 @@ export default function Header() {
                 >
                   {item.label}
                 </Link>
-              )
-            )}
+            ))}
           </nav>
 
           {/* CTAs — right-aligned (USVC-style) */}
@@ -147,29 +134,15 @@ export default function Header() {
                       </span>
                     </div>
                   </Link>
-                  {navItems.map((item) =>
-                    item.external ? (
-                      <a
-                        key={item.label}
-                        href={item.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-sm font-[400] text-white/80 hover:text-hp-electric transition-colors"
-                      >
-                        {item.icon && <item.icon className="h-4 w-4" />}
-                        {item.label}
-                      </a>
-                    ) : (
+                  {navItems.map((item) => (
                       <Link
                         key={item.label}
                         href={item.href}
                         className="inline-flex items-center gap-2 text-sm font-[400] text-white/80 hover:text-hp-electric transition-colors"
                       >
-                        {item.icon && <item.icon className="h-4 w-4" />}
                         {item.label}
                       </Link>
-                    )
-                  )}
+                  ))}
                   <Link
                     href="/assessment"
                     className="inline-flex items-center gap-2 text-sm font-medium text-hp-electric hover:text-hp-bright transition-colors mt-2"
