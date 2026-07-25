@@ -5,270 +5,194 @@
 /* === HP DESIGN TOKENS === */
 
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(24px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-
-    /* Marquees should still scroll (content display, not decoration) */
-    .animate-marquee {
-        animation: marquee 60s linear infinite;
-    }
-    .animate-marquee-slow {
-        animation: marquee 120s linear infinite;
-    }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 @layer base {
-    :root {
-        /* === HP DESIGN TOKENS === */
+  :root {
+    /* === HP DESIGN TOKENS === */
+    /* Brand Colors — HP Electric Blue system */
+    --hp-electric: 220 96% 43%; /* #024ad8 */
+    --hp-bright: 217 95% 57%; /* #296ef9 */
+    --hp-deep: 222 80% 31%; /* #0e3191 */
+    --hp-soft: 213 90% 90%; /* #c9e0fc */
 
-        /* Brand Colors — HP Electric Blue system */
-        --hp-electric: 220 96% 43%; /* #024ad8 */
-        --hp-bright: 217 95% 57%; /* #296ef9 */
-        --hp-deep: 222 80% 31%; /* #0e3191 */
-        --hp-soft: 213 90% 90%; /* #c9e0fc */
+    /* Ink (text) */
+    --ink: 0 0% 10%; /* #1a1a1a */
+    --ink-deep: 0 0% 0%; /* #000000 */
+    --ink-soft: 0 0% 16%; /* #292929 */
 
-        /* Ink (text) */
-        --ink: 0 0% 10%; /* #1a1a1a */
-        --ink-deep: 0 0% 0%; /* #000000 */
-        --ink-soft: 0 0% 16%; /* #292929 */
+    /* Surface */
+    --canvas: 0 0% 100%; /* #ffffff */
+    --cloud: 0 0% 97%; /* #f7f7f7 */
+    --fog: 0 0% 91%; /* #e8e8e8 */
+    --steel: 0 0% 76%; /* #c2c2c2 */
+    --graphite: 0 0% 39%; /* #636363 */
+    --charcoal: 0 0% 24%; /* #3d3d3d */
 
-        /* Surface */
-        --canvas: 0 0% 100%; /* #ffffff */
-        --cloud: 0 0% 97%; /* #f7f7f7 */
-        --fog: 0 0% 91%; /* #e8e8e8 */
-        --steel: 0 0% 76%; /* #c2c2c2 */
-        --graphite: 0 0% 39%; /* #636363 */
-        --charcoal: 0 0% 24%; /* #3d3d3d */
+    /* Hairlines */
+    --hairline: 0 0% 91%; /* #e8e8e8 */
+    --hairline-strong: 0 0% 76%; /* #c2c2c2 */
 
-        /* Hairlines */
-        --hairline: 0 0% 91%; /* #e8e8e8 */
-        --hairline-strong: 0 0% 76%; /* #c2c2c2 */
+    /* Accent library (reserved) */
+    --bloom-coral: 0 100% 66%; /* #ff5050 */
+    --bloom-rose: 0 81% 90%; /* #f9d4d2 */
+    --bloom-deep: 359 65% 43%; /* #b3262b */
+    --bloom-wine: 359 71% 21%; /* #5a1313 */
+    --storm-mist: 195 33% 68%; /* #8ebdce */
+    --storm-sea: 198 32% 61%; /* #7fadbe */
+    --storm-deep: 196 35% 33%; /* #356373 */
 
-        /* Accent library (reserved) */
-        --bloom-coral: 0 100% 66%; /* #ff5050 */
-        --bloom-rose: 0 81% 90%; /* #f9d4d2 */
-        --bloom-deep: 359 65% 43%; /* #b3262b */
-        --bloom-wine: 359 71% 21%; /* #5a1313 */
-        --storm-mist: 195 33% 68%; /* #8ebdce */
-        --storm-sea: 198 32% 61%; /* #7fadbe */
-        --storm-deep: 196 35% 33%; /* #356373 */
+    /* Typography — Space Grotesk (display) + Manrope (body/UI) */
+    --font-display: var(--font-display), "Space Grotesk", "Manrope", system-ui, sans-serif;
+    --font-body: "Manrope", "Inter", system-ui, sans-serif;
+    --font-ui: "Manrope", "Inter", system-ui, sans-serif;
+    --font-mono: '"JetBrains Mono"', '"Courier New"', Courier, monospace;
 
-        /* Typography — Space Grotesk (display) + Manrope (body/UI) */
-        --font-display: var(--font-display), "Space Grotesk", "Manrope", system-ui, sans-serif;
-        --font-body: "Manrope", "Inter", system-ui, sans-serif;
-        --font-ui: "Manrope", "Inter", system-ui, sans-serif;
-        --font-mono: '"JetBrains Mono"', '"Courier New"', Courier, monospace;
+    /* Standard colors — shadcn/ui contract */
+    --background: 0 0% 100%; /* HP Canvas */
+    --foreground: 0 0% 10%; /* HP Ink */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 220 96% 43%; /* HP Electric Blue */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 97%; /* HP Cloud */
+    --secondary-foreground: 0 0% 10%;
+    --muted: 0 0% 97%;
+    --muted-foreground: 0 0% 39%; /* HP Graphite */
+    --accent: 220 96% 43%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 359 65% 43%; /* HP Bloom Deep */
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 91%; /* HP Fog */
+    --input: 0 0% 91%;
+    --ring: 220 96% 43%; /* HP Electric Blue */
+    --chart-1: 220 96% 43%;
+    --chart-2: 196 35% 33%;
+    --chart-3: 0 0% 10%;
+    --chart-4: 195 33% 68%;
+    --chart-5: 0 100% 66%;
+    --radius: 4px; /* HP default — tight 4px on inputs/buttons */
 
-        /* Standard colors — shadcn/ui contract */
-        --background: 0 0% 100%; /* HP Canvas */
-        --foreground: 0 0% 10%; /* HP Ink */
-        --card: 0 0% 100%;
-        --card-foreground: 0 0% 10%;
-        --popover: 0 0% 100%;
-        --popover-foreground: 0 0% 10%;
-        --primary: 220 96% 43%; /* HP Electric Blue */
-        --primary-foreground: 0 0% 100%;
-        --secondary: 0 0% 97%; /* HP Cloud */
-        --secondary-foreground: 0 0% 10%;
-        --muted: 0 0% 97%;
-        --muted-foreground: 0 0% 39%; /* HP Graphite */
-        --accent: 220 96% 43%;
-        --accent-foreground: 0 0% 100%;
-        --destructive: 359 65% 43%; /* HP Bloom Deep */
-        --destructive-foreground: 0 0% 100%;
-        --border: 0 0% 91%; /* HP Fog */
-        --input: 0 0% 91%;
-        --ring: 220 96% 43%; /* HP Electric Blue */
-        --chart-1: 220 96% 43%;
-        --chart-2: 196 35% 33%;
-        --chart-3: 0 0% 10%;
-        --chart-4: 195 33% 68%;
-        --chart-5: 0 100% 66%;
-        --radius: 4px; /* HP default — tight 4px on inputs/buttons */
+    /* Hero specific text colors */
+    --hero-title-color-1: 0 0% 100%;
+    --hero-title-color-2: 220 96% 43%; /* HP Electric Blue */
 
-        /* Hero specific text colors */
-        --hero-title-color-1: 0 0% 100%;
-        --hero-title-color-2: 220 96% 43%; /* HP Electric Blue */
+    /* Section dark background (HP Ink slab) */
+    --section-blue-background: 0 0% 10%; /* HP Ink */
+  }
 
-        /* Section dark background (HP Ink slab) */
-        --section-blue-background: 0 0% 10%; /* HP Ink */
-    }
+  .dark {
+    --background: 0 0% 10%; /* HP Ink */
+    --foreground: 0 0% 100%;
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 220 96% 43%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 16%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 220 96% 43%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 359 65% 43%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 220 96% 43%;
+    --chart-1: 220 96% 43%;
+    --chart-2: 196 35% 50%;
+    --chart-3: 0 0% 80%;
+    --chart-4: 195 33% 68%;
+    --chart-5: 0 100% 66%;
+    --hero-title-color-1: 0 0% 100%;
+    --hero-title-color-2: 220 96% 43%;
+  }
 
-    .dark {
-        --background: 0 0% 10%; /* HP Ink */
-        --foreground: 0 0% 100%;
-        --card: 0 0% 12%;
-        --card-foreground: 0 0% 100%;
-        --popover: 0 0% 12%;
-        --popover-foreground: 0 0% 100%;
-        --primary: 220 96% 43%;
-        --primary-foreground: 0 0% 100%;
-        --secondary: 0 0% 16%;
-        --secondary-foreground: 0 0% 100%;
-        --muted: 0 0% 15%;
-        --muted-foreground: 0 0% 70%;
-        --accent: 220 96% 43%;
-        --accent-foreground: 0 0% 100%;
-        --destructive: 359 65% 43%;
-        --destructive-foreground: 0 0% 100%;
-        --border: 0 0% 16%;
-        --input: 0 0% 16%;
-        --ring: 220 96% 43%;
-        --chart-1: 220 96% 43%;
-        --chart-2: 196 35% 50%;
-        --chart-3: 0 0% 80%;
-        --chart-4: 195 33% 68%;
-        --chart-5: 0 100% 66%;
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground font-body; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
-        --hero-title-color-1: 0 0% 100%;
-        --hero-title-color-2: 220 96% 43%;
-    }
-
-    * {
-        @apply border-border;
-    }
-    body {
-        @apply bg-background text-foreground font-body;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    }
-
-    /* Headings — even line lengths, no orphans */
-    h1, h2, h3 {
-        text-wrap: balance;
-    }
-
-    /* Body text — prevent single-word last lines */
-    p, li, blockquote, figcaption {
-        text-wrap: pretty;
-    }
+  /* Headings — even line lengths, no orphans */
+  h1, h2, h3 { text-wrap: balance; }
+  /* Body text — prevent single-word last lines */
+  p, li, blockquote, figcaption { text-wrap: pretty; }
 }
 
 @layer utilities {
-    .hero-text-shadow {
-        text-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.5);
-    }
-
-    /* HP chevron decoration */
-    .hp-chevron::before {
-        content: "›";
-        color: hsl(var(--primary));
-        font-weight: 700;
-        margin-right: 0.5rem;
-    }
-
-    /* HP button signature: 14px, 600 weight, uppercase, +0.7px tracking */
-    .hp-button {
-        font-family: var(--font-body);
-        font-size: 14px;
-        font-weight: 600;
-        line-height: 1.4;
-        letter-spacing: 0.7px;
-        text-transform: uppercase;
-    }
+  .hero-text-shadow { text-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.5); }
+  /* HP chevron decoration */
+  .hp-chevron::before { content: "›"; color: hsl(var(--primary)); font-weight: 700; margin-right: 0.5rem; }
+  /* HP button signature: 14px, 600 weight, uppercase, +0.7px tracking */
+  .hp-button { font-family: var(--font-body); font-size: 14px; font-weight: 600; line-height: 1.4; letter-spacing: 0.7px; text-transform: uppercase; }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    @keyframes marquee {
-        from {
-            transform: translateX(0);
-        }
-        to {
-            transform: translateX(calc(-100% - var(--gap)));
-        }
-    }
-
-    @keyframes marquee-vertical {
-        from {
-            transform: translateY(0);
-        }
-        to {
-            transform: translateY(calc(-100% - var(--gap)));
-        }
-    }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-100% - var(--gap))); }
+  }
+  @keyframes marquee-vertical {
+    from { transform: translateY(0); }
+    to { transform: translateY(calc(-100% - var(--gap))); }
+  }
 }
 
 @keyframes shine {
-    0% {
-        background-position: 200% 0;
-    }
-    100% {
-        background-position: -200% 0;
-    }
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
-/* === REDESIGN: texture, depth, motion === */
 
 /* === CSS 2026 ENHANCEMENTS === */
 /* 1. @property registrations — future-proof animatable custom properties */
-@property --reveal-y       { syntax: "<length>";  initial-value: 28px; inherits: false; }
-@property --reveal-opacity  { syntax: "<number>";  initial-value: 0;    inherits: false; }
-@property --reveal-blur     { syntax: "<length>";  initial-value: 8px;  inherits: false; }
+@property --reveal-y { syntax: "<length>"; initial-value: 28px; inherits: false; }
+@property --reveal-opacity { syntax: "<number>"; initial-value: 0; inherits: false; }
+@property --reveal-blur { syntax: "<length>"; initial-value: 8px; inherits: false; }
 
 /* 2. color-mix(in oklch) button hover transitions */
-/*    Perceptually uniform interpolation for all HP button variants. */
 @supports (color-mix(in oklch, red, blue)) {
-  .btn-hp-smooth {
-    transition: background-color 0.2s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
-  }
-  .btn-hp-smooth[data-variant="default"]:hover {
-    background-color: color-mix(in oklch, oklch(51.6% 0.243 264.05) 80%, oklch(95% 0 0));
-    box-shadow: 0 4px 14px -4px color-mix(in oklch, oklch(51.6% 0.243 264.05) 30%, transparent);
-  }
-  .btn-hp-smooth[data-variant="navy"]:hover {
-    background-color: color-mix(in oklch, oklch(41.4% 0.169 264.4) 82%, oklch(51.6% 0.243 264.05));
-  }
-  .btn-hp-smooth[data-variant="pillGhost"]:hover {
-    background-color: color-mix(in oklch, oklch(51.6% 0.243 264.05) 92%, oklch(95% 0 0));
-    box-shadow: 0 2px 6px -2px color-mix(in oklch, oklch(51.6% 0.243 264.05) 18%, transparent);
-  }
-  .btn-hp-smooth[data-variant="outline"]:hover {
-    background-color: color-mix(in oklch, oklch(51.6% 0.243 264.05) 92%, oklch(95% 0 0));
-    border-color: color-mix(in oklch, oklch(51.6% 0.243 264.05) 70%, oklch(95% 0 0));
-  }
-  .btn-hp-smooth[data-variant="ghost"]:hover {
-    background-color: color-mix(in oklch, oklch(0% 0 0) 80%, oklch(51.6% 0.243 264.05));
-  }
+  .btn-hp-smooth { transition: background-color 0.2s ease-out, box-shadow 0.2s ease, border-color 0.2s ease; }
+  .btn-hp-smooth[data-variant="default"]:hover { background-color: color-mix(in oklch, oklch(51.6% 0.243 264.05) 80%, oklch(95% 0 0)); box-shadow: 0 4px 14px -4px color-mix(in oklch, oklch(51.6% 0.243 264.05) 30%, transparent); }
+  .btn-hp-smooth[data-variant="navy"]:hover { background-color: color-mix(in oklch, oklch(41.4% 0.169 264.4) 82%, oklch(51.6% 0.243 264.05)); }
+  .btn-hp-smooth[data-variant="pillGhost"]:hover { background-color: color-mix(in oklch, oklch(51.6% 0.243 264.05) 92%, oklch(95% 0 0)); box-shadow: 0 2px 6px -2px color-mix(in oklch, oklch(51.6% 0.243 264.05) 18%, transparent); }
+  .btn-hp-smooth[data-variant="outline"]:hover { background-color: color-mix(in oklch, oklch(51.6% 0.243 264.05) 92%, oklch(95% 0 0)); border-color: color-mix(in oklch, oklch(51.6% 0.243 264.05) 70%, oklch(95% 0 0)); }
+  .btn-hp-smooth[data-variant="ghost"]:hover { background-color: color-mix(in oklch, oklch(0% 0 0) 80%, oklch(51.6% 0.243 264.05)); }
 }
 
-/* === SCROLL SNAP ENHANCEMENT === */
+/* === SCROLL SNAP === */
 @layer utilities {
-  .snap-sections {
-    scroll-snap-type: y proximity;
-    -webkit-scroll-snap-type: y proximity;
-  }
-  .snap-start-header {
-    scroll-snap-align: start;
-    scroll-margin-top: 64px; /* sticky header compensation */
-  }
+  .snap-sections { scroll-snap-type: y proximity; -webkit-scroll-snap-type: y proximity; }
+  .snap-start-header { scroll-snap-align: start; scroll-margin-top: 64px; /* sticky header compensation */ }
+}
+
+/* Disable scroll-snap on mobile to prevent scroll frustration */
+@media (max-width: 768px) {
+  .snap-sections { scroll-snap-type: none; -webkit-scroll-snap-type: none; }
+  .snap-start-header { scroll-snap-align: none; scroll-margin-top: 0; }
 }
 
 /* === SPRINGY SCROLL REVEALS === */
 @keyframes springFadeInUp {
-  0%   { opacity: 0; transform: translateY(40px) scale(0.98); }
-  50%  { opacity: 1; transform: translateY(-4px)  scale(1.01); }
-  100% { opacity: 1; transform: translateY(0)   scale(1);    }
+  0% { opacity: 0; transform: translateY(40px) scale(0.98); }
+  50% { opacity: 1; transform: translateY(-4px) scale(1.01); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 /* === FIXED BACKGROUND PATTERNS === */
 @layer utilities {
-  /* Subtle HP-chevron pattern, stays fixed behind scrolling content */
   .bg-pattern-chevrons {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cpath d='M0 80 L60 20 M40 80 L100 20 M80 80 L140 20' stroke='%23296ef9' stroke-width='1' fill='none' opacity='0.06'/%3E%3C/svg%3E");
     background-attachment: fixed;
@@ -277,13 +201,10 @@
   }
 }
 
-/* Smooth anchor scrolling — Lenis takes over when active; CSS fallback for reduced-motion */
-html {
-  scroll-behavior: smooth;
-}
+/* Smooth anchor scrolling */
+html { scroll-behavior: smooth; }
 
-/* Subtle film grain — breaks digital flatness on large surfaces.
-   Fixed, non-interactive, very low opacity so it never touches legibility. */
+/* Subtle film grain — breaks digital flatness on large surfaces */
 body::after {
   content: "";
   position: fixed;
@@ -296,21 +217,9 @@ body::after {
 }
 
 /* Tinted shadows — carry the brand hue instead of pure black */
-.shadow-tint-sm {
-  box-shadow: 0 1px 2px hsl(var(--primary) / 0.07);
-}
-.shadow-tint {
-  box-shadow: 0 6px 20px -6px hsl(var(--primary) / 0.14);
-}
-.shadow-tint-lg {
-  box-shadow: 0 16px 40px -12px hsl(var(--primary) / 0.2);
-}
-.dark .shadow-tint-sm {
-  box-shadow: 0 1px 2px hsl(var(--primary) / 0.18);
-}
-.dark .shadow-tint {
-  box-shadow: 0 6px 20px -6px hsl(var(--primary) / 0.26);
-}
-.dark .shadow-tint-lg {
-  box-shadow: 0 16px 40px -12px hsl(var(--primary) / 0.34);
-}
+.shadow-tint-sm { box-shadow: 0 1px 2px hsl(var(--primary) / 0.07); }
+.shadow-tint { box-shadow: 0 6px 20px -6px hsl(var(--primary) / 0.14); }
+.shadow-tint-lg { box-shadow: 0 16px 40px -12px hsl(var(--primary) / 0.2); }
+.dark.shadow-tint-sm { box-shadow: 0 1px 2px hsl(var(--primary) / 0.18); }
+.dark.shadow-tint { box-shadow: 0 6px 20px -6px hsl(var(--primary) / 0.26); }
+.dark.shadow-tint-lg { box-shadow: 0 16px 40px -12px hsl(var(--primary) / 0.34); }
