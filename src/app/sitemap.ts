@@ -37,7 +37,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
 
-    // === ASSESSMENT FUNNEL ===
+    {
+    url: `${baseUrl}/roi`,
+    lastModified: new Date('2026-07-31'),
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  },
+
+  // === ASSESSMENT FUNNEL ===
     {
       url: `${baseUrl}/assessment`,
       lastModified: new Date('2026-03-04'),

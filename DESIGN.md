@@ -1,6 +1,6 @@
 ---
 name: The Armchair Futurist
-description: HP-inspired white-paper enterprise-consumer system. Geometric Space Grotesk for display, Manrope for body/UI, HP Electric Blue as the lone signal CTA, near-black ink for headlines, 8-16px rounded corners, soft 16px photo frames, dark navy customer-story and closing bands. Angular blue-chevron decorations nod to the HP wordmark's slashes.
+description: HP-inspired system evolved into ink-drench + electric signal. Space Grotesk display + Manrope body. Near-black ink heroes and bands, HP Electric Blue as the sole CTA/signal color, canvas/cloud surfaces, tight 4px controls. Signature motion is the slash unlock (chevron stroke-draw, clip-path reveals, CSS view() rails). Angular blue chevrons nod to the HP wordmark. Anti-slop: no purple gradients, no glassmorphism, no fade-up-every-section. Detail pages (/about, /roi, /how-i-work) hold depth; homepage stays proof-forward and short.
 colors:
   primary: "#024ad8"
   primary-bright: "#296ef9"

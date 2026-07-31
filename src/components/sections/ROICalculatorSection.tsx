@@ -84,15 +84,17 @@ export default function ROICalculatorSection() {
   const hasResults = selected.size > 0;
 
   return (
-    <section id="roi-calculator" className="py-16 md:py-24 bg-secondary scroll-mt-20">
+    <section id="roi-calculator" className="py-12 md:py-20 bg-background scroll-mt-20">
       <div className="container mx-auto px-4 md:px-6 max-w-5xl">
         <BlurFade inView>
-          <div className="text-center mb-12">
-            <p className="text-xs text-muted-foreground/60 font-mono mb-3">Time Savings Estimator</p>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary mb-4">
-              How Many Hours Could You Save?
-            </h2>
-            <p className="text-lg text-foreground/80 font-sans max-w-2xl mx-auto">
+          <div className="mb-12 grid md:grid-cols-12 gap-6 items-end">
+            <div className="md:col-span-7">
+              <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-4">Time savings estimator</p>
+              <h2 className="font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold tracking-tight leading-[0.98] text-ink">
+                How many hours could you save?
+              </h2>
+            </div>
+            <p className="md:col-span-5 text-lg text-charcoal md:text-right max-w-sm md:ml-auto">
               Pick the tasks your team does every week. See what automation could give back.
             </p>
           </div>

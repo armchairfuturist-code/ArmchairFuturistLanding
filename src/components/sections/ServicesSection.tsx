@@ -153,15 +153,17 @@ export default function ServicesSection() {
 <section id="services" className="py-16 md:py-20 bg-background scroll-mt-20 relative">
       <div className="container mx-auto px-4 md:px-6">
         <BlurFade inView>
-          <div className="max-w-3xl mb-16">
-            <p className="text-sm font-mono text-primary mb-2">Your Path to AI Independence</p>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary mb-6">
-              From Dependency to Independence
-            </h2>
-            <p className="text-lg text-foreground/80 font-sans leading-relaxed">
-              Most AI consultants build systems you depend on. I work as a partner in learning, and you leave with the mental models and live practice to design, launch, and sell your own AI-powered services. Pick the path that fits where you are today.
-            </p>
-          </div>
+          <div className="max-w-4xl mb-16 grid md:grid-cols-12 gap-6 items-end">
+              <div className="md:col-span-7">
+                <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-4">Your path to AI independence</p>
+                <h2 className="font-display text-[clamp(2.25rem,5vw,3.75rem)] font-bold tracking-tight leading-[0.98] text-ink">
+                  From dependency to independence
+                </h2>
+              </div>
+              <p className="md:col-span-5 text-base md:text-lg text-charcoal font-sans leading-relaxed md:text-right">
+                Most AI consultants build systems you depend on. I work as a partner in learning — you leave with the mental models to design, launch, and sell your own AI-powered services.
+              </p>
+            </div>
         </BlurFade>
 
         <div className="space-y-20">
@@ -211,7 +213,8 @@ export default function ServicesSection() {
                     >
                       <motion.div
                         variants={springStaggerItem}
-                        className="flex flex-col rounded-2xl border border-border bg-card overflow-hidden transition-[border-color,box-shadow] duration-300 hover:border-primary/30 hover:shadow-tint"
+                        className="tier-edge flex flex-col border border-ink/10 bg-canvas overflow-hidden transition-[border-color,box-shadow] duration-300 hover:border-hp-electric/35 hover:shadow-tint"
+                  data-highlighted={tier.highlighted ? "true" : "false"}
                       >
 
                       <CardHeader className="pt-6 pb-4">
@@ -277,7 +280,7 @@ export default function ServicesSection() {
         </div>
 
         <BlurFade inView>
-          <div className="mt-16 text-center">
+          <div className="mt-16 space-y-4 text-center">
             <p className="text-sm text-muted-foreground font-sans">
               Not sure which path fits?{" "}
               <a href="/assessment" className="text-primary font-semibold hover:underline">
@@ -285,6 +288,23 @@ export default function ServicesSection() {
               </a>{" "}
               — get your personalized AI archetype and a clear next step.
             </p>
+            <p className="text-sm text-charcoal/80 font-sans">
+              Also facilitate roundtables and strategy sessions.{" "}
+              <a
+                href="/#speaking"
+                className="text-hp-electric font-semibold hover:underline underline-offset-4"
+              >
+                See speaking →
+              </a>
+            
+              {" · "}
+              <a
+                href="/roi"
+                className="text-hp-electric font-semibold hover:underline underline-offset-4"
+              >
+                Estimate hours with ROI →
+              </a>
+</p>
           </div>
         </BlurFade>
       </div>

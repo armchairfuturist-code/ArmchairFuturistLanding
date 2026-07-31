@@ -20,10 +20,9 @@ export default function Header() {
     { href: "/#ai-guidance", label: "Coaching" },
     { href: "/#services", label: "Services" },
     { href: "/#case-studies", label: "Case Studies" },
-    { href: "/#roi-calculator", label: "ROI Calculator" },
-    { href: "/blog", label: "Blog" },
-    { href: "/#about-me", label: "About", icon: FileText },
+    { href: "/about", label: "About", icon: FileText },
     { href: "/how-i-work", label: "How I Work" },
+    { href: "/blog", label: "Blog" },
   ];
 
   return (

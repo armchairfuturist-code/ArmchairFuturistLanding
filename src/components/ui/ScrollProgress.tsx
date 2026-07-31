@@ -13,7 +13,7 @@ export function ScrollProgress() {
   return (
     <motion.div
       style={{ scaleX }}
-      className="fixed top-0 left-0 right-0 h-1 bg-primary origin-left z-[60] pointer-events-none"
+      className="scroll-progress-bar fixed top-0 left-0 right-0 h-[3px] bg-hp-electric origin-left z-[60] pointer-events-none"
       aria-hidden="true"
     />
   );

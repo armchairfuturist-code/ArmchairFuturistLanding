@@ -99,6 +99,15 @@ const sections: SectionEntry[] = [
     component: dynamic(() => import("@/components/sections/MentoringSection")),
   },
   {
+    id: SECTION_IDS.speaking,
+    label: "Speaking",
+    component: dynamic(() => import("@/components/sections/SpeakingSection"), {
+      loading: () => (
+        <SectionSkeleton minHeight="min-h-[420px]" label="Loading speaking" />
+      ),
+    }),
+  },
+  {
     id: SECTION_IDS.roi,
     label: "ROI",
     component: dynamic(
@@ -109,6 +118,8 @@ const sections: SectionEntry[] = [
         ),
       },
     ),
+    homepage: false,
+    navigable: false,
   },
   {
     id: SECTION_IDS.assessment,

@@ -1,4 +1,5 @@
 "use client";
+
 import { useState, useEffect, useCallback } from "react";
 import {
   Lightbulb,
@@ -12,13 +13,12 @@ import {
 import { BookCallButton } from "@/components/ui/BookCallButton";
 import { trackConversion } from "@/lib/analytics";
 import { BlurFade } from "@/components/ui/blur-fade";
-import { MagneticCard } from "@/components/ui/MagneticCard";
+import { ScrambleText } from "@/components/ui/scramble-text";
 import { staggerContainer, staggerItem } from "@/lib/animation-variants";
 import { motion, AnimatePresence } from "motion/react";
 import { COACHING_PACKAGES, type CurrencyCode } from "@/lib/pricing";
 import { CALENDAR_URL } from "@/lib/constants";
 
-// Inline currency toggle — no separate component needed
 const pillars = [
   {
     icon: Lightbulb,
@@ -45,9 +45,9 @@ const EXPANDABLE = ["pack-5", "pack-10"];
 
 const CurrencyIcon = ({ currency }: { currency: CurrencyCode }) =>
   currency === "EUR" ? (
-    <Euro className="h-4 w-4 text-foreground" />
+    <Euro className="h-4 w-4 text-ink" />
   ) : (
-    <DollarSign className="h-4 w-4 text-foreground" />
+    <DollarSign className="h-4 w-4 text-ink" />
   );
 
 function PricingCard({
@@ -58,70 +58,79 @@ function PricingCard({
   currency: CurrencyCode;
 }) {
   return (
-    <MagneticCard key={pkg.id} strength={0.08}>
-      <motion.div
-        variants={staggerItem}
-        className="relative bg-background rounded-xl border border-border transition-[border-color,transform,box-shadow] duration-300 hover:border-primary/50 hover:-translate-y-1 flex flex-col"
-      >
-        <div className="p-5 flex flex-col flex-1">
-          {/* Package name */}
-          <h4 className="text-sm font-mono text-muted-foreground uppercase tracking-widest mb-1">
-            {pkg.name}
-          </h4>
-          {/* Price */}
-          <div className="flex flex-wrap items-baseline gap-1 mb-1">
-            <CurrencyIcon currency={currency} />
-            <span className="text-3xl font-heading font-bold text-foreground tabular-nums">
-              {currency === "EUR"
-                ? pkg.totalPrice.toLocaleString()
-                : pkg.totalPriceUSD.toLocaleString()}
-            </span>
-            <span className="text-sm text-muted-foreground tabular-nums">
-              {pkg.sessions > 1
-                ? ` (${currency === "EUR" ? "€" : "$"}${currency === "EUR" ? pkg.pricePerSession : pkg.pricePerSessionUSD}/session)`
-                : `/${currency === "EUR" ? "session" : "session"}`}
-            </span>
-          </div>
-          {/* Savings badge */}
-          {pkg.savings > 0 && (
-            <p className="text-xs font-medium text-green-600 mb-3 tabular-nums">
-              {currency === "EUR" ? `Save €${pkg.savings}` : `Save $${pkg.savingsUSD}`}
-              {pkg.discountPercent > 0 && ` — ${pkg.discountPercent}% off`}
-            </p>
-          )}
-          {/* Sessions count */}
-          <p className="text-xs text-muted-foreground mb-3 tabular-nums">
-            {pkg.sessions} {pkg.sessions === 1 ? "session" : "sessions"} · 60 min each
-          </p>
-          {/* Description */}
-          <p className="text-xs text-muted-foreground/80 mb-4 leading-relaxed">
-            {pkg.description}
-          </p>
-          {/* Features */}
-          <ul className="space-y-1.5 mb-6 flex-1">
-            {pkg.features.map((feature) => (
-              <li key={feature} className="flex items-start gap-2 text-xs text-foreground/80">
-                <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" />
-                <span>{feature}</span>
-              </li>
-            ))}
-          </ul>
-          <BookCallButton
-            size="sm"
-            icon="calendar-days"
-            iconClassName="mr-1.5 h-4 w-4"
-            className="w-full h-10 text-sm font-semibold bg-secondary text-foreground hover:bg-secondary/80 border border-border"
-            location={`guidance_${pkg.id}`}
-            value={pkg.totalPrice}
-            trackOnClick={false}
-            onClick={() => trackConversion(`guidance_${pkg.id}`, pkg.totalPrice)}
-            href={`${CALENDAR_URL}?utm_source=site&utm_medium=cta&utm_campaign=mentoring-${pkg.id}`}
-          >
-            {`Book ${pkg.sessions > 1 ? `${pkg.sessions}-Pack` : "Now"}`}
-          </BookCallButton>
+    <motion.div
+      variants={staggerItem}
+      className="tier-edge relative bg-canvas border border-ink/10 transition-[border-color,transform] duration-300 hover:border-hp-electric/40 hover:-translate-y-0.5 flex flex-col"
+      data-highlighted={pkg.popular ? "true" : "false"}
+    >
+      <div className="p-6 flex flex-col flex-1">
+        <h4 className="text-[11px] font-mono text-graphite uppercase tracking-[0.25em] mb-2">
+          {pkg.name}
+        </h4>
+
+        <div className="flex flex-wrap items-baseline gap-1 mb-1">
+          <CurrencyIcon currency={currency} />
+          <span className="text-4xl font-display font-bold text-ink tabular-nums tracking-tight">
+            {currency === "EUR"
+              ? pkg.totalPrice.toLocaleString()
+              : pkg.totalPriceUSD.toLocaleString()}
+          </span>
+          <span className="text-sm text-graphite tabular-nums">
+            {pkg.sessions > 1
+              ? ` (${currency === "EUR" ? "€" : "$"}${
+                  currency === "EUR"
+                    ? pkg.pricePerSession
+                    : pkg.pricePerSessionUSD
+                }/session)`
+              : `/${currency === "EUR" ? "session" : "session"}`}
+          </span>
         </div>
-      </motion.div>
-    </MagneticCard>
+
+        {pkg.savings > 0 && (
+          <p className="text-xs font-medium text-hp-electric mb-3 tabular-nums">
+            {currency === "EUR"
+              ? `Save €${pkg.savings}`
+              : `Save $${pkg.savingsUSD}`}
+            {pkg.discountPercent > 0 && ` — ${pkg.discountPercent}% off`}
+          </p>
+        )}
+
+        <p className="text-xs text-graphite mb-3 tabular-nums font-mono uppercase tracking-wider">
+          {pkg.sessions} {pkg.sessions === 1 ? "session" : "sessions"} · 60 min
+          each
+        </p>
+
+        <p className="text-sm text-charcoal mb-5 leading-relaxed">
+          {pkg.description}
+        </p>
+
+        <ul className="space-y-2 mb-6 flex-1">
+          {pkg.features.map((feature) => (
+            <li
+              key={feature}
+              className="flex items-start gap-2 text-sm text-charcoal"
+            >
+              <CheckCircle2 className="h-3.5 w-3.5 text-hp-electric shrink-0 mt-0.5" />
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
+
+        <BookCallButton
+          size="sm"
+          icon="calendar-days"
+          iconClassName="mr-1.5 h-4 w-4"
+          className="cta-electric w-full h-11 text-sm font-semibold"
+          location={`guidance_${pkg.id}`}
+          value={pkg.totalPrice}
+          trackOnClick={false}
+          onClick={() => trackConversion(`guidance_${pkg.id}`, pkg.totalPrice)}
+          href={`${CALENDAR_URL}?utm_source=site&utm_medium=cta&utm_campaign=mentoring-${pkg.id}`}
+        >
+          {`Book ${pkg.sessions > 1 ? `${pkg.sessions}-Pack` : "Now"}`}
+        </BookCallButton>
+      </div>
+    </motion.div>
   );
 }
 
@@ -138,8 +147,26 @@ export default function MentoringSection() {
         const locale = navigator.language;
         const region = locale.split("-")[1] || "";
         const euroCountries = [
-          "AT", "BE", "CY", "EE", "FI", "FR", "DE", "GR", "IE", "IT",
-          "LV", "LT", "LU", "MT", "NL", "PT", "SK", "SI", "ES", "HR",
+          "AT",
+          "BE",
+          "CY",
+          "EE",
+          "FI",
+          "FR",
+          "DE",
+          "GR",
+          "IE",
+          "IT",
+          "LV",
+          "LT",
+          "LU",
+          "MT",
+          "NL",
+          "PT",
+          "SK",
+          "SI",
+          "ES",
+          "HR",
         ];
         if (euroCountries.includes(region.toUpperCase())) {
           setCurrency("EUR");
@@ -167,243 +194,298 @@ export default function MentoringSection() {
   return (
     <section
       id="ai-guidance"
-      className="py-16 md:py-24 px-4 bg-secondary scroll-mt-20"
+      className="scroll-mt-20 bg-ink text-white"
     >
-      <div className="container max-w-5xl mx-auto">
-        <BlurFade inView>
-          <div className="text-center mb-12">
-            <p className="inline-flex items-center px-3 py-1 rounded-md bg-primary/10 text-primary text-xs font-mono mb-3">
-              One-on-One AI Guidance
-            </p>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
-              Navigating the edge isn&apos;t a solo endeavor
-            </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Most &quot;training&quot; hands you tools and leaves. This is a partnership. We
-              build the mental models that make AI click, then test them live on your
-              real work. You leave with judgment you keep.
-            </p>
-          </div>
-        </BlurFade>
+      {/* Ink band header */}
+      <div className="relative px-4 pt-20 md:pt-28 pb-16 md:pb-20 overflow-hidden">
+        <div
+          className="absolute left-0 top-0 bottom-0 w-1.5 md:w-2 bg-hp-electric"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute -right-8 top-1/2 -translate-y-1/2 font-display font-bold text-white/[0.04] text-[min(40vw,14rem)] leading-none select-none pointer-events-none"
+          aria-hidden="true"
+        >
+          1:1
+        </div>
 
-        {/* Three pillars — staggered journey */}
-        <div className="mb-16 relative">
-          {/* Connecting line (desktop) */}
-          <div className="hidden md:block absolute top-12 left-0 right-0 h-px bg-hairline" />
+        <div className="container max-w-5xl mx-auto relative z-10">
+          <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-bright mb-5">
+            One-on-one AI guidance
+          </p>
+          <h2 className="font-display text-[clamp(2.25rem,5.5vw,4rem)] font-bold tracking-tight leading-[0.98] text-white max-w-[16ch] mb-6">
+            <ScrambleText text="Navigating the edge isn't a solo endeavor" />
+          </h2>
+          <p className="text-white/70 text-lg md:text-xl max-w-2xl leading-relaxed">
+            Most &quot;training&quot; hands you tools and leaves. This is a
+            partnership. We build the mental models that make AI click, then
+            test them live on your real work. You leave with judgment you keep.
+          </p>
+        </div>
+      </div>
+
+      {/* Pillars journey on cloud */}
+      <div className="bg-cloud text-ink px-4 py-16 md:py-20">
+        <div className="container max-w-5xl mx-auto">
+          <div className="mb-14 relative">
+            <div
+              className="hidden md:block absolute top-10 left-[16%] right-[16%] h-[2px] bg-fog"
+              aria-hidden="true"
+            >
+              <div className="journey-line h-full w-full bg-hp-electric" />
+            </div>
+
+            <motion.div
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="grid md:grid-cols-3 gap-8 md:gap-6 relative"
+            >
+              {pillars.map((pillar, index) => (
+                <motion.div
+                  key={pillar.title}
+                  variants={staggerItem}
+                  className="view-unlock relative"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="inline-flex items-center justify-center h-10 w-10 font-display text-lg font-bold bg-hp-electric text-white">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <pillar.icon
+                      className="h-5 w-5 text-hp-electric"
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <h3 className="text-xl font-display font-bold text-ink mb-2 tracking-tight">
+                    {pillar.title}
+                  </h3>
+                  <p className="text-charcoal text-sm leading-relaxed">
+                    {pillar.description}
+                  </p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Pricing */}
+          <BlurFade inView>
+            <div className="mb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+              <div>
+                <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-3">
+                  Packages
+                </p>
+                <h3 className="font-display text-[clamp(1.75rem,4vw,2.75rem)] font-bold text-ink tracking-tight leading-none">
+                  Choose your path
+                </h3>
+                <p className="text-charcoal mt-3 max-w-md">
+                  All sessions are 60 minutes, held via video call. Start where
+                  you are.
+                </p>
+              </div>
+
+              <div className="inline-flex items-center gap-1 bg-canvas border border-ink/15 p-1 self-start md:self-auto">
+                <button
+                  onClick={() => handleCurrencyChange("USD")}
+                  className={`inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors ${
+                    currency === "USD"
+                      ? "bg-hp-electric text-white"
+                      : "text-charcoal hover:text-ink"
+                  }`}
+                  aria-pressed={currency === "USD"}
+                  aria-label="Show prices in US Dollars"
+                >
+                  <DollarSign className="h-4 w-4" aria-hidden="true" />
+                  USD
+                </button>
+                <button
+                  onClick={() => handleCurrencyChange("EUR")}
+                  className={`inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors ${
+                    currency === "EUR"
+                      ? "bg-hp-electric text-white"
+                      : "text-charcoal hover:text-ink"
+                  }`}
+                  aria-pressed={currency === "EUR"}
+                  aria-label="Show prices in Euros"
+                >
+                  <Euro className="h-4 w-4" aria-hidden="true" />
+                  EUR
+                </button>
+              </div>
+            </div>
+          </BlurFade>
+
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid md:grid-cols-3 gap-6 md:gap-4 relative"
+            className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 max-w-3xl"
           >
-            {pillars.map((pillar, index) => (
-              <motion.div
-                key={pillar.title}
-                variants={staggerItem}
-                className={`relative bg-background rounded-xl p-6 border border-border transition-[border-color,transform,box-shadow] duration-300 hover:border-primary/30 hover:-translate-y-1 cursor-pointer ${
-                  index === 1
-                    ? "md:mt-8"
-                    : index === 2
-                      ? "md:mt-4"
-                      : ""
-                }`}
-                whileHover={{ scale: 1.02 }}
-              >
-                {/* Step number badge */}
-                <div className="absolute -top-3 left-4">
-                  <span className="inline-flex items-center justify-center h-6 w-6 rounded bg-primary text-primary-foreground text-xs font-bold shadow-sm">
-                    {index + 1}
-                  </span>
-                </div>
-                <pillar.icon className="h-8 w-8 text-primary mb-4 mt-1" />
-                <h3 className="text-lg font-heading font-semibold text-foreground mb-2">
-                  {pillar.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {pillar.description}
-                </p>
-              </motion.div>
+            {defaultPackages.map((pkg) => (
+              <PricingCard key={pkg.id} pkg={pkg} currency={currency} />
             ))}
           </motion.div>
-        </div>
 
-        {/* Pricing packages */}
-        <BlurFade inView>
-          <div className="text-center mb-6">
-            <h3 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-3">
-              Choose your path
-            </h3>
-            <p className="text-muted-foreground max-w-xl mx-auto mb-4">
-              All sessions are 60 minutes, held via video call. Start where you are.
+          <div className="mb-8">
+            <p className="text-sm text-charcoal mb-3">
+              Not sure which fits? Start with a conversation.
             </p>
-            {/* Currency toggle */}
-            <div className="flex justify-center mt-2">
-              <div className="inline-flex items-center gap-1.5 bg-background border-2 border-primary/30 rounded-full p-1.5 text-sm font-semibold shadow-sm">
-                <button
-                  onClick={() => handleCurrencyChange("USD")}
-                  className={`inline-flex items-center gap-1.5 px-5 py-2 rounded transition-[background-color,color,box-shadow] duration-200 ${
-                    currency === "USD"
-                      ? "bg-primary text-primary-foreground shadow-md"
-                      : "text-foreground/70 hover:text-foreground hover:bg-muted"
-                  }`}
-                  aria-pressed={currency === "USD"}
-                  aria-label="Show prices in US Dollars"
-                >
-                  <DollarSign className="h-4 w-4" aria-hidden="true" /> USD
-                </button>
-                <button
-                  onClick={() => handleCurrencyChange("EUR")}
-                  className={`inline-flex items-center gap-1.5 px-5 py-2 rounded transition-[background-color,color,box-shadow] duration-200 ${
-                    currency === "EUR"
-                      ? "bg-primary text-primary-foreground shadow-md"
-                      : "text-foreground/70 hover:text-foreground hover:bg-muted"
-                  }`}
-                  aria-pressed={currency === "EUR"}
-                  aria-label="Show prices in Euros"
-                >
-                  <Euro className="h-4 w-4" aria-hidden="true" /> EUR
-                </button>
-              </div>
-            </div>
-          </div>
-        </BlurFade>
-
-        {/* Default 2 tiers — Single + 20-Pack */}
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 max-w-3xl mx-auto"
-        >
-          {defaultPackages.map((pkg) => (
-            <PricingCard key={pkg.id} pkg={pkg} currency={currency} />
-          ))}
-        </motion.div>
-
-        {/* Clarity call CTA — reassurance for hesitant choosers */}
-        <div className="text-center mb-8">
-          <p className="text-sm text-muted-foreground mb-3">
-            Not sure which fits? Start with a conversation.
-          </p>
-          <BookCallButton
-            size="default"
-            icon="calendar-days"
-            iconClassName="mr-1.5 h-4 w-4"
-            location="guidance_clarity_call"
-          >
-            Book a Free AI Clarity Call
-          </BookCallButton>
-        </div>
-
-        {/* Additional options expander */}
-        <div className="text-center mb-4">
-          <button
-            onClick={() => setShowAll((s) => !s)}
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
-            aria-expanded={showAll}
-          >
-            {showAll ? "Hide options" : "View 5 and 10-session options"}
-            <ChevronDown
-              className={`h-4 w-4 transition-transform duration-200 ${showAll ? "rotate-180" : ""}`}
-            />
-          </button>
-        </div>
-
-        <AnimatePresence>
-          {showAll && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="overflow-hidden"
+            <BookCallButton
+              size="default"
+              icon="calendar-days"
+              iconClassName="mr-1.5 h-4 w-4"
+              className="cta-electric"
+              location="guidance_clarity_call"
             >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12 max-w-3xl mx-auto">
-                {expandablePackages.map((pkg) => (
-                  <PricingCard key={pkg.id} pkg={pkg} currency={currency} />
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+              Book a Free AI Clarity Call
+            </BookCallButton>
+          </div>
 
-        {/* Comparison matrix — stays as <details> for power users */}
-        <BlurFade inView delay={0.3}>
-          <details className="group mt-2 rounded-xl border border-border bg-background overflow-hidden">
-            <summary className="cursor-pointer list-none flex items-center justify-between gap-4 px-6 py-5 hover:bg-secondary/40 transition-colors">
-              <div>
-                <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-1">
-                  Compare what&apos;s inside
-                </p>
-                <p className="text-base font-semibold text-foreground">
-                  Side-by-side feature comparison
-                </p>
-              </div>
-              <span className="text-xs font-mono uppercase tracking-widest text-primary group-open:hidden">
-                Expand
-              </span>
-              <span className="text-xs font-mono uppercase tracking-widest text-primary hidden group-open:inline">
-                Collapse
-              </span>
-            </summary>
-            <div className="border-t border-border overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="text-left">
-                    <th className="px-6 py-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-                      What you get
-                    </th>
-                    <th className="px-4 py-3 font-mono text-xs uppercase tracking-widest text-muted-foreground text-center">
-                      Single
-                    </th>
-                    <th className="px-4 py-3 font-mono text-xs uppercase tracking-widest text-muted-foreground text-center">
-                      5-pack
-                    </th>
-                    <th className="px-4 py-3 font-mono text-xs uppercase tracking-widest text-muted-foreground text-center">
-                      10-pack
-                    </th>
-                    <th className="px-4 py-3 font-mono text-xs uppercase tracking-widest text-muted-foreground text-center">
-                      20-pack
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {([
-                    { label: "Coaching hours", single: "~1 hr", five: "~5 hrs", ten: "~10–15 hrs", twenty: "~20–40 hrs" },
-                    { label: "Practical exercises", single: "Solve your current bottleneck", five: "Build 1 automation from scratch", ten: "Design a multi-step workflow", twenty: "Launch your own AI service" },
-                    { label: "Personalised feedback", single: "In-session guidance", five: "In-session + summary", ten: "Session + mid-pack review", twenty: "Deep 1:1 + async throughout" },
-                    { label: "Frameworks & templates", single: "Session notes + 3 action items", five: "Prompts + mini-playbook", ten: "Full toolkit + checklists", twenty: "Complete system + deployable playbooks" },
-                    { label: "Post-package resources", single: "Session summary", five: "Summary guide + prompts", ten: "Toolkit + community access", twenty: "Full library + alumni support" },
-                    { label: "Skill compounding", single: "Solve one problem", five: "Foundational literacy", ten: "Noticeable independence", twenty: "You&apos;re the expert" },
-                  ]).map((row, idx) => (
-                    <tr
-                      key={row.label}
-                      className={idx % 2 === 0 ? "bg-secondary/20" : ""}
-                    >
-                      <td className="px-6 py-3 font-medium text-foreground/80">
-                        {row.label}
-                      </td>
-                      <td className="px-4 py-3 text-center text-foreground/70">
-                        {row.single}
-                      </td>
-                      <td className="px-4 py-3 text-center text-foreground/70">
-                        {row.five}
-                      </td>
-                      <td className="px-4 py-3 text-center text-foreground/70">
-                        {row.ten}
-                      </td>
-                      <td className="px-4 py-3 text-center text-foreground/70">
-                        {row.twenty}
-                      </td>
-                    </tr>
+          <div className="mb-4">
+            <button
+              onClick={() => setShowAll((s) => !s)}
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-hp-electric hover:text-hp-deep transition-colors"
+              aria-expanded={showAll}
+            >
+              {showAll ? "Hide options" : "View 5 and 10-session options"}
+              <ChevronDown
+                className={`h-4 w-4 transition-transform duration-200 ${showAll ? "rotate-180" : ""}`}
+              />
+            </button>
+          </div>
+
+          <AnimatePresence>
+            {showAll && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                className="overflow-hidden"
+              >
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12 max-w-3xl">
+                  {expandablePackages.map((pkg) => (
+                    <PricingCard key={pkg.id} pkg={pkg} currency={currency} />
                   ))}
-                </tbody>
-              </table>
-            </div>
-          </details>
-        </BlurFade>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          <BlurFade inView delay={0.2}>
+            <details className="group mt-2 border border-ink/10 bg-canvas overflow-hidden">
+              <summary className="cursor-pointer list-none flex items-center justify-between gap-4 px-6 py-5 hover:bg-cloud transition-colors">
+                <div>
+                  <p className="text-[11px] font-mono uppercase tracking-[0.25em] text-graphite mb-1">
+                    Compare what&apos;s inside
+                  </p>
+                  <p className="text-base font-display font-semibold text-ink">
+                    Side-by-side feature comparison
+                  </p>
+                </div>
+                <span className="text-[11px] font-mono uppercase tracking-widest text-hp-electric group-open:hidden">
+                  Expand
+                </span>
+                <span className="text-[11px] font-mono uppercase tracking-widest text-hp-electric hidden group-open:inline">
+                  Collapse
+                </span>
+              </summary>
+              <div className="border-t border-ink/10 overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="text-left">
+                      <th className="px-6 py-3 font-mono text-[11px] uppercase tracking-widest text-graphite">
+                        What you get
+                      </th>
+                      <th className="px-4 py-3 font-mono text-[11px] uppercase tracking-widest text-graphite text-center">
+                        Single
+                      </th>
+                      <th className="px-4 py-3 font-mono text-[11px] uppercase tracking-widest text-graphite text-center">
+                        5-pack
+                      </th>
+                      <th className="px-4 py-3 font-mono text-[11px] uppercase tracking-widest text-graphite text-center">
+                        10-pack
+                      </th>
+                      <th className="px-4 py-3 font-mono text-[11px] uppercase tracking-widest text-graphite text-center">
+                        20-pack
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {(
+                      [
+                        {
+                          label: "Coaching hours",
+                          single: "~1 hr",
+                          five: "~5 hrs",
+                          ten: "~10–15 hrs",
+                          twenty: "~20–40 hrs",
+                        },
+                        {
+                          label: "Practical exercises",
+                          single: "Solve your current bottleneck",
+                          five: "Build 1 automation from scratch",
+                          ten: "Design a multi-step workflow",
+                          twenty: "Launch your own AI service",
+                        },
+                        {
+                          label: "Personalised feedback",
+                          single: "In-session guidance",
+                          five: "In-session + summary",
+                          ten: "Session + mid-pack review",
+                          twenty: "Deep 1:1 + async throughout",
+                        },
+                        {
+                          label: "Frameworks & templates",
+                          single: "Session notes + 3 action items",
+                          five: "Prompts + mini-playbook",
+                          ten: "Full toolkit + checklists",
+                          twenty: "Complete system + deployable playbooks",
+                        },
+                        {
+                          label: "Post-package resources",
+                          single: "Session summary",
+                          five: "Summary guide + prompts",
+                          ten: "Toolkit + community access",
+                          twenty: "Full library + alumni support",
+                        },
+                        {
+                          label: "Skill compounding",
+                          single: "Solve one problem",
+                          five: "Foundational literacy",
+                          ten: "Noticeable independence",
+                          twenty: "You&apos;re the expert",
+                        },
+                      ] as const
+                    ).map((row, idx) => (
+                      <tr
+                        key={row.label}
+                        className={idx % 2 === 0 ? "bg-cloud/80" : ""}
+                      >
+                        <td className="px-6 py-3 font-medium text-charcoal">
+                          {row.label}
+                        </td>
+                        <td className="px-4 py-3 text-center text-charcoal">
+                          {row.single}
+                        </td>
+                        <td className="px-4 py-3 text-center text-charcoal">
+                          {row.five}
+                        </td>
+                        <td className="px-4 py-3 text-center text-charcoal">
+                          {row.ten}
+                        </td>
+                        <td className="px-4 py-3 text-center text-charcoal">
+                          {row.twenty}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </details>
+          </BlurFade>
+        </div>
       </div>
     </section>
   );

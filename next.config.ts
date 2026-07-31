@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     optimizePackageImports: ["lucide-react", "date-fns"],
+    viewTransition: true,
   },
   images: {
     remotePatterns: [

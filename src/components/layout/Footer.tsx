@@ -51,6 +51,18 @@ export default function Footer() {
                 Assessment
               </Link>
               <Link
+                href="/roi"
+                className="text-white/70 hover:text-hp-electric transition-colors duration-300 underline-animate"
+              >
+                ROI Calculator
+              </Link>
+              <Link
+                href="/#speaking"
+                className="text-white/70 hover:text-hp-electric transition-colors duration-300 underline-animate"
+              >
+                Speaking
+              </Link>
+              <Link
                 href="/blog"
                 className="text-white/70 hover:text-hp-electric transition-colors duration-300 underline-animate"
               >

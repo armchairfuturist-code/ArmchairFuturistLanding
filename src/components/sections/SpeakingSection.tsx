@@ -1,176 +1,105 @@
 "use client";
 
-import Image from 'next/image';
-import { Button } from '@/components/ui/button';
-import {MessageSquare, Mic, Users, Brain, TrendingUp, Shield} from 'lucide-react';
-import { trackEvent } from '@/lib/analytics';
-import { BlurFade } from '@/components/ui/blur-fade';
-import { motion } from 'motion/react';
-import { SPEAKING_FORM_URL } from '@/lib/constants';
-import { rotateReveal, slideFromLeft } from '@/lib/animation-variants';
+import Image from "next/image";
+import { MessageSquare, Mic } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
+import { BlurFade } from "@/components/ui/blur-fade";
+import { motion } from "motion/react";
+import { SPEAKING_FORM_URL } from "@/lib/constants";
 
-const offerings = [
-  { 
-    icon: MessageSquare, 
-    title: "Executive Roundtables",
-    description: "Small groups, high-impact discussions. Alex facilitates conversations about AI strategy, accountability gaps, and organizational readiness."
+const eventPhotos = [
+  {
+    src: "/marketing3.jpeg",
+    alt: "Alex Myers presenting at Sunsetpreneurs 2026 on AI strategy",
+    label: "Sunsetpreneurs 2026",
+    objectPos: "object-[60%_35%]",
   },
-  { 
-    icon: Users, 
-    title: "Team Workshops",
-    description: "Hands-on sessions where teams identify AI bottlenecks and leave with actionable next steps. Not theory—tactical problem-solving."
-  },
-  { 
-    icon: Brain, 
-    title: "Strategy Facilitation",
-    description: "Structured sessions to align leadership on AI priorities. Perfect for organizations stuck in 'AI committee' paralysis."
+  {
+    src: "/marketing4.jpeg",
+    alt: "Alex Myers facilitating at Startup Braga on AI adoption",
+    label: "Startup Braga",
+    objectPos: "object-[50%_30%]",
   },
 ];
 
-const topics = [
-  { icon: TrendingUp, text: "From AI Chaos to AI Clarity: what actually works" },
-  { icon: Shield, text: "Data Sovereignty & Ending Platform Dependency" },
-  { icon: Users, text: "Building Accountability in AI Projects" },
-];
-
+/**
+ * Slim proof band — stage photos + one CTA.
+ * Facilitation detail lives here only as proof; primary paths stay in Services/Mentoring.
+ */
 export default function SpeakingSection() {
   return (
-    <section className="py-12 md:py-16 px-4 scroll-mt-20 bg-secondary">
-      <div className="max-w-4xl mx-auto">
+    <section
+      id="speaking"
+      className="scroll-mt-20 bg-background py-16 md:py-20"
+    >
+      <div className="container mx-auto px-4 md:px-6 max-w-6xl">
         <BlurFade inView>
-          <motion.div
-            variants={rotateReveal}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="rounded-2xl border border-border p-8 md:p-12 bg-card"
-          >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 rounded-lg bg-primary/10">
-                <Mic className="h-5 w-5 text-primary" />
-              </div>
-              <p className="text-sm font-mono text-muted-foreground uppercase tracking-widest">
-                Facilitation & Roundtables
+          <div className="mb-8 md:mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+            <div>
+              <p className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-3">
+                <Mic className="h-3.5 w-3.5" aria-hidden="true" />
+                On stage
               </p>
+              <h2 className="font-display text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-tight leading-[1.05] text-ink max-w-[18ch]">
+                Also facilitate rooms that need a decision
+              </h2>
             </div>
-
-            <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-3">
-              Need a Facilitator for Your AI Strategy Discussion?
-            </h2>
-            <p className="text-muted-foreground text-lg mb-8">
-              Alex facilitates executive roundtables, strategy workshops, and team problem-solving sessions for organizations ready to move from AI discussions to AI decisions. No keynote fluff—just structured conversations that produce alignment and action.
+            <p className="text-charcoal text-base md:text-lg max-w-md md:text-right leading-snug">
+              Roundtables, workshops, strategy sessions — structured
+              conversations, not keynote fluff.
             </p>
-
-            <div className="grid md:grid-cols-3 gap-4 mb-8">
-              {/* First offering: spans 2 cols, larger */}
-              {(() => {
-                const first = offerings[0];
-                return (
-                  <motion.div
-                    key={first.title}
-                    className="md:col-span-2 p-6 rounded-xl bg-primary/5 border border-primary/10"
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <first.icon className="h-8 w-8 text-primary mb-3" />
-                    <h3 className="font-heading font-bold text-foreground text-lg mb-2">{first.title}</h3>
-                    <p className="text-sm text-foreground/80 max-w-prose">{first.description}</p>
-                  </motion.div>
-                );
-              })()}
-              {/* Second offering: 1 col */}
-              {(() => {
-                const second = offerings[1];
-                return (
-                  <motion.div
-                    key={second.title}
-                    className="p-5 rounded-xl bg-background border border-border"
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: 0.1 }}
-                  >
-                    <second.icon className="h-6 w-6 text-primary mb-3" />
-                    <h3 className="font-heading font-bold text-foreground mb-2">{second.title}</h3>
-                    <p className="text-sm text-muted-foreground">{second.description}</p>
-                  </motion.div>
-                );
-              })()}
-              {/* Third offering: full width below */}
-              {(() => {
-                const third = offerings[2];
-                return (
-                  <motion.div
-                    key={third.title}
-                    className="md:col-span-3 p-5 rounded-xl bg-background border border-border"
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: 0.2 }}
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="p-2 rounded-lg bg-primary/10 shrink-0">
-                        <third.icon className="h-5 w-5 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="font-heading font-bold text-foreground mb-1">{third.title}</h3>
-                        <p className="text-sm text-muted-foreground">{third.description}</p>
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              })()}
-            </div>
-
-            <h3 className="font-heading font-bold text-foreground mb-4">Popular Discussion Topics:</h3>
-            <ul className="space-y-2 mb-8">
-              {topics.map((t, index) => (
-                <li key={t.text} className="flex items-center gap-3">
-                  <t.icon className="h-4 w-4 text-primary shrink-0" />
-                  <span className="text-foreground/80">{t.text}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="flex flex-col sm:flex-row gap-4 items-start">
-              <Button asChild size="lg" className="h-12 px-6 text-base font-bold">
-                <a
-                  href={SPEAKING_FORM_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => trackEvent('speaking_inquiry_click')}
-                >
-                  <MessageSquare className="mr-2 h-4 w-4" />
-                  Request a Session
-                </a>
-              </Button>
-
-            </div>
-          </motion.div>
+          </div>
         </BlurFade>
 
-        {/* Event photos — visual proof of speaking engagements */}
-        <div className="mt-8 grid grid-cols-2 gap-4">
-          <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
-            <Image
-              src="/marketing3.jpeg"
-              alt="Alex Myers presenting at Sunsetpreneurs 2026 on AI strategy"
-              fill
-              className="object-cover object-[60%_35%] outline outline-1 -outline-offset-1 outline-black/10 dark:outline-white/10"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-          </div>
-          <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
-            <Image
-              src="/marketing4.jpeg"
-              alt="Alex Myers facilitating at Startup Braga on AI adoption"
-              fill
-              className="object-cover object-[50%_30%] outline outline-1 -outline-offset-1 outline-black/10 dark:outline-white/10"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-          </div>
+        <div className="grid md:grid-cols-2 gap-3 md:gap-4 mb-8 md:mb-10">
+          {eventPhotos.map((photo, i) => (
+            <motion.figure
+              key={photo.src}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.45,
+                delay: i * 0.06,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="group relative aspect-[16/10] overflow-hidden border border-ink/10"
+            >
+              <div
+                className="absolute left-0 top-0 bottom-0 w-1.5 bg-hp-electric z-10"
+                aria-hidden="true"
+              />
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                fill
+                className={`object-cover ${photo.objectPos} transition-transform duration-700 ease-out group-hover:scale-[1.03]`}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <figcaption className="absolute bottom-0 inset-x-0 z-10 p-4 md:p-5 bg-ink/70">
+                <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-white/90">
+                  {photo.label}
+                </span>
+              </figcaption>
+            </motion.figure>
+          ))}
+        </div>
+
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border border-ink/10 bg-cloud px-5 py-5 md:px-8 md:py-6">
+          <p className="text-sm md:text-base text-charcoal max-w-xl leading-relaxed">
+            Need a facilitator for an executive AI discussion? Bring a real
+            decision into the room.
+          </p>
+          <a
+            href={SPEAKING_FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackEvent("speaking_inquiry_click")}
+            className="cta-electric inline-flex items-center justify-center gap-2 h-11 px-6 text-sm font-semibold uppercase tracking-[0.7px] bg-hp-electric text-white hover:bg-hp-bright transition-colors shrink-0"
+          >
+            <MessageSquare className="h-4 w-4" aria-hidden="true" />
+            Request a Session
+          </a>
         </div>
       </div>
     </section>
