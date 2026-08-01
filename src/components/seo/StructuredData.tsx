@@ -36,7 +36,7 @@ export default function StructuredData() {
             "@type": "ProfessionalService",
             name: "The Armchair Futurist - Alex Myers",
             description:
-              "AI technical literacy and workflow strategy consulting. Alex teaches professionals, creators, and entrepreneurs how to leverage practical AI to automate workflows, build custom solutions, and scale output.",
+              "AI technical literacy and workflow strategy consulting. Alex teaches professionals, creators, and entrepreneurs how to use practical AI to automate workflows, build custom solutions, and scale output.",
             url: siteUrl,
             aggregateRating: {
               "@type": "AggregateRating",

@@ -96,12 +96,12 @@ const timelineEvents = [
   {
     year: "2026",
     title: "40+ AI Systems Deployed",
-    description: "Reached milestone of production AI implementations across diverse organizations"
+    description: "Production AI systems live across diverse organizations"
   },
   {
     year: "2025",
     title: "GenAI Academy Expert Certification",
-    description: "Recognized as expert in generative AI implementation and service design"
+    description: "Earned expert certification in generative AI implementation and service design"
   },
   {
     year: "2024",

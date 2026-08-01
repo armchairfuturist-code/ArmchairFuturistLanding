@@ -214,7 +214,7 @@ export default function MentoringSection() {
             One-on-one AI guidance
           </p>
           <h2 className="font-display text-[clamp(2.25rem,5.5vw,4rem)] font-bold tracking-tight leading-[0.98] text-white max-w-[16ch] mb-6">
-            <ScrambleText text="Navigating the edge isn't a solo endeavor" />
+            <ScrambleText text="Working at the edge isn't solo work" />
           </h2>
           <p className="text-white/70 text-lg md:text-xl max-w-2xl leading-relaxed">
             Most &quot;training&quot; hands you tools and leaves. This is a

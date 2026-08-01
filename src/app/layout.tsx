@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     template: "%s | Alex Myers — AI Consultant & Instructor",
   },
   description:
-    "Alex Myers teaches builders, professionals, and creatives how to leverage practical AI to automate workflows, build custom solutions, and scale daily output — turning AI capabilities into competitive business and personal leverage.",
+    "Alex Myers teaches builders, professionals, and creatives how to use practical AI to automate workflows, build custom solutions, and scale daily output — turning AI capabilities into competitive business and personal leverage.",
   authors: [
     {
       name: "Alex Myers",
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Alex Myers — AI Consultant & Instructor",
     description:
-      "Core Focus: AI Technical Literacy & Personal Leverage. Alex teaches builders, professionals, and creatives how to leverage practical AI to automate workflows, build custom solutions, and scale daily output.",
+      "Core Focus: AI Technical Literacy & Personal Leverage. Alex teaches builders, professionals, and creatives how to use practical AI to automate workflows, build custom solutions, and scale daily output.",
     url: "/",
     siteName: "The Armchair Futurist",
     type: "website",

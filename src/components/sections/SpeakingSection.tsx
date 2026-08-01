@@ -16,7 +16,7 @@ const eventPhotos = [
   },
   {
     src: "/marketing4.jpeg",
-    alt: "Alex Myers facilitating at Startup Braga on AI adoption",
+    alt: "Alex Myers leading a session at Startup Braga on AI adoption",
     label: "Startup Braga",
     objectPos: "object-[50%_30%]",
   },
@@ -41,7 +41,7 @@ export default function SpeakingSection() {
                 On stage
               </p>
               <h2 className="font-display text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-tight leading-[1.05] text-ink max-w-[18ch]">
-                Also facilitate rooms that need a decision
+                Also lead rooms that need a decision
               </h2>
             </div>
             <p className="text-charcoal text-base md:text-lg max-w-md md:text-right leading-snug">
@@ -87,7 +87,7 @@ export default function SpeakingSection() {
 
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border border-ink/10 bg-cloud px-5 py-5 md:px-8 md:py-6">
           <p className="text-sm md:text-base text-charcoal max-w-xl leading-relaxed">
-            Need a facilitator for an executive AI discussion? Bring a real
+            Need someone to lead an executive AI discussion? Bring a real
             decision into the room.
           </p>
           <a

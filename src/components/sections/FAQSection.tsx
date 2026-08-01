@@ -63,7 +63,7 @@ const faqItems: FAQItem[] = [
   {
     question: "How are you different from other AI consultants?",
     answer:
-      "Three ways. First, I work as a partner in learning. You leave with the literacy to keep going, not a dependency on me. Second, I combine technical depth with psychology-led strategy, addressing the human side of adoption. Third, I build on open-standard stacks with no platform lock-in. You own your data, your logic, and your infrastructure.",
+      "Three ways. I work as a partner in learning — you leave with the literacy to keep going, not a dependency on me. I combine technical depth with psychology-led strategy, addressing the human side of adoption. And I build on open-standard stacks with no platform lock-in. You own your data, your logic, and your infrastructure.",
   },
   {
     question: "What is Custom AI Provisioning?",

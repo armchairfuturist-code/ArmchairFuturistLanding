@@ -289,7 +289,7 @@ export default function ServicesSection() {
               — get your personalized AI archetype and a clear next step.
             </p>
             <p className="text-sm text-charcoal/80 font-sans">
-              Also facilitate roundtables and strategy sessions.{" "}
+              Also run roundtables and strategy sessions.{" "}
               <a
                 href="/#speaking"
                 className="text-hp-electric font-semibold hover:underline underline-offset-4"

@@ -119,7 +119,7 @@ export default function ResultsThinkersPage() {
           Results Thinkers are the top 5% of any organization who naturally embrace uncertainty. 
           They ask "What outcome do I need?" instead of "What can AI do?" 
           They reclaim 15-20 hours per week through AI adoption and drive 3x faster organizational change.
-          Psychology-Led Adoption identifies and empowers these Results Thinkers to lead change.
+          Psychology-Led Adoption identifies and equips these Results Thinkers to lead change.
         </span>
       </div>
 
@@ -252,7 +252,7 @@ export default function ResultsThinkersPage() {
             </h2>
             <p className="text-lg text-foreground/80 mb-8">
               Adoption Strategy ($10,625) identifies the 5% who will lead change in your organization 
-              and builds a plan to empower them.
+              and builds a plan to equip them.
             </p>
             <Button asChild size="lg" className="font-bold">
               <a href="https://calendar.google.com/calendar/appointments/schedules/AcYQvIlvMqTfGJQBxIV-BM6tVxBNjOcv1KBiagvHB6rJ8GoQuVEvTPWGDyGCFzxeJXkVDTpv1FCL4vQNSPCxbB13i9O_c5pBNA==?gv=true" target="_blank" rel="noopener noreferrer">

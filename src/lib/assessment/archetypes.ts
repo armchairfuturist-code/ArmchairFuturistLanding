@@ -86,11 +86,11 @@ export const archetypes: Archetype[] = [
       },
       {
         question: 'What services help professionals who feel overwhelmed by AI?',
-        answer: 'AI Guidance and Mindset Coaching sessions range from $120 (€100) for a single session to customized packages, and focus on building your personal framework for navigating AI. The weekly Substack newsletter provides ongoing high-signal insights without the noise.',
+        answer: 'AI Guidance and Mindset Coaching sessions range from $120 (€100) for a single session to customized packages, and focus on building your personal framework for making sense of AI. The weekly Substack newsletter provides ongoing high-signal insights without the noise.',
       },
     ],
     metaTitle: 'AI Readiness: The Curious Professional',
-    metaDescription: 'Your AI readiness assessment shows curiosity without direction. Alex Myers helps professionals build a personal framework for navigating AI with clarity and confidence.',
+    metaDescription: 'Your AI readiness assessment shows curiosity without direction. Alex Myers helps professionals build a personal framework for making sense of AI, with clarity and confidence.',
   },
   {
     slug: 'ready-builder',
