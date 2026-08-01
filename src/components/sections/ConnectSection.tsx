@@ -151,8 +151,10 @@ export default function ConnectSection() {
             >
               <CheckCircle2 className="mx-auto h-8 w-8 text-white mb-3" aria-hidden="true" />
               <p className="text-white font-semibold text-lg">
-                Thanks! I'll be in touch soon.
+                Message received.
               </p>
+<p className="mt-1.5 text-sm text-white/80">No pitch attached — just a reply.</p>
+<p className="mt-4 font-mono text-[10px] uppercase tracking-[0.3em] text-white/60">ack.log — queued</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-3" noValidate>

@@ -58,10 +58,7 @@ const faqItems: FAQItem[] = [
   {
     question: "What results can clients expect?",
     answer:
-      "Clients typically reclaim 10-20 hours per week through AI-powered automation. Individual clients gain clarity and shift from overwhelm to agency. By the end of the AI Self-Sufficiency Program, most clients have launched their own AI-powered service or built their personal brand around the work.",
-    hasLink: true,
-    linkText: "Estimate your hours with the ROI calculator →",
-    linkHref: "/roi",
+      "Clients typically reclaim 10-20 hours per week through AI-powered automation. Individual clients gain clarity and shift from overwhelm to agency. By the end of the AI Self-Sufficiency Program, most clients have launched their own AI-powered service or built their personal brand around the work.", hasLink: false,
   },
   {
     question: "How are you different from other AI consultants?",

@@ -23,7 +23,6 @@ export const SECTION_IDS = {
   caseStudies: "case-studies",
   testimonials: "testimonials",
   mentoring: "ai-guidance",
-  roi: "roi-calculator",
   speaking: "speaking",
   assessment: "assessment",
   insights: "latest-insights",
@@ -107,20 +106,7 @@ const sections: SectionEntry[] = [
       ),
     }),
   },
-  {
-    id: SECTION_IDS.roi,
-    label: "ROI",
-    component: dynamic(
-      () => import("@/components/sections/ROICalculatorSection"),
-      {
-        loading: () => (
-          <SectionSkeleton minHeight="min-h-[720px]" label="Loading ROI calculator" />
-        ),
-      },
-    ),
-    homepage: false,
-    navigable: false,
-  },
+  
   {
     id: SECTION_IDS.assessment,
     label: "Quiz",

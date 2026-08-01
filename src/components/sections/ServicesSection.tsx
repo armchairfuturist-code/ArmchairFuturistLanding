@@ -296,14 +296,6 @@ export default function ServicesSection() {
               >
                 See speaking →
               </a>
-            
-              {" · "}
-              <a
-                href="/roi"
-                className="text-hp-electric font-semibold hover:underline underline-offset-4"
-              >
-                Estimate hours with ROI →
-              </a>
 </p>
           </div>
         </BlurFade>
