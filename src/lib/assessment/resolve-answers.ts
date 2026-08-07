@@ -31,3 +31,4 @@ export function scoreFromAnswerIndices(answerIndices: unknown): ScoreResult {
 }
 
 export { QUESTION_COUNT };
+export type { ScoreResult };

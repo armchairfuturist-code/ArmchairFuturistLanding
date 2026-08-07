@@ -69,3 +69,6 @@
 | **Psychology-Led Adoption** | An approach to AI implementation that prioritizes human psychology and behavioral change over technical tools. |
 | **Thinking Styles** | Cognitive approaches to problem-solving (e.g., "The Thinker", "The Executor") that influence AI adoption patterns. |
 | **Case Study** | Documented examples of how clients achieved specific outcomes using AI (quantified results). |
+
+| **Assessment Flow** | Domain module owning assessment phase transitions (`landing` → `quiz` → `email` → `redirecting`), a single answer representation (option indices), scoring derivation, and Result Session helpers. UI pages are adapters. |
+| **Answer Index** | Zero-based option index for a quiz question; the Assessment Flow source of truth for answers (not dual-stored with AnswerOption objects). |

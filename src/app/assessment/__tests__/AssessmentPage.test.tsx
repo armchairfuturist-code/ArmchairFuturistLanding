@@ -29,7 +29,7 @@ vi.mock('@/components/assessment/QuizQuestion', () => ({
   default: ({ question, onAnswer, questionIndex }: any) => (
     <div data-testid="quiz-question">
       <h3>{question.text}</h3>
-      <button onClick={() => onAnswer(question.answers[0])}>
+      <button onClick={() => onAnswer(0)}>
         Yes
       </button>
     </div>

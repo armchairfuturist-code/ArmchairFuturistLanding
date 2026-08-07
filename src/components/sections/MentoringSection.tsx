@@ -8,6 +8,9 @@ import {
   Euro,
   DollarSign,
   FlaskConical,
+  Target,
+  Users,
+  Sparkles,
   ChevronDown,
 } from "lucide-react";
 import { BookCallButton } from "@/components/ui/BookCallButton";
@@ -18,27 +21,21 @@ import { staggerContainer, staggerItem } from "@/lib/animation-variants";
 import { motion, AnimatePresence } from "motion/react";
 import { COACHING_PACKAGES, type CurrencyCode } from "@/lib/pricing";
 import { CALENDAR_URL } from "@/lib/constants";
+import { MENTORING_PILLARS } from "@/content/mentoring-pillars";
 
-const pillars = [
-  {
-    icon: Lightbulb,
-    title: "Build the mental model",
-    description:
-      "AI feels overwhelming until you have a frame for it. We start with how it actually works, in plain terms, mapped to your role. The mental model that lets you evaluate any new tool yourself.",
-  },
-  {
-    icon: FlaskConical,
-    title: "Test it live",
-    description:
-      "Then we run that model against your real work. The bottleneck you walked in with, the workflow eating your week. You watch it hold up or break, and adjust.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Own the judgment",
-    description:
-      "By the end you're making the calls about where AI fits in your work and building from there.",
-  },
-];
+const ICON_MAP = {
+  Lightbulb,
+  FlaskConical,
+  TrendingUp,
+  Target,
+  Users,
+  Sparkles,
+} as const;
+
+const pillars = MENTORING_PILLARS.map((pillar) => ({
+  ...pillar,
+  icon: ICON_MAP[pillar.icon as keyof typeof ICON_MAP] ?? Lightbulb,
+}));
 
 const DEFAULT_VISIBLE = ["single", "pack-20"];
 const EXPANDABLE = ["pack-5", "pack-10"];

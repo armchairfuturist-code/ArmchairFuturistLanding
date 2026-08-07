@@ -8,60 +8,56 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { BookCallButton } from "@/components/ui/BookCallButton";
-import { CalendarDays, MessageCircle, Loader2, CheckCircle2 } from "lucide-react";
-import { useFormSubmission } from "@/lib/hooks/useFormSubmission";
+import { MessageCircle, Loader2, CheckCircle2 } from "lucide-react";
+import { useLeadCapture } from "@/lib/hooks/useLeadCapture";
 import { isValidEmail } from "@/lib/email-utils";
 import { WHATSAPP_URL } from "@/lib/constants";
 import { trackEvent } from "@/lib/analytics";
-type FieldErrors = Partial<Record<"name" | "email" | "message", string>>;
+type ConnectFields = {
+  name: string;
+  email: string;
+  message: string;
+};
+
+function validateConnect(
+  data: ConnectFields,
+): Partial<Record<keyof ConnectFields, string>> | null {
+  const errs: Partial<Record<keyof ConnectFields, string>> = {};
+  if (!data.name.trim()) errs.name = "Please enter your name.";
+  if (!data.email.trim()) errs.email = "Please enter your email.";
+  else if (!isValidEmail(data.email))
+    errs.email = "That doesn't look like a valid email address.";
+  if (!data.message.trim())
+    errs.message = "Please tell me a little about what you're working on.";
+  return Object.keys(errs).length > 0 ? errs : null;
+}
 
 export default function ConnectSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});
-  const { loading, success, error, submit } = useFormSubmission({
+  const {
+    values: formData,
+    errors: fieldErrors,
+    setField,
+    isLoading: loading,
+    isSuccess: success,
+    serverError: error,
+    handleSubmit,
+  } = useLeadCapture<ConnectFields>({
     endpoint: "/api/contact",
-    validateEmail: false,
+    initialValues: { name: "", email: "", message: "" },
+    validate: validateConnect,
+    buildBody: (v) => v,
   });
 
-  const validate = (data: typeof formData): FieldErrors => {
-    const errs: FieldErrors = {};
-    if (!data.name.trim()) errs.name = "Please enter your name.";
-    if (!data.email.trim()) errs.email = "Please enter your email.";
-    else if (!isValidEmail(data.email)) errs.email = "That doesn't look like a valid email address.";
-    if (!data.message.trim()) errs.message = "Please tell me a little about what you're working on.";
-    return errs;
-  };
+  const handleChange =
+    (field: keyof ConnectFields) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      setField(field, e.target.value);
+    };
 
-  const handleChange = (field: keyof typeof formData) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const next = { ...formData, [field]: e.target.value };
-    setFormData(next);
-    if (touched[field]) {
-      // Re-validate just this field as the user types once they've blurred it.
-      const errs = validate(next);
-      setFieldErrors((prev) => ({ ...prev, [field]: errs[field] }));
-    }
-  };
-
-  const handleBlur = (field: keyof typeof formData) => () => {
+  const handleBlur = (field: keyof ConnectFields) => () => {
     setTouched((prev) => ({ ...prev, [field]: true }));
-    const errs = validate(formData);
-    setFieldErrors((prev) => ({ ...prev, [field]: errs[field] }));
   };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const errs = validate(formData);
-    setFieldErrors(errs);
-    setTouched({ name: true, email: true, message: true });
-    if (Object.keys(errs).length > 0) return;
-    await submit(formData);
-  };
-
 
 
   return (

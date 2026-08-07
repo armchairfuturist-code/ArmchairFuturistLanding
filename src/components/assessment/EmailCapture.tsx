@@ -1,118 +1,136 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { Check, Mail, Loader2, ArrowRight, CheckCircle2 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { motion } from 'motion/react';
-import { trackEvent } from '@/lib/analytics';
-import { useFormSubmission } from '@/lib/hooks/useFormSubmission';
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { BlurFade } from "@/components/ui/blur-fade";
+import { Mail, ArrowRight, Loader2 } from "lucide-react";
+import { useLeadCapture } from "@/lib/hooks/useLeadCapture";
+import { isValidEmail } from "@/lib/email-utils";
 
 interface EmailCaptureProps {
   onComplete: () => void;
   onSkip: () => void;
-  answerIndices: number[];
+  answerIndices?: number[];
 }
 
-export default function EmailCapture({ onComplete, onSkip, answerIndices }: EmailCaptureProps) {
-  const [email, setEmail] = useState('');
-  const { loading, success, error, submit } = useFormSubmission({
-    endpoint: '/api/assessment/submit',
-    onSuccess: () => {
-      trackEvent('assessment_email_capture', { email_provided: true });
-    },
-  });
+export default function EmailCapture({
+  onComplete,
+  onSkip,
+  answerIndices,
+}: EmailCaptureProps) {
+  const [honeypot, setHoneypot] = useState("");
 
-  useEffect(() => {
-    if (success) {
-      const timer = setTimeout(() => onComplete(), 1500);
-      return () => clearTimeout(timer);
-    }
-  }, [success, onComplete]);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    await submit({ email, answerIndices });
-  };
-
-  if (success) {
-    return (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="w-full max-w-md mx-auto text-center"
-      >
-        <CheckCircle2 className="h-10 w-10 text-green-500 mx-auto mb-3" />
-        <h2 className="font-heading text-xl font-bold text-foreground mb-2">
-          Results sent!
-        </h2>
-        <p className="text-sm text-muted-foreground font-sans">
-          Check your inbox. Loading your results now...
-        </p>
-      </motion.div>
-    );
-  }
+  const { values, setField, isLoading, isSuccess, serverError, handleSubmit } =
+    useLeadCapture({
+      endpoint: "/api/assessment/submit",
+      initialValues: { email: "" },
+      validate: (v) => {
+        if (!v.email.trim()) return { email: "Email is required" };
+        if (!isValidEmail(v.email)) return { email: "Invalid email address" };
+        return null;
+      },
+      buildBody: (v) => {
+        const body: Record<string, unknown> = {
+          email: v.email,
+          website: honeypot,
+        };
+        if (answerIndices && answerIndices.length > 0) {
+          body.answerIndices = answerIndices;
+        }
+        return body;
+      },
+      onSuccess: () => onComplete(),
+    });
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, ease: 'easeOut' }}
-      className="w-full max-w-md mx-auto text-center"
-    >
-      <div className="flex items-center justify-center gap-2 mb-3">
-        <Mail className="h-5 w-5 text-primary" />
-        <h2 className="font-heading text-xl md:text-2xl font-bold text-foreground">
-          Get your results by email
-        </h2>
-      </div>
-      <p className="text-sm text-muted-foreground mb-6 font-sans">
-        Your personalized AI readiness profile, diagnosis, and recommended next step, delivered to your inbox.
-      </p>
-
-      <form onSubmit={handleSubmit} className="flex flex-col gap-3 mb-4">
-        <div>
-          <label htmlFor="assessment-email" className="sr-only">Email address</label>
-          <input
-            id="assessment-email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="you@company.com"
-            className="w-full h-11 px-4 rounded-lg border border-border bg-background text-foreground text-sm
-              placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/40 transition"
-            disabled={loading}
-            required
-          />
-          {error && <p role="alert" aria-live="polite" className="mt-1.5 text-xs text-destructive">{error}</p>}
+    <div className="w-full max-w-md mx-auto text-center">
+      <BlurFade inView delay={0.1}>
+        <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/10 mb-6">
+          <Mail className="w-6 h-6 text-primary" />
         </div>
-        <Button type="submit" className="w-full h-11 font-bold" disabled={loading}>
-          {loading ? (
-            <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Sending...
-            </>
-          ) : (
-            <>
-              <Mail className="mr-2 h-4 w-4" />
-              Send My Results
-            </>
-          )}
-        </Button>
-        <p className="text-[10px] text-muted-foreground/50 font-mono">
-          No spam. Your data stays private.
-        </p>
-      </form>
+      </BlurFade>
 
-      <button
-        onClick={() => {
-          trackEvent('assessment_email_skip');
-          onSkip();
-        }}
-        className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
-      >
-        Skip and see my results
-        <ArrowRight className="h-3 w-3" />
-      </button>
-    </motion.div>
+      <BlurFade inView delay={0.2}>
+        <h2 className="font-heading text-2xl md:text-3xl font-bold tracking-tight text-foreground mb-3">
+          Your results are ready
+        </h2>
+      </BlurFade>
+
+      <BlurFade inView delay={0.3}>
+        <p className="text-muted-foreground text-sm md:text-base mb-8 leading-relaxed">
+          Enter your email and we&apos;ll send your personalized AI readiness
+          profile — plus a concrete first step.
+        </p>
+      </BlurFade>
+
+      {isSuccess ? (
+        <BlurFade inView>
+          <div className="p-4 rounded-xl bg-primary/10 border border-primary/20 text-primary text-sm font-medium">
+            Check your inbox — results on the way.
+          </div>
+        </BlurFade>
+      ) : (
+        <BlurFade inView delay={0.4}>
+          <form onSubmit={handleSubmit} className="space-y-3">
+            {/* Honeypot */}
+            <div className="absolute opacity-0 h-0 overflow-hidden" aria-hidden="true">
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+              />
+            </div>
+
+            <Input
+              type="email"
+              placeholder="you@company.com"
+              value={values.email}
+              onChange={(e) => setField("email", e.target.value)}
+              required
+              autoComplete="email"
+              className="h-12 text-center"
+              disabled={isLoading}
+            />
+
+            {serverError && (
+              <p role="alert" className="text-sm text-destructive">
+                {serverError}
+              </p>
+            )}
+
+            <Button
+              type="submit"
+              size="lg"
+              className="w-full font-bold"
+              disabled={isLoading || !values.email}
+            >
+              {isLoading ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Sending...
+                </>
+              ) : (
+                <>
+                  Send my results
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </>
+              )}
+            </Button>
+          </form>
+
+          <button
+            type="button"
+            onClick={onSkip}
+            className="mt-4 text-xs text-muted-foreground hover:text-foreground transition-colors underline-offset-2 hover:underline"
+          >
+            Skip — show results without email
+          </button>
+        </BlurFade>
+      )}
+    </div>
   );
 }
