@@ -107,3 +107,4 @@ lpt[1-9].*
 .impeccable/
 .audit-passes/
 .pi/
+.pi-subagents/

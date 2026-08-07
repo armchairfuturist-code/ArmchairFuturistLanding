@@ -27,7 +27,7 @@ export const SERVICE_PATHS: ServicePath[] = [
     title: "We Do It Together",
     kicker: "Build the literacy to do it yourself",
     description:
-      "A partnership in learning. We build the mental models and test them live on your work, from a single session pack to a 3-month executive intensive. Every path ends with you independent.",
+      "A partnership in learning. We build the mental models and test them live on your work, from a single session pack to a 3-month executive intensive. Session packs build your AI literacy — the Self-Sufficiency Program builds your AI business. Every path ends with you independent.",
     tiers: [
       {
         name: "AI Readiness Assessment",
@@ -68,17 +68,17 @@ export const SERVICE_PATHS: ServicePath[] = [
       {
         name: "AI Self-Sufficiency Program",
         price: "$2,497",
-        tag: "8 Weeks",
-        description:
-          "The core transformation. An 8-week structured program where you build your own AI-powered service or brand as you learn. Weekly 1-on-1 sessions, a proven playbook, and real outputs — by week 8 you're the expert.",
+        tag: "8-Week Build Sprint",
+      description:
+        "You don't just learn AI — you ship a launched AI-powered service or brand by week 8. A proven playbook, 10–15 coaching sessions, and async support throughout, so you finish with something real to sell, not just notes from sessions.",
         features: [
-          "Weekly 1-on-1 coaching sessions",
-          "Structured AI literacy playbook",
-          "Build your own AI-powered offering",
-          "Personal brand & service framework",
-          "Ongoing async support",
-          "Lifetime alumni access",
-        ],
+        "Your own AI-powered service, designed & launched by week 8",
+        "Structured build playbook (not open coaching)",
+        "10–15 coaching sessions guiding each phase of your build",
+        "Async support between sessions — never stuck waiting a week",
+        "Personal brand & service framework",
+        "Lifetime alumni access",
+      ],
         cta: "Apply for the Program",
         ctaLink: "CALENDAR_URL",
         highlighted: true,

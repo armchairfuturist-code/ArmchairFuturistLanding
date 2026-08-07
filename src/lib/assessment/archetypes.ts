@@ -50,7 +50,7 @@ export const archetypes: Archetype[] = [
       },
       {
         question: 'What services help executives whose AI initiatives keep stalling?',
-        answer: 'The AI Self-Sufficiency Program is an 8-week structured program designed for exactly this situation. For a faster start, a strategy call can diagnose the specific blockers and create an action plan in a single session.',
+        answer: 'The AI Self-Sufficiency Program is an 8-week build sprint designed for exactly this situation — you ship a launched AI-powered service or brand by week 8. For a faster start, a strategy call can diagnose the specific blockers and create an action plan in a single session.',
       },
 
     ],
@@ -160,7 +160,7 @@ export const archetypes: Archetype[] = [
 
       {
         question: 'What services help leaders dealing with organizational AI resistance?',
-        answer: 'A strategy call is the fastest way to diagnose your specific situation. For sustained transformation, the AI Self-Sufficiency Program is an 8-week structured program designed for organizations stuck between AI awareness and AI action.',
+        answer: 'A strategy call is the fastest way to diagnose your specific situation. For sustained transformation, the AI Self-Sufficiency Program is an 8-week build sprint designed for organizations stuck between AI awareness and AI action — you finish with a launched AI-powered offering, not just notes from sessions.',
       },
     ],
     metaTitle: 'AI Readiness: The Overwhelmed Leader',

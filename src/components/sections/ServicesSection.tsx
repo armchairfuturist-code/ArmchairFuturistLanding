@@ -1,5 +1,5 @@
 "use client";
-import { ArrowRight, CheckCircle2, Zap, BookOpen, Target, Sparkles, Wrench, Globe } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Zap, BookOpen, Target, Sparkles, Wrench, Globe, type LucideIcon } from 'lucide-react';
 import { CardContent, CardHeader, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from 'motion/react';
@@ -8,25 +8,17 @@ import { BlurFade } from '@/components/ui/blur-fade';
 import { MagneticCard } from '@/components/ui/MagneticCard';
 import { SectionSpotlight } from '@/components/ui/SectionSpotlight';
 import { staggerContainer, springStaggerItem } from '@/lib/animation-variants';
-import { SERVICE_PATHS } from "@/content/service-paths";
+import { SERVICE_PATHS, type ServiceTier } from "@/content/service-paths";
 
-const ICON_MAP = {
+const ICON_MAP: Record<string, LucideIcon> = {
   Zap,
   BookOpen,
   Target,
   Globe,
   Wrench,
   Sparkles,
-} as const;
+}
 
-const paths = SERVICE_PATHS.map((path) => ({
-  ...path,
-  tiers: path.tiers.map((tier) => ({
-    ...tier,
-    icon: ICON_MAP[tier.icon as keyof typeof ICON_MAP] ?? Zap,
-    ctaLink: tier.ctaLink === "CALENDAR_URL" ? CALENDAR_URL : tier.ctaLink,
-  })),
-}));
 
 export default function ServicesSection() {
   return (
@@ -48,7 +40,7 @@ export default function ServicesSection() {
         </BlurFade>
 
         <div className="space-y-20">
-          {paths.map((path) => (
+          {SERVICE_PATHS.map((path) => (
             <div key={path.id}>
               <BlurFade inView>
                 <div className="mb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-4 border-b border-border/60 pb-6">
@@ -86,7 +78,7 @@ export default function ServicesSection() {
                 }`}
               >
                 {path.tiers.map((tier) => {
-                  const Icon = tier.icon;
+                  const Icon = ICON_MAP[tier.icon];
                   return (
                     <MagneticCard
                       key={tier.name}
@@ -102,6 +94,11 @@ export default function ServicesSection() {
                         <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-3 bg-primary/10 text-primary">
                           <Icon className="w-5 h-5" />
                         </div>
+                        {tier.highlighted && (
+                          <span className="absolute top-5 right-5 text-[10px] font-mono uppercase tracking-widest text-primary bg-primary/10 px-2 py-1 rounded-full border border-primary/20">
+                            ★ Build Sprint
+                          </span>
+                        )}
                         <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-1">
                           {tier.tag}
                         </p>
@@ -140,7 +137,11 @@ export default function ServicesSection() {
                         <Button
                           asChild
                           size="lg"
-                          className="w-full font-semibold bg-background text-foreground border-2 border-foreground/10 hover:border-primary hover:text-primary"
+                          className={`w-full font-semibold ${
+                            tier.highlighted
+                              ? 'bg-primary text-primary-foreground hover:bg-primary/90 border-2 border-primary'
+                              : 'bg-background text-foreground border-2 border-foreground/10 hover:border-primary hover:text-primary'
+                          }`}
                         >
                           <a
                             href={tier.ctaLink}
