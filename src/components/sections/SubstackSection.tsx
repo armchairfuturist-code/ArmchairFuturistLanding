@@ -66,11 +66,11 @@ export default function SubstackSection() {
             Newsletter
           </div>
           <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl mb-3">
-            The Armchair Futurist
+            Signal, not hype
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto text-sm md:text-base leading-relaxed">
-            Weekly essays on AI strategy, organizational change, and the future of work.
-            No hype, just signal.
+            Weekly essays on AI strategy, organizational change, and the future of work,
+            from the Armchair Futurist newsletter.
           </p>
         </motion.div>
 

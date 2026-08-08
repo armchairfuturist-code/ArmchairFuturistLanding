@@ -76,7 +76,7 @@ export default function Header() {
               <MessageCircle className="h-5 w-5" />
             </a>
             <BookCallButton location="header_desktop" size="default" variant="default">
-              Book Call
+              Book a Call
             </BookCallButton>
           </div>
 

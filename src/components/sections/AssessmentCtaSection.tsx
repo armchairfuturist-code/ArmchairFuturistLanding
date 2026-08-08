@@ -27,7 +27,7 @@ export default function AssessmentCtaSection() {
             </h2>
             <p className="text-white/65 text-base md:text-lg leading-relaxed">
               3 minutes. 9 honest questions. A personalized diagnosis and a
-              clear next step — no email required to see results.
+              clear next step. No email required to see results.
             </p>
           </div>
           <Link
