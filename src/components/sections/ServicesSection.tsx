@@ -34,7 +34,7 @@ export default function ServicesSection() {
                 </h2>
               </div>
               <p className="md:col-span-5 text-base md:text-lg text-charcoal font-sans leading-relaxed md:text-right">
-                Most AI consultants build systems you depend on. I work as a partner in learning — you leave with the mental models to design, launch, and sell your own AI-powered services.
+                Most AI consultants build systems you depend on. I work as a partner in learning. You leave with the mental models to design, launch, and sell your own AI-powered services.
               </p>
             </div>
         </BlurFade>
@@ -168,10 +168,10 @@ export default function ServicesSection() {
               <a href="/assessment" className="text-primary font-semibold hover:underline">
                 Take the free 3-minute assessment
               </a>{" "}
-              — get your personalized AI archetype and a clear next step.
+              and get your personalized AI archetype plus a clear next step.
             </p>
             <p className="text-sm text-charcoal/80 font-sans">
-              Also run roundtables and strategy sessions.{" "}
+              I also run roundtables and strategy sessions.{" "}
               <a
                 href="/#speaking"
                 className="text-hp-electric font-semibold hover:underline underline-offset-4"

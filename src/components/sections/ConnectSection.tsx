@@ -74,15 +74,15 @@ export default function ConnectSection() {
       >
         <BlurFade inView>
           <h2 className="font-display text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-tight leading-[1.05] mb-6">
-            You&apos;re not behind. You&apos;re exactly where you need to be.
+            You have time. You don&apos;t have unlimited time.
           </h2>
         </BlurFade>
         <BlurFade inView delay={0.15}>
           <p className="max-w-2xl mx-auto text-lg text-primary-foreground/90 mb-10 font-sans">
             The edge of change is real, and it&apos;s okay to feel the weight
-            of it. You don&apos;t need to have it all figured out. You just
-            need a conversation with someone who&apos;s been here before. 15
-            minutes. No pitch. Just clarity on your next step.
+            of it. You don&apos;t need to have it all figured out. You need one
+            honest conversation about your next step, with someone who&apos;s
+            been here before.
           </p>
         </BlurFade>
         <BlurFade inView delay={0.25}>
@@ -149,8 +149,8 @@ export default function ConnectSection() {
               <p className="text-white font-semibold text-lg">
                 Message received.
               </p>
-<p className="mt-1.5 text-sm text-white/80">No pitch attached — just a reply.</p>
-<p className="mt-4 font-mono text-[10px] uppercase tracking-[0.3em] text-white/60">ack.log — queued</p>
+<p className="mt-1.5 text-sm text-white/80">No pitch attached, just a reply.</p>
+<p className="mt-4 font-mono text-[10px] uppercase tracking-[0.3em] text-white/60">ack.log · queued</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-3" noValidate>

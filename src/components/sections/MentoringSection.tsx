@@ -88,7 +88,7 @@ function PricingCard({
             {currency === "EUR"
               ? `Save €${pkg.savings}`
               : `Save $${pkg.savingsUSD}`}
-            {pkg.discountPercent > 0 && ` — ${pkg.discountPercent}% off`}
+            {pkg.discountPercent > 0 && ` (${pkg.discountPercent}% off)`}
           </p>
         )}
 

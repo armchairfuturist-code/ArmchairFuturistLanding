@@ -2,6 +2,7 @@ export const CALENDAR_URL = 'https://calendar.app.google/nAHHwNMfhDvXGv7P7';
 export const GOOGLE_FORM_URL = 'https://forms.gle/ASNfu9Wr1qRLBZ8C8';
 export const SUBSTACK_URL = 'https://armchairfuturist.substack.com';
 export const SPEAKING_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSe36EU0DrDTMYMsGp32-wD_HlF7M_IPH-IsqpU-hrtJTlPZAg/viewform?usp=header';
+export const GITHUB_URL = 'https://github.com/armchairfuturist-code';
 
 // WhatsApp — pre-fills the message so the lead arrives with context, not blank.
 // The %20 / %2C are URL-encoded spaces and commas.

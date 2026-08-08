@@ -3,6 +3,8 @@
 import { BlurFade } from "@/components/ui/blur-fade";
 import { BookCallButton } from "@/components/ui/BookCallButton";
 import { CASE_STUDIES } from "@/content/case-studies";
+import { GITHUB_URL } from "@/lib/constants";
+import { ArrowRight } from "lucide-react";
 
 const caseStudies = CASE_STUDIES;
 
@@ -119,6 +121,38 @@ export default function CaseStudiesSection() {
             >
               Talk Through Your Situation
             </BookCallButton>
+          </div>
+        </BlurFade>
+
+        <BlurFade inView delay={0.1}>
+          <div className="mt-8 md:mt-10 grid md:grid-cols-12 gap-6 md:gap-8 border border-ink/10 bg-canvas px-6 py-8 md:px-10 md:py-10">
+            <div className="md:col-span-7">
+              <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-3">
+                The moat is public
+              </p>
+              <h3 className="font-display text-2xl md:text-3xl font-bold text-ink tracking-tight leading-[1.1] mb-3">
+                Working AI systems, open on GitHub
+              </h3>
+              <p className="text-sm md:text-base text-charcoal leading-relaxed max-w-xl">
+                An MCP server for investment analysis. A multi-model writing
+                harness. Production client sites. These are the same ideas from
+                this page, shipped and verifiable, not slideware.
+              </p>
+            </div>
+            <div className="md:col-span-5 flex flex-col justify-center gap-4">
+              <a
+                href={GITHUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cta-electric inline-flex items-center justify-center gap-2 h-12 px-7 text-sm font-semibold uppercase tracking-[0.7px] shrink-0"
+              >
+                Browse the Repos
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </a>
+              <p className="text-xs text-graphite font-mono">
+                github.com/armchairfuturist-code
+              </p>
+            </div>
           </div>
         </BlurFade>
       </div>
