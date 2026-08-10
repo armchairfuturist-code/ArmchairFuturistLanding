@@ -172,3 +172,45 @@ export const COACHING_PRICING: Record<string, { name: string; price: number; cur
 );
 
 export const EUR_USD_RATE = 1.17;
+
+// ── Currency selection (the deep selector over the dual-currency fields) ──
+
+/** ISO-3166 region codes whose default currency is the euro. */
+export const EURO_COUNTRIES = new Set([
+  'DE', 'FR', 'IT', 'ES', 'NL', 'BE', 'AT', 'PT', 'IE', 'FI',
+  'GR', 'SK', 'LT', 'SI', 'LV', 'EE', 'CY', 'LU', 'MT', 'HR',
+]);
+
+/** Currency-correct price fields for one coaching package. */
+export interface PricingView {
+  total: number;
+  perSession: number;
+  savings: number;
+}
+
+/** Select the currency-correct price fields for a coaching package. */
+export function resolvePricing(
+  pkg: CoachingPackage,
+  currency: CurrencyCode,
+): PricingView {
+  return currency === 'USD'
+    ? { total: pkg.totalPriceUSD, perSession: pkg.pricePerSessionUSD, savings: pkg.savingsUSD }
+    : { total: pkg.totalPrice, perSession: pkg.pricePerSession, savings: pkg.savings };
+}
+
+/**
+ * Pick the default display currency for a visitor. A stored preference
+ * wins; otherwise the locale's region is matched against the eurozone;
+ * otherwise USD. Pure — no DOM access.
+ */
+export function resolveDefaultCurrency(
+  locale: string | undefined,
+  stored: string | null | undefined,
+): CurrencyCode {
+  if (stored === 'EUR' || stored === 'USD') return stored;
+  if (locale) {
+    const region = locale.trim().toUpperCase().split(/[-_]/).pop();
+    if (region && EURO_COUNTRIES.has(region)) return 'EUR';
+  }
+  return 'USD';
+}

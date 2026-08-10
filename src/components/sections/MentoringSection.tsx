@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState } from "react";
 import {
   Lightbulb,
   TrendingUp,
@@ -19,7 +19,8 @@ import { BlurFade } from "@/components/ui/blur-fade";
 import { ScrambleText } from "@/components/ui/scramble-text";
 import { staggerContainer, staggerItem } from "@/lib/animation-variants";
 import { motion, AnimatePresence } from "motion/react";
-import { COACHING_PACKAGES, type CurrencyCode } from "@/lib/pricing";
+import { COACHING_PACKAGES, resolvePricing, type CurrencyCode } from "@/lib/pricing";
+import { usePreferredCurrency } from "@/lib/hooks/usePreferredCurrency";
 import { CALENDAR_URL } from "@/lib/constants";
 import { MENTORING_PILLARS } from "@/content/mentoring-pillars";
 
@@ -54,6 +55,9 @@ function PricingCard({
   pkg: (typeof COACHING_PACKAGES)[number];
   currency: CurrencyCode;
 }) {
+  const price = resolvePricing(pkg, currency);
+  const symbol = currency === "EUR" ? "€" : "$";
+
   return (
     <motion.div
       variants={staggerItem}
@@ -68,26 +72,18 @@ function PricingCard({
         <div className="flex flex-wrap items-baseline gap-1 mb-1">
           <CurrencyIcon currency={currency} />
           <span className="text-4xl font-display font-bold text-ink tabular-nums tracking-tight">
-            {currency === "EUR"
-              ? pkg.totalPrice.toLocaleString()
-              : pkg.totalPriceUSD.toLocaleString()}
+            {price.total.toLocaleString()}
           </span>
           <span className="text-sm text-graphite tabular-nums">
             {pkg.sessions > 1
-              ? ` (${currency === "EUR" ? "€" : "$"}${
-                  currency === "EUR"
-                    ? pkg.pricePerSession
-                    : pkg.pricePerSessionUSD
-                }/session)`
-              : `/${currency === "EUR" ? "session" : "session"}`}
+              ? ` (${symbol}${price.perSession}/session)`
+              : `/session`}
           </span>
         </div>
 
-        {pkg.savings > 0 && (
+        {price.savings > 0 && (
           <p className="text-xs font-medium text-hp-electric mb-3 tabular-nums">
-            {currency === "EUR"
-              ? `Save €${pkg.savings}`
-              : `Save $${pkg.savingsUSD}`}
+            {`Save ${symbol}${price.savings}`}
             {pkg.discountPercent > 0 && ` (${pkg.discountPercent}% off)`}
           </p>
         )}
@@ -119,9 +115,9 @@ function PricingCard({
           iconClassName="mr-1.5 h-4 w-4"
           className="cta-electric w-full h-11 text-sm font-semibold"
           location={`guidance_${pkg.id}`}
-          value={pkg.totalPrice}
+          value={price.total}
           trackOnClick={false}
-          onClick={() => trackConversion(`guidance_${pkg.id}`, pkg.totalPrice)}
+          onClick={() => trackConversion(`guidance_${pkg.id}`, price.total, currency)}
           href={`${CALENDAR_URL}?utm_source=site&utm_medium=cta&utm_campaign=mentoring-${pkg.id}`}
         >
           {`Book ${pkg.sessions > 1 ? `${pkg.sessions}-Pack` : "Now"}`}
@@ -132,54 +128,8 @@ function PricingCard({
 }
 
 export default function MentoringSection() {
-  const [currency, setCurrency] = useState<CurrencyCode>("USD");
+  const [currency, setCurrency] = usePreferredCurrency();
   const [showAll, setShowAll] = useState(false);
-
-  useEffect(() => {
-    const saved = localStorage.getItem("af_currency");
-    if (saved === "EUR" || saved === "USD") {
-      setCurrency(saved);
-    } else {
-      try {
-        const locale = navigator.language;
-        const region = locale.split("-")[1] || "";
-        const euroCountries = [
-          "AT",
-          "BE",
-          "CY",
-          "EE",
-          "FI",
-          "FR",
-          "DE",
-          "GR",
-          "IE",
-          "IT",
-          "LV",
-          "LT",
-          "LU",
-          "MT",
-          "NL",
-          "PT",
-          "SK",
-          "SI",
-          "ES",
-          "HR",
-        ];
-        if (euroCountries.includes(region.toUpperCase())) {
-          setCurrency("EUR");
-        } else {
-          setCurrency("USD");
-        }
-      } catch {
-        setCurrency("USD");
-      }
-    }
-  }, []);
-
-  const handleCurrencyChange = useCallback((c: CurrencyCode) => {
-    setCurrency(c);
-    localStorage.setItem("af_currency", c);
-  }, []);
 
   const defaultPackages = COACHING_PACKAGES.filter((p) =>
     DEFAULT_VISIBLE.includes(p.id),
@@ -283,7 +233,7 @@ export default function MentoringSection() {
 
               <div className="inline-flex items-center gap-1 bg-canvas border border-ink/15 p-1 self-start md:self-auto">
                 <button
-                  onClick={() => handleCurrencyChange("USD")}
+                  onClick={() => setCurrency("USD")}
                   className={`inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors ${
                     currency === "USD"
                       ? "bg-hp-electric text-white"
@@ -296,7 +246,7 @@ export default function MentoringSection() {
                   USD
                 </button>
                 <button
-                  onClick={() => handleCurrencyChange("EUR")}
+                  onClick={() => setCurrency("EUR")}
                   className={`inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors ${
                     currency === "EUR"
                       ? "bg-hp-electric text-white"
@@ -452,7 +402,7 @@ export default function MentoringSection() {
                           single: "Solve one problem",
                           five: "Foundational literacy",
                           ten: "Noticeable independence",
-                          twenty: "You&apos;re the expert",
+                          twenty: "You're the expert",
                         },
                       ] as const
                     ).map((row, idx) => (

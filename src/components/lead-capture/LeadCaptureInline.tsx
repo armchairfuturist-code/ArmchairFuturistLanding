@@ -1,31 +1,44 @@
 'use client';
 
-import { useState } from 'react';
-import { Mail, Loader2, Check, ArrowRight } from 'lucide-react';
+import { Loader2, Check, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { useFormSubmission } from '@/lib/hooks/useFormSubmission';
+import { isValidEmail } from '@/lib/email-utils';
+import { useLeadCapture } from '@/lib/hooks/useLeadCapture';
+
+const INITIAL_VALUES = { name: '', email: '' };
 
 export default function LeadCaptureInline() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const { loading, success, error, submit } = useFormSubmission({
-    endpoint: '/api/lead-capture',
-  });
+  const { values, errors, setField, handleSubmit, isLoading, isSuccess, serverError } =
+    useLeadCapture({
+      endpoint: '/api/lead-capture',
+      initialValues: INITIAL_VALUES,
+      validate: (v) => {
+        const fieldErrors: Partial<Record<keyof typeof INITIAL_VALUES, string>> = {};
+        const email = v.email.trim();
+        if (!email) fieldErrors.email = 'Please enter your email.';
+        else if (!isValidEmail(email)) fieldErrors.email = 'Please enter a valid email address.';
+        return fieldErrors;
+      },
+      buildBody: (v) => ({
+        name: v.name.trim(),
+        email: v.email.trim(),
+        source: 'homepage-inline',
+      }),
+    });
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    await submit({ name: name.trim(), email: email.trim(), source: 'homepage-inline' });
-  };
-
-  if (success) {
+  if (isSuccess) {
     return (
       <div className="flex items-center gap-3 justify-center py-3">
         <Check className="h-5 w-5 text-green-400" />
-        <p className="text-green-400 font-medium">You're in! Check your inbox for the assessment link.</p>
+        <p className="text-green-400 font-medium">
+          You&apos;re in! Check your inbox for the assessment link.
+        </p>
       </div>
     );
   }
+
+  const errorMessage = serverError ?? errors.email ?? null;
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
@@ -33,25 +46,25 @@ export default function LeadCaptureInline() {
         <Input
           type="text"
           placeholder="First name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={values.name}
+          onChange={(e) => setField('name', e.target.value)}
           className="flex-1 bg-white/10 border-white/20 text-white placeholder:text-white/40 text-sm h-10"
         />
         <Input
           type="email"
           placeholder="you@company.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={values.email}
+          onChange={(e) => setField('email', e.target.value)}
           required
           className="flex-1 bg-white/10 border-white/20 text-white placeholder:text-white/40 text-sm h-10"
         />
       </div>
       <Button
         type="submit"
-        disabled={loading}
+        disabled={isLoading}
         className="bg-white text-primary hover:bg-white/90 h-10 px-5 font-semibold text-sm whitespace-nowrap"
       >
-        {loading ? (
+        {isLoading ? (
           <Loader2 className="h-4 w-4 animate-spin" />
         ) : (
           <>
@@ -60,7 +73,7 @@ export default function LeadCaptureInline() {
           </>
         )}
       </Button>
-      {error && <p className="text-red-300 text-xs text-center sm:hidden">{error}</p>}
+      {errorMessage && <p className="text-red-300 text-xs text-center sm:hidden">{errorMessage}</p>}
     </form>
   );
 }
