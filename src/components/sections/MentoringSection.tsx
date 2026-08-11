@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import {
   Lightbulb,
@@ -81,7 +82,8 @@ function PricingCard({
           </span>
         </div>
 
-        {price.savings > 0 && (
+        {/* 20-pack: no discount badge — premium coaching, not a coupon */}
+        {price.savings > 0 && pkg.id !== "pack-20" && (
           <p className="text-xs font-medium text-hp-electric mb-3 tabular-nums">
             {`Save ${symbol}${price.savings}`}
             {pkg.discountPercent > 0 && ` (${pkg.discountPercent}% off)`}
@@ -108,6 +110,18 @@ function PricingCard({
             </li>
           ))}
         </ul>
+
+        {pkg.upgradeNote && (
+          <p className="text-xs text-graphite leading-relaxed mb-5 border-l-2 border-hp-electric/40 pl-3">
+            {pkg.upgradeNote}{" "}
+            <Link
+              href="#services"
+              className="text-hp-electric underline underline-offset-2 hover:text-hp-electric/80"
+            >
+              See the Build Sprint →
+            </Link>
+          </p>
+        )}
 
         <BookCallButton
           size="sm"
@@ -374,21 +388,21 @@ export default function MentoringSection() {
                           single: "Solve your current bottleneck",
                           five: "Build 1 automation from scratch",
                           ten: "Design a multi-step workflow",
-                          twenty: "Launch your own AI service",
+                          twenty: "Design your first AI-powered offering",
                         },
                         {
                           label: "Personalised feedback",
                           single: "In-session guidance",
                           five: "In-session + summary",
                           ten: "Session + mid-pack review",
-                          twenty: "Deep 1:1 + async throughout",
+                          twenty: "Personalized 1:1 + between-session follow-up",
                         },
                         {
                           label: "Frameworks & templates",
                           single: "Session notes + 3 action items",
                           five: "Prompts + mini-playbook",
                           ten: "Full toolkit + checklists",
-                          twenty: "Complete system + deployable playbooks",
+                          twenty: "Core frameworks + deployable playbook templates",
                         },
                         {
                           label: "Post-package resources",
@@ -402,7 +416,7 @@ export default function MentoringSection() {
                           single: "Solve one problem",
                           five: "Foundational literacy",
                           ten: "Noticeable independence",
-                          twenty: "You're the expert",
+                          twenty: "Independent AI judgment",
                         },
                       ] as const
                     ).map((row, idx) => (
@@ -430,6 +444,33 @@ export default function MentoringSection() {
                   </tbody>
                 </table>
               </div>
+            <div className="border-t border-ink/10 px-6 py-5 bg-hp-electric/[0.04]">
+              <p className="text-[11px] font-mono uppercase tracking-widest text-hp-electric mb-2">
+                Only in the 8-Week Build Sprint
+              </p>
+              <p className="text-sm text-charcoal leading-relaxed mb-3">
+                These come with the{" "}
+                <Link href="#services" className="text-hp-electric underline underline-offset-2">
+                  Build Sprint
+                </Link>
+                , not with any session pack:
+              </p>
+              <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-1.5">
+                {[
+                  "Structured build playbook",
+                  "Hands-on co-building",
+                  "Launch accountability",
+                  "Async build support (not just Q&A)",
+                  "Infrastructure migration help",
+                  "Personal brand framework",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-sm text-graphite">
+                    <span className="text-hp-electric font-mono shrink-0 mt-px">✓</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
             </details>
           </BlurFade>
         </div>

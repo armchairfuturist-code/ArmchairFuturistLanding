@@ -87,13 +87,12 @@ Pricing available in USD and EUR. Exchange rate: $1 = 0.85 (May 2026). USD is th
 - Quarterly progress review
 
 ### 20-Session Pack -- $2,000 / 1,700 ($100/session)
-- Twenty sessions, executive-level coaching
-- Save $400 (300) compared to individual pricing
-- 15% discount
-- Dedicated account management
-- Unlimited async support
+- Twenty sessions — premium long-arc coaching for independent AI judgment
+- Everything in the 10-session pack
+- Between-session follow-up on session-related topics (WhatsApp)
 - Custom session planning
-- Priority rescheduling
+- Priority scheduling & rescheduling
+- Coaching only: no build work, structured playbook, or launch accountability — those live in the 8-Week Build Sprint ($2,497)
 
 All sessions are 60 minutes, held via video call. Book at https://thearmchairfuturist.com#ai-mentoring
 
@@ -147,7 +146,7 @@ All sessions are 60 minutes, held via video call. Book at https://thearmchairfut
 - **Single Session:** $120 / €100 - One 60-min 1-on-1 coaching session
 - **5-Session Pack:** $570 / €475 ($114/session) - Save $30 / €25
 - **10-Session Pack:** $1,100 / €900 ($110/session) - Save $100 / €100
-- **20-Session Pack:** $2,000 / €1,700 ($100/session) - Save $400 / €300
+- **20-Session Pack:** $2,000 / €1,700 ($100/session) - premium coaching track (no build work; build support lives in the Build Sprint)
 - Focus on mindset before toolset
 - Moves clients from AI anxiety to agency
 

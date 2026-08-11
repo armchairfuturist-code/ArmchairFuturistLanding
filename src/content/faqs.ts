@@ -42,7 +42,12 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "Why the program instead of a session pack?",
     answer:
-      "Session packs build AI literacy at your own pace. You get capable with AI and apply it to your work. The Self-Sufficiency Program is for when you want to launch something: an AI-powered service, a personal brand, a sellable offering. It's a structured 8-week build with a playbook, 10-15 coaching sessions, async support between sessions, and a fixed deliverable by week 8. If you want to get good with AI, buy a pack. If you want to ship an AI offering, apply for the program.",
+      "Session packs build your AI judgment — the mental models and literacy to evaluate and use AI well, at your own pace. The Self-Sufficiency Program builds your AI offering — a shipped system, structured playbook, co-building support, and launch accountability, with a fixed deliverable by week 8 (10–15 sessions plus async support between them). Session packs are coaching; the Program is a build engagement with accountability. If you want to get good with AI, buy a pack. If you want to ship an AI offering, apply for the program.",
+  },
+  {
+    question: "What happens between sessions?",
+    answer:
+      "Session packs include follow-up on session-related topics via WhatsApp — questions, sense-checks, and next-step guidance between calls. Build work is different: configuration, integrations, debugging, and infrastructure support live in the 8-week program, which includes async build support so you're never stuck waiting a week between working sessions.",
   },
   {
     question: "Can you work with organizations outside the US?",

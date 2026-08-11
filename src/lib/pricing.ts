@@ -52,6 +52,8 @@ export interface CoachingPackage {
   description: string;
   features: string[];
   popular: boolean;
+  /** Optional upsell note rendered under the pack features. */
+  upgradeNote?: string;
 }
 
 export const COACHING_PACKAGES: CoachingPackage[] = [
@@ -126,14 +128,15 @@ export const COACHING_PACKAGES: CoachingPackage[] = [
     discountPercent: 15,
     savings: 300,
     savingsUSD: 400,
-    description: 'Executive-level coaching with maximum savings and dedicated support',
+    description: 'Premium long-arc coaching — the deepest 1:1 track for building independent AI judgment',
     features: [
       'Everything in 10-Session Pack',
-      'Dedicated account management',
-      'Unlimited async support',
+      'Between-session follow-up on session-related topics (WhatsApp)',
       'Custom session planning',
-      'Priority rescheduling',
+      'Priority scheduling & rescheduling',
     ],
+    upgradeNote:
+      'Want hands-on co-building and launch accountability? The 8-Week Build Sprint adds a structured playbook, async build support, and a fixed deliverable by week 8 — amounts paid here credit toward the Program.',
     popular: true,
   },
 ];
