@@ -71,6 +71,18 @@ AI Mentoring, Psychology-Led Adoption, Human-Machine Workflow Design.
 
 ---
 
+## How I Work
+https://thearmchairfuturist.com/how-i-work
+This site runs on its own AI agent infrastructure ("digital employees, not assistants").
+- Hermes v0.19 (Nous Research) + Telegram gateway on a Linux workstation
+- DeepSeek V4 Pro (reasoning) + DeepSeek V4 Flash (tools/digest), direct API
+- Plain-text memory: POLICIES.md, MEMORY.md, USER.md (no vector DBs); 40+ skill packs; ~8 cron jobs
+- Autopilot: Daily AI Digest (11:00), LinkedIn post (12:00), Morning Dojo (06:00), EOD summary (18:00), weekly memory hygiene + skill evolution (GEPA)
+- Guardrails: reads POLICIES.md each session; never auto-executes public posts/purchases/external messages/destructive or credential changes; stages Substack/LinkedIn/client work for human review; evidence-based (no completion claim without proof); instructions only from verified channels (Telegram/Signal)
+- Shipped proof: daily digest, GitHub activity (github.com/armchairfuturist-code), mindscape-site, rooted-leader-site, Investment-Engine
+- Cost: single-digit dollars/day; ~$1-2 API credits for digest+LinkedIn; Brave Search free tier
+---
+
 ## Services & Pricing
 https://thearmchairfuturist.com/#services
 
