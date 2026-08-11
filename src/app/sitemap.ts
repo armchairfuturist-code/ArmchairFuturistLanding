@@ -114,5 +114,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.7,
     },
+    // === HOW I WORK ===
+    // Methodology + agent-infrastructure page (E-E-A-T: verifiable, shipped work).
+    {
+      url: `${baseUrl}/how-i-work`,
+      lastModified: new Date('2026-06-19'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
   ];
 }

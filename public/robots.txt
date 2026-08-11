@@ -43,7 +43,7 @@ Disallow: /
 
 # Sitemap location
 Sitemap: https://thearmchairfuturist.com/sitemap.xml
-
+Sitemap: https://thearmchairfuturist.com/sitemap-ai.xml
 # Crawl delay for overtly aggressive crawlers (optional)
 # User-agent: *
 # Crawl-delay: 1

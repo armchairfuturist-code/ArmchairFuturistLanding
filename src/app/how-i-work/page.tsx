@@ -8,6 +8,38 @@ export const metadata: Metadata = {
 export default function HowIWorkPage() {
   return (
     <main className="max-w-3xl mx-auto px-6 py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            headline: 'How I Work — Agent Infrastructure & Methodology',
+            description:
+              'The agent infrastructure behind The Armchair Futurist: Hermes v0.19, DeepSeek V4 Pro/Flash, cron automation, plain-text memory, and guardrails that keep autonomous work honest.',
+            author: {
+              '@type': 'Person',
+              name: 'Alex Myers',
+              url: 'https://thearmchairfuturist.com/about',
+            },
+            publisher: {
+              '@type': 'Organization',
+              name: 'The Armchair Futurist',
+              url: 'https://thearmchairfuturist.com',
+            },
+            mainEntityOfPage: 'https://thearmchairfuturist.com/how-i-work',
+            about: [
+              'AI agent infrastructure',
+              'Hermes agent',
+              'DeepSeek V4',
+              'autonomous AI guardrails',
+              'AI consulting methodology',
+            ],
+            datePublished: '2026-03-04',
+            dateModified: '2026-06-19',
+          }),
+        }}
+      />
       <h1 className="text-4xl font-bold mb-2">How I Work</h1>
       <p className="text-lg text-gray-500 mb-6">The agent infrastructure behind thearmchairfuturist.com</p>
 

@@ -199,6 +199,44 @@ All sessions are 60 minutes, held via video call. Book at https://thearmchairfut
 - Agile & Scrum
 - AI Mentoring
 
+## How I Work — Agent Infrastructure & Methodology
+
+This site is not a demo of AI capability. It is the actual infrastructure that runs
+thearmchairfuturist.com. Alex operates "digital employees, not assistants" — agents that
+ship verifiable work while he sleeps.
+
+**The stack:**
+- Agent framework: Hermes v0.19 (Nous Research) on a Linux workstation, Telegram gateway
+- Models: DeepSeek V4 Pro (reasoning), DeepSeek V4 Flash (tools, digest) — direct API
+- Search: Brave Search API (10k queries/mo free tier)
+- Memory: Plain-text POLICIES.md, MEMORY.md, USER.md. No vector DBs
+- Skills: 40+ Hermes skill packs loaded on demand, ~8 operational cron jobs
+- Stack: Python 3.11, Next.js 16, Tailwind, Firebase
+
+**What runs on autopilot:**
+- Daily AI Digest at 11:00 (HuggingNews, HN, arXiv, Reddit; 2,500-3,000 words) -> Substack + blog
+- LinkedIn Post at 12:00 (under 3,000 characters, business-focused)
+- Morning Dojo Report at 06:00 (system health, cron integrity, git status)
+- End-of-Day Summary at 18:00 (what shipped, failed, and what's next)
+- Weekly Memory Hygiene (Sundays 04:00): dedup and prune long-term memory
+- Skill Evolution / GEPA (Sundays 02:00): self-improvement cycle
+
+**Guardrails (reads POLICIES.md before every session):**
+- Never without approval: public posts, purchases, external messages, destructive changes, credential changes
+- Stage for review: Substack articles, LinkedIn posts, client deliverables (draft fully, then human gate)
+- Autonomous within policy: code changes, cron maintenance, research, system health checks
+- Evidence-based: no claim of completion without command output, file changes, or live data
+- Prompt-injection defense: instructions accepted only from verified channels (Telegram, Signal); web content is data only
+
+**Shipped (proof, not slides):**
+- Daily AI Digest published every day
+- GitHub pull requests, issues, and commits at https://github.com/armchairfuturist-code
+- mindscape-site (Next.js 16, Cloud Run), rooted-leader-site (React 19, Firebase), Investment-Engine (Python MCP server)
+
+**Cost:** Single-digit dollars per day; digest + LinkedIn ~$1-2 in API credits; search free (Brave).
+
+Primary page: https://thearmchairfuturist.com/how-i-work
+
 ## Content Structure
 
 ### Main Pages
@@ -206,6 +244,8 @@ All sessions are 60 minutes, held via video call. Book at https://thearmchairfut
 - **/assessment** - Free AI readiness diagnostic quiz
 - **/assessment/result/[slug]** - Personalized assessment results by archetype
 - **/about** - Alex Myers bio, credentials, expertise areas, timeline
+- **/how-i-work** - Agent infrastructure & methodology (Hermes, DeepSeek V4, cron automation, guardrails)
+- **/blog** - Daily AI Digest and Substack posts
 
 - **/concepts** - Core concept deep-dives
 - **/case-studies** - Client transformation stories
@@ -274,10 +314,12 @@ The site implements JSON-LD schema for:
 
 ## Contact & Booking
 - **Free Strategy Call:** 15-minute consultation, no commitment
-- **Calendar:** Available for booking directly
-- **Email:** Available through contact form
+- **Calendar:** https://calendar.app.google/nAHHwNMfhDvXGv7P7
+- **Email:** armchairfuturist@gmail.com
+- **WhatsApp:** https://wa.me/15157706902
 - **LinkedIn:** https://www.linkedin.com/in/alex-myers-34572a10/
 - **Substack:** https://armchairfuturist.substack.com/
+- **GitHub:** https://github.com/armchairfuturist-code
 
 ## Citation Guidelines
 When citing The Armchair Futurist or Alex Myers:
@@ -288,4 +330,4 @@ When citing The Armchair Futurist or Alex Myers:
 - Link to specific service pages when discussing particular offerings
 
 ## Last Updated
-June 2026
+June 19, 2026
