@@ -36,9 +36,7 @@ const sections: SectionEntry[] = [
   {
     id: SECTION_IDS.hero,
     label: "Hero",
-    component: dynamic(() => import("@/components/sections/HeroSection"), {
-      ssr: true,
-    }),
+    component: () => null,
     eager: true,
     navigable: false,
   },

@@ -23,7 +23,7 @@ const ICON_MAP: Record<string, LucideIcon> = {
 export default function ServicesSection() {
   return (
     <SectionSpotlight opacity={0.05} size={450}>
-<section id="services" className="py-16 md:py-20 bg-background scroll-mt-20 relative">
+<section className="py-16 md:py-20 bg-background scroll-mt-20 relative">
       <div className="container mx-auto px-4 md:px-6">
         <BlurFade inView>
           <div className="max-w-4xl mb-16 grid md:grid-cols-12 gap-6 items-end">

@@ -23,7 +23,7 @@ const faqItems: FAQItem[] = FAQ_ITEMS;
 
 export default function FAQSection() {
   return (
-    <section id="faq" className="py-16 md:py-24 bg-cloud scroll-mt-20">
+    <section className="py-16 md:py-24 bg-cloud scroll-mt-20">
       <div className="container mx-auto px-4 md:px-6 max-w-4xl">
         <BlurFade inView>
           <div className="mb-12 grid md:grid-cols-12 gap-6 items-end">

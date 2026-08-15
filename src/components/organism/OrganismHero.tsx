@@ -45,7 +45,7 @@ export function OrganismHero() {
       <div className="organism-topline">
         <span className="organism-mark">A / F</span>
         <span>AN INTELLIGENCE STUDIO FOR HUMANS</span>
-        <button className="organism-sound" type="button" onClick={() => setSoundOn((value) => !value)} aria-pressed={soundOn}>
+        <button className="organism-sound" type="button" onClick={() => setSoundOn((value) => !value)} aria-pressed={soundOn} aria-label="Toggle ambient sound">
           {soundOn ? <Volume2 size={14} aria-hidden="true" /> : <VolumeX size={14} aria-hidden="true" />}
           <span>{soundOn ? "Sound on" : "Sound off"}</span>
         </button>
@@ -56,7 +56,7 @@ export function OrganismHero() {
         <p className="organism-deck">A partner in learning. We build the mental models that make AI make sense, then test them live on your real work. When you&apos;d rather have it built, I build it.</p>
         <div className="organism-actions">
           <button type="button" className="organism-button organism-button--primary" onClick={() => scrollToId("services")}>See coaching &amp; services <ArrowDown size={17} aria-hidden="true" /></button>
-          <button type="button" className="organism-button organism-button--quiet" onClick={() => scrollToId("contact")}>Talk to Alex <ArrowUpRight size={16} aria-hidden="true" /></button>
+          <button type="button" className="organism-button organism-button--quiet" onClick={() => scrollToId("connect")}>Talk to Alex <ArrowUpRight size={16} aria-hidden="true" /></button>
         </div>
         <a className="organism-hero__whatsapp" href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Or message on WhatsApp <ArrowUpRight size={13} aria-hidden="true" /></a>
       </div>
