@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowDown, ArrowUpRight, Volume2, VolumeX } from "lucide-react";
 import { OrganismCanvas } from "@/components/organism/OrganismCanvas";
+import { SERVICE_PATHS } from "@/content/service-paths";
 
 const chapters = [
   { id: "signal", label: "Signal" },
@@ -159,9 +160,32 @@ export function OrganismShell() {
         <div className="organism-manifesto__signal"><span>HUMAN CAPABILITY</span><div><i /><i /><i /><i /><i /><i /><i /></div><strong>rising</strong></div>
       </section>
 
+      <section id="services" className="organism-services organism-section" aria-labelledby="services-title">
+        <div className="organism-section__meta"><span>THE ACTUAL OFFER</span><span>04 / 05</span></div>
+        <div className="organism-services__heading"><p className="organism-kicker"><span /> Choose your mutation</p><h2 id="services-title">From clarity<br /><em>to capability.</em></h2><p>Here is what I actually do. Pick the level of support that fits: learn it with me, or hand me the build.</p></div>
+        <div className="organism-service-paths">
+          {SERVICE_PATHS.map((path) => <article key={path.id} className="organism-service-path">
+            <div className="organism-service-path__top"><span>{path.label}</span><span>{path.id === "together" ? "01" : "02"}</span></div>
+            <h3>{path.title}</h3>
+            <p className="organism-service-path__kicker">{path.kicker}</p>
+            <p className="organism-service-path__description">{path.description}</p>
+            <div className="organism-service-tiers">
+              {path.tiers.map((tier) => <div key={tier.name} className={`organism-service-tier ${tier.highlighted ? "is-highlighted" : ""}`}>
+                <div><h4>{tier.name}</h4><span>{tier.tag}</span></div>
+                <strong>{tier.price}</strong>
+                <p>{tier.description}</p>
+                <ul>{tier.features.map((feature) => <li key={feature}>{feature}</li>)}</ul>
+                {tier.note && <small>{tier.note}</small>}
+                <a href={tier.ctaLink === "CALENDAR_URL" ? "#contact" : tier.ctaLink}>{tier.cta} <ArrowUpRight size={14} aria-hidden="true" /></a>
+              </div>)}
+            </div>
+          </article>)}
+        </div>
+      </section>
+
       <section id="connect" className="organism-contact organism-section" aria-labelledby="contact-title">
         <div className="organism-contact__glow" aria-hidden="true" />
-        <div className="organism-section__meta"><span>THE INVITATION</span><span>04 / 04</span></div>
+        <div className="organism-section__meta"><span>THE INVITATION</span><span>05 / 05</span></div>
         <div className="organism-contact__body"><p className="organism-kicker"><span /> Signal received</p><h2 id="contact-title">Bring a question.<br /><em>Leave with a system.</em></h2><p>No pressure. No pitch. Just a clear look at what AI could unlock in your work—and what it should never touch.</p><button type="button" className="organism-button organism-button--primary" onClick={() => window.location.hash = "contact"}>Start a conversation <ArrowUpRight size={17} aria-hidden="true" /></button></div>
         <div className="organism-contact__footer"><span>THE ARMCHAIR FUTURIST</span><span>BUILT FOR THE NEXT 10 YEARS</span><span>© 2026</span></div>
       </section>
