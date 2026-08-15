@@ -74,13 +74,12 @@ export default function ConnectSection() {
       >
         <BlurFade inView>
           <h2 className="font-display text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-tight leading-[1.05] mb-6">
-            You have time. You don&apos;t have unlimited time.
+            You have time, but not unlimited time.
           </h2>
         </BlurFade>
         <BlurFade inView delay={0.15}>
           <p className="max-w-2xl mx-auto text-lg text-primary-foreground/90 mb-10 font-sans">
-            The edge of change is real, and it&apos;s okay to feel the weight
-            of it. You don&apos;t need to have it all figured out. You need one
+            You don&apos;t need to have it all figured out. You need one
             honest conversation about your next step, with someone who&apos;s
             been here before.
           </p>
@@ -117,7 +116,7 @@ export default function ConnectSection() {
             </Button>
           </motion.div>
           <p className="mt-4 text-sm text-primary-foreground/85">
-            15 minutes. No pitch. Just clarity.
+            15 minutes. No pitch.
           </p>
           <p className="mt-2 text-sm text-primary-foreground/75">
             Not sure if it&apos;s a fit?{" "}

@@ -22,7 +22,7 @@ export default function CaseStudiesSection() {
                 Case work
               </p>
               <h2 className="font-display text-[clamp(2.25rem,5vw,3.75rem)] font-bold tracking-tight leading-[0.98] text-ink max-w-[16ch]">
-                What happens when AI actually works
+                What happens when AI works
               </h2>
             </div>
             <p className="md:col-span-5 text-lg text-charcoal font-sans md:text-right md:pb-1 max-w-md md:ml-auto">

@@ -60,7 +60,7 @@ export default function KeyStatsSection() {
               />
             </div>
             <p className="text-white/80 font-sans text-lg md:text-xl max-w-sm md:text-right leading-snug">
-              What happens when AI is actually owned, not just prompted.
+              What happens when you own the system.
             </p>
           </div>
         </BlurFade>

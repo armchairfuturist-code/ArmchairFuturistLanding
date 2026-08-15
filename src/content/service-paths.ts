@@ -70,7 +70,7 @@ export const SERVICE_PATHS: ServicePath[] = [
         price: "$2,497",
         tag: "8-Week Build Sprint",
       description:
-        "You don't just learn AI — you ship a launched AI-powered service or brand by week 8. A proven playbook, 10–15 coaching sessions, and async support throughout, so you finish with something real to sell, not just notes from sessions.",
+        "You ship a launched AI-powered service or brand by week 8. A proven playbook, 10–15 coaching sessions, and async support throughout, so you finish with something real to sell, not just notes from sessions.",
         features: [
         "Your own AI-powered service, designed & launched by week 8",
         "Structured build playbook (not open coaching)",

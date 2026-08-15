@@ -30,7 +30,7 @@ export default function ServicesSection() {
               <div className="md:col-span-7">
                 <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-4">Your path to AI independence</p>
                 <h2 className="font-display text-[clamp(2.25rem,5vw,3.75rem)] font-bold tracking-tight leading-[0.98] text-ink">
-                  From dependency to independence
+                  You leave able to keep going
                 </h2>
               </div>
               <p className="md:col-span-5 text-base md:text-lg text-charcoal font-sans leading-relaxed md:text-right">

@@ -47,15 +47,11 @@
   button:focus-visible { outline: 2px solid hsl(var(--primary)); outline-offset: 4px; }
 }
 
-.organism-hero { position: relative; min-height: 100svh; isolation: isolate; display: flex; flex-direction: column; justify-content: space-between; padding: 28px 4vw 32px; overflow: hidden; color: var(--org-paper); font-family: var(--org-sans); }
+.organism-hero { position: relative; min-height: 100svh; isolation: isolate; display: flex; flex-direction: column; justify-content: space-between; padding: 88px 4vw 32px; overflow: hidden; color: var(--org-paper); font-family: var(--org-sans); }
 .organism-hero__wash { position: absolute; z-index: -3; inset: 0; background: radial-gradient(circle at 74% 36%, rgba(22, 72, 180, .34), transparent 28%), radial-gradient(circle at 18% 82%, rgba(21, 39, 75, .34), transparent 28%), linear-gradient(120deg, #080d17, #0b1425 60%, #080d17); }
 .organism-canvas { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; mix-blend-mode: screen; opacity: .92; cursor: crosshair; }
 .organism-noise { position: absolute; z-index: -1; inset: 0; pointer-events: none; opacity: .08; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E"); }
-.organism-topline, .organism-status, .organism-sound { font-family: var(--org-mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; }
-.organism-topline { display: flex; align-items: center; justify-content: space-between; color: var(--org-muted); }
-.organism-mark { color: var(--org-paper); font-size: 13px; font-weight: 500; letter-spacing: .05em; }
-.organism-sound { display: inline-flex; align-items: center; gap: 8px; padding: 0; border: 0; background: transparent; color: var(--org-muted); cursor: pointer; }
-.organism-sound:hover { color: var(--org-paper); }
+.organism-status { font-family: var(--org-mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; }
 .organism-hero__copy { max-width: 850px; margin: 14vh 0 0 8vw; }
 .organism-kicker { display: flex; align-items: center; gap: 10px; margin: 0 0 22px; color: var(--org-blue); font-family: var(--org-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
 .organism-kicker span { width: 28px; height: 1px; background: currentColor; }
@@ -71,14 +67,11 @@
 .organism-button--quiet:hover { border-color: rgba(240, 238, 232, .5); }
 .organism-status { display: flex; gap: 26px; color: var(--org-muted); }
 .organism-status span { color: #c5cad3; }
-.status-dot { width: 6px; height: 6px; margin: 0 1px 0 0; border-radius: 50%; background: #6effb0 !important; box-shadow: 0 0 12px #6effb0; }
 .organism-hero__hint { display: flex; align-items: center; gap: 10px; align-self: center; color: var(--org-muted); font-family: var(--org-mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; animation: drift 2.2s ease-in-out infinite; }
 @keyframes drift { 50% { transform: translateY(5px); opacity: .55; } }
 
 @media (max-width: 800px) {
-  .organism-hero { padding: 20px 6vw 24px; }
-  .organism-topline { font-size: 10px; letter-spacing: .1em; }
-  .organism-topline > span:nth-child(2) { display: none; }
+  .organism-hero { padding: 76px 6vw 24px; }
   .organism-hero__copy { margin-left: 0; margin-top: 10vh; }
   .organism-hero h1 { font-size: clamp(3.1rem, 15vw, 6rem); }
   .organism-deck { font-size: 15px; }
