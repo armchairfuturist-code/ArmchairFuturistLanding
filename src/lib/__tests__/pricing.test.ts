@@ -1,6 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import {
   COACHING_PACKAGES,
+  SERVICES_PRICING,
+  formatServicePrice,
   resolvePricing,
   resolveDefaultCurrency,
   EURO_COUNTRIES,
@@ -71,5 +73,17 @@ describe('resolveDefaultCurrency', () => {
     for (const region of EURO_COUNTRIES) {
       expect(resolveDefaultCurrency(`xx-${region}`, null)).toBe('EUR');
     }
+  });
+});
+
+describe('formatServicePrice', () => {
+  it('shows Digital Identity as $233 by default and €199 in EUR', () => {
+    expect(formatServicePrice(SERVICES_PRICING.digitalIdentity, 'USD')).toBe('$233');
+    expect(formatServicePrice(SERVICES_PRICING.digitalIdentity, 'EUR')).toBe('€199');
+  });
+
+  it('shows Custom AI as a USD range and a whole-number EUR range', () => {
+    expect(formatServicePrice(SERVICES_PRICING.customAiProvisioning, 'USD')).toBe('$1,000 – $5,000');
+    expect(formatServicePrice(SERVICES_PRICING.customAiProvisioning, 'EUR')).toBe('€850 – €4,275');
   });
 });

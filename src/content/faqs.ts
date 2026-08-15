@@ -32,12 +32,12 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "How much do services cost?",
     answer:
-      "Two paths. 'We do it together' guidance starts at the 5-session pack ($600 / €500) and scales through 10 and 20-session packs (up to 15% savings). These build your AI literacy at your own pace. The $2,497 AI Self-Sufficiency Program is an 8-week build sprint where you launch your own AI-powered service or brand, with 10-15 coaching sessions, a structured playbook, and async support. The $199 Digital Identity Landing Page is the easiest entry point into the 'I do it for you' path. Custom AI Provisioning runs $1,000-$5,000 depending on scope. Pricing is in USD and EUR.",
+      "Two paths. 'We do it together' guidance starts at the 5-session pack ($570 / €475) and scales through 10 and 20-session packs (up to 15% savings). These build your AI literacy at your own pace. The $2,497 AI Self-Sufficiency Program is an 8-week build sprint where you launch your own AI-powered service or brand, with 10-15 coaching sessions, a structured playbook, and async support. The Digital Identity Landing Page ($233 / €199) is the easiest entry into the 'I do it for you' path. Custom AI Provisioning runs $1,000–$5,000 (€850–€4,275) depending on scope.",
   },
   {
     question: "How does AI guidance work?",
     answer:
-      "One-on-one coaching starting at $120 (€100) per 60-minute session for the 5-session pack, with deeper discounts at 10 and 20 sessions. I focus on building mental models for how AI works, then testing them live on your real work. Each session blends practical guidance with how AI changes your role, your business, and your opportunities. Most clients start with 5 or 10 sessions.",
+      "One-on-one coaching. A single session is $120 (€100). Packs start at $570 (€475) for 5 sessions, with deeper discounts at 10 and 20. I focus on building mental models for how AI works, then testing them live on your real work. Each session blends practical guidance with how AI changes your role, your business, and your opportunities. Most clients start with 5 or 10 sessions.",
   },
   {
     question: "Why the program instead of a session pack?",
@@ -67,7 +67,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "What is Custom AI Provisioning?",
     answer:
-      "A done-for-you service where I build you a private AI command center: custom business workflows, agent installation (OpenClaw, Hermes), API integrations, calendar/email sync, and secure infrastructure. Pricing ranges $1,000-$5,000 depending on scope, delivered in 1-2 weeks. You own everything: code, data, infrastructure.",
+      "A done-for-you service where I build you a private AI command center: custom business workflows, agent installation (OpenClaw, Hermes), API integrations, calendar/email sync, and secure infrastructure. Pricing ranges $1,000–$5,000 (€850–€4,275) depending on scope, delivered in 1-2 weeks. You own everything: code, data, infrastructure.",
   },
   {
     question: "Who do you work best with, and who isn't a fit?",
@@ -77,6 +77,6 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "How do I get started?",
     answer:
-      "Three ways, depending on where you are. The $199 Digital Identity Landing Page requires no call. Just submit the intake. For guidance, browse session packs starting at $120 (€100) or apply for the AI Self-Sufficiency Program. For done-for-you builds, request a 30-minute fit call and I'll scope the work.",
+      "Three ways, depending on where you are. The Digital Identity Landing Page ($233 / €199) requires no call. Just submit the intake. For guidance, browse session packs starting at $120 (€100) or apply for the AI Self-Sufficiency Program. For done-for-you builds, request a 30-minute fit call and I'll scope the work.",
   },
 ];

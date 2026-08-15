@@ -10,6 +10,7 @@ export interface ServiceTier {
   highlighted: boolean;
   icon: string;
   note?: string;
+  priceKey?: "digitalIdentity" | "customAiProvisioning";
 }
 export interface ServicePath {
   id: string;
@@ -48,7 +49,7 @@ export const SERVICE_PATHS: ServicePath[] = [
       },
       {
         name: "1-on-1 AI Guidance",
-        price: "$600 – $2,000",
+        price: "$570 – $2,000",
         tag: "5 · 10 · 20 Packs",
         description:
           "The proven foundation. Start with a 5-session pack and scale up. Most clients start with 5 or 10 sessions. Each one builds your AI literacy, from understanding to agency to independence.",
@@ -96,7 +97,8 @@ export const SERVICE_PATHS: ServicePath[] = [
     tiers: [
       {
         name: "Digital Identity Landing Page",
-        price: "$199",
+        price: "$233",
+        priceKey: "digitalIdentity",
         tag: "Delivered in 2-4 Days",
         description:
           "An interview-ready digital identity site that consolidates your LinkedIn, resume, and social links into one professional platform you own. Like Linktree, but built for serious operators.",
@@ -115,6 +117,7 @@ export const SERVICE_PATHS: ServicePath[] = [
       {
         name: "Custom AI Provisioning",
         price: "$1,000 – $5,000",
+        priceKey: "customAiProvisioning",
         tag: "1-2 Weeks",
         description:
           "A done-for-you private AI command center. Custom business workflows, agent installation (OpenClaw, Hermes), API integrations, calendar/email sync, and secure infrastructure. Reclaim 10-20 hours a week.",

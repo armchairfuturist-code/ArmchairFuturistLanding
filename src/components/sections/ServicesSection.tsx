@@ -9,6 +9,9 @@ import { MagneticCard } from '@/components/ui/MagneticCard';
 import { SectionSpotlight } from '@/components/ui/SectionSpotlight';
 import { staggerContainer, springStaggerItem } from '@/lib/animation-variants';
 import { SERVICE_PATHS, type ServiceTier } from "@/content/service-paths";
+import { formatServicePrice, SERVICES_PRICING } from "@/lib/pricing";
+import { usePreferredCurrency } from "@/lib/hooks/usePreferredCurrency";
+import { CurrencyToggle } from "@/components/ui/CurrencyToggle";
 
 const ICON_MAP: Record<string, LucideIcon> = {
   Zap,
@@ -21,6 +24,18 @@ const ICON_MAP: Record<string, LucideIcon> = {
 
 
 export default function ServicesSection() {
+  const [currency, setCurrency] = usePreferredCurrency();
+
+  const displayPrice = (tier: ServiceTier) => {
+    if (tier.priceKey === "digitalIdentity") {
+      return formatServicePrice(SERVICES_PRICING.digitalIdentity, currency);
+    }
+    if (tier.priceKey === "customAiProvisioning") {
+      return formatServicePrice(SERVICES_PRICING.customAiProvisioning, currency);
+    }
+    return tier.price;
+  };
+
   return (
     <SectionSpotlight opacity={0.05} size={450}>
 <section className="py-16 md:py-20 bg-background scroll-mt-20 relative">
@@ -63,6 +78,9 @@ export default function ServicesSection() {
                   <p className="text-sm md:text-base text-foreground/80 font-sans leading-relaxed md:max-w-md md:text-right">
                     {path.description}
                   </p>
+                  {path.id === "foryou" && (
+                    <CurrencyToggle currency={currency} onChange={setCurrency} />
+                  )}
                 </div>
               </BlurFade>
 
@@ -109,7 +127,7 @@ export default function ServicesSection() {
                           <span className={`font-bold tabular-nums ${
                             tier.price === "Free" ? 'text-2xl text-primary' : 'text-3xl text-primary'
                           }`}>
-                            {tier.price}
+                            {displayPrice(tier)}
                           </span>
                         </div>
                       </CardHeader>

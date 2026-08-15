@@ -13,7 +13,10 @@ export type CurrencyCode = 'EUR' | 'USD';
 export const SERVICES_PRICING = {
   digitalIdentity: {
     name: "Digital Identity Landing Page",
-    price: 199,
+    // Canonical list price is €199. USD is the whole-dollar equivalent at EUR_USD_RATE.
+    price: 233,
+    priceUSD: 233,
+    priceEUR: 199,
     currency: "USD" as const,
     description:
       "Interview-ready digital identity site that translates your LinkedIn, resume, and social links into one professional platform you own. Delivered in 2-4 days.",
@@ -23,6 +26,10 @@ export const SERVICES_PRICING = {
     price: 1000,
     minPrice: 1000,
     maxPrice: 5000,
+    minPriceUSD: 1000,
+    maxPriceUSD: 5000,
+    minPriceEUR: 850,
+    maxPriceEUR: 4275,
     currency: "USD" as const,
     description:
       "Done-for-you private AI command center with API integrations, workflow automation, and secure infrastructure. Reclaim 10-20 hours per week.",
@@ -199,6 +206,25 @@ export function resolvePricing(
   return currency === 'USD'
     ? { total: pkg.totalPriceUSD, perSession: pkg.pricePerSessionUSD, savings: pkg.savingsUSD }
     : { total: pkg.totalPrice, perSession: pkg.pricePerSession, savings: pkg.savings };
+}
+
+function money(amount: number, currency: CurrencyCode): string {
+  const symbol = currency === 'EUR' ? '€' : '$';
+  return `${symbol}${amount.toLocaleString('en-US')}`;
+}
+
+/** Format a done-for-you service price in the active currency. */
+export function formatServicePrice(
+  service: typeof SERVICES_PRICING.digitalIdentity | typeof SERVICES_PRICING.customAiProvisioning,
+  currency: CurrencyCode,
+): string {
+  if ('minPriceUSD' in service) {
+    const min = currency === 'EUR' ? service.minPriceEUR : service.minPriceUSD;
+    const max = currency === 'EUR' ? service.maxPriceEUR : service.maxPriceUSD;
+    return `${money(min, currency)} – ${money(max, currency)}`;
+  }
+  const amount = currency === 'EUR' ? service.priceEUR : service.priceUSD;
+  return money(amount, currency);
 }
 
 /**
