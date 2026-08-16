@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Alex Myers — AI Consultant & Instructor";
+export const alt = "The Armchair Futurist — AI literacy & implementation";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -35,7 +35,7 @@ export default function Image() {
         {/* Main title */}
         <div
           style={{
-            fontSize: "72px",
+            fontSize: "60px",
             fontWeight: "700",
             color: "#ffffff",
             lineHeight: "1.1",
@@ -43,20 +43,20 @@ export default function Image() {
             letterSpacing: "-0.02em",
           }}
         >
-          Alex Myers
+          The Armchair Futurist
         </div>
 
         {/* Subtitle */}
         <div
           style={{
-            fontSize: "36px",
+            fontSize: "32px",
             fontWeight: "500",
-            color: "#636363",
+            color: "#d4d9e0",
             lineHeight: "1.3",
             marginBottom: "12px",
           }}
         >
-          AI Consultant & Instructor
+          AI literacy & implementation
         </div>
 
         {/* Bottom tagline */}
