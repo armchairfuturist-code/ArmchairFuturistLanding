@@ -48,11 +48,14 @@
   button:focus-visible { outline: 2px solid hsl(var(--primary)); outline-offset: 4px; }
 }
 
-.organism-hero { position: relative; min-height: 100svh; isolation: isolate; display: flex; flex-direction: column; justify-content: space-between; padding: 88px 4vw 32px; overflow: hidden; color: var(--org-paper); font-family: var(--org-sans); }
+.organism-hero { position: relative; min-height: 100svh; isolation: isolate; display: flex; flex-direction: column; justify-content: space-between; padding: 88px 4vw 32px; overflow: hidden; color: var(--org-paper); font-family: var(--org-sans); -webkit-tap-highlight-color: transparent; }
 .organism-hero__wash { position: absolute; z-index: -3; inset: 0; background: radial-gradient(circle at 74% 36%, rgba(22, 72, 180, .34), transparent 28%), radial-gradient(circle at 18% 82%, rgba(21, 39, 75, .34), transparent 28%), linear-gradient(120deg, #080d17, #0b1425 60%, #080d17); }
-.organism-canvas { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; mix-blend-mode: screen; opacity: .92; cursor: crosshair; }
+.organism-canvas { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; mix-blend-mode: screen; opacity: 1; cursor: crosshair; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
 .organism-fallback { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; opacity: 0; pointer-events: none; transition: opacity .45s ease; }
-.organism-fallback.is-visible { opacity: .82; }
+.organism-fallback.is-visible { opacity: .9; }
+.organism-fallback__word { font-family: var(--org-sans); font-size: 148px; font-weight: 700; letter-spacing: -.03em; fill: none; stroke: var(--org-warm); stroke-width: 1.4; }
+.organism-fallback.is-visible .organism-fallback__word { animation: organism-fallback-breathe 5.5s ease-in-out infinite; }
+@keyframes organism-fallback-breathe { 50% { opacity: .55; } }
 .organism-noise { position: absolute; z-index: -1; inset: 0; pointer-events: none; opacity: .08; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E"); }
 .organism-status { font-family: var(--org-mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; }
 .organism-hero__copy { max-width: 850px; margin: 14vh 0 0 8vw; }
