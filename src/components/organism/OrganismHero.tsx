@@ -17,7 +17,8 @@ export function OrganismHero() {
       <div className="organism-hero__copy">
         <p className="organism-kicker"><span /> AI literacy &amp; implementation</p>
         <h1>AI won&apos;t replace you.<br /><em>Someone using AI better will.</em></h1>
-        <p className="organism-deck">A partner in learning. We build the mental models that make AI make sense, then test them live on your real work. When you&apos;d rather have it built, I build it.</p>
+        <p className="organism-deck">A partner in learning. We build the mental models that make AI make sense, then test them live on your real work.</p>
+        <p className="organism-deck organism-deck--offer">When you&apos;d rather have it built, I build it.</p>
         <div className="organism-actions">
           <button type="button" className="organism-button organism-button--primary" onClick={() => scrollToId("services")}>See coaching &amp; services <ArrowDown size={17} aria-hidden="true" /></button>
           <button type="button" className="organism-button organism-button--quiet" onClick={() => scrollToId("connect")}>Talk to Alex <ArrowUpRight size={16} aria-hidden="true" /></button>
