@@ -59,7 +59,7 @@
 .organism-kicker { display: flex; align-items: center; gap: 10px; margin: 0 0 22px; color: var(--org-blue); font-family: var(--org-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
 .organism-kicker span { width: 28px; height: 1px; background: currentColor; }
 .organism-hero h1 { max-width: 920px; margin: 0; font-size: clamp(3.5rem, 8.3vw, 9.3rem); font-weight: 500; letter-spacing: -.075em; line-height: .88; color: var(--org-paper); }
-.organism-hero h1 em { color: transparent; font-style: normal; -webkit-text-stroke: 1px rgba(240, 238, 232, .72); }
+.organism-hero h1 em { color: transparent; font-style: normal; -webkit-text-stroke: 2px rgba(240, 238, 232, .82); }
 .organism-deck { max-width: 450px; margin: 32px 0 0; color: #b1b6c1; font-size: 16px; line-height: 1.6; }
 .organism-actions { display: flex; gap: 16px; margin-top: 35px; }
 .organism-button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 48px; padding: 0 20px; border: 1px solid transparent; border-radius: 999px; cursor: pointer; transition: transform .25s ease, background .25s ease, border-color .25s ease; }
