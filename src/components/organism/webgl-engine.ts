@@ -20,23 +20,11 @@ export interface ParticleTheme {
 export const HP_THEMES: Record<string, ParticleTheme> = {
   hero: {
     bg: [0.031, 0.051, 0.090], // #080d17 dark ink navy
-    colA: [0.360, 0.470, 0.620], // #5c789e cool chaos steel
-    colB: [0.949, 0.651, 0.431], // #f2a66e purposeful warm word
+    colA: [0.360, 0.470, 0.620], // #5c789e calm field steel
+    colB: [0.949, 0.651, 0.431], // #f2a66e warmth under touch
     glow: [1.0, 0.72, 0.48],
-    spring: 8.8,
-    turb: 0.10,
-    push: 5.6,
-    swirl: 3.4,
-    cursorR: 0.34,
-    bloom: 1.0,
-  },
-  dream: {
-    bg: [0.025, 0.040, 0.075],
-    colA: [0.161, 0.431, 0.976], // #296ef9 signal blue
-    colB: [0.557, 0.741, 0.808], // #8ebdce storm mist
-    glow: [0.20, 0.55, 0.90],
-    spring: 6.0,
-    turb: 0.26,
+    spring: 7.2,
+    turb: 0.16,
     push: 5.6,
     swirl: 3.4,
     cursorR: 0.34,
@@ -67,7 +55,7 @@ layout(location=2) in float a_seed;
 layout(location=3) in vec2 a_homeA;
 layout(location=4) in vec2 a_homeB;
 
-uniform float u_dt, u_time, u_morph, u_spring, u_turb, u_push, u_swirl, u_cursorR, u_shock, u_scramble, u_aspect;
+uniform float u_dt, u_time, u_morph, u_spring, u_turb, u_push, u_swirl, u_cursorR, u_shock, u_aspect;
 uniform vec2 u_cursor, u_shockPos, u_centerOffset;
 
 out vec2 v_pos;
@@ -93,7 +81,7 @@ void main(){
   vec2 home = mix(a_homeA, a_homeB, m) + u_centerOffset;
 
   vec2 f = vec2(0.0);
-  f += (home - a_pos) * u_spring * mix(1.0, 0.25, amb) * (1.0 - u_scramble * 0.8);
+  f += (home - a_pos) * u_spring * mix(1.0, 0.25, amb);
 
   vec2 flow = curl2(a_pos + a_seed*13.7, u_time + a_seed*4.0);
   f += flow * u_turb * mix(1.0, 2.2, amb) * (0.55 + 0.9*fract(a_seed*3.7)) * 2.4;
@@ -110,12 +98,6 @@ void main(){
   vec2 sd = a_pos - u_shockPos;
   float sr = length(sd) + 1e-5;
   f += (sd/sr) * u_shock * 110.0 * exp(-sr * 4.2 / u_aspect);
-
-  if (u_scramble > 0.001) {
-    vec2 sdir = vec2(fract(a_seed * 13.37) - 0.5, fract(a_seed * 7.77) - 0.5);
-    f += normalize(sdir + vec2(1e-4, 1e-4)) * u_scramble * u_aspect * (0.34 + fract(a_seed * 5.13) * 0.48);
-    f += curl2(a_pos * 2.2 + a_seed * 9.1, u_time * 2.6) * u_scramble * 2.4 * u_aspect / 1.5;
-  }
 
   vec2 vel = a_vel + f * u_dt;
   vel *= pow(0.885, u_dt * 60.0);
@@ -141,7 +123,7 @@ layout(location=0) in vec2 a_pos;
 layout(location=1) in vec2 a_vel;
 layout(location=2) in float a_seed;
 
-uniform float u_aspect, u_px, u_opacity, u_morph;
+uniform float u_aspect, u_px, u_opacity;
 uniform vec3 u_colA, u_colB;
 out vec3 v_col;
 out float v_a;
@@ -149,9 +131,8 @@ out float v_a;
 void main(){
   float amb = step(0.94, a_seed);
   float sp = clamp(length(a_vel) * 1.25 + fract(a_seed*5.13)*0.18, 0.0, 1.0);
-  float tone = smoothstep(0.08, 0.78, u_morph);
-  vec3 base = mix(u_colA, u_colB, tone);
-  v_col = mix(base, u_colB, tone * sp * 0.32);
+  // The field rests cool; touch (speed) ignites warmth.
+  v_col = mix(u_colA, u_colB, smoothstep(0.15, 0.85, sp));
   float radial = 1.0 - 0.35 * smoothstep(0.5, 1.1, length(a_pos));
   v_col *= (1.38 + 0.55*sp) * mix(1.0, 0.22, amb) * radial;
   v_a = mix(1.0, 0.8, sp) * mix(1.0, 0.35, amb) * u_opacity;
@@ -219,7 +200,7 @@ export function mulberry32(seed: number) {
 }
 
 
-// A chaotic scattered cloud: everyday friction and admin chaos.
+// A chaotic scattered cloud: the pre-system mess particles arrive from.
 export function generateChaosCloudPoints(count: number, aspect: number): Float32Array {
   const out = new Float32Array(count * 2);
   const rng = mulberry32(4404);
@@ -230,95 +211,20 @@ export function generateChaosCloudPoints(count: number, aspect: number): Float32
   return out;
 }
 
-// Sample a word rendered to an offscreen Canvas2D into particle home positions.
-// The word keeps its glyph proportions and is anchored at (xCenter, yCenter)
-// in clip space, spanning widthFactor of the viewport width.
-export function sampleWordPoints(
-  word: string,
-  count: number,
-  aspect: number,
-  options: { widthFactor?: number; yCenter?: number; xCenter?: number; weight?: string } = {}
-): Float32Array {
-  const fallback = generateChaosCloudPoints(count, aspect);
-  if (typeof document === "undefined" || !word.trim()) return fallback;
-
-  const canvas = document.createElement("canvas");
-  const ctx = canvas.getContext("2d", { willReadFrequently: true });
-  if (!ctx) return fallback;
-
-  const w = 1600;
-  const h = 460;
-  canvas.width = w;
-  canvas.height = h;
-
-  const weight = options.weight || "700";
-  let fontSize = 300;
-  const setFont = () => {
-    ctx.font = weight + " " + fontSize + 'px "Space Grotesk", "DM Mono", ui-sans-serif, sans-serif';
-    // Letter gaps must survive particle wander + trail glow, so space generously.
-    if ("letterSpacing" in ctx) ctx.letterSpacing = "0.20em";
-  };
-  setFont();
-
-  const measured = ctx.measureText(word).width;
-  if (measured > 0) {
-    fontSize = Math.floor(fontSize * Math.min(1, (w * 0.94) / measured));
-    setFont();
-  }
-
-  ctx.fillStyle = "#000000";
-  ctx.fillRect(0, 0, w, h);
-  ctx.fillStyle = "#ffffff";
-  ctx.textAlign = "center";
-  ctx.textBaseline = "middle";
-  ctx.fillText(word, w / 2, h / 2);
-
-  const imgData = ctx.getImageData(0, 0, w, h).data;
-  const xs: number[] = [];
-  const ys: number[] = [];
-  const step = 3;
-  for (let y = 0; y < h; y += step) {
-    for (let x = 0; x < w; x += step) {
-      const idx = (y * w + x) * 4;
-      if (imgData[idx] > 170) {
-        xs.push(x);
-        ys.push(y);
-      }
-    }
-  }
-
-  if (xs.length === 0) return fallback;
-
-  const widthFactor = options.widthFactor ?? 0.62;
-  const yCenter = options.yCenter ?? 0;
-  const xCenter = options.xCenter ?? 0;
-  // Uniform pos-units-per-pixel keeps glyph aspect ratio intact.
-  const scale = (widthFactor * 2 * aspect) / w;
-
+// An even, airy field spread across the entire hero: one particle per
+// jittered grid cell, so coverage is uniform with no lattice pattern.
+export function generateAmbientSpreadPoints(count: number, aspect: number): Float32Array {
   const out = new Float32Array(count * 2);
-  const rng = mulberry32(word.length * 1013 + 7);
-  const n = xs.length;
+  const rng = mulberry32(6106);
+  const cols = Math.max(1, Math.round(Math.sqrt(count * aspect)));
+  const rows = Math.max(1, Math.ceil(count / cols));
+  const cellW = (2 * aspect) / cols;
+  const cellH = 2 / rows;
   for (let i = 0; i < count; i += 1) {
-    const j = Math.floor(rng() * n) % n;
-    out[i * 2] = (xs[j] - w / 2) * scale + xCenter + (rng() * 2 - 1) * 0.004;
-    out[i * 2 + 1] = -(ys[j] - h / 2) * scale + yCenter + (rng() * 2 - 1) * 0.004;
-  }
-  return out;
-}
-
-// A clean, forward-moving geometric wave: applied systems in flow.
-export function generateWaveStreamPoints(count: number, aspect: number): Float32Array {
-  const out = new Float32Array(count * 2);
-  const rng = mulberry32(3113);
-  const strands = 7;
-  for (let i = 0; i < count; i += 1) {
-    const strand = i % strands;
-    const laneY = -0.30 + (strand / (strands - 1)) * 0.60;
-    const x = -aspect * 0.62 + rng() * aspect * 1.24;
-    const phase = strand * 1.31;
-    const y = laneY + Math.sin((x / aspect) * 3.1 + phase) * 0.055 + (x / aspect) * 0.07;
-    out[i * 2] = x + (rng() * 2 - 1) * 0.008;
-    out[i * 2 + 1] = y + (rng() * 2 - 1) * 0.008;
+    const col = i % cols;
+    const row = Math.floor(i / cols) % rows;
+    out[i * 2] = -aspect + (col + rng()) * cellW;
+    out[i * 2 + 1] = -1 + (row + rng()) * cellH;
   }
   return out;
 }
@@ -382,7 +288,6 @@ export class ParticleOrganism {
   private time = 0;
   private morph = 0;
   private shock = 0;
-  private scramble = 0;
   private shockPos: [number, number] = [0, 0];
   private cursor: [number, number] = [999, 999];
   private centerOffset: [number, number] = [0, 0];
@@ -590,10 +495,6 @@ export class ParticleOrganism {
     this.shockPos = [xNorm * this.aspect, -yNorm];
   }
 
-  public setScramble(amount: number) {
-    this.scramble = Math.max(0, Math.min(1, amount));
-  }
-
   public resize() {
     const gl = this.gl;
     const bounds = this.canvas.getBoundingClientRect();
@@ -654,7 +555,6 @@ export class ParticleOrganism {
     gl.uniform1f(this.pSim.u.u_swirl, theme.swirl);
     gl.uniform1f(this.pSim.u.u_cursorR, theme.cursorR * this.aspect);
     gl.uniform1f(this.pSim.u.u_shock, this.shock);
-    gl.uniform1f(this.pSim.u.u_scramble, this.scramble);
     gl.uniform1f(this.pSim.u.u_aspect, this.aspect);
     gl.uniform2f(this.pSim.u.u_cursor, this.cursor[0], this.cursor[1]);
     gl.uniform2f(this.pSim.u.u_shockPos, this.shockPos[0], this.shockPos[1]);
@@ -695,7 +595,6 @@ export class ParticleOrganism {
     gl.uniform1f(this.pPts.u.u_aspect, this.aspect);
     gl.uniform1f(this.pPts.u.u_px, this.dpr);
     gl.uniform1f(this.pPts.u.u_opacity, this.opacity);
-    gl.uniform1f(this.pPts.u.u_morph, this.morph);
     gl.uniform3f(this.pPts.u.u_colA, theme.colA[0], theme.colA[1], theme.colA[2]);
     gl.uniform3f(this.pPts.u.u_colB, theme.colB[0], theme.colB[1], theme.colB[2]);
 
