@@ -108,6 +108,20 @@ typography:
     fontWeight: 700
     lineHeight: 1.3
     letterSpacing: 0
+  micro-label:
+    fontFamily: DM Mono
+    fontSize: 11px
+    fontWeight: 400
+    lineHeight: 1.4
+    letterSpacing: 0.35em
+    textTransform: uppercase
+  micro-label-sm:
+    fontFamily: DM Mono
+    fontSize: 10px
+    fontWeight: 400
+    lineHeight: 1.4
+    letterSpacing: 0.16em
+    textTransform: uppercase
   link-md:
     fontFamily: Manrope
     fontSize: 16px

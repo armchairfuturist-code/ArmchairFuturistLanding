@@ -119,7 +119,7 @@ export default function CaseStudiesSection() {
               iconClassName="ml-2 h-4 w-4"
               className="cta-electric w-full sm:w-auto whitespace-normal sm:whitespace-nowrap shrink-0"
             >
-              Talk Through Your Situation
+              Book a Call
             </BookCallButton>
           </div>
         </BlurFade>

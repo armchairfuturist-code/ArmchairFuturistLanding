@@ -98,7 +98,7 @@ export default function SpeakingSection() {
             className="cta-electric inline-flex items-center justify-center gap-2 h-11 px-6 text-sm font-semibold uppercase tracking-[0.7px] bg-hp-electric text-white hover:bg-hp-bright transition-colors shrink-0"
           >
             <MessageSquare className="h-4 w-4" aria-hidden="true" />
-            Request a Session
+            Book a Call
           </a>
         </div>
       </div>

@@ -20,8 +20,8 @@ export function OrganismHero() {
         <p className="organism-deck">A partner in learning. We build the mental models that make AI make sense, then test them live on your real work.</p>
         <p className="organism-deck organism-deck--offer">When you&apos;d rather have it built, I build it.</p>
         <div className="organism-actions">
-          <button type="button" className="organism-button organism-button--primary" onClick={() => scrollToId("services")}>See coaching &amp; services <ArrowDown size={17} aria-hidden="true" /></button>
-          <button type="button" className="organism-button organism-button--quiet" onClick={() => scrollToId("connect")}>Talk to Alex <ArrowUpRight size={16} aria-hidden="true" /></button>
+          <button type="button" className="organism-button organism-button--primary" onClick={() => scrollToId("connect")}>Talk to Alex <ArrowUpRight size={16} aria-hidden="true" /></button>
+          <button type="button" className="organism-button organism-button--quiet" onClick={() => scrollToId("services")}>See coaching &amp; services <ArrowDown size={17} aria-hidden="true" /></button>
         </div>
         <a className="organism-hero__whatsapp" href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Or message on WhatsApp <ArrowUpRight size={13} aria-hidden="true" /></a>
       </div>

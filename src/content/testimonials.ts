@@ -9,6 +9,13 @@ export interface Testimonial {
 
 export const TESTIMONIALS: Testimonial[] = [
   {
+    imageSrc: "/brenda-fonseca.png",
+    name: "Brenda Fonseca",
+    title: "PhD",
+    text: "I have been working with Alex for four months now and the sessions with him have been a game changer for me. When I first reached out to him, I wasn't even sure what type of training to ask for. Now I have a foundational understanding of what AI actually is and how I can use it as a tool in my daily productivity for both work and personal - even using it to do my own coding to create customized productivity skills. I would highly recommend Alex - he is professional, always prepared and does a great job of tailoring each session to my specific needs and knowledge level. Thanks Alex - I couldn't be happier with my progress!",
+    dataAiHint: "profile person",
+  },
+  {
     imageSrc: "/shannon-myers.jpg",
     name: "Shannon Myers",
     title: "Founder of The Integrative Practitioner",

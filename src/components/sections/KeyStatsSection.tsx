@@ -1,9 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "motion/react";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { NumberTicker } from "@/components/ui/number-ticker";
 import { ScrambleText } from "@/components/ui/scramble-text";
+import { trackEvent } from "@/lib/analytics";
 import { springStaggerContainer, springStaggerItem } from "@/lib/animation-variants";
 
 const featuredStats = [
@@ -98,11 +100,18 @@ export default function KeyStatsSection() {
         </motion.div>
 
         <BlurFade inView className="mt-16 md:mt-20">
-          <div className="border-t border-white/20 pt-8">
+          <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <p className="text-sm md:text-base text-white/75 font-sans leading-relaxed max-w-2xl">
               Founders, solo operators, and small teams building AI-powered
               services. Names of recent clients withheld by request.
             </p>
+            <Link
+              href="/assessment"
+              className="inline-flex items-center justify-center h-11 px-6 text-sm font-semibold uppercase tracking-[0.7px] border border-white/40 text-white hover:bg-white/10 hover:border-white transition-colors shrink-0"
+              onClick={() => trackEvent("stats_assessment_click")}
+            >
+              Take the Assessment
+            </Link>
           </div>
         </BlurFade>
       </div>

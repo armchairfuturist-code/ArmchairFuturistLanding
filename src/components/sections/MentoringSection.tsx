@@ -299,7 +299,7 @@ export default function MentoringSection() {
               className="cta-electric"
               location="guidance_clarity_call"
             >
-              Book a Free AI Clarity Call
+              Book a Call
             </BookCallButton>
           </div>
 
