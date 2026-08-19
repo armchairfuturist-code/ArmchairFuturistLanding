@@ -41,23 +41,37 @@ export default function LeadCaptureInline() {
   const errorMessage = serverError ?? errors.email ?? null;
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+    <form onSubmit={handleSubmit} aria-busy={isLoading} className="flex flex-col flex-wrap sm:flex-row gap-3 max-w-md mx-auto">
       <div className="flex-1 flex gap-2">
-        <Input
-          type="text"
-          placeholder="First name"
-          value={values.name}
-          onChange={(e) => setField('name', e.target.value)}
-          className="flex-1 bg-white/10 border-white/20 text-white placeholder:text-white/40 text-sm h-10"
-        />
-        <Input
-          type="email"
-          placeholder="you@company.com"
-          value={values.email}
-          onChange={(e) => setField('email', e.target.value)}
-          required
-          className="flex-1 bg-white/10 border-white/20 text-white placeholder:text-white/40 text-sm h-10"
-        />
+        <div className="flex-1">
+          <label htmlFor="lead-first-name" className="sr-only">First name</label>
+          <Input
+            id="lead-first-name"
+            name="name"
+            type="text"
+            placeholder="First name"
+            value={values.name}
+            onChange={(e) => setField('name', e.target.value)}
+            autoComplete="given-name"
+            className="w-full bg-white/10 border-white/20 text-white placeholder:text-white/40 text-sm h-10"
+          />
+        </div>
+        <div className="flex-1">
+          <label htmlFor="lead-email" className="sr-only">Email address</label>
+          <Input
+            id="lead-email"
+            name="email"
+            type="email"
+            placeholder="you@company.com"
+            value={values.email}
+            onChange={(e) => setField('email', e.target.value)}
+            required
+            autoComplete="email"
+            aria-invalid={Boolean(errorMessage)}
+            aria-describedby={errorMessage ? "lead-email-error" : undefined}
+            className="w-full bg-white/10 border-white/20 text-white placeholder:text-white/40 text-sm h-10"
+          />
+        </div>
       </div>
       <Button
         type="submit"
@@ -73,7 +87,11 @@ export default function LeadCaptureInline() {
           </>
         )}
       </Button>
-      {errorMessage && <p className="text-red-300 text-xs text-center sm:hidden">{errorMessage}</p>}
+      {errorMessage && (
+        <p id="lead-email-error" role="alert" className="w-full text-red-300 text-xs text-center">
+          {errorMessage}
+        </p>
+      )}
     </form>
   );
 }

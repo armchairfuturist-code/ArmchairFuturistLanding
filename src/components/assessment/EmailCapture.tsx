@@ -21,7 +21,7 @@ export default function EmailCapture({
 }: EmailCaptureProps) {
   const [honeypot, setHoneypot] = useState("");
 
-  const { values, setField, isLoading, isSuccess, serverError, handleSubmit } =
+  const { values, errors, setField, isLoading, isSuccess, serverError, handleSubmit } =
     useLeadCapture({
       endpoint: "/api/assessment/submit",
       initialValues: { email: "" },
@@ -42,6 +42,8 @@ export default function EmailCapture({
       },
       onSuccess: () => onComplete(),
     });
+
+  const emailError = serverError ?? errors.email ?? null;
 
   return (
     <div className="w-full max-w-md mx-auto text-center">
@@ -85,20 +87,25 @@ export default function EmailCapture({
               />
             </div>
 
+            <label htmlFor="assessment-email" className="sr-only">Email address</label>
             <Input
+              id="assessment-email"
+              name="email"
               type="email"
               placeholder="you@company.com"
               value={values.email}
               onChange={(e) => setField("email", e.target.value)}
               required
               autoComplete="email"
+              aria-invalid={Boolean(emailError)}
+              aria-describedby={emailError ? "assessment-email-error" : undefined}
               className="h-12 text-center"
               disabled={isLoading}
             />
 
-            {serverError && (
-              <p role="alert" className="text-sm text-destructive">
-                {serverError}
+            {emailError && (
+              <p id="assessment-email-error" role="alert" className="text-sm text-destructive">
+                {emailError}
               </p>
             )}
 

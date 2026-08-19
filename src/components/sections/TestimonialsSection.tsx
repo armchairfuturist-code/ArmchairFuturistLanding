@@ -106,6 +106,7 @@ function FeaturedTestimonialCarousel() {
             </div>
             <div className="flex gap-2">
               <button
+                type="button"
                 onClick={prev}
                 aria-label="Previous testimonial"
                 className="inline-flex items-center justify-center h-11 w-11 border border-white/20 text-white hover:border-hp-bright hover:text-hp-bright transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hp-electric"
@@ -113,6 +114,7 @@ function FeaturedTestimonialCarousel() {
                 <ChevronLeft className="h-5 w-5" aria-hidden="true" />
               </button>
               <button
+                type="button"
                 onClick={next}
                 aria-label="Next testimonial"
                 className="inline-flex items-center justify-center h-11 w-11 border border-white/20 text-white hover:border-hp-bright hover:text-hp-bright transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hp-electric"
@@ -126,12 +128,18 @@ function FeaturedTestimonialCarousel() {
             {featuredTestimonials.map((_, i) => (
               <button
                 key={i}
+                type="button"
                 onClick={() => setCurrent(i)}
-                className={`h-1 rounded-none transition-[width,background-color] duration-300 ${
-                  i === current ? "w-8 bg-hp-electric" : "w-3 bg-white/25"
+                className={`inline-flex h-11 w-11 items-center justify-center rounded-none transition-colors duration-300 ${
+                  i === current ? "bg-hp-electric" : "bg-white/25"
                 }`}
                 aria-label={`Go to testimonial ${i + 1}`}
-              />
+              >
+                <span
+                  className={`block h-1 ${i === current ? "w-7 bg-white" : "w-3 bg-white/70"}`}
+                  aria-hidden="true"
+                />
+              </button>
             ))}
           </div>
         </motion.div>

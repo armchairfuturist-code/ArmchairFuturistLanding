@@ -96,7 +96,7 @@ export default function Header() {
               size="sm"
               variant="default"
               icon="none"
-              className="text-xs px-3 h-9 min-h-[36px]"
+              className="text-xs px-3 h-11 min-h-[44px]"
             >
               Book
             </BookCallButton>

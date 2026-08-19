@@ -10,7 +10,7 @@ function scrollToId(id: string) {
 
 export function OrganismHero() {
   return (
-    <section className="organism-hero">
+    <section id="hero" className="organism-hero">
       <div className="organism-hero__wash" aria-hidden="true" />
       <OrganismCanvas className="organism-canvas" />
       <div className="organism-noise" aria-hidden="true" />

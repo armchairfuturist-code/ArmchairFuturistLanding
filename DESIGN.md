@@ -1,6 +1,6 @@
 ---
 name: The Armchair Futurist
-description: HP-inspired system evolved into ink-drench + electric signal. Space Grotesk display + Manrope body. Near-black ink heroes and bands, HP Electric Blue as the sole CTA/signal color, canvas/cloud surfaces, tight 4px controls. Signature motion is the slash unlock (chevron stroke-draw, clip-path reveals, CSS view() rails). Angular blue chevrons nod to the HP wordmark. Anti-slop: no purple gradients, no glassmorphism, no fade-up-every-section. Detail pages (/about, /roi, /how-i-work) hold depth; homepage stays proof-forward and short.
+description: HP-inspired system evolved into ink-drench + electric signal. Space Grotesk display + Manrope body. Near-black ink heroes and bands, HP Electric Blue as the sole CTA/signal color, canvas/cloud surfaces, tight 4px controls. The hero organism untangles a gray workflow scribble into a warm forward line. Signature motion is the slash unlock (chevron stroke-draw, clip-path reveals, CSS view() rails). Angular blue chevrons nod to the HP wordmark. Anti-slop: no purple gradients, no glassmorphism, no fade-up-every-section. Detail pages (/about, /roi, /how-i-work) hold depth; homepage stays proof-forward and short.
 colors:
   primary: "#024ad8"
   primary-bright: "#296ef9"
@@ -29,6 +29,11 @@ colors:
   storm-mist: "#8ebdce"
   storm-sea: "#7fadbe"
   storm-deep: "#356373"
+  organism-ink: "#080d17"
+  organism-paper: "#f0eee8"
+  organism-muted: "#9ba2b1"
+  organism-scribble-gray: "#4d5e70"
+  organism-warm: "#f2a66e"
   error: "#b3262b"
 typography:
   display-xxl:
@@ -317,7 +322,7 @@ components:
 
 The Armchair Futurist's web presence adopts HP's **white-paper enterprise-consumer design language**: a system anchored by **HP Electric Blue (`#024ad8`)** as the lone signal CTA, **near-black ink (`#1a1a1a`)** for headlines, **Space Grotesk** geometric sans for display with **Manrope** for body/UI, and angular blue-chevron decorations that nod to the HP wordmark's slashes. Cards round at 8–16px, photos sit in soft 16px frames, and dark navy slabs anchor the customer-story and "how can we help" closing bands.
 
-The aesthetic is **enterprise-credible, consumer-friendly**: a white-paper technical document feel, with one strong signal color, geometric typography, and soft 16px radii. Every interactive element is one of three buttons: solid HP blue (primary), outlined HP blue (secondary), or solid ink (utility). There's no warm accent, no decorative gradient, no chrome that doesn't carry meaning.
+The aesthetic is **enterprise-credible, consumer-friendly**: a white-paper technical document feel, with one strong signal color, geometric typography, and soft 16px radii. Every interactive element is one of three buttons: solid HP blue (primary), outlined HP blue (secondary), or solid ink (utility). The hero organism earns its warm line as a meaning-bearing exception. There's no decorative gradient, no chrome that doesn't carry meaning.
 
 **Key Characteristics:**
 - **Space Grotesk** geometric sans for display (weights 300/400/500/600/700), **Manrope** for body and UI (weights 400/500/600/700).
@@ -365,6 +370,8 @@ The aesthetic is **enterprise-credible, consumer-friendly**: a white-paper techn
 - **Storm Mist** (`#8ebdce`): Cool photo frame fills behind neutral imagery.
 - **Storm Sea** (`#7fadbe`): Cool secondary photo frame.
 - **Storm Deep** (`#356373`): Cool deepest photo frame, cool-toned section dividers.
+- **Organism Scribble Gray** (`#4d5e70`): The hero's tangled workflow signal.
+- **Organism Warm** (`#f2a66e`): The hero's purposeful forward line and static fallback.
 
 ### Functional
 - **Error** (`#b3262b`): Form errors, validation states (alias of Bloom Deep).
@@ -498,6 +505,7 @@ The typography system uses two geometric sans faces — **Space Grotesk** for di
 ### Decorative Chevrons
 
 - Angular blue slashes (`#024ad8`) that nod to the HP wordmark. 12px size. Used sparingly as section dividers, before section titles, or as bullet markers in lists. Never as primary decoration.
+- **Hero organism** — a single WebGL2 focal moment. A tangled gray workflow scribble resolves over 3 seconds into a warm, forward-moving line. The organism stays inside the hero.
 
 ## Motion & Interaction
 
@@ -505,7 +513,8 @@ The typography system uses two geometric sans faces — **Space Grotesk** for di
 - **Pressed state:** One-step darken (primary → deep blue). Confirms action.
 - **Page transitions:** Fade-in on route change. 200ms ease-out. No slide.
 - **Scroll reveals:** Subtle fade-up on section entry. 400ms ease-out. No parallax.
-- **Reduced motion:** All animations disabled when `prefers-reduced-motion: reduce` is set. Instant transitions only.
+- **Hero organism:** The first viewport starts tangled. The line resolves over 3 seconds. Pointer input adds local deflection without changing the narrative.
+- **Reduced motion:** The WebGL loop stops and the static warm line remains visible when `prefers-reduced-motion: reduce` is set.
 - **Stagger:** Word-by-word stagger on hero headlines. 60ms between words.
 
 ## Engineering Notes
@@ -514,14 +523,14 @@ The typography system uses two geometric sans faces — **Space Grotesk** for di
 - **Tailwind config** extends the system with `fontFamily.display`, `fontFamily.body`, `fontFamily.mono`, color aliases (e.g. `text-ink`, `bg-canvas`, `border-hairline`), and `borderRadius.hp-md` / `borderRadius.hp-xl`.
 - **Font loading:** Space Grotesk (display) and Manrope (body/UI) are loaded via `next/font/google` in `src/app/layout.tsx` and exposed as `--font-display` and `--font-body` CSS variables. Weights match the token table above.
 - **Button shape is non-negotiable.** 14px, 600 weight, uppercase, +0.7px tracking, 4px radius. All buttons in the system follow this signature.
-- **Color discipline:** Electric Blue is the ONLY signal color. Bloom Coral is reserved for commerce urgency. Storm blues are reserved for photo frames. No other accents exist.
+- **Color discipline:** Electric Blue is the primary site signal. Bloom Coral is reserved for commerce urgency. Storm blues are reserved for photo frames. Organism Scribble Gray and Organism Warm belong only to the hero organism.
 
 ## Anti-Patterns (Things We Don't Do)
 
 - No gradients. Anywhere.
 - No drop shadows on text.
 - No decorative borders that don't carry semantic meaning.
-- No warm accent colors. The system is cool.
+- No warm accent colors outside the hero organism and commerce urgency.
 - No text-transform: uppercase on body copy.
 - No letter-spacing overrides below 0 (no negative tracking).
 - No `rounded-full` on anything except avatars and pill tabs.
