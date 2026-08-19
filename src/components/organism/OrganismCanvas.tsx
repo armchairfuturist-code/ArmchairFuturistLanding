@@ -156,15 +156,21 @@ export function OrganismCanvas({
       organism.triggerTap(xNorm, yNorm);
     };
 
+    // Listen on the hero section, not the canvas: DOM elements stacked above
+    // the canvas (copy, buttons, status) would otherwise swallow pointer
+    // events and deaden the field wherever they sit. The canvas fills the
+    // hero exactly, so the coordinate math below is unchanged.
+    const hero = canvas.closest(".organism-hero") ?? canvas.parentElement ?? canvas;
+
     window.addEventListener("resize", handleResize);
     document.addEventListener("visibilitychange", handleVisibilityChange);
     reducedMotion.addEventListener?.("change", handleReducedMotionChange);
     canvas.addEventListener("webglcontextlost", handleContextLost);
     if (!coarsePointer) {
-      canvas.addEventListener("pointermove", handlePointerMove);
-      canvas.addEventListener("pointerleave", handlePointerLeave);
+      hero.addEventListener("pointermove", handlePointerMove);
+      hero.addEventListener("pointerleave", handlePointerLeave);
     }
-    canvas.addEventListener("click", handleClick);
+    hero.addEventListener("click", handleClick);
 
     initialize();
 
@@ -177,9 +183,9 @@ export function OrganismCanvas({
       document.removeEventListener("visibilitychange", handleVisibilityChange);
       reducedMotion.removeEventListener?.("change", handleReducedMotionChange);
       canvas.removeEventListener("webglcontextlost", handleContextLost);
-      canvas.removeEventListener("pointermove", handlePointerMove);
-      canvas.removeEventListener("pointerleave", handlePointerLeave);
-      canvas.removeEventListener("click", handleClick);
+      hero.removeEventListener("pointermove", handlePointerMove);
+      hero.removeEventListener("pointerleave", handlePointerLeave);
+      hero.removeEventListener("click", handleClick);
       organism?.destroy();
     };
   }, [count]);
