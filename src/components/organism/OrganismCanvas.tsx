@@ -160,7 +160,8 @@ export function OrganismCanvas({
     // the canvas (copy, buttons, status) would otherwise swallow pointer
     // events and deaden the field wherever they sit. The canvas fills the
     // hero exactly, so the coordinate math below is unchanged.
-    const hero = canvas.closest(".organism-hero") ?? canvas.parentElement ?? canvas;
+    const hero: HTMLElement =
+      canvas.closest<HTMLElement>(".organism-hero") ?? canvas.parentElement ?? canvas;
 
     window.addEventListener("resize", handleResize);
     document.addEventListener("visibilitychange", handleVisibilityChange);
