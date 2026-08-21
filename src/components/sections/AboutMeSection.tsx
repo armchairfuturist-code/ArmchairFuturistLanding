@@ -11,7 +11,6 @@ import { BlurFade } from "@/components/ui/blur-fade";
 export default function AboutMeSection() {
   return (
     <section
-      id="about-me"
       className="relative py-16 md:py-20 bg-ink text-white scroll-mt-20 overflow-hidden"
     >
       <div

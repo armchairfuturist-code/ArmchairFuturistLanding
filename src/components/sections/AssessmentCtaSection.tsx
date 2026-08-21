@@ -8,7 +8,6 @@ import { BlurFade } from "@/components/ui/blur-fade";
 export default function AssessmentCtaSection() {
   return (
     <section
-      id="assessment"
       className="relative py-16 md:py-20 bg-ink scroll-mt-20 overflow-hidden"
     >
       <div

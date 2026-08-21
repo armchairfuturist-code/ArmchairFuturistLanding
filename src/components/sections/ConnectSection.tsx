@@ -57,7 +57,6 @@ export default function ConnectSection() {
 
   return (
     <section
-      id="connect"
       className="py-20 md:py-24 bg-hp-electric text-primary-foreground scroll-mt-20"
     >
       <motion.div

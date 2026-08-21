@@ -34,7 +34,7 @@
     --org-ink: #080d17;
     --org-paper: #f0eee8;
     --org-muted: #9ba2b1;
-    --org-blue: #3d8dff;
+    --org-blue: #296ef9; /* alias of hp-bright — the on-dark primary step of the one signal hue */
     --org-warm: #f2a66e;
     --org-line: rgba(240, 238, 232, 0.16);
     --org-mono: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -65,8 +65,8 @@
 .organism-actions { display: flex; gap: 16px; margin-top: 35px; }
 .organism-button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 48px; padding: 0 20px; border: 1px solid transparent; border-radius: 999px; cursor: pointer; transition: transform .25s ease, background .25s ease, border-color .25s ease; }
 .organism-button:hover { transform: translateY(-3px); }
-.organism-button--primary { color: #fff; background: var(--org-blue); box-shadow: 0 0 26px rgba(61, 141, 255, .25); }
-.organism-button--primary:hover { background: #6eacff; }
+.organism-button--primary { color: #fff; background: var(--org-blue); box-shadow: 0 0 26px rgba(41, 110, 249, .25); }
+.organism-button--primary:hover { background: #5b8cff; } /* lighter step of the same hue for on-dark hover */
 .organism-button--quiet { color: #d5d9e0; border-color: var(--org-line); background: rgba(8, 13, 23, .22); }
 .organism-button--quiet:hover { border-color: rgba(240, 238, 232, .5); }
 .organism-status { display: flex; gap: 26px; color: var(--org-muted); }

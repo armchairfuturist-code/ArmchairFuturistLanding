@@ -31,7 +31,6 @@ const featuredStats = [
 export default function KeyStatsSection() {
   return (
     <section
-      id="stats"
       className="relative py-20 md:py-28 bg-hp-electric text-white scroll-mt-20 overflow-hidden"
     >
       {/* Soft diagonal hatch — texture without gradient slop */}
@@ -51,7 +50,7 @@ export default function KeyStatsSection() {
               <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-white/70 mb-3">
                 Evidence
               </p>
-              <h2 className="font-display text-[clamp(2.5rem,6vw,4.5rem)] font-bold tracking-tight leading-[0.95] text-white max-w-[12ch]">
+              <h2 className="font-display text-[clamp(2.5rem,6vw,4.5rem)] font-medium tracking-tight leading-[0.95] text-white max-w-[12ch]">
                 <ScrambleText text="Proof, not promises." />
               </h2>
               {/* Scroll-driven scan line under the claim */}
@@ -89,7 +88,7 @@ export default function KeyStatsSection() {
                 </p>
               )}
               <p className="text-xl md:text-2xl font-semibold text-white mb-2">
-                <ScrambleText text={stat.label} speed={22} />
+                {stat.label}
               </p>
               <p className="text-sm md:text-base text-white/70 max-w-[28ch]">
                 {stat.detail}

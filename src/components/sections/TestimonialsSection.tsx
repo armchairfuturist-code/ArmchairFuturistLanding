@@ -10,7 +10,6 @@ import {
 } from "lucide-react";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { Marquee } from "@/components/ui/marquee";
-import { ScrambleText } from "@/components/ui/scramble-text";
 import { motion, AnimatePresence } from "motion/react";
 import { TESTIMONIALS } from "@/content/testimonials";
 
@@ -203,7 +202,6 @@ export default function TestimonialsSection() {
 
   return (
     <section
-      id="testimonials"
       className="py-16 md:py-24 bg-cloud scroll-mt-20 overflow-hidden"
     >
       <BlurFade inView>
@@ -213,8 +211,8 @@ export default function TestimonialsSection() {
               <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-4">
                 Social proof
               </p>
-              <h2 className="font-display text-[clamp(2.25rem,5vw,3.5rem)] font-bold tracking-tight leading-[0.98] text-ink">
-                <ScrambleText text="What clients say" />
+              <h2 className="font-display text-[clamp(2.25rem,5vw,3.5rem)] font-medium tracking-tight leading-[0.98] text-ink">
+                What clients say
               </h2>
             </div>
             <p className="md:col-span-5 text-charcoal font-sans text-base md:text-right max-w-md md:ml-auto">

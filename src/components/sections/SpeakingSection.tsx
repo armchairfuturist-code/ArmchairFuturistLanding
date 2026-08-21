@@ -29,7 +29,6 @@ const eventPhotos = [
 export default function SpeakingSection() {
   return (
     <section
-      id="speaking"
       className="scroll-mt-20 bg-background py-16 md:py-20"
     >
       <div className="container mx-auto px-4 md:px-6 max-w-6xl">

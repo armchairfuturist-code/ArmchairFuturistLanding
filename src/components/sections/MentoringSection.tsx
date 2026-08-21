@@ -17,7 +17,6 @@ import {
 import { BookCallButton } from "@/components/ui/BookCallButton";
 import { trackConversion } from "@/lib/analytics";
 import { BlurFade } from "@/components/ui/blur-fade";
-import { ScrambleText } from "@/components/ui/scramble-text";
 import { staggerContainer, staggerItem } from "@/lib/animation-variants";
 import { motion, AnimatePresence } from "motion/react";
 import { COACHING_PACKAGES, resolvePricing, type CurrencyCode } from "@/lib/pricing";
@@ -155,7 +154,6 @@ export default function MentoringSection() {
 
   return (
     <section
-      id="ai-guidance"
       className="scroll-mt-20 bg-ink text-white"
     >
       {/* Ink band header */}
@@ -175,8 +173,8 @@ export default function MentoringSection() {
           <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-bright mb-5">
             One-on-one AI guidance
           </p>
-          <h2 className="font-display text-[clamp(2.25rem,5.5vw,4rem)] font-bold tracking-tight leading-[0.98] text-white max-w-[16ch] mb-6">
-            <ScrambleText text="Working at the edge isn't solo work" />
+          <h2 className="font-display text-[clamp(2.25rem,5.5vw,4rem)] font-medium tracking-tight leading-[0.98] text-white max-w-[16ch] mb-6">
+            Working at the edge isn&apos;t solo work
           </h2>
           <p className="text-white/70 text-lg md:text-xl max-w-2xl leading-relaxed">
             Most &quot;training&quot; hands you tools and leaves. This is a

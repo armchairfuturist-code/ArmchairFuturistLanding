@@ -6,7 +6,6 @@ import { motion } from 'motion/react';
 import { CALENDAR_URL } from '@/lib/constants';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { MagneticCard } from '@/components/ui/MagneticCard';
-import { SectionSpotlight } from '@/components/ui/SectionSpotlight';
 import { staggerContainer, springStaggerItem } from '@/lib/animation-variants';
 import { SERVICE_PATHS, type ServiceTier } from "@/content/service-paths";
 import { formatServicePrice, SERVICES_PRICING } from "@/lib/pricing";
@@ -37,7 +36,6 @@ export default function ServicesSection() {
   };
 
   return (
-    <SectionSpotlight opacity={0.05} size={450}>
 <section className="py-16 md:py-20 bg-canvas scroll-mt-20 relative">
       <div className="container mx-auto px-4 md:px-6">
         <BlurFade inView>
@@ -201,6 +199,5 @@ export default function ServicesSection() {
         </BlurFade>
       </div>
     </section>
-</SectionSpotlight>
   );
 }

@@ -6,7 +6,6 @@ import { diagonalWipe } from "@/lib/animation-variants";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { BookCallButton } from "@/components/ui/BookCallButton";
-import { ScrambleText } from "@/components/ui/scramble-text";
 import { trackEvent } from "@/lib/analytics";
 
 const fitRows = [
@@ -27,7 +26,6 @@ const fitRows = [
 export default function WhatThisIsNotSection() {
   return (
     <section
-      id="what-this-is-not"
       className="py-20 md:py-28 bg-background scroll-mt-20"
     >
       <div className="container mx-auto px-4 md:px-6 max-w-5xl">
@@ -37,8 +35,8 @@ export default function WhatThisIsNotSection() {
               <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-4">
                 Honest fit
               </p>
-              <h2 className="font-display text-[clamp(2.25rem,5vw,3.75rem)] font-bold tracking-tight leading-[0.98] text-ink max-w-[12ch]">
-                <ScrambleText text="What this is NOT for" />
+              <h2 className="font-display text-[clamp(2.25rem,5vw,3.75rem)] font-medium tracking-tight leading-[0.98] text-ink max-w-[12ch]">
+                What this is NOT for
               </h2>
             </div>
             <p className="md:col-span-5 text-lg text-charcoal md:text-right max-w-sm md:ml-auto">

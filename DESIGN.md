@@ -1,6 +1,6 @@
 ---
 name: The Armchair Futurist
-description: HP-inspired system evolved into ink-drench + electric signal. Space Grotesk display + Manrope body. Near-black ink heroes and bands, HP Electric Blue as the sole CTA/signal color, canvas/cloud surfaces, tight 4px controls. The hero organism is a wordless WebGL2 particle field spread across the entire hero: it settles from scatter on load, breathes cool at rest, glows warm around the cursor, and ripples on click. Signature motion is the slash unlock (chevron stroke-draw, clip-path reveals, CSS view() rails). Angular blue chevrons nod to the HP wordmark. Anti-slop: no purple gradients, no glassmorphism, no fade-up-every-section. Detail pages (/about, /roi, /how-i-work) hold depth; homepage stays proof-forward and short.
+description: HP-inspired system evolved into ink-drench + electric signal. Space Grotesk display + Manrope body. Near-black ink heroes and bands, HP Electric Blue as the sole CTA/signal color, canvas/cloud surfaces, tight 4px controls. The hero organism is a wordless WebGL2 particle field spread across the entire hero: it settles from scatter on load, breathes cool at rest, glows warm around the cursor, and ripples on click. Signature motion is the organism intro plus one scramble moment on the stats thesis line. Angular blue chevrons nod to the HP wordmark. Anti-slop: no purple gradients, no glassmorphism, no fade-up-every-section. Detail pages (/about, /roi, /how-i-work) hold depth; homepage stays proof-forward and short.
 colors:
   primary: "#024ad8"
   primary-bright: "#296ef9"
@@ -519,17 +519,18 @@ The typography system uses two geometric sans faces — **Space Grotesk** for di
 ### Decorative Chevrons
 
 - Angular blue slashes (`#024ad8`) that nod to the HP wordmark. 12px size. Used sparingly as section dividers, before section titles, or as bullet markers in lists. Never as primary decoration.
-- **Hero organism** — a single WebGL2 focal moment. A tangled gray workflow scribble resolves over 3 seconds into a warm, forward-moving line. The organism stays inside the hero.
+- **Hero organism** — a single WebGL2 focal moment. A scattered particle field settles over 1.8 seconds into an ambient full-hero swarm. The organism stays inside the hero.
 
 ## Motion & Interaction
 
-- **Hover state:** One-step lift on color (primary → bright blue). Subtle, never bouncy.
-- **Pressed state:** One-step darken (primary → deep blue). Confirms action.
+- **Hover state:** One-step lift on color (electric → bright blue). Subtle, never bouncy. Nav links slide a current-color underline (`.underline-animate`).
+- **Pressed state:** One-step darken (electric → deep blue). Confirms action.
 - **Page transitions:** Fade-in on route change. 200ms ease-out. No slide.
-- **Scroll reveals:** Subtle fade-up on section entry. 400ms ease-out. No parallax.
-- **Hero organism:** The first viewport starts tangled. The line resolves over 3 seconds. Pointer input adds local deflection without changing the narrative.
-- **Reduced motion:** The WebGL loop stops and the static warm line remains visible when `prefers-reduced-motion: reduce` is set.
-- **Stagger:** Word-by-word stagger on hero headlines. 60ms between words.
+- **Scroll reveals:** Subtle fade-up on section entry (BlurFade / whileInView). ~400ms ease-out. No parallax.
+- **Hero organism:** Particles settle from scatter over 1.8s, breathe at rest, glow near the cursor (fine pointers only), and ripple on click or tap. Off-screen and hidden tabs stop the loop. Context loss falls back to a static SVG scribble. Device tiers: 14,000 desktop / 3,000 touch / 1,200 low-memory.
+- **Scramble decode:** One authored moment — the stats thesis line ("Proof, not promises."). Headlines elsewhere are plain type.
+- **Cursor effects are hover-only:** Magnetic tilt and section spotlight bind only where `(hover: hover) and (pointer: fine)` matches; touch taps never set or stick them.
+- **Reduced motion:** The WebGL loop stops and the static SVG scribble remains. The global motion kill spares one exception: the submit spinner must still spin.
 
 ## Engineering Notes
 

@@ -57,7 +57,7 @@ export default function SubstackSection() {
   const displayedPosts = posts.slice(0, 6);
 
   return (
-    <section id="newsletter" className="py-16 md:py-24 bg-background scroll-mt-20">
+    <section className="py-16 md:py-24 bg-canvas scroll-mt-20">
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         {/* Section header — mono kicker on the HP pattern, not a pill badge */}
         <motion.div
