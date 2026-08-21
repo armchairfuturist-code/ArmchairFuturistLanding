@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useReducer } from "react";
+import { useCallback, useEffect, useReducer } from "react";
 import { useRouter } from "next/navigation";
 import { questions, type AnswerOption } from "@/lib/assessment/config";
 import {
@@ -11,6 +11,11 @@ import {
   totalQuestions,
   type AssessmentFlowState,
 } from "@/lib/assessment/flow";
+import {
+  clearQuizDraft,
+  readQuizDraft,
+  saveQuizDraft,
+} from "@/lib/assessment/quiz-session";
 import { trackConversion, trackEvent } from "@/lib/analytics";
 
 export interface UseAssessmentFlow extends AssessmentFlowState {
@@ -36,8 +41,15 @@ export function useAssessmentFlow(): UseAssessmentFlow {
   );
 
   const start = useCallback(() => {
-    trackEvent("assessment_start");
-    dispatch({ type: "START" });
+    // A saved draft resumes the visitor at their current question.
+    const draft = readQuizDraft();
+    if (draft) {
+      trackEvent("assessment_start", { resumed: "true" });
+      dispatch({ type: "START", resume: draft });
+    } else {
+      trackEvent("assessment_start");
+      dispatch({ type: "START" });
+    }
   }, []);
 
   const answer = useCallback(
@@ -73,6 +85,19 @@ export function useAssessmentFlow(): UseAssessmentFlow {
     persistFlowResult(state);
     router.push(buildResultPath(state.resultSlug, state.resultScores));
   }, [router, state]);
+
+  // Mirror quiz progress to sessionStorage so a refresh never erases answers.
+  // Completion clears the draft; the result session takes over.
+  useEffect(() => {
+    if (state.phase === "quiz") {
+      saveQuizDraft({
+        currentQuestion: state.currentQuestion,
+        answerIndices: state.answerIndices,
+      });
+    } else if (state.phase === "email" || state.phase === "redirecting") {
+      clearQuizDraft();
+    }
+  }, [state.phase, state.currentQuestion, state.answerIndices]);
 
   const total = totalQuestions();
 

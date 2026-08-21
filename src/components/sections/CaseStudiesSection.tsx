@@ -36,17 +36,17 @@ export default function CaseStudiesSection() {
           {caseStudies.map((study) => (
             <article
               key={study.title}
-              className="group relative border-b border-ink/15 py-10 md:py-14 pl-5 md:pl-8 grid md:grid-cols-12 gap-6 md:gap-10 view-unlock"
+              className="group relative border-b border-ink/15 py-10 md:py-14 pl-5 md:pl-8 grid md:grid-cols-12 gap-6 md:gap-10"
             >
-              {/* Scroll-driven electric rail — grows as row enters view */}
+              {/* Electric rail — quiet at rest, signals on row hover */}
               <span
-                className="case-electric-rail view-rail"
+                className="absolute left-0 top-0 bottom-0 w-[3px] bg-hp-electric/20 transition-colors duration-300 group-hover:bg-hp-electric"
                 aria-hidden="true"
               />
 
               {/* Index + timeline rail */}
               <div className="md:col-span-2 flex md:flex-col items-baseline md:items-start justify-between md:justify-start gap-3">
-                <span className="view-index font-display text-4xl md:text-5xl font-bold text-hp-electric/30 group-hover:text-hp-electric/55 transition-colors duration-300 leading-none">
+                <span className="font-display text-4xl md:text-5xl font-bold text-hp-electric/30 group-hover:text-hp-electric/55 transition-colors duration-300 leading-none">
                   {study.index}
                 </span>
                 <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-graphite">
@@ -117,7 +117,7 @@ export default function CaseStudiesSection() {
               size="lg"
               icon="arrow"
               iconClassName="ml-2 h-4 w-4"
-              className="cta-electric w-full sm:w-auto whitespace-normal sm:whitespace-nowrap shrink-0"
+              className="w-full sm:w-auto whitespace-normal sm:whitespace-nowrap shrink-0"
             >
               Book a Call
             </BookCallButton>
@@ -144,7 +144,7 @@ export default function CaseStudiesSection() {
                 href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="cta-electric inline-flex items-center justify-center gap-2 h-12 px-7 text-sm font-semibold uppercase tracking-[0.7px] shrink-0"
+                className="inline-flex items-center justify-center gap-2 h-12 px-7 text-sm font-semibold uppercase tracking-[0.7px] shrink-0 bg-canvas border border-ink/20 text-ink hover:border-hp-electric hover:text-hp-electric transition-colors"
               >
                 Browse the Repos
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />

@@ -29,6 +29,9 @@ export function SectionSpotlight({
 
   useEffect(() => {
     if (reduced) return;
+    // Touch taps emit a stray mousemove and never a mouseleave, which would
+    // pin the glow at the tap point. Spotlight is a cursor effect.
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
     const section = sectionRef.current;
     if (!section) return;
 

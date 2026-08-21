@@ -62,7 +62,7 @@ function PricingCard({
   return (
     <motion.div
       variants={staggerItem}
-      className="tier-edge relative bg-canvas border border-ink/10 transition-[border-color,transform] duration-300 hover:border-hp-electric/40 hover:-translate-y-0.5 flex flex-col"
+      className="relative bg-canvas border border-ink/10 transition-[border-color,transform] duration-300 hover:border-hp-electric/40 hover:-translate-y-0.5 flex flex-col"
       data-highlighted={pkg.popular ? "true" : "false"}
     >
       <div className="p-6 flex flex-col flex-1">
@@ -127,7 +127,7 @@ function PricingCard({
           size="sm"
           icon="calendar-days"
           iconClassName="mr-1.5 h-4 w-4"
-          className="cta-electric w-full h-11 text-sm font-semibold"
+          className="w-full h-11 text-sm font-semibold"
           location={`guidance_${pkg.id}`}
           value={price.total}
           trackOnClick={false}
@@ -193,7 +193,7 @@ export default function MentoringSection() {
               className="hidden md:block absolute top-10 left-[16%] right-[16%] h-[2px] bg-fog"
               aria-hidden="true"
             >
-              <div className="journey-line h-full w-full bg-hp-electric" />
+              <div className="h-full w-full bg-hp-electric" />
             </div>
 
             <motion.div
@@ -207,7 +207,7 @@ export default function MentoringSection() {
                 <motion.div
                   key={pillar.title}
                   variants={staggerItem}
-                  className="view-unlock relative"
+                  className="relative"
                 >
                   <div className="flex items-center gap-3 mb-4">
                     <span className="inline-flex items-center justify-center h-10 w-10 font-display text-lg font-bold bg-hp-electric text-white">
@@ -296,7 +296,6 @@ export default function MentoringSection() {
               size="default"
               icon="calendar-days"
               iconClassName="mr-1.5 h-4 w-4"
-              className="cta-electric"
               location="guidance_clarity_call"
             >
               Book a Call

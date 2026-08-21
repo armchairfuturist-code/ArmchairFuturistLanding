@@ -1,10 +1,32 @@
 import type { Metadata } from "next";
+import { DM_Mono, Manrope, Space_Grotesk } from "next/font/google";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import { SmoothScrollProvider } from "@/components/ui/SmoothScrollProvider";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
+
+// Self-hosted via next/font — no render-blocking Google Fonts @import.
+// Space Grotesk = display, Manrope = body/UI, DM Mono = micro-labels.
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-display",
+  display: "swap",
+});
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-body",
+  display: "swap",
+});
+const dmMono = DM_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 const siteUrl = "https://thearmchairfuturist.com";
 
@@ -43,11 +65,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      </head>
+    <html lang="en" className={`${spaceGrotesk.variable} ${manrope.variable} ${dmMono.variable}`}>
       <body>
         <ErrorBoundary>
           <SmoothScrollProvider>

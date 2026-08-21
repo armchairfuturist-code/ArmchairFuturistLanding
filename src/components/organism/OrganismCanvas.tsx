@@ -15,6 +15,7 @@ interface OrganismCanvasProps {
 
 const INTRO_MS = 1800;
 const MOBILE_COUNT = 3000;
+const LOW_END_COUNT = 1200;
 
 const easeInOut = (t: number) => t * t * (3 - 2 * t);
 
@@ -31,8 +32,18 @@ export function OrganismCanvas({
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const coarsePointer = window.matchMedia("(pointer: coarse)").matches;
-    const particleCount =
-      coarsePointer || window.innerWidth < 800 ? Math.min(count, MOBILE_COUNT) : count;
+    // Low-end devices (little memory, many cores missing) get a lighter swarm
+    // instead of a context-loss fallback as the only mercy.
+    const lowEnd =
+      typeof navigator !== "undefined" &&
+      "deviceMemory" in navigator &&
+      (navigator as { deviceMemory?: number }).deviceMemory !== undefined &&
+      (navigator as { deviceMemory: number }).deviceMemory <= 4;
+    const particleCount = lowEnd
+      ? Math.min(count, LOW_END_COUNT)
+      : coarsePointer || window.innerWidth < 800
+        ? Math.min(count, MOBILE_COUNT)
+        : count;
 
     // Small screens get a calmer swarm.
     const theme = coarsePointer

@@ -23,9 +23,9 @@ export const SECTION_IDS = {
   caseStudies: "case-studies",
   testimonials: "testimonials",
   mentoring: "ai-guidance",
+  roi: "roi-calculator",
   speaking: "speaking",
   assessment: "assessment",
-  insights: "latest-insights",
   substack: "newsletter",
   faq: "faq",
   connect: "connect",
@@ -94,6 +94,11 @@ const sections: SectionEntry[] = [
     id: SECTION_IDS.mentoring,
     label: "Guidance",
     component: dynamic(() => import("@/components/sections/MentoringSection")),
+  },
+  {
+    id: SECTION_IDS.roi,
+    label: "ROI",
+    component: dynamic(() => import("@/components/sections/ROICalculatorSection")),
   },
   {
     id: SECTION_IDS.speaking,

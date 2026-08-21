@@ -11,6 +11,11 @@ vi.mock('@/lib/analytics', () => ({
   trackConversion: vi.fn(),
 }));
 
+beforeEach(() => {
+  // Quiz drafts persist in sessionStorage; isolate every test from prior runs.
+  sessionStorage.clear();
+});
+
 vi.mock('next/navigation', () => ({
   useRouter: () => ({
     push: vi.fn(),

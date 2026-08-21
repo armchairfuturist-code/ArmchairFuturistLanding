@@ -8,14 +8,15 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        // Display: Space Grotesk (Google Fonts) — geometric sans, single-story 'a'
-        // Body/UI: Manrope (Google Fonts) — neutral, high readability
+        // Display: Space Grotesk (next/font, --font-display) — geometric sans
+        // Body/UI: Manrope (next/font, --font-body) — neutral, high readability
+        // Mono: DM Mono (next/font, --font-mono) — micro-labels, technical text
         display: ['var(--font-display)', '"Space Grotesk"', '"Manrope"', "system-ui", "sans-serif"],
-        sans: ['"Manrope"', '"Inter"', "system-ui", "sans-serif"],
+        sans: ['var(--font-body)', '"Manrope"', "system-ui", "sans-serif"],
         heading: ['var(--font-display)', '"Space Grotesk"', '"Manrope"', "system-ui", "sans-serif"],
-        body: ['"Manrope"', '"Inter"', "system-ui", "sans-serif"],
-        ui: ['"Manrope"', '"Inter"', "system-ui", "sans-serif"],
-        mono: ['"JetBrains Mono"', '"Courier New"', "Courier", "monospace"],
+        body: ['var(--font-body)', '"Manrope"', "system-ui", "sans-serif"],
+        ui: ['var(--font-body)', '"Manrope"', "system-ui", "sans-serif"],
+        mono: ['var(--font-mono)', '"DM Mono"', '"Courier New"', "Courier", "monospace"],
       },
       letterSpacing: {
         // HP button signature: uppercase +0.7px tracking

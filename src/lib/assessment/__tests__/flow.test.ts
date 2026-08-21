@@ -25,6 +25,35 @@ describe("Assessment Flow", () => {
     expect(state.currentQuestion).toBe(0);
   });
 
+  it("START with a valid draft resumes at the saved question", () => {
+    const state = reduceAssessmentFlow(createInitialAssessmentState(), {
+      type: "START",
+      resume: { currentQuestion: 3, answerIndices: [0, 1, 2] },
+    });
+    expect(state.phase).toBe("quiz");
+    expect(state.currentQuestion).toBe(3);
+    expect(state.answerIndices).toEqual([0, 1, 2]);
+  });
+
+  it("START ignores a draft whose answer count mismatches the question", () => {
+    const state = reduceAssessmentFlow(createInitialAssessmentState(), {
+      type: "START",
+      resume: { currentQuestion: 3, answerIndices: [0, 1] },
+    });
+    expect(state.currentQuestion).toBe(0);
+    expect(state.answerIndices).toEqual([]);
+  });
+
+  it("START ignores a draft with an out-of-range option index", () => {
+    const badIndex = questions[1].answers.length; // one past the second question's options
+    const state = reduceAssessmentFlow(createInitialAssessmentState(), {
+      type: "START",
+      resume: { currentQuestion: 2, answerIndices: [0, badIndex] },
+    });
+    expect(state.currentQuestion).toBe(0);
+    expect(state.answerIndices).toEqual([]);
+  });
+
   it("ANSWER advances questions using a single index representation", () => {
     let state = reduceAssessmentFlow(createInitialAssessmentState(), {
       type: "START",

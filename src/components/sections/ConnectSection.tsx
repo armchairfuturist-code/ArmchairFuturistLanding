@@ -33,7 +33,6 @@ function validateConnect(
 }
 
 export default function ConnectSection() {
-  const [touched, setTouched] = useState<Record<string, boolean>>({});
   const {
     values: formData,
     errors: fieldErrors,
@@ -54,10 +53,6 @@ export default function ConnectSection() {
     (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       setField(field, e.target.value);
     };
-
-  const handleBlur = (field: keyof ConnectFields) => () => {
-    setTouched((prev) => ({ ...prev, [field]: true }));
-  };
 
 
   return (
@@ -149,7 +144,7 @@ export default function ConnectSection() {
                 Message received.
               </p>
 <p className="mt-1.5 text-sm text-white/80">No pitch attached, just a reply.</p>
-<p className="mt-4 font-mono text-[10px] uppercase tracking-[0.3em] text-white/60">ack.log · queued</p>
+<p className="mt-4 font-mono text-[10px] uppercase tracking-[0.3em] text-white/60">Received · I reply to every note</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-3" noValidate>
@@ -164,14 +159,13 @@ export default function ConnectSection() {
                   placeholder="Your name"
                   value={formData.name}
                   onChange={handleChange("name")}
-                  onBlur={handleBlur("name")}
                   required
                   autoComplete="name"
-                  aria-invalid={touched.name && !!fieldErrors.name}
-                  aria-describedby={touched.name && fieldErrors.name ? "connect-name-error" : undefined}
-                  className={`bg-white/20 border-white/30 text-white placeholder:text-white/60 ${touched.name && fieldErrors.name ? "border-red-300 focus-visible:ring-red-300/50" : ""}`}
+                  aria-invalid={Boolean(fieldErrors.name)}
+                  aria-describedby={fieldErrors.name ? "connect-name-error" : undefined}
+                  className={`bg-white/20 border-white/30 text-white placeholder:text-white/60 ${fieldErrors.name ? "border-red-300 focus-visible:ring-red-300/50" : ""}`}
                 />
-                {touched.name && fieldErrors.name && (
+                {fieldErrors.name && (
                   <p id="connect-name-error" role="alert" className="mt-1.5 text-xs text-red-200">
                     {fieldErrors.name}
                   </p>
@@ -186,14 +180,13 @@ export default function ConnectSection() {
                   placeholder="Your email"
                   value={formData.email}
                   onChange={handleChange("email")}
-                  onBlur={handleBlur("email")}
                   required
                   autoComplete="email"
-                  aria-invalid={touched.email && !!fieldErrors.email}
-                  aria-describedby={touched.email && fieldErrors.email ? "connect-email-error" : undefined}
-                  className={`bg-white/20 border-white/30 text-white placeholder:text-white/60 ${touched.email && fieldErrors.email ? "border-red-300 focus-visible:ring-red-300/50" : ""}`}
+                  aria-invalid={Boolean(fieldErrors.email)}
+                  aria-describedby={fieldErrors.email ? "connect-email-error" : undefined}
+                  className={`bg-white/20 border-white/30 text-white placeholder:text-white/60 ${fieldErrors.email ? "border-red-300 focus-visible:ring-red-300/50" : ""}`}
                 />
-                {touched.email && fieldErrors.email && (
+                {fieldErrors.email && (
                   <p id="connect-email-error" role="alert" className="mt-1.5 text-xs text-red-200">
                     {fieldErrors.email}
                   </p>
@@ -207,14 +200,14 @@ export default function ConnectSection() {
                   placeholder="What's on your mind?"
                   value={formData.message}
                   onChange={handleChange("message")}
-                  onBlur={handleBlur("message")}
                   required
                   rows={3}
-                  aria-invalid={touched.message && !!fieldErrors.message}
-                  aria-describedby={touched.message && fieldErrors.message ? "connect-message-error" : undefined}
-                  className={`bg-white/20 border-white/30 text-white placeholder:text-white/60 resize-none ${touched.message && fieldErrors.message ? "border-red-300 focus-visible:ring-red-300/50" : ""}`}
+                  maxLength={2000}
+                  aria-invalid={Boolean(fieldErrors.message)}
+                  aria-describedby={fieldErrors.message ? "connect-message-error" : undefined}
+                  className={`bg-white/20 border-white/30 text-white placeholder:text-white/60 resize-none ${fieldErrors.message ? "border-red-300 focus-visible:ring-red-300/50" : ""}`}
                 />
-                {touched.message && fieldErrors.message && (
+                {fieldErrors.message && (
                   <p id="connect-message-error" role="alert" className="mt-1.5 text-xs text-red-200">
                     {fieldErrors.message}
                   </p>

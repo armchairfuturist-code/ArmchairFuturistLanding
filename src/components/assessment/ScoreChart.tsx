@@ -8,10 +8,13 @@ interface ScoreChartProps {
   urgency: number;
 }
 
+// HP system has no success/warning hues by design (one signal color).
+// Encode the three dimensions with in-system lightness steps instead:
+// electric blue -> deep blue -> ink. Labels carry the meaning.
 const dimensions = [
   { key: 'clarity', label: 'Clarity', color: 'bg-hp-electric' },
-  { key: 'readiness', label: 'Readiness', color: 'bg-success' },
-  { key: 'urgency', label: 'Urgency', color: 'bg-warning' },
+  { key: 'readiness', label: 'Readiness', color: 'bg-hp-deep' },
+  { key: 'urgency', label: 'Urgency', color: 'bg-ink-soft' },
 ] as const;
 
 export default function ScoreChart({ clarity, readiness, urgency }: ScoreChartProps) {

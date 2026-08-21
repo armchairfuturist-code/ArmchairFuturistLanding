@@ -27,7 +27,8 @@ export default function EmailCapture({
       initialValues: { email: "" },
       validate: (v) => {
         if (!v.email.trim()) return { email: "Email is required" };
-        if (!isValidEmail(v.email)) return { email: "Invalid email address" };
+        if (!isValidEmail(v.email))
+          return { email: "Enter a valid email, like name@company.com" };
         return null;
       },
       buildBody: (v) => {
@@ -54,15 +55,15 @@ export default function EmailCapture({
       </BlurFade>
 
       <BlurFade inView delay={0.2}>
-        <h2 className="font-heading text-2xl md:text-3xl font-bold tracking-tight text-foreground mb-3">
-          Your results are ready
+        <h2 className="font-heading text-2xl md:text-3xl font-medium tracking-tight text-foreground mb-3">
+          Want your results by email?
         </h2>
       </BlurFade>
 
       <BlurFade inView delay={0.3}>
         <p className="text-muted-foreground text-sm md:text-base mb-8 leading-relaxed">
-          Enter your email and we&apos;ll send your personalized AI readiness
-          profile — plus a concrete first step.
+          Your profile is ready below. Add your email and we&apos;ll also send
+          it to you, with a concrete first step.
         </p>
       </BlurFade>
 
@@ -122,7 +123,7 @@ export default function EmailCapture({
                 </>
               ) : (
                 <>
-                  Send my results
+                  Email me my results
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </>
               )}

@@ -6,7 +6,7 @@ export default function Home() {
   const sections = getHomepageSections();
 
   return (
-    <div className="flex flex-col snap-sections">
+    <div className="flex flex-col">
 
       <a
         href="#main-content"

@@ -104,7 +104,7 @@ export default function ServicesSection() {
                     >
                       <motion.div
                         variants={springStaggerItem}
-                        className="tier-edge flex flex-col border border-ink/10 bg-canvas overflow-hidden transition-[border-color,box-shadow] duration-300 hover:border-hp-electric/35 hover:shadow-tint"
+                        className="relative flex flex-col border border-ink/10 bg-canvas overflow-hidden transition-[border-color] duration-300 hover:border-hp-electric/35"
                   data-highlighted={tier.highlighted ? "true" : "false"}
                       >
 
@@ -144,7 +144,7 @@ export default function ServicesSection() {
                         <ul className="space-y-2.5">
                           {tier.features.map((feature) => (
                             <li key={feature} className="flex items-start gap-2.5 text-sm text-foreground/70">
-                              <CheckCircle2 className="w-4 h-4 mt-0.5 shrink-0 text-green-500" />
+                              <CheckCircle2 className="w-4 h-4 mt-0.5 shrink-0 text-hp-electric" aria-hidden="true" />
                               <span>{feature}</span>
                             </li>
                           ))}

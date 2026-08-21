@@ -67,7 +67,7 @@ export default function WhatThisIsNotSection() {
               fill
               className="object-cover outline outline-1 -outline-offset-1 outline-black/10"
               sizes="100vw"
-              priority
+              loading="lazy"
             />
           </motion.div>
         </BlurFade>
@@ -76,7 +76,7 @@ export default function WhatThisIsNotSection() {
           {fitRows.map((row, i) => (
             <div
               key={row.title}
-              className="fit-row view-unlock grid md:grid-cols-12 gap-4 md:gap-8 py-7 md:py-9 border-b border-ink/15 px-3 md:px-5"
+              className="fit-row grid md:grid-cols-12 gap-4 md:gap-8 py-7 md:py-9 border-b border-ink/15 px-3 md:px-5"
             >
               <span className="md:col-span-1 font-display text-2xl font-bold text-hp-electric/30 leading-none">
                 {String(i + 1).padStart(2, "0")}
@@ -104,7 +104,7 @@ export default function WhatThisIsNotSection() {
             <BookCallButton
               location="what_this_is_not"
               size="lg"
-              className="cta-electric font-bold shrink-0"
+              className="font-bold shrink-0"
               trackOnClick={false}
               onClick={() => trackEvent("what_this_is_not_cta_click")}
             >

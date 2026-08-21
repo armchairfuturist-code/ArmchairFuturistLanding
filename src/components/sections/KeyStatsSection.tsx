@@ -57,7 +57,7 @@ export default function KeyStatsSection() {
               </h2>
               {/* Scroll-driven scan line under the claim */}
               <div
-                className="mt-5 h-1 w-full max-w-[12ch] bg-white/90 stats-scan"
+                className="mt-5 h-1 w-full max-w-[12ch] bg-white/90"
                 aria-hidden="true"
               />
             </div>
@@ -78,7 +78,7 @@ export default function KeyStatsSection() {
             <motion.div
               key={stat.label}
               variants={springStaggerItem}
-              className={`relative view-unlock ${i > 0 ? "md:border-l md:border-white/20 md:pl-8 lg:pl-12" : ""}`}
+              className={`relative ${i > 0 ? "md:border-l md:border-white/20 md:pl-8 lg:pl-12" : ""}`}
             >
               {stat.numericValue != null ? (
                 <p className="font-display text-[clamp(4rem,10vw,7rem)] font-bold text-white leading-[0.85] tracking-tight mb-3">

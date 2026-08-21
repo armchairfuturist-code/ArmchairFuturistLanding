@@ -8,6 +8,7 @@
  */
 
 import { questions } from "./config";
+import { isValidQuizDraft, type QuizDraft } from "./quiz-session";
 import { scoreFromAnswerIndices, type ScoreResult } from "./resolve-answers";
 import {
   saveAssessmentResult,
@@ -35,7 +36,7 @@ export interface AssessmentFlowState {
 }
 
 export type AssessmentFlowEvent =
-  | { type: "START" }
+  | { type: "START"; resume?: QuizDraft }
   | { type: "ANSWER"; optionIndex: number }
   | { type: "BACK" }
   | { type: "BEGIN_REDIRECT" };
@@ -68,11 +69,19 @@ export function reduceAssessmentFlow(
   event: AssessmentFlowEvent,
 ): AssessmentFlowState {
   switch (event.type) {
-    case "START":
-      return {
-        ...createInitialAssessmentState(),
-        phase: "quiz",
-      };
+    case "START": {
+      const base = createInitialAssessmentState();
+      // Resume a saved mid-quiz draft when it matches the live question set.
+      if (event.resume && isValidQuizDraft(event.resume)) {
+        return {
+          ...base,
+          phase: "quiz",
+          currentQuestion: event.resume.currentQuestion,
+          answerIndices: event.resume.answerIndices,
+        };
+      }
+      return { ...base, phase: "quiz" };
+    }
 
     case "BACK": {
       if (state.phase !== "quiz" || state.currentQuestion === 0) return state;

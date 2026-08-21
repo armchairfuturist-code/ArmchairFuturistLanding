@@ -45,7 +45,7 @@ function FeaturedTestimonialCarousel() {
           animate={{ opacity: 1, clipPath: "inset(0 0% 0 0)" }}
           exit={{ opacity: 0, clipPath: "inset(0 0 0 100%)" }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="quote-rise relative bg-ink text-white p-8 md:p-12 overflow-hidden"
+          className="relative bg-ink text-white p-8 md:p-12 overflow-hidden"
         >
           <div
             className="absolute left-0 top-0 bottom-0 w-1.5 bg-hp-electric"
@@ -75,7 +75,7 @@ function FeaturedTestimonialCarousel() {
             />
           </svg>
 
-          <p className="font-display text-xl md:text-2xl lg:text-[1.75rem] text-white leading-[1.35] tracking-tight mb-10 max-w-3xl">
+          <p className="font-display text-xl md:text-2xl lg:text-3xl text-white leading-[1.35] tracking-tight mb-10 max-w-3xl">
             &ldquo;{featuredTestimonials[current].text}&rdquo;
           </p>
 
@@ -276,6 +276,9 @@ export default function TestimonialsSection() {
         </Marquee>
       </div>
 
+      {/* Organization schema only. Self-assigned aggregateRating and Review
+          markup reads as a funnel tell in search results and risks a
+           self-serving-review penalty — testimonials stay on the page. */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -285,28 +288,6 @@ export default function TestimonialsSection() {
             "@id": "https://thearmchairfuturist.com/#organization",
             name: "The Armchair Futurist",
             url: "https://thearmchairfuturist.com",
-            aggregateRating: {
-              "@type": "AggregateRating",
-              ratingValue: "4.9",
-              reviewCount: "40",
-              bestRating: "5",
-              worstRating: "1",
-            },
-            review: testimonialsData.map((t) => ({
-              "@type": "Review",
-              itemReviewed: {
-                "@type": "Organization",
-                "@id": "https://thearmchairfuturist.com/#organization",
-                name: "The Armchair Futurist",
-              },
-              author: { "@type": "Person", name: t.name },
-              reviewBody: t.text,
-              reviewRating: {
-                "@type": "Rating",
-                ratingValue: "5",
-                bestRating: "5",
-              },
-            })),
           }),
         }}
       />

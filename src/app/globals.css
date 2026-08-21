@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -88,4 +87,31 @@
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  /* Keep essential feedback alive under the global motion kill:
+     the submit spinner must still spin while a form posts. */
+  .animate-spin { animation-duration: 1s !important; }
+}
+
+@layer utilities {
+  /* Nav links: electric underline slides in on hover and keyboard focus.
+     currentColor follows the link's hover color (ink -> hp-electric). */
+  .underline-animate {
+    position: relative;
+  }
+  .underline-animate::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform 300ms ease-out;
+  }
+  .underline-animate:hover::after,
+  .underline-animate:focus-visible::after {
+    transform: scaleX(1);
+  }
 }

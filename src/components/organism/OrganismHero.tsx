@@ -5,7 +5,8 @@ import { OrganismCanvas } from "@/components/organism/OrganismCanvas";
 import { WHATSAPP_URL } from "@/lib/constants";
 
 function scrollToId(id: string) {
-  document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.getElementById(id)?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
 }
 
 export function OrganismHero() {

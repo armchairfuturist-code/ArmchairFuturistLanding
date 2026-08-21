@@ -48,7 +48,7 @@ export default function ROICalculatorSection() {
               <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-4">
                 Time savings estimator
               </p>
-              <h2 className="font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold tracking-tight leading-[0.98] text-ink">
+              <h2 className="font-display text-[clamp(2rem,4.5vw,3.25rem)] font-medium tracking-tight leading-[0.98] text-ink">
                 How many hours could you save?
               </h2>
             </div>
@@ -78,6 +78,7 @@ export default function ROICalculatorSection() {
                       onClick={() =>
                         setSelected((prev) => toggleSelection(prev, automation.id))
                       }
+                      aria-pressed={isSelected}
                       className={`w-full text-left p-4 rounded-xl border transition-[border-color,background-color] duration-150 ${
                         isSelected
                           ? "border-primary/40 bg-primary/5"

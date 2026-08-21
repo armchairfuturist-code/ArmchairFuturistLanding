@@ -10,8 +10,8 @@ import { SPEAKING_FORM_URL } from "@/lib/constants";
 const eventPhotos = [
   {
     src: "/marketing3.jpeg",
-    alt: "Alex Myers presenting at Sunsetpreneurs 2026 on AI strategy",
-    label: "Sunsetpreneurs 2026",
+    alt: "Alex Myers presenting at Sunsetpreneurs on AI strategy",
+    label: "Sunsetpreneurs",
     objectPos: "object-[60%_35%]",
   },
   {
@@ -40,7 +40,7 @@ export default function SpeakingSection() {
                 <Mic className="h-3.5 w-3.5" aria-hidden="true" />
                 On stage
               </p>
-              <h2 className="font-display text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-tight leading-[1.05] text-ink max-w-[18ch]">
+              <h2 className="font-display text-[clamp(1.75rem,4vw,2.75rem)] font-medium tracking-tight leading-[1.05] text-ink max-w-[18ch]">
                 Also lead rooms that need a decision
               </h2>
             </div>
@@ -95,10 +95,10 @@ export default function SpeakingSection() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackEvent("speaking_inquiry_click")}
-            className="cta-electric inline-flex items-center justify-center gap-2 h-11 px-6 text-sm font-semibold uppercase tracking-[0.7px] bg-hp-electric text-white hover:bg-hp-bright transition-colors shrink-0"
+            className="inline-flex items-center justify-center gap-2 h-11 px-6 text-sm font-semibold uppercase tracking-[0.7px] bg-hp-electric text-white hover:bg-hp-bright transition-colors shrink-0"
           >
             <MessageSquare className="h-4 w-4" aria-hidden="true" />
-            Book a Call
+            Ask About a Date
           </a>
         </div>
       </div>

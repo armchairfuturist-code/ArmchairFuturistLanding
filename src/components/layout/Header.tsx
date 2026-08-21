@@ -30,7 +30,7 @@ export default function Header() {
       {/* Merged PlayStation + USVC navigation */}
       {/* Black backdrop at every scroll position — PlayStation convention */}
       <div className="bg-ink border-b border-[#b2d5ff]/10">
-        <div className="container max-w-screen-2xl mx-auto px-4 h-13 flex items-center justify-between">
+        <div className="container max-w-screen-2xl mx-auto px-4 h-16 flex items-center justify-between">
           {/* Logo — left-aligned (USVC-style) */}
           <Link href="/" className="flex items-center space-x-3">
             <Image
