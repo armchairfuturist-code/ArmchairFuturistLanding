@@ -39,7 +39,7 @@ export default function ROICalculatorSection() {
   return (
     <section
       id="roi-calculator"
-      className="py-12 md:py-20 bg-background scroll-mt-20"
+      className="py-12 md:py-20 bg-canvas scroll-mt-20"
     >
       <div className="container mx-auto px-4 md:px-6 max-w-5xl">
         <BlurFade inView>
@@ -61,10 +61,10 @@ export default function ROICalculatorSection() {
 
         <div className="grid lg:grid-cols-2 gap-8">
           <BlurFade inView>
-            <div className="bg-card rounded-2xl border border-border/60 p-6 md:p-8">
+            <div className="bg-canvas rounded-hp-xl border border-hairline p-6 md:p-8">
               <div className="flex items-center gap-2 mb-6">
-                <Calculator className="h-5 w-5 text-primary" />
-                <h3 className="font-heading font-bold text-foreground">
+                <Calculator className="h-5 w-5 text-hp-electric" />
+                <h3 className="font-heading font-medium text-ink">
                   Select Your Tasks
                 </h3>
               </div>
@@ -79,10 +79,10 @@ export default function ROICalculatorSection() {
                         setSelected((prev) => toggleSelection(prev, automation.id))
                       }
                       aria-pressed={isSelected}
-                      className={`w-full text-left p-4 rounded-xl border transition-[border-color,background-color] duration-150 ${
+                      className={`w-full text-left p-4 rounded-hp-md border transition-[border-color,background-color] duration-150 ${
                         isSelected
-                          ? "border-primary/40 bg-primary/5"
-                          : "border-border/40 bg-background hover:border-border"
+                          ? "border-hp-electric/40 bg-hp-electric/5"
+                          : "border-hairline-strong/60 bg-canvas hover:border-hairline-strong"
                       }`}
                       whileTap={{ scale: 0.96 }}
                     >
@@ -90,28 +90,28 @@ export default function ROICalculatorSection() {
                         <div>
                           <p
                             className={`font-medium text-sm ${
-                              isSelected ? "text-primary" : "text-foreground"
+                              isSelected ? "text-hp-electric" : "text-ink"
                             }`}
                           >
                             {automation.label}
                           </p>
-                          <p className="text-xs text-muted-foreground mt-0.5">
+                          <p className="text-xs text-graphite mt-0.5">
                             {automation.description}
                           </p>
                         </div>
                         <div className="flex items-center gap-2 shrink-0 ml-4">
                           <Clock
-                            className="h-3.5 w-3.5 text-muted-foreground"
+                            className="h-3.5 w-3.5 text-graphite"
                             aria-hidden="true"
                           />
-                          <span className="text-xs font-mono text-muted-foreground">
+                          <span className="text-xs font-mono text-graphite">
                             ~{automation.hoursPerWeek}h/wk
                           </span>
                           <div
                             className={`h-5 w-5 rounded border-2 flex items-center justify-center transition-colors ${
                               isSelected
-                                ? "bg-primary border-primary"
-                                : "border-border"
+                                ? "bg-hp-electric border-hp-electric"
+                                : "border-hairline-strong"
                             }`}
                           >
                             {isSelected && (
@@ -137,8 +137,8 @@ export default function ROICalculatorSection() {
                 })}
               </div>
 
-              <div className="mt-6 pt-6 border-t border-border/40">
-                <label className="text-sm font-medium text-foreground mb-2 block">
+              <div className="mt-6 pt-6 border-t border-hairline-strong/60">
+                <label className="text-sm font-medium text-ink mb-2 block">
                   How many people on your team do these tasks?
                 </label>
                 <div className="flex items-center gap-4">
@@ -147,11 +147,11 @@ export default function ROICalculatorSection() {
                     onClick={() =>
                       setTeamSize((prev) => clampTeamSize(prev - 1))
                     }
-                    className="h-10 w-10 rounded-lg border border-border bg-background hover:bg-muted transition-colors duration-150 font-bold text-foreground"
+                    className="h-10 w-10 rounded-hp-md border border-hairline-strong bg-canvas hover:bg-cloud transition-colors duration-150 font-semibold text-ink"
                   >
                     -
                   </button>
-                  <span className="text-2xl font-bold text-primary w-12 text-center tabular-nums">
+                  <span className="text-2xl font-medium text-hp-electric w-12 text-center tabular-nums">
                     {teamSize}
                   </span>
                   <button
@@ -159,7 +159,7 @@ export default function ROICalculatorSection() {
                     onClick={() =>
                       setTeamSize((prev) => clampTeamSize(prev + 1))
                     }
-                    className="h-10 w-10 rounded-lg border border-border bg-background hover:bg-muted transition-colors duration-150 font-bold text-foreground"
+                    className="h-10 w-10 rounded-hp-md border border-hairline-strong bg-canvas hover:bg-cloud transition-colors duration-150 font-semibold text-ink"
                   >
                     +
                   </button>
@@ -169,8 +169,11 @@ export default function ROICalculatorSection() {
           </BlurFade>
 
           <BlurFade inView delay={0.15}>
-            <div className="bg-card rounded-2xl border border-border/60 p-6 md:p-8 lg:sticky lg:top-24">
-              <h3 className="font-heading font-bold text-foreground mb-6">
+            <div
+              className="bg-canvas rounded-hp-xl border border-hairline p-6 md:p-8 lg:sticky lg:top-24"
+              aria-live="polite"
+            >
+              <h3 className="font-heading font-medium text-ink mb-6">
                 Your Estimated Savings
               </h3>
 
@@ -182,7 +185,7 @@ export default function ROICalculatorSection() {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.2 }}
-                    className="text-muted-foreground text-sm"
+                    className="text-graphite text-sm"
                   >
                     Select at least one task to see your estimate.
                   </motion.p>
@@ -196,51 +199,51 @@ export default function ROICalculatorSection() {
                     className="space-y-6"
                   >
                     <div className="grid grid-cols-2 gap-4">
-                      <div className="p-4 rounded-xl bg-secondary/50">
-                        <p className="text-2xl font-bold text-primary tabular-nums">
+                      <div className="p-4 rounded-hp-lg bg-cloud">
+                        <p className="text-2xl font-medium text-hp-electric tabular-nums">
                           {hoursPerWeek}h
                         </p>
-                        <p className="text-xs text-muted-foreground">Per week</p>
+                        <p className="text-xs text-graphite">Per week</p>
                       </div>
-                      <div className="p-4 rounded-xl bg-secondary/50">
-                        <p className="text-2xl font-bold text-primary tabular-nums">
+                      <div className="p-4 rounded-hp-lg bg-cloud">
+                        <p className="text-2xl font-medium text-hp-electric tabular-nums">
                           {hoursPerMonth}h
                         </p>
-                        <p className="text-xs text-muted-foreground">
+                        <p className="text-xs text-graphite">
                           Per month
                         </p>
                       </div>
-                      <div className="p-4 rounded-xl bg-secondary/50">
-                        <p className="text-2xl font-bold text-primary tabular-nums">
+                      <div className="p-4 rounded-hp-lg bg-cloud">
+                        <p className="text-2xl font-medium text-hp-electric tabular-nums">
                           {hoursPerYear.toLocaleString()}h
                         </p>
-                        <p className="text-xs text-muted-foreground">
+                        <p className="text-xs text-graphite">
                           Per person / year
                         </p>
                       </div>
-                      <div className="p-4 rounded-xl bg-primary/10 border border-primary/20">
-                        <p className="text-2xl font-bold text-primary tabular-nums">
+                      <div className="p-4 rounded-hp-lg bg-hp-electric/10 border border-hp-electric/20">
+                        <p className="text-2xl font-medium text-hp-electric tabular-nums">
                           {teamHoursPerYear.toLocaleString()}h
                         </p>
-                        <p className="text-xs text-muted-foreground tabular-nums">
+                        <p className="text-xs text-graphite tabular-nums">
                           Team of {teamSize} / year
                         </p>
                       </div>
                     </div>
 
-                    <div className="p-6 rounded-xl bg-primary/5 border border-primary/20 text-center">
+                    <div className="p-6 rounded-hp-lg bg-hp-electric/5 border border-hp-electric/20 text-center">
                       <Clock
-                        className="h-6 w-6 text-primary mx-auto mb-2"
+                        className="h-6 w-6 text-hp-electric mx-auto mb-2"
                         aria-hidden="true"
                       />
-                      <p className="text-2xl font-semibold text-primary tabular-nums">
+                      <p className="text-2xl font-semibold text-hp-electric tabular-nums">
                         {hoursPerWeek} hours per week per person
                       </p>
-                      <p className="text-sm text-muted-foreground mt-1 tabular-nums">
+                      <p className="text-sm text-graphite mt-1 tabular-nums">
                         {teamHoursPerYear.toLocaleString()} hours per year for
                         your team of {teamSize}
                       </p>
-                      <p className="text-xs text-muted-foreground/80 mt-3">
+                      <p className="text-xs text-graphite/80 mt-3">
                         Planning estimate, not a forecast. Actual recovery
                         depends on workflow, tooling, and adoption.
                       </p>

@@ -22,13 +22,13 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
       {/* Archetype badge */}
       <BlurFade inView delay={0.1}>
         <div className="text-center mb-8">
-          <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-mono mb-4">
+          <span className="inline-flex items-center px-3 py-1 rounded-full bg-hp-electric/10 border border-hp-electric/20 text-hp-electric text-xs font-mono mb-4">
             Your AI Readiness Profile
           </span>
-          <h1 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary mb-3">
+          <h1 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-hp-electric mb-3">
             {archetype.name}
           </h1>
-          <p className="text-lg md:text-xl text-foreground/70 font-sans leading-relaxed max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-charcoal font-sans leading-relaxed max-w-2xl mx-auto">
             {archetype.headline}
           </p>
         </div>
@@ -36,8 +36,8 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
 
       {/* Score visualization */}
       <BlurFade inView delay={0.2}>
-        <div className="bg-card rounded-2xl border border-border p-6 md:p-8 mb-8 shadow-sm">
-          <h2 className="font-heading text-lg font-bold text-foreground mb-5">
+        <div className="bg-canvas rounded-hp-xl border border-hairline-strong p-6 md:p-8 mb-8">
+          <h2 className="font-heading text-lg font-bold text-ink mb-5">
             Your scores
           </h2>
           <ScoreChart
@@ -57,7 +57,7 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
           ("15 minutes. No pitch. Just clarity.") so visitors get a single,
           consistent promise of what the call is. */}
       <BlurFade inView delay={0.3}>
-        <div className="bg-hp-electric text-white rounded-2xl p-6 md:p-8 mb-10 shadow-lg shadow-hp-electric/20">
+        <div className="bg-hp-electric text-white rounded-hp-xl p-6 md:p-8 mb-10">
           <h2 className="font-heading text-xl md:text-2xl font-bold tracking-tight mb-2">
             Your next step
           </h2>
@@ -135,11 +135,11 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
       {/* Diagnosis — moved below the CTA so depth is opt-in, not a gate. */}
       <BlurFade inView delay={0.4}>
         <div className="space-y-5 mb-10">
-          <h2 className="font-heading text-xl md:text-2xl font-bold text-foreground">
+          <h2 className="font-heading text-xl md:text-2xl font-bold text-ink">
             What this means
           </h2>
           {archetype.diagnosis.map((paragraph, idx) => (
-            <p key={idx} className="text-base md:text-lg text-foreground/80 font-sans leading-relaxed">
+            <p key={idx} className="text-base md:text-lg text-charcoal font-sans leading-relaxed">
               {paragraph}
             </p>
           ))}
@@ -157,7 +157,7 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
       >
         <Link
           href="/assessment"
-          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          className="inline-flex items-center gap-2 text-sm text-graphite hover:text-ink transition-colors"
         >
           <RotateCcw className="h-3 w-3" />
           Retake the assessment

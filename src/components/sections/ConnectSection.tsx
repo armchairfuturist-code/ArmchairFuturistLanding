@@ -163,10 +163,10 @@ export default function ConnectSection() {
                   autoComplete="name"
                   aria-invalid={Boolean(fieldErrors.name)}
                   aria-describedby={fieldErrors.name ? "connect-name-error" : undefined}
-                  className={`bg-white/20 border-white/30 text-white placeholder:text-white/60 ${fieldErrors.name ? "border-red-300 focus-visible:ring-red-300/50" : ""}`}
+                  className={`bg-white/20 border-white/30 text-white placeholder:text-white/60 ${fieldErrors.name ? "border-bloom-rose focus-visible:ring-bloom-rose/50" : ""}`}
                 />
                 {fieldErrors.name && (
-                  <p id="connect-name-error" role="alert" className="mt-1.5 text-xs text-red-200">
+                  <p id="connect-name-error" role="alert" className="mt-1.5 text-xs text-bloom-rose">
                     {fieldErrors.name}
                   </p>
                 )}
@@ -184,10 +184,10 @@ export default function ConnectSection() {
                   autoComplete="email"
                   aria-invalid={Boolean(fieldErrors.email)}
                   aria-describedby={fieldErrors.email ? "connect-email-error" : undefined}
-                  className={`bg-white/20 border-white/30 text-white placeholder:text-white/60 ${fieldErrors.email ? "border-red-300 focus-visible:ring-red-300/50" : ""}`}
+                  className={`bg-white/20 border-white/30 text-white placeholder:text-white/60 ${fieldErrors.email ? "border-bloom-rose focus-visible:ring-bloom-rose/50" : ""}`}
                 />
                 {fieldErrors.email && (
-                  <p id="connect-email-error" role="alert" className="mt-1.5 text-xs text-red-200">
+                  <p id="connect-email-error" role="alert" className="mt-1.5 text-xs text-bloom-rose">
                     {fieldErrors.email}
                   </p>
                 )}
@@ -205,16 +205,16 @@ export default function ConnectSection() {
                   maxLength={2000}
                   aria-invalid={Boolean(fieldErrors.message)}
                   aria-describedby={fieldErrors.message ? "connect-message-error" : undefined}
-                  className={`bg-white/20 border-white/30 text-white placeholder:text-white/60 resize-none ${fieldErrors.message ? "border-red-300 focus-visible:ring-red-300/50" : ""}`}
+                  className={`bg-white/20 border-white/30 text-white placeholder:text-white/60 resize-none ${fieldErrors.message ? "border-bloom-rose focus-visible:ring-bloom-rose/50" : ""}`}
                 />
                 {fieldErrors.message && (
-                  <p id="connect-message-error" role="alert" className="mt-1.5 text-xs text-red-200">
+                  <p id="connect-message-error" role="alert" className="mt-1.5 text-xs text-bloom-rose">
                     {fieldErrors.message}
                   </p>
                 )}
               </div>
               {error && (
-                <p role="alert" className="text-red-200 text-sm">{error}</p>
+                <p role="alert" className="text-bloom-rose text-sm">{error}</p>
               )}
               <Button
                 type="submit"

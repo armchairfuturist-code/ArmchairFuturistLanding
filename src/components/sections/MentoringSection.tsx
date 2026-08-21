@@ -142,7 +142,8 @@ function PricingCard({
 }
 
 export default function MentoringSection() {
-  const [currency, setCurrency] = usePreferredCurrency();
+  // Prices follow the shared currency preference; the toggle lives in Services.
+  const [currency] = usePreferredCurrency();
   const [showAll, setShowAll] = useState(false);
 
   const defaultPackages = COACHING_PACKAGES.filter((p) =>
@@ -245,34 +246,8 @@ export default function MentoringSection() {
                 </p>
               </div>
 
-              <div className="inline-flex items-center gap-1 bg-canvas border border-ink/15 p-1 self-start md:self-auto">
-                <button
-                  onClick={() => setCurrency("USD")}
-                  className={`inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors ${
-                    currency === "USD"
-                      ? "bg-hp-electric text-white"
-                      : "text-charcoal hover:text-ink"
-                  }`}
-                  aria-pressed={currency === "USD"}
-                  aria-label="Show prices in US Dollars"
-                >
-                  <DollarSign className="h-4 w-4" aria-hidden="true" />
-                  USD
-                </button>
-                <button
-                  onClick={() => setCurrency("EUR")}
-                  className={`inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors ${
-                    currency === "EUR"
-                      ? "bg-hp-electric text-white"
-                      : "text-charcoal hover:text-ink"
-                  }`}
-                  aria-pressed={currency === "EUR"}
-                  aria-label="Show prices in Euros"
-                >
-                  <Euro className="h-4 w-4" aria-hidden="true" />
-                  EUR
-                </button>
-              </div>
+              {/* Currency toggles live in Services only; both sections read
+                  the same synced preference, so prices still follow. */}
             </div>
           </BlurFade>
 

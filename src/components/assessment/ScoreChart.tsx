@@ -25,10 +25,10 @@ export default function ScoreChart({ clarity, readiness, urgency }: ScoreChartPr
       {dimensions.map((dim, idx) => (
         <div key={dim.key}>
           <div className="flex items-center justify-between mb-1.5">
-            <span className="text-sm font-medium text-foreground/70 font-sans">
+            <span className="text-sm font-medium text-charcoal font-sans">
               {dim.label}
             </span>
-            <span className="text-sm font-mono text-foreground/50 tabular-nums">
+            <span className="text-sm font-mono text-graphite tabular-nums">
               {scores[dim.key]}%
             </span>
           </div>

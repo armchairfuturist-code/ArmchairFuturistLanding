@@ -49,19 +49,19 @@ export default function EmailCapture({
   return (
     <div className="w-full max-w-md mx-auto text-center">
       <BlurFade inView delay={0.1}>
-        <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/10 mb-6">
-          <Mail className="w-6 h-6 text-primary" />
+        <div className="inline-flex items-center justify-center w-14 h-14 rounded-hp-xl bg-hp-electric/10 mb-6">
+          <Mail className="w-6 h-6 text-hp-electric" />
         </div>
       </BlurFade>
 
       <BlurFade inView delay={0.2}>
-        <h2 className="font-heading text-2xl md:text-3xl font-medium tracking-tight text-foreground mb-3">
+        <h2 className="font-heading text-2xl md:text-3xl font-medium tracking-tight text-ink mb-3">
           Want your results by email?
         </h2>
       </BlurFade>
 
       <BlurFade inView delay={0.3}>
-        <p className="text-muted-foreground text-sm md:text-base mb-8 leading-relaxed">
+        <p className="text-graphite text-sm md:text-base mb-8 leading-relaxed">
           Your profile is ready below. Add your email and we&apos;ll also send
           it to you, with a concrete first step.
         </p>
@@ -69,7 +69,7 @@ export default function EmailCapture({
 
       {isSuccess ? (
         <BlurFade inView>
-          <div className="p-4 rounded-xl bg-primary/10 border border-primary/20 text-primary text-sm font-medium">
+          <div className="p-4 rounded-hp-lg bg-hp-electric/10 border border-hp-electric/20 text-hp-electric text-sm font-medium">
             Check your inbox — results on the way.
           </div>
         </BlurFade>
@@ -133,7 +133,7 @@ export default function EmailCapture({
           <button
             type="button"
             onClick={onSkip}
-            className="mt-4 text-xs text-muted-foreground hover:text-foreground transition-colors underline-offset-2 hover:underline"
+            className="mt-4 text-xs text-graphite hover:text-ink transition-colors underline-offset-2 hover:underline"
           >
             Skip — show results without email
           </button>

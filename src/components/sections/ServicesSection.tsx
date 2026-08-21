@@ -38,13 +38,13 @@ export default function ServicesSection() {
 
   return (
     <SectionSpotlight opacity={0.05} size={450}>
-<section className="py-16 md:py-20 bg-background scroll-mt-20 relative">
+<section className="py-16 md:py-20 bg-canvas scroll-mt-20 relative">
       <div className="container mx-auto px-4 md:px-6">
         <BlurFade inView>
           <div className="max-w-4xl mb-16 grid md:grid-cols-12 gap-6 items-end">
               <div className="md:col-span-7">
                 <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-4">Your path to AI independence</p>
-                <h2 className="font-display text-[clamp(2.25rem,5vw,3.75rem)] font-bold tracking-tight leading-[0.98] text-ink">
+                <h2 className="font-display text-[clamp(2.25rem,5vw,3.75rem)] font-medium tracking-tight leading-[0.98] text-ink">
                   You leave able to keep going
                 </h2>
               </div>
@@ -58,24 +58,24 @@ export default function ServicesSection() {
           {SERVICE_PATHS.map((path) => (
             <div key={path.id}>
               <BlurFade inView>
-                <div className="mb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-4 border-b border-border/60 pb-6">
+                <div className="mb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-4 border-b border-hairline pb-6">
                   <div>
-                    <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-2 flex items-center gap-2">
+                    <p className="text-xs font-mono uppercase tracking-widest text-graphite mb-2 flex items-center gap-2">
                       {path.id === "together" ? (
-                        <Sparkles className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
+                        <Sparkles className="h-3.5 w-3.5 text-hp-electric" aria-hidden="true" />
                       ) : (
-                        <Wrench className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
+                        <Wrench className="h-3.5 w-3.5 text-hp-electric" aria-hidden="true" />
                       )}
                       <span>{path.label}</span>
                     </p>
-                    <h3 className="font-heading text-2xl md:text-3xl font-bold text-foreground">
+                    <h3 className="font-heading text-2xl md:text-3xl font-medium text-ink">
                       {path.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground font-mono mt-1">
+                    <p className="text-sm text-graphite font-mono mt-1">
                       {path.kicker}
                     </p>
                   </div>
-                  <p className="text-sm md:text-base text-foreground/80 font-sans leading-relaxed md:max-w-md md:text-right">
+                  <p className="text-sm md:text-base text-charcoal font-sans leading-relaxed md:max-w-md md:text-right">
                     {path.description}
                   </p>
                   {path.id === "foryou" && (
@@ -109,23 +109,23 @@ export default function ServicesSection() {
                       >
 
                       <CardHeader className="pt-6 pb-4">
-                        <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-3 bg-primary/10 text-primary">
+                        <div className="w-10 h-10 rounded-hp-lg flex items-center justify-center mb-3 bg-hp-electric/10 text-hp-electric">
                           <Icon className="w-5 h-5" />
                         </div>
                         {tier.highlighted && (
-                          <span className="absolute top-5 right-5 text-[10px] font-mono uppercase tracking-widest text-primary bg-primary/10 px-2 py-1 rounded-full border border-primary/20">
+                          <span className="absolute top-5 right-5 text-[10px] font-mono uppercase tracking-widest text-hp-electric bg-hp-electric/10 px-2 py-1 rounded-full border border-hp-electric/20">
                             ★ Build Sprint
                           </span>
                         )}
-                        <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-1">
+                        <p className="text-xs font-mono uppercase tracking-widest text-graphite mb-1">
                           {tier.tag}
                         </p>
-                        <h4 className="font-heading text-xl font-bold text-foreground mb-1">
+                        <h4 className="font-heading text-xl font-medium text-ink mb-1">
                           {tier.name}
                         </h4>
                         <div className="flex items-baseline gap-1">
-                          <span className={`font-bold tabular-nums ${
-                            tier.price === "Free" ? 'text-2xl text-primary' : 'text-3xl text-primary'
+                          <span className={`font-medium tabular-nums ${
+                            tier.price === "Free" ? 'text-2xl text-hp-electric' : 'text-3xl text-hp-electric'
                           }`}>
                             {displayPrice(tier)}
                           </span>
@@ -133,17 +133,17 @@ export default function ServicesSection() {
                       </CardHeader>
 
                       <CardContent className="flex-1 px-6">
-                        <p className="text-sm text-foreground/80 font-sans leading-relaxed mb-5">
+                        <p className="text-sm text-charcoal font-sans leading-relaxed mb-5">
                           {tier.description}
                         </p>
                         {tier.note && (
-                          <p className="text-xs text-muted-foreground font-mono mb-4 italic">
+                          <p className="text-xs text-graphite font-mono mb-4 italic">
                             {tier.note}
                           </p>
                         )}
                         <ul className="space-y-2.5">
                           {tier.features.map((feature) => (
-                            <li key={feature} className="flex items-start gap-2.5 text-sm text-foreground/70">
+                            <li key={feature} className="flex items-start gap-2.5 text-sm text-charcoal">
                               <CheckCircle2 className="w-4 h-4 mt-0.5 shrink-0 text-hp-electric" aria-hidden="true" />
                               <span>{feature}</span>
                             </li>
@@ -157,8 +157,8 @@ export default function ServicesSection() {
                           size="lg"
                           className={`w-full font-semibold ${
                             tier.highlighted
-                              ? 'bg-primary text-primary-foreground hover:bg-primary/90 border-2 border-primary'
-                              : 'bg-background text-foreground border-2 border-foreground/10 hover:border-primary hover:text-primary'
+                              ? 'bg-hp-electric text-white hover:bg-hp-electric/90 border-2 border-hp-electric'
+                              : 'bg-canvas text-ink border-2 border-foreground/10 hover:border-hp-electric hover:text-hp-electric'
                           }`}
                         >
                           <a
@@ -181,9 +181,9 @@ export default function ServicesSection() {
 
         <BlurFade inView>
           <div className="mt-16 space-y-4 text-center">
-            <p className="text-sm text-muted-foreground font-sans">
+            <p className="text-sm text-graphite font-sans">
               Not sure which path fits?{" "}
-              <a href="/assessment" className="text-primary font-semibold hover:underline">
+              <a href="/assessment" className="text-hp-electric font-semibold hover:underline">
                 Take the free 3-minute assessment
               </a>{" "}
               and get your personalized AI archetype plus a clear next step.

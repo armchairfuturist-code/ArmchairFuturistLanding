@@ -31,7 +31,7 @@ export default function QuizQuestion({
         transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
         className="w-full max-w-2xl mx-auto"
       >
-        <h2 className="font-heading text-xl md:text-2xl font-bold tracking-tight text-foreground mb-8 text-center leading-snug">
+        <h2 className="font-heading text-xl md:text-2xl font-bold tracking-tight text-ink mb-8 text-center leading-snug">
           {question.text}
         </h2>
 
@@ -39,7 +39,7 @@ export default function QuizQuestion({
           {!isFirstQuestion && onBack && (
             <button
               onClick={onBack}
-              className="text-xs text-muted-foreground hover:text-foreground transition-colors mb-2 flex items-center gap-1 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:rounded px-1"
+              className="text-xs text-graphite hover:text-ink transition-colors mb-2 flex items-center gap-1 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hp-electric/40 focus-visible:rounded px-1"
               aria-label="Go back to previous question"
             >
               <svg
@@ -63,17 +63,17 @@ export default function QuizQuestion({
             <motion.button
               key={idx}
               onClick={() => onAnswer(idx)}
-              className="w-full text-left p-4 md:p-5 rounded-xl border border-border bg-card hover:border-primary/40 hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 transition-[background-color,border-color] duration-150 cursor-pointer group"
+              className="w-full text-left p-4 md:p-5 rounded-hp-md border border-hairline-strong bg-canvas hover:border-hp-electric/40 hover:bg-hp-electric/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hp-electric/40 transition-[background-color,border-color] duration-150 cursor-pointer group"
               whileTap={{ scale: 0.96 }}
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: idx * 0.06 }}
             >
               <div className="flex items-start gap-3">
-                <span className="flex-shrink-0 w-7 h-7 rounded-lg bg-primary/10 text-primary text-xs font-mono font-bold flex items-center justify-center mt-0.5 group-hover:bg-primary group-hover:text-white transition-colors">
+                <span className="flex-shrink-0 w-7 h-7 rounded-lg bg-hp-electric/10 text-hp-electric text-xs font-mono font-bold flex items-center justify-center mt-0.5 group-hover:bg-hp-electric group-hover:text-white transition-colors">
                   {String.fromCharCode(97 + idx)}
                 </span>
-                <span className="text-sm md:text-base text-foreground/80 leading-relaxed font-sans">
+                <span className="text-sm md:text-base text-charcoal leading-relaxed font-sans">
                   {answer.text}
                 </span>
               </div>

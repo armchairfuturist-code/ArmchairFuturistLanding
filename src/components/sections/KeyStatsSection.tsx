@@ -22,10 +22,9 @@ const featuredStats = [
     detail: "Average per client",
   },
   {
-    value: "6",
-    numericValue: 6,
-    label: "certifications",
-    detail: "Certified Futurist, Change Management Professional, GenAI Expert",
+    value: "8–10 wks",
+    label: "to self-sufficiency",
+    detail: "Typical client runway, then our job ends",
   },
 ];
 

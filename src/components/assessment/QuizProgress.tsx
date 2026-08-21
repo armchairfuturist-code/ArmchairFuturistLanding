@@ -13,16 +13,16 @@ export default function QuizProgress({ current, total }: QuizProgressProps) {
   return (
     <div className="w-full max-w-2xl mx-auto mb-8" role="progressbar" aria-valuenow={current} aria-valuemin={0} aria-valuemax={total} aria-label={`Question ${current} of ${total}`}>
       <div className="flex items-center justify-between mb-2">
-        <span className="text-xs font-mono text-primary/60">
+        <span className="text-xs font-mono text-hp-electric/60">
           Question {current} of {total}
         </span>
-        <span className="text-xs font-mono text-primary/60 tabular-nums">
+        <span className="text-xs font-mono text-hp-electric/60 tabular-nums">
           {percent}%
         </span>
       </div>
-      <div className="h-1.5 w-full rounded-full bg-primary/10 overflow-hidden">
+      <div className="h-1.5 w-full rounded-full bg-hp-electric/10 overflow-hidden">
         <motion.div
-          className="h-full rounded-full bg-primary"
+          className="h-full rounded-full bg-hp-electric"
           initial={{ width: 0 }}
           animate={{ width: `${percent}%` }}
           transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
