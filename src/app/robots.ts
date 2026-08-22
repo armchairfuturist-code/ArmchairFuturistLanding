@@ -44,7 +44,27 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
       {
-        userAgent: 'ClaudeBot', // Anthropic's search crawler
+        userAgent: 'ClaudeBot', // Anthropic's crawler
+        allow: '/',
+      },
+      {
+        userAgent: 'Claude-User', // Claude user-initiated fetches
+        allow: '/',
+      },
+      {
+        userAgent: 'Claude-SearchBot', // Anthropic's search crawler
+        allow: '/',
+      },
+      {
+        userAgent: 'Perplexity-User', // Perplexity user-initiated fetches
+        allow: '/',
+      },
+      {
+        userAgent: 'Meta-ExternalAgent', // Meta AI assistant
+        allow: '/',
+      },
+      {
+        userAgent: 'Amazonbot', // Alexa / Amazon AI
         allow: '/',
       },
       {
@@ -69,6 +89,10 @@ export default function robots(): MetadataRoute.Robots {
       },
       {
         userAgent: 'cohere-ai', // Cohere training
+        disallow: '/',
+      },
+      {
+        userAgent: 'Applebot-Extended', // Apple training-only
         disallow: '/',
       },
 

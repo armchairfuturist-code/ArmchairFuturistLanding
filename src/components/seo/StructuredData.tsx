@@ -38,13 +38,6 @@ export default function StructuredData() {
             description:
               "AI technical literacy and workflow strategy consulting. Alex teaches professionals, creators, and entrepreneurs how to use practical AI to automate workflows, build custom solutions, and scale output.",
             url: siteUrl,
-            aggregateRating: {
-              "@type": "AggregateRating",
-              ratingValue: "4.9",
-              reviewCount: "40",
-              bestRating: "5",
-              worstRating: "1",
-            },
             image: `${siteUrl}/og-image.jpg`,
             logo: `${siteUrl}/img.jpg`,
             founder: { "@id": personId },
@@ -268,21 +261,6 @@ export default function StructuredData() {
             worksFor: { "@id": orgId },
             award: "Certified Futurist & Long-Term Analyst",
             alumniOf: "GenAI Academy",
-            hasOccupation: {
-              "@type": "Occupation",
-              name: "AI Consultant & Instructor",
-              occupationLocation: {
-                "@type": "Country",
-                name: "Portugal",
-              },
-              estimatedSalary: {
-                "@type": "MonetaryAmountDistribution",
-                name: "Service Range",
-                currency: "EUR",
-                minValue: 100,
-                maxValue: 5000,
-              },
-            },
           }),
         }}
       />

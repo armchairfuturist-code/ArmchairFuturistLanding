@@ -1,7 +1,7 @@
 # The Armchair Futurist - Complete Site Content
 
 > Full content from all pages of thearmchairfuturist.com, compiled for AI systems.
-> Last updated: 2026-06-18 | Version: 2.0
+> Last updated: 2026-08-21 | Version: 2.1
 
 ---
 
@@ -93,8 +93,9 @@ https://thearmchairfuturist.com/#services
 - AI Independence Incubator: $12,000, 3 months
 
 ### I Do It For You (Implementation)
-- Digital Identity Landing Page: $199, 2-4 days
+- Digital Identity Landing Page: €199 / $233, 2-4 days
 - Custom AI Provisioning: $1,000 – $5,000, 1-2 weeks
+- ROI Calculator: free interactive time-savings estimator on the homepage (planning estimate, not a forecast)
 
 ### Organizational
 - Psychology-Led Adoption Strategy: $10,625, 3-4 weeks
@@ -128,14 +129,14 @@ All 60-min video calls.
 
 ## FAQ
 
-Q: What is the Armchair Futurist? — AI literacy practice, $199–$12,000 range.
+Q: What is the Armchair Futurist? — AI literacy practice, $120–$12,000 range.
 Q: What is the Accountability Gap? — Space between AI outputs and business results.
 Q: Qualifications? — 6 certs, 40+ AI systems deployed.
-Q: Pricing? — $120/session to $12,000. USD and EUR.
+Q: Pricing? — $120/session to $12,000. USD and EUR, one synced toggle.
 Q: International? — Yes, based in Portugal, worldwide.
 Q: Results? — 10-20 hrs/week reclaimed, 92% adoption in 90 days.
 Q: Custom AI Provisioning? — $1,000–$5,000, 1-2 weeks, OpenClaw/Hermes agents.
-Q: How to start? — $199 Digital Identity, $120 session packs, or fit call.
+Q: How to start? — €199/$233 Digital Identity, $120 session packs, or fit call.
 
 ---
 
