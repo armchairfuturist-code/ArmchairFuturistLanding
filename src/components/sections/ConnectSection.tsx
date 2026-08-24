@@ -151,7 +151,7 @@ export default function ConnectSection() {
                 Or tell me what&apos;s on your mind and I&apos;ll write back
               </p>
               <div>
-                <label htmlFor="connect-name" className="block text-sm font-medium text-graphite mb-1">Your name</label>
+                <label htmlFor="connect-name" className="block text-sm font-medium text-white/90 mb-1">Your name</label>
                 <Input
                   id="connect-name"
                   name="name"
@@ -171,7 +171,7 @@ export default function ConnectSection() {
                 )}
               </div>
               <div>
-                <label htmlFor="connect-email" className="block text-sm font-medium text-graphite mb-1">Your email</label>
+                <label htmlFor="connect-email" className="block text-sm font-medium text-white/90 mb-1">Your email</label>
                 <Input
                   id="connect-email"
                   type="email"
@@ -192,7 +192,7 @@ export default function ConnectSection() {
                 )}
               </div>
               <div>
-                <label htmlFor="connect-message" className="block text-sm font-medium text-graphite mb-1">What's on your mind?</label>
+                <label htmlFor="connect-message" className="block text-sm font-medium text-white/90 mb-1">What's on your mind?</label>
                 <Textarea
                   id="connect-message"
                   name="message"

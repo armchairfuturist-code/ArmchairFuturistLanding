@@ -369,7 +369,7 @@ export default function MentoringSection() {
                           single: "In-session guidance",
                           five: "In-session + summary",
                           ten: "Session + mid-pack review",
-                          twenty: "Personalized 1:1 + between-session follow-up",
+                          twenty: "Personalised 1:1 + between-session follow-up",
                         },
                         {
                           label: "Frameworks & templates",

@@ -7,6 +7,8 @@ export default {
   ],
   theme: {
     extend: {
+    // Default Tailwind lineClamp scale stops at 6; featured testimonial cap = 7 lines.
+    lineClamp: { 7: "7" },
       fontFamily: {
         // Display: Space Grotesk (next/font, --font-display) — geometric sans
         // Body/UI: Manrope (next/font, --font-body) — neutral, high readability

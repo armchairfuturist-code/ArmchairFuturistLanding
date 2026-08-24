@@ -67,7 +67,7 @@ export default function SectionNavigator() {
           <button
             key={section.id}
             onClick={() => scrollTo(section.id)}
-            aria-current={isActive ? "true" : undefined}
+            aria-current={isActive ? "location" : undefined}
             className="group relative flex items-center justify-center h-10 w-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:rounded"
             aria-label={`Scroll to ${section.label}`}
           >
