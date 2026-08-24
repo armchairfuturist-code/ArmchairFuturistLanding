@@ -93,26 +93,11 @@ export default function ConnectSection() {
             >
               Book a Call
             </BookCallButton>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="bg-transparent border-white/40 text-white hover:bg-white/10 hover:border-white transition-[background-color,border-color,color] duration-200 w-full sm:w-auto whitespace-normal sm:whitespace-nowrap"
-            >
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <MessageCircle className="mr-2 h-5 w-5" />
-                Questions? Text Me on WhatsApp
-              </a>
-            </Button>
           </motion.div>
           <p className="mt-4 text-sm text-primary-foreground/85">
             15 minutes. No pitch.
           </p>
-          <p className="mt-2 text-sm text-primary-foreground/75">
+          <p className="mt-4 text-sm text-primary-foreground/75">
             Not sure if it&apos;s a fit?{" "}
             <Link
               href="/assessment"
@@ -121,7 +106,18 @@ export default function ConnectSection() {
             >
               Take the 3-minute assessment
             </Link>{" "}
-            first.
+            · or{" "}
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackEvent("connect_whatsapp_link")}
+              className="inline-flex items-center min-h-[44px] py-2 underline underline-offset-4 hover:text-white transition-colors"
+            >
+              <MessageCircle className="mr-1 h-4 w-4" aria-hidden="true" />
+              text me on WhatsApp
+            </a>
+            .
           </p>
         </BlurFade>
         {/* Contact Form */}

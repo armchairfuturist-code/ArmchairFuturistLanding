@@ -274,21 +274,6 @@ export default function TestimonialsSection() {
         </Marquee>
       </div>
 
-      {/* Organization schema only. Self-assigned aggregateRating and Review
-          markup reads as a funnel tell in search results and risks a
-           self-serving-review penalty — testimonials stay on the page. */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "@id": "https://thearmchairfuturist.com/#organization",
-            name: "The Armchair Futurist",
-            url: "https://thearmchairfuturist.com",
-          }),
-        }}
-      />
     </section>
   );
 }
