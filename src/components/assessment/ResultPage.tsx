@@ -1,15 +1,17 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { ArrowRight, CalendarDays } from 'lucide-react';
-import { RotateCcw } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { BlurFade } from '@/components/ui/blur-fade';
-import { motion } from 'motion/react';
-import { trackConversion, trackEvent } from '@/lib/analytics';
-import type { Archetype } from '@/lib/assessment/archetypes';
-import type { ScoreResult } from '@/lib/assessment/scoring';
-import ScoreChart from './ScoreChart';
+import Link from "next/link";
+import { ArrowRight, CalendarDays } from "lucide-react";
+import { RotateCcw } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { BlurFade } from "@/components/ui/blur-fade";
+import { motion } from "motion/react";
+import { trackConversion, trackEvent } from "@/lib/analytics";
+import { CALENDAR_URL } from "@/lib/constants";
+import { BookCallButton } from "@/components/ui/BookCallButton";
+import type { Archetype } from "@/lib/assessment/archetypes";
+import type { ScoreResult } from "@/lib/assessment/scoring";
+import ScoreChart from "./ScoreChart";
 
 interface ResultPageProps {
   archetype: Archetype;
@@ -62,9 +64,8 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
             Your next step
           </h2>
           <p className="text-sm md:text-base text-white/80 font-sans leading-relaxed mb-6 max-w-xl">
-            Based on your profile, here is what I recommend. Most clients
-            book a 15-minute call to turn this diagnosis into a concrete
-            next move.
+            Based on your profile, here is what I recommend. Most clients book a
+            15-minute call to turn this diagnosis into a concrete next move.
           </p>
 
           <div className="flex flex-col lg:flex-row gap-3">
@@ -74,7 +75,7 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex"
-                onClick={() => trackConversion('assessment_primary_cta')}
+                onClick={() => trackConversion("assessment_primary_cta")}
               >
                 <Button
                   size="lg"
@@ -85,7 +86,10 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
                 </Button>
               </a>
             ) : (
-              <Link href={archetype.primaryCta.href} onClick={() => trackConversion('assessment_primary_cta')}>
+              <Link
+                href={archetype.primaryCta.href}
+                onClick={() => trackConversion("assessment_primary_cta")}
+              >
                 <Button
                   size="lg"
                   className="font-bold w-full lg:w-auto bg-white text-hp-electric hover:bg-white/90 whitespace-normal lg:whitespace-nowrap"
@@ -101,7 +105,7 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
                 href={archetype.secondaryCta.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackEvent('assessment_secondary_cta')}
+                onClick={() => trackEvent("assessment_secondary_cta")}
               >
                 <Button
                   variant="outline"
@@ -113,7 +117,10 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
                 </Button>
               </a>
             ) : (
-              <Link href={archetype.secondaryCta.href} onClick={() => trackEvent('assessment_secondary_cta')}>
+              <Link
+                href={archetype.secondaryCta.href}
+                onClick={() => trackEvent("assessment_secondary_cta")}
+              >
                 <Button
                   variant="outline"
                   size="lg"
@@ -125,6 +132,22 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
               </Link>
             )}
           </div>
+          {/* Booking fallback: archetypes whose recommended next step isn't a call
+            still get one visible way to book — this is the highest-intent
+            moment on the site (user just completed the assessment). */}
+          {archetype.primaryCta.href !== CALENDAR_URL &&
+            archetype.secondaryCta.href !== CALENDAR_URL && (
+              <p className="mt-4 text-sm font-sans">
+                <BookCallButton
+                  bare
+                  location="assessment_result"
+                  className="font-bold text-white underline underline-offset-4 hover:text-white/80"
+                  iconClassName="mr-1.5 h-3.5 w-3.5"
+                >
+                  Prefer to talk it through? Book a free 15-minute call
+                </BookCallButton>
+              </p>
+            )}
 
           <p className="mt-4 text-sm text-white/80 font-sans">
             15 minutes. No pitch. Just clarity on your next step.
@@ -139,7 +162,10 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
             What this means
           </h2>
           {archetype.diagnosis.map((paragraph, idx) => (
-            <p key={idx} className="text-base md:text-lg text-charcoal font-sans leading-relaxed">
+            <p
+              key={idx}
+              className="text-base md:text-lg text-charcoal font-sans leading-relaxed"
+            >
               {paragraph}
             </p>
           ))}

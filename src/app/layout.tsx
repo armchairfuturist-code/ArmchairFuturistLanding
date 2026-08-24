@@ -66,8 +66,11 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${manrope.variable} ${dmMono.variable}`}>
-<body>
+    <html
+      lang="en"
+      className={`${spaceGrotesk.variable} ${manrope.variable} ${dmMono.variable}`}
+    >
+      <body>
         <ErrorBoundary>
           <SmoothScrollProvider>
             <StructuredData />
