@@ -37,6 +37,19 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      // 2026-06 slug rename dropped the "the-" prefix; old URLs were published
+      // in sitemaps and return soft-404 shells without this redirect.
+      ...["stalled-executive", "curious-professional", "ready-builder", "overwhelmed-leader"].map(
+        (slug) => ({
+          source: `/assessment/result/the-${slug}`,
+          destination: `/assessment/result/${slug}`,
+          permanent: true,
+        }),
+      ),
+    ];
+  },
   async headers() {
     return [
       {

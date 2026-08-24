@@ -4,6 +4,7 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import { SmoothScrollProvider } from "@/components/ui/SmoothScrollProvider";
+import StructuredData from "@/components/seo/StructuredData";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 
@@ -66,9 +67,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${manrope.variable} ${dmMono.variable}`}>
-      <body>
+<body>
         <ErrorBoundary>
           <SmoothScrollProvider>
+            <StructuredData />
             <Header />
             {children}
             <Footer />
