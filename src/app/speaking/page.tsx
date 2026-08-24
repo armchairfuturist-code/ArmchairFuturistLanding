@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import SpeakingSection from "@/components/sections/SpeakingSection";
-import { CommunityAnchor } from "./CommunityAnchor";
+import CommunityAnchor from "@/components/sections/CommunityAnchor";
 
 const siteUrl = "https://thearmchairfuturist.com";
 

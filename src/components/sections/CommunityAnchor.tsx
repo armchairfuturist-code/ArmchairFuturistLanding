@@ -5,7 +5,7 @@ import { BRAGA_AI_BUILDERS_URL } from "@/lib/constants";
 import { trackEvent } from "@/lib/analytics";
 
 /** Community anchor — reputational proof alongside stage work. */
-export function CommunityAnchor() {
+export default function CommunityAnchor() {
   return (
     <section className="bg-ink py-16 md:py-20 text-white">
       <div className="container mx-auto px-4 md:px-6 max-w-4xl">
@@ -27,7 +27,11 @@ export function CommunityAnchor() {
             href={BRAGA_AI_BUILDERS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackEvent("braga_ai_builders_click", { location: "speaking_page" })}
+            onClick={() =>
+              trackEvent("braga_ai_builders_click", {
+                location: "speaking_page",
+              })
+            }
             className="inline-flex items-center justify-center gap-2 h-11 px-6 text-sm font-semibold uppercase tracking-[0.7px] bg-hp-electric text-white hover:bg-hp-bright transition-colors"
           >
             Visit Braga AI Builders
@@ -37,7 +41,11 @@ export function CommunityAnchor() {
             href={`${BRAGA_AI_BUILDERS_URL}/events`}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackEvent("braga_ai_builders_events_click", { location: "speaking_page" })}
+            onClick={() =>
+              trackEvent("braga_ai_builders_events_click", {
+                location: "speaking_page",
+              })
+            }
             className="inline-flex items-center justify-center gap-2 h-11 px-6 text-sm font-semibold border border-white/40 text-white hover:bg-white/10 hover:border-white transition-colors"
           >
             Upcoming meetups

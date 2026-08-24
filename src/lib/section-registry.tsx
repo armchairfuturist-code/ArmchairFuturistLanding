@@ -22,6 +22,7 @@ export const SECTION_IDS = {
   about: "about-me",
   caseStudies: "case-studies",
   testimonials: "testimonials",
+  community: "community",
   mentoring: "ai-guidance",
   roi: "roi-calculator",
   speaking: "speaking",
@@ -62,6 +63,7 @@ const sections: SectionEntry[] = [
     ),
     eager: true,
   },
+  { id: SECTION_IDS.community, label: "Community", component: dynamic(() => import("@/components/sections/CommunityAnchor")), eager: true, },
   {
     id: SECTION_IDS.stats,
     label: "Stats",
