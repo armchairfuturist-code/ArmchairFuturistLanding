@@ -114,6 +114,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.7,
     },
+  {
+    url: `${baseUrl}/speaking`,
+    lastModified: new Date("2026-08-24"),
+    changeFrequency: "monthly",
+    priority: 0.6,
+  },
     // === HOW I WORK ===
     // Methodology + agent-infrastructure page (E-E-A-T: verifiable, shipped work).
     {

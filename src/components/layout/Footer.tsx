@@ -51,7 +51,7 @@ export default function Footer() {
                 Assessment
               </Link>
               <Link
-                href="/#speaking"
+                href="/speaking"
                 className="text-white/70 hover:text-hp-electric transition-colors duration-300 underline-animate"
               >
                 Speaking

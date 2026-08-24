@@ -69,6 +69,7 @@
 .organism-button--primary:hover { background: #5b8cff; } /* lighter step of the same hue for on-dark hover */
 .organism-button--quiet { color: #d5d9e0; border-color: var(--org-line); background: rgba(8, 13, 23, .22); }
 .organism-button--quiet:hover { border-color: rgba(240, 238, 232, .5); }
+.organism-button--text { min-height: 44px; padding: 0 8px; color: var(--org-muted); font-family: var(--org-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; background: none; }.organism-button--text:hover { color: var(--org-paper); }
 .organism-status { display: flex; gap: 26px; color: var(--org-muted); }
 .organism-status span { color: #c5cad3; }
 .organism-hero__hint { display: flex; align-items: center; gap: 10px; align-self: center; color: var(--org-muted); font-family: var(--org-mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; animation: drift 2.2s ease-in-out infinite; }

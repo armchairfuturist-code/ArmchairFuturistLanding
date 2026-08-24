@@ -108,6 +108,7 @@ const sections: SectionEntry[] = [
         <SectionSkeleton minHeight="min-h-[420px]" label="Loading speaking" />
       ),
     }),
+    homepage: false,
   },
   
   {
@@ -130,7 +131,7 @@ const sections: SectionEntry[] = [
         <SectionSkeleton minHeight="min-h-[600px]" label="Loading newsletter" />
       ),
     }),
-    homepage: true,
+    homepage: false,
   },
   {
     id: SECTION_IDS.faq,
@@ -156,6 +157,6 @@ export function getHomepageSections(): readonly SectionEntry[] {
 /** Returns section id/label pairs for use in the floating navigator. */
 export function getNavigatorItems(): Array<{ id: string; label: string }> {
   return sections
-    .filter((s) => s.navigable !== false)
+    .filter((s) => s.homepage !== false && s.navigable !== false)
     .map((s) => ({ id: s.id, label: s.label }));
 }
