@@ -54,13 +54,13 @@
 .organism-fallback.is-visible { opacity: .9; }
 .organism-noise { position: absolute; z-index: -1; inset: 0; pointer-events: none; opacity: .08; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E"); }
 .organism-status { font-family: var(--org-mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; }
-.organism-hero__copy { position: relative; max-width: 850px; margin: 14vh 0 0 8vw; }
+.organism-hero__copy { position: relative; max-width: 850px; margin: 8vh 0 0 8vw; }
 .organism-hero__copy::before { content: ""; position: absolute; z-index: -1; inset: -56px -72px -72px -8vw; pointer-events: none; background: radial-gradient(ellipse 130% 100% at 22% 40%, rgba(8, 13, 23, .88) 30%, rgba(8, 13, 23, .55) 58%, transparent 78%); }
 .organism-kicker { display: flex; align-items: center; gap: 10px; margin: 0 0 22px; color: var(--org-blue); font-family: var(--org-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
 .organism-kicker span { width: 28px; height: 1px; background: currentColor; }
-.organism-hero h1 { max-width: 920px; margin: 0; font-size: clamp(3.5rem, 8.3vw, 9.3rem); font-weight: 500; letter-spacing: -.075em; line-height: .88; color: var(--org-paper); }
+.organism-hero h1 { max-width: 920px; margin: 0; font-size: clamp(3.5rem, 7.4vw, 8.4rem); font-weight: 500; letter-spacing: -.075em; line-height: .88; color: var(--org-paper); }
 .organism-hero h1 em { color: transparent; font-style: normal; -webkit-text-stroke: 2px rgba(240, 238, 232, .82); }
-.organism-deck { max-width: 450px; margin: 32px 0 0; color: #c9ced8; font-size: 16px; line-height: 1.6; }
+.organism-deck { max-width: 450px; margin: 24px 0 0; color: #c9ced8; font-size: 16px; line-height: 1.6; }
 .organism-deck--offer { margin-top: 14px; color: #e3e7ee; }
 .organism-actions { display: flex; gap: 16px; margin-top: 35px; }
 .organism-button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 48px; padding: 0 20px; border: 1px solid transparent; border-radius: 999px; cursor: pointer; transition: transform .25s ease, background .25s ease, border-color .25s ease; }

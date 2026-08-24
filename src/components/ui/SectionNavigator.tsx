@@ -80,7 +80,7 @@ export default function SectionNavigator() {
               }`}
             />
             {/* Label on hover and keyboard focus */}
-            <span className="absolute right-12 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap text-xs font-medium text-foreground/80 bg-background/90 backdrop-blur-sm px-2 py-1 rounded border border-border/50">
+            <span className={`absolute right-12 top-1/2 -translate-y-1/2 transition-opacity duration-200 pointer-events-none whitespace-nowrap text-xs font-medium text-foreground/80 bg-background/90 backdrop-blur-sm px-2 py-1 rounded border border-border/50 ${isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100"}`}>
               {section.label}
             </span>
           </button>

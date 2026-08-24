@@ -59,7 +59,7 @@ for (const vp of VIEWPORTS) {
   const r = { checks: {}, metrics: {} };
 
   // --- Step 1: homepage ---
-  await page.goto(`${BASE}/`, { waitUntil: "networkidle2", timeout: 30000 });
+  await page.goto(`${BASE}/`, { waitUntil: "load", timeout: 60000 });
   await scrollThrough(page);
   await page.evaluate(() => window.scrollTo(0, 0));
   await sleep(400);

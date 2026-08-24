@@ -112,25 +112,6 @@ export default function WhatThisIsNotSection() {
         </BlurFade>
       </div>
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: [
-              {
-                "@type": "Question",
-                name: "What is Alex Myers' consulting service NOT for?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Alex Myers' services are not for organizations that want a consultant to confirm what they already know but won't change, teams that want AI to run without their involvement, or leaders still evaluating whether AI matters. He works with founders, operators, and small teams ready.",
-                },
-              },
-            ],
-          }),
-        }}
-      />
     </section>
   );
 }

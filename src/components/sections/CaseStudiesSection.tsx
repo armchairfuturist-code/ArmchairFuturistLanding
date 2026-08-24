@@ -133,7 +133,7 @@ export default function CaseStudiesSection() {
                 Working AI systems, open on GitHub
               </h3>
               <p className="text-sm md:text-base text-charcoal leading-relaxed max-w-xl">
-                An MCP server for investment analysis. A multi-model writing
+                A custom AI server wired into a real investment-analysis workflow. A multi-model writing
                 harness. Production client sites. These are the same ideas from
                 this page, shipped and verifiable, not slideware.
               </p>

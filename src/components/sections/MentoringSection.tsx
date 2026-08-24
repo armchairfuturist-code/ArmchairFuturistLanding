@@ -21,6 +21,7 @@ import { staggerContainer, staggerItem } from "@/lib/animation-variants";
 import { motion, AnimatePresence } from "motion/react";
 import { COACHING_PACKAGES, resolvePricing, type CurrencyCode } from "@/lib/pricing";
 import { usePreferredCurrency } from "@/lib/hooks/usePreferredCurrency";
+import { CurrencyToggle } from "@/components/ui/CurrencyToggle";
 import { CALENDAR_URL } from "@/lib/constants";
 import { MENTORING_PILLARS } from "@/content/mentoring-pillars";
 
@@ -142,7 +143,7 @@ function PricingCard({
 
 export default function MentoringSection() {
   // Prices follow the shared currency preference; the toggle lives in Services.
-  const [currency] = usePreferredCurrency();
+  const [currency, setCurrency] = usePreferredCurrency();
   const [showAll, setShowAll] = useState(false);
 
   const defaultPackages = COACHING_PACKAGES.filter((p) =>
@@ -173,6 +174,7 @@ export default function MentoringSection() {
           <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-bright mb-5">
             One-on-one AI guidance
           </p>
+          <div className="mb-8"><CurrencyToggle currency={currency} onChange={setCurrency} /></div>
           <h2 className="font-display text-[clamp(2.25rem,5.5vw,4rem)] font-medium tracking-tight leading-[0.98] text-white max-w-[16ch] mb-6">
             Working at the edge isn&apos;t solo work
           </h2>
