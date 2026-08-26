@@ -74,7 +74,7 @@ function FeaturedTestimonialCarousel() {
             />
           </svg>
 
-          <p className="font-display text-xl md:text-2xl lg:text-3xl text-white leading-[1.35] tracking-tight mb-10 max-w-3xl line-clamp-7">
+          <p className="font-display text-xl md:text-2xl lg:text-3xl text-white leading-[1.35] tracking-tight mb-10 max-w-3xl line-clamp-6">
             &ldquo;{featuredTestimonials[current].text}&rdquo;
           </p>
 
