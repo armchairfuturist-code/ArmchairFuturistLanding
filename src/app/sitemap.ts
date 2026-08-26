@@ -77,6 +77,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     },
     {
+      url: `${baseUrl}/concepts/the-install-trap`,
+      lastModified: new Date('2026-08-21'),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
       url: `${baseUrl}/concepts/psychology-led-adoption`,
       lastModified: new Date('2026-03-29'),
       changeFrequency: 'monthly',

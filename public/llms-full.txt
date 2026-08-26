@@ -52,6 +52,10 @@ Top 5% who ask "What outcome do I need?" Reclaim 15-20 hrs/week. Drive 3x faster
 https://thearmchairfuturist.com/concepts/human-architect
 The role that bridges AI output and business outcome. Found through Psychology-Led Adoption profiling.
 
+### The Install Trap
+https://thearmchairfuturist.com/concepts/the-install-trap
+The belief that value arrives when an agent runs. Hermes/Grok/OpenClaw made installation a weekend task; value comes from owned tasks, structured workflows, and measured reclaimed hours.
+
 ### Pilot-itis
 https://thearmchairfuturist.com/concepts/pilot-itis
 The disease where AI pilots succeed in isolation and never scale. 67% of AI initiatives never make it past pilot.

@@ -47,7 +47,7 @@ export default function ServicesSection() {
                 </h2>
               </div>
               <p className="md:col-span-5 text-base md:text-lg text-charcoal font-sans leading-relaxed md:text-right">
-                Most AI consultants build systems you depend on. I work as a partner in learning. You leave with the mental models to design, launch, and sell your own AI-powered services.
+                Installing agents is easy now. Deciding what they own is not. Most AI consultants build systems you depend on. I work as a partner in learning. You leave with the mental models to design, launch, and sell your own AI-powered services.
               </p>
             </div>
         </BlurFade>

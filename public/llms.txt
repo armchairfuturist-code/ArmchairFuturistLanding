@@ -61,6 +61,11 @@ Pilot-itis is the disease where AI pilots succeed in isolation and never scale t
 
 **Full definition:** /concepts/pilot-itis
 
+### The Install Trap
+The Install Trap is the belief that value arrives when an agent runs. Work-automation agents like Hermes, Grok, and OpenClaw made installation a weekend task; value comes from deciding what the agent owns, structuring its workflow, and measuring reclaimed hours. The cure: one owned task, a defined workflow, an eight-week measurement loop.
+
+**Full definition:** /concepts/the-install-trap
+
 ## Coaching Packages (1-on-1 AI Mentoring)
 
 Pricing available in USD and EUR. Exchange rate: 1 EUR = 1.17 USD (2026). A currency toggle in the Services section switches every price on the page; USD is the default.
@@ -270,7 +275,7 @@ Primary page: https://thearmchairfuturist.com/how-i-work
 
 ## FAQ Content (AI-Optimized Q&A)
 
-The site contains 14 FAQ items covering:
+The site contains 15 FAQ items covering:
 - What is the Armchair Futurist
 - What is the Accountability Gap in AI adoption
 - Alex Myers qualifications (6 certifications)
@@ -283,6 +288,7 @@ The site contains 14 FAQ items covering:
 - How to choose the right AI consultant
 - Difference between AI consultant and AI agency
 - Who Alex is best suited to work with (and who isn't a fit)
+- Do you install AI agents? (installation is easy; ownership and structure are the work)
 - How to get started
 
 

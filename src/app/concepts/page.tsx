@@ -21,6 +21,17 @@ export const metadata: Metadata = {
 
 const concepts = [
   {
+    href: '/concepts/the-install-trap',
+    title: 'The Install Trap',
+    description: 'The belief that value arrives when an agent runs. Work-automation agents made installation a weekend task; deciding what they own and whether they pay off is still the work.',
+    icon: Brain,
+    stats: [
+      '67% of pilots never scale — same pattern',
+      '72% cite workflow redesign as the barrier',
+      '10-20 hrs/week when structured right'
+    ]
+  },
+  {
     href: '/concepts/accountability-gap',
     title: 'The Accountability Gap',
     description: 'The space between AI outputs and business results. Where AI adoption stalls because no one owns the outcome.',

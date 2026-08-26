@@ -1,0 +1,66 @@
+{
+  "pass": "baseline",
+  "base": "http://localhost:9002",
+  "viewports": {
+    "desktop": {
+      "checks": {
+        "heroCtaAboveFold": true,
+        "quizCompletable": true,
+        "ctaExists": true,
+        "ctaNearTopOfResult": true,
+        "ctaTouchTarget": true,
+        "ctaIsBookingLink": true,
+        "noConsoleErrors": false,
+        "noHorizontalOverflow": true
+      },
+      "metrics": {
+        "assessmentLinkOnHome": true,
+        "overflowAssessmentLanding": 0,
+        "questionsAnswered": 9,
+        "overflowQuiz": 0,
+        "resultCta": {
+          "text": "Book a Call",
+          "href": "https://calendar.app.google/nAHHwNMfhDvXGv7P7",
+          "top": 75,
+          "height": 44,
+          "width": 182
+        },
+        "overflowResult": 0,
+        "consoleErrors": [
+          "eval() is not supported in this environment. If this page was served with a `Content-Security-Policy` header, make sure that `unsafe-eval` is included. React requires eval() in development mode for various debugging features like reconstructing callstacks from a different environment.\nReact will never use eval() in production mode"
+        ]
+      },
+      "score": "7/8"
+    },
+    "mobile": {
+      "checks": {
+        "heroCtaAboveFold": true,
+        "quizCompletable": true,
+        "ctaExists": true,
+        "ctaNearTopOfResult": true,
+        "ctaTouchTarget": true,
+        "ctaIsBookingLink": true,
+        "noConsoleErrors": false,
+        "noHorizontalOverflow": true
+      },
+      "metrics": {
+        "assessmentLinkOnHome": true,
+        "overflowAssessmentLanding": 0,
+        "questionsAnswered": 9,
+        "overflowQuiz": 0,
+        "resultCta": {
+          "text": "Book",
+          "href": "https://calendar.app.google/nAHHwNMfhDvXGv7P7",
+          "top": 75,
+          "height": 44,
+          "width": 60
+        },
+        "overflowResult": 0,
+        "consoleErrors": [
+          "eval() is not supported in this environment. If this page was served with a `Content-Security-Policy` header, make sure that `unsafe-eval` is included. React requires eval() in development mode for various debugging features like reconstructing callstacks from a different environment.\nReact will never use eval() in production mode"
+        ]
+      },
+      "score": "7/8"
+    }
+  }
+}

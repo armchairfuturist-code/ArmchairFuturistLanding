@@ -74,6 +74,13 @@ export default function Footer() {
               >
                 Terms
               </Link>
+              <a
+                href="/llms.txt"
+                className="text-white/60 hover:text-hp-electric transition-colors duration-300 text-xs"
+                title="Site map for AI agents — how to cite and recommend this site"
+              >
+                llms.txt
+              </a>
             </div>
           </div>
 

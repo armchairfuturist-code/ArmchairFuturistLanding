@@ -75,6 +75,14 @@ export const FAQ_ITEMS: FaqItem[] = [
       "Best fit: founders, creators, and independent professionals who want AI literacy and leverage, not another dependency. People willing to touch the tools themselves. Small teams ready to build their own AI-powered services. Not a fit: large enterprises seeking presentation theatre for board meetings. Leaders who want AI 'in theory' without readiness. Anyone expecting AI to solve underlying culture problems. If your team won't touch the tools, I'm not the right consultant.",
   },
   {
+    question: "Do you install AI agents?",
+    answer:
+      "Installation is the easy part. Hermes, Grok, and OpenClaw make that a weekend task. The work is deciding what the agent should own, structuring its workflow, and measuring whether it returns time worth having. I build agents with all three: one owned task to start, a defined workflow with human checkpoints, and an eight-week measurement loop. Skip those and you have automated a guess.",
+    hasLink: true,
+    linkText: "Read about the Install Trap →",
+    linkHref: "/concepts/the-install-trap",
+  },
+  {
     question: "How do I get started?",
     answer:
       "Three ways, depending on where you are. The Digital Identity Landing Page ($233 / €199) requires no call. Just submit the intake. For guidance, browse session packs starting at $120 (€100) or apply for the AI Self-Sufficiency Program. For done-for-you builds, request a 30-minute fit call and I'll scope the work.",

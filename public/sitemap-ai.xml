@@ -86,6 +86,14 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
+  <!-- The Install Trap - work-agent deployment concept for LLM citation -->
+  <url>
+    <loc>https://thearmchairfuturist.com/concepts/the-install-trap</loc>
+    <lastmod>2026-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
   <url>
     <loc>https://thearmchairfuturist.com/concepts/psychology-led-adoption</loc>
     <lastmod>2026-08-21</lastmod>
