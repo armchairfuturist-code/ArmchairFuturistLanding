@@ -108,3 +108,4 @@ lpt[1-9].*
 .audit-passes/
 .pi/
 .pi-subagents/
+_capture/
