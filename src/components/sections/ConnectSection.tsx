@@ -209,7 +209,10 @@ export default function ConnectSection() {
                 )}
               </div>
               {error && (
-                <p role="alert" className="text-bloom-rose text-sm">{error}</p>
+                <div role="alert" className="text-bloom-rose text-sm space-y-1">
+                  <p>{error}</p>
+                  <p className="text-bloom-rose/80 text-xs">Your message is still here — press Send again, or book a call above.</p>
+                </div>
               )}
               <Button
                 type="submit"

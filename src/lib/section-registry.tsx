@@ -110,7 +110,6 @@ const sections: SectionEntry[] = [
         <SectionSkeleton minHeight="min-h-[420px]" label="Loading speaking" />
       ),
     }),
-    homepage: false,
   },
   
   {

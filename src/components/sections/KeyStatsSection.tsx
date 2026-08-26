@@ -17,9 +17,9 @@ const featuredStats = [
     detail: "From automated response pipelines to meeting-to-action workflows",
   },
   {
-    value: "10–20h",
-    label: "reclaimed weekly",
-    detail: "Average per client",
+    value: "5+ hrs",
+    label: "guaranteed weekly savings",
+    detail: "Floor, not ceiling — implementation clients",
   },
   {
     value: "8–10 wks",
