@@ -51,7 +51,7 @@ export default function Header() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="text-sm font-[400] text-white/80 hover:text-hp-electric transition-colors duration-300 underline-animate"
+                  className="text-sm font-[400] text-white/80 hover:text-hp-bright transition-colors duration-300 underline-animate"
                 >
                   {item.label}
                 </Link>
@@ -62,7 +62,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-4">
             <Link
               href="/assessment"
-              className="text-sm text-white/70 hover:text-hp-electric transition-colors duration-300"
+              className="text-sm text-white/70 hover:text-hp-bright transition-colors duration-300"
             >
               Free Assessment
             </Link>
@@ -70,7 +70,7 @@ export default function Header() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] -m-2 p-2 text-white/70 hover:text-hp-electric transition-colors duration-300"
+              className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] -m-2 p-2 text-white/70 hover:text-hp-bright transition-colors duration-300"
               aria-label="WhatsApp"
             >
               <MessageCircle className="h-5 w-5" />
@@ -87,7 +87,7 @@ export default function Header() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Message Alex on WhatsApp"
-              className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] -m-1 p-2 text-white/80 hover:text-hp-electric transition-colors duration-300"
+              className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] -m-1 p-2 text-white/80 hover:text-hp-bright transition-colors duration-300"
             >
               <MessageCircle className="h-5 w-5" />
             </a>
@@ -105,7 +105,7 @@ export default function Header() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="text-white hover:text-hp-electric h-11 w-11 min-h-[44px] min-w-[44px]"
+                  className="text-white hover:text-hp-bright h-11 w-11 min-h-[44px] min-w-[44px]"
                 >
                   <Menu className="h-6 w-6" />
                   <span className="sr-only">Toggle Menu</span>
@@ -137,14 +137,14 @@ export default function Header() {
                       <Link
                         key={item.label}
                         href={item.href}
-                        className="inline-flex items-center gap-2 text-sm font-[400] text-white/80 hover:text-hp-electric transition-colors"
+                        className="inline-flex items-center gap-2 text-sm font-[400] text-white/80 hover:text-hp-bright transition-colors"
                       >
                         {item.label}
                       </Link>
                   ))}
                   <Link
                     href="/assessment"
-                    className="inline-flex items-center gap-2 text-sm font-medium text-hp-electric hover:text-hp-bright transition-colors mt-2"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-hp-bright hover:text-white transition-colors mt-2"
                   >
                     Free AI Assessment
                   </Link>
@@ -152,7 +152,7 @@ export default function Header() {
                     href={WHATSAPP_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-hp-electric transition-colors"
+                    className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-hp-bright transition-colors"
                   >
                     <MessageCircle className="h-4 w-4" />
                     WhatsApp

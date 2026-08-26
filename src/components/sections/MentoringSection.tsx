@@ -365,11 +365,11 @@ export default function MentoringSection() {
                           twenty: "Design your first AI-powered offering",
                         },
                         {
-                          label: "Personalised feedback",
+                          label: "Personalized feedback",
                           single: "In-session guidance",
                           five: "In-session + summary",
                           ten: "Session + mid-pack review",
-                          twenty: "Personalised 1:1 + between-session follow-up",
+                          twenty: "Personalized 1:1 + between-session follow-up",
                         },
                         {
                           label: "Frameworks & templates",

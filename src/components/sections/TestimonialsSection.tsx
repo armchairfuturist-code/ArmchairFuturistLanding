@@ -170,7 +170,8 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
           strokeWidth="1.75"
         />
       </svg>
-      <p className="text-sm text-charcoal font-sans leading-relaxed line-clamp-7">
+      {/* line-clamp core stops at 6; 7 never generates CSS */}
+      <p className="text-sm text-charcoal font-sans leading-relaxed line-clamp-6">
         {testimonial.text}
       </p>
       <div className="flex items-center gap-3 mt-auto pt-3 border-t border-ink/10">

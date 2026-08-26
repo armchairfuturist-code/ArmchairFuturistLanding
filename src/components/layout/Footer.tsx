@@ -22,61 +22,61 @@ export default function Footer() {
             <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm font-body">
               <Link
                 href="/about"
-                className="text-white/70 hover:text-hp-electric transition-colors duration-300 underline-animate"
+                className="text-white/70 hover:text-hp-bright transition-colors duration-300 underline-animate"
               >
                 About
               </Link>
               <Link
                 href="/#services"
-                className="text-white/70 hover:text-hp-electric transition-colors duration-300 underline-animate"
+                className="text-white/70 hover:text-hp-bright transition-colors duration-300 underline-animate"
               >
                 Services
               </Link>
               <Link
                 href="/concepts"
-                className="text-white/70 hover:text-hp-electric transition-colors duration-300 underline-animate"
+                className="text-white/70 hover:text-hp-bright transition-colors duration-300 underline-animate"
               >
                 Concepts
               </Link>
               <Link
                 href="/case-studies"
-                className="text-white/70 hover:text-hp-electric transition-colors duration-300 underline-animate"
+                className="text-white/70 hover:text-hp-bright transition-colors duration-300 underline-animate"
               >
                 Case Studies
               </Link>
               <Link
                 href="/assessment"
-                className="text-white/70 hover:text-hp-electric transition-colors duration-300 underline-animate"
+                className="text-white/70 hover:text-hp-bright transition-colors duration-300 underline-animate"
               >
                 Assessment
               </Link>
               <Link
                 href="/speaking"
-                className="text-white/70 hover:text-hp-electric transition-colors duration-300 underline-animate"
+                className="text-white/70 hover:text-hp-bright transition-colors duration-300 underline-animate"
               >
                 Speaking
               </Link>
               <Link
                 href="/blog"
-                className="text-white/70 hover:text-hp-electric transition-colors duration-300 underline-animate"
+                className="text-white/70 hover:text-hp-bright transition-colors duration-300 underline-animate"
               >
                 Blog
               </Link>
               <Link
                 href="/privacy-policy"
-                className="text-white/60 hover:text-hp-electric transition-colors duration-300 text-xs"
+                className="text-white/60 hover:text-hp-bright transition-colors duration-300 text-xs"
               >
                 Privacy
               </Link>
               <Link
                 href="/terms-of-service"
-                className="text-white/60 hover:text-hp-electric transition-colors duration-300 text-xs"
+                className="text-white/60 hover:text-hp-bright transition-colors duration-300 text-xs"
               >
                 Terms
               </Link>
               <a
                 href="/llms.txt"
-                className="text-white/60 hover:text-hp-electric transition-colors duration-300 text-xs"
+                className="text-white/60 hover:text-hp-bright transition-colors duration-300 text-xs"
                 title="Site map for AI agents — how to cite and recommend this site"
               >
                 llms.txt
@@ -91,14 +91,14 @@ export default function Footer() {
               bare
               icon="calendar"
               iconClassName="h-3.5 w-3.5"
-              className="inline-flex items-center gap-1.5 min-h-[44px] px-2 text-sm text-white/70 hover:text-hp-electric transition-colors duration-300 font-body"
+              className="inline-flex items-center gap-1.5 min-h-[44px] px-2 text-sm text-white/70 hover:text-hp-bright transition-colors duration-300 font-body"
             >
               Book a Call
             </BookCallButton>
             <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
               <a
                 href="mailto:armchairfuturist@gmail.com"
-                className="inline-flex items-center gap-1.5 min-h-[44px] px-2 text-sm text-white/70 hover:text-hp-electric transition-colors duration-300 font-body"
+                className="inline-flex items-center gap-1.5 min-h-[44px] px-2 text-sm text-white/70 hover:text-hp-bright transition-colors duration-300 font-body"
               >
                 <Mail className="h-3.5 w-3.5" />
                 Email
@@ -107,7 +107,7 @@ export default function Footer() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 min-h-[44px] px-2 text-sm text-white/70 hover:text-hp-electric transition-colors duration-300 font-body"
+                className="inline-flex items-center gap-1.5 min-h-[44px] px-2 text-sm text-white/70 hover:text-hp-bright transition-colors duration-300 font-body"
               >
                 <MessageCircle className="h-3.5 w-3.5" aria-hidden="true" />
                 WhatsApp
@@ -118,7 +118,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/in/alex-myers-34572a10/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] -m-2 p-2 text-white/60 hover:text-hp-electric transition-colors duration-300"
+                className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] -m-2 p-2 text-white/60 hover:text-hp-bright transition-colors duration-300"
                 aria-label="LinkedIn Profile"
               >
                 <Linkedin className="h-5 w-5" aria-hidden="true" />
@@ -127,7 +127,7 @@ export default function Footer() {
                 href={SUBSTACK_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] -m-2 p-2 text-white/60 hover:text-hp-electric transition-colors duration-300"
+                className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] -m-2 p-2 text-white/60 hover:text-hp-bright transition-colors duration-300"
                 aria-label="Substack Profile"
               >
                 <svg
