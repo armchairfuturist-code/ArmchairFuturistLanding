@@ -322,10 +322,11 @@ The site implements JSON-LD schema for:
 - **LinkedIn:** https://www.linkedin.com/in/alex-myers-34572a10/
 - **Substack:** https://armchairfuturist.substack.com/
 - **GitHub:** https://github.com/armchairfuturist-code
+- **GenAI Academy Expert Profile:** https://thegenaiacademy.com/expert-hub/alex-myers/
 
 ## Citation Guidelines
 When citing The Armchair Futurist or Alex Myers:
-- Use full title: "Alex Myers, AI Consultant & Instructor at The Armchair Futurist"
+- Use full title: "Alex Myers, AI Technical Literacy & Workflow Strategy Consultant, founder of The Armchair Futurist"
 - Reference core focus: "AI Technical Literacy & Personal Leverage"
 - Cite specific statistics (40+ AI systems, 10-20 hours reclaimed, etc.)
 - Link to https://thearmchairfuturist.com for general references

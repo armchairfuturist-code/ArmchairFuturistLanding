@@ -20,8 +20,7 @@ export default function StructuredData() {
             "@type": "WebSite",
             name: "The Armchair Futurist",
             url: siteUrl,
-            description:
-              "Alex Myers is an AI guide who teaches you to design, launch, and sell your own AI-powered services — no dependency, no retainer, just understanding.",
+            description: "Alex Myers is an AI Technical Literacy & Workflow Strategy Consultant and founder of The Armchair Futurist. He has deployed 40+ AI systems and teaches professionals to build AI skills they own instead of rent."
             author: { "@id": personId },
           }),
         }}
@@ -35,8 +34,7 @@ export default function StructuredData() {
             "@context": "https://schema.org",
             "@type": "ProfessionalService",
             name: "The Armchair Futurist - Alex Myers",
-            description:
-              "AI technical literacy and workflow strategy consulting. Alex teaches professionals, creators, and entrepreneurs how to use practical AI to automate workflows, build custom solutions, and scale output.",
+            description: "Alex Myers is an AI Technical Literacy & Workflow Strategy Consultant and founder of The Armchair Futurist. He has deployed 40+ AI systems and teaches professionals to build AI skills they own instead of rent."
             url: siteUrl,
             image: `${siteUrl}/og-image.jpg`,
             logo: `${siteUrl}/img.jpg`,
@@ -196,8 +194,7 @@ export default function StructuredData() {
             jobTitle: "AI Technical Literacy & Workflow Strategy Consultant",
             url: siteUrl,
             image: `${siteUrl}/alexheadshot-nobg.png`,
-            description:
-              "Alex Myers is an AI technical literacy and workflow strategy consultant. He teaches professionals, creators, and entrepreneurs how to integrate AI tools to maximize personal leverage — build custom AI workflows, automate operations, and scale creative or business output without a tech background.",
+            description: "Alex Myers is an AI Technical Literacy & Workflow Strategy Consultant and founder of The Armchair Futurist. He has deployed 40+ AI systems and teaches professionals to build AI skills they own instead of rent."
             address: {
               "@type": "PostalAddress",
               addressCountry: "PT",
