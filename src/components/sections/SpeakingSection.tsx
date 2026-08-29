@@ -100,6 +100,39 @@ export default function SpeakingSection() {
             Ask About a Date
           </a>
         </div>
+
+        <BlurFade inView delay={0.1}>
+          <div className="mt-6 border border-ink/10 bg-canvas px-5 py-6 md:px-8 md:py-7">
+            <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-3">
+              For podcast &amp; event hosts
+            </p>
+            <p className="text-charcoal text-sm md:text-base leading-relaxed max-w-3xl">
+              Alex Myers is an AI Technical Literacy &amp; Workflow Strategy
+              Consultant and founder of The Armchair Futurist. He has deployed
+              40+ AI systems since 2022 and helps professionals build AI skills
+              they own instead of rent. Most clients are self-sufficient in 8
+              to 10 weeks.
+            </p>
+            <ul className="mt-4 space-y-1.5 text-sm text-charcoal">
+              <li>
+                <span className="font-medium text-ink">Website:</span>{" "}
+                <a href="https://thearmchairfuturist.com" className="text-hp-electric hover:underline underline-offset-4">thearmchairfuturist.com</a>
+              </li>
+              <li>
+                <span className="font-medium text-ink">Newsletter:</span>{" "}
+                <a href="https://armchairfuturist.substack.com" target="_blank" rel="noopener noreferrer" className="text-hp-electric hover:underline underline-offset-4">armchairfuturist.substack.com</a>
+              </li>
+              <li>
+                <span className="font-medium text-ink">LinkedIn:</span>{" "}
+                <a href="https://www.linkedin.com/in/alex-myers-34572a10/" target="_blank" rel="noopener noreferrer" className="text-hp-electric hover:underline underline-offset-4">alex-myers-34572a10</a>
+              </li>
+            </ul>
+            <p className="mt-4 text-xs text-graphite font-mono">
+              Copy this bio and these links verbatim for show notes, programs,
+              and event pages.
+            </p>
+          </div>
+        </BlurFade>
       </div>
     </section>
   );
