@@ -176,7 +176,7 @@ export default function MentoringSection() {
           </p>
           <div className="mb-8"><CurrencyToggle currency={currency} onChange={setCurrency} /></div>
           <h2 className="font-display text-[clamp(2.25rem,5.5vw,4rem)] font-medium tracking-tight leading-[0.98] text-white max-w-[16ch] mb-6">
-            Working at the edge isn&apos;t solo work
+            Stop renting AI judgment. Own it.
           </h2>
           <p className="text-white/70 text-lg md:text-xl max-w-2xl leading-relaxed">
             Most &quot;training&quot; hands you tools and leaves. This is a
@@ -238,7 +238,7 @@ export default function MentoringSection() {
                   Packages
                 </p>
                 <h3 className="font-display text-[clamp(1.75rem,4vw,2.75rem)] font-bold text-ink tracking-tight leading-none">
-                  Choose your path
+                  Pick your speed to independence
                 </h3>
                 <p className="text-charcoal mt-3 max-w-md">
                   All sessions are 60 minutes, held via video call. Start where
@@ -265,7 +265,8 @@ export default function MentoringSection() {
 
           <div className="mb-8">
             <p className="text-sm text-charcoal mb-3">
-              Not sure which fits? Start with a conversation.
+              Not sure which fits? Start with a conversation. Sessions are
+              60 minutes. Most clients get 10&ndash;20 hours a week back.
             </p>
             <BookCallButton
               size="default"

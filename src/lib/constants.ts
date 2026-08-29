@@ -8,6 +8,6 @@ export const GITHUB_URL = 'https://github.com/armchairfuturist-code';
 // WhatsApp — pre-fills the message so the lead arrives with context, not blank.
 // The %20 / %2C are URL-encoded spaces and commas.
 export const WHATSAPP_BASE_URL = 'https://wa.me/15157706902';
-export const WHATSAPP_DEFAULT_MESSAGE = 'Hi Alex, I came across your site and would like to learn more about your services.';
+export const WHATSAPP_DEFAULT_MESSAGE = 'Hi Alex, I saw your site. I want to talk about AI for my business.';
 export const WHATSAPP_URL =
   WHATSAPP_BASE_URL + '?text=' + encodeURIComponent(WHATSAPP_DEFAULT_MESSAGE);

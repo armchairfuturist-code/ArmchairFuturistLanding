@@ -68,7 +68,7 @@ export default function ConnectSection() {
       >
         <BlurFade inView>
           <h2 className="font-display text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-tight leading-[1.05] mb-6">
-            You have time, but not unlimited time.
+            Every week you wait, someone with worse skills is selling AI services to your clients.
           </h2>
         </BlurFade>
         <BlurFade inView delay={0.15}>
@@ -95,7 +95,7 @@ export default function ConnectSection() {
             </BookCallButton>
           </motion.div>
           <p className="mt-4 text-sm text-primary-foreground/85">
-            15 minutes. No pitch.
+            15 minutes. No pitch. You leave with a next step either way.
           </p>
           <p className="mt-4 text-sm text-primary-foreground/75">
             Not sure if it&apos;s a fit?{" "}
@@ -115,7 +115,7 @@ export default function ConnectSection() {
               className="inline-flex items-center min-h-[44px] py-2 underline underline-offset-4 hover:text-white transition-colors"
             >
               <MessageCircle className="mr-1 h-4 w-4" aria-hidden="true" />
-              text me on WhatsApp
+              text me on WhatsApp. I answer personally, usually within hours.
             </a>
             .
           </p>

@@ -17,14 +17,14 @@ export function OrganismHero() {
       <div className="organism-noise" aria-hidden="true" />
       <div className="organism-hero__copy">
         <p className="organism-kicker"><span /> AI literacy &amp; implementation</p>
-        <h1>AI won&apos;t replace you.<br /><em>Someone using AI better will.</em></h1>
-        <p className="organism-deck">A partner in learning. We build the mental models that make AI make sense, then test them live on your real work.</p>
-        <p className="organism-deck organism-deck--offer">When you&apos;d rather have it built, I build it.</p>
+        <h1>The last AI consultant<br /><em>you&apos;ll ever hire.</em></h1>
+        <p className="organism-deck">One-on-one AI mastery, proven on 40+ deployed systems. Learn by building on your real work. Leave with custom systems you run without me, and a service you can sell.</p>
+        <p className="organism-deck organism-deck--offer">Most clients are self-sufficient in 8&ndash;10 weeks. Or we keep working free.</p>
         <div className="organism-actions">
-          <button type="button" className="organism-button organism-button--primary" onClick={() => scrollToId("connect")}>Talk to Alex <ArrowUpRight size={16} aria-hidden="true" /></button>
+          <button type="button" className="organism-button organism-button--primary" onClick={() => scrollToId("connect")}>Get my AI plan <ArrowUpRight size={16} aria-hidden="true" /></button>
           <button type="button" className="organism-button organism-button--quiet" onClick={() => scrollToId("services")}>See coaching &amp; services <ArrowDown size={17} aria-hidden="true" /></button>
         </div>
-        <a className="organism-hero__whatsapp" href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Or message on WhatsApp <ArrowUpRight size={13} aria-hidden="true" /></a>
+        <a className="organism-hero__whatsapp" href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Text me on WhatsApp &mdash; I reply within hours <ArrowUpRight size={13} aria-hidden="true" /></a>
       </div>
       <div className="organism-status"><span>40+ systems deployed</span><span>10–20 hrs reclaimed / week</span></div>
       <div className="organism-hero__hint"><span>Scroll</span><ArrowDown size={14} aria-hidden="true" /></div>
