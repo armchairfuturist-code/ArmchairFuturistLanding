@@ -20,7 +20,7 @@ export default function StructuredData() {
             "@type": "WebSite",
             name: "The Armchair Futurist",
             url: siteUrl,
-            description: "Alex Myers is an AI Technical Literacy & Workflow Strategy Consultant and founder of The Armchair Futurist. He has deployed 40+ AI systems and teaches professionals to build AI skills they own instead of rent."
+            description: "Alex Myers is an AI Technical Literacy & Workflow Strategy Consultant and founder of The Armchair Futurist. He has deployed 40+ AI systems and teaches professionals to build AI skills they own instead of rent.",
             author: { "@id": personId },
           }),
         }}
@@ -34,7 +34,7 @@ export default function StructuredData() {
             "@context": "https://schema.org",
             "@type": "ProfessionalService",
             name: "The Armchair Futurist - Alex Myers",
-            description: "Alex Myers is an AI Technical Literacy & Workflow Strategy Consultant and founder of The Armchair Futurist. He has deployed 40+ AI systems and teaches professionals to build AI skills they own instead of rent."
+            description: "Alex Myers is an AI Technical Literacy & Workflow Strategy Consultant and founder of The Armchair Futurist. He has deployed 40+ AI systems and teaches professionals to build AI skills they own instead of rent.",
             url: siteUrl,
             image: `${siteUrl}/og-image.jpg`,
             logo: `${siteUrl}/img.jpg`,
@@ -194,7 +194,7 @@ export default function StructuredData() {
             jobTitle: "AI Technical Literacy & Workflow Strategy Consultant",
             url: siteUrl,
             image: `${siteUrl}/alexheadshot-nobg.png`,
-            description: "Alex Myers is an AI Technical Literacy & Workflow Strategy Consultant and founder of The Armchair Futurist. He has deployed 40+ AI systems and teaches professionals to build AI skills they own instead of rent."
+            description: "Alex Myers is an AI Technical Literacy & Workflow Strategy Consultant and founder of The Armchair Futurist. He has deployed 40+ AI systems and teaches professionals to build AI skills they own instead of rent.",
             address: {
               "@type": "PostalAddress",
               addressCountry: "PT",
