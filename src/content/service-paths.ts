@@ -28,7 +28,7 @@ export const SERVICE_PATHS: ServicePath[] = [
     title: "We Do It Together",
     kicker: "Build the literacy to do it yourself",
     description:
-      "A partnership in learning. We build the mental models and test them live on your work, from a single session pack to a 3-month executive intensive. Session packs build your AI literacy — the Self-Sufficiency Program builds your AI business. Every path ends with you independent.",
+      "We build on your live work, from a single session pack to a 3-month executive intensive. Session packs build your AI literacy. The Self-Sufficiency Program builds your AI business.",
     tiers: [
       {
         name: "AI Readiness Assessment",
@@ -52,7 +52,7 @@ export const SERVICE_PATHS: ServicePath[] = [
         price: "$570 – $2,000",
         tag: "5 · 10 · 20 Packs",
         description:
-          "The proven foundation. Start with a 5-session pack and scale up. Most clients start with 5 or 10 sessions. Each one builds your AI literacy, from understanding to agency to independence.",
+          "Start with a 5-session pack and scale up. Most clients choose 5 or 10. Each session builds your AI literacy, from first understanding to full independence.",
         features: [
           "60-minute 1-on-1 video sessions",
           "From understanding to agency to action",
