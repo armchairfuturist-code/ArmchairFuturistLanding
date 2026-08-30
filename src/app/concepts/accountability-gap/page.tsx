@@ -233,6 +233,42 @@ export default function AccountabilityGapPage() {
           })
         }}
       />
+      {/* FAQPage Schema - answer-first citation block */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is the Accountability Gap in AI adoption?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "The Accountability Gap is the space between what an AI system produces and what a business actually needs. AI outputs exist, but no one owns turning them into business results, so adoption stalls."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Why do AI pilots fail to reach production?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Because nobody owns the outcome. 72% of stalled AI projects cite workflow redesign as the top barrier, and 67% of pilot-only initiatives never scale. The failure is structural, not technical."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do you close the Accountability Gap?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Assign a Human Architect: a person whose job is to connect AI outputs to decisions, actions, and measurable results. Ownership of the outcome, not access to the tool, is what closes the gap."
+                }
+              }
+            ]
+          })
+        }}
+      />
     </div>
   );
 }
