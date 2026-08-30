@@ -46,6 +46,9 @@ export default function ServicesSection() {
                   You leave able to build, launch, and sell your own AI services
                 </h2>
               </div>
+              <p className="md:col-span-5 text-lg text-charcoal font-sans leading-relaxed md:text-right">
+                The divide is not educated versus uneducated. It is AI-fluent versus AI-resistant.
+              </p>
               <p className="md:col-span-5 text-base md:text-lg text-charcoal font-sans leading-relaxed md:text-right">
                 Installing agents is easy now. Deciding what they own is not. Most AI consultants build systems you depend on. I build your ability to build.
               </p>

@@ -77,6 +77,16 @@ export default function ConnectSection() {
             honest conversation about your next step, with someone who&apos;s
             been here before.
           </p>
+          <p className="max-w-2xl mx-auto text-base text-primary-foreground/75 mb-10 font-sans">
+            The risk is not losing your job to a machine. It is losing it to
+            someone who talks to one every day.
+          </p>
+        </BlurFade>
+        <BlurFade inView delay={0.2}>
+          <p className="max-w-2xl mx-auto text-lg text-white font-sans mb-8">
+            There is a window. Maybe a handful of years. Do it now, otherwise
+            do it never.
+          </p>
         </BlurFade>
         <BlurFade inView delay={0.25}>
           <motion.div
