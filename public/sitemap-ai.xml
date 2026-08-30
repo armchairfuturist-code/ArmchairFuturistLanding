@@ -127,13 +127,6 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- Blog - Substack aggregator -->
-  <url>
-    <loc>https://thearmchairfuturist.com/blog</loc>
-    <lastmod>2026-08-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
   <!-- How I Work - Methodology + agent infrastructure (E-E-A-T) -->
   <url>
     <loc>https://thearmchairfuturist.com/how-i-work</loc>

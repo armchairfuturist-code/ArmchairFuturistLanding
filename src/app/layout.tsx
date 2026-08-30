@@ -33,12 +33,15 @@ const siteUrl = "https://thearmchairfuturist.com";
 
 const title = "The Armchair Futurist — AI literacy & implementation";
 const description =
-  "A partner in learning for people building a human future with AI.";
+  "Alex Myers, AI Technical Literacy & Workflow Strategy Consultant. 40+ AI systems deployed. 1:1 coaching that makes you self-sufficient in 8-10 weeks.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title,
   description,
+  alternates: {
+    canonical: "/",
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
