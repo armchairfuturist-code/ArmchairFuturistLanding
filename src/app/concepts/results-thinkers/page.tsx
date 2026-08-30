@@ -313,34 +313,6 @@ export default function ResultsThinkersPage() {
           })
         }}
       />
-      {/* FAQPage Schema - answer-first citation block */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "Who are Results Thinkers?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Results Thinkers are the top 5% of AI adopters in an organization. They reclaim 15-20 hours per week with AI and drive disproportionate adoption success. Identifying and empowering them is the highest-leverage move in any rollout."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How do you find Results Thinkers in an organization?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Look for people who already chase measurable outcomes, experiment without being told, and share what works. The free AI readiness assessment surfaces them through nine diagnostic questions."
-                }
-              }
-            ]
-          })
-        }}
-      />
     </div>
   );
 }
