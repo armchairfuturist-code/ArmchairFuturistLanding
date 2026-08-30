@@ -37,7 +37,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "How does AI guidance work?",
     answer:
-      "One-on-one coaching. A single session is $120 (€100). Packs start at $570 (€475) for 5 sessions, with deeper discounts at 10 and 20. I focus on building mental models for how AI works, then testing them live on your real work. Each session blends practical guidance with how AI changes your role, your business, and your opportunities. Most clients start with 5 or 10 sessions.",
+      "One-on-one coaching over video, 60 minutes per session. Each session builds on your real work: we pick a bottleneck, work it live, and you leave with something running. Pricing is in the answer above; most clients start with 5 or 10 sessions.",
   },
   {
     question: "Why the program instead of a session pack?",
@@ -57,7 +57,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "What results can clients expect?",
     answer:
-      "Clients typically reclaim 10-20 hours per week through AI-powered automation. Individual clients gain clarity and shift from overwhelm to agency. By the end of the AI Self-Sufficiency Program, most clients have launched their own AI-powered service or built their personal brand around the work.",
+      "Clients typically reclaim 10-20 hours per week through AI-powered automation. Session clients stop asking whether a tool is safe to trust and start deciding what it should own. By the end of the AI Self-Sufficiency Program, most clients have launched their own AI-powered service or built their personal brand around the work.",
   },
   {
     question: "How are you different from other AI consultants?",
