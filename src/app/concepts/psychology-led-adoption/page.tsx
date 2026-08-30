@@ -286,6 +286,34 @@ export default function PsychologyLedAdoptionPage() {
           })
         }}
       />
+      {/* FAQPage Schema - answer-first citation block */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is Psychology-Led AI Adoption?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Psychology-Led Adoption addresses human barriers before technical ones. Technology adoption stalls on fear, identity, and habit far more often than on capability, so the sequence matters: psychology first, tooling second."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Why do most AI training programs fail?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Most AI training hands people tools without addressing the beliefs that stop them from using the tools. 72% of stalled AI projects cite workflow redesign, not technology, as the top barrier. Training that skips psychology produces prompts, not judgment."
+                }
+              }
+            ]
+          })
+        }}
+      />
     </div>
   );
 }

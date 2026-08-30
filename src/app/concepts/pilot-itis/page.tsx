@@ -229,6 +229,42 @@ export default function PilotItisPage() {
           })
         }}
       />
+      {/* FAQPage Schema - answer-first citation block */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Why do AI pilots fail in production?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "AI pilots fail in production because they launch with volunteers, loose success metrics, and no owner for the outcome. When the pilot ends, the energy ends. Scaling requires the same ownership and workflow redesign a production system demands."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is Pilot-itis?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Pilot-itis is the organizational pattern where AI initiatives stay permanently in pilot mode. 67% of pilot-only initiatives never scale. The disease is structural: no decision rights, no workflow change, no one accountable for the result."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do you scale an AI pilot into production?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Assign an owner before the pilot starts, redesign the workflow the AI touches, and define success as a business metric rather than a usage metric. Pilots that skip these three steps die at the pilot stage."
+                }
+              }
+            ]
+          })
+        }}
+      />
     </div>
   );
 }

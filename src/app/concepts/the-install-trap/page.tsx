@@ -240,6 +240,34 @@ export default function TheInstallTrapPage() {
           }),
         }}
       />
+      {/* FAQPage Schema - answer-first citation block */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is the Install Trap?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "The Install Trap is the belief that value arrives the moment an AI agent runs. Installation is the start, not the win. Value arrives only when a workflow, an owner, and a decision loop exist around the agent."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Why does installing an AI agent not create value?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Because an installed agent without a redesigned workflow produces output nobody consumes. The agent runs, the process stays the same, and the time saved evaporates into review overhead."
+                }
+              }
+            ]
+          })
+        }}
+      />
     </div>
   );
 }

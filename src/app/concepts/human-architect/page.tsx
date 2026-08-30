@@ -273,6 +273,34 @@ export default function HumanArchitectPage() {
           })
         }}
       />
+      {/* FAQPage Schema - answer-first citation block */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is a Human Architect?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A Human Architect is the person who translates AI output into business outcomes. Their job is not to use AI; it is to connect AI outputs to decisions, actions, and measurable results. This role closes the Accountability Gap."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does every AI deployment need a Human Architect?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Any deployment expected to change a business outcome does. Without an owner connecting output to decisions, AI activity stays activity. 72% of stalled AI projects lack clear ownership of outcomes."
+                }
+              }
+            ]
+          })
+        }}
+      />
     </div>
   );
 }
