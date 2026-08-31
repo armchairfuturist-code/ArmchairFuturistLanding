@@ -18,8 +18,8 @@ export function OrganismHero() {
       <div className="organism-hero__copy">
         <p className="organism-kicker"><span /> AI literacy &amp; implementation</p>
         <h1>The last AI consultant<br /><em>you&apos;ll ever hire.</em></h1>
-        <p className="organism-deck">One-on-one AI mastery, proven on 40+ deployed systems. Learn by building on your real work. Leave with custom systems you run without me, and a service you can sell.</p>
-        <p className="organism-deck organism-deck--offer">Most clients are self-sufficient in 8&ndash;10 weeks. Opting out was reasonable 5 years ago. It is expensive now.</p>
+        <p className="organism-deck">Clients trust me with their real work, not a course. We build on what you do. You leave running systems you built, selling what you know.</p>
+        <p className="organism-deck organism-deck--offer">Most clients are self-sufficient in 8&ndash;10 weeks.</p>
         <div className="organism-actions">
           <button type="button" className="organism-button organism-button--primary" onClick={() => scrollToId("connect")}>Get my AI plan <ArrowUpRight size={16} aria-hidden="true" /></button>
           <button type="button" className="organism-button organism-button--quiet" onClick={() => scrollToId("services")}>See coaching &amp; services <ArrowDown size={17} aria-hidden="true" /></button>
