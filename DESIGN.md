@@ -34,6 +34,16 @@ colors:
   organism-muted: "#9ba2b1"
   organism-scribble-gray: "#4d5e70"
   organism-warm: "#f2a66e"
+  # Undocumented organism-canvas colors, documented 2026-08-31 after detector drift findings
+  organism-deep: "#0b1425"
+  organism-mist: "#c9ced8"
+  organism-signal: "#5b8cff"
+  organism-fog: "#d5d9e0"
+  organism-steam: "#c5cad3"
+  # WhatsApp brand glyph (hero/footer/header/connect only). Sole approved
+  # second color: real-world brand recognition outranks the one-signal rule
+  # at this 15px scale. Never use elsewhere.
+  whatsapp-green: "#25D366"
   error: "#b3262b"
 typography:
   display-xxl:

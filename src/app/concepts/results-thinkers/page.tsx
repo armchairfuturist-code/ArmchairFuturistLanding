@@ -306,7 +306,7 @@ export default function ResultsThinkersPage() {
                 "name": "How do you find Results Thinkers in an organization?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Look for people who already chase measurable outcomes, experiment without being told, and share what works. The free AI readiness assessment surfaces them through nine diagnostic questions."
+                  "text": "Look for people who already chase measurable outcomes, experiment without being told, and share what works. The free AI readiness assessment surfaces them through ten diagnostic questions."
                 }
               }
             ]

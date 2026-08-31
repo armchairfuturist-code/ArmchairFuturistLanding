@@ -1,4 +1,4 @@
-import { PRICING, PRICE_RANGE, COACHING_PRICING } from "@/lib/pricing";
+import { PRICING, COACHING_PRICING, formatSchemaPriceRange } from "@/lib/pricing";
 
 const siteUrl = "https://thearmchairfuturist.com";
 const personId = `${siteUrl}/#person`;
@@ -43,7 +43,7 @@ export default function StructuredData() {
               "@type": "PostalAddress",
               addressCountry: "PT",
             },
-            priceRange: `$${PRICE_RANGE.min} - $${PRICE_RANGE.max}`,
+            priceRange: formatSchemaPriceRange(),
             areaServed: "Worldwide",
             knowsAbout: [
               "AI Technical Literacy",
@@ -59,6 +59,28 @@ export default function StructuredData() {
               "@type": "OfferCatalog",
               name: "AI Strategy & Advisory Services",
               itemListElement: [
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: PRICING.roadmapAudit.name,
+                    description: PRICING.roadmapAudit.description,
+                    provider: { "@id": personId },
+                  },
+                  price: String(PRICING.roadmapAudit.priceUSD),
+                  priceCurrency: PRICING.roadmapAudit.currency,
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: PRICING.selfSufficiency.name,
+                    description: PRICING.selfSufficiency.description,
+                    provider: { "@id": personId },
+                  },
+                  price: String(PRICING.selfSufficiency.priceUSD),
+                  priceCurrency: PRICING.selfSufficiency.currency,
+                },
                 {
                   "@type": "Offer",
                   itemOffered: {

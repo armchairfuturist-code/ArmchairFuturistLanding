@@ -11,6 +11,26 @@ export type CurrencyCode = 'EUR' | 'USD';
 // ── Service pricing (used by StructuredData + ServicesSection) ──
 
 export const SERVICES_PRICING = {
+  roadmapAudit: {
+    name: "AI Roadmap Audit",
+    // Launch price. EUR charm-rounded at EUR_USD_RATE (297/1.17 ≈ 254 → 247).
+    priceUSD: 297,
+    priceEUR: 247,
+    listPriceUSD: 497,
+    listPriceEUR: 417,
+    currency: "USD" as const,
+    description:
+      "A 90-minute working session that maps what to automate, buy, or build — scored against current-generation agents and tooling. Written report and video walkthrough, yours to keep.",
+  },
+  selfSufficiency: {
+    name: "AI Self-Sufficiency Program",
+    // 2497 / 1.17 = 2134 → charm-rounded to 2147 (keeps the 7-ending brand).
+    priceUSD: 2497,
+    priceEUR: 2147,
+    currency: "USD" as const,
+    description:
+      "An 8-week build sprint where you ship a launched AI-powered service or brand, with 10-15 coaching sessions and async support throughout.",
+  },
   digitalIdentity: {
     name: "Digital Identity Landing Page",
     // Canonical list price is €199. USD is the whole-dollar equivalent at EUR_USD_RATE.
@@ -24,12 +44,13 @@ export const SERVICES_PRICING = {
   customAiProvisioning: {
     name: "Custom AI Provisioning",
     price: 1000,
+    priceUSD: 1000,
     minPrice: 1000,
     maxPrice: 5000,
     minPriceUSD: 1000,
     maxPriceUSD: 5000,
     minPriceEUR: 850,
-    maxPriceEUR: 4275,
+    maxPriceEUR: 4250,
     currency: "USD" as const,
     description:
       "Done-for-you private AI command center with API integrations, workflow automation, and secure infrastructure. Reclaim 10-20 hours per week.",
@@ -155,19 +176,6 @@ export const COACHING_PACKAGES_BY_ID: Record<string, CoachingPackage> = Object.f
   COACHING_PACKAGES.map((p) => [p.id, p]),
 );
 
-/** All prices from services + coaching for priceRange display */
-const ALL_PRICES: number[] = [
-  ...Object.values(SERVICES_PRICING)
-    .filter((s): s is typeof s & { price: number } => 'price' in s)
-    .map((s) => s.price),
-  ...COACHING_PACKAGES.flatMap((p) => [p.totalPrice, p.totalPriceUSD]),
-];
-
-export const PRICE_RANGE = {
-  min: Math.min(...ALL_PRICES),
-  max: Math.max(...ALL_PRICES),
-};
-
 // ── Backward-compat aliases (for StructuredData) ──
 
 export const PRICING = SERVICES_PRICING;
@@ -225,6 +233,64 @@ export function formatServicePrice(
   }
   const amount = currency === 'EUR' ? service.priceEUR : service.priceUSD;
   return money(amount, currency);
+}
+
+/**
+ * Canonical dual-label price strings. Policy (2026-08-31 critique): every
+ * price on every surface shows both currencies — "$297 · €247" — so no
+ * surface depends on a toggle and no visitor sees a currency they didn't
+ * choose. Format helpers here are the single source of truth for UI,
+ * emails, FAQs, and schema.
+ */
+export function formatDualPrice(amountUSD: number, amountEUR: number): string {
+  return `$${amountUSD.toLocaleString('en-US')} · €${amountEUR.toLocaleString('en-US')}`;
+}
+
+/** Dual-label range: "$1,000–$5,000 · €850–€4,250". */
+export function formatDualRange(
+  minUSD: number, maxUSD: number, minEUR: number, maxEUR: number,
+): string {
+  return `$${minUSD.toLocaleString('en-US')}–$${maxUSD.toLocaleString('en-US')} · €${minEUR.toLocaleString('en-US')}–€${maxEUR.toLocaleString('en-US')}`;
+}
+
+/** Roadmap Audit launch price, dual label. */
+export const AUDIT_PRICE_LABEL = formatDualPrice(
+  SERVICES_PRICING.roadmapAudit.priceUSD,
+  SERVICES_PRICING.roadmapAudit.priceEUR,
+);
+
+/** Roadmap Audit list (anchor) price, dual label. */
+export const AUDIT_LIST_LABEL = formatDualPrice(
+  SERVICES_PRICING.roadmapAudit.listPriceUSD,
+  SERVICES_PRICING.roadmapAudit.listPriceEUR,
+);
+
+/** Self-Sufficiency Program price, dual label. */
+export const PROGRAM_PRICE_LABEL = formatDualPrice(
+  SERVICES_PRICING.selfSufficiency.priceUSD,
+  SERVICES_PRICING.selfSufficiency.priceEUR,
+);
+
+/** 1-on-1 Guidance range, dual label, derived from the coaching packs so it cannot diverge. */
+export const GUIDANCE_RANGE_LABEL = (() => {
+  const low = COACHING_PACKAGES.find((p) => p.id === 'pack-5')!;
+  const high = COACHING_PACKAGES.find((p) => p.id === 'pack-20')!;
+  return `$${low.totalPriceUSD.toLocaleString('en-US')}–$${high.totalPriceUSD.toLocaleString('en-US')} · €${low.totalPrice.toLocaleString('en-US')}–€${high.totalPrice.toLocaleString('en-US')}`;
+})();
+
+/**
+ * Price range for structured data. USD-only: mixing EUR-base coaching
+ * numbers with USD service numbers produced a bogus "$100 - $2000" range.
+ */
+export function formatSchemaPriceRange(): string {
+  const usdPrices = [
+    ...Object.values(SERVICES_PRICING)
+      .filter((svc) => 'priceUSD' in svc)
+      .map((svc) => (svc as { priceUSD: number }).priceUSD),
+    ...COACHING_PACKAGES.map((p) => p.totalPriceUSD),
+    SERVICES_PRICING.customAiProvisioning.maxPriceUSD,
+  ];
+  return `$${Math.min(...usdPrices).toLocaleString('en-US')} - $${Math.max(...usdPrices).toLocaleString('en-US')}`;
 }
 
 /**

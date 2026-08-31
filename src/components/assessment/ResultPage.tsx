@@ -1,13 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, CalendarDays } from "lucide-react";
+import { useEffect } from "react";
+import { ArrowRight, CalendarDays, Compass } from "lucide-react";
 import { RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { motion } from "motion/react";
 import { trackConversion, trackEvent } from "@/lib/analytics";
 import { CALENDAR_URL } from "@/lib/constants";
+import { AUDIT_PRICE_LABEL, AUDIT_LIST_LABEL } from "@/lib/pricing";
 import { BookCallButton } from "@/components/ui/BookCallButton";
 import type { Archetype } from "@/lib/assessment/archetypes";
 import type { ScoreResult } from "@/lib/assessment/scoring";
@@ -19,6 +21,10 @@ interface ResultPageProps {
 }
 
 export default function ResultPage({ archetype, scores }: ResultPageProps) {
+  useEffect(() => {
+    trackEvent("audit_offer_view");
+  }, []);
+
   return (
     <div className="w-full max-w-3xl mx-auto px-4 md:px-6">
       {/* Archetype badge */}
@@ -152,6 +158,53 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
           <p className="mt-4 text-sm text-white/80 font-sans">
             15 minutes. No pitch. Just clarity on your next step.
           </p>
+        </div>
+      </BlurFade>
+
+      {/* AI Roadmap Audit offer — the paid rung between this free result and
+          the Self-Sufficiency Program. Sits after the primary CTA block so it
+          never competes with the highest-intent action. No countdown, no fake
+          urgency (design principle 4): the price is honest launch pricing with
+          the anchor stated as plain text. */}
+      <BlurFade inView delay={0.35}>
+        <div className="bg-canvas rounded-hp-xl border border-hairline-strong p-6 md:p-8 mb-10">
+          <div className="flex items-start gap-4">
+            <span className="mt-1 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-hp-electric/10 border border-hp-electric/20">
+              <Compass className="h-5 w-5 text-hp-electric" aria-hidden="true" />
+            </span>
+            <div>
+              <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-2">
+                Go deeper
+              </p>
+              <h2 className="font-heading text-xl md:text-2xl font-bold text-ink mb-2">
+                The AI Roadmap Audit
+              </h2>
+              <p className="text-base text-charcoal font-sans leading-relaxed mb-4">
+                This profile tells you where you stand. The Audit maps what to
+                do about it: a 90-minute deep-dive on your actual workflows,
+                scored against current-generation agents and tooling, ranked by
+                time saved and revenue impact. Written report and video
+                walkthrough, yours to keep. Implement it yourself, or with me.
+              </p>
+              <p className="text-sm text-graphite font-sans mb-6">
+                <span className="font-bold text-ink">{AUDIT_PRICE_LABEL}</span>{" "}
+                launch pricing (normally {AUDIT_LIST_LABEL}) while the format is
+                new.
+              </p>
+              <a
+                href="/audit"
+                onClick={() => trackConversion("audit_offer_click")}
+              >
+                <Button
+                  size="lg"
+                  className="font-bold bg-hp-electric text-white hover:bg-hp-deep whitespace-normal lg:whitespace-nowrap"
+                >
+                  Get the Roadmap Audit
+                  <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+                </Button>
+              </a>
+            </div>
+          </div>
         </div>
       </BlurFade>
 

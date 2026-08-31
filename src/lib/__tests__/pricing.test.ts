@@ -84,6 +84,6 @@ describe('formatServicePrice', () => {
 
   it('shows Custom AI as a USD range and a whole-number EUR range', () => {
     expect(formatServicePrice(SERVICES_PRICING.customAiProvisioning, 'USD')).toBe('$1,000 – $5,000');
-    expect(formatServicePrice(SERVICES_PRICING.customAiProvisioning, 'EUR')).toBe('€850 – €4,275');
+    expect(formatServicePrice(SERVICES_PRICING.customAiProvisioning, 'EUR')).toBe('€850 – €4,250');
   });
 });

@@ -35,7 +35,7 @@ export default function AssessmentPage() {
 
           <BlurFade inView delay={0.3}>
             <p className="text-lg text-foreground/70 font-sans leading-relaxed mb-4 max-w-xl mx-auto">
-              9 honest questions. 3 minutes. A personalized diagnosis of where
+              10 honest questions. 3 minutes. A personalized diagnosis of where
               you stand and what to do next.
             </p>
           </BlurFade>

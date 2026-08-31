@@ -221,4 +221,26 @@ export const questions: Question[] = [
       },
     ],
   },
+  {
+    id: 10,
+    text: "Where does AI actually sit in your work right now?",
+    answers: [
+      {
+        text: "Mostly chat. I ask questions, copy the answers, and paste them somewhere else.",
+        scores: { clarity: 1, readiness: 0, urgency: 1 },
+      },
+      {
+        text: "Some automation. Scheduled workflows or templates that run without me watching.",
+        scores: { clarity: 2, readiness: 2, urgency: 1 },
+      },
+      {
+        text: "Agents. Tools that take a goal, use other software, and come back with finished work.",
+        scores: { clarity: 3, readiness: 3, urgency: 0 },
+      },
+      {
+        text: "I read about agents doing weeks-long work, but I've never seen it firsthand. I couldn't say what's real.",
+        scores: { clarity: 0, readiness: 1, urgency: 2 },
+      },
+    ],
+  },
 ];

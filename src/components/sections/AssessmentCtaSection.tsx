@@ -25,7 +25,7 @@ export default function AssessmentCtaSection() {
               Not sure where to start?
             </h2>
             <p className="text-white/65 text-base md:text-lg leading-relaxed">
-              3 minutes. 9 honest questions. A personalized diagnosis and a
+              3 minutes. 10 honest questions. A personalized diagnosis and a
               clear next step. No email required to see results.
             </p>
           </div>
@@ -34,7 +34,7 @@ export default function AssessmentCtaSection() {
             onClick={() => trackEvent("homepage_assessment_cta")}
             className="inline-flex items-center justify-center gap-2 h-12 px-7 text-sm font-semibold uppercase tracking-[0.7px] bg-hp-electric text-white hover:bg-hp-bright transition-colors shrink-0"
           >
-            Take the Assessment
+            Take the free assessment
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
         </div>

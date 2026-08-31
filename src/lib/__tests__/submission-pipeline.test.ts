@@ -1,6 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { createSubmissionPipeline, type SubmissionInput, type SubmissionResult, type AssessmentResult, type LeadResult } from '../submission-pipeline';
 import { FakeEmailSender, FakeLeadStore } from './fakes';
+import { QUESTION_COUNT } from '@/lib/assessment/resolve-answers';
 
 describe('createSubmissionPipeline', () => {
   let emailSender: FakeEmailSender;
@@ -16,7 +17,7 @@ describe('createSubmissionPipeline', () => {
   // ── Assessment ────────────────────────────────────────────────
 
   describe('assessment', () => {
-    const validAnswers = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    const validAnswers = Array.from({ length: QUESTION_COUNT }, () => 0);
     const validEmail = 'test@example.com';
 
     it('happy path: returns archetype, scores, sends 2 emails, stores lead', async () => {

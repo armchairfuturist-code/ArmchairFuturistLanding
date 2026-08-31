@@ -4,6 +4,7 @@ import type { ContactInput, ContactResult } from '@/lib/submission-pipeline';
 const noOpLeadStore = {
   saveAssessmentLead: async () => {},
   saveCaptureLead: async () => {},
+  saveAuditCase: async () => {},
 };
 
 export const POST = createSubmissionRoute<ContactInput>({

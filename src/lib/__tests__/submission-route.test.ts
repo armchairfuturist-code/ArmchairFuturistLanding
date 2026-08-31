@@ -8,6 +8,7 @@ import type { LeadStore } from '@/lib/lead-store';
 const noOpLeadStore: LeadStore = {
   saveAssessmentLead: async () => {},
   saveCaptureLead: async () => {},
+  saveAuditCase: async () => {},
 };
 
 const okSender: EmailSender = { send: vi.fn().mockResolvedValue({ id: 'test-id' }) };

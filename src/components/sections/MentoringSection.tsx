@@ -20,8 +20,6 @@ import { BlurFade } from "@/components/ui/blur-fade";
 import { staggerContainer, staggerItem } from "@/lib/animation-variants";
 import { motion, AnimatePresence } from "motion/react";
 import { COACHING_PACKAGES, resolvePricing, type CurrencyCode } from "@/lib/pricing";
-import { usePreferredCurrency } from "@/lib/hooks/usePreferredCurrency";
-import { CurrencyToggle } from "@/components/ui/CurrencyToggle";
 import { CALENDAR_URL } from "@/lib/constants";
 import { MENTORING_PILLARS } from "@/content/mentoring-pillars";
 
@@ -42,22 +40,9 @@ const pillars = MENTORING_PILLARS.map((pillar) => ({
 const DEFAULT_VISIBLE = ["single", "pack-20"];
 const EXPANDABLE = ["pack-5", "pack-10"];
 
-const CurrencyIcon = ({ currency }: { currency: CurrencyCode }) =>
-  currency === "EUR" ? (
-    <Euro className="h-4 w-4 text-ink" />
-  ) : (
-    <DollarSign className="h-4 w-4 text-ink" />
-  );
-
-function PricingCard({
-  pkg,
-  currency,
-}: {
-  pkg: (typeof COACHING_PACKAGES)[number];
-  currency: CurrencyCode;
-}) {
-  const price = resolvePricing(pkg, currency);
-  const symbol = currency === "EUR" ? "€" : "$";
+function PricingCard({ pkg }: { pkg: (typeof COACHING_PACKAGES)[number] }) {
+  const usd = resolvePricing(pkg, "USD");
+  const eur = resolvePricing(pkg, "EUR");
 
   return (
     <motion.div
@@ -71,21 +56,23 @@ function PricingCard({
         </h4>
 
         <div className="flex flex-wrap items-baseline gap-1 mb-1">
-          <CurrencyIcon currency={currency} />
-          <span className="text-4xl font-display font-bold text-ink tabular-nums tracking-tight">
-            {price.total.toLocaleString()}
+          <span className="text-3xl font-display font-bold text-ink tabular-nums tracking-tight">
+            ${usd.total.toLocaleString()}
+          </span>
+          <span className="text-lg text-graphite tabular-nums">
+            · €{eur.total.toLocaleString()}
           </span>
           <span className="text-sm text-graphite tabular-nums">
             {pkg.sessions > 1
-              ? ` (${symbol}${price.perSession}/session)`
+              ? ` ($${usd.perSession.toLocaleString()} · €${eur.perSession}/session)`
               : `/session`}
           </span>
         </div>
 
         {/* 20-pack: no discount badge — premium coaching, not a coupon */}
-        {price.savings > 0 && pkg.id !== "pack-20" && (
+        {eur.savings > 0 && pkg.id !== "pack-20" && (
           <p className="text-xs font-medium text-hp-electric mb-3 tabular-nums">
-            {`Save ${symbol}${price.savings}`}
+            {`Save $${usd.savings} · €${eur.savings}`}
             {pkg.discountPercent > 0 && ` (${pkg.discountPercent}% off)`}
           </p>
         )}
@@ -129,9 +116,9 @@ function PricingCard({
           iconClassName="mr-1.5 h-4 w-4"
           className="w-full h-11 text-sm font-semibold"
           location={`guidance_${pkg.id}`}
-          value={price.total}
+          value={usd.total}
           trackOnClick={false}
-          onClick={() => trackConversion(`guidance_${pkg.id}`, price.total, currency)}
+          onClick={() => trackConversion(`guidance_${pkg.id}`, usd.total, "USD")}
           href={`${CALENDAR_URL}?utm_source=site&utm_medium=cta&utm_campaign=mentoring-${pkg.id}`}
         >
           {`Book ${pkg.sessions > 1 ? `${pkg.sessions}-Pack` : "Now"}`}
@@ -142,8 +129,6 @@ function PricingCard({
 }
 
 export default function MentoringSection() {
-  // Prices follow the shared currency preference; the toggle lives in Services.
-  const [currency, setCurrency] = usePreferredCurrency();
   const [showAll, setShowAll] = useState(false);
 
   const defaultPackages = COACHING_PACKAGES.filter((p) =>
@@ -174,7 +159,6 @@ export default function MentoringSection() {
           <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-bright mb-5">
             One-on-one AI guidance
           </p>
-          <div className="mb-8"><CurrencyToggle currency={currency} onChange={setCurrency} /></div>
           <h2 className="font-display text-[clamp(2.25rem,5.5vw,4rem)] font-medium tracking-tight leading-[0.98] text-white max-w-[16ch] mb-6">
             Stop renting AI judgment. Own it.
           </h2>
@@ -259,7 +243,7 @@ export default function MentoringSection() {
             className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 max-w-3xl"
           >
             {defaultPackages.map((pkg) => (
-              <PricingCard key={pkg.id} pkg={pkg} currency={currency} />
+              <PricingCard key={pkg.id} pkg={pkg} />
             ))}
           </motion.div>
 
@@ -302,7 +286,7 @@ export default function MentoringSection() {
               >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12 max-w-3xl">
                   {expandablePackages.map((pkg) => (
-                    <PricingCard key={pkg.id} pkg={pkg} currency={currency} />
+                    <PricingCard key={pkg.id} pkg={pkg} />
                   ))}
                 </div>
               </motion.div>

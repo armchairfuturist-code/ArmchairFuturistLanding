@@ -1,16 +1,17 @@
 "use client";
-import { ArrowRight, CheckCircle2, Zap, BookOpen, Target, Sparkles, Wrench, Globe, type LucideIcon } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Zap, BookOpen, Target, Sparkles, Wrench, Globe, Compass, type LucideIcon } from 'lucide-react';
+import Link from 'next/link';
+import { trackEvent } from '@/lib/analytics';
 import { CardContent, CardHeader, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from 'motion/react';
 import { CALENDAR_URL } from '@/lib/constants';
+import { AUDIT_PRICE_LABEL, PROGRAM_PRICE_LABEL, GUIDANCE_RANGE_LABEL, formatDualPrice, formatDualRange, SERVICES_PRICING } from '@/lib/pricing';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { MagneticCard } from '@/components/ui/MagneticCard';
 import { staggerContainer, springStaggerItem } from '@/lib/animation-variants';
 import { SERVICE_PATHS, type ServiceTier } from "@/content/service-paths";
-import { formatServicePrice, SERVICES_PRICING } from "@/lib/pricing";
-import { usePreferredCurrency } from "@/lib/hooks/usePreferredCurrency";
-import { CurrencyToggle } from "@/components/ui/CurrencyToggle";
+
 
 const ICON_MAP: Record<string, LucideIcon> = {
   Zap,
@@ -19,18 +20,31 @@ const ICON_MAP: Record<string, LucideIcon> = {
   Globe,
   Wrench,
   Sparkles,
+  Compass,
 }
 
 
 export default function ServicesSection() {
-  const [currency, setCurrency] = usePreferredCurrency();
 
+  // Canonical dual-label pricing (critique 2026-08-31): every price shows
+  // both currencies from pricing.ts; no toggle, no hydration flip.
   const displayPrice = (tier: ServiceTier) => {
+    if (tier.priceKey === "roadmapAudit") return AUDIT_PRICE_LABEL;
+    if (tier.priceKey === "selfSufficiency") return PROGRAM_PRICE_LABEL;
+    if (tier.priceKey === "guidanceRange") return GUIDANCE_RANGE_LABEL;
     if (tier.priceKey === "digitalIdentity") {
-      return formatServicePrice(SERVICES_PRICING.digitalIdentity, currency);
+      return formatDualPrice(
+        SERVICES_PRICING.digitalIdentity.priceUSD,
+        SERVICES_PRICING.digitalIdentity.priceEUR,
+      );
     }
     if (tier.priceKey === "customAiProvisioning") {
-      return formatServicePrice(SERVICES_PRICING.customAiProvisioning, currency);
+      return formatDualRange(
+        SERVICES_PRICING.customAiProvisioning.minPriceUSD,
+        SERVICES_PRICING.customAiProvisioning.maxPriceUSD,
+        SERVICES_PRICING.customAiProvisioning.minPriceEUR,
+        SERVICES_PRICING.customAiProvisioning.maxPriceEUR,
+      );
     }
     return tier.price;
   };
@@ -59,6 +73,19 @@ export default function ServicesSection() {
           {SERVICE_PATHS.map((path) => (
             <div key={path.id}>
               <BlurFade inView>
+                {path.id === "together" && (
+                  <p className="mb-6 text-sm text-charcoal font-sans md:text-right">
+                    Not sure where you stand?{" "}
+                    <Link
+                      href="/assessment"
+                      onClick={() => trackEvent("services_assessment_link")}
+                      className="font-semibold text-hp-electric underline underline-offset-4 hover:text-hp-deep transition-colors"
+                    >
+                      Take the free assessment
+                    </Link>{" "}
+                    first.
+                  </p>
+                )}
                 <div className="mb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-4 border-b border-hairline pb-6">
                   <div>
                     <p className="text-xs font-mono uppercase tracking-widest text-graphite mb-2 flex items-center gap-2">
@@ -79,9 +106,6 @@ export default function ServicesSection() {
                   <p className="text-sm md:text-base text-charcoal font-sans leading-relaxed md:max-w-md md:text-right">
                     {path.description}
                   </p>
-                  {path.id === "foryou" && (
-                    <CurrencyToggle currency={currency} onChange={setCurrency} />
-                  )}
                 </div>
               </BlurFade>
 
@@ -125,9 +149,7 @@ export default function ServicesSection() {
                           {tier.name}
                         </h4>
                         <div className="flex items-baseline gap-1">
-                          <span className={`font-medium tabular-nums ${
-                            tier.price === "Free" ? 'text-2xl text-hp-electric' : 'text-3xl text-hp-electric'
-                          }`}>
+                          <span className="font-medium tabular-nums text-3xl text-hp-electric">
                             {displayPrice(tier)}
                           </span>
                         </div>
@@ -185,7 +207,7 @@ export default function ServicesSection() {
             <p className="text-sm text-graphite font-sans">
               Not sure which path fits?{" "}
               <a href="/assessment" className="text-hp-electric font-semibold hover:underline">
-                Take the free 3-minute assessment
+                Take the free assessment
               </a>{" "}
               and get your personalized AI archetype plus a clear next step.
             </p>

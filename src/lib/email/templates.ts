@@ -9,6 +9,8 @@
  */
 
 import { buildEmailWrapper, EMAIL_BRAND, escapeHtml } from '@/lib/email-utils';
+import { CALENDAR_URL, SITE_URL } from '@/lib/constants';
+import { AUDIT_PRICE_LABEL, AUDIT_LIST_LABEL } from '@/lib/pricing';
 
 // ── Assessment ────────────────────────────────────────────────────────
 
@@ -232,6 +234,136 @@ export function buildContactAutoReplyEmail(data: ContactAutoReplyData): string {
 
   return buildEmailWrapper({
     headerTitle: 'Thanks for reaching out',
+    bodyHtml,
+  });
+}
+
+// ── Assessment nurture ladder (Plan 008) ──────────────────────────────
+// Day 0 = buildProspectResultEmail (sent by the submit route).
+// Day 2 / Day 6 templates below are sent from a scheduled job (cron or
+// Resend Broadcasts — key setup owned by Alex, see plans/008 Phase A3).
+
+export function buildAuditOfferEmail(data: { archetypeName: string }): string {
+  const archetypeHtml = escapeHtml(data.archetypeName);
+  const bodyHtml = `
+    <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
+      Your assessment put you in "${archetypeHtml}". The profile is the map. Here is the route.
+    </p>
+    <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
+      The AI Roadmap Audit is a 90-minute working session on your actual workflows: what to automate,
+      what to buy, what to build, in what order — scored against current-generation agents and tooling.
+      You leave with a written report and a video walkthrough, ranked by time saved and revenue impact.
+    </p>
+    <p style="margin:0 0 24px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
+      The blueprint is yours to keep. Implement it yourself, hand it to anyone you trust, or do it with me.
+    </p>
+    <a href="${SITE_URL}/audit" style="display:inline-block;padding:14px 32px;background:${EMAIL_BRAND.brandColor};color:#ffffff;font-size:16px;font-weight:700;text-decoration:none;border-radius:6px;">Start the Roadmap Audit — ${AUDIT_PRICE_LABEL}</a>
+    <p style="margin:16px 0 0;font-size:13px;color:${EMAIL_BRAND.mutedColor};">
+      Launch pricing (normally ${AUDIT_LIST_LABEL}) while the format is new.
+    </p>`;
+
+  return buildEmailWrapper({
+    headerTitle: 'From profile to roadmap',
+    bodyHtml,
+  });
+}
+
+export function buildProgramInvitationEmail(data: { archetypeName: string }): string {
+  const archetypeHtml = escapeHtml(data.archetypeName);
+  const bodyHtml = `
+    <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
+      Two emails ago you took the assessment. One email ago I offered the Roadmap Audit.
+    </p>
+    <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
+      If the audit showed you a blueprint worth executing, the AI Self-Sufficiency Program is where it
+      gets built. Eight weeks. You ship a launched AI-powered service or brand, with 10-15 coaching
+      sessions and async support the whole way. Most clients are self-sufficient by week 8 —
+      by the time we're done, my job no longer exists.
+    </p>
+    <p style="margin:0 0 24px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
+      If you'd rather talk it through first, book a 15-minute call. No pitch. Just clarity.
+    </p>
+    <a href="${EMAIL_BRAND.calendarUrl}" style="display:inline-block;padding:14px 32px;background:${EMAIL_BRAND.brandColor};color:#ffffff;font-size:16px;font-weight:700;text-decoration:none;border-radius:6px;">Book a Free 15-Minute Call</a>
+    <p style="margin:16px 0 0;font-size:13px;color:${EMAIL_BRAND.mutedColor};">
+      Or start with the Roadmap Audit: <a href="${SITE_URL}/audit" style="color:${EMAIL_BRAND.brandColor};">${AUDIT_PRICE_LABEL}, report and video yours to keep</a>.
+    </p>`;
+
+  return buildEmailWrapper({
+    headerTitle: 'The blueprint is yours. Now build it.',
+    bodyHtml,
+  });
+}
+// ── Audit intake emails (Plan 009 Phase B) ────────────────────────────
+
+export interface AuditConfirmationEmailData {
+  name: string;
+  archetypeName?: string;
+  biggestQuestion: string;
+  availability: string;
+  aiMaturity: string;
+}
+
+export function buildAuditConfirmationEmail(data: AuditConfirmationEmailData): string {
+  const nameHtml = escapeHtml(data.name);
+  const questionHtml = escapeHtml(data.biggestQuestion);
+  const archetypeLine = data.archetypeName
+    ? `<p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">Your profile: ${escapeHtml(data.archetypeName)}. The Audit reads as the next step from exactly where you stand.</p>`
+    : '';
+
+  // Honest routing: chat/unsure maturity may fit a session pack better. Say so.
+  const screener = data.aiMaturity === 'chat' || data.aiMaturity === 'unsure'
+    ? `<p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">One honest note: based on where you said AI sits in your work today, a 1-on-1 guidance session may be the better first step than the full audit. Alex will say so on the call if that's true.</p>`
+    : '';
+
+  const bodyHtml = `
+    <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
+      ${nameHtml}, your briefing arrived. Here is what happens next.
+    </p>
+    ${archetypeLine}
+    <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
+      You asked: "${questionHtml}". Alex will come to the call with a current read on it — specifics, not a generic answer.
+    </p>
+    ${screener}
+    <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
+      Next step: book the 15-minute fit call. Alex answers your question, checks the audit is the right move, and if it is, you get the payment link there. The 15 minutes are free either way.
+    </p>
+    <a href="${EMAIL_BRAND.calendarUrl}" style="display:inline-block;padding:14px 32px;background:${EMAIL_BRAND.brandColor};color:#ffffff;font-size:16px;font-weight:700;text-decoration:none;border-radius:6px;">Book the 15-minute fit call</a>
+    <p style="margin:24px 0 8px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
+      The audit: 90 minutes on your actual workflows, a scored roadmap ranked by time saved and revenue impact, written report plus video walkthrough. ${AUDIT_PRICE_LABEL} (normally ${AUDIT_LIST_LABEL}) while the format is new.
+    </p>
+    <p style="margin:0 0 24px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
+      The guarantee: if the audit doesn't map at least three concrete, ranked actions for your business, you don't pay.
+    </p>
+    <p style="margin:0;font-size:14px;color:${EMAIL_BRAND.mutedColor};">
+      Your availability: ${escapeHtml(data.availability)}. If none of the calendar times work, reply to this email with two windows that do.
+    </p>`;
+
+  return buildEmailWrapper({
+    headerTitle: 'Your briefing is in',
+    bodyHtml,
+  });
+}
+
+export function buildAuditLeadNotificationEmail(data: {
+  name: string;
+  email: string;
+  archetypeName?: string;
+  intake: Record<string, string>;
+}): string {
+  const rows = Object.entries(data.intake)
+    .map(([k, v]) => `<tr><td style="padding:8px 0;font-size:13px;color:${EMAIL_BRAND.mutedColor};border-bottom:1px solid #e5e7eb;vertical-align:top;width:160px;">${escapeHtml(k)}</td><td style="padding:8px 0;font-size:14px;border-bottom:1px solid #e5e7eb;white-space:pre-wrap;">${escapeHtml(String(v))}</td></tr>`)
+    .join('');
+
+  const bodyHtml = `
+    <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
+      New audit intake. Run the sales-prep prompt on this case before the fit call.
+    </p>
+    <p style="margin:0 0 8px;font-size:14px;font-weight:600;color:${EMAIL_BRAND.textColor};">${escapeHtml(data.name)} &lt;${escapeHtml(data.email)}&gt;</p>
+    ${data.archetypeName ? `<p style="margin:0 0 16px;font-size:13px;color:${EMAIL_BRAND.mutedColor};">Archetype: ${escapeHtml(data.archetypeName)}</p>` : ''}
+    <table width="100%" cellpadding="0" cellspacing="0" role="presentation">${rows}</table>`;
+
+  return buildEmailWrapper({
+    headerTitle: 'New Audit Intake',
     bodyHtml,
   });
 }

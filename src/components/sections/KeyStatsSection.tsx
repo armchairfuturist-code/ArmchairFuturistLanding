@@ -108,7 +108,7 @@ export default function KeyStatsSection() {
               className="inline-flex items-center justify-center h-11 px-6 text-sm font-semibold uppercase tracking-[0.7px] border border-white/40 text-white hover:bg-white/10 hover:border-white transition-colors shrink-0"
               onClick={() => trackEvent("stats_assessment_click")}
             >
-              Take the Assessment
+              Take the free assessment
             </Link>
           </div>
         </BlurFade>

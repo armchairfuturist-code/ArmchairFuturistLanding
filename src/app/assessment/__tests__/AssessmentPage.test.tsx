@@ -80,7 +80,7 @@ describe('AssessmentPage', () => {
     await user.click(startButton);
 
     expect(screen.getByTestId('quiz-progress')).toBeInTheDocument();
-    expect(screen.getByText(/Question 1 of 9/i)).toBeInTheDocument();
+    expect(screen.getByText(new RegExp(`Question 1 of ${questions.length}`))).toBeInTheDocument();
   });
 
   it('sends analytics event when starting quiz', async () => {
@@ -111,7 +111,7 @@ describe('AssessmentPage', () => {
 
     // Should show next question
     await waitFor(() => {
-      expect(screen.getByText(/Question 2 of 9/i)).toBeInTheDocument();
+      expect(screen.getByText(new RegExp(`Question 2 of ${questions.length}`))).toBeInTheDocument();
     });
   });
 
@@ -124,8 +124,8 @@ describe('AssessmentPage', () => {
     const startButton = screen.getByText(/See My AI Readiness/i);
     await user.click(startButton);
 
-    // Answer all questions (9 questions total)
-    for (let i = 0; i < 9; i++) {
+    // Answer all questions
+    for (let i = 0; i < questions.length; i++) {
       await user.click(screen.getByText('Yes'));
       // Wait for next question to appear
       await waitFor(() => {

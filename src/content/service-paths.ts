@@ -1,3 +1,4 @@
+
 /** Service path content — icon keys mapped in section adapter. */
 export interface ServiceTier {
   name: string;
@@ -10,7 +11,7 @@ export interface ServiceTier {
   highlighted: boolean;
   icon: string;
   note?: string;
-  priceKey?: "digitalIdentity" | "customAiProvisioning";
+  priceKey?: "roadmapAudit" | "selfSufficiency" | "guidanceRange" | "digitalIdentity" | "customAiProvisioning";
 }
 export interface ServicePath {
   id: string;
@@ -31,25 +32,29 @@ export const SERVICE_PATHS: ServicePath[] = [
       "We build on your live work, from a single session pack to a 3-month executive intensive. Session packs build your AI literacy. The Self-Sufficiency Program builds your AI business.",
     tiers: [
       {
-        name: "AI Readiness Assessment",
-        price: "Free",
-        tag: "3 Minutes",
+        name: "AI Roadmap Audit",
+        price: "$297 · €247",
+        priceKey: "roadmapAudit",
+        tag: "90-Minute Working Session",
         description:
-          "Not sure where you stand? Take the free 3-minute diagnostic. You'll get your personalized AI archetype, clarity score, and a clear recommended next step — no pitch, no pressure.",
+          "A paid deep dive that turns this diagnosis into a scored roadmap for your actual workflows: what to automate, what to buy, what to build, in what order. You get the report and a video walkthrough. The blueprint is yours to keep — implement it yourself, or with me.",
         features: [
-          "3-minute quiz",
-          "Personalized AI archetype",
-          "Clarity & readiness score",
-          "Recommended next step",
+          "90-minute deep discovery call",
+          "Scored roadmap mapped to your actual workflows",
+          "Ranked by time saved and revenue impact",
+          "Written report + video walkthrough, yours to keep",
+          "Includes current-generation agent and tooling review",
         ],
-        cta: "Take the Assessment",
-        ctaLink: "/assessment",
+        cta: "Get the Roadmap Audit",
+        ctaLink: "/audit",
         highlighted: false,
-        icon: "Zap",
+        icon: "Compass",
+        note: "Normally $497 · €417. Launch pricing while the format is new.",
       },
       {
         name: "1-on-1 AI Guidance",
-        price: "$570 – $2,000",
+        price: "$570–$2,000 · €475–€1,700",
+        priceKey: "guidanceRange",
         tag: "5 · 10 · 20 Packs",
         description:
           "Start with a 5-session pack and scale up. Most clients choose 5 or 10. Each session builds your AI literacy, from first understanding to full independence.",
@@ -68,7 +73,8 @@ export const SERVICE_PATHS: ServicePath[] = [
       },
       {
         name: "AI Self-Sufficiency Program",
-        price: "$2,497",
+        price: "$2,497 · €2,147",
+        priceKey: "selfSufficiency",
         tag: "8-Week Build Sprint",
       description:
         "You ship a launched AI-powered service or brand by week 8. A proven playbook, 10–15 coaching sessions, and async support throughout, so you finish with something real to sell, not just notes from sessions.",
@@ -97,7 +103,7 @@ export const SERVICE_PATHS: ServicePath[] = [
     tiers: [
       {
         name: "Digital Identity Landing Page",
-        price: "$233",
+        price: "$233 · €199",
         priceKey: "digitalIdentity",
         tag: "Delivered in 2-4 Days",
         description:
@@ -116,7 +122,7 @@ export const SERVICE_PATHS: ServicePath[] = [
       },
       {
         name: "Custom AI Provisioning",
-        price: "$1,000 – $5,000",
+        price: "$1,000–$5,000 · €850–€4,250",
         priceKey: "customAiProvisioning",
         tag: "1-2 Weeks",
         description:

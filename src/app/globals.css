@@ -63,8 +63,9 @@
 .organism-deck { max-width: 450px; margin: 24px 0 0; color: #c9ced8; font-size: 16px; line-height: 1.6; }
 .organism-deck--offer { margin-top: 14px; color: #e3e7ee; }
 .organism-actions { display: flex; gap: 16px; margin-top: 35px; }
-.organism-hero__whatsapp { display: inline-flex; align-items: center; min-height: 44px; margin-top: 14px; color: var(--org-muted); font-family: var(--org-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; transition: color .25s ease; }
+.organism-hero__whatsapp { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-top: 14px; color: var(--org-muted); font-family: var(--org-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; transition: color .25s ease; }
 .organism-hero__whatsapp:hover { color: var(--org-paper); }
+.organism-hero__whatsapp-icon { width: 15px; height: 15px; flex-shrink: 0; }
 .organism-button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 48px; padding: 0 20px; border: 1px solid transparent; border-radius: 999px; cursor: pointer; transition: transform .25s ease, background .25s ease, border-color .25s ease; }
 .organism-button:hover { transform: translateY(-3px); }
 .organism-button--primary { color: #fff; background: var(--org-blue); box-shadow: 0 0 26px rgba(41, 110, 249, .25); }
