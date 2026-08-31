@@ -29,10 +29,19 @@ export default function CommunityAnchor() {
           I host Braga AI Builders
         </h2>
         <p className="text-white/80 text-base md:text-lg leading-relaxed max-w-2xl mb-8 font-sans">
-          A monthly in-person AI meetup in Braga, Portugal. I co-host
-          TechLands with Subvisual: locals using AI to solve real problems,
-          build useful things, and help each other move faster. You
-          don&apos;t need to be advanced — you need to be curious.
+          An AI community in Braga, Portugal. Every month, I host TechLands
+          with{" "}
+          <a
+            href="https://subvisual.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white font-medium underline underline-offset-4 hover:text-hp-bright transition-colors"
+          >
+            Subvisual
+          </a>
+          : locals using AI to solve real problems, build useful things, and
+          help each other move faster. You don&apos;t need to be advanced —
+          you need to be curious.
         </p>
         <div className="flex flex-col sm:flex-row gap-3">
           <a
