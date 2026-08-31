@@ -29,9 +29,10 @@ export default function CommunityAnchor() {
           I host Braga AI Builders
         </h2>
         <p className="text-white/80 text-base md:text-lg leading-relaxed max-w-2xl mb-8 font-sans">
-          A monthly in-person AI meetup here in Braga. Locals using AI to solve
-          real problems, build useful things, and help each other move faster.
-          You don&apos;t need to be advanced — you need to be curious.
+          A monthly in-person AI meetup in Braga, Portugal. I co-host
+          TechLands with Subvisual: locals using AI to solve real problems,
+          build useful things, and help each other move faster. You
+          don&apos;t need to be advanced — you need to be curious.
         </p>
         <div className="flex flex-col sm:flex-row gap-3">
           <a
@@ -41,7 +42,7 @@ export default function CommunityAnchor() {
             onClick={() => trackEvent("braga_ai_builders_events_click", { location: "homepage_community" })}
             className="inline-flex items-center justify-center gap-2 h-11 px-6 text-sm font-semibold uppercase tracking-[0.7px] bg-hp-electric text-white hover:bg-hp-bright transition-colors"
           >
-            Upcoming meetups
+            Upcoming TechLands meetups
             <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
           </a>
           <a
