@@ -5,3 +5,4 @@ env:
     secret: CRON_SECRET
   - variable: ADMIN_PASSWORD
     secret: ADMIN_PASSWORD
+# ADMIN_PASSWORD secret bound 2026-08-31 (touch to force re-resolution)
