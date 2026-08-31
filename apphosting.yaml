@@ -3,3 +3,5 @@ env:
     secret: RESEND_API_KEY
   - variable: CRON_SECRET
     secret: CRON_SECRET
+  - variable: ADMIN_PASSWORD
+    secret: ADMIN_PASSWORD
