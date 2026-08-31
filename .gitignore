@@ -109,3 +109,6 @@ lpt[1-9].*
 .pi/
 .pi-subagents/
 _capture/
+
+# Local-only secret handoff (never commit)
+.cron-secret.txt
