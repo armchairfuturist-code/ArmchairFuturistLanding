@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { ArrowUpRight, Users } from "lucide-react";
 import { BRAGA_AI_BUILDERS_URL } from "@/lib/constants";
 import { trackEvent } from "@/lib/analytics";
@@ -22,6 +23,30 @@ export default function CommunityAnchor() {
           real problems, build useful things, and help each other move faster.
           You don&apos;t need to be advanced — you need to be curious.
         </p>
+        <a
+          href={BRAGA_AI_BUILDERS_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() =>
+            trackEvent("braga_ai_builders_click", {
+              location: "speaking_page",
+            })
+          }
+          className="group relative block mb-8 rounded-hp-xl overflow-hidden border border-white/20"
+          aria-label="Preview of the Braga AI Builders site"
+        >
+          <Image
+            src="/braga-ai-builders-preview.jpg"
+            alt="Braga AI Builders community website preview"
+            width={1200}
+            height={750}
+            className="w-full h-auto transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+            sizes="(max-width: 768px) 100vw, 896px"
+          />
+          <span className="absolute bottom-3 right-3 font-mono text-[10px] uppercase tracking-[0.25em] text-white/90 bg-ink/70 px-2.5 py-1.5">
+            Live site
+          </span>
+        </a>
         <div className="flex flex-col sm:flex-row gap-3">
           <a
             href={BRAGA_AI_BUILDERS_URL}
