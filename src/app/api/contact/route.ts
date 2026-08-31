@@ -5,6 +5,7 @@ const noOpLeadStore = {
   saveAssessmentLead: async () => {},
   saveCaptureLead: async () => {},
   saveAuditCase: async () => {},
+  saveIdentityCase: async () => {},
 };
 
 export const POST = createSubmissionRoute<ContactInput>({

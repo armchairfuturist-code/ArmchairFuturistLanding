@@ -1,4 +1,4 @@
-import { CALENDAR_URL, GOOGLE_FORM_URL, SUBSTACK_URL } from '@/lib/constants';
+import { CALENDAR_URL, SUBSTACK_URL } from '@/lib/constants';
 
 export interface Archetype {
   slug: string;
@@ -103,8 +103,7 @@ export const archetypes: Archetype[] = [
     ],
     primaryCta: {
       label: 'Claim Your Digital Identity Page ($233 / €199)',
-      href: GOOGLE_FORM_URL,
-      external: true,
+      href: '/intake/digital-identity',
     },
     secondaryCta: {
       label: 'Explore custom AI solutions',

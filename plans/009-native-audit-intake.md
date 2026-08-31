@@ -148,3 +148,22 @@ Verification: vitest 112/112, tsc clean, `/audit` renders 200 with pitch +
 form, API smoke-tested (validation via unit tests; live 500 on localhost
 is the known no-RESEND_API_KEY env limitation shared by all submission
 routes).
+
+## Post-implementation decisions (2026-08-31, Alex)
+
+- Fit call = his existing 15-minute Google appointments schedule; wired as
+  `AUDIT_BOOKING_URL` in constants.ts (form success page uses it).
+- Payment = Venmo business request after the call closes (no Stripe for
+  now; revisit automation later).
+- Scope field added post-grill: `scope: 'individual' | 'organization'` in
+  AuditIntake + case doc + sales-prep prompt + form radio pair — answers
+  the "who" flexibility question for the pipeline.
+
+## Pre-deploy finding (production)
+
+Both `forms.gle` links on the site (the $233 archetype CTA AND the Digital
+Identity services card) resolve to the SAME Google Form, and that form
+returns **401** for logged-out visitors — the $233 Digital Identity path is
+broken in production right now. Fix is in Alex's Google account (re-enable
+link sharing on the form) or accelerate the native intake migration
+(Plan 010). Flagged to Alex.

@@ -18,7 +18,8 @@ Generated against commit `e20e1991` (branch `advisor/005-006-007-ux-fixes`).
 | 006  | Remove dead `handleEmailRoute` helper | P2 | S | -- | DONE |
 | 007  | Tighten CSP: object-src 'none' and base-uri 'none' | P2 | S | -- | DONE |
 | 008  | Paid-Every-Step Ladder (Audit Rung) | P1 | M | -- | DONE |
-| 009  | Native Audit Intake + Case System | P1 | M | 008 | A+B+C DONE |
+| 009  | Native Audit Intake + Case System | P1 | M | 008 | SHIPPED |
+| 010  | Native DI Intake + Day-3 Nudge Cron | P0 | M | 009 | DONE (pending deploy) |
 
 ## Dependency notes
 

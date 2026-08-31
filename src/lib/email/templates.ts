@@ -367,3 +367,85 @@ export function buildAuditLeadNotificationEmail(data: {
     bodyHtml,
   });
 }
+// ── Identity intake emails (Plan 010) ─────────────────────────────────
+
+export interface IdentityConfirmationEmailData {
+  name: string;
+  headline: string;
+  scope: string;
+}
+
+export function buildIdentityConfirmationEmail(data: IdentityConfirmationEmailData): string {
+  const nameHtml = escapeHtml(data.name);
+  const scopeLine = data.scope === 'organization'
+    ? 'For an organization page, Alex will confirm the team structure before the build starts.'
+    : 'Your page is built around your target role, not a generic template.';
+
+  const bodyHtml = `
+    <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
+      ${nameHtml}, your intake is in. Here is exactly what happens next.
+    </p>
+    <p style="margin:0 0 12px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
+      1. Alex reviews your links and confirms the fit (usually same day).
+    </p>
+    <p style="margin:0 0 12px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
+      2. You get a payment request. $233 · €199, one-time. No subscription.
+    </p>
+    <p style="margin:0 0 12px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
+      3. Your page is built and delivered in 2-4 days with a handoff doc. You own the code and content.
+    </p>
+    <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
+      ${scopeLine}
+    </p>
+    <p style="margin:0;font-size:14px;color:${EMAIL_BRAND.mutedColor};">
+      Questions in the meantime? Reply to this email — it goes straight to Alex.
+    </p>`;
+
+  return buildEmailWrapper({
+    headerTitle: 'Digital identity intake received',
+    bodyHtml,
+  });
+}
+
+export function buildIdentityLeadNotificationEmail(data: {
+  name: string;
+  email: string;
+  intake: Record<string, string>;
+}): string {
+  const rows = Object.entries(data.intake)
+    .map(([k, v]) => `<tr><td style="padding:8px 0;font-size:13px;color:${EMAIL_BRAND.mutedColor};border-bottom:1px solid #e5e7eb;vertical-align:top;width:160px;">${escapeHtml(k)}</td><td style="padding:8px 0;font-size:14px;border-bottom:1px solid #e5e7eb;white-space:pre-wrap;">${escapeHtml(String(v))}</td></tr>`)
+    .join('');
+
+  const bodyHtml = `
+    <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
+      New Digital Identity intake. Review the links, confirm fit, send the payment request, then build.
+    </p>
+    <p style="margin:0 0 8px;font-size:14px;font-weight:600;color:${EMAIL_BRAND.textColor};">${escapeHtml(data.name)} &lt;${escapeHtml(data.email)}&gt;</p>
+    <table width="100%" cellpadding="0" cellspacing="0" role="presentation">${rows}</table>`;
+
+  return buildEmailWrapper({
+    headerTitle: 'New Digital Identity Intake',
+    bodyHtml,
+  });
+}
+// ── Day-3 nudge email (Plan 010 Phase C) ──────────────────────────────
+
+export function buildNudgeEmail(data: { name: string; archetypeName: string }): string {
+  const nameHtml = escapeHtml(data.name);
+  const bodyHtml = `
+    <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
+      ${nameHtml} — you submitted your AI Roadmap Audit briefing a few days ago and the calendar is still open.
+    </p>
+    <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
+      No pressure either way. If the timing changed, no action needed — this is the only reminder you'll get. If you're still in, grab a slot that works:
+    </p>
+    <a href="${EMAIL_BRAND.calendarUrl}" style="display:inline-block;padding:14px 32px;background:${EMAIL_BRAND.brandColor};color:#ffffff;font-size:16px;font-weight:700;text-decoration:none;border-radius:6px;">Book the 15-minute fit call</a>
+    <p style="margin:16px 0 0;font-size:14px;color:${EMAIL_BRAND.mutedColor};">
+      Your briefing and answers are saved — nothing to redo. (${escapeHtml(data.archetypeName)} profile)
+    </p>`;
+
+  return buildEmailWrapper({
+    headerTitle: 'Still want the roadmap?',
+    bodyHtml,
+  });
+}

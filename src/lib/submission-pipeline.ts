@@ -2,8 +2,9 @@ import type { EmailSender, EmailMessage } from './email-sender';
 import type { LeadStore, AuditCaseData } from './lead-store';
 import { getArchetypeBySlug } from './assessment/archetypes';
 import { scoreFromAnswerIndices } from './assessment/resolve-answers';
-import { buildProspectResultEmail, buildAlexNotificationEmail, buildLeadProspectEmail, buildLeadNotificationEmail, buildContactNotificationEmail, buildContactAutoReplyEmail, buildAuditConfirmationEmail, buildAuditLeadNotificationEmail } from './email/templates';
+import { buildProspectResultEmail, buildAlexNotificationEmail, buildLeadProspectEmail, buildLeadNotificationEmail, buildContactNotificationEmail, buildContactAutoReplyEmail, buildAuditConfirmationEmail, buildAuditLeadNotificationEmail, buildIdentityConfirmationEmail, buildIdentityLeadNotificationEmail } from './email/templates';
 import { buildAuditCase } from './audit/case';
+import { buildIdentityCase } from './identity/case';
 import { isValidEmail, sanitizeEmailHeaderValue } from './email-utils';
 import { ALEX_EMAIL, FROM_EMAIL } from './email/config';
 
@@ -40,6 +41,18 @@ export interface AuditIntakeInput {
   scores?: { clarity: number; readiness: number; urgency: number; individualSignals: number };
 }
 
+export interface IdentityIntakeInput {
+  kind: 'identity-intake';
+  name: string;
+  email: string;
+  scope: string;
+  linkedinUrl: string;
+  resumeUrl: string;
+  socialLinks: string;
+  headline: string;
+  notes: string;
+}
+
 export interface ContactInput {
   kind: 'contact';
   name: string;
@@ -53,7 +66,7 @@ export interface AuditIntakeResult {
   storageFailed?: boolean;
 }
 
-export type SubmissionInput = AssessmentInput | LeadCaptureInput | ContactInput | AuditIntakeInput;
+export type SubmissionInput = AssessmentInput | LeadCaptureInput | ContactInput | AuditIntakeInput | IdentityIntakeInput;
 
 // ── Result types ─────────────────────────────────────────────
 
@@ -73,8 +86,14 @@ export interface ContactResult {
   emailId: string;
 }
 
+export interface IdentityIntakeResult {
+  emailId: string;
+  caseId: string;
+  storageFailed?: boolean;
+}
+
 export type SubmissionResult =
-  | { ok: true; data: AssessmentResult | LeadResult | ContactResult | AuditIntakeResult }
+  | { ok: true; data: AssessmentResult | LeadResult | ContactResult | AuditIntakeResult | IdentityIntakeResult }
   | { ok: false; error: string; status: 400 | 429 | 500 };
 
 // ── Pipeline deps ────────────────────────────────────────────
@@ -102,6 +121,8 @@ export function createSubmissionPipeline(deps: PipelineDeps) {
         return submitContact(input, emailSender);
       case 'audit-intake':
         return submitAuditIntake(input, emailSender, leadStore);
+      case 'identity-intake':
+        return submitIdentityIntake(input, emailSender, leadStore);
     }
   };
 }
@@ -379,6 +400,111 @@ async function submitAuditIntake(
         'Tried and dropped': casePayload.intake.triedFailed,
         'Biggest question': casePayload.intake.biggestQuestion,
         Availability: casePayload.intake.availability,
+        'Case ID': caseId,
+      },
+    }),
+  });
+
+  return {
+    ok: true,
+    data: {
+      emailId: confirmation.id,
+      caseId,
+      storageFailed,
+    },
+  };
+}
+
+// ── Identity intake (Plan 010) ───────────────────────────────
+
+function looksLikeUrl(raw: string): boolean {
+  try {
+    const u = new URL(raw);
+    return u.protocol === 'https:' || u.protocol === 'http:';
+  } catch {
+    return false;
+  }
+}
+
+async function submitIdentityIntake(
+  input: IdentityIntakeInput,
+  emailSender: EmailSender,
+  leadStore: LeadStore,
+): Promise<SubmissionResult> {
+  const REQUIRED = ['name', 'email', 'scope', 'linkedinUrl', 'resumeUrl', 'headline'] as const;
+  for (const field of REQUIRED) {
+    const value = (input as unknown as Record<string, unknown>)[field];
+    if (typeof value !== 'string' || !value.trim()) {
+      return { ok: false, error: `Missing field: ${field}.`, status: 400 };
+    }
+  }
+
+  if (!isValidEmail(input.email)) {
+    return { ok: false, error: 'Invalid email address.', status: 400 };
+  }
+
+  if (input.scope !== 'individual' && input.scope !== 'organization') {
+    return { ok: false, error: 'Invalid scope value.', status: 400 };
+  }
+
+  if (!looksLikeUrl(input.linkedinUrl.trim())) {
+    return { ok: false, error: 'LinkedIn link must be a full URL (https://...).', status: 400 };
+  }
+  if (!looksLikeUrl(input.resumeUrl)) {
+    return { ok: false, error: 'Resume link must be a full URL.', status: 400 };
+  }
+
+  const caseId = `id_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
+  const nowIso = new Date().toISOString();
+
+  const casePayload = buildIdentityCase(
+    { name: input.name.trim().slice(0, MAX_NAME_LENGTH), email: input.email },
+    {
+      scope: input.scope as 'individual' | 'organization',
+      linkedinUrl: input.linkedinUrl.trim().slice(0, 300),
+      resumeUrl: input.resumeUrl.trim().slice(0, 300),
+      socialLinks: input.socialLinks.trim().slice(0, 500),
+      headline: input.headline.trim().slice(0, 300),
+      notes: input.notes.trim().slice(0, 1000),
+    },
+    caseId,
+    nowIso,
+  );
+
+  // Persist (best-effort)
+  let storageFailed = false;
+  try {
+    await leadStore.saveIdentityCase(casePayload);
+  } catch (err) {
+    console.warn('Identity case storage failed:', err);
+    storageFailed = true;
+  }
+
+  const confirmation = await emailSender.send({
+    from: FROM_EMAIL,
+    to: input.email,
+    subject: `Your digital identity intake is in — next steps`,
+    html: buildIdentityConfirmationEmail({
+      name: input.name.trim().slice(0, MAX_NAME_LENGTH),
+      headline: input.headline.trim().slice(0, 200),
+      scope: input.scope,
+    }),
+  });
+
+  await emailSender.send({
+    from: FROM_EMAIL,
+    to: ALEX_EMAIL,
+    subject: `New Digital Identity Intake: ${sanitizeEmailHeaderValue(input.name.trim().slice(0, MAX_NAME_LENGTH))} <${input.email}>`,
+    html: buildIdentityLeadNotificationEmail({
+      name: input.name.trim().slice(0, MAX_NAME_LENGTH),
+      email: input.email,
+      intake: {
+        Scope: input.scope,
+        LinkedIn: input.linkedinUrl,
+        Resume: input.resumeUrl,
+        'Social links': input.socialLinks || '(none)',
+        Headline: input.headline,
+        Notes: input.notes || '(none)',
         'Case ID': caseId,
       },
     }),
