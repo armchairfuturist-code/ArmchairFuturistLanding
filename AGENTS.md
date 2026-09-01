@@ -3,7 +3,8 @@
 ## Deploy Configuration (configured by /setup-deploy)
 - Platform: Firebase Hosting
 - Production URL: https://thearmchairfuturist.com
-- Deploy workflow: `firebase deploy` (manual trigger - takes ~3-4 min)
+- Deploy workflow: push to `main` (`.github/workflows/deploy.yml`) — auto-deploy, ~3-4 min
+
 - Deploy status command: curl -sf https://thearmchairfuturist.com
 - Merge method: merge
 - Project type: web app (Next.js)
