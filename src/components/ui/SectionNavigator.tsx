@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { motion, useReducedMotion, useScroll, useSpring } from "motion/react";
 import { getNavigatorItems } from "@/lib/section-registry";
 
 const sections = getNavigatorItems();
@@ -14,6 +15,17 @@ function prefersReducedMotion(): boolean {
 export default function SectionNavigator() {
   const [activeSection, setActiveSection] = useState("");
   const [visible, setVisible] = useState(false);
+
+  // Spine fill: document scroll progress, spring-smoothed. Reduced motion
+  // reads the raw progress value directly — height tracks scroll 1:1, no animation.
+  const reducedMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll();
+  const springProgress = useSpring(scrollYProgress, {
+    stiffness: 200,
+    damping: 40,
+    mass: 0.5,
+  });
+  const spineProgress = reducedMotion ? scrollYProgress : springProgress;
 
   useEffect(() => {
     // One observer tracks the active section instead of a scroll handler
@@ -61,6 +73,16 @@ export default function SectionNavigator() {
       aria-label="Section navigation"
       className="hidden lg:flex fixed right-3 top-1/2 -translate-y-1/2 z-50 flex-col gap-2"
     >
+      {/* Scroll spine — 1px hairline track with electric fill, dot centers to dot centers */}
+      <span
+        aria-hidden
+        className="absolute left-1/2 -translate-x-1/2 top-5 bottom-5 w-px bg-hairline"
+      />
+      <motion.span
+        aria-hidden
+        className="absolute left-1/2 -translate-x-1/2 top-5 bottom-5 w-px bg-hp-electric origin-top"
+        style={{ scaleY: spineProgress }}
+      />
       {sections.map((section) => {
         const isActive = activeSection === section.id;
         return (
