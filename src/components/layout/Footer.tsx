@@ -27,7 +27,7 @@ export default function Footer() {
                 About
               </Link>
               <Link
-                href="/#services"
+                href="/services"
                 className="text-white/70 hover:text-hp-bright transition-colors duration-300 underline-animate"
               >
                 Services

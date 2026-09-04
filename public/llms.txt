@@ -101,6 +101,14 @@ Pricing available in USD and EUR. Exchange rate: 1 EUR = 1.17 USD (2026). A curr
 
 All sessions are 60 minutes, held via video call. Book at https://thearmchairfuturist.com#ai-guidance
 
+## Services Hub (Build Groups)
+- **Hub:** /services - Work built with you, systems you own. Starts with ROI Blueprint.
+- **/services/data-foundation** - Context Layer, consolidation pipelines, SOP knowledge base. One queryable system.
+- **/services/revenue-operations** - Onboarding, pipeline, documents, reporting, billing. No copy-paste.
+- **/services/visibility** - Automated reporting and capacity tracking from CRM, ads, books.
+- **/services/frontline-help** - Tier-1 agents (60-70% scoped pilots), SaaS consolidation, model routing.
+- **Ownership:** client keeps repo, configs, keys, 2-page runbook. Training closes each handoff.
+
 ## Case Studies
 
 ### AI Adoption for Consulting Firm (2025)

@@ -127,6 +127,38 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Services hub + spokes -->
+  <url>
+    <loc>https://thearmchairfuturist.com/services</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thearmchairfuturist.com/services/data-foundation</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thearmchairfuturist.com/services/revenue-operations</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thearmchairfuturist.com/services/visibility</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thearmchairfuturist.com/services/frontline-help</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- How I Work - Methodology + agent infrastructure (E-E-A-T) -->
   <url>
     <loc>https://thearmchairfuturist.com/how-i-work</loc>

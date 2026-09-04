@@ -205,6 +205,13 @@ export default function ServicesSection() {
         <BlurFade inView>
           <div className="mt-16 space-y-4 text-center">
             <p className="text-sm text-graphite font-sans">
+              Need systems built, not just guidance?{" "}
+              <a href="/services" className="text-hp-electric font-semibold hover:underline">
+                Open the build catalog
+              </a>{" "}
+              — data, revenue ops, visibility, front-line help.
+            </p>
+            <p className="text-sm text-graphite font-sans">
               Not sure which path fits?{" "}
               <a href="/assessment" className="text-hp-electric font-semibold hover:underline">
                 Take the free assessment

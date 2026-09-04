@@ -114,6 +114,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.7,
     },
+    // === SERVICES HUB + SPOKES ===
+    {
+      url: `${baseUrl}/services`,
+      lastModified: new Date('2026-09-04'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/services/data-foundation`,
+      lastModified: new Date('2026-09-04'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/services/revenue-operations`,
+      lastModified: new Date('2026-09-04'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/services/visibility`,
+      lastModified: new Date('2026-09-04'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/services/frontline-help`,
+      lastModified: new Date('2026-09-04'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
   {
     url: `${baseUrl}/speaking`,
     lastModified: new Date("2026-08-24"),
