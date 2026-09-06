@@ -10,16 +10,16 @@ import { trackEvent } from "@/lib/analytics";
 
 const fitRows = [
   {
-    title: "You already know what to do — you just want someone to confirm it.",
-    body: "I work with people ready to move, not organizations paying a consultant to articulate what they already believe but won't change.",
+    title: "You want someone to just do it for you.",
+    body: "I don't build it and hand it over. I teach you to build and judge it yourself, so you stop hiring consultants. If you want hands-off magic, hire an agency.",
   },
   {
-    title: "You need a vendor to manage change for you.",
-    body: "I build systems you own and operate. If you want AI magic that runs on its own without your team touching it, other consultants are better suited.",
+    title: "You want a course or prompt pack.",
+    body: "This is 1:1 over 8 to 10 weeks, built around your work. If you want cheap and fast, this will feel slow and expensive.",
   },
   {
-    title: "You're still evaluating whether AI matters.",
-    body: "If you're forming committees to study the opportunity, start elsewhere. I work with people who are ready — not those building consensus.",
+    title: "You're still deciding if AI matters.",
+    body: "My clients already use AI and feel the gap between output and real results. If you're still on the fence, start elsewhere. Come back when you're ready to move.",
   },
 ];
 
