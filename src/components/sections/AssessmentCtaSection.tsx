@@ -24,7 +24,7 @@ export default function AssessmentCtaSection() {
             <h2 className="font-display text-[clamp(1.75rem,4vw,2.5rem)] font-medium tracking-tight text-white leading-[1.05] mb-3">
               Not sure where to start?
             </h2>
-            <p className="text-white/65 text-base md:text-lg leading-relaxed">
+            <p className="text-white/80 text-base md:text-lg leading-relaxed">
               3 minutes. 10 honest questions. A personalized diagnosis and a
               clear next step. No email required to see results.
             </p>

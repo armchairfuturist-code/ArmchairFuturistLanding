@@ -5,7 +5,6 @@ import { trackEvent } from '@/lib/analytics';
 import { CardContent, CardHeader, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from 'motion/react';
-import { CALENDAR_URL } from '@/lib/constants';
 import { AUDIT_PRICE_LABEL, PROGRAM_PRICE_LABEL, GUIDANCE_RANGE_LABEL, formatDualPrice, formatDualRange, SERVICES_PRICING } from '@/lib/pricing';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { MagneticCard } from '@/components/ui/MagneticCard';
@@ -60,13 +59,46 @@ export default function ServicesSection() {
                   You leave able to build, launch, and sell your own AI services
                 </h2>
               </div>
-              <p className="md:col-span-5 text-lg text-charcoal font-sans leading-relaxed md:text-right">
-                The divide is not educated versus uneducated. It is AI-fluent versus AI-resistant.
-              </p>
               <p className="md:col-span-5 text-base md:text-lg text-charcoal font-sans leading-relaxed md:text-right">
                 Installing agents is easy now. Deciding what they own is not. Most AI consultants build systems you depend on. I build your ability to build.
               </p>
             </div>
+        </BlurFade>
+
+        <BlurFade inView>
+          <ol className="mb-14 grid gap-3 md:grid-cols-3 max-w-5xl border-y border-hairline py-6">
+            <li className="text-sm text-charcoal font-sans leading-relaxed">
+              <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-hp-electric block mb-1">Unsure</span>
+              <Link
+                href="/assessment"
+                onClick={() => trackEvent("services_ladder_assessment")}
+                className="font-semibold text-hp-electric underline underline-offset-4 hover:text-hp-deep transition-colors"
+              >
+                Take the free assessment
+              </Link>{" "}
+              and get a clear next step.
+            </li>
+            <li className="text-sm text-charcoal font-sans leading-relaxed">
+              <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-hp-electric block mb-1">Know the problem</span>
+              Start with the{" "}
+              <Link
+                href="/audit"
+                onClick={() => trackEvent("services_ladder_audit")}
+                className="font-semibold text-hp-electric underline underline-offset-4 hover:text-hp-deep transition-colors"
+              >
+                Roadmap Audit
+              </Link>
+              .
+            </li>
+            <li className="text-sm text-charcoal font-sans leading-relaxed">
+              <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-hp-electric block mb-1">Want the skill</span>
+              Pick a guidance pack in{" "}
+              <a href="#ai-guidance" className="font-semibold text-hp-electric underline underline-offset-4 hover:text-hp-deep transition-colors">
+                one-on-one guidance
+              </a>
+              .
+            </li>
+          </ol>
         </BlurFade>
 
         <div className="space-y-20">

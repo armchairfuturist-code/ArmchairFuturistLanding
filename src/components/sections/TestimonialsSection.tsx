@@ -74,7 +74,7 @@ function FeaturedTestimonialCarousel() {
             />
           </svg>
 
-          <p className="font-display text-xl md:text-2xl lg:text-3xl text-white leading-[1.35] tracking-tight mb-10 max-w-3xl line-clamp-6">
+          <p className="font-display text-xl md:text-2xl lg:text-3xl text-white leading-[1.35] tracking-tight mb-10 max-w-3xl">
             &ldquo;{featuredTestimonials[current].text}&rdquo;
           </p>
 
@@ -259,7 +259,7 @@ export default function TestimonialsSection() {
             </AnimatePresence>
           </button>
         </div>
-        <p className="absolute bottom-2 right-4 z-10 text-xs text-graphite/50 font-mono pointer-events-none select-none">
+        <p className="absolute bottom-2 right-4 z-10 hidden md:block text-xs text-graphite/50 font-mono pointer-events-none select-none">
           hover to pause
         </p>
         <Marquee

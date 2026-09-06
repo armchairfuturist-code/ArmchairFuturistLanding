@@ -1,5 +1,6 @@
 
 /** Service path content — icon keys mapped in section adapter. */
+import { CALENDAR_URL } from "@/lib/constants";
 export interface ServiceTier {
   name: string;
   price: string;
@@ -66,7 +67,7 @@ export const SERVICE_PATHS: ServicePath[] = [
           "Flexible scheduling",
         ],
         cta: "Browse Session Packs",
-        ctaLink: "/#ai-guidance",
+        ctaLink: "#ai-guidance",
         highlighted: false,
         icon: "BookOpen",
         note: "5, 10, and 20-session packs save up to 15%",
@@ -87,7 +88,7 @@ export const SERVICE_PATHS: ServicePath[] = [
         "Lifetime alumni access",
       ],
         cta: "Apply for the Program",
-        ctaLink: "CALENDAR_URL",
+        ctaLink: CALENDAR_URL,
         highlighted: true,
         icon: "Target",
       },
@@ -136,7 +137,7 @@ export const SERVICE_PATHS: ServicePath[] = [
           "You own the infrastructure",
         ],
         cta: "Request a Build",
-        ctaLink: "CALENDAR_URL",
+        ctaLink: CALENDAR_URL,
         highlighted: false,
         icon: "Wrench",
         note: "Scope and price finalized in a 30-min fit call",

@@ -63,6 +63,9 @@ export default function SectionNavigator() {
         behavior: prefersReducedMotion() ? "auto" : "smooth",
         block: "start",
       });
+      // Land keyboard focus where the viewport lands.
+      if (!el.hasAttribute("tabindex")) el.setAttribute("tabindex", "-1");
+      el.focus({ preventScroll: true });
     }
   };
 

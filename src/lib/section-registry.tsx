@@ -41,10 +41,31 @@ const sections: SectionEntry[] = [
     eager: true,
     navigable: false,
   },
-  // Eager — immediately below fold, critical for first impression
+  // Fit first: frame the offer before any proof. Assessment second: the
+  // default path for the unsure, before pricing asks for a decision.
+  {
+    id: SECTION_IDS.whatIsNot,
+    label: "Fit",
+    component: dynamic(
+      () => import("@/components/sections/WhatThisIsNotSection"),
+    ),
+  },
+  {
+    id: SECTION_IDS.assessment,
+    label: "Assessment",
+    component: dynamic(
+      () => import("@/components/sections/AssessmentCtaSection"),
+      {
+        loading: () => (
+          <SectionSkeleton minHeight="min-h-[280px]" label="Loading assessment" />
+        ),
+      },
+    ),
+  },
+  // Eager — proof, now framed by Fit + Assessment above
   {
     id: SECTION_IDS.caseStudies,
-    label: "Cases",
+    label: "Results",
     component: dynamic(
       () => import("@/components/sections/CaseStudiesSection"),
       {
@@ -63,10 +84,9 @@ const sections: SectionEntry[] = [
     ),
     eager: true,
   },
-  { id: SECTION_IDS.community, label: "Community", component: dynamic(() => import("@/components/sections/CommunityAnchor")), eager: true, },
   {
     id: SECTION_IDS.stats,
-    label: "Stats",
+    label: "Proof",
     component: dynamic(() => import("@/components/sections/KeyStatsSection"), {
       loading: () => (
         <SectionSkeleton minHeight="min-h-[360px]" label="Loading key stats" />
@@ -74,14 +94,9 @@ const sections: SectionEntry[] = [
     }),
     eager: true,
   },
+  // Community proofs belonging, not competence — sits after Proof on purpose.
+  { id: SECTION_IDS.community, label: "Community", component: dynamic(() => import("@/components/sections/CommunityAnchor")), eager: true, },
   // Lazy — loaded on scroll interaction
-  {
-    id: SECTION_IDS.whatIsNot,
-    label: "Fit",
-    component: dynamic(
-      () => import("@/components/sections/WhatThisIsNotSection"),
-    ),
-  },
   {
     id: SECTION_IDS.services,
     label: "Services",
@@ -112,18 +127,6 @@ const sections: SectionEntry[] = [
     }),
   },
   
-  {
-    id: SECTION_IDS.assessment,
-    label: "Quiz",
-    component: dynamic(
-      () => import("@/components/sections/AssessmentCtaSection"),
-      {
-        loading: () => (
-          <SectionSkeleton minHeight="min-h-[280px]" label="Loading assessment" />
-        ),
-      },
-    ),
-  },
   {
     id: SECTION_IDS.substack,
     label: "Newsletter",

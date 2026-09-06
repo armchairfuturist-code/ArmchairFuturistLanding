@@ -45,6 +45,8 @@
   html { scroll-behavior: smooth; }
   body { margin: 0; background: hsl(var(--background)); color: hsl(var(--foreground)); }
   button:focus-visible { outline: 2px solid hsl(var(--primary)); outline-offset: 4px; }
+  ::selection { background: #024ad8; color: #ffffff; }
+  input, textarea { caret-color: #024ad8; }
 }
 
 .organism-hero { position: relative; min-height: 100svh; isolation: isolate; display: flex; flex-direction: column; justify-content: space-between; padding: 88px 4vw 32px; overflow: hidden; color: var(--org-paper); font-family: var(--org-sans); -webkit-tap-highlight-color: transparent; }

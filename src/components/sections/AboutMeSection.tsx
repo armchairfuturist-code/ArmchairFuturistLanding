@@ -51,8 +51,8 @@ export default function AboutMeSection() {
               </a>
             </div>
             <p className="text-white/70 text-base md:text-lg leading-relaxed max-w-2xl mb-6">
-              Six certifications. I teach founders and operators to run AI
-              systems without me.
+              CCMP, Agile Coaching, and four more. I teach founders and
+              operators to run AI systems without me.
             </p>
             <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/55 font-mono mb-8">
               <span>

@@ -18,7 +18,7 @@ export default function CaseStudiesSection() {
           <div className="mb-16 md:mb-20 grid md:grid-cols-12 gap-6 md:gap-8 items-end">
             <div className="md:col-span-7">
               <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-4">
-                Case work
+                How engagements run
               </p>
               <h2 className="font-display text-[clamp(2.25rem,5vw,3.75rem)] font-bold tracking-tight leading-[0.98] text-ink max-w-[16ch]">
                 What happens when AI works
@@ -26,7 +26,11 @@ export default function CaseStudiesSection() {
             </div>
             <p className="md:col-span-5 text-lg text-charcoal font-sans md:text-right md:pb-1 max-w-md md:ml-auto">
               Three recent projects. Anonymized and composited. No strategy
-              decks.
+              decks. Named clients speak for themselves in{" "}
+              <a href="#testimonials" className="font-semibold text-hp-electric underline underline-offset-4 hover:text-hp-deep transition-colors">
+                Reviews
+              </a>
+              .
             </p>
           </div>
         </BlurFade>

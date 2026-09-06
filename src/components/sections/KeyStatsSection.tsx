@@ -18,8 +18,8 @@ const featuredStats = [
   },
   {
     value: "5+ hrs",
-    label: "guaranteed weekly savings",
-    detail: "Floor, not ceiling — implementation clients",
+    label: "weekly hours saved",
+    detail: "Floor, not ceiling. Measured on implementation clients after handoff",
   },
   {
     value: "8–10 wks",
@@ -47,8 +47,8 @@ export default function KeyStatsSection() {
         <BlurFade inView>
           <div className="mb-14 md:mb-20 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div>
-              <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-white/70 mb-3">
-                Evidence
+              <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-white/80 mb-3">
+                Measured outcomes
               </p>
               <h2 className="font-display text-[clamp(2.5rem,6vw,4.5rem)] font-medium tracking-tight leading-[0.95] text-white max-w-[12ch]">
                 <ScrambleText text="Proof, not promises." />
@@ -90,7 +90,7 @@ export default function KeyStatsSection() {
               <p className="text-xl md:text-2xl font-semibold text-white mb-2">
                 {stat.label}
               </p>
-              <p className="text-sm md:text-base text-white/70 max-w-[28ch]">
+              <p className="text-sm md:text-base text-white/80 max-w-[28ch]">
                 {stat.detail}
               </p>
             </motion.div>
@@ -99,9 +99,9 @@ export default function KeyStatsSection() {
 
         <BlurFade inView className="mt-16 md:mt-20">
           <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-            <p className="text-sm md:text-base text-white/75 font-sans leading-relaxed max-w-2xl">
+            <p className="text-sm md:text-base text-white/85 font-sans leading-relaxed max-w-2xl">
               Founders, solo operators, and small teams building AI-powered
-              services. Names of recent clients withheld by request.
+              services.
             </p>
             <Link
               href="/assessment"

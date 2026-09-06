@@ -6,8 +6,6 @@ import {
   Lightbulb,
   TrendingUp,
   CheckCircle2,
-  Euro,
-  DollarSign,
   FlaskConical,
   Target,
   Users,
@@ -37,8 +35,8 @@ const pillars = MENTORING_PILLARS.map((pillar) => ({
   icon: ICON_MAP[pillar.icon as keyof typeof ICON_MAP] ?? Lightbulb,
 }));
 
-const DEFAULT_VISIBLE = ["single", "pack-20"];
-const EXPANDABLE = ["pack-5", "pack-10"];
+const DEFAULT_VISIBLE = ["single", "pack-10"];
+const EXPANDABLE = ["pack-5", "pack-20"];
 
 function PricingCard({ pkg }: { pkg: (typeof COACHING_PACKAGES)[number] }) {
   const usd = resolvePricing(pkg, "USD");
@@ -54,6 +52,11 @@ function PricingCard({ pkg }: { pkg: (typeof COACHING_PACKAGES)[number] }) {
         <h4 className="text-[11px] font-mono text-graphite uppercase tracking-[0.25em] mb-2">
           {pkg.name}
         </h4>
+        {pkg.id === "pack-10" && (
+          <p className="text-[11px] font-mono uppercase tracking-[0.25em] text-hp-electric mb-2">
+            Most start here
+          </p>
+        )}
 
         <div className="flex flex-wrap items-baseline gap-1 mb-1">
           <span className="text-3xl font-display font-bold text-ink tabular-nums tracking-tight">
@@ -68,14 +71,6 @@ function PricingCard({ pkg }: { pkg: (typeof COACHING_PACKAGES)[number] }) {
               : `/session`}
           </span>
         </div>
-
-        {/* 20-pack: no discount badge — premium coaching, not a coupon */}
-        {eur.savings > 0 && pkg.id !== "pack-20" && (
-          <p className="text-xs font-medium text-hp-electric mb-3 tabular-nums">
-            {`Save $${usd.savings} · €${eur.savings}`}
-            {pkg.discountPercent > 0 && ` (${pkg.discountPercent}% off)`}
-          </p>
-        )}
 
         <p className="text-xs text-graphite mb-3 tabular-nums font-mono uppercase tracking-wider">
           {pkg.sessions} {pkg.sessions === 1 ? "session" : "sessions"} · 60 min
@@ -121,7 +116,7 @@ function PricingCard({ pkg }: { pkg: (typeof COACHING_PACKAGES)[number] }) {
           onClick={() => trackConversion(`guidance_${pkg.id}`, usd.total, "USD")}
           href={`${CALENDAR_URL}?utm_source=site&utm_medium=cta&utm_campaign=mentoring-${pkg.id}`}
         >
-          {`Book ${pkg.sessions > 1 ? `${pkg.sessions}-Pack` : "Now"}`}
+          {`Book a Call`}
         </BookCallButton>
       </div>
     </motion.div>
@@ -162,7 +157,7 @@ export default function MentoringSection() {
           <h2 className="font-display text-[clamp(2.25rem,5.5vw,4rem)] font-medium tracking-tight leading-[0.98] text-white max-w-[16ch] mb-6">
             Stop renting AI judgment. Own it.
           </h2>
-          <p className="text-white/70 text-lg md:text-xl max-w-2xl leading-relaxed">
+          <p className="text-white/80 text-lg md:text-xl max-w-2xl leading-relaxed">
             Most &quot;training&quot; hands you tools and leaves. This is a
             partnership. We build the mental models that make AI click, then
             test them live on your real work. You leave with judgment you keep.
@@ -226,7 +221,11 @@ export default function MentoringSection() {
                 </h3>
                 <p className="text-charcoal mt-3 max-w-md">
                   All sessions are 60 minutes, held via video call. Start where
-                  you are.
+                  you are. Want systems built alongside you, not just guidance?{" "}
+                  <Link href="#services" className="text-hp-electric font-semibold underline underline-offset-4 hover:text-hp-deep transition-colors">
+                    Start with the Build Sprint
+                  </Link>
+                  .
                 </p>
               </div>
 
@@ -268,7 +267,7 @@ export default function MentoringSection() {
               className="inline-flex items-center gap-1.5 text-sm font-medium text-hp-electric hover:text-hp-deep transition-colors"
               aria-expanded={showAll}
             >
-              {showAll ? "Hide options" : "View 5 and 10-session options"}
+              {showAll ? "Hide options" : "View 5 and 20-session options"}
               <ChevronDown
                 className={`h-4 w-4 transition-transform duration-200 ${showAll ? "rotate-180" : ""}`}
               />
@@ -315,19 +314,19 @@ export default function MentoringSection() {
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="text-left">
-                      <th className="px-6 py-3 font-mono text-[11px] uppercase tracking-widest text-graphite">
+                      <th scope="col" className="px-6 py-3 font-mono text-[11px] uppercase tracking-widest text-graphite">
                         What you get
                       </th>
-                      <th className="px-4 py-3 font-mono text-[11px] uppercase tracking-widest text-graphite text-center">
+                      <th scope="col" className="px-4 py-3 font-mono text-[11px] uppercase tracking-widest text-graphite text-center">
                         Single
                       </th>
-                      <th className="px-4 py-3 font-mono text-[11px] uppercase tracking-widest text-graphite text-center">
+                      <th scope="col" className="px-4 py-3 font-mono text-[11px] uppercase tracking-widest text-graphite text-center">
                         5-pack
                       </th>
-                      <th className="px-4 py-3 font-mono text-[11px] uppercase tracking-widest text-graphite text-center">
+                      <th scope="col" className="px-4 py-3 font-mono text-[11px] uppercase tracking-widest text-graphite text-center">
                         10-pack
                       </th>
-                      <th className="px-4 py-3 font-mono text-[11px] uppercase tracking-widest text-graphite text-center">
+                      <th scope="col" className="px-4 py-3 font-mono text-[11px] uppercase tracking-widest text-graphite text-center">
                         20-pack
                       </th>
                     </tr>
@@ -383,9 +382,9 @@ export default function MentoringSection() {
                         key={row.label}
                         className={idx % 2 === 0 ? "bg-cloud/80" : ""}
                       >
-                        <td className="px-6 py-3 font-medium text-charcoal">
+                        <th scope="row" className="px-6 py-3 font-medium text-charcoal text-left">
                           {row.label}
-                        </td>
+                        </th>
                         <td className="px-4 py-3 text-center text-charcoal">
                           {row.single}
                         </td>
@@ -424,7 +423,7 @@ export default function MentoringSection() {
                   "Personal brand framework",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-graphite">
-                    <span className="text-hp-electric font-mono shrink-0 mt-px">✓</span>
+                    <CheckCircle2 className="h-3.5 w-3.5 text-hp-electric shrink-0 mt-0.5" aria-hidden="true" />
                     <span>{item}</span>
                   </li>
                 ))}

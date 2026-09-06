@@ -44,6 +44,10 @@ colors:
   # second color: real-world brand recognition outranks the one-signal rule
   # at this 15px scale. Never use elsewhere.
   whatsapp-green: "#25D366"
+  # Hero wash translucents (globals.css organism-hero__wash): Electric Blue
+  # and navy at 34% over ink. Same hues as primary/organism-deep, not drift.
+  hero-wash-blue: "rgba(22, 72, 180, .34)"
+  hero-wash-navy: "rgba(21, 39, 75, .34)"
   error: "#b3262b"
 typography:
   display-xxl:
@@ -436,6 +440,9 @@ The typography system uses two geometric sans faces — **Space Grotesk** for di
 | `button-sm` | 12.6px | 700 | 1.0 | 0.126px | Compact button labels |
 | `price-md` | 24px | 500 | 1.17 | 0 | Pricing tier prices |
 
+> **Fluid-display exception:** the organism hero headline (`globals.css`, `clamp(3.5rem, 7.4vw, 8.4rem)` desktop / `clamp(3.1rem, 15vw, 6rem)` ≤800px) is viewport-driven display type, not a ramp token. Endpoints may sit off the ramp; intent, not drift.
+> **OG-image exception:** `opengraph-image.tsx` sizes (60px/22px) serve the 1200×630 render context, not the page ramp.
+
 ### HP Typography Principles
 
 - **Geometric neutrality.** Space Grotesk (display) and Manrope (body/UI) are geometric, modern, and unornamented. No decorative flourishes, no contrasts that distract.
@@ -552,7 +559,7 @@ The typography system uses two geometric sans faces — **Space Grotesk** for di
 
 ## Anti-Patterns (Things We Don't Do)
 
-- No gradients. Anywhere.
+- No gradients, except the CommunityAnchor photo scrim (`bg-gradient-to-t from-ink via-ink/90 to-ink/70`): legibility layer over photography, not decoration. Documented 2026-09-06.
 - No drop shadows on text.
 - No decorative borders that don't carry semantic meaning.
 - No warm accent colors outside the hero organism and commerce urgency.
