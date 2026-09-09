@@ -229,10 +229,11 @@ export default function TestimonialsSection() {
       </div>
 
       <div className="relative">
-        <div className="flex justify-end pr-4 mb-2 container mx-auto">
+        <div className="flex justify-start pl-4 mb-2 container mx-auto">
           <button
             type="button"
             onClick={() => setIsPaused((p) => !p)}
+            title="Pause auto-scroll"
             aria-pressed={isPaused}
             aria-label={
               isPaused

@@ -47,6 +47,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     ...assessmentResults,
+    {
+      url: `${baseUrl}/audit`,
+      lastModified: new Date('2026-08-21'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
 
     // === LEGAL PAGES ===
     {
@@ -158,6 +164,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date('2026-06-19'),
       changeFrequency: 'monthly',
       priority: 0.7,
+    },
+
+    // === CONTENT ===
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date('2026-08-21'),
+      changeFrequency: 'monthly',
+      priority: 0.6,
     },
   ];
 }

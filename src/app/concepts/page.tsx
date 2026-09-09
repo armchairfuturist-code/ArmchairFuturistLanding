@@ -17,6 +17,11 @@ export const metadata: Metadata = {
     siteName: 'The Armchair Futurist',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Core Concepts | The Armchair Futurist',
+    description: 'Key concepts in AI adoption and organizational change: The Accountability Gap, Psychology-Led Adoption, and Results Thinkers.',
+  },
 };
 
 const concepts = [

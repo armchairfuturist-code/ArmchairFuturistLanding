@@ -36,7 +36,7 @@ export default function StructuredData() {
             name: "The Armchair Futurist - Alex Myers",
             description: "Alex Myers is an AI Technical Literacy & Workflow Strategy Consultant and founder of The Armchair Futurist. He has deployed 40+ AI systems and teaches professionals to build AI skills they own instead of rent.",
             url: siteUrl,
-            image: `${siteUrl}/og-image.jpg`,
+            image: `${siteUrl}/opengraph-image`,
             logo: `${siteUrl}/img.jpg`,
             founder: { "@id": personId },
             address: {

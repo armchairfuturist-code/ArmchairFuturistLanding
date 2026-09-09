@@ -82,15 +82,6 @@ export default function Header() {
 
           {/* Mobile — compact CTAs always visible, plus hamburger for nav */}
           <div className="lg:hidden flex items-center gap-1">
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Message Alex on WhatsApp"
-              className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] -m-1 p-2 text-white/80 hover:text-hp-bright transition-colors duration-300"
-            >
-              <WhatsAppGlyph className="h-5 w-5" />
-            </a>
             <BookCallButton
               location="header_mobile_compact"
               size="sm"

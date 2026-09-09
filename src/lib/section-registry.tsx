@@ -97,6 +97,12 @@ const sections: SectionEntry[] = [
   // Community proofs belonging, not competence — sits after Proof on purpose.
   { id: SECTION_IDS.community, label: "Community", component: dynamic(() => import("@/components/sections/CommunityAnchor")), eager: true, },
   // Lazy — loaded on scroll interaction
+  // Density before close: ROI proof before priced decisions.
+  {
+    id: SECTION_IDS.roi,
+    label: "ROI",
+    component: dynamic(() => import("@/components/sections/ROICalculatorSection")),
+  },
   {
     id: SECTION_IDS.services,
     label: "Services",
@@ -111,11 +117,6 @@ const sections: SectionEntry[] = [
     id: SECTION_IDS.mentoring,
     label: "Guidance",
     component: dynamic(() => import("@/components/sections/MentoringSection")),
-  },
-  {
-    id: SECTION_IDS.roi,
-    label: "ROI",
-    component: dynamic(() => import("@/components/sections/ROICalculatorSection")),
   },
   {
     id: SECTION_IDS.speaking,

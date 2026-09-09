@@ -33,6 +33,14 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Audit - Paid service landing, assessment funnel follow-on -->
+  <url>
+    <loc>https://thearmchairfuturist.com/audit</loc>
+    <lastmod>2026-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Assessment Results - Individual archetypes -->
   <url>
     <loc>https://thearmchairfuturist.com/assessment/result/stalled-executive</loc>
@@ -165,5 +173,21 @@
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+  <!-- Speaking -->
+  <url>
+    <loc>https://thearmchairfuturist.com/speaking</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Blog - Content -->
+  <url>
+    <loc>https://thearmchairfuturist.com/blog</loc>
+    <lastmod>2026-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>

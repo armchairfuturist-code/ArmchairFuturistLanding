@@ -44,20 +44,6 @@ export const TESTIMONIALS: Testimonial[] = [
     dataAiHint: "profile person",
   },
   {
-    imageSrc: "/tessa.jpg",
-    name: "Tessa M.",
-    title: "Marketing Strategist",
-    text: "I had the pleasure of meeting Alex through Lunchclub. We talked about the future and Web3, and it was then that I realized I might have found myself a Web3 mentor. Alex is calm, patient, and is very generous with his knowledge. Alex is a great mentor and I would recommend him to anyone who wants to do a deep dive into Web3.",
-    dataAiHint: "profile person",
-  },
-  {
-    imageSrc: "/Sepehr.jpg",
-    name: "Sepehr S.",
-    title: "Co-Founder & Sr. Software Engineer",
-    text: "Alex's energy is contagious - he walks into a room and people actually want to work. His understanding of Scrum is deep and practical, and it made a real difference in how our HR department operates. The whole team runs better when he's involved.",
-    dataAiHint: "profile person",
-  },
-  {
     imageSrc: "/marco.jpg",
     name: "Marco",
     title: "Sr. Product Designer",
@@ -76,6 +62,20 @@ export const TESTIMONIALS: Testimonial[] = [
     name: "Lia S.",
     title: "Marketing Strategist",
     text: "Alex really made a huge difference in the operations at Aragon, ensuring every member of the team felt heard and seen - rare in many tech companies today. He also ensured that each member was focused on their personal development and helped us adapt our skills as the organization's needs shifted. He would make a great addition to any project.",
+    dataAiHint: "profile person",
+  },
+  {
+    imageSrc: "/tessa.jpg",
+    name: "Tessa M.",
+    title: "Marketing Strategist",
+    text: "I had the pleasure of meeting Alex through Lunchclub. We talked about the future and Web3, and it was then that I realized I might have found myself a Web3 mentor. Alex is calm, patient, and is very generous with his knowledge. Alex is a great mentor and I would recommend him to anyone who wants to do a deep dive into Web3.",
+    dataAiHint: "profile person",
+  },
+  {
+    imageSrc: "/Sepehr.jpg",
+    name: "Sepehr S.",
+    title: "Co-Founder & Sr. Software Engineer",
+    text: "Alex's energy is contagious - he walks into a room and people actually want to work. His understanding of Scrum is deep and practical, and it made a real difference in how our HR department operates. The whole team runs better when he's involved.",
     dataAiHint: "profile person",
   },
   {

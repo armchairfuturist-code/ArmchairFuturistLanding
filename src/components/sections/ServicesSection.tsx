@@ -94,7 +94,7 @@ export default function ServicesSection() {
               <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-hp-electric block mb-1">Want the skill</span>
               Pick a guidance pack in{" "}
               <a href="#ai-guidance" className="font-semibold text-hp-electric underline underline-offset-4 hover:text-hp-deep transition-colors">
-                one-on-one guidance
+                one-on-one guidance (session packs)
               </a>
               .
             </li>

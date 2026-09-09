@@ -248,9 +248,17 @@ export default function MentoringSection() {
 
           <div className="mb-8">
             <p className="text-sm text-charcoal mb-3">
-              Not sure which fits? Start with a conversation. Sessions are
-              60 minutes. Most clients get 10&ndash;20 hours a week back.
+              Not sure which fits? Take the free assessment for a clear next
+              step — or start with a conversation. Sessions are 60 minutes.
+              Most clients get 10&ndash;20 hours a week back.
             </p>
+            <div className="flex flex-wrap items-center gap-3">
+              <Link
+                href="#assessment"
+                className="inline-flex items-center justify-center h-11 px-6 text-sm font-semibold border border-ink/20 text-ink hover:border-hp-electric hover:text-hp-electric transition-colors"
+              >
+                Take the free assessment
+              </Link>
             <BookCallButton
               size="default"
               icon="calendar-days"
@@ -259,6 +267,7 @@ export default function MentoringSection() {
             >
               Book a Call
             </BookCallButton>
+            </div>
           </div>
 
           <div className="mb-4">

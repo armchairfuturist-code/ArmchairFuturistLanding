@@ -110,7 +110,7 @@ export default function CaseStudiesSection() {
         </div>
 
         <BlurFade inView>
-          <div className="mt-14 md:mt-16 flex flex-col md:flex-row md:items-center md:justify-between gap-6 border border-ink/10 bg-cloud px-6 py-8 md:px-10 md:py-10">
+          <div className="mt-14 md:mt-16 flex flex-col md:flex-row md:items-center md:justify-between gap-6 px-2 py-6">
             <p className="text-lg md:text-xl text-ink font-display font-medium max-w-md leading-snug">
               Every engagement is different. Bring your situation and we will
               work out what fits.
@@ -128,15 +128,15 @@ export default function CaseStudiesSection() {
         </BlurFade>
 
         <BlurFade inView delay={0.1}>
-          <div className="mt-8 md:mt-10 grid md:grid-cols-12 gap-6 md:gap-8 border border-ink/10 bg-canvas px-6 py-8 md:px-10 md:py-10">
+          <div className="mt-8 md:mt-10 grid md:grid-cols-12 gap-6 md:gap-8 bg-ink text-white px-6 py-8 md:px-10 md:py-10">
             <div className="md:col-span-7">
-              <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-3">
+              <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-bright mb-3">
                 The moat is public
               </p>
-              <h3 className="font-display text-2xl md:text-3xl font-bold text-ink tracking-tight leading-[1.1] mb-3">
+              <h3 className="font-display text-2xl md:text-3xl font-bold text-white tracking-tight leading-[1.1] mb-3">
                 Working AI systems, open on GitHub
               </h3>
-              <p className="text-sm md:text-base text-charcoal leading-relaxed max-w-xl">
+              <p className="text-sm md:text-base text-white/80 leading-relaxed max-w-xl">
                 A custom AI server wired into a real investment-analysis workflow. A multi-model writing
                 harness. Production client sites. These are the same ideas from
                 this page, shipped and verifiable, not slideware.
@@ -147,12 +147,12 @@ export default function CaseStudiesSection() {
                 href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 h-12 px-7 text-sm font-semibold uppercase tracking-[0.7px] shrink-0 bg-canvas border border-ink/20 text-ink hover:border-hp-electric hover:text-hp-electric transition-colors"
+                className="inline-flex items-center justify-center gap-2 h-12 px-7 text-sm font-semibold uppercase tracking-[0.7px] shrink-0 bg-white text-ink hover:bg-hp-bright hover:text-ink transition-colors"
               >
                 Browse the Repos
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </a>
-              <p className="text-xs text-graphite font-mono">
+              <p className="text-xs text-white/60 font-mono">
                 github.com/armchairfuturist-code
               </p>
             </div>

@@ -25,7 +25,7 @@ export function OrganismHero() {
       <div className="organism-hero__copy">
         <p className="organism-kicker"><span /> AI literacy &amp; implementation</p>
         <h1>The last AI consultant<br /><em>you&apos;ll ever hire.</em></h1>
-        <p className="organism-deck">Clients trust me with their real work, not a course. We build on what you do. You leave running systems you built, selling what you know.</p>
+        <p className="organism-deck">1:1 AI mastery built on your real work. You leave running systems you built yourself.</p>
         <p className="organism-deck organism-deck--offer">Most clients are self-sufficient in 8&ndash;10 weeks.</p>
         <div className="organism-actions">
           <Link href="/assessment" className="organism-button organism-button--primary">Take the free assessment <ArrowUpRight size={16} aria-hidden="true" /></Link>
@@ -33,7 +33,7 @@ export function OrganismHero() {
         </div>
         <a className="organism-hero__whatsapp" href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
           <WhatsAppGlyph className="organism-hero__whatsapp-icon" />
-          Text me on WhatsApp &mdash; I reply within hours <ArrowUpRight size={13} aria-hidden="true" />
+          Prefer text? WhatsApp me <ArrowUpRight size={13} aria-hidden="true" />
         </a>
       </div>
       <div className="organism-status"><span>40+ systems deployed</span><span>10–20 hrs reclaimed / week</span></div>

@@ -58,7 +58,7 @@ export const SERVICE_PATHS: ServicePath[] = [
         priceKey: "guidanceRange",
         tag: "5 · 10 · 20 Packs",
         description:
-          "Start with a 5-session pack and scale up. Most clients choose 5 or 10. Each session builds your AI literacy, from first understanding to full independence.",
+          "Session packs (5, 10, 20) that build your AI literacy, from first understanding to full independence. Start with 5 and scale up. Most clients choose 5 or 10.",
         features: [
           "60-minute 1-on-1 video sessions",
           "From understanding to agency to action",
@@ -78,7 +78,7 @@ export const SERVICE_PATHS: ServicePath[] = [
         priceKey: "selfSufficiency",
         tag: "8-Week Build Sprint",
       description:
-        "You ship a launched AI-powered service or brand by week 8. A proven playbook, 10–15 coaching sessions, and async support throughout, so you finish with something real to sell, not just notes from sessions.",
+        "The 8-week Build Sprint (AI Self-Sufficiency Program) ships a launched AI-powered service or brand by week 8. A proven playbook, 10–15 coaching sessions, and async support throughout, so you finish with something real to sell, not just notes from sessions.",
         features: [
         "Your own AI-powered service, designed & launched by week 8",
         "Structured build playbook (not open coaching)",

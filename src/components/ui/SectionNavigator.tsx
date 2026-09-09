@@ -74,7 +74,7 @@ export default function SectionNavigator() {
   return (
     <nav
       aria-label="Section navigation"
-      className="hidden lg:flex fixed right-3 top-1/2 -translate-y-1/2 z-50 flex-col gap-2"
+      className="flex fixed right-2 top-1/2 -translate-y-1/2 z-50 flex-col gap-2 max-lg:gap-1"
     >
       {/* Scroll spine — 1px hairline track with electric fill, dot centers to dot centers */}
       <span
@@ -93,7 +93,7 @@ export default function SectionNavigator() {
             key={section.id}
             onClick={() => scrollTo(section.id)}
             aria-current={isActive ? "location" : undefined}
-            className="group relative flex items-center justify-center h-10 w-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:rounded"
+            className="group relative flex items-center justify-center h-10 w-10 min-h-[44px] min-w-[44px] max-lg:h-11 max-lg:w-11 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:rounded"
             aria-label={`Scroll to ${section.label}`}
           >
             {/* Dot — visible marker, button itself is a 40x40 hit area */}
