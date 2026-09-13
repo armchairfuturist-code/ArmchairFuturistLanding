@@ -260,9 +260,6 @@ export default function TestimonialsSection() {
             </AnimatePresence>
           </button>
         </div>
-        <p className="absolute bottom-2 right-4 z-10 hidden md:block text-xs text-graphite/50 font-mono pointer-events-none select-none">
-          hover to pause
-        </p>
         <Marquee
           pauseOnHover
           className={`[--duration:70s] [--gap:1.5rem] md:[--gap:2rem] ${isPaused ? "[&_.animate-marquee]:[animation-play-state:paused]" : ""}`}

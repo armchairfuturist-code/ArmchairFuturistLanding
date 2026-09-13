@@ -14,7 +14,7 @@ These emails must be reliable, branded, and personalized while maintaining deliv
 We implemented a centralized email handling strategy with the following architecture:
 
 ### Email Templates
-All email HTML templates are centralized in `src/lib/assessment/email-templates.ts` with two exported functions:
+All email HTML templates are centralized in `src/lib/email/templates.ts` with two exported functions:
 - `buildProspectResultEmail(data: ResultEmailData): string` - Main email to prospects
 - `buildAlexNotificationEmail(data: ResultEmailData): string` - Lead notification to Alex
 
@@ -30,6 +30,12 @@ Shared utilities in `src/lib/email-utils.ts`:
 3. **Lead Storage**: Firestore write (optional, non-blocking)
 4. **Email Sending**: Resend API calls for both emails (parallel execution)
 5. **Response**: Success response with email ID
+
+Note: submission routes now share a factory — `createSubmissionRoute` in
+`src/lib/submission-route.ts` owns the rate-limit → parse → pipeline →
+status envelope, with per-route specs, and `src/lib/submission-pipeline.ts`
+owns validation, lead storage, and email dispatch. Individual route files
+supply only their spec (kind, lead store, rate-limit bucket, projections).
 
 ### Email Content Structure
 

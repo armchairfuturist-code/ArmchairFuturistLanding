@@ -34,6 +34,9 @@ export const SECTION_IDS = {
 
 const sections: SectionEntry[] = [
   // Eager — above the fold
+  // Placeholder entry: page.tsx special-cases the hero id to render
+  // OrganismHero instead of `component`. Keep this entry so homepage
+  // ordering stays in one place (navigable: false hides it from the navigator).
   {
     id: SECTION_IDS.hero,
     label: "Hero",

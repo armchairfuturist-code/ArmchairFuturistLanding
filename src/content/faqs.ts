@@ -1,4 +1,4 @@
-import { formatDualPrice, formatDualRange, PROGRAM_PRICE_LABEL } from "@/lib/pricing";
+import { PROGRAM_PRICE_LABEL, DIGITAL_IDENTITY_LABEL, CUSTOM_PROVISIONING_RANGE_LABEL, PACK_5_LABEL, SINGLE_SESSION_LABEL } from "@/lib/pricing";
 
 /** FAQ Item content — presentation-free. */
 export interface FaqItem {
@@ -34,7 +34,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "How much do services cost?",
     answer:
-      `Two paths. 'We do it together' guidance starts at the 5-session pack (${formatDualPrice(570, 475)}) and scales through 10 and 20-session packs (up to 15% savings). These build your AI literacy at your own pace. The ${PROGRAM_PRICE_LABEL} AI Self-Sufficiency Program is an 8-week build sprint where you launch your own AI-powered service or brand, with 10-15 coaching sessions, a structured playbook, and async support. The Digital Identity Landing Page (${formatDualPrice(233, 199)}) is the easiest entry into the 'I do it for you' path. Custom AI Provisioning runs ${formatDualRange(1000, 5000, 850, 4250)} depending on scope.`,
+      `Two paths. 'We do it together' guidance starts at the 5-session pack (${PACK_5_LABEL}) and scales through 10 and 20-session packs (up to 15% savings). These build your AI literacy at your own pace. The ${PROGRAM_PRICE_LABEL} AI Self-Sufficiency Program is an 8-week build sprint where you launch your own AI-powered service or brand, with 10-15 coaching sessions, a structured playbook, and async support. The Digital Identity Landing Page (${DIGITAL_IDENTITY_LABEL}) is the easiest entry into the 'I do it for you' path. Custom AI Provisioning runs ${CUSTOM_PROVISIONING_RANGE_LABEL} depending on scope.`,
   },
   {
     question: "How does AI guidance work?",
@@ -69,7 +69,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "What is Custom AI Provisioning?",
     answer:
-      `A done-for-you service where I build you a private AI command center: custom business workflows, agent installation (OpenClaw, Hermes), API integrations, calendar/email sync, and secure infrastructure. Pricing ranges ${formatDualRange(1000, 5000, 850, 4250)} depending on scope, delivered in 1-2 weeks. You own everything: code, data, infrastructure.`,
+      `A done-for-you service where I build you a private AI command center: custom business workflows, agent installation (OpenClaw, Hermes), API integrations, calendar/email sync, and secure infrastructure. Pricing ranges ${CUSTOM_PROVISIONING_RANGE_LABEL} depending on scope, delivered in 1-2 weeks. You own everything: code, data, infrastructure.`,
   },
   {
     question: "Who do you work best with, and who isn't a fit?",
@@ -87,6 +87,6 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "How do I get started?",
     answer:
-      `Three ways, depending on where you are. The Digital Identity Landing Page (${formatDualPrice(233, 199)}) requires no call. Just submit the intake. For guidance, browse session packs starting at ${formatDualPrice(120, 100)} or apply for the AI Self-Sufficiency Program. For done-for-you builds, request a 30-minute fit call and I'll scope the work.`,
+      `Three ways, depending on where you are. The Digital Identity Landing Page (${DIGITAL_IDENTITY_LABEL}) requires no call. Just submit the intake. For guidance, browse session packs starting at ${SINGLE_SESSION_LABEL} or apply for the AI Self-Sufficiency Program. For done-for-you builds, request a 30-minute fit call and I'll scope the work.`,
   },
 ];

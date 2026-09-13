@@ -5,17 +5,15 @@ import { useRouter } from "next/navigation";
 import { questions, type AnswerOption } from "@/lib/assessment/config";
 import {
   buildResultPath,
+  clearQuizDraft,
   createInitialAssessmentState,
   persistFlowResult,
+  readQuizDraft,
   reduceAssessmentFlow,
+  saveQuizDraft,
   totalQuestions,
   type AssessmentFlowState,
 } from "@/lib/assessment/flow";
-import {
-  clearQuizDraft,
-  readQuizDraft,
-  saveQuizDraft,
-} from "@/lib/assessment/quiz-session";
 import { trackConversion, trackEvent } from "@/lib/analytics";
 
 export interface UseAssessmentFlow extends AssessmentFlowState {
@@ -63,7 +61,12 @@ export function useAssessmentFlow(): UseAssessmentFlow {
       } else {
         optionIndex = question.answers.findIndex((a) => a.text === option.text);
       }
-      if (optionIndex < 0) return;
+      if (optionIndex < 0) {
+        console.warn(
+          `[assessment] Ignoring unmapped legacy answer option for question ${state.currentQuestion}`,
+        );
+        return;
+      }
 
       trackEvent(`assessment_question_${state.currentQuestion + 1}`, {
         question_id: question.id,

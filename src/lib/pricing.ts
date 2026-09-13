@@ -271,12 +271,50 @@ export const PROGRAM_PRICE_LABEL = formatDualPrice(
   SERVICES_PRICING.selfSufficiency.priceEUR,
 );
 
+/** Digital Identity Landing Page price, dual label. */
+export const DIGITAL_IDENTITY_LABEL = formatDualPrice(
+  SERVICES_PRICING.digitalIdentity.priceUSD,
+  SERVICES_PRICING.digitalIdentity.priceEUR,
+);
+
+/** Custom AI Provisioning range, dual label. */
+export const CUSTOM_PROVISIONING_RANGE_LABEL = formatDualRange(
+  SERVICES_PRICING.customAiProvisioning.minPriceUSD,
+  SERVICES_PRICING.customAiProvisioning.maxPriceUSD,
+  SERVICES_PRICING.customAiProvisioning.minPriceEUR,
+  SERVICES_PRICING.customAiProvisioning.maxPriceEUR,
+);
+
 /** 1-on-1 Guidance range, dual label, derived from the coaching packs so it cannot diverge. */
 export const GUIDANCE_RANGE_LABEL = (() => {
-  const low = COACHING_PACKAGES.find((p) => p.id === 'pack-5')!;
-  const high = COACHING_PACKAGES.find((p) => p.id === 'pack-20')!;
-  return `$${low.totalPriceUSD.toLocaleString('en-US')}–$${high.totalPriceUSD.toLocaleString('en-US')} · €${low.totalPrice.toLocaleString('en-US')}–€${high.totalPrice.toLocaleString('en-US')}`;
+  const low = COACHING_PACKAGES_BY_ID['pack-5'];
+  const high = COACHING_PACKAGES_BY_ID['pack-20'];
+  return formatDualRange(low.totalPriceUSD, high.totalPriceUSD, low.totalPrice, high.totalPrice);
 })();
+
+/**
+ * Per-pack dual label derived from COACHING_PACKAGES so single sessions
+ * cannot diverge. Locality: the lookup lives in this pricing module next
+ * to the pack records; callers leverage this seam instead of hardcoding
+ * numbers, and each section adapter renders the returned interface string.
+ */
+export function packLabel(id: string): string {
+  const pack = COACHING_PACKAGES_BY_ID[id];
+  if (!pack) throw new Error(`Unknown coaching pack: ${id}`);
+  return formatDualPrice(pack.totalPriceUSD, pack.totalPrice);
+}
+
+/** Single Session price, dual label — reads from COACHING_PACKAGES. */
+export const SINGLE_SESSION_LABEL = packLabel('single');
+
+/** 5-Session Pack price, dual label — reads from COACHING_PACKAGES. */
+export const PACK_5_LABEL = packLabel('pack-5');
+
+/** 10-Session Pack price, dual label — reads from COACHING_PACKAGES. */
+export const PACK_10_LABEL = packLabel('pack-10');
+
+/** 20-Session Pack price, dual label — reads from COACHING_PACKAGES. */
+export const PACK_20_LABEL = packLabel('pack-20');
 
 /**
  * Price range for structured data. USD-only: mixing EUR-base coaching

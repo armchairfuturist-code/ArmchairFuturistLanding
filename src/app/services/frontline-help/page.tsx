@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { BlurFade } from '@/components/ui/blur-fade';
 import Breadcrumbs from '@/components/ui/breadcrumbs';
+import { AUDIT_PRICE_LABEL } from '@/lib/pricing';
 
 export const metadata: Metadata = {
   title: 'Front-Line Help: Agents, SaaS Cuts, Model Costs',
@@ -152,7 +153,7 @@ export default function FrontlineHelpPage() {
               One intake or support flow. Measured for two weeks. Then decide.
             </p>
             <p className="text-sm text-foreground/70 mb-8">
-              $297 · €247. Ranked actions and wiring order. Fewer than three ranked actions, you do not pay.
+              {AUDIT_PRICE_LABEL}. Ranked actions and wiring order. Fewer than three ranked actions, you do not pay.
             </p>
             <Button asChild size="lg" className="font-bold">
               <Link href="/audit">Get the ROI Blueprint</Link>

@@ -1,12 +1,15 @@
 import { SERVICES_PRICING } from '@/lib/pricing';
+import { basePaidCase } from '@/lib/paid-case';
 import type { AuditCaseShape } from './state';
 
 /**
- * Audit case construction (ADR-004).
+ * Audit case construction (ADR-004): thin adapter over the shared
+ * paid-case engine.
  *
  * Pure: builds the canonical `audit_cases` document payload from validated
- * intake input + the assessment context. Money comes from pricing.ts —
- * never hardcoded here. Firestore write lives in lead-store.ts.
+ * intake input + the assessment context. Envelope (ids, timestamps,
+ * submitted status, contact) comes from `basePaidCase`; money comes from
+ * pricing.ts — never hardcoded here. Firestore write lives in lead-store.ts.
  *
  * name + email live at the document top level (not inside intake) so the
  * case list is queryable without opening nested objects.
@@ -46,21 +49,16 @@ export function buildAuditCase(
   email: string;
 } {
   return {
-    caseId,
-    createdAt: nowIso,
-    updatedAt: nowIso,
+    ...basePaidCase(contact, caseId, nowIso),
     offer: 'roadmapAudit',
     price: {
       usd: SERVICES_PRICING.roadmapAudit.priceUSD,
       eur: SERVICES_PRICING.roadmapAudit.priceEUR,
     },
-    name: contact.name,
-    email: contact.email,
     archetypeSlug: archetype.slug,
     archetypeName: archetype.name,
     scores,
     intake,
-    status: 'submitted',
     booking: {},
     payment: { status: 'none' },
   };

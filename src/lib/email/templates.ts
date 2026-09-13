@@ -10,7 +10,7 @@
 
 import { buildEmailWrapper, EMAIL_BRAND, escapeHtml } from '@/lib/email-utils';
 import { CALENDAR_URL, SITE_URL } from '@/lib/constants';
-import { AUDIT_PRICE_LABEL, AUDIT_LIST_LABEL } from '@/lib/pricing';
+import { AUDIT_PRICE_LABEL, AUDIT_LIST_LABEL, DIGITAL_IDENTITY_LABEL } from '@/lib/pricing';
 
 // ── Assessment ────────────────────────────────────────────────────────
 
@@ -389,7 +389,7 @@ export function buildIdentityConfirmationEmail(data: IdentityConfirmationEmailDa
       1. Alex reviews your links and confirms the fit (usually same day).
     </p>
     <p style="margin:0 0 12px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
-      2. You get a payment request. $233 · €199, one-time. No subscription.
+      2. You get a payment request. ${DIGITAL_IDENTITY_LABEL}, one-time. No subscription.
     </p>
     <p style="margin:0 0 12px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
       3. Your page is built and delivered in 2-4 days with a handoff doc. You own the code and content.

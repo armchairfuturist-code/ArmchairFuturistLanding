@@ -14,6 +14,7 @@ Architecture decisions live in [`docs/adr/`](docs/adr/).
 | **Submission pipeline** (`src/lib/submission-pipeline.ts`) | Deep server Lead Intake (ADR-003) — do not shallow-split |
 | **Audit Case System** (`src/lib/audit/state.ts`) | Audit engagement lifecycle: one `audit_cases` doc per lead, pure `nextAction(case)` state machine, prompt bank in `src/lib/audit/prompts/` (ADR-004) |
 | **Pricing** (`src/lib/pricing.ts`) | Single source of pricing truth: canonical dual-label strings (`$X · €Y`), `formatSchemaPriceRange()` for JSON-LD — never hardcode a price in UI, emails, or FAQs |
+| **Paid-case engine** (`src/lib/paid-case.ts`) | Shared paid-intake envelope (id gen, best-effort persist, notify pair, transition contract); Audit Case System and Identity case are adapters carrying only enums and prompts |
 
 ## ADRs
 

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { calculateScores } from '../scoring';
+import { calculateScores } from '../flow';
 import { questions } from '../config';
 
 describe('calculateScores', () => {

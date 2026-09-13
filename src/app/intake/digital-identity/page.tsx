@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import IdentityIntakeForm from '@/components/identity/IdentityIntakeForm';
-import { formatDualPrice } from '@/lib/pricing';
+import { DIGITAL_IDENTITY_LABEL } from '@/lib/pricing';
 
 export const metadata: Metadata = {
   title: 'Digital Identity Landing Page — The Armchair Futurist',
   description:
-    'An interview-ready digital identity site consolidating your LinkedIn, resume, and social links. Delivered in 2-4 days. You own the code and content. $233 · €199.',
+    `An interview-ready digital identity site consolidating your LinkedIn, resume, and social links. Delivered in 2-4 days. You own the code and content. ${DIGITAL_IDENTITY_LABEL}.`,
   alternates: { canonical: '/intake/digital-identity' },
 };
 
@@ -25,7 +25,7 @@ export default function DigitalIdentityIntakePage() {
           serious operators.
         </p>
         <p className="text-base text-charcoal font-sans leading-relaxed mb-8">
-          <span className="font-bold text-ink">$233 · €199</span>, one-time.
+          <span className="font-bold text-ink">{DIGITAL_IDENTITY_LABEL}</span>, one-time.
           Delivered in 2-4 days. No payment now — you get a payment request
           after Alex confirms the fit.
         </p>

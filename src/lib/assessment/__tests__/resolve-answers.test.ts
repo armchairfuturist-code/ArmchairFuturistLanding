@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { resolveAnswersFromIndices, scoreFromAnswerIndices, QUESTION_COUNT } from '../resolve-answers';
+import { resolveAnswersFromIndices, scoreFromAnswerIndices, QUESTION_COUNT } from '../flow';
 
 describe('resolveAnswersFromIndices', () => {
   it('resolves valid indices', () => {

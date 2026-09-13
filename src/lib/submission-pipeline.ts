@@ -7,6 +7,13 @@ import { buildAuditCase } from './audit/case';
 import { buildIdentityCase } from './identity/case';
 import { isValidEmail, sanitizeEmailHeaderValue } from './email-utils';
 import { ALEX_EMAIL, FROM_EMAIL } from './email/config';
+import {
+  checkPaidIntakeContact,
+  cleanField,
+  generateCaseId,
+  persistBestEffort,
+  sendCaseNotificationPair,
+} from './paid-case';
 
 // ── Input types ──────────────────────────────────────────────
 
@@ -305,30 +312,20 @@ const AUDIT_REQUIRED_FIELDS = [
   'availability',
 ] as const;
 
-function auditField(raw: unknown, max: number): string {
-  return typeof raw === 'string' ? raw.trim().slice(0, max) : '';
-}
-
 async function submitAuditIntake(
   input: AuditIntakeInput,
   emailSender: EmailSender,
   leadStore: LeadStore,
 ): Promise<SubmissionResult> {
-  // Required fields (triedFailed may be empty — "nothing yet" is an answer,
-  // so it is validated for presence of the key but allowed to be blank).
-  for (const field of AUDIT_REQUIRED_FIELDS) {
-    const value = (input as unknown as Record<string, unknown>)[field];
-    if (typeof value !== 'string' || !value.trim()) {
-      return { ok: false, error: `Missing field: ${field}.`, status: 400 };
-    }
-  }
-
-  if (!isValidEmail(input.email)) {
-    return { ok: false, error: 'Invalid email address.', status: 400 };
+  // Full validity contract for the audit kind lives here (the route only
+  // shape-parses). Required-field loop + email format come from the engine.
+  const contactError = checkPaidIntakeContact(input, AUDIT_REQUIRED_FIELDS);
+  if (contactError) {
+    return { ok: false, error: contactError, status: 400 };
   }
 
   const maturity = input.aiMaturity as 'chat' | 'automations' | 'agents' | 'unsure';
-  if (!['chat', 'automations', 'agents', 'unsure'].includes(maturity)) {
+  if (!AI_MATURITY_VALUES.includes(maturity)) {
     return { ok: false, error: 'Invalid AI maturity value.', status: 400 };
   }
 
@@ -336,23 +333,24 @@ async function submitAuditIntake(
     return { ok: false, error: 'Invalid scope value.', status: 400 };
   }
 
-  const caseId = `audit_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
+  const caseId = generateCaseId('audit');
   const nowIso = new Date().toISOString();
+  const name = cleanField(input.name, MAX_NAME_LENGTH);
   const archetype = input.archetype ?? { slug: 'unknown', name: 'Direct' };
   const scores = input.scores ?? { clarity: 0, readiness: 0, urgency: 0, individualSignals: 0 };
 
   const casePayload = buildAuditCase(
-    { name: input.name.trim().slice(0, MAX_NAME_LENGTH), email: input.email },
+    { name, email: input.email },
     {
-      role: input.role.trim().slice(0, 500),
+      role: cleanField(input.role, 500),
       scope: input.scope as 'individual' | 'organization',
       aiMaturity: maturity,
-      paidTools: input.paidTools.trim().slice(0, 500),
-      weekEaters: input.weekEaters.trim().slice(0, 2000),
-      win90d: input.win90d.trim().slice(0, 500),
-      triedFailed: input.triedFailed.trim().slice(0, 1000),
-      biggestQuestion: input.biggestQuestion.trim().slice(0, 500),
-      availability: input.availability.trim().slice(0, 300),
+      paidTools: cleanField(input.paidTools, 500),
+      weekEaters: cleanField(input.weekEaters, 2000),
+      win90d: cleanField(input.win90d, 500),
+      triedFailed: cleanField(input.triedFailed, 1000),
+      biggestQuestion: cleanField(input.biggestQuestion, 500),
+      availability: cleanField(input.availability, 300),
     },
     archetype,
     scores,
@@ -361,54 +359,50 @@ async function submitAuditIntake(
   );
 
   // Persist (best-effort)
-  let storageFailed = false;
-  try {
-    await leadStore.saveAuditCase(casePayload as AuditCaseData);
-  } catch (err) {
-    console.warn('Audit case storage failed:', err);
-    storageFailed = true;
-  }
+  const storageFailed = await persistBestEffort(
+    () => leadStore.saveAuditCase(casePayload as AuditCaseData),
+    'Audit case storage failed:',
+  );
 
-  const confirmation = await emailSender.send({
-    from: FROM_EMAIL,
-    to: input.email,
-    subject: `Your audit briefing is in — book the fit call`,
-    html: buildAuditConfirmationEmail({
-      name: input.name.trim().slice(0, MAX_NAME_LENGTH),
-      archetypeName: input.archetype?.name,
-      biggestQuestion: casePayload.intake.biggestQuestion,
-      availability: casePayload.intake.availability,
-      aiMaturity: maturity,
-    }),
-  });
-
-  await emailSender.send({
-    from: FROM_EMAIL,
-    to: ALEX_EMAIL,
-    subject: `New Audit Intake: ${sanitizeEmailHeaderValue(input.name.trim().slice(0, MAX_NAME_LENGTH))} <${input.email}>`,
-    html: buildAuditLeadNotificationEmail({
-      name: input.name.trim().slice(0, MAX_NAME_LENGTH),
-      email: input.email,
-      archetypeName: input.archetype?.name,
-      intake: {
-        Role: casePayload.intake.role,
-        Scope: casePayload.intake.scope,
-        'AI maturity': casePayload.intake.aiMaturity,
-        'Paid tools': casePayload.intake.paidTools,
-        'Week-eaters': casePayload.intake.weekEaters,
-        '90-day win': casePayload.intake.win90d,
-        'Tried and dropped': casePayload.intake.triedFailed,
-        'Biggest question': casePayload.intake.biggestQuestion,
-        Availability: casePayload.intake.availability,
-        'Case ID': caseId,
-      },
-    }),
-  });
+  const emailId = await sendCaseNotificationPair(
+    emailSender,
+    {
+      to: input.email,
+      subject: `Your audit briefing is in — book the fit call`,
+      html: buildAuditConfirmationEmail({
+        name,
+        archetypeName: input.archetype?.name,
+        biggestQuestion: casePayload.intake.biggestQuestion,
+        availability: casePayload.intake.availability,
+        aiMaturity: maturity,
+      }),
+    },
+    {
+      subject: `New Audit Intake: ${sanitizeEmailHeaderValue(name)} <${input.email}>`,
+      html: buildAuditLeadNotificationEmail({
+        name,
+        email: input.email,
+        archetypeName: input.archetype?.name,
+        intake: {
+          Role: casePayload.intake.role,
+          Scope: casePayload.intake.scope,
+          'AI maturity': casePayload.intake.aiMaturity,
+          'Paid tools': casePayload.intake.paidTools,
+          'Week-eaters': casePayload.intake.weekEaters,
+          '90-day win': casePayload.intake.win90d,
+          'Tried and dropped': casePayload.intake.triedFailed,
+          'Biggest question': casePayload.intake.biggestQuestion,
+          Availability: casePayload.intake.availability,
+          'Case ID': caseId,
+        },
+      }),
+    },
+  );
 
   return {
     ok: true,
     data: {
-      emailId: confirmation.id,
+      emailId,
       caseId,
       storageFailed,
     },
@@ -416,6 +410,8 @@ async function submitAuditIntake(
 }
 
 // ── Identity intake (Plan 010) ───────────────────────────────
+
+const IDENTITY_REQUIRED_FIELDS = ['name', 'email', 'scope', 'linkedinUrl', 'resumeUrl', 'headline'] as const;
 
 function looksLikeUrl(raw: string): boolean {
   try {
@@ -431,16 +427,11 @@ async function submitIdentityIntake(
   emailSender: EmailSender,
   leadStore: LeadStore,
 ): Promise<SubmissionResult> {
-  const REQUIRED = ['name', 'email', 'scope', 'linkedinUrl', 'resumeUrl', 'headline'] as const;
-  for (const field of REQUIRED) {
-    const value = (input as unknown as Record<string, unknown>)[field];
-    if (typeof value !== 'string' || !value.trim()) {
-      return { ok: false, error: `Missing field: ${field}.`, status: 400 };
-    }
-  }
-
-  if (!isValidEmail(input.email)) {
-    return { ok: false, error: 'Invalid email address.', status: 400 };
+  // Full validity contract for the identity kind lives here (the route
+  // only shape-parses). Required-field loop + email format via the engine.
+  const contactError = checkPaidIntakeContact(input, IDENTITY_REQUIRED_FIELDS);
+  if (contactError) {
+    return { ok: false, error: contactError, status: 400 };
   }
 
   if (input.scope !== 'individual' && input.scope !== 'organization') {
@@ -454,66 +445,63 @@ async function submitIdentityIntake(
     return { ok: false, error: 'Resume link must be a full URL.', status: 400 };
   }
 
-  const caseId = `id_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
+  const caseId = generateCaseId('id');
   const nowIso = new Date().toISOString();
+  const name = cleanField(input.name, MAX_NAME_LENGTH);
 
   const casePayload = buildIdentityCase(
-    { name: input.name.trim().slice(0, MAX_NAME_LENGTH), email: input.email },
+    { name, email: input.email },
     {
       scope: input.scope as 'individual' | 'organization',
-      linkedinUrl: input.linkedinUrl.trim().slice(0, 300),
-      resumeUrl: input.resumeUrl.trim().slice(0, 300),
-      socialLinks: input.socialLinks.trim().slice(0, 500),
-      headline: input.headline.trim().slice(0, 300),
-      notes: input.notes.trim().slice(0, 1000),
+      linkedinUrl: cleanField(input.linkedinUrl, 300),
+      resumeUrl: cleanField(input.resumeUrl, 300),
+      socialLinks: cleanField(input.socialLinks, 500),
+      headline: cleanField(input.headline, 300),
+      notes: cleanField(input.notes, 1000),
     },
     caseId,
     nowIso,
   );
 
   // Persist (best-effort)
-  let storageFailed = false;
-  try {
-    await leadStore.saveIdentityCase(casePayload);
-  } catch (err) {
-    console.warn('Identity case storage failed:', err);
-    storageFailed = true;
-  }
+  const storageFailed = await persistBestEffort(
+    () => leadStore.saveIdentityCase(casePayload),
+    'Identity case storage failed:',
+  );
 
-  const confirmation = await emailSender.send({
-    from: FROM_EMAIL,
-    to: input.email,
-    subject: `Your digital identity intake is in — next steps`,
-    html: buildIdentityConfirmationEmail({
-      name: input.name.trim().slice(0, MAX_NAME_LENGTH),
-      headline: input.headline.trim().slice(0, 200),
-      scope: input.scope,
-    }),
-  });
-
-  await emailSender.send({
-    from: FROM_EMAIL,
-    to: ALEX_EMAIL,
-    subject: `New Digital Identity Intake: ${sanitizeEmailHeaderValue(input.name.trim().slice(0, MAX_NAME_LENGTH))} <${input.email}>`,
-    html: buildIdentityLeadNotificationEmail({
-      name: input.name.trim().slice(0, MAX_NAME_LENGTH),
-      email: input.email,
-      intake: {
-        Scope: input.scope,
-        LinkedIn: input.linkedinUrl,
-        Resume: input.resumeUrl,
-        'Social links': input.socialLinks || '(none)',
-        Headline: input.headline,
-        Notes: input.notes || '(none)',
-        'Case ID': caseId,
-      },
-    }),
-  });
+  const emailId = await sendCaseNotificationPair(
+    emailSender,
+    {
+      to: input.email,
+      subject: `Your digital identity intake is in — next steps`,
+      html: buildIdentityConfirmationEmail({
+        name,
+        headline: cleanField(input.headline, 200),
+        scope: input.scope,
+      }),
+    },
+    {
+      subject: `New Digital Identity Intake: ${sanitizeEmailHeaderValue(name)} <${input.email}>`,
+      html: buildIdentityLeadNotificationEmail({
+        name,
+        email: input.email,
+        intake: {
+          Scope: input.scope,
+          LinkedIn: input.linkedinUrl,
+          Resume: input.resumeUrl,
+          'Social links': input.socialLinks || '(none)',
+          Headline: input.headline,
+          Notes: input.notes || '(none)',
+          'Case ID': caseId,
+        },
+      }),
+    },
+  );
 
   return {
     ok: true,
     data: {
-      emailId: confirmation.id,
+      emailId,
       caseId,
       storageFailed,
     },

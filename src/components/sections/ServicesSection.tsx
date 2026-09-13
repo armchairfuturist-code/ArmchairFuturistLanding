@@ -1,11 +1,12 @@
 "use client";
-import { ArrowRight, CheckCircle2, Zap, BookOpen, Target, Sparkles, Wrench, Globe, Compass, type LucideIcon } from 'lucide-react';
+import { useState } from "react";
+import { ArrowRight, CheckCircle2, Zap, BookOpen, Target, Sparkles, Wrench, Globe, Compass, ChevronDown, ChevronUp, type LucideIcon } from 'lucide-react';
 import Link from 'next/link';
 import { trackEvent } from '@/lib/analytics';
 import { CardContent, CardHeader, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from 'motion/react';
-import { AUDIT_PRICE_LABEL, PROGRAM_PRICE_LABEL, GUIDANCE_RANGE_LABEL, formatDualPrice, formatDualRange, SERVICES_PRICING } from '@/lib/pricing';
+import { AUDIT_PRICE_LABEL, PROGRAM_PRICE_LABEL, GUIDANCE_RANGE_LABEL, DIGITAL_IDENTITY_LABEL, CUSTOM_PROVISIONING_RANGE_LABEL } from '@/lib/pricing';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { MagneticCard } from '@/components/ui/MagneticCard';
 import { staggerContainer, springStaggerItem } from '@/lib/animation-variants';
@@ -24,28 +25,23 @@ const ICON_MAP: Record<string, LucideIcon> = {
 
 
 export default function ServicesSection() {
+  const [showAllTogether, setShowAllTogether] = useState(false);
+  const [showForyou, setShowForyou] = useState(false);
 
-  // Canonical dual-label pricing (critique 2026-08-31): every price shows
-  // both currencies from pricing.ts; no toggle, no hydration flip.
-  const displayPrice = (tier: ServiceTier) => {
-    if (tier.priceKey === "roadmapAudit") return AUDIT_PRICE_LABEL;
-    if (tier.priceKey === "selfSufficiency") return PROGRAM_PRICE_LABEL;
-    if (tier.priceKey === "guidanceRange") return GUIDANCE_RANGE_LABEL;
-    if (tier.priceKey === "digitalIdentity") {
-      return formatDualPrice(
-        SERVICES_PRICING.digitalIdentity.priceUSD,
-        SERVICES_PRICING.digitalIdentity.priceEUR,
-      );
+  // Adapter over the priceKey seam: pricing.ts owns the labels (locality),
+  // this module only maps the interface key to a label. Exhaustive — no fallback.
+  const displayPrice = (tier: ServiceTier): string => {
+    switch (tier.priceKey) {
+      case "roadmapAudit": return AUDIT_PRICE_LABEL;
+      case "selfSufficiency": return PROGRAM_PRICE_LABEL;
+      case "guidanceRange": return GUIDANCE_RANGE_LABEL;
+      case "digitalIdentity": return DIGITAL_IDENTITY_LABEL;
+      case "customAiProvisioning": return CUSTOM_PROVISIONING_RANGE_LABEL;
+      default: {
+        const _exhaustive: never = tier.priceKey;
+        return _exhaustive;
+      }
     }
-    if (tier.priceKey === "customAiProvisioning") {
-      return formatDualRange(
-        SERVICES_PRICING.customAiProvisioning.minPriceUSD,
-        SERVICES_PRICING.customAiProvisioning.maxPriceUSD,
-        SERVICES_PRICING.customAiProvisioning.minPriceEUR,
-        SERVICES_PRICING.customAiProvisioning.maxPriceEUR,
-      );
-    }
-    return tier.price;
   };
 
   return (
@@ -102,7 +98,42 @@ export default function ServicesSection() {
         </BlurFade>
 
         <div className="space-y-20">
-          {SERVICE_PATHS.map((path) => (
+          {SERVICE_PATHS.map((path) => {
+            // Progressive disclosure: "together" shows highlighted tier only;
+            // "foryou" is hidden entirely — each expands on user action.
+            const isTogether = path.id === "together";
+            const visibleTiers = isTogether && !showAllTogether
+              ? path.tiers.filter((t) => t.highlighted)
+              : path.tiers;
+            const hiddenCount = path.tiers.length - visibleTiers.length;
+
+            // Skip rendering the foryou path until toggled
+            if (path.id === "foryou" && !showForyou) {
+              return (
+                <div key={path.id} className="border-t border-hairline pt-8">
+                  <button
+                    type="button"
+                    onClick={() => setShowForyou(true)}
+                    className="group w-full flex items-center justify-between px-4 py-5 border border-dashed border-hairline-strong bg-canvas hover:border-hp-electric/40 hover:bg-hp-electric/[0.02] transition-colors text-left"
+                    aria-expanded={false}
+                  >
+                    <div>
+                      <p className="text-xs font-mono uppercase tracking-widest text-graphite mb-1 flex items-center gap-2">
+                        <Wrench className="h-3.5 w-3.5 text-hp-electric" aria-hidden="true" />
+                        <span>Done-For-You Implementation</span>
+                      </p>
+                      <p className="text-sm text-charcoal mt-1">
+                        Production-ready AI, built and shipped.{" "}
+                        <span className="text-hp-electric font-medium">Show 2 options</span>
+                      </p>
+                    </div>
+                    <ChevronDown className="h-5 w-5 text-graphite group-hover:text-hp-electric transition-colors shrink-0" aria-hidden="true" />
+                  </button>
+                </div>
+              );
+            }
+
+            return (
             <div key={path.id}>
               <BlurFade inView>
                 {path.id === "together" && (
@@ -152,7 +183,7 @@ export default function ServicesSection() {
                     : 'md:grid-cols-2 lg:grid-cols-3 max-w-6xl'
                 }`}
               >
-                {path.tiers.map((tier) => {
+                {visibleTiers.map((tier) => {
                   const Icon = ICON_MAP[tier.icon];
                   return (
                     <MagneticCard
@@ -230,8 +261,39 @@ export default function ServicesSection() {
                   );
                 })}
               </motion.div>
+
+              {/* Show-all toggle for "together" path when tiers are hidden */}
+              {isTogether && hiddenCount > 0 && !showAllTogether && (
+                <BlurFade inView className="mt-6">
+                  <button
+                    type="button"
+                    onClick={() => setShowAllTogether(true)}
+                    className="group w-full flex items-center justify-center gap-2 py-4 border border-dashed border-hairline-strong bg-canvas hover:border-hp-electric/40 hover:bg-hp-electric/[0.02] transition-colors text-sm font-medium text-charcoal hover:text-hp-electric"
+                    aria-expanded={false}
+                  >
+                    <span>Show all {path.tiers.length} options</span>
+                    <ChevronDown className="h-4 w-4 group-hover:text-hp-electric transition-colors" aria-hidden="true" />
+                  </button>
+                </BlurFade>
+              )}
+
+              {/* Collapse toggle for "together" when all tiers are visible */}
+              {isTogether && showAllTogether && (
+                <BlurFade inView className="mt-6">
+                  <button
+                    type="button"
+                    onClick={() => setShowAllTogether(false)}
+                    className="group w-full flex items-center justify-center gap-2 py-4 border border-dashed border-hairline-strong bg-canvas hover:border-hp-electric/40 hover:bg-hp-electric/[0.02] transition-colors text-sm font-medium text-charcoal hover:text-hp-electric"
+                    aria-expanded={true}
+                  >
+                    <span>Show fewer options</span>
+                    <ChevronUp className="h-4 w-4 group-hover:text-hp-electric transition-colors" aria-hidden="true" />
+                  </button>
+                </BlurFade>
+              )}
             </div>
-          ))}
+          );
+          })}
         </div>
 
         <BlurFade inView>

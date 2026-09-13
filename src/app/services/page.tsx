@@ -4,11 +4,12 @@ import { Button } from '@/components/ui/button';
 import { BlurFade } from '@/components/ui/blur-fade';
 import Breadcrumbs from '@/components/ui/breadcrumbs';
 import { ArrowRight } from 'lucide-react';
+import { AUDIT_PRICE_LABEL } from '@/lib/pricing';
 
 export const metadata: Metadata = {
   title: 'AI Systems That Pay Off | The Armchair Futurist',
   description:
-    'Work I build with you, systems you own. ROI Blueprint, data groundwork, revenue ops, reporting, and front-line agents. Starts with a $297 · €247 audit.',
+    `Work I build with you, systems you own. ROI Blueprint, data groundwork, revenue ops, reporting, and front-line agents. Starts with a ${AUDIT_PRICE_LABEL} audit.`,
   alternates: { canonical: '/services' },
   openGraph: {
     title: 'AI Systems That Pay Off | The Armchair Futurist',
@@ -179,7 +180,7 @@ export default function ServicesHubPage() {
               Map it before you build it
             </h2>
             <p className="text-lg text-foreground/80 mb-8">
-              The Blueprint costs $297 · €247 while the format is new. If it
+              The Blueprint costs {AUDIT_PRICE_LABEL} while the format is new. If it
               names fewer than three ranked actions, you do not pay.
             </p>
             <Button asChild size="lg" className="font-bold">

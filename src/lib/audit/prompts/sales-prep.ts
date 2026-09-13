@@ -7,6 +7,7 @@
  */
 
 import type { AuditCaseShape } from '../state';
+import { AUDIT_PRICE_LABEL, AUDIT_LIST_LABEL } from '@/lib/pricing';
 
 export function buildSalesPrepPrompt(c: AuditCaseShape): string {
   const i = c.intake;
@@ -15,7 +16,7 @@ export function buildSalesPrepPrompt(c: AuditCaseShape): string {
 ## Case
 - Archetype from assessment: ${c.archetypeName} (${c.archetypeSlug})
 - Assessment scores: clarity ${c.scores.clarity}, readiness ${c.scores.readiness}, urgency ${c.scores.urgency}
-- Audit price discussed on the call: $297 · €247 (launch rate; normally $497 · €417)
+- Audit price discussed on the call: ${AUDIT_PRICE_LABEL} (launch rate; normally ${AUDIT_LIST_LABEL})
 
 ## Intake (their words)
 - Role and who they serve: ${i.role}
@@ -31,7 +32,7 @@ export function buildSalesPrepPrompt(c: AuditCaseShape): string {
 ## Produce
 1. The client's 3 biggest pain points, ranked by emotional weight (use their words for #1).
 2. Their stated goals with any concrete numbers attached (hours, money, deadlines).
-3. Which intake answers suggest they are (or are not) a fit for a $297 audit that converts into the 8-week Self-Sufficiency Program — and what to say honestly if this is a session-pack conversation instead.
+3. Which intake answers suggest they are (or are not) a fit for a ${AUDIT_PRICE_LABEL} audit that converts into the 8-week Self-Sufficiency Program — and what to say honestly if this is a session-pack conversation instead.
 4. A suggested call flow: open by answering their biggest question with one current, specific observation; connect every recommendation to their 90-day win; end with the two-path close (roadmap is theirs to implement with anyone — or with us).
 5. One opening line for the call that demonstrates current bleeding-edge knowledge relevant to their biggest question. Concrete, no hype.`;
 }

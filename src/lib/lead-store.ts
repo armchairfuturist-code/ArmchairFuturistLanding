@@ -1,4 +1,6 @@
 import type { Firestore } from 'firebase-admin/firestore';
+import type { AuditIntake } from './audit/case';
+import type { IdentityIntake } from './identity/case';
 
 export interface AssessmentLeadData {
   email: string;
@@ -24,7 +26,7 @@ export interface IdentityCaseData {
   name: string;
   email: string;
   status: string;
-  intake: Record<string, string>;
+  intake: IdentityIntake;
 }
 
 /** The persisted audit case payload (ADR-004) — written by the audit intake route. */
@@ -37,7 +39,7 @@ export interface AuditCaseData {
   archetypeSlug: string;
   archetypeName: string;
   scores: { clarity: number; readiness: number; urgency: number; individualSignals: number };
-  intake: Record<string, string>;
+  intake: AuditIntake;
   status: string;
   booking?: Record<string, unknown>;
   payment: { status: string };

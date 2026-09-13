@@ -1,9 +1,11 @@
 
 /** Service path content — icon keys mapped in section adapter. */
 import { CALENDAR_URL } from "@/lib/constants";
+import { AUDIT_LIST_LABEL } from "@/lib/pricing";
+/** Seam between content and pricing: the section adapter maps each key to a pricing.ts label (locality). */
+export type ServicePriceKey = "roadmapAudit" | "selfSufficiency" | "guidanceRange" | "digitalIdentity" | "customAiProvisioning";
 export interface ServiceTier {
   name: string;
-  price: string;
   tag: string;
   description: string;
   features: string[];
@@ -12,7 +14,7 @@ export interface ServiceTier {
   highlighted: boolean;
   icon: string;
   note?: string;
-  priceKey?: "roadmapAudit" | "selfSufficiency" | "guidanceRange" | "digitalIdentity" | "customAiProvisioning";
+  priceKey: ServicePriceKey;
 }
 export interface ServicePath {
   id: string;
@@ -34,7 +36,6 @@ export const SERVICE_PATHS: ServicePath[] = [
     tiers: [
       {
         name: "AI Roadmap Audit",
-        price: "$297 · €247",
         priceKey: "roadmapAudit",
         tag: "90-Minute Working Session",
         description:
@@ -50,11 +51,10 @@ export const SERVICE_PATHS: ServicePath[] = [
         ctaLink: "/audit",
         highlighted: false,
         icon: "Compass",
-        note: "Normally $497 · €417. Launch pricing while the format is new.",
+        note: `Normally ${AUDIT_LIST_LABEL}. Launch pricing while the format is new.`,
       },
       {
         name: "1-on-1 AI Guidance",
-        price: "$570–$2,000 · €475–€1,700",
         priceKey: "guidanceRange",
         tag: "5 · 10 · 20 Packs",
         description:
@@ -74,7 +74,6 @@ export const SERVICE_PATHS: ServicePath[] = [
       },
       {
         name: "AI Self-Sufficiency Program",
-        price: "$2,497 · €2,147",
         priceKey: "selfSufficiency",
         tag: "8-Week Build Sprint",
       description:
@@ -104,7 +103,6 @@ export const SERVICE_PATHS: ServicePath[] = [
     tiers: [
       {
         name: "Digital Identity Landing Page",
-        price: "$233 · €199",
         priceKey: "digitalIdentity",
         tag: "Delivered in 2-4 Days",
         description:
@@ -123,7 +121,6 @@ export const SERVICE_PATHS: ServicePath[] = [
       },
       {
         name: "Custom AI Provisioning",
-        price: "$1,000–$5,000 · €850–€4,250",
         priceKey: "customAiProvisioning",
         tag: "1-2 Weeks",
         description:

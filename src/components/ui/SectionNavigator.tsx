@@ -3,7 +3,10 @@ import { useEffect, useState } from "react";
 import { motion, useReducedMotion, useScroll, useSpring } from "motion/react";
 import { getNavigatorItems } from "@/lib/section-registry";
 
-const sections = getNavigatorItems();
+export interface NavigatorItem {
+  id: string;
+  label: string;
+}
 
 function prefersReducedMotion(): boolean {
   return (
@@ -12,7 +15,12 @@ function prefersReducedMotion(): boolean {
   );
 }
 
-export default function SectionNavigator() {
+export default function SectionNavigator({
+  sections = getNavigatorItems(),
+}: {
+  /** Test seam: inject navigator items. Defaults to the registry. */
+  sections?: NavigatorItem[];
+}) {
   const [activeSection, setActiveSection] = useState("");
   const [visible, setVisible] = useState(false);
 
@@ -54,7 +62,7 @@ export default function SectionNavigator() {
       window.removeEventListener("scroll", onScroll);
       observer.disconnect();
     };
-  }, []);
+  }, [sections]);
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);

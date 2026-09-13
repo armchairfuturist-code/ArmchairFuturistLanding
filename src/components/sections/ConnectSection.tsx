@@ -33,6 +33,7 @@ function validateConnect(
 }
 
 export default function ConnectSection() {
+  const [formOpen, setFormOpen] = useState(false);
   const {
     values: formData,
     errors: fieldErrors,
@@ -120,8 +121,12 @@ export default function ConnectSection() {
           </p>
         </BlurFade>
         {/* Contact Form — disclosed so the close offers two doors, not four */}
-        <details className="mt-10 w-full max-w-md mx-auto group">
-          <summary className="cursor-pointer list-none inline-flex items-center gap-2 text-sm font-medium text-white underline underline-offset-4 hover:text-white/85 transition-colors [&::-webkit-details-marker]:hidden">
+        <details className="mt-10 w-full max-w-md mx-auto group" onToggle={(e) => setFormOpen((e.target as HTMLDetailsElement).open)}>
+          <summary
+            className="cursor-pointer list-none inline-flex items-center gap-2 text-sm font-medium text-white underline underline-offset-4 hover:text-white/85 transition-colors [&::-webkit-details-marker]:hidden"
+            role="button"
+            aria-expanded={formOpen}
+          >
             Prefer writing? Send a note instead
             <span className="text-[11px] font-mono uppercase tracking-widest text-white/70 group-open:hidden">Expand</span>
             <span className="text-[11px] font-mono uppercase tracking-widest text-white/70 hidden group-open:inline">Collapse</span>

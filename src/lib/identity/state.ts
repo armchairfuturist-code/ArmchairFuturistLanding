@@ -1,11 +1,16 @@
 /**
- * Digital Identity case state machine (Plan 010).
+ * Digital Identity case state machine (Plan 010): enum values, transition
+ * table, and nextAction branching. Machine mechanics (`canTransitionIn`,
+ * the next-action shape) live in the shared paid-case engine — same
+ * contract as the audit machine.
  *
- * Parallel to the audit machine (ADR-004 pattern) but simpler: the DI
- * lifecycle is intake review -> build -> deliver. Same contract: pure,
- * deterministic, one `nextAction` entry point so any driver (Alex, cron,
- * agent) gets the same answer from the same data.
+ * Pure, deterministic, one `nextAction` entry point so any driver (Alex,
+ * cron, agent) gets the same answer from the same data.
  */
+
+import { canTransitionIn, type PaidCaseNextAction } from '../paid-case';
+
+import { DIGITAL_IDENTITY_LABEL } from '@/lib/pricing';
 
 export const IDENTITY_STATUSES = [
   'submitted',
@@ -23,10 +28,8 @@ export type NextActionName =
   | 'build_page'
   | 'deliver_page';
 
-export interface NextAction {
-  action: NextActionName;
-  detail: string;
-}
+/** Shared next-action shape, narrowed to identity moves. */
+export type NextAction = PaidCaseNextAction<NextActionName>;
 
 /** Legal status transitions. Anything not listed is illegal. */
 export const legalTransitions: Record<IdentityStatus, readonly IdentityStatus[]> = {
@@ -38,7 +41,7 @@ export const legalTransitions: Record<IdentityStatus, readonly IdentityStatus[]>
 };
 
 export function canTransition(from: IdentityStatus, to: IdentityStatus): boolean {
-  return legalTransitions[from].includes(to);
+  return canTransitionIn(legalTransitions, from, to);
 }
 
 /** The subset of the identity case doc the state machine reads. */
@@ -65,10 +68,10 @@ export interface IdentityCaseShape {
  */
 export function nextAction(
   c: IdentityCaseShape,
-): { action: NextActionName; detail: string } | null {
+): NextAction | null {
   switch (c.status) {
     case 'submitted':
-      return { action: 'review_intake', detail: 'Review the intake: is this a fit for the $233 · €199 product? Set in_review or dead.' };
+      return { action: 'review_intake', detail: `Review the intake: is this a fit for the ${DIGITAL_IDENTITY_LABEL} product? Set in_review or dead.` };
     case 'in_review':
       return { action: 'send_payment_request', detail: 'Fit confirmed — send the Venmo request, then move to building.' };
     case 'building': {

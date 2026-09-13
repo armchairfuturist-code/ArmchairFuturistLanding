@@ -1,12 +1,13 @@
 import { SERVICES_PRICING } from '@/lib/pricing';
+import { basePaidCase } from '@/lib/paid-case';
 import type { IdentityCaseShape } from './state';
 
 /**
- * Digital Identity case construction (Plan 010).
+ * Digital Identity case construction: thin adapter over the shared
+ * paid-case engine (same engine as audit/case.ts per ADR-004 §Decision-7).
  *
- * Pure: builds the canonical `identity_cases` document payload. Price comes
- * from pricing.ts. Parallel to audit/case.ts by design (rule of two, not a
- * forced generalization).
+ * Pure: builds the canonical `identity_cases` document payload. Envelope
+ * comes from `basePaidCase`; price comes from pricing.ts.
  */
 
 export type IdentityScope = 'individual' | 'organization';
@@ -35,17 +36,12 @@ export function buildIdentityCase(
   email: string;
 } {
   return {
-    caseId,
-    createdAt: nowIso,
-    updatedAt: nowIso,
-    status: 'submitted',
+    ...basePaidCase(contact, caseId, nowIso),
     offer: 'digitalIdentity',
     price: {
       usd: SERVICES_PRICING.digitalIdentity.priceUSD,
       eur: SERVICES_PRICING.digitalIdentity.priceEUR,
     },
-    name: contact.name,
-    email: contact.email,
     intake,
   };
 }

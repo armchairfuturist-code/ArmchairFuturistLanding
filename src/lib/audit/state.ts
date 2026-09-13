@@ -1,5 +1,7 @@
 /**
- * Audit case status machine (ADR-004).
+ * Audit case status machine (ADR-004): enum values, transition table, and
+ * nextAction branching. Machine mechanics (`canTransitionIn`, the
+ * next-action shape) live in the shared paid-case engine.
  *
  * Pure: no Firestore, no clocks except the optional `nowIso` argument to
  * `nextAction`. The machine answers ONE question — "what is the single
@@ -9,6 +11,8 @@
  * Legal transitions live in one map; `nextAction` never invents state.
  * LLM effort is spent on judgment (prep, report), never on state recall.
  */
+
+import { canTransitionIn, type PaidCaseNextAction } from '../paid-case';
 
 export const AUDIT_STATUSES = [
   'submitted',
@@ -33,10 +37,8 @@ export type NextActionName =
   | 'deliver_report'
   | 'convert_or_close';
 
-export interface NextAction {
-  action: NextActionName;
-  detail: string;
-}
+/** Shared next-action shape, narrowed to audit moves. */
+export type NextAction = PaidCaseNextAction<NextActionName>;
 
 /** Legal status transitions. Anything not listed is illegal. */
 export const legalTransitions: Record<AuditStatus, readonly AuditStatus[]> = {
@@ -51,7 +53,7 @@ export const legalTransitions: Record<AuditStatus, readonly AuditStatus[]> = {
 };
 
 export function canTransition(from: AuditStatus, to: AuditStatus): boolean {
-  return legalTransitions[from].includes(to);
+  return canTransitionIn(legalTransitions, from, to);
 }
 
 /** The subset of the case doc the state machine reads. */
@@ -94,7 +96,7 @@ const NUDGE_WINDOW_MS = 3 * 24 * 60 * 60 * 1000;
 export function nextAction(
   c: AuditCaseShape,
   nowIso?: string,
-): { action: NextActionName; detail: string } | null {
+): NextAction | null {
   switch (c.status) {
     case 'submitted': {
       if (c.booking?.scheduledAt) {
@@ -125,7 +127,7 @@ export function nextAction(
   }
 }
 
-function nextActionAfterCallDone(c: AuditCaseShape): { action: NextActionName; detail: string } {
+function nextActionAfterCallDone(c: AuditCaseShape): NextAction {
   if (c.payment?.status === 'waived' || c.payment?.status === 'paid') {
     return { action: 'schedule_session', detail: 'Payment handled — schedule the 90-minute audit session.' };
   }
@@ -135,7 +137,7 @@ function nextActionAfterCallDone(c: AuditCaseShape): { action: NextActionName; d
   };
 }
 
-function nextActionAfterAudited(c: AuditCaseShape): { action: NextActionName; detail: string } | null {
+function nextActionAfterAudited(c: AuditCaseShape): NextAction | null {
   const delivered = c.deliverable?.reportUrl && c.deliverable?.deliveredAt;
   return delivered
     ? { action: 'convert_or_close', detail: 'Deliverable sent — run the two-path close conversation.' }

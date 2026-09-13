@@ -19,24 +19,25 @@ function AssessmentResultContent() {
   const slug = Array.isArray(params.slug) ? params.slug[0] : (params.slug ?? "");
 
   const stored = useMemo(() => loadStoredFlowResult(), []);
-  const resolvedSlug = stored?.archetypeSlug ?? slug;
-  const archetype = getArchetypeBySlug(resolvedSlug);
 
+  // Session-wins precedence lives in resolveResultScores (flow seam);
+  // the adapter only derives display data and navigates.
   const scores = useMemo(
     () =>
       resolveResultScores({
-        slug: resolvedSlug,
+        slug,
         searchParams,
         stored,
       }),
-    [stored, searchParams, resolvedSlug],
+    [stored, searchParams, slug],
   );
+  const archetype = getArchetypeBySlug(scores.archetypeSlug);
 
-  // Canonicalize URL when session data disagrees with path
+  // Canonicalize URL when session data disagrees with path — navigate only.
   useEffect(() => {
-    if (!stored || stored.archetypeSlug === slug) return;
-    router.replace(buildResultPath(stored.archetypeSlug, stored.scores));
-  }, [stored, slug, router]);
+    if (scores.archetypeSlug === slug) return;
+    router.replace(buildResultPath(scores.archetypeSlug, scores));
+  }, [scores, slug, router]);
 
   useEffect(() => {
     if (archetype) {
