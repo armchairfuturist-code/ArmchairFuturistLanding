@@ -65,36 +65,13 @@ const sections: SectionEntry[] = [
       },
     ),
   },
-  // Eager — proof, now framed by Fit + Assessment above
+  // One proof section owns the legacy testimonials and stats anchors too.
   {
     id: SECTION_IDS.caseStudies,
     label: "Results",
-    component: dynamic(
-      () => import("@/components/sections/CaseStudiesSection"),
-      {
-        loading: () => (
-          <SectionSkeleton minHeight="min-h-[640px]" label="Loading case studies" />
-        ),
-      },
-    ),
-    eager: true,
-  },
-  {
-    id: SECTION_IDS.testimonials,
-    label: "Reviews",
-    navigable: false,
-    component: dynamic(
-      () => import("@/components/sections/TestimonialsSection"),
-    ),
-    eager: true,
-  },
-  {
-    id: SECTION_IDS.stats,
-    label: "Proof",
-    navigable: false,
-    component: dynamic(() => import("@/components/sections/KeyStatsSection"), {
+    component: dynamic(() => import("@/components/sections/ProofSection"), {
       loading: () => (
-        <SectionSkeleton minHeight="min-h-[360px]" label="Loading key stats" />
+        <SectionSkeleton minHeight="min-h-[640px]" label="Loading client results" />
       ),
     }),
     eager: true,
