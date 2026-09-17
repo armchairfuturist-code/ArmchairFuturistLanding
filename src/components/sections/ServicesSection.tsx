@@ -50,13 +50,12 @@ export default function ServicesSection() {
         <BlurFade inView>
           <div className="max-w-4xl mb-16 grid md:grid-cols-12 gap-6 items-end">
               <div className="md:col-span-7">
-                <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-4">Your path to AI independence</p>
                 <h2 className="font-display text-[clamp(2.25rem,5vw,3.75rem)] font-medium tracking-tight leading-[0.98] text-ink">
-                  You leave able to build, launch, and sell your own AI services
+                  Build with me, or have me build it for you
                 </h2>
               </div>
               <p className="md:col-span-5 text-base md:text-lg text-charcoal font-sans leading-relaxed md:text-right">
-                Installing agents is easy now. Deciding what they own is not. Most AI consultants build systems you depend on. I build your ability to build.
+                Choose one-on-one guidance if you want to build and run your own AI workflows. If you want me to handle the build, choose done-for-you implementation.
               </p>
             </div>
         </BlurFade>
@@ -100,55 +99,17 @@ export default function ServicesSection() {
         <div className="space-y-20">
           {SERVICE_PATHS.map((path) => {
             // Progressive disclosure: "together" shows highlighted tier only;
-            // "foryou" is hidden entirely — each expands on user action.
+            // "foryou" shows its summary with tiers behind a toggle.
             const isTogether = path.id === "together";
+            const isForYou = path.id === "foryou";
             const visibleTiers = isTogether && !showAllTogether
               ? path.tiers.filter((t) => t.highlighted)
               : path.tiers;
             const hiddenCount = path.tiers.length - visibleTiers.length;
 
-            // Skip rendering the foryou path until toggled
-            if (path.id === "foryou" && !showForyou) {
-              return (
-                <div key={path.id} className="border-t border-hairline pt-8">
-                  <button
-                    type="button"
-                    onClick={() => setShowForyou(true)}
-                    className="group w-full flex items-center justify-between px-4 py-5 border border-dashed border-hairline-strong bg-canvas hover:border-hp-electric/40 hover:bg-hp-electric/[0.02] transition-colors text-left"
-                    aria-expanded={false}
-                  >
-                    <div>
-                      <p className="text-xs font-mono uppercase tracking-widest text-graphite mb-1 flex items-center gap-2">
-                        <Wrench className="h-3.5 w-3.5 text-hp-electric" aria-hidden="true" />
-                        <span>Done-For-You Implementation</span>
-                      </p>
-                      <p className="text-sm text-charcoal mt-1">
-                        Production-ready AI, built and shipped.{" "}
-                        <span className="text-hp-electric font-medium">Show 2 options</span>
-                      </p>
-                    </div>
-                    <ChevronDown className="h-5 w-5 text-graphite group-hover:text-hp-electric transition-colors shrink-0" aria-hidden="true" />
-                  </button>
-                </div>
-              );
-            }
-
             return (
             <div key={path.id}>
               <BlurFade inView>
-                {path.id === "together" && (
-                  <p className="mb-6 text-sm text-charcoal font-sans md:text-right">
-                    Not sure where you stand?{" "}
-                    <Link
-                      href="/assessment"
-                      onClick={() => trackEvent("services_assessment_link")}
-                      className="font-semibold text-hp-electric underline underline-offset-4 hover:text-hp-deep transition-colors"
-                    >
-                      Take the free assessment
-                    </Link>{" "}
-                    first.
-                  </p>
-                )}
                 <div className="mb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-4 border-b border-hairline pb-6">
                   <div>
                     <p className="text-xs font-mono uppercase tracking-widest text-graphite mb-2 flex items-center gap-2">
@@ -262,7 +223,7 @@ export default function ServicesSection() {
                 })}
               </motion.div>
 
-              {/* Show-all toggle for "together" path when tiers are hidden */}
+              {/* Show-all toggle for "together" when tiers are hidden */}
               {isTogether && hiddenCount > 0 && !showAllTogether && (
                 <BlurFade inView className="mt-6">
                   <button
@@ -291,6 +252,34 @@ export default function ServicesSection() {
                   </button>
                 </BlurFade>
               )}
+
+              {/* Expand/collapse for "foryou" tiers */}
+              {isForYou && !showForyou && (
+                <BlurFade inView className="mt-6">
+                  <button
+                    type="button"
+                    onClick={() => setShowForyou(true)}
+                    className="group w-full flex items-center justify-center gap-2 py-4 border border-dashed border-hairline-strong bg-canvas hover:border-hp-electric/40 hover:bg-hp-electric/[0.02] transition-colors text-sm font-medium text-charcoal hover:text-hp-electric"
+                    aria-expanded={false}
+                  >
+                    <span>Show {path.tiers.length} build options</span>
+                    <ChevronDown className="h-4 w-4 group-hover:text-hp-electric transition-colors" aria-hidden="true" />
+                  </button>
+                </BlurFade>
+              )}
+              {isForYou && showForyou && (
+                <BlurFade inView className="mt-6">
+                  <button
+                    type="button"
+                    onClick={() => setShowForyou(false)}
+                    className="group w-full flex items-center justify-center gap-2 py-4 border border-dashed border-hairline-strong bg-canvas hover:border-hp-electric/40 hover:bg-hp-electric/[0.02] transition-colors text-sm font-medium text-charcoal hover:text-hp-electric"
+                    aria-expanded={true}
+                  >
+                    <span>Show fewer build options</span>
+                    <ChevronUp className="h-4 w-4 group-hover:text-hp-electric transition-colors" aria-hidden="true" />
+                  </button>
+                </BlurFade>
+              )}
             </div>
           );
           })}
@@ -304,13 +293,6 @@ export default function ServicesSection() {
                 Open the build catalog
               </a>{" "}
               — data, revenue ops, visibility, front-line help.
-            </p>
-            <p className="text-sm text-graphite font-sans">
-              Not sure which path fits?{" "}
-              <a href="/assessment" className="text-hp-electric font-semibold hover:underline">
-                Take the free assessment
-              </a>{" "}
-              and get your personalized AI archetype plus a clear next step.
             </p>
             <p className="text-sm text-charcoal/80 font-sans">
               I also run roundtables and strategy sessions.{" "}

@@ -82,6 +82,7 @@ const sections: SectionEntry[] = [
   {
     id: SECTION_IDS.testimonials,
     label: "Reviews",
+    navigable: false,
     component: dynamic(
       () => import("@/components/sections/TestimonialsSection"),
     ),
@@ -90,6 +91,7 @@ const sections: SectionEntry[] = [
   {
     id: SECTION_IDS.stats,
     label: "Proof",
+    navigable: false,
     component: dynamic(() => import("@/components/sections/KeyStatsSection"), {
       loading: () => (
         <SectionSkeleton minHeight="min-h-[360px]" label="Loading key stats" />
@@ -104,6 +106,7 @@ const sections: SectionEntry[] = [
   {
     id: SECTION_IDS.roi,
     label: "ROI",
+    navigable: false,
     component: dynamic(() => import("@/components/sections/ROICalculatorSection")),
   },
   {

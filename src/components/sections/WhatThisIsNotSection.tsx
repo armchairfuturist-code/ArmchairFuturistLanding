@@ -10,16 +10,12 @@ import { trackEvent } from "@/lib/analytics";
 
 const fitRows = [
   {
-    title: "You want someone to just do it for you.",
-    body: "I don't build it and hand it over. I teach you to build and judge it yourself, so you stop hiring consultants. If you want hands-off magic, hire an agency.",
+    title: "You want to build it yourself.",
+    body: "We work one-on-one on your own business. You learn to build AI workflows and judge whether they work. The 8-to-10-week programme gives you time to put that into practice, with me alongside you.",
   },
   {
-    title: "You want a course or prompt pack.",
-    body: "This is 1:1 over 8 to 10 weeks, built around your work. If you want cheap and fast, this will feel slow and expensive.",
-  },
-  {
-    title: "You're still deciding if AI matters.",
-    body: "My clients already use AI and feel the gap between output and real results. If you're still on the fence, start elsewhere. Come back when you're ready to move.",
+    title: "You want me to build it for you.",
+    body: "You bring the problem. I build and ship the system. Choose done-for-you implementation when you need the work delivered and don't want to take on the build yourself.",
   },
 ];
 
@@ -32,16 +28,13 @@ export default function WhatThisIsNotSection() {
         <BlurFade inView>
           <div className="mb-12 md:mb-16 grid md:grid-cols-12 gap-6 items-end">
             <div className="md:col-span-7">
-              <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-4">
-                Honest fit
-              </p>
               <h2 className="font-display text-[clamp(2.25rem,5vw,3.75rem)] font-medium tracking-tight leading-[0.98] text-ink max-w-[12ch]">
-                What this is NOT for
+                Two ways to work with me
               </h2>
             </div>
             <p className="md:col-span-5 text-lg text-charcoal md:text-right max-w-sm md:ml-auto">
-              I&apos;d rather lose a sale than take on work I can&apos;t
-              deliver.
+              Learn to do the work yourself, or hand the build to me.
+              Choose how involved you want to be.
             </p>
           </div>
         </BlurFade>
@@ -96,8 +89,8 @@ export default function WhatThisIsNotSection() {
         <BlurFade inView delay={0.2}>
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 border border-ink/10 bg-cloud px-6 py-8 md:px-10">
             <p className="text-base md:text-lg text-ink font-display font-medium max-w-xl leading-snug">
-              Still not sure? Book a 15-minute call. If I&apos;m not the right
-              fit, I&apos;ll tell you — and point you toward someone who is.
+              Book a 15-minute call to talk through what you need. If I&apos;m
+              not the right fit, I&apos;ll tell you and point you toward someone who is.
             </p>
             <BookCallButton
               location="what_this_is_not"
