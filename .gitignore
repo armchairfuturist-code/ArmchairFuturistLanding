@@ -103,6 +103,16 @@ lpt[1-9].*
 # and should never be tracked. Files remain on disk for agent use.
 /.claude/skills/
 /.agents/skills/
+# Harness manifests that skill installers write into a project (impeccable's
+# hooks install .claude/settings.local.json, .codex/hooks.json, .cursor/ and
+# .grok/ variants). These are machine-local by design — impeccable's own docs
+# assume .claude/settings.local.json is gitignored. 97 such files were tracked
+# here; untracked 2026-09-21 after Claude and Codex were retired on both
+# machines (Cursor and Grok are unused). Files stay on disk for agent use.
+/.claude/
+/.codex/
+/.cursor/
+/.grok/
 # Impeccable skill artifacts
 .impeccable/
 .audit-passes/
