@@ -1,6 +1,5 @@
 "use client";
-import { useState } from "react";
-import { ArrowRight, CheckCircle2, Zap, BookOpen, Target, Sparkles, Wrench, Globe, Compass, ChevronDown, ChevronUp, type LucideIcon } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Zap, BookOpen, Target, Sparkles, Wrench, Globe, Compass, type LucideIcon } from 'lucide-react';
 import Link from 'next/link';
 import { trackEvent } from '@/lib/analytics';
 import { CardContent, CardHeader, CardFooter } from "@/components/ui/card";
@@ -25,9 +24,6 @@ const ICON_MAP: Record<string, LucideIcon> = {
 
 
 export default function ServicesSection() {
-  const [showAllTogether, setShowAllTogether] = useState(false);
-  const [showForyou, setShowForyou] = useState(false);
-
   // Adapter over the priceKey seam: pricing.ts owns the labels (locality),
   // this module only maps the interface key to a label. Exhaustive — no fallback.
   const displayPrice = (tier: ServiceTier): string => {
@@ -98,14 +94,9 @@ export default function ServicesSection() {
 
         <div className="space-y-20">
           {SERVICE_PATHS.map((path) => {
-            // Progressive disclosure: "together" shows highlighted tier only;
-            // "foryou" shows its summary with tiers behind a toggle.
-            const isTogether = path.id === "together";
-            const isForYou = path.id === "foryou";
-            const visibleTiers = isTogether && !showAllTogether
-              ? path.tiers.filter((t) => t.highlighted)
-              : path.tiers;
-            const hiddenCount = path.tiers.length - visibleTiers.length;
+            // All tiers render on mount: both paths show their full option set.
+            // (Tiers mounted after a toggle were left at opacity 0 by the
+            // whileInView/once stagger — the removed-disclosure bug of 2026-09.)
 
             return (
             <div key={path.id}>
@@ -144,7 +135,7 @@ export default function ServicesSection() {
                     : 'md:grid-cols-2 lg:grid-cols-3 max-w-6xl'
                 }`}
               >
-                {visibleTiers.map((tier) => {
+                {path.tiers.map((tier) => {
                   const Icon = ICON_MAP[tier.icon];
                   return (
                     <MagneticCard
@@ -222,64 +213,6 @@ export default function ServicesSection() {
                   );
                 })}
               </motion.div>
-
-              {/* Show-all toggle for "together" when tiers are hidden */}
-              {isTogether && hiddenCount > 0 && !showAllTogether && (
-                <BlurFade inView className="mt-6">
-                  <button
-                    type="button"
-                    onClick={() => setShowAllTogether(true)}
-                    className="group w-full flex items-center justify-center gap-2 py-4 border border-dashed border-hairline-strong bg-canvas hover:border-hp-electric/40 hover:bg-hp-electric/[0.02] transition-colors text-sm font-medium text-charcoal hover:text-hp-electric"
-                    aria-expanded={false}
-                  >
-                    <span>Show all {path.tiers.length} options</span>
-                    <ChevronDown className="h-4 w-4 group-hover:text-hp-electric transition-colors" aria-hidden="true" />
-                  </button>
-                </BlurFade>
-              )}
-
-              {/* Collapse toggle for "together" when all tiers are visible */}
-              {isTogether && showAllTogether && (
-                <BlurFade inView className="mt-6">
-                  <button
-                    type="button"
-                    onClick={() => setShowAllTogether(false)}
-                    className="group w-full flex items-center justify-center gap-2 py-4 border border-dashed border-hairline-strong bg-canvas hover:border-hp-electric/40 hover:bg-hp-electric/[0.02] transition-colors text-sm font-medium text-charcoal hover:text-hp-electric"
-                    aria-expanded={true}
-                  >
-                    <span>Show fewer options</span>
-                    <ChevronUp className="h-4 w-4 group-hover:text-hp-electric transition-colors" aria-hidden="true" />
-                  </button>
-                </BlurFade>
-              )}
-
-              {/* Expand/collapse for "foryou" tiers */}
-              {isForYou && !showForyou && (
-                <BlurFade inView className="mt-6">
-                  <button
-                    type="button"
-                    onClick={() => setShowForyou(true)}
-                    className="group w-full flex items-center justify-center gap-2 py-4 border border-dashed border-hairline-strong bg-canvas hover:border-hp-electric/40 hover:bg-hp-electric/[0.02] transition-colors text-sm font-medium text-charcoal hover:text-hp-electric"
-                    aria-expanded={false}
-                  >
-                    <span>Show {path.tiers.length} build options</span>
-                    <ChevronDown className="h-4 w-4 group-hover:text-hp-electric transition-colors" aria-hidden="true" />
-                  </button>
-                </BlurFade>
-              )}
-              {isForYou && showForyou && (
-                <BlurFade inView className="mt-6">
-                  <button
-                    type="button"
-                    onClick={() => setShowForyou(false)}
-                    className="group w-full flex items-center justify-center gap-2 py-4 border border-dashed border-hairline-strong bg-canvas hover:border-hp-electric/40 hover:bg-hp-electric/[0.02] transition-colors text-sm font-medium text-charcoal hover:text-hp-electric"
-                    aria-expanded={true}
-                  >
-                    <span>Show fewer build options</span>
-                    <ChevronUp className="h-4 w-4 group-hover:text-hp-electric transition-colors" aria-hidden="true" />
-                  </button>
-                </BlurFade>
-              )}
             </div>
           );
           })}
