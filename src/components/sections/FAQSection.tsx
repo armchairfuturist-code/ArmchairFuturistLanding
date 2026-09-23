@@ -31,7 +31,7 @@ export default function FAQSection() {
               <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-4">
                 FAQ
               </p>
-              <h2 className="font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold tracking-tight leading-[0.98] text-ink">
+              <h2 className="font-display text-[clamp(2rem,4.5vw,3.25rem)] font-medium tracking-tight leading-[0.98] text-ink">
                 Real questions people ask me
               </h2>
             </div>

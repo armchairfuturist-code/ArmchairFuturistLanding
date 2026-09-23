@@ -86,10 +86,13 @@ export const SERVICE_PATHS: ServicePath[] = [
         "Personal brand & service framework",
         "Lifetime alumni access",
       ],
-        cta: "Apply for the Program",
+        cta: "Book a Fit Call",
         ctaLink: CALENDAR_URL,
         highlighted: true,
         icon: "Target",
+        // Risk reversal at the highest-price decision point — brand promise
+        // is "no lock-in"; outcome claim mirrors the features above.
+        note: "No lock-in. You leave with a launched service, the playbook, and the skills — they're yours whether or not we keep working together.",
       },
     ],
   },

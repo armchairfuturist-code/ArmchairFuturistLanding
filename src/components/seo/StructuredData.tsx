@@ -1,4 +1,5 @@
 import { SERVICES_PRICING, COACHING_PACKAGES_BY_ID, formatSchemaPriceRange } from "@/lib/pricing";
+import { CALENDAR_URL } from "@/lib/constants";
 
 const siteUrl = "https://thearmchairfuturist.com";
 const personId = `${siteUrl}/#person`;
@@ -55,6 +56,24 @@ export default function StructuredData() {
               "AI Adoption",
               "Personal Leverage",
             ],
+            // Machine-actionable booking: lets agents/crawlers discover the
+            // scheduling entry point without scraping a CTA.
+            potentialAction: {
+              "@type": "ReserveAction",
+              name: "Book a 15-minute call",
+              target: {
+                "@type": "EntryPoint",
+                urlTemplate: CALENDAR_URL,
+                actionPlatform: [
+                  "https://schema.org/DesktopWebPlatform",
+                  "https://schema.org/MobileWebPlatform",
+                ],
+              },
+              result: {
+                "@type": "Reservation",
+                name: "15-minute intro call",
+              },
+            },
             hasOfferCatalog: {
               "@type": "OfferCatalog",
               name: "AI Strategy & Advisory Services",

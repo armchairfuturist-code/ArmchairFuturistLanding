@@ -45,6 +45,12 @@ export default function Footer() {
                 Case Studies
               </Link>
               <Link
+                href="/how-i-work"
+                className="text-white/70 hover:text-hp-bright transition-colors duration-300 underline-animate"
+              >
+                How I Work
+              </Link>
+              <Link
                 href="/assessment"
                 className="text-white/70 hover:text-hp-bright transition-colors duration-300 underline-animate"
               >

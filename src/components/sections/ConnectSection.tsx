@@ -68,7 +68,7 @@ export default function ConnectSection() {
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
         <BlurFade inView>
-          <h2 className="font-display text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-tight leading-[1.05] mb-6">
+          <h2 className="font-display text-[clamp(1.75rem,4vw,2.75rem)] font-medium tracking-tight leading-[1.05] mb-6">
             One honest conversation. You leave with a next step either way.
           </h2>
         </BlurFade>

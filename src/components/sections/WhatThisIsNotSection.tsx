@@ -15,7 +15,7 @@ const fitRows = [
   },
   {
     title: "You want me to build it for you.",
-    body: "You bring the problem. I build and ship the system. Choose done-for-you implementation when you need the work delivered and don't want to take on the build yourself.",
+    body: "You bring the problem. I build and ship the system. Done-for-you implementation, for when you need the work delivered and don't want to take on the build yourself.",
   },
 ];
 
@@ -28,13 +28,13 @@ export default function WhatThisIsNotSection() {
         <BlurFade inView>
           <div className="mb-12 md:mb-16 grid md:grid-cols-12 gap-6 items-end">
             <div className="md:col-span-7">
-              <h2 className="font-display text-[clamp(2.25rem,5vw,3.75rem)] font-medium tracking-tight leading-[0.98] text-ink max-w-[12ch]">
-                Two ways to work with me
+              <h2 className="font-display text-[clamp(2.25rem,5vw,3.75rem)] font-medium tracking-tight leading-[0.98] text-ink max-w-[14ch]">
+                Who this is for
               </h2>
             </div>
             <p className="md:col-span-5 text-lg text-charcoal md:text-right max-w-sm md:ml-auto">
-              Learn to do the work yourself, or hand the build to me.
-              Choose how involved you want to be.
+              Both kinds of people are welcome here. What matters is that
+              you leave more capable than you arrived.
             </p>
           </div>
         </BlurFade>
@@ -87,7 +87,7 @@ export default function WhatThisIsNotSection() {
         </div>
 
         <BlurFade inView delay={0.2}>
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 border border-ink/10 bg-cloud px-6 py-8 md:px-10">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 border border-ink/10 bg-cloud rounded-hp-xl px-6 py-8 md:px-10">
             <p className="text-base md:text-lg text-ink font-display font-medium max-w-xl leading-snug">
               Book a 15-minute call to talk through what you need. If I&apos;m
               not the right fit, I&apos;ll tell you and point you toward someone who is.

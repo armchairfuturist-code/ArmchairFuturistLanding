@@ -21,7 +21,7 @@ export default function CommunityAnchor() {
       </div>
 
       <div className="relative container mx-auto px-4 md:px-6 py-16 md:py-24 max-w-4xl">
-        <p className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-3">
+        <p className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.35em] text-hp-soft mb-3">
           <Users className="h-3.5 w-3.5" aria-hidden="true" />
           In the room, not just in front of it
         </p>

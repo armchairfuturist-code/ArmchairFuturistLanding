@@ -84,7 +84,7 @@ export default function SpeakingSection() {
           ))}
         </div>
 
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border border-ink/10 bg-cloud px-5 py-5 md:px-8 md:py-6">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border border-ink/10 bg-cloud rounded-hp-xl px-5 py-5 md:px-8 md:py-6">
           <p className="text-sm md:text-base text-charcoal max-w-xl leading-relaxed">
             Need someone to lead an executive AI discussion? Bring a real
             decision into the room.
@@ -100,40 +100,47 @@ export default function SpeakingSection() {
             Ask About a Date
           </a>
         </div>
-
-        <BlurFade inView delay={0.1}>
-          <div className="mt-6 border border-ink/10 bg-canvas px-5 py-6 md:px-8 md:py-7">
-            <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-3">
-              For podcast &amp; event hosts
-            </p>
-            <p className="text-charcoal text-sm md:text-base leading-relaxed max-w-3xl">
-              Alex Myers is an AI Technical Literacy &amp; Workflow Strategy
-              Consultant and founder of The Armchair Futurist. He has deployed
-              40+ AI systems since 2022 and helps professionals build AI skills
-              they own instead of rent. Most clients are self-sufficient in 8
-              to 10 weeks.
-            </p>
-            <ul className="mt-4 space-y-1.5 text-sm text-charcoal">
-              <li>
-                <span className="font-medium text-ink">Website:</span>{" "}
-                <a href="https://thearmchairfuturist.com" className="text-hp-electric hover:underline underline-offset-4">thearmchairfuturist.com</a>
-              </li>
-              <li>
-                <span className="font-medium text-ink">Newsletter:</span>{" "}
-                <a href="https://armchairfuturist.substack.com" target="_blank" rel="noopener noreferrer" className="text-hp-electric hover:underline underline-offset-4">armchairfuturist.substack.com</a>
-              </li>
-              <li>
-                <span className="font-medium text-ink">LinkedIn:</span>{" "}
-                <a href="https://www.linkedin.com/in/alex-myers-34572a10/" target="_blank" rel="noopener noreferrer" className="text-hp-electric hover:underline underline-offset-4">alex-myers-34572a10</a>
-              </li>
-            </ul>
-            <p className="mt-4 text-xs text-graphite font-mono">
-              Copy this bio and these links verbatim for show notes, programs,
-              and event pages.
-            </p>
-          </div>
-        </BlurFade>
       </div>
     </section>
+  );
+}
+
+/**
+ * Show-notes bio for podcast & event hosts.
+ * Rendered on /speaking only (see src/app/speaking/page.tsx) — moved off the
+ * homepage per critique 2026-09-23: off-audience content sitting mid-persuasion.
+ */
+export function HostBio({ className = "" }: { className?: string }) {
+  return (
+    <div className={`border border-ink/10 bg-canvas rounded-hp-xl px-5 py-6 md:px-8 md:py-7 ${className}`}>
+      <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-3">
+        For podcast &amp; event hosts
+      </p>
+      <p className="text-charcoal text-sm md:text-base leading-relaxed max-w-3xl">
+        Alex Myers is an AI Technical Literacy &amp; Workflow Strategy
+        Consultant and founder of The Armchair Futurist. He has deployed
+        40+ AI systems since 2022 and helps professionals build AI skills
+        they own instead of rent. Most clients are self-sufficient in 8
+        to 10 weeks.
+      </p>
+      <ul className="mt-4 space-y-1.5 text-sm text-charcoal">
+        <li>
+          <span className="font-medium text-ink">Website:</span>{" "}
+          <a href="https://thearmchairfuturist.com" className="text-hp-electric hover:underline underline-offset-4">thearmchairfuturist.com</a>
+        </li>
+        <li>
+          <span className="font-medium text-ink">Newsletter:</span>{" "}
+          <a href="https://armchairfuturist.substack.com" target="_blank" rel="noopener noreferrer" className="text-hp-electric hover:underline underline-offset-4">armchairfuturist.substack.com</a>
+        </li>
+        <li>
+          <span className="font-medium text-ink">LinkedIn:</span>{" "}
+          <a href="https://www.linkedin.com/in/alex-myers-34572a10/" target="_blank" rel="noopener noreferrer" className="text-hp-electric hover:underline underline-offset-4">alex-myers-34572a10</a>
+        </li>
+      </ul>
+      <p className="mt-4 text-xs text-graphite font-mono">
+        Copy this bio and these links verbatim for show notes, programs,
+        and event pages.
+      </p>
+    </div>
   );
 }

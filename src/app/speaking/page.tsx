@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import SpeakingSection from "@/components/sections/SpeakingSection";
+import SpeakingSection, { HostBio } from "@/components/sections/SpeakingSection";
 import CommunityAnchor from "@/components/sections/CommunityAnchor";
 
 const siteUrl = "https://thearmchairfuturist.com";
@@ -25,6 +25,9 @@ export default function SpeakingPage() {
   return (
     <main id="main-content" className="flex flex-col">
       <SpeakingSection />
+      <div className="container mx-auto px-4 md:px-6 max-w-6xl pb-16 md:pb-20">
+        <HostBio />
+      </div>
       <CommunityAnchor />
     </main>
   );

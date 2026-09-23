@@ -37,7 +37,7 @@ export default function AboutMeSection() {
               About
             </p>
             <div className="flex items-center gap-3 mb-4">
-              <h2 className="font-display text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-tight leading-[1.05] text-white">
+              <h2 className="font-display text-[clamp(1.75rem,4vw,2.75rem)] font-medium tracking-tight leading-[1.05] text-white">
                 Partner in learning
               </h2>
               <a
