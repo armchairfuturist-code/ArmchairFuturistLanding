@@ -13,6 +13,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { BookCallButton } from "@/components/ui/BookCallButton";
+import { Button } from "@/components/ui/button";
 import { trackConversion } from "@/lib/analytics";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { staggerContainer, staggerItem } from "@/lib/animation-variants";
@@ -253,12 +254,11 @@ export default function MentoringSection() {
               Most clients get 10&ndash;20 hours a week back.
             </p>
             <div className="flex flex-wrap items-center gap-3">
-              <Link
-                href="#assessment"
-                className="inline-flex items-center justify-center h-11 px-6 text-sm font-semibold border border-ink/20 text-ink hover:border-hp-electric hover:text-hp-electric transition-colors"
-              >
-                Take the free assessment
-              </Link>
+              <Button asChild variant="outline">
+                <Link href="#assessment">
+                  Take the free assessment
+                </Link>
+              </Button>
             <BookCallButton
               size="default"
               icon="calendar-days"

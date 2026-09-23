@@ -222,9 +222,9 @@ export default function ServicesSection() {
           <div className="mt-16 space-y-4 text-center">
             <p className="text-sm text-graphite font-sans">
               Need systems built, not just guidance?{" "}
-              <a href="/services" className="text-hp-electric font-semibold hover:underline">
+              <Link href="/services" className="text-hp-electric font-semibold hover:underline">
                 Open the build catalog
-              </a>{" "}
+              </Link>{" "}
               — data, revenue ops, visibility, front-line help.
             </p>
             <p className="text-sm text-charcoal/80 font-sans">

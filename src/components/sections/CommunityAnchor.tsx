@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { ArrowUpRight, Users } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
 
 /** Community anchor — live-site preview as background, proof-forward. */
@@ -44,25 +45,27 @@ export default function CommunityAnchor() {
           you need to be curious.
         </p>
         <div className="flex flex-col sm:flex-row gap-3">
-          <a
-            href="https://luma.com/TechLands"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackEvent("braga_ai_builders_events_click", { location: "homepage_community" })}
-            className="inline-flex items-center justify-center gap-2 h-11 px-6 text-sm font-semibold uppercase tracking-[0.7px] bg-hp-electric text-white hover:bg-hp-bright transition-colors"
-          >
-            Upcoming TechLands meetups
-            <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-          </a>
-          <a
-            href="https://braga-ai-builders.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackEvent("braga_ai_builders_click", { location: "homepage_community" })}
-            className="inline-flex items-center justify-center gap-2 h-11 px-6 text-sm font-semibold border border-white/40 text-white hover:bg-white/10 hover:border-white transition-colors"
-          >
-            See the community
-          </a>
+          <Button asChild>
+            <a
+              href="https://luma.com/TechLands"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackEvent("braga_ai_builders_events_click", { location: "homepage_community" })}
+            >
+              Upcoming TechLands meetups
+              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            </a>
+          </Button>
+          <Button asChild variant="ghost" className="border border-white/40 hover:border-white">
+            <a
+              href="https://braga-ai-builders.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackEvent("braga_ai_builders_click", { location: "homepage_community" })}
+            >
+              See the community
+            </a>
+          </Button>
         </div>
       </div>
     </section>

@@ -47,6 +47,12 @@
   button:focus-visible { outline: 2px solid hsl(var(--primary)); outline-offset: 4px; }
   ::selection { background: #024ad8; color: #ffffff; }
   input, textarea { caret-color: #024ad8; }
+  /* Craft-floor browser surfaces: the scrollbar belongs to the palette too. */
+  html { scrollbar-color: #c2c2c2 #ffffff; scrollbar-width: thin; }
+  ::-webkit-scrollbar { width: 12px; height: 12px; }
+  ::-webkit-scrollbar-track { background: #ffffff; }
+  ::-webkit-scrollbar-thumb { background: #c2c2c2; border: 3px solid #ffffff; border-radius: 9999px; }
+  ::-webkit-scrollbar-thumb:hover { background: #024ad8; }
 }
 
 .organism-hero { position: relative; min-height: 100svh; isolation: isolate; display: flex; flex-direction: column; justify-content: space-between; padding: 88px 4vw 32px; overflow: hidden; color: var(--org-paper); font-family: var(--org-sans); -webkit-tap-highlight-color: transparent; }
@@ -61,7 +67,7 @@
 .organism-kicker { display: flex; align-items: center; gap: 10px; margin: 0 0 22px; color: var(--org-blue); font-family: var(--org-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
 .organism-kicker span { width: 28px; height: 1px; background: currentColor; }
 .organism-hero h1 { max-width: 920px; margin: 0; font-size: clamp(3.5rem, 7.4vw, 8.4rem); font-weight: 500; letter-spacing: -.075em; line-height: .88; color: var(--org-paper); }
-.organism-hero h1 em { color: transparent; font-style: normal; -webkit-text-stroke: 2px rgba(240, 238, 232, .82); }
+.organism-hero h1 em { color: rgba(240, 238, 232, .1); font-style: normal; -webkit-text-stroke: 2px rgba(240, 238, 232, .92); }
 .organism-deck { max-width: 450px; margin: 24px 0 0; color: #c9ced8; font-size: 16px; line-height: 1.6; }
 .organism-deck--offer { margin-top: 14px; color: #e3e7ee; }
 .organism-actions { display: flex; gap: 16px; margin-top: 35px; }

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { ArrowRight, Brain } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
 import { BlurFade } from "@/components/ui/blur-fade";
 
@@ -29,14 +30,12 @@ export default function AssessmentCtaSection() {
               clear next step. No email required to see results.
             </p>
           </div>
-          <Link
-            href="/assessment"
-            onClick={() => trackEvent("homepage_assessment_cta")}
-            className="inline-flex items-center justify-center gap-2 h-12 px-7 text-sm font-semibold uppercase tracking-[0.7px] bg-hp-electric text-white hover:bg-hp-bright transition-colors shrink-0"
-          >
-            Take the free assessment
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </Link>
+          <Button asChild size="lg" className="shrink-0" onClick={() => trackEvent("homepage_assessment_cta")}>
+            <Link href="/assessment">
+              Take the free assessment
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </Button>
         </div>
       </BlurFade>
     </section>

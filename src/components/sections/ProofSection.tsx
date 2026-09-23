@@ -4,16 +4,24 @@ import { TESTIMONIALS, type Testimonial } from "@/content/testimonials";
 import { CASE_STUDIES } from "@/content/case-studies";
 import { GITHUB_URL } from "@/lib/constants";
 
+// Fail fast at module load if a featured name drifts from the testimonial
+// source, instead of a null-dereference mid-render taking the page down.
+const byName = (name: string): Testimonial => {
+  const client = TESTIMONIALS.find((item) => item.name === name);
+  if (!client) throw new Error(`ProofSection: no testimonial named "${name}"`);
+  return client;
+};
+
 const clientExamples = [
   {
-    name: "Brenda Fonseca",
+    client: byName("Brenda Fonseca"),
     path: "Build with me",
     title: "From unsure where to start to writing her own code",
     description: "Brenda came to the sessions unsure what training to ask for. Four months into working together, she was using AI for work and personal tasks, including coding her own productivity tools.",
     excerpt: "Now I have a foundational understanding of what AI actually is and how I can use it as a tool in my daily productivity for both work and personal - even using it to do my own coding to create customized productivity skills.",
   },
   {
-    name: "Shannon Myers",
+    client: byName("Shannon Myers"),
     path: "Built for you",
     title: "A website launch and 20 hours back each week",
     description: "Shannon credits the work with helping her reclaim 20 hours a week and launch a website that landed a deal within an hour. These are her reported results from that engagement.",
@@ -51,7 +59,7 @@ export default function ProofSection() {
 
         <div className="mt-10 grid gap-8 md:grid-cols-2 md:gap-12">
           {clientExamples.map((example) => (
-            <article key={example.name} className="border-t border-hairline pt-6">
+            <article key={example.client.name} className="border-t border-hairline pt-6">
               <h3 className="font-display text-2xl leading-tight font-medium text-hp-electric">{example.path}</h3>
               <p className="mt-4 font-display text-[32px] leading-tight font-medium text-ink">{example.title}</p>
               <p className="mt-4 max-w-prose text-base leading-relaxed text-charcoal">{example.description}</p>
@@ -61,17 +69,14 @@ export default function ProofSection() {
 
         <div id="testimonials" className="mt-8 scroll-mt-20">
           <div className="grid gap-8 md:grid-cols-2 md:gap-12">
-            {clientExamples.map((example) => {
-              const client = TESTIMONIALS.find((item) => item.name === example.name)!;
-              return (
-                <figure key={client.name} className="m-0 rounded-hp-xl bg-cloud p-6 md:p-8">
-                  <blockquote className="font-display text-lg leading-relaxed text-ink">
-                    <p>&ldquo;{example.excerpt}&rdquo;</p>
-                  </blockquote>
-                  <ClientIdentity client={client} />
-                </figure>
-              );
-            })}
+            {clientExamples.map(({ client, excerpt }) => (
+              <figure key={client.name} className="m-0 rounded-hp-xl bg-cloud p-6 md:p-8">
+                <blockquote className="font-display text-lg leading-relaxed text-ink">
+                  <p>&ldquo;{excerpt}&rdquo;</p>
+                </blockquote>
+                <ClientIdentity client={client} />
+              </figure>
+            ))}
           </div>
           <p className="mt-4 text-sm text-graphite">Excerpts from client reviews. Individual results and timelines vary.</p>
           <details className="mt-4 border-b border-hairline pb-2">

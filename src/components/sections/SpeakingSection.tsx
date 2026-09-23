@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { MessageSquare, Mic } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { motion } from "motion/react";
@@ -89,16 +90,17 @@ export default function SpeakingSection() {
             Need someone to lead an executive AI discussion? Bring a real
             decision into the room.
           </p>
-          <a
-            href={SPEAKING_FORM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackEvent("speaking_inquiry_click")}
-            className="inline-flex items-center justify-center gap-2 h-11 px-6 text-sm font-semibold uppercase tracking-[0.7px] bg-hp-electric text-white hover:bg-hp-bright transition-colors shrink-0"
-          >
-            <MessageSquare className="h-4 w-4" aria-hidden="true" />
-            Ask About a Date
-          </a>
+          <Button asChild className="shrink-0">
+            <a
+              href={SPEAKING_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackEvent("speaking_inquiry_click")}
+            >
+              <MessageSquare className="h-4 w-4" aria-hidden="true" />
+              Ask About a Date
+            </a>
+          </Button>
         </div>
       </div>
     </section>

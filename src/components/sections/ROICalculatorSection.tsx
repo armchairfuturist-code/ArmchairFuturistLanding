@@ -170,7 +170,6 @@ export default function ROICalculatorSection() {
           <BlurFade inView delay={0.15}>
             <div
               className="bg-canvas rounded-hp-xl border border-hairline p-6 md:p-8 lg:sticky lg:top-24"
-              aria-live="polite"
             >
               <h3 className="font-heading font-medium text-ink mb-6">
                 Your Estimated Savings
@@ -261,6 +260,13 @@ export default function ROICalculatorSection() {
                   </motion.div>
                 )}
               </AnimatePresence>
+              {/* One short announcement per change. The panel above used to be
+                  the live region, so every checkbox re-read all four figures. */}
+              <p className="sr-only" role="status">
+                {hasResults
+                  ? `${hoursPerWeek} hours per week per person. ${teamHoursPerYear.toLocaleString()} hours per year for a team of ${teamSize}.`
+                  : ""}
+              </p>
             </div>
           </BlurFade>
         </div>
