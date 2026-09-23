@@ -19,6 +19,36 @@ const LOW_END_COUNT = 1200;
 
 const easeInOut = (t: number) => t * t * (3 - 2 * t);
 
+/**
+ * Software rasterizers advertise themselves in the unmasked renderer string.
+ * Firefox on Linux without GPU acceleration lands on llvmpipe; Chrome's
+ * equivalent (SwiftShader) copes with the full swarm, so this is the check that
+ * separates "renders in Chrome, dead in Firefox" into a supported tier rather
+ * than a dead hero.
+ */
+export function isSoftwareRenderer(renderer: string): boolean {
+  return /swiftshader|llvmpipe|software|basic render|generic renderer/i.test(renderer);
+}
+
+/** Probes on a throwaway canvas — the real canvas must keep its own attributes. */
+function detectSoftwareRenderer(): boolean {
+  try {
+    const probe = document.createElement("canvas");
+    const gl = probe.getContext("webgl2");
+    if (!gl) return false; // the engine reports "no-webgl2" itself
+    const ext = gl.getExtension("WEBGL_debug_renderer_info");
+    const renderer = ext
+      ? String(gl.getParameter(ext.UNMASKED_RENDERER_WEBGL))
+      : "";
+    // Free the probe context immediately rather than waiting on GC — browsers
+    // cap live WebGL contexts per page.
+    gl.getExtension("WEBGL_lose_context")?.loseContext();
+    return isSoftwareRenderer(renderer);
+  } catch {
+    return false;
+  }
+}
+
 export function OrganismCanvas({
   className = "organism-canvas",
   count = 14000,
@@ -33,13 +63,16 @@ export function OrganismCanvas({
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const coarsePointer = window.matchMedia("(pointer: coarse)").matches;
     // Low-end devices (little memory, many cores missing) get a lighter swarm
-    // instead of a context-loss fallback as the only mercy.
+    // instead of a context-loss fallback as the only mercy. Software
+    // rasterizers (Firefox + llvmpipe on Linux) join that tier.
     const lowEnd =
       typeof navigator !== "undefined" &&
       "deviceMemory" in navigator &&
       (navigator as { deviceMemory?: number }).deviceMemory !== undefined &&
       (navigator as { deviceMemory: number }).deviceMemory <= 4;
-    const particleCount = lowEnd
+    const software = detectSoftwareRenderer();
+    const capped = lowEnd || software;
+    const particleCount = capped
       ? Math.min(count, LOW_END_COUNT)
       : coarsePointer || window.innerWidth < 800
         ? Math.min(count, MOBILE_COUNT)
@@ -63,9 +96,28 @@ export function OrganismCanvas({
     };
 
     const handleContextLost = (event: Event) => {
+      // preventDefault is what allows the browser to ever restore the context;
+      // without it the hero is dead for the life of the page.
       event.preventDefault();
       organism?.stop();
-      setShowFallback(true);
+      // Every GL object this engine holds died with the context, so drop the
+      // instance rather than let step()/render() call into invalid objects.
+      organism = null;
+      canvas.dataset.organism = "fallback";
+      canvas.dataset.organismReason = "context-lost";
+    };
+
+    const handleContextRestored = () => {
+      // No destroy() here: the objects are already gone with the old context.
+      // Build a fresh engine against the restored one.
+      cancelAnimationFrame(introFrame);
+      initialize();
+    };
+
+    // Firefox restores pages from bfcache with the canvas context already gone
+    // and no effect re-run; without this the hero stays a static scribble.
+    const handlePageShow = (event: PageTransitionEvent) => {
+      if (event.persisted && !organism) initialize();
     };
 
     const initialize = () => {
@@ -79,6 +131,11 @@ export function OrganismCanvas({
         organism = new ParticleOrganism(canvas, particleCount, chaos);
       } catch (error) {
         console.warn("WebGL2 hero organism initialization failed:", error);
+        canvas.dataset.organism = "fallback";
+        canvas.dataset.organismReason =
+          error instanceof Error && error.message.includes("WebGL2")
+            ? "no-webgl2"
+            : "init-failed";
         setShowFallback(true);
         return;
       }
@@ -88,6 +145,8 @@ export function OrganismCanvas({
       organism.setMorph(0);
       organism.setOpacity(0.32);
       organism.start();
+      canvas.dataset.organism = "webgl";
+      canvas.dataset.organismCount = String(particleCount);
       setShowFallback(false);
 
       // Load-in: scattered particles settle into the calm full-hero field.
@@ -116,8 +175,17 @@ export function OrganismCanvas({
     };
 
     const handleVisibilityChange = () => {
-      if (document.hidden || !heroVisible) organism?.stop();
-      else organism?.start();
+      if (document.hidden || !heroVisible) {
+        organism?.stop();
+        return;
+      }
+      // A backgrounded tab can come back with its context gone (Firefox
+      // recycles the GPU process). Rebuild instead of staying on the fallback.
+      if (!organism) {
+        initialize();
+        return;
+      }
+      organism.start();
     };
 
     const handleReducedMotionChange = (event: MediaQueryListEvent) => {
@@ -175,9 +243,11 @@ export function OrganismCanvas({
       canvas.closest<HTMLElement>(".organism-hero") ?? canvas.parentElement ?? canvas;
 
     window.addEventListener("resize", handleResize);
+    window.addEventListener("pageshow", handlePageShow);
     document.addEventListener("visibilitychange", handleVisibilityChange);
     reducedMotion.addEventListener?.("change", handleReducedMotionChange);
     canvas.addEventListener("webglcontextlost", handleContextLost);
+    canvas.addEventListener("webglcontextrestored", handleContextRestored);
     if (!coarsePointer) {
       hero.addEventListener("pointermove", handlePointerMove);
       hero.addEventListener("pointerleave", handlePointerLeave);
@@ -192,9 +262,11 @@ export function OrganismCanvas({
       window.clearTimeout(resizeTimer);
       observer?.disconnect();
       window.removeEventListener("resize", handleResize);
+      window.removeEventListener("pageshow", handlePageShow);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
       reducedMotion.removeEventListener?.("change", handleReducedMotionChange);
       canvas.removeEventListener("webglcontextlost", handleContextLost);
+      canvas.removeEventListener("webglcontextrestored", handleContextRestored);
       hero.removeEventListener("pointermove", handlePointerMove);
       hero.removeEventListener("pointerleave", handlePointerLeave);
       hero.removeEventListener("click", handleClick);
