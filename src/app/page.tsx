@@ -1,10 +1,7 @@
-import { OrganismHero } from "@/components/organism/OrganismHero";
+import { HomepageComposition } from "@/components/homepage/HomepageComposition";
 import SectionNavigator from "@/components/ui/SectionNavigator";
-import { getHomepageSections } from "@/lib/section-registry";
 
 export default function Home() {
-  const sections = getHomepageSections();
-
   return (
     <div className="flex flex-col">
       <a
@@ -15,15 +12,7 @@ export default function Home() {
       </a>
 
       <main id="main-content">
-        {sections.map(({ id, component: Component }) =>
-          id === "hero" ? (
-            <OrganismHero key={id} />
-          ) : (
-            <div key={id} id={id} className="scroll-mt-20">
-              <Component />
-            </div>
-          )
-        )}
+        <HomepageComposition />
       </main>
 
       <SectionNavigator />

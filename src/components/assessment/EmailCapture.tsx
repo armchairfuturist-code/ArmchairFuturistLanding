@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { Mail, ArrowRight, Loader2 } from "lucide-react";
 import { useLeadCapture } from "@/lib/hooks/useLeadCapture";
-import { isValidEmail } from "@/lib/email-utils";
+import { validateEmailField } from "@/lib/lead-capture";
 
 interface EmailCaptureProps {
   onComplete: () => void;
@@ -26,10 +26,8 @@ export default function EmailCapture({
       endpoint: "/api/assessment/submit",
       initialValues: { email: "" },
       validate: (v) => {
-        if (!v.email.trim()) return { email: "Email is required" };
-        if (!isValidEmail(v.email))
-          return { email: "Enter a valid email, like name@company.com" };
-        return null;
+        const emailError = validateEmailField(v.email);
+        return emailError ? { email: emailError } : null;
       },
       buildBody: (v) => {
         const body: Record<string, unknown> = {

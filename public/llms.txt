@@ -103,10 +103,10 @@ All sessions are 60 minutes, held via video call. Book at https://thearmchairfut
 
 ## Services Hub (Build Groups)
 - **Hub:** /services - Work built with you, systems you own. Starts with ROI Blueprint.
-- **/services/data-foundation** - Context Layer, consolidation pipelines, SOP knowledge base. One queryable system.
-- **/services/revenue-operations** - Onboarding, pipeline, documents, reporting, billing. No copy-paste.
-- **/services/visibility** - Automated reporting and capacity tracking from CRM, ads, books.
-- **/services/frontline-help** - Tier-1 agents (60-70% scoped pilots), SaaS consolidation, model routing.
+- **/services/data-foundation** - One source of truth for the workflows your team and AI share.
+- **/services/revenue-operations** - The handoffs, documents, and reporting between sale and renewal.
+- **/services/visibility** - The source-traceable view of performance, workload, and margin.
+- **/services/frontline-help** - Repeat intake and support with a clean human handoff.
 - **Ownership:** client keeps repo, configs, keys, 2-page runbook. Training closes each handoff.
 
 ## Case Studies
@@ -266,20 +266,18 @@ Primary page: https://thearmchairfuturist.com/how-i-work
 - **/terms-of-service** - Terms of service and legal information
 
 ### Key Sections on Homepage (in scroll order)
-1. Hero - Value proposition and CTAs (wordless particle-field intro)
-2. Case Studies - Quantified client outcomes
-3. Testimonials - Client results (pausable marquee)
-4. Key Stats - AI-citable statistics ("Proof, not promises.")
-5. What This Is NOT - Honest fit assessment
-6. Services - Full service catalog with pricing and currency toggle
-7. About Me - Alex Myers biography and credentials
-8. AI Guidance - 1-on-1 coaching packages with tiered pricing
-9. ROI Calculator - Interactive time-savings estimator (planning estimate, not a forecast)
+1. Hero - Value proposition and CTAs (ambient visual runtime)
+2. Fit - Honest fit assessment
+3. Assessment CTA - Free 3-minute diagnostic quiz
+4. Results - Client outcomes, testimonials, and key stats
+5. Community - Belonging and peer proof
+6. ROI - Interactive time-savings estimator (planning estimate, not a forecast)
+7. Services - Service Path catalog with pricing and currency toggle
+8. About - Alex Myers biography and credentials
+9. Guidance - 1-on-1 coaching packages with tiered pricing
 10. Speaking - Roundtable and workshop offerings
-11. Assessment CTA - Free 3-minute diagnostic quiz
-12. Newsletter - Weekly essays (Signal, not hype)
-13. FAQ - 14 common questions (structured as FAQPage schema)
-14. Connect - Contact form and booking CTAs
+11. FAQ - Common questions (structured as FAQPage schema)
+12. Contact - Contact form and booking CTAs
 
 ## FAQ Content (AI-Optimized Q&A)
 

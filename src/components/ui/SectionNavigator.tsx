@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion, useScroll, useSpring } from "motion/react";
-import { getNavigatorItems } from "@/lib/section-registry";
+import { getNavigatorItems } from "@/lib/homepage-sections";
 
 export interface NavigatorItem {
   id: string;

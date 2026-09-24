@@ -3,7 +3,7 @@
  * GEO maps drift check — fails when the static crawler-facing files drift
  * from their source of truth:
  *   public/robots.txt       <- src/app/robots.ts
- *   public/sitemap-ai.xml   <- src/app/sitemap.ts + src/lib/assessment/archetypes.ts
+ *   public/sitemap-ai.xml   <- src/app/sitemap.ts + service-catalog.ts + assessment/archetypes.ts
  *   booking URL             <- src/lib/constants.ts (StructuredData + llms.txt)
  * Run: node scripts/check-geo-maps.mjs   (exit 0 fresh, exit 1 drift)
  */
@@ -17,6 +17,7 @@ const read = (p) => readFileSync(join(root, p), 'utf8');
 const robotsTs = read('src/app/robots.ts');
 const robotsTxt = read('public/robots.txt');
 const sitemapTs = read('src/app/sitemap.ts');
+const serviceCatalog = read('src/content/service-catalog.ts');
 const sitemapAi = read('public/sitemap-ai.xml');
 const archetypes = read('src/lib/assessment/archetypes.ts');
 const constants = read('src/lib/constants.ts');
@@ -97,6 +98,9 @@ for (const m of sitemapTs.matchAll(/`\$\{baseUrl\}([^`]*)`/g)) {
   if (!m[1].includes('${')) paths.add(m[1] || '/');
 }
 if (/\burl:\s*baseUrl\b/.test(sitemapTs)) paths.add('/');
+for (const m of serviceCatalog.matchAll(/href:\s*['"](\/services\/[^'"]+)/g)) {
+  paths.add(m[1]);
+}
 const slugs = [...archetypes.matchAll(/slug:\s*'([^']+)'/g)].map((m) => m[1]);
 for (const m of sitemapTs.matchAll(/`\$\{baseUrl\}([^`]*\$\{slug\}[^`]*)`/g)) {
   for (const s of slugs) paths.add(m[1].replace('${slug}', s));
@@ -109,6 +113,18 @@ const onlyAi = [...aiPaths].filter((p) => !paths.has(p)).sort();
 ok('no URLs missing from sitemap-ai.xml', onlyTs.length === 0, `(missing: ${onlyTs.join(', ')})`);
 ok('no stale URLs in sitemap-ai.xml', onlyAi.length === 0, `(stale: ${onlyAi.join(', ')})`);
 ok('archetype slugs found', slugs.length > 0, '(archetypes.ts parse yielded 0)');
+const servicePaths = [...serviceCatalog.matchAll(/href:\s*['"](\/services\/[^'"]+)/g)].map((m) => m[1]);
+ok('service catalog paths found', servicePaths.length > 0, '(service-catalog.ts parse yielded 0)');
+for (const path of servicePaths) {
+  ok(`llms carries ${path}`, llms.includes(path));
+}
+const serviceSummaries = [...serviceCatalog.matchAll(
+  /slug:\s*['"][^'"]+['"][\s\S]*?href:\s*['"](\/services\/[^'"]+)['"][\s\S]*?hubSummary:\s*['"]([^'"]+)['"]/g,
+)];
+ok('service catalog summaries found', serviceSummaries.length > 0, '(service-catalog.ts parse yielded 0)');
+for (const [, path, summary] of serviceSummaries) {
+  ok(`llms carries summary for ${path}`, llms.includes(summary));
+}
 
 // --- booking URL --------------------------------------------------------
 console.log('booking:');

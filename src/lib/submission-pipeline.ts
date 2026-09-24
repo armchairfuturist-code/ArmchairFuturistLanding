@@ -1,19 +1,15 @@
-import type { EmailSender, EmailMessage } from './email-sender';
-import type { LeadStore, AuditCaseData } from './lead-store';
+import type { EmailSender } from './email-sender';
+import type { LeadStore } from './lead-store';
 import { getArchetypeBySlug } from './assessment/archetypes';
 import { scoreFromAnswerIndices } from './assessment/resolve-answers';
-import { buildProspectResultEmail, buildAlexNotificationEmail, buildLeadProspectEmail, buildLeadNotificationEmail, buildContactNotificationEmail, buildContactAutoReplyEmail, buildAuditConfirmationEmail, buildAuditLeadNotificationEmail, buildIdentityConfirmationEmail, buildIdentityLeadNotificationEmail } from './email/templates';
-import { buildAuditCase } from './audit/case';
-import { buildIdentityCase } from './identity/case';
+import { buildProspectResultEmail, buildAlexNotificationEmail, buildLeadProspectEmail, buildLeadNotificationEmail, buildContactNotificationEmail, buildContactAutoReplyEmail } from './email/templates';
 import { isValidEmail, sanitizeEmailHeaderValue } from './email-utils';
 import { ALEX_EMAIL, FROM_EMAIL } from './email/config';
 import {
-  checkPaidIntakeContact,
-  cleanField,
-  generateCaseId,
-  persistBestEffort,
-  sendCaseNotificationPair,
-} from './paid-case';
+  AUDIT_PAID_CASE,
+  IDENTITY_PAID_CASE,
+  submitPaidCaseIntake,
+} from './paid-case-intake';
 
 // ── Input types ──────────────────────────────────────────────
 
@@ -127,9 +123,9 @@ export function createSubmissionPipeline(deps: PipelineDeps) {
       case 'contact':
         return submitContact(input, emailSender);
       case 'audit-intake':
-        return submitAuditIntake(input, emailSender, leadStore);
+        return submitPaidCaseIntake(input, AUDIT_PAID_CASE, { emailSender, leadStore });
       case 'identity-intake':
-        return submitIdentityIntake(input, emailSender, leadStore);
+        return submitPaidCaseIntake(input, IDENTITY_PAID_CASE, { emailSender, leadStore });
     }
   };
 }
@@ -293,217 +289,4 @@ async function submitContact(
   }
 
   return { ok: true, data: { emailId: ownerResult.id } };
-}
-
-// ── Audit intake (Plan 009 / ADR-004) ────────────────────────
-
-const AI_MATURITY_VALUES = ['chat', 'automations', 'agents', 'unsure'] as const;
-
-const AUDIT_REQUIRED_FIELDS = [
-  'name',
-  'email',
-  'role',
-  'aiMaturity',
-  'paidTools',
-  'weekEaters',
-  'win90d',
-  'triedFailed',
-  'biggestQuestion',
-  'availability',
-] as const;
-
-async function submitAuditIntake(
-  input: AuditIntakeInput,
-  emailSender: EmailSender,
-  leadStore: LeadStore,
-): Promise<SubmissionResult> {
-  // Full validity contract for the audit kind lives here (the route only
-  // shape-parses). Required-field loop + email format come from the engine.
-  const contactError = checkPaidIntakeContact(input, AUDIT_REQUIRED_FIELDS);
-  if (contactError) {
-    return { ok: false, error: contactError, status: 400 };
-  }
-
-  const maturity = input.aiMaturity as 'chat' | 'automations' | 'agents' | 'unsure';
-  if (!AI_MATURITY_VALUES.includes(maturity)) {
-    return { ok: false, error: 'Invalid AI maturity value.', status: 400 };
-  }
-
-  if (input.scope !== 'individual' && input.scope !== 'organization') {
-    return { ok: false, error: 'Invalid scope value.', status: 400 };
-  }
-
-  const caseId = generateCaseId('audit');
-  const nowIso = new Date().toISOString();
-  const name = cleanField(input.name, MAX_NAME_LENGTH);
-  const archetype = input.archetype ?? { slug: 'unknown', name: 'Direct' };
-  const scores = input.scores ?? { clarity: 0, readiness: 0, urgency: 0, individualSignals: 0 };
-
-  const casePayload = buildAuditCase(
-    { name, email: input.email },
-    {
-      role: cleanField(input.role, 500),
-      scope: input.scope as 'individual' | 'organization',
-      aiMaturity: maturity,
-      paidTools: cleanField(input.paidTools, 500),
-      weekEaters: cleanField(input.weekEaters, 2000),
-      win90d: cleanField(input.win90d, 500),
-      triedFailed: cleanField(input.triedFailed, 1000),
-      biggestQuestion: cleanField(input.biggestQuestion, 500),
-      availability: cleanField(input.availability, 300),
-    },
-    archetype,
-    scores,
-    caseId,
-    nowIso,
-  );
-
-  // Persist (best-effort)
-  const storageFailed = await persistBestEffort(
-    () => leadStore.saveAuditCase(casePayload as AuditCaseData),
-    'Audit case storage failed:',
-  );
-
-  const emailId = await sendCaseNotificationPair(
-    emailSender,
-    {
-      to: input.email,
-      subject: `Your audit briefing is in — book the fit call`,
-      html: buildAuditConfirmationEmail({
-        name,
-        archetypeName: input.archetype?.name,
-        biggestQuestion: casePayload.intake.biggestQuestion,
-        availability: casePayload.intake.availability,
-        aiMaturity: maturity,
-      }),
-    },
-    {
-      subject: `New Audit Intake: ${sanitizeEmailHeaderValue(name)} <${input.email}>`,
-      html: buildAuditLeadNotificationEmail({
-        name,
-        email: input.email,
-        archetypeName: input.archetype?.name,
-        intake: {
-          Role: casePayload.intake.role,
-          Scope: casePayload.intake.scope,
-          'AI maturity': casePayload.intake.aiMaturity,
-          'Paid tools': casePayload.intake.paidTools,
-          'Week-eaters': casePayload.intake.weekEaters,
-          '90-day win': casePayload.intake.win90d,
-          'Tried and dropped': casePayload.intake.triedFailed,
-          'Biggest question': casePayload.intake.biggestQuestion,
-          Availability: casePayload.intake.availability,
-          'Case ID': caseId,
-        },
-      }),
-    },
-  );
-
-  return {
-    ok: true,
-    data: {
-      emailId,
-      caseId,
-      storageFailed,
-    },
-  };
-}
-
-// ── Identity intake (Plan 010) ───────────────────────────────
-
-const IDENTITY_REQUIRED_FIELDS = ['name', 'email', 'scope', 'linkedinUrl', 'resumeUrl', 'headline'] as const;
-
-function looksLikeUrl(raw: string): boolean {
-  try {
-    const u = new URL(raw);
-    return u.protocol === 'https:' || u.protocol === 'http:';
-  } catch {
-    return false;
-  }
-}
-
-async function submitIdentityIntake(
-  input: IdentityIntakeInput,
-  emailSender: EmailSender,
-  leadStore: LeadStore,
-): Promise<SubmissionResult> {
-  // Full validity contract for the identity kind lives here (the route
-  // only shape-parses). Required-field loop + email format via the engine.
-  const contactError = checkPaidIntakeContact(input, IDENTITY_REQUIRED_FIELDS);
-  if (contactError) {
-    return { ok: false, error: contactError, status: 400 };
-  }
-
-  if (input.scope !== 'individual' && input.scope !== 'organization') {
-    return { ok: false, error: 'Invalid scope value.', status: 400 };
-  }
-
-  if (!looksLikeUrl(input.linkedinUrl.trim())) {
-    return { ok: false, error: 'LinkedIn link must be a full URL (https://...).', status: 400 };
-  }
-  if (!looksLikeUrl(input.resumeUrl)) {
-    return { ok: false, error: 'Resume link must be a full URL.', status: 400 };
-  }
-
-  const caseId = generateCaseId('id');
-  const nowIso = new Date().toISOString();
-  const name = cleanField(input.name, MAX_NAME_LENGTH);
-
-  const casePayload = buildIdentityCase(
-    { name, email: input.email },
-    {
-      scope: input.scope as 'individual' | 'organization',
-      linkedinUrl: cleanField(input.linkedinUrl, 300),
-      resumeUrl: cleanField(input.resumeUrl, 300),
-      socialLinks: cleanField(input.socialLinks, 500),
-      headline: cleanField(input.headline, 300),
-      notes: cleanField(input.notes, 1000),
-    },
-    caseId,
-    nowIso,
-  );
-
-  // Persist (best-effort)
-  const storageFailed = await persistBestEffort(
-    () => leadStore.saveIdentityCase(casePayload),
-    'Identity case storage failed:',
-  );
-
-  const emailId = await sendCaseNotificationPair(
-    emailSender,
-    {
-      to: input.email,
-      subject: `Your digital identity intake is in — next steps`,
-      html: buildIdentityConfirmationEmail({
-        name,
-        headline: cleanField(input.headline, 200),
-        scope: input.scope,
-      }),
-    },
-    {
-      subject: `New Digital Identity Intake: ${sanitizeEmailHeaderValue(name)} <${input.email}>`,
-      html: buildIdentityLeadNotificationEmail({
-        name,
-        email: input.email,
-        intake: {
-          Scope: input.scope,
-          LinkedIn: input.linkedinUrl,
-          Resume: input.resumeUrl,
-          'Social links': input.socialLinks || '(none)',
-          Headline: input.headline,
-          Notes: input.notes || '(none)',
-          'Case ID': caseId,
-        },
-      }),
-    },
-  );
-
-  return {
-    ok: true,
-    data: {
-      emailId,
-      caseId,
-      storageFailed,
-    },
-  };
 }

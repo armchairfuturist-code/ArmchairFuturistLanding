@@ -10,7 +10,7 @@ import { BlurFade } from "@/components/ui/blur-fade";
 import { BookCallButton } from "@/components/ui/BookCallButton";
 import { MessageCircle, Loader2, CheckCircle2, TriangleAlert } from "lucide-react";
 import { useLeadCapture } from "@/lib/hooks/useLeadCapture";
-import { isValidEmail } from "@/lib/email-utils";
+import { validateEmailField } from "@/lib/lead-capture";
 import { WHATSAPP_URL } from "@/lib/constants";
 import { trackEvent } from "@/lib/analytics";
 import WhatsAppGlyph from "@/components/ui/WhatsAppGlyph";
@@ -25,9 +25,12 @@ function validateConnect(
 ): Partial<Record<keyof ConnectFields, string>> | null {
   const errs: Partial<Record<keyof ConnectFields, string>> = {};
   if (!data.name.trim()) errs.name = "Please enter your name.";
-  if (!data.email.trim()) errs.email = "Please enter your email.";
-  else if (!isValidEmail(data.email))
-    errs.email = "That doesn't look like a valid email address.";
+  const emailError = validateEmailField(
+    data.email,
+    "Please enter your email.",
+    "That doesn't look like a valid email address.",
+  );
+  if (emailError) errs.email = emailError;
   if (!data.message.trim())
     errs.message = "Please tell me a little about what you're working on.";
   return Object.keys(errs).length > 0 ? errs : null;

@@ -1,6 +1,10 @@
 "use client";
 
 import { useCallback, useState, type FormEvent } from "react";
+import {
+  defaultLeadCaptureError,
+  submitLeadCapture,
+} from "@/lib/lead-capture";
 
 export type LeadCaptureStatus = "idle" | "loading" | "success" | "error";
 
@@ -35,15 +39,6 @@ export interface UseLeadCaptureReturn<T extends Record<string, string>> {
   handleSubmit: (e: FormEvent) => void;
 }
 
-const defaultParseError = (data: unknown, status: number): string => {
-  if (data && typeof data === "object" && "error" in data) {
-    const err = (data as { error: unknown }).error;
-    if (typeof err === "string") return err;
-  }
-  if (status === 429) return "Too many requests. Please try again later.";
-  return "Something went wrong. Please try again.";
-};
-
 /**
  * Client Lead Capture adapter — one seam over form state + POST.
  * Connect, EmailCapture, and future forms bind layout only.
@@ -60,7 +55,7 @@ export function useLeadCapture<T extends Record<string, string>>(
     headers,
     onSuccess,
     onError,
-    parseError = defaultParseError,
+    parseError = defaultLeadCaptureError,
   } = options;
 
   const [values, setValues] = useState<T>(initialValues);
@@ -103,36 +98,14 @@ export function useLeadCapture<T extends Record<string, string>>(
 
       try {
         const rawBody = buildBody ? buildBody(values) : values;
-        let body: BodyInit;
-        let nextHeaders: HeadersInit | undefined = headers;
-
-        if (rawBody instanceof FormData) {
-          body = rawBody;
-        } else if (typeof rawBody === "string") {
-          body = rawBody;
-        } else {
-          body = JSON.stringify(rawBody);
-          nextHeaders = {
-            "Content-Type": "application/json",
-            ...headers,
-          };
-        }
-
-        const response = await fetch(endpoint, {
-          method: "POST",
-          headers: nextHeaders,
-          body,
+        const result = await submitLeadCapture({
+          endpoint,
+          values: rawBody,
+          headers,
         });
 
-        let data: unknown = null;
-        try {
-          data = await response.json();
-        } catch {
-          data = null;
-        }
-
-        if (!response.ok) {
-          const message = parseError(data, response.status);
+        if (!result.ok) {
+          const message = parseError(result.data, result.status);
           setServerError(message);
           setStatus("error");
           onError?.(message);
@@ -140,7 +113,7 @@ export function useLeadCapture<T extends Record<string, string>>(
         }
 
         setStatus("success");
-        onSuccess?.(data);
+        onSuccess?.(result.data);
       } catch {
         const message = "Network error. Please check your connection.";
         setServerError(message);

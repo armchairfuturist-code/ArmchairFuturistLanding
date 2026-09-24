@@ -46,8 +46,9 @@ the resource leak this ADR closes.
 
 5. **Submission reuses the deep route factory** (`submission-route.ts`,
    ADR-003): `kind: 'audit-intake'`, rate-limited, honeypot, pipeline
-   validation. The route writes the case, fires confirmation + lead
-   notification, and returns `{ ok, caseId }`.
+   validation. The paid lifecycle is centralized in `paid-case-intake.ts`;
+   Audit and Digital Identity are thin kind adapters. The route returns
+   `{ ok, caseId }` after persistence and notifications.
 
 6. **The form is archetype-aware.** `/audit` reads the stored assessment
    result (`readAssessmentResult()`) and opens with the visitor's profile

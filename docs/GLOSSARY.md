@@ -16,7 +16,7 @@
 |------|------------|
 | **Diagnosis** | Personalized insights derived from assessment scores, explaining what the results mean for the individual's AI journey. |
 | **Quiz Question** | One of nine questions used to evaluate AI readiness, each designed to probe specific aspects of clarity, readiness, and urgency. |
-| **Lead Capture** | The process of collecting prospect contact information (email) after assessment completion for follow-up communication. |
+| **Lead Capture** | The process of collecting a visitor's contact information through a form for follow-up communication; assessment email delivery is one Lead Capture path. |
 | **Score Calculation** | The algorithm that converts assessment answers into three score metrics (clarity, readiness, urgency) and assigns an archetype. |
 
 ## Email & Communication
@@ -35,6 +35,9 @@
 | **1-on-1 Mentoring** | Personalized coaching sessions for overwhelmed professionals needing hands-on AI implementation guidance. |
 | **Strategy Call** | A 30-minute consultation between Alex and prospects to discuss their specific AI situation based on assessment results. |
 | **Tiered Package** | Service offerings with different price points and features (e.g., foundational, intensive, comprehensive). |
+| **Service Path** | A coherent route from a visitor's starting point to a useful AI outcome, such as Guidance & Education or Done-For-You Implementation. |
+| **Service System** | One of the four build groups shown on the Services hub: Data Foundation, Revenue Operations, Visibility, or Front-Line Help. Each system is delivered with the client and handed over for ownership. |
+| **Paid Case** | A submitted Audit Case or Digital Identity case awaiting confirmation, payment, or delivery. |
 | **ROI Calculator** | An interactive tool estimating time savings from AI adoption based on user inputs. |
 | **Speaking** | Keynote speeches, roundtables, and workshops on AI adoption topics for organizations and events. |
 

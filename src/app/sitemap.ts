@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { ARCHETYPE_SLUGS } from '@/lib/assessment/archetypes';
+import { SERVICE_SYSTEMS } from '@/content/service-catalog';
 
 /**
  * Sitemap configuration for SEO and AI crawler discovery
@@ -36,8 +37,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.9,
     },
-
-    
 
   // === ASSESSMENT FUNNEL ===
     {
@@ -127,30 +126,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
-    {
-      url: `${baseUrl}/services/data-foundation`,
+    ...SERVICE_SYSTEMS.map((system) => ({
+      url: `${baseUrl}${system.href}`,
       lastModified: new Date('2026-09-04'),
-      changeFrequency: 'monthly',
+      changeFrequency: 'monthly' as const,
       priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/services/revenue-operations`,
-      lastModified: new Date('2026-09-04'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/services/visibility`,
-      lastModified: new Date('2026-09-04'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/services/frontline-help`,
-      lastModified: new Date('2026-09-04'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
+    })),
   {
     url: `${baseUrl}/speaking`,
     lastModified: new Date("2026-08-24"),

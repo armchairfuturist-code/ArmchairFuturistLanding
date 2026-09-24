@@ -1,9 +1,11 @@
 import { SERVICES_PRICING, COACHING_PACKAGES_BY_ID, formatSchemaPriceRange } from "@/lib/pricing";
-import { CALENDAR_URL } from "@/lib/constants";
+import { CALENDAR_URL, SITE_URL } from "@/lib/constants";
+import { getServiceOfferSchemaItems } from "@/content/service-catalog";
 
-const siteUrl = "https://thearmchairfuturist.com";
+const siteUrl = SITE_URL;
 const personId = `${siteUrl}/#person`;
 const orgId = `${siteUrl}/#organization`;
+const serviceOfferItems = getServiceOfferSchemaItems();
 
 /**
  * Structured data (JSON-LD) for the site.
@@ -78,56 +80,25 @@ export default function StructuredData() {
               "@type": "OfferCatalog",
               name: "AI Strategy & Advisory Services",
               itemListElement: [
-                {
+                ...serviceOfferItems.map((offer) => ({
                   "@type": "Offer",
                   itemOffered: {
                     "@type": "Service",
-                    name: SERVICES_PRICING.roadmapAudit.name,
-                    description: SERVICES_PRICING.roadmapAudit.description,
+                    name: offer.name,
+                    description: offer.description,
                     provider: { "@id": personId },
                   },
-                  price: String(SERVICES_PRICING.roadmapAudit.priceUSD),
-                  priceCurrency: SERVICES_PRICING.roadmapAudit.currency,
-                },
-                {
-                  "@type": "Offer",
-                  itemOffered: {
-                    "@type": "Service",
-                    name: SERVICES_PRICING.selfSufficiency.name,
-                    description: SERVICES_PRICING.selfSufficiency.description,
-                    provider: { "@id": personId },
-                  },
-                  price: String(SERVICES_PRICING.selfSufficiency.priceUSD),
-                  priceCurrency: SERVICES_PRICING.selfSufficiency.currency,
-                },
-                {
-                  "@type": "Offer",
-                  itemOffered: {
-                    "@type": "Service",
-                    name: SERVICES_PRICING.digitalIdentity.name,
-                    description: SERVICES_PRICING.digitalIdentity.description,
-                    provider: { "@id": personId },
-                  },
-                  price: String(SERVICES_PRICING.digitalIdentity.priceUSD),
-                  priceCurrency: SERVICES_PRICING.digitalIdentity.currency,
-                },
-                {
-                  "@type": "Offer",
-                  itemOffered: {
-                    "@type": "Service",
-                    name: SERVICES_PRICING.customAiProvisioning.name,
-                    description: SERVICES_PRICING.customAiProvisioning.description,
-                    provider: { "@id": personId },
-                  },
-                  price: String(SERVICES_PRICING.customAiProvisioning.priceUSD),
-                  priceCurrency: SERVICES_PRICING.customAiProvisioning.currency,
-                  priceSpecification: {
-                    "@type": "PriceSpecification",
-                    minPrice: String(SERVICES_PRICING.customAiProvisioning.minPriceUSD),
-                    maxPrice: String(SERVICES_PRICING.customAiProvisioning.maxPriceUSD),
-                    priceCurrency: SERVICES_PRICING.customAiProvisioning.currency,
-                  },
-                },
+                  price: offer.price,
+                  priceCurrency: offer.priceCurrency,
+                  ...(offer.priceSpecification
+                    ? {
+                        priceSpecification: {
+                          "@type": "PriceSpecification",
+                          ...offer.priceSpecification,
+                        },
+                      }
+                    : {}),
+                })),
                 {
                   "@type": "Offer",
                   itemOffered: {

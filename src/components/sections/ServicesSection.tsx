@@ -9,7 +9,7 @@ import { AUDIT_PRICE_LABEL, PROGRAM_PRICE_LABEL, GUIDANCE_RANGE_LABEL, DIGITAL_I
 import { BlurFade } from '@/components/ui/blur-fade';
 import { MagneticCard } from '@/components/ui/MagneticCard';
 import { staggerContainer, springStaggerItem } from '@/lib/animation-variants';
-import { SERVICE_PATHS, type ServiceTier } from "@/content/service-paths";
+import { SERVICE_PATHS, type ServiceTier } from "@/content/service-catalog";
 
 
 const ICON_MAP: Record<string, LucideIcon> = {

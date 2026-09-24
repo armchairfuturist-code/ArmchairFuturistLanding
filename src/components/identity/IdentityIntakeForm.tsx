@@ -8,7 +8,7 @@ import { BlurFade } from "@/components/ui/blur-fade";
 import { Input } from "@/components/ui/input";
 import { trackConversion, trackEvent } from "@/lib/analytics";
 import { useLeadCapture } from "@/lib/hooks/useLeadCapture";
-import { isValidEmail } from "@/lib/email-utils";
+import { validateEmailField } from "@/lib/lead-capture";
 import { formatDualPrice, SERVICES_PRICING } from "@/lib/pricing";
 
 const PRICE = formatDualPrice(
@@ -49,8 +49,8 @@ export default function IdentityIntakeForm() {
       validate: (v) => {
         const errs: Partial<Record<keyof FormValues, string>> = {};
         if (!v.name.trim()) errs.name = "Name is required";
-        if (!v.email.trim()) errs.email = "Email is required";
-        else if (!isValidEmail(v.email)) errs.email = "Enter a valid email, like name@company.com";
+        const emailError = validateEmailField(v.email);
+        if (emailError) errs.email = emailError;
         if (!v.scope) errs.scope = "Pick one";
         if (!v.linkedinUrl.trim()) errs.linkedinUrl = "Your LinkedIn profile URL";
         else if (!/^https?:\/\//.test(v.linkedinUrl.trim())) errs.linkedinUrl = "Full URL, including https://";

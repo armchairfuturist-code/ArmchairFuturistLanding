@@ -11,7 +11,7 @@ import { AUDIT_BOOKING_URL } from "@/lib/constants";
 import { AUDIT_PRICE_LABEL } from "@/lib/pricing";
 import { readAssessmentResult } from "@/lib/assessment/result-session";
 import { useLeadCapture } from "@/lib/hooks/useLeadCapture";
-import { isValidEmail } from "@/lib/email-utils";
+import { validateEmailField } from "@/lib/lead-capture";
 
 const AI_MATURITY_OPTIONS = [
   { value: "chat", label: "Mostly chat — I ask, copy, paste" },
@@ -109,8 +109,8 @@ export default function AuditIntakeForm() {
       validate: (v) => {
         const errs: Partial<Record<keyof FormValues, string>> = {};
         if (!v.name.trim()) errs.name = "Name is required";
-        if (!v.email.trim()) errs.email = "Email is required";
-        else if (!isValidEmail(v.email)) errs.email = "Enter a valid email, like name@company.com";
+        const emailError = validateEmailField(v.email);
+        if (emailError) errs.email = emailError;
         if (!v.role.trim()) errs.role = "Tell me what you do — one sentence is enough";
         if (!v.scope) errs.scope = "Pick one — the roadmap differs";
         if (!v.aiMaturity) errs.aiMaturity = "Pick the closest one";

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * GEO freshness check — fails when public/llms.txt drifts from source of truth.
- * Sources: src/lib/pricing.ts, src/lib/section-registry.tsx, src/content/faqs.ts
+ * Sources: src/lib/pricing.ts, src/lib/homepage-sections.tsx, src/content/faqs.ts
  * Run: npm run geo:check   (cron-friendly: exit 0 fresh, exit 1 drift)
  */
 import { readFileSync } from 'node:fs';
@@ -12,7 +12,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const read = (p) => readFileSync(join(root, p), 'utf8');
 
 const pricing = read('src/lib/pricing.ts');
-const registry = read('src/lib/section-registry.tsx');
+const registry = read('src/lib/homepage-sections.tsx');
 const faqs = read('src/content/faqs.ts');
 const llms = read('public/llms.txt');
 
@@ -55,19 +55,17 @@ ok('dead #ai-mentoring anchor gone', !llms.includes('#ai-mentoring'));
 console.log('sections:');
 const registryIds = [...registry.matchAll(/^\s{2}([a-zA-Z]+):/gm)].map((m) => m[1]);
 const expectedNames = [
-  ['caseStudies', 'Case Studies'],
-  ['testimonials', 'Testimonials'],
-  ['stats', 'Key Stats'],
-  ['whatIsNot', 'What This Is NOT'],
+  ['caseStudies', 'Results'],
+  ['community', 'Community'],
+  ['whatIsNot', 'Fit'],
   ['services', 'Services'],
-  ['about', 'About Me'],
-  ['mentoring', 'AI Guidance'],
-  ['roi', 'ROI Calculator'],
+  ['about', 'About'],
+  ['mentoring', 'Guidance'],
+  ['roi', 'ROI'],
   ['speaking', 'Speaking'],
   ['assessment', 'Assessment'],
-  ['substack', 'Newsletter'],
   ['faq', 'FAQ'],
-  ['connect', 'Connect'],
+  ['connect', 'Contact'],
 ];
 for (const [key, name] of expectedNames) {
   if (!registryIds.includes(key)) continue;
