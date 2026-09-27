@@ -3,6 +3,7 @@ import { DM_Mono, Manrope, Space_Grotesk } from "next/font/google";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
+import { MotionProvider } from "@/components/ui/MotionProvider";
 import { SmoothScrollProvider } from "@/components/ui/SmoothScrollProvider";
 import StructuredData from "@/components/seo/StructuredData";
 import { Toaster } from "@/components/ui/toaster";
@@ -87,11 +88,13 @@ export default function RootLayout({
       <body>
         <ErrorBoundary>
           <SmoothScrollProvider>
-            <StructuredData />
-            <Header />
-            {children}
-            <Footer />
-            <Toaster />
+            <MotionProvider>
+              <StructuredData />
+              <Header />
+              {children}
+              <Footer />
+              <Toaster />
+            </MotionProvider>
           </SmoothScrollProvider>
         </ErrorBoundary>
       </body>

@@ -1,6 +1,6 @@
 ---
 name: The Armchair Futurist
-description: HP-inspired system evolved into ink-drench + electric signal. Space Grotesk display + Manrope body. Near-black ink heroes and bands, HP Electric Blue as the sole CTA/signal color, canvas/cloud surfaces, tight 4px controls. The hero organism is a wordless WebGL2 particle field spread across the entire hero: it settles from scatter on load, breathes cool at rest, glows warm around the cursor, and ripples on click. Signature motion is the organism intro plus one scramble moment on the stats thesis line. Angular blue chevrons nod to the HP wordmark. Anti-slop: no purple gradients, no glassmorphism, no fade-up-every-section. Detail pages (/about, /roi, /how-i-work) hold depth; homepage stays proof-forward and short.
+description: HP-inspired system evolved into ink-drench + electric signal. Space Grotesk display + Manrope body. Near-black ink heroes and bands, HP Electric Blue as the sole CTA/signal color, canvas/cloud surfaces, tight 4px controls. The hero organism is a wordless WebGL2 particle field spread across the entire hero: it settles from scatter on load, breathes cool at rest, glows warm around the cursor, and ripples on click. Signature motion is the organism intro, a scramble decode on the stats slab header, count-up stat tickers, and the permanent newsletter feed's hover lift. Angular blue chevrons nod to the HP wordmark. Anti-slop: no purple gradients, no glassmorphism, no fade-up-every-section. Detail pages (/about, /roi, /how-i-work) hold depth; homepage stays proof-forward and short.
 colors:
   primary: "#024ad8"
   primary-bright: "#296ef9"
@@ -545,7 +545,10 @@ The typography system uses two geometric sans faces — **Space Grotesk** for di
 - **Page transitions:** Fade-in on route change. 200ms ease-out. No slide.
 - **Scroll reveals:** Subtle fade-up on section entry (BlurFade / whileInView). ~400ms ease-out. No parallax.
 - **Hero organism:** Particles settle from scatter over 1.8s, breathe at rest, glow near the cursor (fine pointers only), and ripple on click or tap. Off-screen and hidden tabs stop the loop. Context loss falls back to a static SVG scribble. Device tiers: 14,000 desktop / 3,000 touch / 1,200 low-memory.
-- **Scramble decode:** One authored moment — the stats thesis line ("Proof, not promises."). Headlines elsewhere are plain type.
+- **Scramble decode:** Authored moments only — the stats slab header in ProofSection ("Across the work") via ScrambleText. Headlines elsewhere are plain type.
+- **Stats count-up:** The numeric stats (40+, 5+ hours) tick up on scroll-in (NumberTicker spring). "8–10 weeks" stays static — an honest range doesn't animate.
+- **Newsletter feed micro-motion:** Cards enter staggered (0.06s step); hover lifts a card 4px with a 5% image zoom; the Subscribe button carries a magnetic tilt (fine pointers only). See "Permanent Sections (No Removal)".
+- **Global motion policy:** `MotionProvider` sets `MotionConfig reducedMotion="user"` app-wide — JS transform animations (scroll reveals, tickers, tilt) are suppressed when the OS requests reduced motion; opacity fades survive. CSS animations/transitions die in the globals.css media block.
 - **Cursor effects are hover-only:** Magnetic tilt and section spotlight bind only where `(hover: hover) and (pointer: fine)` matches; touch taps never set or stick them.
 - **Reduced motion:** The WebGL loop stops and the static SVG scribble remains. The global motion kill spares one exception: the submit spinner must still spin.
 
@@ -556,6 +559,15 @@ The typography system uses two geometric sans faces — **Space Grotesk** for di
 - **Font loading:** Space Grotesk (display) and Manrope (body/UI) are loaded via `next/font/google` in `src/app/layout.tsx` and exposed as `--font-display` and `--font-body` CSS variables. Weights match the token table above.
 - **Button shape is non-negotiable.** 14px, 600 weight, uppercase, +0.7px tracking, 4px radius. All buttons in the system follow this signature.
 - **Color discipline:** Electric Blue is the primary site signal. Bloom Coral is reserved for commerce urgency. Storm blues are reserved for photo frames. Organism Scribble Gray and Organism Warm belong only to the hero organism.
+
+## Permanent Sections (No Removal)
+
+These sections are load-bearing for positioning and conversion. Removing one — or hiding it with `homepage: false` in `src/lib/homepage-sections.tsx` — is a regression, not a cleanup. `src/lib/__tests__/homepage-sections.test.ts` pins the homepage order and fails on removal.
+
+- **Newsletter feed** (`newsletter` → `SubstackSection`): live Substack feed with subscribe CTA on the homepage, between Speaking and FAQ. It is the list-building surface and the newsletter's only organic funnel on the site. If the feed fetch fails, the section still renders the CTA plus a retry — degraded, never absent.
+- **Hero organism** (`hero` → `OrganismHero`): the signature WebGL2 particle moment; see Motion & Interaction.
+
+Deletion policy: motion may be trimmed to the system's rules, but section presence is not a motion decision.
 
 ## Anti-Patterns (Things We Don't Do)
 

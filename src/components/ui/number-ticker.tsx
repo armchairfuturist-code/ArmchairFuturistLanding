@@ -1,7 +1,7 @@
 "use client"
 
 import { ComponentPropsWithoutRef, useEffect, useRef } from "react"
-import { useInView, useMotionValue, useSpring } from "motion/react"
+import { useInView, useMotionValue, useReducedMotion, useSpring } from "motion/react"
 
 import { cn } from "@/lib/utils"
 
@@ -31,27 +31,41 @@ export function NumberTicker({
     stiffness: 100,
   })
   const isInView = useInView(ref, { once: true, margin: "0px" })
+  const reduced = useReducedMotion() ?? false
+
+  const format = (n: number) =>
+    Intl.NumberFormat("en-US", {
+      minimumFractionDigits: decimalPlaces,
+      maximumFractionDigits: decimalPlaces,
+    }).format(Number(n.toFixed(decimalPlaces))) + suffix
 
   useEffect(() => {
     if (isInView) {
+      // Reduced motion: show the final figure immediately, no count-up.
+      if (reduced) {
+        if (ref.current) {
+          ref.current.textContent = format(
+            direction === "down" ? startValue : value
+          )
+        }
+        return
+      }
       const timer = setTimeout(() => {
         motionValue.set(direction === "down" ? startValue : value)
       }, delay * 1000)
       return () => clearTimeout(timer)
     }
-  }, [motionValue, isInView, delay, value, direction, startValue])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [motionValue, isInView, delay, value, direction, startValue, reduced, decimalPlaces, suffix])
 
   useEffect(
     () =>
       springValue.on("change", (latest) => {
         if (ref.current) {
-          ref.current.textContent =
-            Intl.NumberFormat("en-US", {
-              minimumFractionDigits: decimalPlaces,
-              maximumFractionDigits: decimalPlaces,
-            }).format(Number(latest.toFixed(decimalPlaces))) + suffix
+          ref.current.textContent = format(Number(latest))
         }
       }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [springValue, decimalPlaces, suffix]
   )
 

@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
+import { NumberTicker } from "@/components/ui/number-ticker";
+import { ScrambleText } from "@/components/ui/scramble-text";
 import { TESTIMONIALS, type Testimonial } from "@/content/testimonials";
 import { CASE_STUDIES } from "@/content/case-studies";
 import { GITHUB_URL } from "@/lib/constants";
@@ -93,16 +95,16 @@ export default function ProofSection() {
         </div>
 
         <div id="stats" className="mt-10 scroll-mt-20 rounded-hp-xl bg-hp-electric p-6 text-white md:p-8">
-          <h3 className="font-display text-2xl leading-tight font-medium">Across the work</h3>
+          <ScrambleText as="h3" text="Across the work" className="font-display text-2xl leading-tight font-medium" />
           <dl className="mt-6 grid gap-6 md:grid-cols-3 md:gap-8">
             <div>
               <dt className="text-sm text-white">AI systems deployed</dt>
-              <dd className="mt-2 font-display text-[32px] leading-tight font-medium tabular-nums">40+</dd>
+              <dd className="mt-2 font-display text-[32px] leading-tight font-medium tabular-nums"><NumberTicker value={40} suffix="+" className="text-white" /></dd>
               <dd className="mt-2 text-sm leading-relaxed text-white">From response pipelines to meeting-to-action workflows.</dd>
             </div>
             <div>
               <dt className="text-sm text-white">Weekly hours saved</dt>
-              <dd className="mt-2 font-display text-[32px] leading-tight font-medium tabular-nums">5+ hours</dd>
+              <dd className="mt-2 font-display text-[32px] leading-tight font-medium tabular-nums"><NumberTicker value={5} suffix="+ hours" className="text-white" /></dd>
               <dd className="mt-2 text-sm leading-relaxed text-white">Measured on implementation clients after handoff.</dd>
             </div>
             <div>

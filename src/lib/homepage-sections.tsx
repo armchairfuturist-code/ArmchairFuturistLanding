@@ -94,12 +94,12 @@ const sections: readonly HomepageSection[] = [
   {
     id: SECTION_IDS.substack,
     label: "Newsletter",
+    // Permanent section — see DESIGN.md "Permanent Sections (No Removal)".
     component: dynamic(() => import("@/components/sections/SubstackSection"), {
       loading: () => (
         <SectionSkeleton minHeight="min-h-[600px]" label="Loading newsletter" />
       ),
     }),
-    homepage: false,
   },
   {
     id: SECTION_IDS.faq,

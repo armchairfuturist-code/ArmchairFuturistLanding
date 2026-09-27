@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { getHomepageSections, getNavigatorItems, SECTION_IDS } from "../homepage-sections";
 
 describe("homepage composition data", () => {
-  it("keeps the approved order and excludes the non-homepage entry", () => {
+  it("keeps the approved order, including the permanent newsletter feed", () => {
     expect(getHomepageSections().map(({ id }) => id)).toEqual([
       SECTION_IDS.hero,
       SECTION_IDS.whatIsNot,
@@ -14,6 +14,7 @@ describe("homepage composition data", () => {
       SECTION_IDS.about,
       SECTION_IDS.mentoring,
       SECTION_IDS.speaking,
+      SECTION_IDS.substack,
       SECTION_IDS.faq,
       SECTION_IDS.connect,
     ]);

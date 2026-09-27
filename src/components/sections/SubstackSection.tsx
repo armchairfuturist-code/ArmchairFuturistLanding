@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { Button } from "@/components/ui/button";
+import { MagneticCard } from '@/components/ui/MagneticCard';
 import { ExternalLink, ArrowRight, RotateCcw } from 'lucide-react';
 import { format } from 'date-fns';
 import { motion } from 'motion/react';
@@ -87,12 +88,16 @@ export default function SubstackSection() {
           transition={{ duration: 0.4, delay: 0.1 }}
           className="flex justify-center mb-14"
         >
-          <Button asChild size="lg" className="gap-2">
-            <a href={`${SUBSTACK_URL}/subscribe`} target="_blank" rel="noopener noreferrer">
-              Subscribe for Free
-              <ArrowRight className="h-4 w-4" />
-            </a>
-          </Button>
+          {/* Magnetic tilt leans in under the cursor — fine pointers only,
+              and skipped entirely under prefers-reduced-motion. */}
+          <MagneticCard className="inline-block" strength={0.22}>
+            <Button asChild size="lg" className="gap-2">
+              <a href={`${SUBSTACK_URL}/subscribe`} target="_blank" rel="noopener noreferrer">
+                Subscribe for Free
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </Button>
+          </MagneticCard>
         </motion.div>
 
         {/* Recent articles */}
@@ -164,7 +169,7 @@ export default function SubstackSection() {
                       href={post.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block group rounded-hp-xl border border-hairline hover:border-hp-electric/50 transition-colors duration-300 overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hp-electric"
+                      className="block group rounded-hp-xl border border-hairline hover:border-hp-electric/50 hover:-translate-y-1 transition-[border-color,transform] duration-300 overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hp-electric"
                     >
                       <div className="relative h-36 w-full bg-cloud overflow-hidden">
                         {post.imageUrl ? (
@@ -173,7 +178,7 @@ export default function SubstackSection() {
                             src={post.imageUrl}
                             alt=""
                             loading="lazy"
-                            className="h-full w-full object-cover outline outline-1 -outline-offset-1 outline-black/10"
+                            className="h-full w-full object-cover outline outline-1 -outline-offset-1 outline-black/10 transition-transform duration-500 group-hover:scale-[1.05]"
                           />
                         ) : null}
                       </div>
