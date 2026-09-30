@@ -55,7 +55,7 @@ export default function ProofSection() {
   return (
     <section aria-labelledby="proof-heading" className="bg-canvas py-16 md:py-20">
       <div className="container mx-auto max-w-6xl px-4 md:px-6">
-        <h2 id="proof-heading" className="max-w-3xl font-display text-[44px] leading-none md:text-[56px] font-medium text-ink">
+        <h2 id="proof-heading" className="max-w-3xl font-display text-display-lg font-medium text-ink">
           What clients build and get back
         </h2>
 

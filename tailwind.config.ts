@@ -44,6 +44,22 @@ export default {
         "hp-button-sm": "0.126px",
         "hp-flat": "0",
       },
+      // Display type scale. Three steps, named, with the line-height baked
+      // in so a heading cannot pick a size without picking a leading — the
+      // two drifted apart independently before and produced four different
+      // H2 leadings for the same visual size.
+      //
+      //   display-lg  60px / 0.98  the four "moment" sections
+      //   display     44px / 1.05  the default for the other seven
+      //   display-sm  36px / 1.05  quieter utility sections
+      //
+      // A 15-section marketing page needs more range than a dashboard, so
+      // this is deliberately not flattened to a 32/24/18 utility scale.
+      fontSize: {
+        "display-lg": ["clamp(2.25rem, 5vw, 3.75rem)", { lineHeight: "0.98" }],
+        display: ["clamp(1.75rem, 4vw, 2.75rem)", { lineHeight: "1.05" }],
+        "display-sm": ["clamp(1.5rem, 3vw, 2.25rem)", { lineHeight: "1.05" }],
+      },
       colors: {
         // === HP COLOR SYSTEM ===
         // Colors expressed in OKLCH (better-colors skill): perceptually

@@ -28,7 +28,7 @@ export default function WhatThisIsNotSection() {
         <BlurFade inView>
           <div className="mb-12 md:mb-16 grid md:grid-cols-12 gap-6 items-end">
             <div className="md:col-span-7">
-              <h2 className="font-display text-[clamp(2.25rem,5vw,3.75rem)] font-medium tracking-tight leading-[0.98] text-ink max-w-[14ch]">
+              <h2 className="font-display text-display-lg font-medium tracking-tight text-ink max-w-[14ch]">
                 Who this is for
               </h2>
             </div>

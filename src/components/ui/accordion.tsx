@@ -22,13 +22,21 @@ AccordionItem.displayName = "AccordionItem"
 
 const AccordionTrigger = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
->(({ className, children, ...props }, ref) => (
-  <AccordionPrimitive.Header className="flex">
+  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger> & {
+    /**
+     * Classes for the wrapping heading element (Radix renders an h3).
+     * Type belongs here, not on the button: the h3 is what screen readers
+     * pull into a heading outline, and a heading sized only on the inner
+     * button stays at body size in the DOM.
+     */
+    headingClassName?: string;
+  }
+>(({ className, headingClassName, children, ...props }, ref) => (
+  <AccordionPrimitive.Header className={cn("flex", headingClassName)}>
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        "flex flex-1 items-center justify-between py-4 font-medium transition-[transform] hover:underline [&[data-state=open]>svg]:rotate-180",
+        "flex flex-1 items-center justify-between py-4 text-left font-medium transition-[transform] hover:underline [&[data-state=open]>svg]:rotate-180",
         className
       )}
       {...props}

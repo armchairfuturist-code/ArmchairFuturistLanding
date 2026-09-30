@@ -31,7 +31,7 @@ export default function FAQSection() {
               <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-4">
                 FAQ
               </p>
-              <h2 className="font-display text-[clamp(2rem,4.5vw,3.25rem)] font-medium tracking-tight leading-[0.98] text-ink">
+              <h2 className="font-display text-display font-medium tracking-tight text-ink">
                 Real questions people ask me
               </h2>
             </div>
@@ -50,7 +50,10 @@ export default function FAQSection() {
                 value={`faq-${index}`}
                 className="border-b border-ink/15 px-0 data-[state=open]:bg-canvas"
               >
-                <AccordionTrigger className="py-5 px-1 text-left font-display font-semibold text-ink hover:no-underline hover:text-hp-electric transition-colors duration-150">
+                <AccordionTrigger
+                  headingClassName="text-xl font-display font-semibold text-ink"
+                  className="py-5 px-1 text-left font-display font-semibold text-ink hover:no-underline hover:text-hp-electric transition-colors duration-150"
+                >
                   {item.question}
                 </AccordionTrigger>
                 <AccordionContent className="pb-5 px-1 text-charcoal font-sans leading-relaxed">

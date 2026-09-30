@@ -22,7 +22,7 @@ export default function AssessmentCtaSection() {
               <Brain className="w-3.5 h-3.5" aria-hidden="true" />
               Free assessment
             </p>
-            <h2 className="font-display text-[clamp(1.75rem,4vw,2.5rem)] font-medium tracking-tight text-white leading-[1.05] mb-3">
+            <h2 className="font-display text-display font-medium tracking-tight text-white mb-3">
               Not sure where to start?
             </h2>
             <p className="text-white/80 text-base md:text-lg leading-relaxed">

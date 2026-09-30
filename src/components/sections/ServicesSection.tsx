@@ -46,7 +46,7 @@ export default function ServicesSection() {
         <BlurFade inView>
           <div className="max-w-4xl mb-16 grid md:grid-cols-12 gap-6 items-end">
               <div className="md:col-span-7">
-                <h2 className="font-display text-[clamp(2.25rem,5vw,3.75rem)] font-medium tracking-tight leading-[0.98] text-ink">
+                <h2 className="font-display text-display-lg font-medium tracking-tight text-ink">
                   Build with me, or have me build it for you
                 </h2>
               </div>
@@ -160,7 +160,7 @@ export default function ServicesSection() {
                         <p className="text-xs font-mono uppercase tracking-widest text-graphite mb-1">
                           {tier.tag}
                         </p>
-                        <h4 className="font-heading text-xl font-medium text-ink mb-1">
+                        <h4 className="font-heading text-lg font-medium text-ink mb-1">
                           {tier.name}
                         </h4>
                         <div className="flex items-baseline gap-1">

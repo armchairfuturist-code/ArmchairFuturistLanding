@@ -73,7 +73,7 @@ export default function SubstackSection() {
           <p className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-4">
             Newsletter
           </p>
-          <h2 className="font-heading text-3xl font-medium tracking-tight text-ink sm:text-4xl mb-3">
+          <h2 className="font-heading text-display-sm font-medium tracking-tight text-ink mb-3">
             Signal, not hype
           </h2>
           <p className="text-charcoal max-w-xl mx-auto text-sm md:text-base leading-relaxed">
@@ -109,7 +109,7 @@ export default function SubstackSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h3 className="text-lg font-medium font-heading text-ink mb-6">Recent Issues</h3>
+          <h3 className="text-xl font-medium font-heading text-ink mb-6 leading-snug">Recent Issues</h3>
 
           {loading && (
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3" aria-live="polite" aria-busy="true">
@@ -188,7 +188,7 @@ export default function SubstackSection() {
                         <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-graphite mb-2">
                           {formatDate(post.pubDate)}
                         </p>
-                        <h4 className="font-medium text-sm leading-snug text-ink group-hover:text-hp-electric transition-colors line-clamp-2">
+                        <h4 className="font-medium text-base leading-snug text-ink group-hover:text-hp-electric transition-colors line-clamp-2">
                           {post.title}
                         </h4>
                       </div>

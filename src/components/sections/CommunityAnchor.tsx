@@ -26,7 +26,7 @@ export default function CommunityAnchor() {
           <Users className="h-3.5 w-3.5" aria-hidden="true" />
           In the room, not just in front of it
         </p>
-        <h2 className="font-display text-[clamp(1.75rem,4vw,2.75rem)] font-medium tracking-tight leading-[1.05] mb-4">
+        <h2 className="font-display text-display font-medium tracking-tight mb-4">
           I host Braga AI Builders
         </h2>
         <p className="text-white/80 text-base md:text-lg leading-relaxed max-w-2xl mb-8 font-sans">

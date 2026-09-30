@@ -40,7 +40,7 @@ export default function SpeakingSection() {
                 <Mic className="h-3.5 w-3.5" aria-hidden="true" />
                 On stage
               </p>
-              <h2 className="font-display text-[clamp(1.75rem,4vw,2.75rem)] font-medium tracking-tight leading-[1.05] text-ink max-w-[18ch]">
+              <h2 className="font-display text-display font-medium tracking-tight text-ink max-w-[18ch]">
                 Also lead rooms that need a decision
               </h2>
             </div>

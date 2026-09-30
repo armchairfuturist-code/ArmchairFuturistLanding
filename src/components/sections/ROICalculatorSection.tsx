@@ -49,7 +49,7 @@ export default function ROICalculatorSection() {
               <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-4">
                 Time savings estimator
               </p>
-              <h2 className="font-display text-[clamp(2rem,4.5vw,3.25rem)] font-medium tracking-tight leading-[0.98] text-ink">
+              <h2 className="font-display text-display font-medium tracking-tight text-ink">
                 How many hours could you save?
               </h2>
             </div>
@@ -65,7 +65,7 @@ export default function ROICalculatorSection() {
             <div className="bg-canvas rounded-hp-xl border border-hairline p-6 md:p-8">
               <div className="flex items-center gap-2 mb-6">
                 <Calculator className="h-5 w-5 text-hp-electric" />
-                <h3 className="font-heading font-medium text-ink">
+                <h3 className="font-heading text-xl font-medium text-ink leading-snug">
                   Select Your Tasks
                 </h3>
               </div>
@@ -173,7 +173,7 @@ export default function ROICalculatorSection() {
             <div
               className="bg-canvas rounded-hp-xl border border-hairline p-6 md:p-8 lg:sticky lg:top-24"
             >
-              <h3 className="font-heading font-medium text-ink mb-6">
+              <h3 className="font-heading text-xl font-medium text-ink mb-6 leading-snug">
                 Your Estimated Savings
               </h3>
 
