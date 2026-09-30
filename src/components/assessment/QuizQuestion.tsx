@@ -65,11 +65,10 @@ export default function QuizQuestion({
             <motion.button
               key={idx}
               onClick={() => onAnswer(idx)}
-              className="w-full text-left p-4 md:p-5 rounded-hp-md border border-hairline-strong bg-canvas hover:border-hp-electric/40 hover:bg-hp-electric/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hp-electric/40 transition-[background-color,border-color] duration-150 cursor-pointer group"
-              whileTap={{ scale: 0.96 }}
+              className="w-full text-left p-4 md:p-5 rounded-hp-md border border-hairline-strong bg-canvas hover:border-hp-electric/40 hover:bg-hp-electric/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hp-electric/40 transition-[background-color,border-color,transform] duration-150 active:scale-[0.96] cursor-pointer group"
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: idx * 0.06 }}
+              transition={{ duration: 0.3, delay: idx * 0.06, ease: EASE_OUT }}
             >
               <div className="flex items-start gap-3">
                 <span className="flex-shrink-0 w-7 h-7 rounded-lg bg-hp-electric/10 text-hp-electric text-xs font-mono font-bold flex items-center justify-center mt-0.5 group-hover:bg-hp-electric group-hover:text-white transition-colors">

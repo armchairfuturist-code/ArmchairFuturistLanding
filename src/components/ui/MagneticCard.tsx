@@ -19,6 +19,7 @@ export function MagneticCard({ children, className = "", strength = 0.15 }: Magn
 
   return (
     <motion.div
+      ref={magnetic.ref}
       className={className}
       style={{
         x: magnetic.x,

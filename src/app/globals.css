@@ -169,7 +169,10 @@
     background: currentColor;
     transform: scaleX(0);
     transform-origin: 0 50%;
-    transition: transform 300ms var(--ease-out);
+    /* --duration-press, not a bare 300ms: this underline sits under nav
+       links that are hovered dozens of times per session, and the header
+       runs a colour transition alongside it. Two stacked 300ms reads as lag. */
+    transition: transform var(--duration-press) var(--ease-out);
   }
   /* Keyboard focus stays ungated: a touch device can still run a keyboard,
      and focus needs the same affordance hover gives. */

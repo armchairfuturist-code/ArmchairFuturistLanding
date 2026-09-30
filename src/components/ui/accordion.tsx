@@ -53,7 +53,15 @@ const AccordionContent = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>
 >(({ className, children, ...props }, ref) => (
   <AccordionPrimitive.Content
-    className="overflow-hidden text-sm data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
+    /* Height transitions instead of the accordion-up/down keyframes, so
+       re-toggling mid-animation retargets from the current height rather
+       than restarting from zero.
+
+       Height stays a layout property on purpose: Radix measures the content
+       and exposes --radix-accordion-content-height, and the open/close state
+       is announced to assistive tech. A scaleY replacement would break both.
+       The keyframes remain defined in tailwind.config.ts, just unused here. */
+    className="overflow-hidden text-sm transition-[height] duration-200 ease-out data-[state=closed]:h-0 data-[state=open]:h-[var(--radix-accordion-content-height)]"
   >
     <div className={cn("pb-4 pt-0", className)}>{children}</div>
   </AccordionPrimitive.Content>

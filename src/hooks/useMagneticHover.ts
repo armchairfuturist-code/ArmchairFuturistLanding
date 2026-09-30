@@ -1,9 +1,15 @@
 "use client";
-import { useRef, useCallback } from "react";
+import { useRef, useCallback, type RefObject } from "react";
 import { useMotionValue, useSpring, useTransform, MotionValue } from "motion/react";
 import { canFineHover } from "@/lib/pointer";
 
 interface MagneticResult {
+  /**
+   * Must be attached to the element the tilt measures against. Without it
+   * `ref.current` is permanently null and handleMouseMove bails on every
+   * event — the effect silently never runs.
+   */
+  ref: RefObject<HTMLDivElement>;
   x: MotionValue<number>;
   y: MotionValue<number>;
   rotateX: MotionValue<number>;
@@ -40,5 +46,5 @@ export function useMagneticHover(strength = 0.3, tiltAmount = 12): MagneticResul
     y.set(0);
   }, [x, y]);
 
-  return { x: springX, y: springY, rotateX, rotateY, handleMouseMove, handleMouseLeave };
+  return { ref, x: springX, y: springY, rotateX, rotateY, handleMouseMove, handleMouseLeave };
 }

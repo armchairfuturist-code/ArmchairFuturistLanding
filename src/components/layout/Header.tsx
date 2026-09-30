@@ -49,7 +49,7 @@ export default function Header() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="text-sm font-[400] text-white/80 hover:text-hp-bright transition-colors duration-300 underline-animate"
+                  className="text-sm font-[400] text-white/80 hover:text-hp-bright transition-colors duration-150 underline-animate"
                 >
                   {item.label}
                 </Link>
@@ -60,7 +60,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-4">
             <Link
               href="/assessment"
-              className="text-sm text-white/70 hover:text-hp-bright transition-colors duration-300"
+              className="text-sm text-white/70 hover:text-hp-bright transition-colors duration-150"
             >
               Free Assessment
             </Link>
@@ -68,7 +68,7 @@ export default function Header() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] -m-2 p-2 text-white/70 hover:text-hp-bright transition-colors duration-300"
+              className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] -m-2 p-2 text-white/70 hover:text-hp-bright transition-colors duration-150"
               aria-label="WhatsApp"
             >
               <WhatsAppGlyph className="h-5 w-5" />

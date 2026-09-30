@@ -106,10 +106,13 @@ export default function SectionNavigator({
           >
             {/* Dot — visible marker, button itself is a 40x40 hit area */}
             <span
-              className={`block rounded transition-[transform,background-color] duration-300 ${
+              /* Fixed box, grown with transform. The old h-1.5→h-2 / w-1.5→w-2
+                 change was NOT in the transition-property list, so the dot
+                 snapped on the first frame while the colour eased 300ms. */
+              className={`block h-2 w-2 rounded origin-center transition-transform duration-150 ${
                 isActive
-                  ? "h-2.5 w-2.5 bg-primary"
-                  : "h-1.5 w-1.5 bg-foreground/30 group-hover:bg-foreground/60 group-hover:h-2 group-hover:w-2"
+                  ? "scale-125 bg-primary"
+                  : "scale-100 bg-foreground/30 group-hover:scale-110 group-hover:bg-foreground/60"
               }`}
             />
             {/* Label on hover and keyboard focus */}
