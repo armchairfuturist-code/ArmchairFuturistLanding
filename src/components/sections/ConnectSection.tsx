@@ -13,6 +13,7 @@ import { BookCallButton } from "@/components/ui/BookCallButton";
 import { MessageCircle, Loader2, CheckCircle2, TriangleAlert } from "lucide-react";
 import { useLeadCapture } from "@/lib/hooks/useLeadCapture";
 import { validateEmailField } from "@/lib/lead-capture";
+import { useFineHover } from "@/lib/pointer";
 import { WHATSAPP_URL } from "@/lib/constants";
 import { trackEvent } from "@/lib/analytics";
 import WhatsAppGlyph from "@/components/ui/WhatsAppGlyph";
@@ -40,6 +41,7 @@ function validateConnect(
 
 export default function ConnectSection() {
   const [formOpen, setFormOpen] = useState(false);
+  const fineHover = useFineHover();
   const {
     values: formData,
     errors: fieldErrors,
@@ -87,7 +89,11 @@ export default function ConnectSection() {
         </BlurFade>
         <BlurFade inView delay={0.2}>
           <motion.div
-            whileHover={{ y: -2 }}
+            // `hoverOnlyWhenSupported` gates Tailwind's `hover:` utilities in
+            // CSS, but it cannot gate a `whileHover` prop — that runs in JS
+            // and fires on the emulated hover a tap produces, sticking the
+            // card 2px up after the finger lifts. Gate it here to match.
+            whileHover={fineHover ? { y: -2 } : undefined}
             transition={{ type: "spring", stiffness: 400, damping: 25 }}
             className="inline-flex flex-col sm:flex-row w-full sm:w-auto items-stretch sm:items-center justify-center gap-3"
           >

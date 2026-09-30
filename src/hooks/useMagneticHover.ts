@@ -1,16 +1,7 @@
 "use client";
 import { useRef, useCallback } from "react";
 import { useMotionValue, useSpring, useTransform, MotionValue } from "motion/react";
-
-// Emulated mouse events fire on touch taps, but mouseleave never follows —
-// so an unguarded tilt sticks after the first tap. Tilt is a hover effect;
-// devices without fine hover never set it.
-function canFineHover(): boolean {
-  return (
-    typeof window !== "undefined" &&
-    window.matchMedia("(hover: hover) and (pointer: fine)").matches
-  );
-}
+import { canFineHover } from "@/lib/pointer";
 
 interface MagneticResult {
   x: MotionValue<number>;

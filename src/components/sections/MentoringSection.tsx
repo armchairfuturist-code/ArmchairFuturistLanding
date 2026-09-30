@@ -17,7 +17,7 @@ import { Button } from "@/components/ui/button";
 import { trackConversion } from "@/lib/analytics";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { staggerContainer, staggerItem } from "@/lib/animation-variants";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 import { COACHING_PACKAGES, resolvePricing, type CurrencyCode } from "@/lib/pricing";
 import { CALENDAR_URL } from "@/lib/constants";
 import { MENTORING_PILLARS } from "@/content/mentoring-pillars";
@@ -279,38 +279,26 @@ export default function MentoringSection() {
           </div>
 
           {expandablePackages.length > 0 && (
-            <>
-              <div className="mb-4">
-                <button
-                  onClick={() => setShowAll((s) => !s)}
-                  className="inline-flex items-center gap-1.5 text-sm font-medium text-hp-electric hover:text-hp-deep transition-colors"
-                  aria-expanded={showAll}
-                >
-                  {showAll ? "Hide options" : "View more options"}
-                  <ChevronDown
-                    className={`h-4 w-4 transition-transform duration-200 ${showAll ? "rotate-180" : ""}`}
-                  />
-                </button>
-              </div>
+            <div className="mb-4">
+              <button
+                onClick={() => setShowAll((s) => !s)}
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-hp-electric hover:text-hp-deep transition-colors"
+                aria-expanded={showAll}
+              >
+                {showAll ? "Hide options" : "View more options"}
+                <ChevronDown
+                  className={`h-4 w-4 transition-transform duration-200 ${showAll ? "rotate-180" : ""}`}
+                />
+              </button>
+            </div>
+          )}
 
-              <AnimatePresence>
-                {showAll && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                    className="overflow-hidden"
-                  >
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12 max-w-3xl">
-                      {expandablePackages.map((pkg) => (
-                        <PricingCard key={pkg.id} pkg={pkg} />
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </>
+          {expandablePackages.length > 0 && showAll && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12 max-w-3xl">
+              {expandablePackages.map((pkg) => (
+                <PricingCard key={pkg.id} pkg={pkg} />
+              ))}
+            </div>
           )}
 
           <BlurFade inView delay={0.2}>

@@ -89,7 +89,10 @@ export function WordPullUp({
             <motion.span
               className={wordClasses}
               variants={wordVariants}
-              transition={{ duration }}
+              // A `transition` prop overrides any transition declared inside
+              // the variant, so this must carry the easing too — passing only
+              // `duration` here silently discarded the variant's curve.
+              transition={{ duration, ease: EASE_OUT }}
             >
               {word}
             </motion.span>
