@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'motion/react';
+import { EASE_OUT } from "@/lib/easing";
 
 interface QuizProgressProps {
   current: number;
@@ -25,7 +26,7 @@ export default function QuizProgress({ current, total }: QuizProgressProps) {
           className="h-full rounded-full bg-hp-electric"
           initial={{ width: 0 }}
           animate={{ width: `${percent}%` }}
-          transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+          transition={{ duration: 0.4, ease: EASE_OUT }}
         />
       </div>
     </div>

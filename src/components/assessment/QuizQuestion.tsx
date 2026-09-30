@@ -1,5 +1,7 @@
 "use client";
 
+import { EASE_OUT } from "@/lib/easing"
+
 import { motion, AnimatePresence } from "motion/react";
 import type { AnswerOption, Question } from "@/lib/assessment/config";
 
@@ -28,7 +30,7 @@ export default function QuizQuestion({
         initial={{ opacity: 0, x: 40 }}
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -40 }}
-        transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
+        transition={{ duration: 0.35, ease: EASE_OUT }}
         className="w-full max-w-2xl mx-auto"
       >
         <h2 className="font-heading text-xl md:text-2xl font-bold tracking-tight text-ink mb-8 text-center leading-snug">

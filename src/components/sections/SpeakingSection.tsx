@@ -73,7 +73,7 @@ export default function SpeakingSection() {
                 src={photo.src}
                 alt={photo.alt}
                 fill
-                className={`object-cover ${photo.objectPos} transition-transform duration-700 ease-out group-hover:scale-[1.03]`}
+                className={`object-cover ${photo.objectPos} transition-transform duration-250 ease-out group-hover:scale-[1.03]`}
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
               <figcaption className="absolute bottom-0 inset-x-0 z-10 p-4 md:p-5 bg-ink/70">

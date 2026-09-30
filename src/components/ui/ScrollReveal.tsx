@@ -1,6 +1,8 @@
 "use client";
 import { motion } from "motion/react";
 
+import { EASE_OUT } from "@/lib/easing"
+
 /**
  * Scroll-reveal wrapper using Framer Motion whileInView.
  *
@@ -30,7 +32,7 @@ export function ScrollReveal({
       initial={{ opacity: 0, y, filter: blur ? `blur(${blur}px)` : "none" }}
       whileInView={{ opacity: 1, y: 0, filter: "none" }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
+      transition={{ duration: 0.5, ease: EASE_OUT }}
     >
       {children}
     </motion.div>

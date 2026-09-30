@@ -39,6 +39,13 @@
     --org-line: rgba(240, 238, 232, 0.16);
     --org-mono: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
     --org-sans: "Space Grotesk", Inter, ui-sans-serif, system-ui, sans-serif;
+
+    /* Motion easings. Keep in step with src/lib/easing.ts — the built-in
+       `ease` / `ease-out` are symmetric and read as slow next to these. */
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);     /* entering, leaving, press */
+    --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1); /* on-screen movement */
+    --duration-press: 150ms;
+    --duration-small: 200ms;
   }
 
   * { box-sizing: border-box; }
@@ -47,6 +54,19 @@
   button:focus-visible { outline: 2px solid hsl(var(--primary)); outline-offset: 4px; }
   ::selection { background: #024ad8; color: #ffffff; }
   input, textarea { caret-color: #024ad8; }
+
+  /* Tap targets. Footer links measured 19-24px tall (a 171x19 call-to-action),
+     well under the 44px a thumb needs. These sit in a `gap-y-2` flex row, so
+     they are grown with min-height + inline-flex rather than padding and a
+     cancelling negative margin — margins on a flex item collapse against the
+     row gap, which would have made the 44px hit boxes overlap by 24px and
+     sent boundary taps to the neighbouring link. */
+  footer a[href] {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
   /* Craft-floor browser surfaces: the scrollbar belongs to the palette too. */
   html { scrollbar-color: #c2c2c2 #ffffff; scrollbar-width: thin; }
   ::-webkit-scrollbar { width: 12px; height: 12px; }
@@ -71,16 +91,28 @@
 .organism-deck { max-width: 450px; margin: 24px 0 0; color: #c9ced8; font-size: 16px; line-height: 1.6; }
 .organism-deck--offer { margin-top: 14px; color: #e3e7ee; }
 .organism-actions { display: flex; gap: 16px; margin-top: 35px; }
-.organism-hero__whatsapp { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-top: 14px; color: var(--org-muted); font-family: var(--org-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; transition: color .25s ease; }
-.organism-hero__whatsapp:hover { color: var(--org-paper); }
+.organism-hero__whatsapp { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-top: 14px; color: var(--org-muted); font-family: var(--org-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; transition: color var(--duration-small) var(--ease-out); }
 .organism-hero__whatsapp-icon { width: 15px; height: 15px; flex-shrink: 0; }
-.organism-button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 48px; padding: 0 20px; border: 1px solid transparent; border-radius: 4px; /* DESIGN.md: all buttons 4px — the 999px pill was a token violation */ cursor: pointer; transition: transform .25s ease, background .25s ease, border-color .25s ease; }
-.organism-button:hover { transform: translateY(-3px); }
+.organism-button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 48px; padding: 0 20px; border: 1px solid transparent; border-radius: 4px; /* DESIGN.md: all buttons 4px — the 999px pill was a token violation */ cursor: pointer; transition: transform var(--duration-press) var(--ease-out), background var(--duration-small) var(--ease-out), border-color var(--duration-small) var(--ease-out); }
 .organism-button--primary { color: #fff; background: var(--org-blue); box-shadow: 0 0 26px rgba(41, 110, 249, .25); }
 .organism-button--primary:hover { background: #5b8cff; } /* lighter step of the same hue for on-dark hover */
 .organism-button--quiet { color: #d5d9e0; border-color: var(--org-line); background: rgba(8, 13, 23, .22); }
 .organism-button--quiet:hover { border-color: rgba(240, 238, 232, .5); }
-.organism-button--text { min-height: 44px; padding: 0 8px; color: var(--org-muted); font-family: var(--org-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; background: none; }.organism-button--text:hover { color: var(--org-paper); }
+.organism-button--text { min-height: 44px; padding: 0 8px; color: var(--org-muted); font-family: var(--org-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; background: none; }
+
+/* Press feedback. The hero CTAs are the most-repeated interaction on the
+   site; without a scale the press reads as nothing happening. */
+.organism-button:active { transform: scale(0.97); }
+.organism-hero__whatsapp:active { opacity: .6; }
+
+@media (hover: hover) and (pointer: fine) {
+  .organism-hero__whatsapp:hover { color: var(--org-paper); }
+  .organism-button:hover { transform: translateY(-1px); }
+  .organism-button--text:hover { color: var(--org-paper); }
+  /* Hovered *and* pressed: keep the lift, add the squeeze. Overriding
+     transform drops the -1px, so compose them rather than replace. */
+  .organism-button:hover:active { transform: translateY(-1px) scale(0.97); }
+}
 .organism-status { display: flex; gap: 26px; color: var(--org-muted); }
 .organism-status span { color: #c5cad3; }
 .organism-hero__hint { display: flex; align-items: center; gap: 10px; align-self: center; color: var(--org-muted); font-family: var(--org-mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; animation: drift 2.2s ease-in-out infinite; }
@@ -105,6 +137,23 @@
 }
 
 @layer utilities {
+  /* Scroll-progress rule. Chrome, not content: present from first paint,
+     no enter/exit transition (any transition would lag the scroll it
+     describes). 2px, composited via scaleX. */
+  .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 60;
+    height: 2px;
+    /* #024ad8 = hp-electric. Hardcoded to match ::selection and the
+       scrollbar thumb, which are already literal in this file. */
+    background: #024ad8;
+    pointer-events: none;
+    will-change: transform;
+  }
+
   /* Nav links: electric underline slides in on hover and keyboard focus.
      currentColor follows the link's hover color (ink -> hp-electric). */
   .underline-animate {
@@ -120,10 +169,18 @@
     background: currentColor;
     transform: scaleX(0);
     transform-origin: 0 50%;
-    transition: transform 300ms ease-out;
+    transition: transform 300ms var(--ease-out);
   }
-  .underline-animate:hover::after,
+  /* Keyboard focus stays ungated: a touch device can still run a keyboard,
+     and focus needs the same affordance hover gives. */
   .underline-animate:focus-visible::after {
     transform: scaleX(1);
+  }
+  /* Hover is gated: a tap on a touch screen fires :hover and leaves the
+     underline stuck on a link the user has already left. */
+  @media (hover: hover) and (pointer: fine) {
+    .underline-animate:hover::after {
+      transform: scaleX(1);
+    }
   }
 }

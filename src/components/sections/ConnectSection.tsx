@@ -1,5 +1,7 @@
 "use client";
 
+import { EASE_OUT } from "@/lib/easing"
+
 import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -69,7 +71,7 @@ export default function ConnectSection() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+        transition={{ duration: 0.5, ease: EASE_OUT }}
       >
         <BlurFade inView>
           <h2 className="font-display text-[clamp(1.75rem,4vw,2.75rem)] font-medium tracking-tight leading-[1.05] mb-6">

@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'motion/react';
+import { EASE_OUT } from "@/lib/easing";
 
 interface ScoreChartProps {
   clarity: number;
@@ -37,7 +38,7 @@ export default function ScoreChart({ clarity, readiness, urgency }: ScoreChartPr
               className={`h-full rounded-full ${dim.color}`}
               initial={{ width: 0 }}
               animate={{ width: `${scores[dim.key]}%` }}
-              transition={{ duration: 0.8, delay: 0.2 + idx * 0.15, ease: [0.25, 0.1, 0.25, 1] }}
+              transition={{ duration: 0.8, delay: 0.2 + idx * 0.15, ease: EASE_OUT }}
             />
           </div>
         </div>

@@ -1,5 +1,7 @@
 "use client";
 
+import { EASE_OUT } from "@/lib/easing"
+
 import { useMemo, useState } from "react";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { motion, AnimatePresence } from "motion/react";
@@ -193,7 +195,7 @@ export default function ROICalculatorSection() {
                     initial={{ opacity: 0, y: 12 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -8 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    transition={{ duration: 0.3, ease: EASE_OUT }}
                     className="space-y-6"
                   >
                     <div className="grid grid-cols-2 gap-4">

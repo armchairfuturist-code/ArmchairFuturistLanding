@@ -8,6 +8,7 @@ import {
   UseInViewOptions,
   Variants,
 } from "motion/react"
+import { EASE_OUT } from "@/lib/easing"
 
 type MarginType = UseInViewOptions["margin"]
 
@@ -31,13 +32,13 @@ export function BlurFade({
   children,
   className,
   variant,
-  duration = 0.4,
+  duration = 0.35,
   delay = 0,
   offset = 6,
   direction = "down",
   inView = false,
   inViewMargin = "-50px",
-  blur = "6px",
+  blur = "2px",
   ...props
 }: BlurFadeProps) {
   const ref = useRef(null)
@@ -71,7 +72,7 @@ export function BlurFade({
         transition={{
           delay: 0.04 + delay,
           duration,
-          ease: "easeOut",
+          ease: EASE_OUT,
         }}
         className={className}
         {...props}

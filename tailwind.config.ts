@@ -5,10 +5,28 @@ export default {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  // Compile every `hover:` / `group-hover:` variant inside
+  // `@media (hover: hover) and (pointer: fine)`. A tap on a touch screen
+  // fires :hover and never fires :hover-out, so card lifts and image zooms
+  // otherwise stick after the user has already scrolled past.
+  // `focus-visible:` is unaffected — keyboard focus still shows every state.
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   theme: {
     extend: {
     // Default Tailwind lineClamp scale stops at 6; featured testimonial cap = 7 lines.
     lineClamp: { 7: "7" },
+      // `transition-colors` on 108 elements was compiling Tailwind's default
+      // cubic-bezier(0.4, 0, 0.2, 1) — symmetric and soft, which is what made
+      // the whole site read flat. Swap the default for the strong ease-out so
+      // every un-styled colour transition decelerates like the hero does.
+      // Keep in step with --ease-out in globals.css and src/lib/easing.ts.
+      transitionTimingFunction: {
+        DEFAULT: "cubic-bezier(0.23, 1, 0.32, 1)",
+        "out-expo": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "in-out-expo": "cubic-bezier(0.77, 0, 0.175, 1)",
+      },
       fontFamily: {
         // Display: Space Grotesk (next/font, --font-display) — geometric sans
         // Body/UI: Manrope (next/font, --font-body) — neutral, high readability

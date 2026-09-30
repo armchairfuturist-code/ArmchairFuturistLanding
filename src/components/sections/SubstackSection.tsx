@@ -1,5 +1,7 @@
 "use client";
 
+import { EASE_OUT } from "@/lib/easing"
+
 import { useState, useEffect, useCallback } from 'react';
 import { Button } from "@/components/ui/button";
 import { MagneticCard } from '@/components/ui/MagneticCard';
@@ -65,7 +67,7 @@ export default function SubstackSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
+          transition={{ duration: 0.5, ease: EASE_OUT }}
           className="text-center mb-12"
         >
           <p className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-4">
@@ -178,7 +180,7 @@ export default function SubstackSection() {
                             src={post.imageUrl}
                             alt=""
                             loading="lazy"
-                            className="h-full w-full object-cover outline outline-1 -outline-offset-1 outline-black/10 transition-transform duration-500 group-hover:scale-[1.05]"
+                            className="h-full w-full object-cover outline outline-1 -outline-offset-1 outline-black/10 transition-transform duration-250 group-hover:scale-[1.05]"
                           />
                         ) : null}
                       </div>

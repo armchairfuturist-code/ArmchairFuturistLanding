@@ -4,6 +4,7 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import { MotionProvider } from "@/components/ui/MotionProvider";
+import ScrollProgress from "@/components/ui/ScrollProgress";
 import { SmoothScrollProvider } from "@/components/ui/SmoothScrollProvider";
 import StructuredData from "@/components/seo/StructuredData";
 import { Toaster } from "@/components/ui/toaster";
@@ -90,6 +91,7 @@ export default function RootLayout({
           <SmoothScrollProvider>
             <MotionProvider>
               <StructuredData />
+              <ScrollProgress />
               <Header />
               {children}
               <Footer />
