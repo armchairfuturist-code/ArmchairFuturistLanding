@@ -36,8 +36,13 @@ const pillars = MENTORING_PILLARS.map((pillar) => ({
   icon: ICON_MAP[pillar.icon as keyof typeof ICON_MAP] ?? Lightbulb,
 }));
 
-const DEFAULT_VISIBLE = ["single", "pack-10"];
-const EXPANDABLE = ["pack-5", "pack-20"];
+// All four coaching tracks are shown. They used to be split 2 + 2 behind a
+// "View 5 and 20-session options" disclosure, which meant two of the four
+// price points — including the best-value 20-session track — were invisible
+// until a reader went looking for them. The session ladder is the argument
+// for buying more, and hiding half of it hid the argument.
+const DEFAULT_VISIBLE = ["single", "pack-5", "pack-10", "pack-20"];
+const EXPANDABLE: string[] = [];
 
 function PricingCard({ pkg }: { pkg: (typeof COACHING_PACKAGES)[number] }) {
   const usd = resolvePricing(pkg, "USD");
@@ -273,36 +278,40 @@ export default function MentoringSection() {
             </div>
           </div>
 
-          <div className="mb-4">
-            <button
-              onClick={() => setShowAll((s) => !s)}
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-hp-electric hover:text-hp-deep transition-colors"
-              aria-expanded={showAll}
-            >
-              {showAll ? "Hide options" : "View 5 and 20-session options"}
-              <ChevronDown
-                className={`h-4 w-4 transition-transform duration-200 ${showAll ? "rotate-180" : ""}`}
-              />
-            </button>
-          </div>
+          {expandablePackages.length > 0 && (
+            <>
+              <div className="mb-4">
+                <button
+                  onClick={() => setShowAll((s) => !s)}
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-hp-electric hover:text-hp-deep transition-colors"
+                  aria-expanded={showAll}
+                >
+                  {showAll ? "Hide options" : "View more options"}
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform duration-200 ${showAll ? "rotate-180" : ""}`}
+                  />
+                </button>
+              </div>
 
-          <AnimatePresence>
-            {showAll && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                className="overflow-hidden"
-              >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12 max-w-3xl">
-                  {expandablePackages.map((pkg) => (
-                    <PricingCard key={pkg.id} pkg={pkg} />
-                  ))}
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+              <AnimatePresence>
+                {showAll && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                    className="overflow-hidden"
+                  >
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12 max-w-3xl">
+                      {expandablePackages.map((pkg) => (
+                        <PricingCard key={pkg.id} pkg={pkg} />
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </>
+          )}
 
           <BlurFade inView delay={0.2}>
             <details className="group mt-2 border border-ink/10 bg-canvas overflow-hidden">
