@@ -9,6 +9,7 @@ import { Calculator, Clock } from "lucide-react";
 import { BookCallButton } from "@/components/ui/BookCallButton";
 import {
   COMMON_AUTOMATIONS,
+  ROI_DEFAULTS,
   calculateROI,
   clampTeamSize,
   toggleSelection,
@@ -19,7 +20,20 @@ import {
  */
 export default function ROICalculatorSection() {
   const [selected, setSelected] = useState<Set<string>>(new Set());
-  const [teamSize, setTeamSize] = useState(1);
+  // ROI_DEFAULTS is `as const`, so minTeamSize is the literal type 1 —
+  // annotate explicitly or the setter refuses any other number.
+  const [teamSize, setTeamSize] = useState<number>(ROI_DEFAULTS.minTeamSize);
+  // The field is controlled by a string, not by `teamSize`. Binding it
+  // straight to the number makes it impossible to clear the box to retype,
+  // because every keystroke is clamped to a valid minimum and pushed back.
+  const [teamSizeText, setTeamSizeText] = useState(String(ROI_DEFAULTS.minTeamSize));
+
+  /** Apply a numeric team size everywhere at once — value and the field. */
+  const applyTeamSize = (next: number) => {
+    const clamped = clampTeamSize(next);
+    setTeamSize(clamped);
+    setTeamSizeText(String(clamped));
+  };
 
   const projection = useMemo(
     () =>
@@ -54,8 +68,9 @@ export default function ROICalculatorSection() {
               </h2>
             </div>
             <p className="md:col-span-5 text-lg text-charcoal md:text-right max-w-sm md:ml-auto">
-              Pick the tasks your team does every week. See what automation
-              could give back.
+              Pick the tasks <span className="font-medium text-ink">each person</span>{" "}
+              does every week. See what automation could give back — per
+              person, and for your whole team.
             </p>
           </div>
         </BlurFade>
@@ -80,12 +95,11 @@ export default function ROICalculatorSection() {
                         setSelected((prev) => toggleSelection(prev, automation.id))
                       }
                       aria-pressed={isSelected}
-                      className={`w-full text-left p-4 rounded-hp-md border transition-[border-color,background-color] duration-150 ${
+                      className={`w-full text-left p-4 rounded-hp-md border transition-[border-color,background-color,transform] duration-150 active:scale-[0.98] ${
                         isSelected
                           ? "border-hp-electric/40 bg-hp-electric/5"
                           : "border-hairline-strong/60 bg-canvas hover:border-hairline-strong"
                       }`}
-                      whileTap={{ scale: 0.96 }}
                     >
                       <div className="flex items-center justify-between">
                         <div>
@@ -144,27 +158,49 @@ export default function ROICalculatorSection() {
                 </label>
                 <div className="flex items-center gap-4">
                   <button
+                    type="button"
                     aria-label="Decrease team size"
-                    onClick={() =>
-                      setTeamSize((prev) => clampTeamSize(prev - 1))
-                    }
-                    className="h-10 w-10 rounded-hp-md border border-hairline-strong bg-canvas hover:bg-cloud transition-colors duration-150 font-semibold text-ink"
+                    onClick={() => applyTeamSize(teamSize - 1)}
+                    className="h-11 w-11 shrink-0 rounded-hp-md border border-hairline-strong bg-canvas hover:bg-cloud transition-[background-color,transform] duration-150 active:scale-[0.96] font-semibold text-ink"
                   >
                     -
                   </button>
-                  <span className="text-2xl font-medium text-hp-electric w-12 text-center tabular-nums">
-                    {teamSize}
-                  </span>
+                  <input
+                    type="number"
+                    inputMode="numeric"
+                    min={ROI_DEFAULTS.minTeamSize}
+                    step={1}
+                    value={teamSizeText}
+                    aria-label="Team size"
+                    onChange={(e) => {
+                      const raw = e.target.value;
+                      // Show exactly what was typed while typing — clamping
+                      // here would fight the cursor mid-edit.
+                      setTeamSizeText(raw);
+                      const n = Number(raw);
+                      if (raw.trim() !== "" && Number.isFinite(n)) {
+                        setTeamSize(clampTeamSize(n));
+                      }
+                    }}
+                    // Normalise on the way out. A cleared field restores the
+                    // last valid size rather than snapping to the minimum —
+                    // losing your 7 to a stray backspace is worse than the
+                    // field looking momentarily blank.
+                    onBlur={() => applyTeamSize(teamSize)}
+                    className="w-16 text-2xl font-medium text-hp-electric text-center tabular-nums bg-transparent border-b border-hp-electric/30 focus:border-hp-electric focus:outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+                  />
                   <button
+                    type="button"
                     aria-label="Increase team size"
-                    onClick={() =>
-                      setTeamSize((prev) => clampTeamSize(prev + 1))
-                    }
-                    className="h-10 w-10 rounded-hp-md border border-hairline-strong bg-canvas hover:bg-cloud transition-colors duration-150 font-semibold text-ink"
+                    onClick={() => applyTeamSize(teamSize + 1)}
+                    className="h-11 w-11 shrink-0 rounded-hp-md border border-hairline-strong bg-canvas hover:bg-cloud transition-[background-color,transform] duration-150 active:scale-[0.96] font-semibold text-ink"
                   >
                     +
                   </button>
                 </div>
+                <p className="text-xs text-graphite mt-2">
+                  Type a number, or use the buttons.
+                </p>
               </div>
             </div>
           </BlurFade>
@@ -203,7 +239,7 @@ export default function ROICalculatorSection() {
                         <p className="text-2xl font-medium text-hp-electric tabular-nums">
                           {hoursPerWeek}h
                         </p>
-                        <p className="text-xs text-graphite">Per week</p>
+                        <p className="text-xs text-graphite">Per person / week</p>
                       </div>
                       <div className="p-4 rounded-hp-lg bg-cloud">
                         <p className="text-2xl font-medium text-hp-electric tabular-nums">

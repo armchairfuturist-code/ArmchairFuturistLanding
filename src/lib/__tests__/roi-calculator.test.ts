@@ -4,6 +4,7 @@ import {
   clampTeamSize,
   toggleSelection,
   COMMON_AUTOMATIONS,
+  ROI_DEFAULTS,
 } from "@/lib/roi-calculator";
 
 describe("ROI Calculator", () => {
@@ -50,5 +51,26 @@ describe("ROI Calculator", () => {
     expect(clampTeamSize(3.9)).toBe(3);
     expect(clampTeamSize(-2)).toBe(1);
     expect(clampTeamSize(Number.NaN)).toBe(1);
+  });
+
+  it("clamps a typed team size of zero to the minimum", () => {
+    // The team-size field is now typeable, so "0" reaches the setter.
+    expect(clampTeamSize(0)).toBe(ROI_DEFAULTS.minTeamSize);
+    expect(clampTeamSize(20)).toBe(20);
+  });
+
+  it("scales team hours by a large typed team size", () => {
+    const a = COMMON_AUTOMATIONS[0];
+    const result = calculateROI({ selectedIds: [a.id], teamSize: 20 });
+    expect(result.teamHoursPerYear).toBe(a.hoursPerWeek * 52 * 20);
+    // Per-person figures must stay independent of team size.
+    expect(result.hoursPerWeek).toBe(a.hoursPerWeek);
+    expect(result.hoursPerYear).toBe(a.hoursPerWeek * 52);
+  });
+
+  it("reports no results when nothing is selected, even with a team size", () => {
+    const result = calculateROI({ selectedIds: [], teamSize: 20 });
+    expect(result.hasResults).toBe(false);
+    expect(result.hoursPerWeek).toBe(0);
   });
 });
