@@ -5,6 +5,7 @@ import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import { MotionProvider } from "@/components/ui/MotionProvider";
 import ScrollProgress from "@/components/ui/ScrollProgress";
+import ScrollToHash from "@/components/ui/ScrollToHash";
 import { SmoothScrollProvider } from "@/components/ui/SmoothScrollProvider";
 import StructuredData from "@/components/seo/StructuredData";
 import "./globals.css";
@@ -91,6 +92,7 @@ export default function RootLayout({
             <MotionProvider>
               <StructuredData />
               <ScrollProgress />
+              <ScrollToHash />
               <Header />
               {children}
               <Footer />
