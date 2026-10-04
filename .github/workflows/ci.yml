@@ -25,5 +25,9 @@ jobs:
       - name: Test
         run: npx vitest run
 
+      # `npm run lint` IS `tsc --noEmit` here, so typecheck is already covered.
+      - name: GEO drift (llms.txt freshness + sitemap/robots mirrors)
+        run: npm run geo:check
+
       - name: Build
         run: npm run build
