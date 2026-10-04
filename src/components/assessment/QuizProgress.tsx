@@ -22,10 +22,13 @@ export default function QuizProgress({ current, total }: QuizProgressProps) {
         </span>
       </div>
       <div className="h-1.5 w-full rounded-full bg-hp-electric/10 overflow-hidden">
+        {/* scaleX on a full-width bar, not width: the inner must be w-full or
+            the scale no longer maps to the percentage. width is a layout
+            property — it re-runs layout every frame of the 400ms. */}
         <motion.div
-          className="h-full rounded-full bg-hp-electric"
-          initial={{ width: 0 }}
-          animate={{ width: `${percent}%` }}
+          className="h-full w-full origin-left rounded-full bg-hp-electric"
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: percent / 100 }}
           transition={{ duration: 0.4, ease: EASE_OUT }}
         />
       </div>

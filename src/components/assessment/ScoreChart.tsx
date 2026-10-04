@@ -34,10 +34,11 @@ export default function ScoreChart({ clarity, readiness, urgency }: ScoreChartPr
             </span>
           </div>
           <div className="h-2.5 w-full rounded-full bg-muted overflow-hidden">
+            {/* scaleX on a full-width bar, not width — see QuizProgress. */}
             <motion.div
-              className={`h-full rounded-full ${dim.color}`}
-              initial={{ width: 0 }}
-              animate={{ width: `${scores[dim.key]}%` }}
+              className={`h-full w-full origin-left rounded-full ${dim.color}`}
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: scores[dim.key] / 100 }}
               transition={{ duration: 0.8, delay: 0.2 + idx * 0.15, ease: EASE_OUT }}
             />
           </div>

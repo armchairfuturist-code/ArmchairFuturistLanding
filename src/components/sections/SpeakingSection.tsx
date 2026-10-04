@@ -5,6 +5,7 @@ import { MessageSquare, Mic } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
 import { BlurFade } from "@/components/ui/blur-fade";
+import { EASE_OUT } from "@/lib/easing";
 import { motion } from "motion/react";
 import { SPEAKING_FORM_URL } from "@/lib/constants";
 
@@ -61,7 +62,7 @@ export default function SpeakingSection() {
               transition={{
                 duration: 0.45,
                 delay: i * 0.06,
-                ease: [0.16, 1, 0.3, 1],
+                ease: EASE_OUT,
               }}
               className="group relative aspect-[16/10] overflow-hidden border border-ink/10"
             >

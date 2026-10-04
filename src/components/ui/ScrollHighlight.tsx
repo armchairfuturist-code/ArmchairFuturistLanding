@@ -1,6 +1,6 @@
 "use client";
 import { useRef } from "react";
-import { motion, useScroll, useTransform, useReducedMotion, MotionValue } from "motion/react";
+import { motion, useScroll, useReducedMotion, MotionValue } from "motion/react";
 
 interface ScrollHighlightProps {
   children: React.ReactNode;
@@ -46,18 +46,22 @@ function ScrollHighlightInner({
   progress: MotionValue<number>;
   color: string;
 }) {
-  const backgroundSize = useTransform(progress, [0, 1], ["0%", "100%"]);
-
   return (
-    <motion.span
-      style={{
-        background: `linear-gradient(to right, ${color} 100%)`,
-        backgroundSize,
-        backgroundRepeat: "no-repeat",
-      }}
-      className="transition-[background-size] duration-0"
-    >
-      {children}
-    </motion.span>
+    /* The highlight is a separate layer scaled from the left, not a
+       background-size on the text span. background-size is a paint
+       property, so growing it re-rasterised the gradient on every scroll
+       frame; scaleX is composited. The text sits in its own span above the
+       layer so the highlight reads as a wash behind it, as before. */
+    <span className="relative inline-block">
+      <motion.span
+        aria-hidden="true"
+        className="absolute inset-0 origin-left"
+        style={{
+          scaleX: progress,
+          background: `linear-gradient(to right, ${color} 100%)`,
+        }}
+      />
+      <span className="relative">{children}</span>
+    </span>
   );
 }

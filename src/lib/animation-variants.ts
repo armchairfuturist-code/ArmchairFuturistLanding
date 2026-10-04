@@ -1,5 +1,5 @@
 import type { Variants } from "motion/react";
-import { EASE_OUT } from "@/lib/easing";
+import { EASE_OUT, EASE_IN_OUT } from "@/lib/easing";
 
 // Shared stagger primitives
 export const staggerContainer: Variants = {
@@ -22,7 +22,7 @@ export const diagonalWipe: Variants = {
   hidden: { clipPath: "polygon(0 0, 100% 0, 100% 0%, 0 0%)" },
   visible: {
     clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-    transition: { duration: 0.9, ease: [0.76, 0, 0.24, 1] },
+    transition: { duration: 0.9, ease: EASE_IN_OUT },
   },
 };
 

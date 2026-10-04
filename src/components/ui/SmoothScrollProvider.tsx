@@ -14,14 +14,30 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
       touchMultiplier: 1.5,
     });
 
+    let frame = 0;
+
     function raf(time: number) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      frame = requestAnimationFrame(raf);
     }
-    const id = requestAnimationFrame(raf);
+    frame = requestAnimationFrame(raf);
+
+    /* A hidden tab still runs rAF at a throttled rate, so Lenis kept
+       interpolating toward a scroll target nobody could see, for the whole
+       session. Mirrors what ambient-visual-runtime.tsx already does. */
+    const onVisibility = () => {
+      if (document.hidden) {
+        cancelAnimationFrame(frame);
+        frame = 0;
+      } else if (!frame) {
+        frame = requestAnimationFrame(raf);
+      }
+    };
+    document.addEventListener("visibilitychange", onVisibility);
 
     return () => {
-      cancelAnimationFrame(id);
+      cancelAnimationFrame(frame);
+      document.removeEventListener("visibilitychange", onVisibility);
       lenis.destroy();
     };
   }, []);
