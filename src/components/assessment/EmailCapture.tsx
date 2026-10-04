@@ -131,7 +131,7 @@ export default function EmailCapture({
           <button
             type="button"
             onClick={onSkip}
-            className="mt-4 text-xs text-graphite hover:text-ink transition-colors underline-offset-2 hover:underline"
+            className="mt-4 inline-flex items-center min-h-11 text-xs text-graphite hover:text-ink transition-[color,transform] duration-150 active:scale-[0.97] underline-offset-2 hover:underline"
           >
             Skip — show results without email
           </button>

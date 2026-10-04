@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { NumberTicker } from "@/components/ui/number-ticker";
-import { ScrambleText } from "@/components/ui/scramble-text";
 import { TESTIMONIALS, type Testimonial } from "@/content/testimonials";
 import { CASE_STUDIES } from "@/content/case-studies";
 import { GITHUB_URL } from "@/lib/constants";
@@ -95,7 +94,11 @@ export default function ProofSection() {
         </div>
 
         <div id="stats" className="mt-10 scroll-mt-20 rounded-hp-xl bg-hp-electric p-6 text-white md:p-8">
-          <ScrambleText as="h3" text="Across the work" className="font-display text-2xl leading-tight font-medium" />
+          {/* Was a ScrambleText. A heading is read, not admired — scrambling
+              the characters makes it unreadable on first pass, which is the
+              opposite of what a section title is for. The NumberTicker
+              count-ups below are explanation and stay. */}
+          <h3 className="font-display text-2xl leading-tight font-medium">Across the work</h3>
           <dl className="mt-6 grid gap-6 md:grid-cols-3 md:gap-8">
             <div>
               <dt className="text-sm text-white">AI systems deployed</dt>

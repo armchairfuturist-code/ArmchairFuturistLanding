@@ -41,7 +41,7 @@ export default function QuizQuestion({
           {!isFirstQuestion && onBack && (
             <button
               onClick={onBack}
-              className="text-xs text-graphite hover:text-ink transition-colors mb-2 flex items-center gap-1 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hp-electric/40 focus-visible:rounded px-1"
+              className="text-xs text-graphite hover:text-ink transition-[color,transform] duration-150 active:scale-[0.97] mb-2 flex items-center gap-1 min-h-11 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hp-electric/40 focus-visible:rounded px-1"
               aria-label="Go back to previous question"
             >
               <svg

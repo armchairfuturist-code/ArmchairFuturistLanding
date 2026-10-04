@@ -4,6 +4,7 @@ import { EASE_OUT } from "@/lib/easing"
 
 import { useMemo, useState } from "react";
 import { BlurFade } from "@/components/ui/blur-fade";
+import { AnimatedNumber } from "@/components/ui/number-ticker";
 import { motion, AnimatePresence } from "motion/react";
 import { Calculator, Clock } from "lucide-react";
 import { BookCallButton } from "@/components/ui/BookCallButton";
@@ -236,30 +237,30 @@ export default function ROICalculatorSection() {
                   >
                     <div className="grid grid-cols-2 gap-4">
                       <div className="p-4 rounded-hp-lg bg-cloud">
-                        <p className="text-2xl font-medium text-hp-electric tabular-nums">
-                          {hoursPerWeek}h
+                        <p className="text-2xl font-medium text-hp-electric">
+                          <AnimatedNumber value={hoursPerWeek} suffix="h" />
                         </p>
                         <p className="text-xs text-graphite">Per person / week</p>
                       </div>
                       <div className="p-4 rounded-hp-lg bg-cloud">
-                        <p className="text-2xl font-medium text-hp-electric tabular-nums">
-                          {hoursPerMonth}h
+                        <p className="text-2xl font-medium text-hp-electric">
+                          <AnimatedNumber value={hoursPerMonth} suffix="h" />
                         </p>
                         <p className="text-xs text-graphite">
                           Per month
                         </p>
                       </div>
                       <div className="p-4 rounded-hp-lg bg-cloud">
-                        <p className="text-2xl font-medium text-hp-electric tabular-nums">
-                          {hoursPerYear.toLocaleString()}h
+                        <p className="text-2xl font-medium text-hp-electric">
+                          <AnimatedNumber value={hoursPerYear} suffix="h" />
                         </p>
                         <p className="text-xs text-graphite">
                           Per person / year
                         </p>
                       </div>
                       <div className="p-4 rounded-hp-lg bg-hp-electric/10 border border-hp-electric/20">
-                        <p className="text-2xl font-medium text-hp-electric tabular-nums">
-                          {teamHoursPerYear.toLocaleString()}h
+                        <p className="text-2xl font-medium text-hp-electric">
+                          <AnimatedNumber value={teamHoursPerYear} suffix="h" />
                         </p>
                         <p className="text-xs text-graphite tabular-nums">
                           Team of {teamSize} / year
@@ -272,12 +273,12 @@ export default function ROICalculatorSection() {
                         className="h-6 w-6 text-hp-electric mx-auto mb-2"
                         aria-hidden="true"
                       />
-                      <p className="text-2xl font-semibold text-hp-electric tabular-nums">
-                        {hoursPerWeek} hours per week per person
+                      <p className="text-2xl font-semibold text-hp-electric">
+                        <AnimatedNumber value={hoursPerWeek} suffix=" hours per week per person" />
                       </p>
                       <p className="text-sm text-graphite mt-1 tabular-nums">
-                        {teamHoursPerYear.toLocaleString()} hours per year for
-                        your team of {teamSize}
+                        <AnimatedNumber value={teamHoursPerYear} suffix=" hours per year for your team of " />
+                        {teamSize}
                       </p>
                       <p className="text-xs text-graphite/80 mt-3">
                         Planning estimate, not a forecast. Actual recovery

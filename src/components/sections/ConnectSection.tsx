@@ -5,7 +5,7 @@ import { EASE_OUT } from "@/lib/easing"
 import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { BlurFade } from "@/components/ui/blur-fade";
@@ -149,21 +149,38 @@ export default function ConnectSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          {success ? (
-            <div
-              role="status"
-              aria-live="polite"
-              className="bg-white/10 border border-white/20 rounded-xl p-6 text-center"
-            >
-              <CheckCircle2 className="mx-auto h-8 w-8 text-white mb-3" aria-hidden="true" />
-              <p className="text-white font-semibold text-lg">
-                Message received.
-              </p>
-<p className="mt-1.5 text-sm text-white/80">No pitch attached, just a reply.</p>
-<p className="mt-4 font-mono text-[10px] uppercase tracking-[0.3em] text-white/80">Received · I reply to every note</p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-3" noValidate>
+        {/* Persistent live region. It must exist in the DOM *before* its
+            content changes or the announcement is unreliable — a live region
+            inserted together with its text is often missed entirely. */}
+        <div role="status" aria-live="polite">
+          <AnimatePresence mode="wait" initial={false}>
+            {success ? (
+              <motion.div
+                key="success"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.3, ease: EASE_OUT }}
+                className="bg-white/10 border border-white/20 rounded-xl p-6 text-center"
+              >
+                <CheckCircle2 className="mx-auto h-8 w-8 text-white mb-3" aria-hidden="true" />
+                <p className="text-white font-semibold text-lg">
+                  Message received.
+                </p>
+                <p className="mt-1.5 text-sm text-white/80">No pitch attached, just a reply.</p>
+                <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.3em] text-white/80">Received · I reply to every note</p>
+              </motion.div>
+            ) : (
+              <motion.form
+                key="form"
+                onSubmit={handleSubmit}
+                className="space-y-3"
+                noValidate
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.3, ease: EASE_OUT }}
+              >
               <div>
                 <label htmlFor="connect-name" className="block text-sm font-medium text-white mb-1">Your name</label>
                 <Input
@@ -250,8 +267,10 @@ export default function ConnectSection() {
                   "Send"
                 )}
               </Button>
-            </form>
-          )}
+              </motion.form>
+            )}
+          </AnimatePresence>
+        </div>
         </motion.div>
         </details>
       </motion.div>

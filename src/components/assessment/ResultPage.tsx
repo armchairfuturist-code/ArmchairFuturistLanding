@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { ArrowRight, CalendarDays, Compass } from "lucide-react";
 import { RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { EASE_OUT } from "@/lib/easing";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { motion } from "motion/react";
 import { trackConversion, trackEvent } from "@/lib/analytics";
@@ -232,7 +233,7 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
         className="text-center"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.8 }}
+        transition={{ duration: 0.4, delay: 0.8, ease: EASE_OUT }}
       >
         <Link
           href="/assessment"
