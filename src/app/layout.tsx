@@ -7,7 +7,6 @@ import { MotionProvider } from "@/components/ui/MotionProvider";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 import { SmoothScrollProvider } from "@/components/ui/SmoothScrollProvider";
 import StructuredData from "@/components/seo/StructuredData";
-import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 
 // Self-hosted via next/font — no render-blocking Google Fonts @import.
@@ -95,7 +94,6 @@ export default function RootLayout({
               <Header />
               {children}
               <Footer />
-              <Toaster />
             </MotionProvider>
           </SmoothScrollProvider>
         </ErrorBoundary>

@@ -130,7 +130,27 @@
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+
+  /* Reduced motion means gentler, not zero. The previous rule set every
+     transition-duration to .01ms, which stripped colour and opacity fades
+     too — so a selected filter, an error message, or a focused control
+     snapped with no feedback at all. That is harder to use than a short
+     fade, and it is not what the preference asks for.
+
+     Instead: drop `transform` from the transition list everywhere, so
+     anything that moves or resizes changes instantly and does not travel,
+     and keep colour/opacity/border on a short fade so a state change stays
+     legible. */
+  *, *::before, *::after {
+    transition-property: opacity, color, background-color, background-image,
+      border-color, outline-color, text-decoration-color, fill, stroke,
+      box-shadow !important;
+    transition-duration: 120ms !important;
+    transition-timing-function: var(--ease-out) !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
   /* Keep essential feedback alive under the global motion kill:
      the submit spinner must still spin while a form posts. */
   .animate-spin { animation-duration: 1s !important; }
