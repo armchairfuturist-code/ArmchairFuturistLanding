@@ -43,8 +43,10 @@ export default function Header() {
             </span>
           </Link>
 
-          {/* Nav links — center (USVC-style layout) */}
-          <nav className="hidden lg:flex items-center gap-8">
+          {/* Nav links — center (USVC-style layout). /services carries a
+              second nav for the breadcrumb, so this one needs a name or a
+              screen reader announces two anonymous "navigation" landmarks. */}
+          <nav aria-label="Primary" className="hidden lg:flex items-center gap-8">
             {navItems.map((item) => (
                 <Link
                   key={item.label}
