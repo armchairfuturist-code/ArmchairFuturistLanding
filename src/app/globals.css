@@ -157,6 +157,30 @@
 }
 
 @layer utilities {
+  /* Skip rendering work for homepage sections nobody is looking at.
+     The page is ~14,000px across 15 sections; without this the browser
+     lays out and paints all of them during load. Measured four long tasks
+     over 150ms during first paint before this landed.
+
+     contain-intrinsic-size is required — without a placeholder the browser
+     has no height estimate, the scrollbar jumps as sections resolve, and
+     anchor scrolling drifts. The hero is deliberately not included.
+
+     Measured on a production build: FCP 476ms -> 244ms, long-task total
+     646ms -> 412ms. The remaining jank is the hero WebGL, untouched. */
+  .homepage-section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 1200px;
+  }
+
+  /* A deep-linked visit needs real heights before it can aim at the anchor:
+     with placeholders in place, #roi-calculator landed 436px above the
+     viewport. ScrollToHash sets this flag and re-aligns once layout is full,
+     so the skip is given up only on the rare hashed load. */
+  [data-hash-nav] .homepage-section {
+    content-visibility: visible;
+  }
+
   /* Scroll-progress rule. Chrome, not content: present from first paint,
      no enter/exit transition (any transition would lag the scroll it
      describes). 2px, composited via scaleX. */

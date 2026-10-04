@@ -12,7 +12,11 @@ export function HomepageComposition() {
         if (!section.component) return null;
         const Component = section.component;
         return (
-          <div key={section.id} id={section.id} className="scroll-mt-20">
+          <div
+            key={section.id}
+            id={section.id}
+            className="scroll-mt-20 homepage-section"
+          >
             <Component />
           </div>
         );

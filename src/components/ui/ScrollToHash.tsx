@@ -17,6 +17,13 @@ export default function ScrollToHash() {
     const { hash } = window.location;
     if (!hash || hash.length < 2) return;
 
+    /* Sections are skipped with content-visibility while off-screen, so the
+       heights above the target are estimates until they render. Scrolling to
+       a deep link then drifts — #roi-calculator landed 436px above the
+       viewport. Force a full layout for this page load so the anchor has
+       real heights to aim at, then align. */
+    document.documentElement.dataset.hashNav = "1";
+
     const align = () => {
       const el = document.querySelector(hash);
       if (!el) return;
