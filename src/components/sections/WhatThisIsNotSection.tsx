@@ -39,29 +39,31 @@ export default function WhatThisIsNotSection() {
           </div>
         </BlurFade>
 
-        <BlurFade inView delay={0.1}>
-          <motion.div
-            variants={diagonalWipe}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="relative w-full h-[280px] md:h-[400px] overflow-hidden mb-12 border border-ink/10"
-            style={{ position: "relative" }}
-          >
-            <div
-              className="absolute left-0 top-0 bottom-0 w-1.5 bg-hp-electric z-10"
-              aria-hidden="true"
-            />
-            <Image
-              src="/marketing2.webp"
-              alt="Alex Myers speaking to a group — real AI guidance in practice"
-              fill
-              className="object-cover outline outline-1 -outline-offset-1 outline-black/10"
-              sizes="100vw"
-              loading="lazy"
-            />
-          </motion.div>
-        </BlurFade>
+        {/* The diagonal wipe is the reveal. It used to be wrapped in a
+            BlurFade, which put a paint-only filter: blur(2px) plus a
+            translate on the parent while the clip-path wipe ran on the
+            child — two full repaints per frame for 900ms, neither
+            composited, on a 400px image. One deliberate effect is enough. */}
+        <motion.div
+          variants={diagonalWipe}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="relative w-full h-[280px] md:h-[400px] overflow-hidden mb-12 border border-ink/10"
+        >
+          <div
+            className="absolute left-0 top-0 bottom-0 w-1.5 bg-hp-electric z-10"
+            aria-hidden="true"
+          />
+          <Image
+            src="/marketing2.webp"
+            alt="Alex Myers speaking to a group — real AI guidance in practice"
+            fill
+            className="object-cover outline outline-1 -outline-offset-1 outline-black/10"
+            sizes="100vw"
+            loading="lazy"
+          />
+        </motion.div>
 
         <div className="mb-12 border-t border-ink/15">
           {fitRows.map((row, i) => (
