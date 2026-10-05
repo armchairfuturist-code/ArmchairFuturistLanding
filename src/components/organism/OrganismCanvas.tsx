@@ -14,12 +14,12 @@ export function OrganismCanvas({
   count?: number;
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const showFallback = useAmbientVisualRuntime({ canvasRef, count });
+  const { showFallback, fallbackIsPermanent } = useAmbientVisualRuntime({ canvasRef, count });
 
   return (
     <>
       <canvas ref={canvasRef} className={className} aria-hidden="true" />
-      <StaticOrganismFallback visible={showFallback} />
+      <StaticOrganismFallback visible={showFallback} permanent={fallbackIsPermanent} />
     </>
   );
 }

@@ -1,7 +1,17 @@
-export function StaticOrganismFallback({ visible }: { visible: boolean }) {
+export function StaticOrganismFallback({
+  visible,
+  permanent = false,
+}: {
+  visible: boolean;
+  permanent?: boolean;
+}) {
   return (
     <svg
-      className={"organism-fallback" + (visible ? " is-visible" : "")}
+      className={
+        "organism-fallback" +
+        (visible ? " is-visible" : "") +
+        (visible && !permanent ? " is-placeholder" : "")
+      }
       viewBox="0 0 1000 600"
       preserveAspectRatio="none"
       aria-hidden="true"

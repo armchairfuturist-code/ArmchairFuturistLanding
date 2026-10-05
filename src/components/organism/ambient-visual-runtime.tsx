@@ -54,6 +54,13 @@ export function useAmbientVisualRuntime({
   count = 14000,
 }: AmbientVisualRuntimeOptions) {
   const [showFallback, setShowFallback] = useState(true);
+  /* The static SVG serves two different jobs. While WebGL is still starting
+     it is a loading placeholder and flashes in front of the hero for a second
+     or two; its curved strokes and scattered circles read as a stray line, so
+     it must not draw the eye. Once WebGL has failed, or the visitor prefers
+     reduced motion, that same SVG is the artwork and belongs at full
+     strength. This tracks which of the two applies. */
+  const [fallbackIsPermanent, setFallbackIsPermanent] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -120,7 +127,12 @@ export function useAmbientVisualRuntime({
     };
 
     const initialize = () => {
-      if (organism || reducedMotion.matches || disposed) return;
+      if (organism || reducedMotion.matches || disposed) {
+        // Reduced motion never starts the canvas, so the static SVG is the
+        // artwork rather than a loading placeholder.
+        if (reducedMotion.matches) setFallbackIsPermanent(true);
+        return;
+      }
 
       const aspect = aspectOf();
       const chaos = generateChaosCloudPoints(particleCount, aspect);
@@ -135,6 +147,7 @@ export function useAmbientVisualRuntime({
           error instanceof Error && error.message.includes("WebGL2")
             ? "no-webgl2"
             : "init-failed";
+        setFallbackIsPermanent(true);
         setShowFallback(true);
         return;
       }
@@ -191,6 +204,7 @@ export function useAmbientVisualRuntime({
       if (event.matches) {
         cancelAnimationFrame(introFrame);
         organism?.stop();
+        setFallbackIsPermanent(true);
         setShowFallback(true);
       } else if (organism) {
         setShowFallback(false);
@@ -273,6 +287,6 @@ export function useAmbientVisualRuntime({
     };
   }, [count]);
 
-  return showFallback;
+  return { showFallback, fallbackIsPermanent };
 }
 
