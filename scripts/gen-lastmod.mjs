@@ -13,6 +13,19 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 const OUT = 'src/content/lastmod.generated.json';
 const prev = existsSync(OUT) ? JSON.parse(readFileSync(OUT, 'utf8')) : {};
 
+// A shallow clone has no real history: `git log -- <path>` reports the shallow
+// root for every file, which would stamp every URL with the clone date. Keep
+// the committed dates instead — that is why the JSON is committed.
+try {
+  const shallow = execFileSync('git', ['rev-parse', '--is-shallow-repository'], { encoding: 'utf8' }).trim();
+  if (shallow === 'true') {
+    console.log(`lastmod: shallow clone, keeping ${Object.keys(prev).length} committed entries`);
+    process.exit(0);
+  }
+} catch {
+  /* no git at all: fall through, the loop keeps previous values */
+}
+
 // URL path -> source files whose change should bump lastmod. Nonexistent paths are skipped.
 const page = (seg) => [`src/app/${seg}/page.tsx`, `src/app/${seg}/page.mdx`];
 const MAP = {
