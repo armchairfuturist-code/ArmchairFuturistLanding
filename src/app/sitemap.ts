@@ -1,158 +1,83 @@
 import type { MetadataRoute } from 'next';
 import { ARCHETYPE_SLUGS } from '@/lib/assessment/archetypes';
 import { SERVICE_SYSTEMS } from '@/content/service-catalog';
+import lastmodData from '@/content/lastmod.generated.json';
 
 /**
- * Sitemap configuration for SEO and AI crawler discovery
+ * Sitemap for SEO and AI crawler discovery.
  *
- * Priority levels:
- * 1.0 - Homepage (most important)
- * 0.9 - Core conversion pages (about)
- * 0.8 - Assessment funnel
- * 0.7 - Assessment results, case studies
- * 0.6 - Content/concept pages
- * 0.3 - Legal pages
+ * lastModified comes from src/content/lastmod.generated.json, written by
+ * scripts/gen-lastmod.mjs from git history of each page's source files.
+ * The second argument to lm() is the previous hardcoded date, used only
+ * when no generated value exists. Do not hand-edit the JSON.
+ *
+ * Priority: 1.0 home, 0.9 about, 0.8 assessment/services hub,
+ * 0.7 results/case studies, 0.6 concept pages, 0.3 legal.
  */
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://thearmchairfuturist.com';
+const baseUrl = 'https://thearmchairfuturist.com';
+const dates = lastmodData as Record<string, string>;
+const lm = (path: string, fallback: string): Date => new Date(dates[path] ?? fallback);
 
+export default function sitemap(): MetadataRoute.Sitemap {
   const assessmentResults: MetadataRoute.Sitemap = ARCHETYPE_SLUGS.map((slug) => ({
     url: `${baseUrl}/assessment/result/${slug}`,
-    lastModified: new Date('2026-03-04'),
+    lastModified: lm('/assessment/result', '2026-03-04'),
     changeFrequency: 'monthly' as const,
     priority: 0.7,
   }));
 
+  const page = (
+    path: string,
+    fallback: string,
+    changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'],
+    priority: number,
+  ): MetadataRoute.Sitemap[number] => ({
+    url: path === '' ? baseUrl : `${baseUrl}${path}`,
+    lastModified: lm(path === '' ? '/' : path, fallback),
+    changeFrequency,
+    priority,
+  });
+
   return [
-    // === CORE PAGES ===
-    {
-      url: baseUrl,
-      lastModified: new Date('2026-06-19'),
-      changeFrequency: 'weekly',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: new Date('2026-06-19'),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
+    // Core
+    page('', '2026-06-19', 'weekly', 1),
+    page('/about', '2026-06-19', 'monthly', 0.9),
 
-  // === ASSESSMENT FUNNEL ===
-    {
-      url: `${baseUrl}/assessment`,
-      lastModified: new Date('2026-03-04'),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
+    // Assessment funnel
+    page('/assessment', '2026-03-04', 'monthly', 0.8),
     ...assessmentResults,
-    {
-      url: `${baseUrl}/audit`,
-      lastModified: new Date('2026-08-21'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
+    page('/audit', '2026-08-21', 'monthly', 0.7),
 
-    // === LEGAL PAGES ===
-    {
-      url: `${baseUrl}/privacy-policy`,
-      lastModified: new Date('2026-03-04'),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/terms-of-service`,
-      lastModified: new Date('2026-03-04'),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
+    // Legal
+    page('/privacy-policy', '2026-03-04', 'yearly', 0.3),
+    page('/terms-of-service', '2026-03-04', 'yearly', 0.3),
 
-    // === CONCEPT/EXPLAINER PAGES ===
-    // These pages target long-tail keywords and provide AI-citable definitions
-    {
-      url: `${baseUrl}/concepts`,
-      lastModified: new Date('2026-06-19'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/concepts/accountability-gap`,
-      lastModified: new Date('2026-03-29'),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/concepts/the-install-trap`,
-      lastModified: new Date('2026-08-21'),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/concepts/psychology-led-adoption`,
-      lastModified: new Date('2026-03-29'),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/concepts/results-thinkers`,
-      lastModified: new Date('2026-03-29'),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/concepts/human-architect`,
-      lastModified: new Date('2026-06-14'),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/concepts/pilot-itis`,
-      lastModified: new Date('2026-06-14'),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
+    // Concepts
+    page('/concepts', '2026-06-19', 'monthly', 0.7),
+    page('/concepts/accountability-gap', '2026-03-29', 'monthly', 0.6),
+    page('/concepts/the-install-trap', '2026-08-21', 'monthly', 0.6),
+    page('/concepts/psychology-led-adoption', '2026-03-29', 'monthly', 0.6),
+    page('/concepts/results-thinkers', '2026-03-29', 'monthly', 0.6),
+    page('/concepts/human-architect', '2026-06-14', 'monthly', 0.6),
+    page('/concepts/pilot-itis', '2026-06-14', 'monthly', 0.6),
 
-    // === CASE STUDIES ===
-    {
-      url: `${baseUrl}/case-studies`,
-      lastModified: new Date('2026-06-19'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    // === SERVICES HUB + SPOKES ===
-    {
-      url: `${baseUrl}/services`,
-      lastModified: new Date('2026-09-04'),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
+    // Case studies
+    page('/case-studies', '2026-06-19', 'monthly', 0.7),
+
+    // Services hub + spokes
+    page('/services', '2026-09-04', 'monthly', 0.8),
     ...SERVICE_SYSTEMS.map((system) => ({
       url: `${baseUrl}${system.href}`,
-      lastModified: new Date('2026-09-04'),
+      lastModified: lm(system.href, '2026-09-04'),
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     })),
-  {
-    url: `${baseUrl}/speaking`,
-    lastModified: new Date("2026-08-24"),
-    changeFrequency: "monthly",
-    priority: 0.6,
-  },
-    // === HOW I WORK ===
-    // Methodology + agent-infrastructure page (E-E-A-T: verifiable, shipped work).
-    {
-      url: `${baseUrl}/how-i-work`,
-      lastModified: new Date('2026-06-19'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
+    page('/speaking', '2026-08-24', 'monthly', 0.6),
 
-    // === CONTENT ===
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: new Date('2026-08-21'),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
+    // Methodology (E-E-A-T)
+    page('/how-i-work', '2026-06-19', 'monthly', 0.7),
+
+    // Content
+    page('/blog', '2026-08-21', 'monthly', 0.6),
   ];
 }
