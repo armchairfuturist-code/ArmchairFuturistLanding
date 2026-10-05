@@ -1,6 +1,9 @@
 import type { MetadataRoute } from 'next';
 
 /**
+ * SINGLE SOURCE of robots rules. public/robots.txt was deleted; do not recreate it
+ * (a static file would shadow or conflict with this route).
+ *
  * Robots.txt configuration for AI Search optimization
  * 
  * AI Search Crawlers (ALLOW): These power search features in ChatGPT, Claude, Perplexity, etc.
@@ -24,11 +27,11 @@ export default function robots(): MetadataRoute.Robots {
       // These crawlers power search features that cite sources and drive traffic
       
       {
-        userAgent: 'GPTBot', // OpenAI's search crawler
+        userAgent: 'GPTBot', // OpenAI's training crawler (per OpenAI docs; DECISION: allowed today)
         allow: '/',
       },
       {
-        userAgent: 'OAI-SearchBot', // OpenAI's dedicated search bot
+        userAgent: 'OAI-SearchBot', // OpenAI's search bot (this is the one that drives ChatGPT search citations)
         allow: '/',
       },
       {
@@ -36,7 +39,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
       {
-        userAgent: 'Google-Extended', // Google AI training (allows for AI Overviews)
+        userAgent: 'Google-Extended', // Gemini training/grounding control; does not affect Search or AI Overviews (DECISION: allowed today)
         allow: '/',
       },
       {
