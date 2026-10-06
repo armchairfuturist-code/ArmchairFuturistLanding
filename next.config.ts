@@ -2,6 +2,15 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  // src/app/llms-full.txt/route.ts reads public/llms.txt at build time. The
+  // output file tracer then copies that single file into
+  // .next/standalone/public/, and Firebase serves that directory as the
+  // static root — which hides every other file in public/ (images, favicon,
+  // sitemap-ai.xml). The route is force-static, so nothing needs it at
+  // runtime. Keep public/ out of the trace so the real public/ is served.
+  outputFileTracingExcludes: {
+    "*": ["./public/**/*"],
+  },
   turbopack: {
     root: process.cwd(),
   },
