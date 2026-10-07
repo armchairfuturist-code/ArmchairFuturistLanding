@@ -51,7 +51,22 @@
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body { margin: 0; background: hsl(var(--background)); color: hsl(var(--foreground)); }
-  button:focus-visible { outline: 2px solid hsl(var(--primary)); outline-offset: 4px; }
+  /* Keyboard focus. The button rule below covered only <button>, but most of
+     the site's calls to action are <a> (the hero CTA, every "Book a Call",
+     the assessement entry). Anchors therefore fell back to the browser's
+     default outline — outline: auto 1px rgb(16,16,16), measured — which
+     against the hero's #080d17 is about 1.02:1, i.e. invisible. */
+  button:focus-visible,
+  a:focus-visible { outline: 2px solid hsl(var(--primary)); outline-offset: 4px; }
+
+  /* On the dark sections the primary blue only reaches ~2.6:1 against ink, so
+     the ring tracks the section's own text colour instead. currentColor is
+     legible by definition here: it is the colour already chosen to read
+     against this background. */
+  .bg-ink a:focus-visible,
+  .bg-ink button:focus-visible,
+  .organism-hero a:focus-visible,
+  .organism-hero button:focus-visible { outline-color: currentColor; }
   ::selection { background: #024ad8; color: #ffffff; }
   input, textarea { caret-color: #024ad8; }
 
