@@ -78,7 +78,7 @@ export function nextAction(
       if (c.deliverable?.pageUrl) {
         return { action: 'deliver_page', detail: 'Page is built — send the delivery email with the handoff doc.' };
       }
-      return { action: 'build_page', detail: 'Build the landing page from the intake assets (2-4 day window).' };
+      return { action: 'build_page', detail: 'Build the landing page from the intake assets (2–4 day window).' };
     }
     case 'delivered':
     case 'dead':

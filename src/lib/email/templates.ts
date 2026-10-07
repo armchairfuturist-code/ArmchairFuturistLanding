@@ -276,7 +276,7 @@ export function buildProgramInvitationEmail(data: { archetypeName: string }): st
     </p>
     <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
       If the audit showed you a blueprint worth executing, the AI Self-Sufficiency Program is where it
-      gets built. Eight weeks. You ship a launched AI-powered service or brand, with 10-15 coaching
+      gets built. Eight weeks. You ship a launched AI-powered service or brand, with 10–15 coaching
       sessions and async support the whole way. Most clients are self-sufficient by week 8 —
       by the time we're done, my job no longer exists.
     </p>
@@ -392,7 +392,7 @@ export function buildIdentityConfirmationEmail(data: IdentityConfirmationEmailDa
       2. You get a payment request. ${DIGITAL_IDENTITY_LABEL}, one-time. No subscription.
     </p>
     <p style="margin:0 0 12px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
-      3. Your page is built and delivered in 2-4 days with a handoff doc. You own the code and content.
+      3. Your page is built and delivered in 2–4 days with a handoff doc. You own the code and content.
     </p>
     <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
       ${scopeLine}

@@ -46,13 +46,13 @@ const keyPoints = [
   },
   {
     title: 'How to Set Them Up',
-    content: 'Three conditions make a Human Architect effective: clear ownership over a business outcome (not just an AI tool), protected time (typically 15-25% of their role for the first six months), and executive air cover (someone senior who defends the work when teams push back). Skip any one of these and the role becomes ceremonial.'
+    content: 'Three conditions make a Human Architect effective: clear ownership over a business outcome (not just an AI tool), protected time (typically 15–25% of their role for the first six months), and executive air cover (someone senior who defends the work when teams push back). Skip any one of these and the role becomes ceremonial.'
   }
 ];
 
 const statistics = [
   { value: '1 role', label: 'Required to close the Accountability Gap per AI investment' },
-  { value: '15-25%', label: 'Of one operator\'s time needed to make AI stick' },
+  { value: '15–25%', label: 'Of one operator\'s time needed to make AI stick' },
   { value: '6 months', label: 'Typical runway to embed the role before scaling' },
 ];
 
@@ -108,7 +108,7 @@ export default function HumanArchitectPage() {
         <span itemProp="publisher">The Armchair Futurist</span>
         <span itemProp="datePublished">2026-06-14</span>
         <span itemProp="description">
-          The Human Architect is the role that bridges AI output and business outcome. Without it, AI investments stall in the Accountability Gap. Found through Psychology-Led Adoption profiling, set up with clear ownership, 15-25% protected time, and executive air cover. Six months is typical runway before scaling.
+          The Human Architect is the role that bridges AI output and business outcome. Without it, AI investments stall in the Accountability Gap. Found through Psychology-Led Adoption profiling, set up with clear ownership, 15–25% protected time, and executive air cover. Six months is typical runway before scaling.
         </span>
       </div>
 
@@ -218,7 +218,7 @@ export default function HumanArchitectPage() {
             "publisher": { "@id": "https://thearmchairfuturist.com/#organization" },
             "datePublished": "2026-06-14",
             "dateModified": "2026-06-14",
-            "description": "The Human Architect is the role that bridges AI output and business outcome. Without it, AI investments stall in the Accountability Gap. Found through Psychology-Led Adoption profiling, set up with clear ownership, 15-25% protected time, and executive air cover.",
+            "description": "The Human Architect is the role that bridges AI output and business outcome. Without it, AI investments stall in the Accountability Gap. Found through Psychology-Led Adoption profiling, set up with clear ownership, 15–25% protected time, and executive air cover.",
             "mainEntityOfPage": {
               "@type": "WebPage",
               "@id": "https://thearmchairfuturist.com/concepts/human-architect"

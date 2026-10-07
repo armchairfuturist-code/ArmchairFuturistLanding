@@ -35,7 +35,7 @@ const siteUrl = "https://thearmchairfuturist.com";
 
 const title = "The Armchair Futurist — AI literacy & implementation";
 const description =
-  "Alex Myers, AI Technical Literacy & Workflow Strategy Consultant. 40+ AI systems deployed. 1:1 coaching that makes you self-sufficient in 8-10 weeks.";
+  "Alex Myers, AI Technical Literacy & Workflow Strategy Consultant. 40+ AI systems deployed. 1:1 coaching that makes you self-sufficient in 8–10 weeks.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

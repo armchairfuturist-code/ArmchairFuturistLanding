@@ -120,11 +120,11 @@ export const archetypes: Archetype[] = [
       },
       {
         question: 'How can a ready builder take the next step with AI?',
-        answer: `Start with a specific deliverable. The Digital Identity Landing Page (${DIGITAL_IDENTITY_LABEL}) is the fastest way to get a tangible result: a professional site that reflects where you\'re going, delivered in 2-4 days. For larger projects, Custom AI Provisioning builds private AI workflows tailored to your business.`,
+        answer: `Start with a specific deliverable. The Digital Identity Landing Page (${DIGITAL_IDENTITY_LABEL}) is the fastest way to get a tangible result: a professional site that reflects where you\'re going, delivered in 2–4 days. For larger projects, Custom AI Provisioning builds private AI workflows tailored to your business.`,
       },
       {
         question: 'What services are available for people ready to build with AI?',
-        answer: `The Digital Identity Landing Page (${DIGITAL_IDENTITY_LABEL}) delivers a professional site in 2-4 days. Custom AI Provisioning (${CUSTOM_PROVISIONING_RANGE_LABEL}) builds private AI command centers with API integrations and workflow automation.`,
+        answer: `The Digital Identity Landing Page (${DIGITAL_IDENTITY_LABEL}) delivers a professional site in 2–4 days. Custom AI Provisioning (${CUSTOM_PROVISIONING_RANGE_LABEL}) builds private AI command centers with API integrations and workflow automation.`,
       },
     ],
     metaTitle: 'AI Readiness: The Ready Builder',

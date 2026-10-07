@@ -187,7 +187,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {[
               { value: "40+", label: "AI Systems Deployed" },
-              { value: "10-20h", label: "Reclaimed Per Week" },
+              { value: "10–20h", label: "Reclaimed Per Week" },
               { value: "6", label: "Certifications" },
               { value: "4.9/5", label: "Client Rating" },
             ].map((stat, i) => (

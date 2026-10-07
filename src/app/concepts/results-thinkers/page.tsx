@@ -52,7 +52,7 @@ const keyPoints = [
 const statistics = [
   { value: '5%', label: 'Of staff are natural Results Thinkers' },
   { value: '3x', label: 'Faster adoption when change flows through Results Thinkers' },
-  { value: '15-20h', label: 'Weekly time savings for Results Thinkers after adoption' },
+  { value: '15–20h', label: 'Weekly time savings for Results Thinkers after adoption' },
 ];
 
 const traits = [
@@ -118,7 +118,7 @@ export default function ResultsThinkersPage() {
         <span itemProp="description">
           Results Thinkers are the top 5% of any organization who naturally embrace uncertainty. 
           They ask "What outcome do I need?" instead of "What can AI do?" 
-          They reclaim 15-20 hours per week through AI adoption and drive 3x faster organizational change.
+          They reclaim 15–20 hours per week through AI adoption and drive 3x faster organizational change.
           Psychology-Led Adoption identifies and equips these Results Thinkers to lead change.
         </span>
       </div>
@@ -275,7 +275,7 @@ export default function ResultsThinkersPage() {
             "publisher": { "@id": "https://thearmchairfuturist.com/#organization" },
             "datePublished": "2026-03-29",
             "dateModified": "2026-03-29",
-            "description": "Results Thinkers are the top 5% of any organization who naturally embrace uncertainty. They drive 3x faster AI adoption and reclaim 15-20 hours per week.",
+            "description": "Results Thinkers are the top 5% of any organization who naturally embrace uncertainty. They drive 3x faster AI adoption and reclaim 15–20 hours per week.",
             "mainEntityOfPage": {
               "@type": "WebPage",
               "@id": "https://thearmchairfuturist.com/concepts/results-thinkers"
@@ -298,7 +298,7 @@ export default function ResultsThinkersPage() {
                 "name": "Who are Results Thinkers?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Results Thinkers are the top 5% of AI adopters in an organization. They reclaim 15-20 hours per week with AI and drive disproportionate adoption success. Identifying and empowering them is the highest-leverage move in any rollout."
+                  "text": "Results Thinkers are the top 5% of AI adopters in an organization. They reclaim 15–20 hours per week with AI and drive disproportionate adoption success. Identifying and empowering them is the highest-leverage move in any rollout."
                 }
               },
               {

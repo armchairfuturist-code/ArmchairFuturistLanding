@@ -33,7 +33,7 @@ const concepts = [
     stats: [
       '67% of pilots never scale — same pattern',
       '72% cite workflow redesign as the barrier',
-      '10-20 hrs/week when structured right'
+      '10–20 hrs/week when structured right'
     ]
   },
   {
@@ -54,7 +54,7 @@ const concepts = [
     icon: Brain,
     stats: [
       '1 role per AI investment',
-      '15-25% of operator time',
+      '15–25% of operator time',
       '6 months typical runway'
     ]
   },
@@ -65,7 +65,7 @@ const concepts = [
     icon: BookOpen,
     stats: [
       '67% never scale to production',
-      '4-6 weeks to value if designed right',
+      '4–6 weeks to value if designed right',
       '14 weeks avg. to 80% adoption'
     ]
   },
@@ -87,7 +87,7 @@ const concepts = [
     icon: BookOpen,
     stats: [
       '5% drive disproportionate success',
-      '15-20 hours/week reclaimed',
+      '15–20 hours/week reclaimed',
       'Model behavior for peers'
     ]
   }

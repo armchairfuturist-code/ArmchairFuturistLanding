@@ -61,7 +61,7 @@ const keyPoints = [
 const statistics = [
   { value: '67%', label: 'Of AI pilots never scale to production — the same pattern, one agent at a time' },
   { value: '72%', label: 'Cite workflow redesign, not technology, as the top barrier to AI value' },
-  { value: '10-20 hrs', label: 'Reclaimed per week when agents are given owned, structured workflows' },
+  { value: '10–20 hrs', label: 'Reclaimed per week when agents are given owned, structured workflows' },
 ];
 
 export default function TheInstallTrapPage() {
@@ -162,7 +162,7 @@ export default function TheInstallTrapPage() {
               <ul className="space-y-2 text-charcoal">
                 <li>• A failure of the agent: most trapped agents run exactly as installed</li>
                 <li>• A prompt-engineering problem: better words cannot fix an unowned workflow</li>
-                <li>• A reason to avoid agents: structured agents reclaim 10-20 hours per week</li>
+                <li>• A reason to avoid agents: structured agents reclaim 10–20 hours per week</li>
                 <li>• Permanent: one owned task and eight weeks of measurement breaks it</li>
               </ul>
             </div>

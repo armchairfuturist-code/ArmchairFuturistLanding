@@ -82,7 +82,7 @@ export default function HowIWorkPage() {
       <section className="mb-16">
         <h2 className="text-2xl font-semibold mb-4">What Runs on Autopilot</h2>
         <ul className="space-y-6">
-          <li><strong>Daily AI Digest</strong> at 11:00. HuggingNews, HN, arXiv, Reddit. 2,500-3,000 words in my voice. Published to Substack and the blog.</li>
+          <li><strong>Daily AI Digest</strong> at 11:00. HuggingNews, HN, arXiv, Reddit. 2,500–3,000 words in my voice. Published to Substack and the blog.</li>
           <li><strong>LinkedIn Post</strong> at 12:00. Under 3,000 characters. Business-focused takeaways.</li>
           <li><strong>Morning Dojo Report</strong> at 06:00. System health, cron integrity, git status. Scannable.</li>
           <li><strong>End-of-Day Summary</strong> at 18:00. What shipped, what failed, what's tomorrow.</li>
@@ -144,7 +144,7 @@ export default function HowIWorkPage() {
           </div>
           <div>
             <strong>Cost?</strong>
-            <p className="mt-1">Daily operations: single-digit dollars. Digest + LinkedIn: roughly $1-2 in API credits. Search: free (Brave).</p>
+            <p className="mt-1">Daily operations: single-digit dollars. Digest + LinkedIn: roughly $1–2 in API credits. Search: free (Brave).</p>
           </div>
         </div>
       </section>

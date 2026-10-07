@@ -79,7 +79,7 @@ export default function IdentityIntakeForm() {
         <div className="space-y-3 text-base text-charcoal font-sans leading-relaxed mb-6">
           <p><span className="font-bold text-ink">1.</span> Alex reviews your links and confirms the fit (usually same day).</p>
           <p><span className="font-bold text-ink">2.</span> You get a payment request. {PRICE}, one-time. No subscription.</p>
-          <p><span className="font-bold text-ink">3.</span> Your page is built and delivered in 2-4 days with a handoff doc. You own the code and content.</p>
+          <p><span className="font-bold text-ink">3.</span> Your page is built and delivered in 2–4 days with a handoff doc. You own the code and content.</p>
         </div>
         <p className="text-sm text-graphite font-sans">
           Questions in the meantime?{" "}

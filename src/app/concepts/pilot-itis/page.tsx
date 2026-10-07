@@ -53,7 +53,7 @@ const keyPoints = [
 
 const statistics = [
   { value: '67%', label: 'Of AI pilots never scale to production (industry average)' },
-  { value: '4-6 wks', label: 'Time to see real value when pilot is designed for production' },
+  { value: '4–6 wks', label: 'Time to see real value when pilot is designed for production' },
   { value: '14 weeks', label: 'Average time to 80% team adoption after production handoff' },
 ];
 
@@ -196,7 +196,7 @@ export default function PilotItisPage() {
               Stuck in Pilot Purgatory?
             </h2>
             <p className="text-lg text-foreground/80 mb-8">
-              Most stalled AI initiatives can be revived in 4-6 weeks with the right ownership structure. Book a free 15-minute call to diagnose what&apos;s blocking production handoff.
+              Most stalled AI initiatives can be revived in 4–6 weeks with the right ownership structure. Book a free 15-minute call to diagnose what&apos;s blocking production handoff.
             </p>
             <Button asChild size="lg" className="font-bold">
               <a href="https://calendar.google.com/calendar/appointments/schedules/AcYQvIlvMqTfGJQBxIV-BM6tVxBNjOcv1KBiagvHB6rJ8GoQuVEvTPWGDyGCFzxeJXkVDTpv1FCL4vQNSPCxbB13i9O_c5pBNA==?gv=true" target="_blank" rel="noopener noreferrer">

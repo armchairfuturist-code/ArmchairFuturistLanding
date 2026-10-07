@@ -69,7 +69,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "What is Custom AI Provisioning?",
     answer:
-      `A done-for-you service where I build you a private AI command center: custom business workflows, agent installation (OpenClaw, Hermes), API integrations, calendar/email sync, and secure infrastructure. Pricing ranges ${CUSTOM_PROVISIONING_RANGE_LABEL} depending on scope, delivered in 1-2 weeks. You own everything: code, data, infrastructure.`,
+      `A done-for-you service where I build you a private AI command center: custom business workflows, agent installation (OpenClaw, Hermes), API integrations, calendar/email sync, and secure infrastructure. Pricing ranges ${CUSTOM_PROVISIONING_RANGE_LABEL} depending on scope, delivered in 1–2 weeks. You own everything: code, data, infrastructure.`,
   },
   {
     question: "Who do you work best with, and who isn't a fit?",

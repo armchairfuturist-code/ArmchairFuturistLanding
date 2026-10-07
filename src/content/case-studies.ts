@@ -14,7 +14,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: "Automated Client Response System",
     client: "Professional Services Firm",
     problem:
-      "Team spent 4-6 hours per day answering repetitive client queries across email and WhatsApp. Response times stretched 8+ hours. Clients complained about slow turnaround. The team was drowning in busywork, watching their real priorities slip.",
+      "Team spent 4–6 hours per day answering repetitive client queries across email and WhatsApp. Response times stretched 8+ hours. Clients complained about slow turnaround. The team was drowning in busywork, watching their real priorities slip.",
     solution:
       "Built an n8n workflow that routes incoming queries, drafts context-aware responses using AI, and sends them through approved channels. Human reviews only edge cases.",
     patterns: [
