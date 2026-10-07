@@ -5,6 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { BlurFade } from '@/components/ui/blur-fade';
 import Breadcrumbs from '@/components/ui/breadcrumbs';
 import { ArrowLeft, ExternalLink, RefreshCw } from 'lucide-react';
+import { CALENDAR_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Case Studies | The Armchair Futurist',
@@ -281,7 +282,7 @@ export default function CaseStudiesPage() {
               are leaking value and what results you could achieve.
             </p>
             <Button asChild size="lg" className="font-bold">
-              <a href="https://calendar.google.com/calendar/appointments/schedules/AcYQvIlvMqTfGJQBxIV-BM6tVxBNjOcv1KBiagvHB6rJ8GoQuVEvTPWGDyGCFzxeJXkVDTpv1FCL4vQNSPCxbB13i9O_c5pBNA==?gv=true" target="_blank" rel="noopener noreferrer">
+              <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer">
                 Book Free Strategy Call
               </a>
             </Button>

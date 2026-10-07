@@ -5,6 +5,7 @@ import { BlurFade } from '@/components/ui/blur-fade';
 import Breadcrumbs from '@/components/ui/breadcrumbs';
 import LastUpdated from '@/components/ui/last-updated';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
+import { CALENDAR_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'The Human Architect Role: Who Closes the AI Accountability Gap',
@@ -199,7 +200,7 @@ export default function HumanArchitectPage() {
               Book a free 15-minute strategy call. Alex will help you identify who on your team already plays this role, and how to set them up to succeed.
             </p>
             <Button asChild size="lg" className="font-bold">
-              <a href="https://calendar.google.com/calendar/appointments/schedules/AcYQvIlvMqTfGJQBxIV-BM6tVxBNjOcv1KBiagvHB6rJ8GoQuVEvTPWGDyGCFzxeJXkVDTpv1FCL4vQNSPCxbB13i9O_c5pBNA==?gv=true" target="_blank" rel="noopener noreferrer">
+              <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer">
                 Book Free Strategy Call
               </a>
             </Button>

@@ -5,6 +5,7 @@ import { BlurFade } from '@/components/ui/blur-fade';
 import Breadcrumbs from '@/components/ui/breadcrumbs';
 import LastUpdated from '@/components/ui/last-updated';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
+import { CALENDAR_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'The Install Trap: Why Running an Agent Is Not the Win | The Armchair Futurist',
@@ -210,7 +211,7 @@ export default function TheInstallTrapPage() {
               which side of the trap you are on.
             </p>
             <Button asChild size="lg" className="font-semibold">
-              <a href="https://calendar.google.com/calendar/appointments/schedules/AcYQvIlvMqTfGJQBxIV-BM6tVxBNjOcv1KBiagvHB6rJ8GoQuVEvTPWGDyGCFzxeJXkVDTpv1FCL4vQNSPCxbB13i9O_c5pBNA==?gv=true" target="_blank" rel="noopener noreferrer">
+              <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer">
                 Book Free Strategy Call
               </a>
             </Button>

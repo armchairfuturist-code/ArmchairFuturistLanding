@@ -5,6 +5,7 @@ import { BlurFade } from '@/components/ui/blur-fade';
 import Breadcrumbs from '@/components/ui/breadcrumbs';
 import LastUpdated from '@/components/ui/last-updated';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
+import { CALENDAR_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Pilot-itis: Why AI Pilots Die in Production | The Armchair Futurist',
@@ -200,7 +201,7 @@ export default function PilotItisPage() {
               Most stalled AI initiatives can be revived in 4–6 weeks with the right ownership structure. Book a free 15-minute call to diagnose what&apos;s blocking production handoff.
             </p>
             <Button asChild size="lg" className="font-bold">
-              <a href="https://calendar.google.com/calendar/appointments/schedules/AcYQvIlvMqTfGJQBxIV-BM6tVxBNjOcv1KBiagvHB6rJ8GoQuVEvTPWGDyGCFzxeJXkVDTpv1FCL4vQNSPCxbB13i9O_c5pBNA==?gv=true" target="_blank" rel="noopener noreferrer">
+              <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer">
                 Book Free Strategy Call
               </a>
             </Button>
