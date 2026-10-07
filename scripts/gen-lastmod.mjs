@@ -29,7 +29,19 @@ try {
 // URL path -> source files whose change should bump lastmod. Nonexistent paths are skipped.
 const page = (seg) => [`src/app/${seg}/page.tsx`, `src/app/${seg}/page.mdx`];
 const MAP = {
-  '/': ['src/app/page.tsx', 'src/lib/homepage-sections.tsx', 'src/lib/pricing.ts'],
+  // The homepage sections read their copy from content/ too, so an edit to
+  // case studies, testimonials, FAQs or the mentoring pillars changes "/"
+  // without touching page.tsx. Left unmapped, those edits never moved the
+  // sitemap date and search engines kept seeing a stale page.
+  '/': [
+    'src/app/page.tsx',
+    'src/lib/homepage-sections.tsx',
+    'src/lib/pricing.ts',
+    'src/content/case-studies.ts',
+    'src/content/testimonials.ts',
+    'src/content/faqs.ts',
+    'src/content/mentoring-pillars.ts',
+  ],
   '/about': page('about'),
   '/assessment': page('assessment'),
   '/assessment/result': ['src/lib/assessment/archetypes.ts', 'src/app/assessment/result/[slug]/page.tsx'],
