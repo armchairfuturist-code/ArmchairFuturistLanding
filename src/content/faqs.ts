@@ -39,7 +39,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "How does AI guidance work?",
     answer:
-      "One-on-one coaching over video, 60 minutes per session. Each session builds on your real work: we pick a bottleneck, work it live, and you leave with something running. Pricing is in the answer above; most clients start with 5 or 10 sessions.",
+      `One-on-one coaching over video, 60 minutes per session. Each session builds on your real work: we pick a bottleneck, work it live, and you leave with something running. A single session is ${SINGLE_SESSION_LABEL}; most clients start with a 5 or 10-session pack.`,
   },
   {
     question: "Why the program instead of a session pack?",

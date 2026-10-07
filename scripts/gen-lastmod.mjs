@@ -33,10 +33,15 @@ const MAP = {
   // case studies, testimonials, FAQs or the mentoring pillars changes "/"
   // without touching page.tsx. Left unmapped, those edits never moved the
   // sitemap date and search engines kept seeing a stale page.
+  //
+  // The section components themselves were unmapped for the same reason: all
+  // twelve under components/sections are homepage sections, so editing one
+  // changed live copy without moving the date.
   '/': [
     'src/app/page.tsx',
     'src/lib/homepage-sections.tsx',
     'src/lib/pricing.ts',
+    'src/components/sections',
     'src/content/case-studies.ts',
     'src/content/testimonials.ts',
     'src/content/faqs.ts',
@@ -57,9 +62,15 @@ const MAP = {
   '/concepts/pilot-itis': page('concepts/pilot-itis'),
   '/case-studies': page('case-studies'),
   '/services': [...page('services'), 'src/content/service-catalog.ts', 'src/lib/pricing.ts'],
-  '/speaking': page('speaking'),
+  // These two pages reuse homepage section components, so the component
+  // files belong in their source set as well.
+  '/speaking': [
+    ...page('speaking'),
+    'src/components/sections/SpeakingSection.tsx',
+    'src/components/sections/CommunityAnchor.tsx',
+  ],
   '/how-i-work': page('how-i-work'),
-  '/blog': page('blog'),
+  '/blog': [...page('blog'), 'src/components/sections/SubstackSection.tsx'],
 };
 
 const out = { ...prev };

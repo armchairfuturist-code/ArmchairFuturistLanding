@@ -319,7 +319,21 @@ export default function MentoringSection() {
                   Collapse
                 </span>
               </summary>
-              <div className="border-t border-ink/10 overflow-x-auto">
+              {/* The table is ~596px wide against a 356px phone viewport, so
+                  the 20-pack column sits off-screen. Two problems came with
+                  that overflow and neither was handled: a scrollable region
+                  has to be reachable by keyboard (WCAG 2.1.1), and the
+                  overflow has to be signposted or the column is simply
+                  invisible on a phone with no cue that it exists. */}
+              <p className="md:hidden px-6 pb-2 text-[11px] font-mono uppercase tracking-widest text-graphite">
+                Scroll to compare →
+              </p>
+              <div
+                tabIndex={0}
+                role="region"
+                aria-label="Package comparison table"
+                className="border-t border-ink/10 overflow-x-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-hp-electric"
+              >
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="text-left">
