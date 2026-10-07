@@ -34,7 +34,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "How much do services cost?",
     answer:
-      `Two paths. 'We do it together' guidance starts at the 5-session pack (${PACK_5_LABEL}) and scales through 10 and 20-session packs (up to 15% savings). These build your AI literacy at your own pace. The ${PROGRAM_PRICE_LABEL} AI Self-Sufficiency Program is an 8-week build sprint where you launch your own AI-powered service or brand, with 10-15 coaching sessions, a structured playbook, and async support. The Digital Identity Landing Page (${DIGITAL_IDENTITY_LABEL}) is the easiest entry into the 'I do it for you' path. Custom AI Provisioning runs ${CUSTOM_PROVISIONING_RANGE_LABEL} depending on scope.`,
+      `Two paths. 'We do it together' guidance starts at the 5-session pack (${PACK_5_LABEL}) and scales through 10 and 20-session packs (up to 15% savings). These build your AI literacy at your own pace. The ${PROGRAM_PRICE_LABEL} AI Self-Sufficiency Program is an 8-week build sprint where you launch your own AI-powered service or brand, with 10–15 coaching sessions, a structured playbook, and async support. The Digital Identity Landing Page (${DIGITAL_IDENTITY_LABEL}) is the easiest entry into the 'I do it for you' path. Custom AI Provisioning runs ${CUSTOM_PROVISIONING_RANGE_LABEL} depending on scope.`,
   },
   {
     question: "How does AI guidance work?",
@@ -59,7 +59,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "What results can clients expect?",
     answer:
-      "Clients typically reclaim 10-20 hours per week through AI-powered automation. Session clients stop asking whether a tool is safe to trust and start deciding what it should own. By the end of the AI Self-Sufficiency Program, most clients have launched their own AI-powered service or built their personal brand around the work.",
+      "Clients typically reclaim 10–20 hours per week through AI-powered automation. Session clients stop asking whether a tool is safe to trust and start deciding what it should own. By the end of the AI Self-Sufficiency Program, most clients have launched their own AI-powered service or built their personal brand around the work.",
   },
   {
     question: "How are you different from other AI consultants?",

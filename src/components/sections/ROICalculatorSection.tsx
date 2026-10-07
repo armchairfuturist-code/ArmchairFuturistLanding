@@ -82,7 +82,7 @@ export default function ROICalculatorSection() {
               <div className="flex items-center gap-2 mb-6">
                 <Calculator className="h-5 w-5 text-hp-electric" />
                 <h3 className="font-heading text-xl font-medium text-ink leading-snug">
-                  Select Your Tasks
+                  Select your tasks
                 </h3>
               </div>
 
@@ -211,7 +211,7 @@ export default function ROICalculatorSection() {
               className="bg-canvas rounded-hp-xl border border-hairline p-6 md:p-8 lg:sticky lg:top-24"
             >
               <h3 className="font-heading text-xl font-medium text-ink mb-6 leading-snug">
-                Your Estimated Savings
+                Your estimated savings
               </h3>
 
               <AnimatePresence mode="wait">

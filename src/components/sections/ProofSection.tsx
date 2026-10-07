@@ -113,7 +113,7 @@ export default function ProofSection() {
             <div>
               <dt className="text-sm text-white">Time to self-sufficiency</dt>
               <dd className="mt-2 font-display text-[32px] leading-tight font-medium tabular-nums">8–10 weeks</dd>
-              <dd className="mt-2 text-sm leading-relaxed text-white">Typical guided programme timeline; individual engagements can take longer.</dd>
+              <dd className="mt-2 text-sm leading-relaxed text-white">Typical guided program timeline; individual engagements can take longer.</dd>
             </div>
           </dl>
         </div>

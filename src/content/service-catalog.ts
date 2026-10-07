@@ -87,7 +87,7 @@ export const SERVICE_PATHS: ServicePath[] = [
         features: [
           "Your own AI-powered service, designed & launched by week 8",
           "Structured build playbook (not open coaching)",
-          "10–15 coaching sessions guiding each phase of your build",
+          "Coaching that guides each phase of your build",
           "Async support between sessions — never stuck waiting a week",
           "Personal brand & service framework",
           "Lifetime alumni access",
@@ -111,7 +111,7 @@ export const SERVICE_PATHS: ServicePath[] = [
       {
         name: SERVICES_PRICING.digitalIdentity.name,
         priceKey: "digitalIdentity",
-        tag: "Delivered in 2-4 Days",
+        tag: "Delivered in 2–4 Days",
         description:
           "An interview-ready digital identity site that consolidates your LinkedIn, resume, and social links into one professional platform you own. Like Linktree, but built for serious operators.",
         features: [
@@ -129,9 +129,9 @@ export const SERVICE_PATHS: ServicePath[] = [
       {
         name: SERVICES_PRICING.customAiProvisioning.name,
         priceKey: "customAiProvisioning",
-        tag: "1-2 Weeks",
+        tag: "1–2 Weeks",
         description:
-          "A done-for-you private AI command center. Custom business workflows, agent installation (OpenClaw, Hermes), API integrations, calendar/email sync, and secure infrastructure. Reclaim 10-20 hours a week.",
+          "A done-for-you private AI command center. Custom business workflows, agent installation (OpenClaw, Hermes), API integrations, calendar/email sync, and secure infrastructure. Reclaim 10–20 hours a week.",
         features: [
           "Custom business workflows",
           "Agent installation (OpenClaw, Hermes)",
@@ -227,7 +227,7 @@ export const SERVICE_SYSTEMS: readonly ServiceSystem[] = [
       },
     ],
     keep:
-      "Repo, pipeline configs, vector store, access keys, 2-page runbook. Running cost is typically $20-80 per month plus model use. One named owner and one hour per week keeps it clean.",
+      "Repo, pipeline configs, vector store, access keys, 2-page runbook. Running cost is typically $20–80 per month plus model use. One named owner and one hour per week keeps it clean.",
     notFor: [
       "No one can own it. The system needs one named owner and one hour a week.",
       "You want a migration project. This wires the tools you already have.",
@@ -393,7 +393,7 @@ export const SERVICE_SYSTEMS: readonly ServiceSystem[] = [
       {
         title: "Tier-1 AI Agents",
         content:
-          "Agents take scheduling, intake, and repeat support questions. Scoped pilots handle 60-70% of inbound volume. Humans take the rest. Every answer links its source.",
+          "Agents take scheduling, intake, and repeat support questions. Scoped pilots handle 60–70% of inbound volume. Humans take the rest. Every answer links its source.",
       },
       {
         title: "SaaS Consolidation",
@@ -452,7 +452,7 @@ export const SERVICE_HUB_FAQS: readonly ServiceFaq[] = [
   },
   {
     question: "What does it cost to run?",
-    answer: "Typically $20-80 per month in infra plus model use. Builds reuse your data layer to cut seat spend.",
+    answer: "Typically $20–80 per month in infra plus model use. Builds reuse your data layer to cut seat spend.",
   },
 ];
 
@@ -485,7 +485,7 @@ export const SERVICE_HUB_STEPS = [
   },
   {
     title: "One system live",
-    description: "One group ships in 1-2 weeks. You watch each connection go in.",
+    description: "One group ships in 1–2 weeks. You watch each connection go in.",
   },
   {
     title: "Handoff",

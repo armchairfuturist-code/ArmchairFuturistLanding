@@ -29,7 +29,7 @@ export const SERVICES_PRICING = {
     priceEUR: 2147,
     currency: "USD" as const,
     description:
-      "An 8-week build sprint where you ship a launched AI-powered service or brand, with 10-15 coaching sessions and async support throughout.",
+      "An 8-week build sprint where you ship a launched AI-powered service or brand, with 10–15 coaching sessions and async support throughout.",
   },
   digitalIdentity: {
     name: "Digital Identity Landing Page",
@@ -39,7 +39,7 @@ export const SERVICES_PRICING = {
     priceEUR: 199,
     currency: "USD" as const,
     description:
-      "Interview-ready digital identity site that translates your LinkedIn, resume, and social links into one professional platform you own. Delivered in 2-4 days.",
+      "Interview-ready digital identity site that translates your LinkedIn, resume, and social links into one professional platform you own. Delivered in 2–4 days.",
   },
   customAiProvisioning: {
     name: "Custom AI Provisioning",
@@ -53,7 +53,7 @@ export const SERVICES_PRICING = {
     maxPriceEUR: 4250,
     currency: "USD" as const,
     description:
-      "Done-for-you private AI command center with API integrations, workflow automation, and secure infrastructure. Reclaim 10-20 hours per week.",
+      "Done-for-you private AI command center with API integrations, workflow automation, and secure infrastructure. Reclaim 10–20 hours per week.",
   },
   speakingFacilitation: {
     name: "Executive Roundtables & Workshops",

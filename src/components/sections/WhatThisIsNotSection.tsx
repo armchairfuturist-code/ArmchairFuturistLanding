@@ -11,7 +11,7 @@ import { trackEvent } from "@/lib/analytics";
 const fitRows = [
   {
     title: "You want to build it yourself.",
-    body: "We work one-on-one on your own business. You learn to build AI workflows and judge whether they work. The 8-to-10-week programme gives you time to put that into practice, with me alongside you.",
+    body: "We work one-on-one on your own business. You learn to build AI workflows and judge whether they work. The 8-to-10-week program gives you time to put that into practice, with me alongside you.",
   },
   {
     title: "You want me to build it for you.",
