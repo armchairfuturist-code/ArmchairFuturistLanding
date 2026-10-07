@@ -136,13 +136,14 @@ export default function CaseStudiesPage() {
             "author": { "@id": "https://thearmchairfuturist.com/#person" },
             "publisher": { "@id": "https://thearmchairfuturist.com/#organization" },
             "mainEntity": {
-              "@type": "ItemMenu",
-              "itemMenuElement": caseStudies.map((cs, index) => ({
-                "@type": "MenuItem",
+              "@type": "ItemList",
+              "itemListElement": caseStudies.map((cs, index) => ({
+                "@type": "ListItem",
                 "position": index + 1,
                 "item": {
                   "@type": "Article",
                   "headline": cs.title,
+                  "image": "https://thearmchairfuturist.com/opengraph-image",
                   "description": cs.summary,
                   "author": { "@id": "https://thearmchairfuturist.com/#person" },
                 }

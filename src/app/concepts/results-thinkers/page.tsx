@@ -273,6 +273,7 @@ export default function ResultsThinkersPage() {
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "Results Thinkers: The 5% Who Lead AI Change",
+            "image": "https://thearmchairfuturist.com/opengraph-image",
             "author": { "@id": "https://thearmchairfuturist.com/#person" },
             "publisher": { "@id": "https://thearmchairfuturist.com/#organization" },
             "datePublished": "2026-03-29",

@@ -216,6 +216,7 @@ export default function HumanArchitectPage() {
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "The Human Architect Role: Who Closes the AI Accountability Gap",
+            "image": "https://thearmchairfuturist.com/opengraph-image",
             "author": { "@id": "https://thearmchairfuturist.com/#person" },
             "publisher": { "@id": "https://thearmchairfuturist.com/#organization" },
             "datePublished": "2026-06-14",

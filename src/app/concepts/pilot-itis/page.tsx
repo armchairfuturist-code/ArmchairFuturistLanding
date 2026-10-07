@@ -217,6 +217,7 @@ export default function PilotItisPage() {
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "Pilot-itis: Why AI Pilots Die in Production",
+            "image": "https://thearmchairfuturist.com/opengraph-image",
             "author": { "@id": "https://thearmchairfuturist.com/#person" },
             "publisher": { "@id": "https://thearmchairfuturist.com/#organization" },
             "datePublished": "2026-06-14",

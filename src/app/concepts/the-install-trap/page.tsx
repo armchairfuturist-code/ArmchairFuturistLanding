@@ -227,6 +227,7 @@ export default function TheInstallTrapPage() {
             '@context': 'https://schema.org',
             '@type': 'Article',
             headline: 'The Install Trap: Why Running an Agent Is Not the Win',
+            "image": "https://thearmchairfuturist.com/opengraph-image",
             author: { '@id': 'https://thearmchairfuturist.com/#person' },
             publisher: { '@id': 'https://thearmchairfuturist.com/#organization' },
             datePublished: '2026-08-21',

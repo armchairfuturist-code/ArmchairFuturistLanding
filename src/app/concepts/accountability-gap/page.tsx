@@ -221,6 +221,7 @@ export default function AccountabilityGapPage() {
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "The Accountability Gap in AI Adoption",
+            "image": "https://thearmchairfuturist.com/opengraph-image",
             "author": { "@id": "https://thearmchairfuturist.com/#person" },
             "publisher": { "@id": "https://thearmchairfuturist.com/#organization" },
             "datePublished": "2026-03-29",
