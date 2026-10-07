@@ -2,6 +2,7 @@
 
 import { EASE_OUT } from "@/lib/easing"
 
+import { useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import type { AnswerOption, Question } from "@/lib/assessment/config";
 
@@ -23,6 +24,26 @@ export default function QuizQuestion({
   onBack,
   isFirstQuestion,
 }: QuizQuestionProps) {
+  const seenQuestions = useRef<Set<string | number>>(new Set());
+
+  /* Answering replaces the whole question, which drops focus to <body>. A
+     keyboard visitor's next Tab then starts at the top of the document, and
+     a screen reader gets no signal that anything changed — ten times over in
+     this flow. Move focus to the new question instead.
+
+     This uses a callback ref rather than an effect on question.id: the
+     AnimatePresence above runs mode="wait", so the incoming heading mounts
+     only after the outgoing one finishes exiting. An effect fires before
+     that and finds nothing to focus. The ref fires exactly when the new
+     heading exists. The first question is skipped so the heading is not
+     stolen from the button that started the quiz. */
+  const focusOnMount = (el: HTMLHeadingElement | null) => {
+    if (!el || seenQuestions.current.has(question.id)) return;
+    const isFirstQuestion = seenQuestions.current.size === 0;
+    seenQuestions.current.add(question.id);
+    if (!isFirstQuestion) el.focus();
+  };
+
   return (
     <AnimatePresence mode="wait">
       <motion.div
@@ -33,7 +54,11 @@ export default function QuizQuestion({
         transition={{ duration: 0.35, ease: EASE_OUT }}
         className="w-full max-w-2xl mx-auto"
       >
-        <h2 className="font-heading text-xl md:text-2xl font-bold tracking-tight text-ink mb-8 text-center leading-snug">
+        <h2
+          ref={focusOnMount}
+          tabIndex={-1}
+          className="font-heading text-xl md:text-2xl font-bold tracking-tight text-ink mb-8 text-center leading-snug focus:outline-none"
+        >
           {question.text}
         </h2>
 

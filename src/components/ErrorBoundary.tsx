@@ -37,14 +37,29 @@ class ErrorBoundary extends Component<Props, State> {
           <div className="text-center max-w-md">
             <h1 className="text-2xl font-bold mb-2">Something went wrong</h1>
             <p className="text-muted-foreground mb-6">
-              We encountered an unexpected error. Please try refreshing the page.
+              We encountered an unexpected error. Refreshing usually fixes it.
+              If it does not, the rest of the site still works.
             </p>
-            <button
-              onClick={() => window.location.reload()}
-              className="bg-hp-electric hover:bg-hp-deep active:scale-[0.97] text-white px-6 py-3 rounded-lg font-medium transition-[background-color,transform] duration-150"
-            >
-              Refresh Page
-            </button>
+            {/* This boundary wraps the header and footer as well as the page,
+                so when it triggers the visitor has no navigation at all — and
+                if the error is deterministic, "Refresh" loops them straight
+                back here. A plain anchor to "/" is deliberate: it forces a
+                full document load instead of a client-side route change,
+                which is the more reliable escape from a broken client state. */}
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <button
+                onClick={() => window.location.reload()}
+                className="bg-hp-electric hover:bg-hp-deep active:scale-[0.97] text-white px-6 py-3 rounded-lg font-medium transition-[background-color,transform] duration-150"
+              >
+                Refresh Page
+              </button>
+              <a
+                href="/"
+                className="inline-flex items-center justify-center border border-ink/20 hover:bg-ink/5 active:scale-[0.97] text-ink px-6 py-3 rounded-lg font-medium transition-[background-color,transform] duration-150"
+              >
+                Return Home
+              </a>
+            </div>
           </div>
         </div>
       );

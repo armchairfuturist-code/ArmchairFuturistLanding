@@ -53,7 +53,15 @@ export default function EmailCapture({
       </BlurFade>
 
       <BlurFade inView delay={0.2}>
-        <h2 className="font-heading text-2xl md:text-3xl font-medium tracking-tight text-ink mb-3">
+        <h2
+          /* The quiz's last answer swaps this screen in, which drops focus to
+             <body> — so a keyboard visitor loses their place at the step that
+             decides whether they get their results. Focus the heading on
+             mount. */
+          ref={(el) => { el?.focus(); }}
+          tabIndex={-1}
+          className="font-heading text-2xl md:text-3xl font-medium tracking-tight text-ink mb-3 focus:outline-none"
+        >
           Want your results by email?
         </h2>
       </BlurFade>
