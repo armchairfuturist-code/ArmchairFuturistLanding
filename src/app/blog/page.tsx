@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     description: 'Weekly insights on AI adoption, organizational change, and the future of work.',
     url: '/blog',
     siteName: 'The Armchair Futurist',
+    images: ['/opengraph-image'],
     type: 'website',
   },
   twitter: {

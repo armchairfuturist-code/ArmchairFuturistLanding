@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     "Alex Myers leads executive AI roundtables, workshops, and strategy sessions — and hosts Braga AI Builders, a monthly in-person AI meetup in Braga, Portugal.",
   alternates: { canonical: "/speaking" },
   openGraph: {
+    images: ['/opengraph-image'],
     title: "Speaking & Community | The Armchair Futurist",
     description:
       "Executive AI roundtables and workshops — plus Braga AI Builders, the monthly in-person AI meetup Alex hosts in Braga.",

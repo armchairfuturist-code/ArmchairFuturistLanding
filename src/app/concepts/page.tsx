@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     canonical: '/concepts',
   },
   openGraph: {
+  images: ['/opengraph-image'],
   title: 'Core Concepts',
     description: 'Key concepts in AI adoption and organizational change. Understand the frameworks that drive successful AI implementation.',
     url: '/concepts',

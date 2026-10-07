@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     canonical: '/concepts/results-thinkers',
   },
   openGraph: {
+    images: ['/opengraph-image'],
     title: 'Results Thinkers: The 5% Who Lead AI Change',
     description: 'The top 5% who ask "What outcome do I need?" instead of "What can AI do?" Your highest-leverage asset for change.',
     url: '/concepts/results-thinkers',

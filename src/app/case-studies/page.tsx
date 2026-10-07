@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     canonical: '/case-studies',
   },
   openGraph: {
+    images: ['/opengraph-image'],
     title: 'Case Studies | The Armchair Futurist',
     description: 'Real results from AI adoption implementations. See measurable success stories from organizations that partnered with Alex Myers.',
     url: '/case-studies',

@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     canonical: '/concepts/accountability-gap',
   },
   openGraph: {
+    images: ['/opengraph-image'],
     title: 'The Accountability Gap in AI Adoption',
     description: 'The space between AI outputs and business results, where AI adoption stalls because no one owns the outcome.',
     url: '/concepts/accountability-gap',

@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     canonical: '/terms-of-service',
   },
   openGraph: {
+  images: ['/opengraph-image'],
   title: 'Terms of Service',
     description: 'Terms of service for The Armchair Futurist.',
     url: '/terms-of-service',

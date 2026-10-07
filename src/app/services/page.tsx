@@ -23,6 +23,7 @@ export const metadata: Metadata = {
   description: `Work I build with you, systems you own. ROI Blueprint, data groundwork, revenue ops, reporting, and front-line agents. Starts with a ${AUDIT_PRICE_LABEL} audit.`,
   alternates: { canonical: "/services" },
   openGraph: {
+    images: ['/opengraph-image'],
     title: "AI Systems That Pay Off | The Armchair Futurist",
     description:
       "Work I build with you, systems you own. Four build groups, one starting audit, full ownership on handoff.",

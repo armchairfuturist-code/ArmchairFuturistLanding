@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     canonical: '/concepts/human-architect',
   },
   openGraph: {
+    images: ['/opengraph-image'],
     title: 'The Human Architect: Closing the AI Accountability Gap',
     description: 'The role that bridges AI output and business outcome. Without it, AI investments stall.',
     url: '/concepts/human-architect',

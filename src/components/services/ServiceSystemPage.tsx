@@ -15,6 +15,7 @@ export function serviceSystemMetadata(system: ServiceSystem): Metadata {
     description: system.seo.description,
     alternates: { canonical: system.href },
     openGraph: {
+      images: ["/opengraph-image"],
       title: system.label,
       description: system.seo.openGraphDescription,
       url: system.href,

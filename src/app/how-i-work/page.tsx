@@ -3,6 +3,21 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'How I Work | The Armchair Futurist',
   description: 'The agent infrastructure behind thearmchairfuturist.com: Hermes agent, DeepSeek models, cron automation, and verifiable public output.',
+  // Without these the root layout's canonical and og:url both apply, so this
+  // page told search engines it was a duplicate of the homepage. It was the
+  // only route on the site with that problem; its own Article schema already
+  // named https://thearmchairfuturist.com/how-i-work as the canonical page.
+  alternates: {
+    canonical: '/how-i-work',
+  },
+  openGraph: {
+    title: 'How I Work | The Armchair Futurist',
+    description: 'The agent infrastructure behind thearmchairfuturist.com: Hermes agent, DeepSeek models, cron automation, and verifiable public output.',
+    url: '/how-i-work',
+    siteName: 'The Armchair Futurist',
+    images: ['/opengraph-image'],
+    type: 'article',
+  },
 };
 
 export default function HowIWorkPage() {

@@ -21,6 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       canonical: `/assessment/result/${slug}`,
     },
     openGraph: {
+      images: ['/opengraph-image'],
       title: archetype.metaTitle,
       description: archetype.metaDescription,
       url: `/assessment/result/${slug}`,

@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     canonical: '/concepts/psychology-led-adoption',
   },
   openGraph: {
+    images: ['/opengraph-image'],
     title: 'Psychology-Led AI Adoption Strategy',
     description: 'Address human barriers to AI adoption before technical ones. Find the 5% who lead change.',
     url: '/concepts/psychology-led-adoption',

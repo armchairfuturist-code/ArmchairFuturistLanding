@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     canonical: '/concepts/pilot-itis',
   },
   openGraph: {
+    images: ['/opengraph-image'],
     title: 'Pilot-itis: Why AI Pilots Die in Production',
     description: 'The disease where AI pilots launch, demonstrate value, and never scale. 67% of AI initiatives never make it past pilot stage.',
     url: '/concepts/pilot-itis',

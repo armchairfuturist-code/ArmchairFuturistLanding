@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     canonical: '/concepts/the-install-trap',
   },
   openGraph: {
+    images: ['/opengraph-image'],
     title: 'The Install Trap: Why Running an Agent Is Not the Win',
     description:
       'Work-automation agents made installation a weekend task. Deciding what they own, how they are structured, and whether they pay off is still the work.',
