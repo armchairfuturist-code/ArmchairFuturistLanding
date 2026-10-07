@@ -34,7 +34,15 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
           <span className="inline-flex items-center px-3 py-1 rounded-full bg-hp-electric/10 border border-hp-electric/20 text-hp-electric text-xs font-mono mb-4">
             Your AI Readiness Profile
           </span>
-          <h1 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-hp-electric mb-3">
+          <h1
+            /* Reached by a client-side route change from the email gate, so
+               nothing announces it and focus sits on <body>. This is the
+               payoff the visitor worked through ten questions for — put
+               focus on it so a screen reader reads the archetype name. */
+            ref={(el) => { el?.focus(); }}
+            tabIndex={-1}
+            className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-hp-electric mb-3 focus:outline-none"
+          >
             {archetype.name}
           </h1>
           <p className="text-lg md:text-xl text-charcoal font-sans leading-relaxed max-w-2xl mx-auto">
