@@ -4,7 +4,6 @@ import { Button } from '@/components/ui/button';
 import { BlurFade } from '@/components/ui/blur-fade';
 import Breadcrumbs from '@/components/ui/breadcrumbs';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
-import RelatedConcepts from '@/components/concepts/RelatedConcepts';
 import { CALENDAR_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -244,14 +243,6 @@ export default function PsychologyLedAdoptionPage() {
               ))}
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Lateral links across the concept cluster. The six pages had none
-          between them, so a reader finishing one had nowhere to go next. */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-4 md:px-6 max-w-3xl">
-          <RelatedConcepts current="psychology-led-adoption" />
         </div>
       </section>
 
