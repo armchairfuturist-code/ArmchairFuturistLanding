@@ -24,6 +24,22 @@ export interface Concept {
 
 export const CONCEPTS: Concept[] = [
   {
+    // Leads the cluster deliberately: this is the individual-level gap, and
+    // every concept below it is an organisation-level consequence of it.
+    slug: "the-last-mile",
+    href: "/concepts/the-last-mile",
+    title: "The Last Mile",
+    summary: "Access to AI stopped being the hard part. Directing it well did not.",
+    description:
+      "The distance between an agent that can do almost anything and a person who knows what to ask it for. Capable agents became available to everyone in 2026, which made the remaining difficulty invisible rather than absent.",
+    icon: Brain,
+    stats: [
+      "Access is solved; judgement is not",
+      "77% agent task success in 2026, up from 20%",
+      "The dropout point most people never name",
+    ],
+  },
+  {
     slug: "the-install-trap",
     href: "/concepts/the-install-trap",
     title: "The Install Trap",
