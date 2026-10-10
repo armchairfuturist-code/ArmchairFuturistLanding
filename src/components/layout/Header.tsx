@@ -20,6 +20,9 @@ export default function Header() {
   const navItems = [
     { href: "/#ai-guidance", label: "Coaching" },
     { href: "/#services", label: "Services" },
+    // The concept cluster was reachable only from a single footer link. The
+    // site's thinking is a differentiator, not a footer afterthought.
+    { href: "/concepts", label: "Concepts" },
     { href: "/about", label: "About", icon: FileText },
   ];
 

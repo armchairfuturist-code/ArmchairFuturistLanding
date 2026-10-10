@@ -14,6 +14,7 @@ export interface HomepageSection {
 
 export const SECTION_IDS = {
   hero: "hero",
+  lastMile: "last-mile",
   whatIsNot: "what-this-is-not",
   services: "services",
   about: "about-me",
@@ -33,6 +34,11 @@ const sections: readonly HomepageSection[] = [
     id: SECTION_IDS.hero,
     label: "Hero",
     navigable: false,
+  },
+  {
+    id: SECTION_IDS.lastMile,
+    label: "Why",
+    component: dynamic(() => import("@/components/sections/LastMileSection")),
   },
   {
     id: SECTION_IDS.whatIsNot,
