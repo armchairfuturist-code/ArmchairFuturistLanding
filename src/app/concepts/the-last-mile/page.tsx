@@ -207,30 +207,85 @@ export default function TheLastMilePage() {
           </div>
 
           {/*
-            openEXO SLOT — Alex to supply.
-
-            The organisation-level version of this argument is where the
-            openEXO language belongs: when the last mile is nobody's job, the
-            organisation rejects the change the way a body rejects a foreign
-            organ. That is the corporate immune system framing.
-
-            I am deliberately not writing this section. I do not want to
-            pantomime fluency in openEXO terms and put words in the model's
-            mouth. Replace this comment with the real language, or tell me the
-            terms and I will draft it.
+            The organisational layer. This page is individual-first, so the
+            team version sits underneath rather than at the top — one
+            entrance, one deeper room. Language follows openEXO, the model
+            Alex advises on: immune response, innate vs adaptive, the
+            attributes. MTP is deliberately not used; "a purpose worth
+            joining" carries the same meaning without the jargon.
           */}
-          <div className="mt-12 rounded-xl border border-dashed border-border/60 p-6">
-            <h2 className="font-heading text-xl font-bold text-primary mb-3">
+          <div className="mt-12 rounded-xl border border-border/60 bg-card p-6 md:p-8">
+            <span className="text-xs text-muted-foreground/60 font-mono uppercase tracking-widest">
+              For teams and organisations
+            </span>
+            <h2 className="font-heading text-2xl font-bold text-primary mb-5 mt-2">
               When it happens across a team
             </h2>
+
+            <p className="text-foreground/80 leading-relaxed mb-5">
+              One person hitting the last mile is frustrating. Twenty people
+              hitting it at once is an organisational problem — and it does
+              not present itself as one. It looks like inconsistent adoption,
+              quiet reversion to old habits, and a leadership team concluding
+              the tools were overhyped.
+            </p>
+
+            <p className="text-foreground/80 leading-relaxed mb-5">
+              Organisations have an immune system. It recognises an
+              unfamiliar change and reacts to it the way a body reacts to a
+              foreign organ — not because the change is bad, but because it
+              is not self. It answers in two ways, and they need different
+              handling.
+            </p>
+
+            <div className="grid gap-4 md:grid-cols-2 my-6">
+              <div className="rounded-lg border border-border/60 p-4">
+                <h3 className="font-heading font-bold text-foreground mb-2">
+                  The innate response
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Fast and reflexive. It does not evaluate whether the idea is
+                  good. It sees something that breaks the established rules
+                  and rejects it outright: that is not how we do things here.
+                </p>
+              </div>
+              <div className="rounded-lg border border-border/60 p-4">
+                <h3 className="font-heading font-bold text-foreground mb-2">
+                  The adaptive response
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Slower, organised, and harder to see. It remembers what it
+                  cost to build the current process and it protects whoever
+                  owns it. This is the one that outlasts a launch, a memo, or
+                  a rollout.
+                </p>
+              </div>
+            </div>
+
+            <p className="text-foreground/80 leading-relaxed mb-5">
+              AI provokes both at once, more sharply than most changes. It
+              threatens a process someone owns and their sense of competence
+              in the same breath. Nobody wants to admit they do not
+              understand the thing the company just bought, so the resistance
+              rarely arrives as an argument. It arrives as delay.
+            </p>
+
+            <p className="text-foreground/80 leading-relaxed mb-5">
+              So do not lead with the tool. Change that presents itself as
+              &ldquo;adopt this&rdquo; is rejected on sight. Change that
+              presents itself as a purpose worth joining recruits the same
+              people to the same work. The frame decides the response.
+            </p>
+
             <p className="text-foreground/80 leading-relaxed">
-              One person hitting the last mile is frustrating. A team hitting
-              it at once is an organisational problem, and it does not present
-              itself as one. It looks like inconsistent adoption, quiet
-              reversion to old habits, and a leadership team concluding the
-              tools were overhyped. The individual gap compounds into a
-              structural one — which is why the fix has to include the people,
-              not only the software.
+              Then read the organisation as it actually is. The attributes
+              that already exist — community, experiment, the pockets where
+              people already try things — are your landing zones. The ones
+              that are missing — autonomy, interfaces — are your blockers,
+              and enthusiasm will not route around them. Structure without
+              literacy is a faster way to fail, which is why the last mile is
+              the unit of change: transformation is this same problem
+              repeated across people.
             </p>
           </div>
 
