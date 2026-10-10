@@ -79,7 +79,8 @@ export function OrganismHero() {
           className="organism-deck organism-deck--offer"
           variants={copyVariants}
         >
-          Most clients are self-sufficient in 8&ndash;10 weeks.
+          Most clients come for the hours back. They stay for what they realize
+          they can build.
         </motion.p>
         <motion.div className="organism-actions" variants={copyVariants}>
           <Link
@@ -109,7 +110,7 @@ export function OrganismHero() {
           <ArrowUpRight size={13} aria-hidden="true" />
         </motion.a>
       </motion.div>
-      <div className="organism-status"><span>40+ systems deployed</span><span>10–20 hrs reclaimed / week</span></div>
+      <div className="organism-status"><span>40+ systems deployed</span><span>Self-sufficient in 8&ndash;10 weeks</span></div>
       <div className="organism-hero__hint"><span>Scroll</span><ArrowDown size={14} aria-hidden="true" /></div>
     </section>
   );

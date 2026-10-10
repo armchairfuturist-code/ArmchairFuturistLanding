@@ -169,7 +169,8 @@ export default function MentoringSection() {
           <p className="text-white/80 text-lg md:text-xl max-w-2xl leading-relaxed">
             Most &quot;training&quot; hands you tools and leaves. This is a
             partnership. We build the mental models that make AI click, then
-            test them live on your real work. You leave with judgment you keep.
+            test them live on your real work. You leave with judgment you keep
+            &mdash; and a larger idea of what your business can become.
           </p>
         </div>
       </div>
@@ -258,8 +259,8 @@ export default function MentoringSection() {
           <div className="mb-8">
             <p className="text-sm text-charcoal mb-3">
               Not sure which fits? Take the free assessment for a clear next
-              step — or start with a conversation. Sessions are 60 minutes.
-              Most clients get 10&ndash;20 hours a week back.
+              step &mdash; or start with a conversation. Sessions are 60
+              minutes, and you can stop whenever it stops being useful.
             </p>
             <div className="flex flex-wrap items-center gap-3">
               <Button asChild variant="outline">
