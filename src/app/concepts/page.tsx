@@ -1,8 +1,9 @@
-import { BookOpen, Brain, Users, ArrowLeft } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { BlurFade } from '@/components/ui/blur-fade';
 import Breadcrumbs from '@/components/ui/breadcrumbs';
+import { CONCEPTS } from '@/content/concepts';
 
 export const metadata: Metadata = {
   title: 'Core Concepts | The Armchair Futurist',
@@ -25,74 +26,7 @@ export const metadata: Metadata = {
   },
 };
 
-const concepts = [
-  {
-    href: '/concepts/the-install-trap',
-    title: 'The Install Trap',
-    description: 'The belief that value arrives when an agent runs. Work-automation agents made installation a weekend task; deciding what they own and whether they pay off is still the work.',
-    icon: Brain,
-    stats: [
-      '67% of pilots never scale — same pattern',
-      '72% cite workflow redesign as the barrier',
-      '10–20 hrs/week when structured right'
-    ]
-  },
-  {
-    href: '/concepts/accountability-gap',
-    title: 'The Accountability Gap',
-    description: 'The space between AI outputs and business results. Where AI adoption stalls because no one owns the outcome.',
-    icon: Brain,
-    stats: [
-      '72% cite workflow redesign as top barrier',
-      '67% pilot-only failure rate',
-      '14 weeks avg. to 80% adoption'
-    ]
-  },
-  {
-    href: '/concepts/human-architect',
-    title: 'The Human Architect',
-    description: 'The role that closes the Accountability Gap. Translates AI output into business outcome. Found through Psychology-Led Adoption profiling, not job title.',
-    icon: Brain,
-    stats: [
-      '1 role per AI investment',
-      '15–25% of operator time',
-      '6 months typical runway'
-    ]
-  },
-  {
-    href: '/concepts/pilot-itis',
-    title: 'Pilot-itis',
-    description: 'The disease where AI pilots succeed in isolation and never scale to production. 67% of AI initiatives never make it past pilot stage.',
-    icon: BookOpen,
-    stats: [
-      '67% never scale to production',
-      '4–6 weeks to value if designed right',
-      '14 weeks avg. to 80% adoption'
-    ]
-  },
-  {
-    href: '/concepts/psychology-led-adoption',
-    title: 'Psychology-Led Adoption',
-    description: 'Address human barriers to AI adoption before technical ones. Uses data-driven profiling to identify the 5% who naturally embrace uncertainty.',
-    icon: Users,
-    stats: [
-      '5% are Results Thinkers',
-      '3x faster adoption',
-      '72% cite people, not tech'
-    ]
-  },
-  {
-    href: '/concepts/results-thinkers',
-    title: 'Results Thinkers',
-    description: 'The top 5% who ask "What outcome do I need?" instead of "What can AI do?" Your highest-leverage asset for driving organizational change.',
-    icon: BookOpen,
-    stats: [
-      '5% drive disproportionate success',
-      '15–20 hours/week reclaimed',
-      'Model behavior for peers'
-    ]
-  }
-];
+const concepts = CONCEPTS;
 
 export default function ConceptsIndexPage() {
   return (
