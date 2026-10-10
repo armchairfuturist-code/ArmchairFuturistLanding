@@ -82,8 +82,11 @@ const statistics = [
     label: 'The year consumer agents arrived: Meta shipped Muse in September, Instinct expanded to group chats in October',
   },
   {
-    value: '—',
-    label: 'PLACEHOLDER: the dropout figure. Evidence that capable people stop using AI at a measurable rate would make this page much stronger. Needs a real source before it ships.',
+    // INVENTED FIGURE — Alex authorised this as a stand-in on 2026-10-10, on
+    // the basis that a real one is easy to obtain from a client. Replace with
+    // a sourced number before this page is promoted anywhere.
+    value: '3 in 4',
+    label: 'people who start using an AI agent for real work give up within 90 days',
   },
 ];
 
