@@ -51,24 +51,24 @@ const relatedConcepts = [
 
 const keyPoints = [
   {
-    title: 'The Definition',
+    title: 'What it is',
     content:
-      'The last mile is the distance between an AI agent that can do almost anything and a person who knows what to ask it for. Access is solved. Capability is largely solved. What remains is the small, awkward distance between the tool and the judgement required to direct it — and it is where most people quietly stop.',
+      'The last mile is the distance between an agent that can do almost anything and a person who knows what to ask it for. Getting an agent is easy now. Directing one is still a skill you have to learn.',
   },
   {
-    title: 'Why it got worse, not better',
+    title: 'Why it got harder to see',
     content:
-      'When AI was hard to reach, difficulty was visible and expected. Now an agent answers in plain language, holds a conversation, and sounds certain, so the remaining difficulty is invisible until you hit it. People assume that because the interface is easy, the work is easy. That assumption is the trap.',
+      'When AI was hard to reach, the difficulty was obvious and expected. Now an agent replies in plain language and sounds certain, so what remains stays invisible until you walk into it. People assume that because the interface is easy, the work is easy.',
   },
   {
-    title: 'The Symptoms',
+    title: 'What it feels like',
     content:
-      'You rewrite the same request five different ways. You get output that looks right and turns out subtly wrong. You ask for something ambitious, receive something generic, and lower your expectations rather than your aim. Eventually you conclude that AI "does not work for me" — and you are not wrong about the outcome, only about the cause.',
+      'You rewrite the same request five different ways. The output looks right, then turns out wrong. After asking for something ambitious and getting something generic, you lower your aim rather than try again. Then you decide AI does not work for you.',
   },
   {
-    title: 'What is actually missing',
+    title: 'What is missing',
     content:
-      'A working model of the thing you are directing. What it is genuinely good at and where it reliably fails. Where its attention goes when you give it a long instruction. Why it runs out of room. Why it agrees with you. None of that is code. It is literacy — and it is the one thing nobody sells you, because everyone is busy selling the tool.',
+      'A working model of the thing you are directing. What it is good at, where it fails, how it spends attention on a long instruction, why it agrees with you. That is not programming, and no tool ships with it.',
   },
 ];
 
@@ -125,11 +125,10 @@ export default function TheLastMilePage() {
               The Last Mile
             </h1>
             <p className="text-xl text-foreground/80 font-sans leading-relaxed mb-8">
-              The agents arrived. They are cheap, they are conversational, and
-              they are available to anyone with a phone. Access was never the
-              hard part. The hard part is the last mile — knowing what to ask
-              for, and understanding how the thing you are asking actually
-              works.
+              The agents arrived. They are cheap, conversational, and
+              available to anyone with a phone. Getting one was never the
+              hard part. The hard part is the last mile: knowing what to ask
+              for, and understanding how the thing you are asking works.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button asChild size="lg">
@@ -224,17 +223,16 @@ export default function TheLastMilePage() {
 
             <p className="text-foreground/80 leading-relaxed mb-5">
               One person hitting the last mile is frustrating. Twenty people
-              hitting it at once is an organisational problem — and it does
+              hitting it at once is an organisational problem, and it does
               not present itself as one. It looks like inconsistent adoption,
-              quiet reversion to old habits, and a leadership team concluding
+              quiet reversion to old habits, and a leadership team deciding
               the tools were overhyped.
             </p>
 
             <p className="text-foreground/80 leading-relaxed mb-5">
               Organisations have an immune system. It recognises an
-              unfamiliar change and reacts to it the way a body reacts to a
-              foreign organ — not because the change is bad, but because it
-              is not self. It answers in two ways, and they need different
+              unfamiliar change and reacts the way a body reacts to a foreign
+              organ. It answers in two ways, and they need different
               handling.
             </p>
 
@@ -263,29 +261,22 @@ export default function TheLastMilePage() {
             </div>
 
             <p className="text-foreground/80 leading-relaxed mb-5">
-              AI provokes both at once, more sharply than most changes. It
-              threatens a process someone owns and their sense of competence
-              in the same breath. Nobody wants to admit they do not
-              understand the thing the company just bought, so the resistance
-              rarely arrives as an argument. It arrives as delay.
-            </p>
-
-            <p className="text-foreground/80 leading-relaxed mb-5">
-              So do not lead with the tool. Change that presents itself as
-              &ldquo;adopt this&rdquo; is rejected on sight. Change that
-              presents itself as a purpose worth joining recruits the same
-              people to the same work. The frame decides the response.
+              AI provokes both at once. It threatens a process someone owns
+              and their sense of competence in the same breath. Nobody wants
+              to admit they do not understand the thing the company
+              bought, so the resistance rarely arrives as an argument. It
+              arrives as delay.
             </p>
 
             <p className="text-foreground/80 leading-relaxed">
-              Then read the organisation as it actually is. The attributes
-              that already exist — community, experiment, the pockets where
-              people already try things — are your landing zones. The ones
-              that are missing — autonomy, interfaces — are your blockers,
-              and enthusiasm will not route around them. Structure without
-              literacy is a faster way to fail, which is why the last mile is
-              the unit of change: transformation is this same problem
-              repeated across people.
+              Lead with the tool and it gets rejected on sight. Lead with a
+              purpose worth joining and the same people do the same work.
+              Then read the attributes as they are. The ones that exist,
+              community and experiment, are landing zones. The ones that are
+              missing, autonomy and interfaces, are blockers that enthusiasm
+              will not route around. Structure without literacy is a faster
+              way to fail, which is why the last mile is the unit of change.
+              Transformation is this problem repeated across people.
             </p>
           </div>
 
@@ -328,7 +319,7 @@ export default function TheLastMilePage() {
             </h2>
             <p className="text-lg text-foreground/80 mb-8">
               The gap closes faster with someone who has walked it. Book a free
-              15-minute call and we will find where you are actually stuck.
+              15-minute call and we will find where you are stuck.
             </p>
             <Button asChild size="lg" className="font-bold">
               <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer">
@@ -353,7 +344,7 @@ export default function TheLastMilePage() {
             datePublished: '2026-10-10',
             dateModified: '2026-10-10',
             description:
-              'The last mile is the distance between an AI agent that can do almost anything and a person who knows what to ask it for. Access was solved in 2026; the judgement was not.',
+              'The last mile is the distance between an AI agent that can do almost anything and a person who knows what to ask it for. Access was solved in 2026. The judgment was not.',
             mainEntityOfPage: {
               '@type': 'WebPage',
               '@id': 'https://thearmchairfuturist.com/concepts/the-last-mile',
@@ -385,7 +376,7 @@ export default function TheLastMilePage() {
                 name: 'What is the last mile in AI adoption?',
                 acceptedAnswer: {
                   '@type': 'Answer',
-                  text: 'The last mile is the distance between an AI agent that can do almost anything and a person who knows what to ask it for. Access to capable agents stopped being the barrier in 2026. The remaining barrier is the judgement and mental models needed to direct them, which is why capable people still spin their wheels and give up.',
+                  text: 'The last mile is the distance between an AI agent that can do almost anything and a person who knows what to ask it for. Access to capable agents stopped being the barrier in 2026. The remaining barrier is the judgment and mental models needed to direct them, which is why capable people still spin their wheels and give up.',
                 },
               },
               {

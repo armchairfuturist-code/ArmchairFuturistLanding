@@ -35,13 +35,12 @@ export default function LastMileSection() {
             </p>
             <p>
               What remains is the last mile: knowing what to ask for, and
-              understanding how a model actually works. Most people rewrite
+              understanding how a model works. Most people rewrite
               the same request five times, get something that looks right,
-              and quietly give up &mdash; concluding AI does not work for
-              them.
+              and give up, concluding AI does not work for them.
             </p>
             <p className="text-ink font-medium">
-              The gap is literacy, not capability.
+              The answer is literacy, and no tool ships with it.
             </p>
           </div>
 

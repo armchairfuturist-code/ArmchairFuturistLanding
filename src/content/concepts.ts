@@ -34,7 +34,7 @@ export const CONCEPTS: Concept[] = [
       "The distance between an agent that can do almost anything and a person who knows what to ask it for. Capable agents became available to everyone in 2026, which made the remaining difficulty invisible rather than absent.",
     icon: Brain,
     stats: [
-      "Access is solved; judgement is not",
+      "Access is solved. Judgment is not",
       "77% agent task success in 2026, up from 20%",
       "The dropout point most people never name",
     ],
