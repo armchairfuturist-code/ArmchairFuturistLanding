@@ -83,9 +83,27 @@ export function OrganismHero() {
           they can build.
         </motion.p>
         <motion.div className="organism-actions" variants={copyVariants}>
+          {/* WhatsApp is the primary action. A call is a scheduled event with
+              a stranger; a text is a thought you can send in ten seconds.
+              Most of Alex's bookings arrive by referral, so the visitor is
+              often already warm — the shortest path matters more than the
+              most formal one. */}
+          <motion.a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="organism-button organism-button--primary"
+          >
+            <WhatsAppGlyph
+              className="organism-hero__whatsapp-icon"
+              tone="inherit"
+            />
+            Text me on WhatsApp{" "}
+            <ArrowUpRight size={16} aria-hidden="true" />
+          </motion.a>
           <Link
             href="/assessment"
-            className="organism-button organism-button--primary"
+            className="organism-button organism-button--quiet"
           >
             Take the free assessment{" "}
             <ArrowUpRight size={16} aria-hidden="true" />
@@ -98,17 +116,6 @@ export function OrganismHero() {
             See if it&apos;s a fit <ArrowDown size={17} aria-hidden="true" />
           </button>
         </motion.div>
-        <motion.a
-          className="organism-hero__whatsapp"
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          variants={copyVariants}
-        >
-          <WhatsAppGlyph className="organism-hero__whatsapp-icon" />
-          Prefer text? WhatsApp me{" "}
-          <ArrowUpRight size={13} aria-hidden="true" />
-        </motion.a>
       </motion.div>
       <div className="organism-status"><span>40+ systems deployed</span><span>Self-sufficient in 8&ndash;10 weeks</span></div>
       <div className="organism-hero__hint"><span>Scroll</span><ArrowDown size={14} aria-hidden="true" /></div>
