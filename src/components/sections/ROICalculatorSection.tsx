@@ -7,7 +7,7 @@ import { BlurFade } from "@/components/ui/blur-fade";
 import { AnimatedNumber } from "@/components/ui/number-ticker";
 import { motion, AnimatePresence } from "motion/react";
 import { Calculator, Clock } from "lucide-react";
-import { BookCallButton } from "@/components/ui/BookCallButton";
+import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import {
   COMMON_AUTOMATIONS,
   ROI_DEFAULTS,
@@ -286,16 +286,19 @@ export default function ROICalculatorSection() {
                       </p>
                     </div>
 
-                    <BookCallButton
+                    {/* The estimate is on screen and the reader is either
+                        convinced or not. A text is the shortest way to act on
+                        that, so this no longer asks for a time slot. */}
+                    <WhatsAppButton
                       location="roi_estimate"
                       variant="outline"
                       size="lg"
-                      icon="arrow"
-                      iconClassName="ml-2 h-4 w-4"
+                      iconClassName="mr-2 h-4 w-4"
                       className="w-full"
+                      message={`Hi Alex, I ran the ROI estimate on your site (${teamSize} people, about ${teamHoursPerYear} hours a year). I'd like to talk it through.`}
                     >
-                      Book a Call
-                    </BookCallButton>
+                      Text me about this
+                    </WhatsAppButton>
                   </motion.div>
                 )}
               </AnimatePresence>

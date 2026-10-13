@@ -14,3 +14,14 @@ export const WHATSAPP_BASE_URL = 'https://wa.me/15157706902';
 export const WHATSAPP_DEFAULT_MESSAGE = 'Hi Alex, I saw your site. I want to talk about AI for my business.';
 export const WHATSAPP_URL =
   WHATSAPP_BASE_URL + '?text=' + encodeURIComponent(WHATSAPP_DEFAULT_MESSAGE);
+
+/**
+ * Builds a wa.me link with a specific pre-filled message.
+ *
+ * Single home for WhatsApp URL construction, so WhatsAppButton and the data
+ * files that hold a CTA link (service-catalog) cannot drift apart on
+ * encoding or on the base number.
+ */
+export function buildWhatsAppHref(message: string = WHATSAPP_DEFAULT_MESSAGE): string {
+  return WHATSAPP_BASE_URL + '?text=' + encodeURIComponent(message);
+}

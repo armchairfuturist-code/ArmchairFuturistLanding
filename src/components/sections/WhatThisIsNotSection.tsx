@@ -5,7 +5,7 @@ import { ScrollHighlight } from "@/components/ui/ScrollHighlight";
 import { diagonalWipe } from "@/lib/animation-variants";
 import { motion } from "motion/react";
 import Image from "next/image";
-import { BookCallButton } from "@/components/ui/BookCallButton";
+import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { trackEvent } from "@/lib/analytics";
 
 const fitRows = [
@@ -91,18 +91,19 @@ export default function WhatThisIsNotSection() {
         <BlurFade inView delay={0.2}>
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 border border-ink/10 bg-cloud rounded-hp-xl px-6 py-8 md:px-10">
             <p className="text-base md:text-lg text-ink font-display font-medium max-w-xl leading-snug">
-              Book a 15-minute call to talk through what you need. If I&apos;m
-              not the right fit, I&apos;ll tell you and point you toward someone who is.
+              Tell me what you need and I&apos;ll tell you honestly whether
+              I&apos;m the right fit. If I&apos;m not, I&apos;ll point you
+              toward someone who is.
             </p>
-            <BookCallButton
+            <WhatsAppButton
               location="what_this_is_not"
               size="lg"
               className="font-bold shrink-0"
               trackOnClick={false}
               onClick={() => trackEvent("what_this_is_not_cta_click")}
             >
-              Book a Call
-            </BookCallButton>
+              Text me what you need
+            </WhatsAppButton>
           </div>
         </BlurFade>
       </div>

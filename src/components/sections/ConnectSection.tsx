@@ -10,13 +10,12 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { BookCallButton } from "@/components/ui/BookCallButton";
+import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { MessageCircle, Loader2, CheckCircle2, TriangleAlert } from "lucide-react";
 import { useLeadCapture } from "@/lib/hooks/useLeadCapture";
 import { validateEmailField } from "@/lib/lead-capture";
 import { useFineHover } from "@/lib/pointer";
-import { WHATSAPP_URL } from "@/lib/constants";
 import { trackEvent } from "@/lib/analytics";
-import WhatsAppGlyph from "@/components/ui/WhatsAppGlyph";
 type ConnectFields = {
   name: string;
   email: string;
@@ -97,18 +96,19 @@ export default function ConnectSection() {
             transition={{ type: "spring", stiffness: 400, damping: 25 }}
             className="inline-flex flex-col sm:flex-row w-full sm:w-auto items-stretch sm:items-center justify-center gap-3"
           >
-            <BookCallButton
-              location="connect_book_call"
+            <WhatsAppButton
+              location="connect_whatsapp"
               size="lg"
-              icon="calendar-days"
               iconClassName="mr-2 h-5 w-5"
               className="bg-white text-primary hover:bg-white/90 shadow-lg transition-transform duration-200 whitespace-normal sm:whitespace-nowrap"
             >
-              Book a Call
-            </BookCallButton>
+              Text me on WhatsApp
+            </WhatsAppButton>
           </motion.div>
           <p className="mt-4 text-sm text-primary-foreground/85">
-            15 minutes. No pitch. Most clients are self-sufficient within 8 to 10 weeks, and this call is step one or a pointer elsewhere.
+            I answer personally, usually within hours. No pitch. Most clients
+            are self-sufficient within 8 to 10 weeks, and this is step one or
+            a pointer elsewhere.
           </p>
           <p className="mt-4 text-sm text-primary-foreground/85">
             Not sure if it&apos;s a fit?{" "}
@@ -120,16 +120,15 @@ export default function ConnectSection() {
               Take the free assessment
             </Link>{" "}
             · or{" "}
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackEvent("connect_whatsapp_link")}
+            <BookCallButton
+              location="connect_book_call"
+              bare
+              icon="none"
+              onClick={() => trackEvent("connect_book_call_link")}
               className="inline-flex items-center min-h-[44px] py-2 underline underline-offset-4 hover:text-white transition-colors"
             >
-              <WhatsAppGlyph className="mr-1 h-4 w-4" />
-              text me on WhatsApp. I answer personally, usually within hours.
-            </a>
+              book a 15-minute call instead.
+            </BookCallButton>
           </p>
         </BlurFade>
         {/* Contact Form — disclosed so the close offers two doors, not four */}

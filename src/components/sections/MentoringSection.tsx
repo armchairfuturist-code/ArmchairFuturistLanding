@@ -13,13 +13,13 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { BookCallButton } from "@/components/ui/BookCallButton";
+import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import { trackConversion } from "@/lib/analytics";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { staggerContainer, staggerItem } from "@/lib/animation-variants";
 import { motion } from "motion/react";
 import { COACHING_PACKAGES, resolvePricing, type CurrencyCode } from "@/lib/pricing";
-import { CALENDAR_URL } from "@/lib/constants";
 import { MENTORING_PILLARS } from "@/content/mentoring-pillars";
 
 const ICON_MAP = {
@@ -114,19 +114,22 @@ function PricingCard({ pkg }: { pkg: (typeof COACHING_PACKAGES)[number] }) {
           </p>
         )}
 
-        <BookCallButton
+        {/* Per-package intent, lowest-friction action. The pre-filled message
+            names the package, so the click arrives with the same signal the
+            calendar's utm_campaign used to carry — without asking a warm
+            reader to commit to a time slot first. */}
+        <WhatsAppButton
           size="sm"
-          icon="calendar-days"
           iconClassName="mr-1.5 h-4 w-4"
           className="w-full h-11 text-sm font-semibold"
           location={`guidance_${pkg.id}`}
           value={usd.total}
           trackOnClick={false}
+          message={`Hi Alex, I'm interested in the ${pkg.name} (${pkg.sessions} ${pkg.sessions === 1 ? "session" : "sessions"}). I saw it on your site.`}
           onClick={() => trackConversion(`guidance_${pkg.id}`, usd.total, "USD")}
-          href={`${CALENDAR_URL}?utm_source=site&utm_medium=cta&utm_campaign=mentoring-${pkg.id}`}
         >
-          {`Book a Call`}
-        </BookCallButton>
+          Ask about this pack
+        </WhatsAppButton>
       </div>
     </motion.div>
   );

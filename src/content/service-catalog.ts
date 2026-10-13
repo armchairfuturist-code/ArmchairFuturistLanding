@@ -1,4 +1,4 @@
-import { CALENDAR_URL } from "@/lib/constants";
+import { CALENDAR_URL, buildWhatsAppHref } from "@/lib/constants";
 import { AUDIT_LIST_LABEL, SERVICES_PRICING } from "@/lib/pricing";
 
 /** Service path content and the icon-key seam consumed by the homepage adapter. */
@@ -141,7 +141,12 @@ export const SERVICE_PATHS: ServicePath[] = [
           "You own the infrastructure",
         ],
         cta: "Request a Build",
-        ctaLink: CALENDAR_URL,
+        // A request is a message, not an appointment. This used to send the
+        // reader to the calendar, which asked them to commit to a time before
+        // anyone had established scope.
+        ctaLink: buildWhatsAppHref(
+          "Hi Alex, I want to request a build. Here is what I need it to do:",
+        ),
         highlighted: false,
         icon: "Wrench",
         note: "Scope and price finalized in a 30-min fit call",

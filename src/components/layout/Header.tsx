@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { BookCallButton } from "@/components/ui/BookCallButton";
+import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import {
   Sheet,
   SheetContent,
@@ -61,7 +62,10 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* CTAs — right-aligned (USVC-style) */}
+          {/* CTAs — right-aligned (USVC-style).
+              WhatsApp is the labelled primary; booking drops to outline so
+              the persistent header CTA matches the hero instead of arguing
+              with it. */}
           <div className="hidden lg:flex items-center gap-4">
             <Link
               href="/assessment"
@@ -69,31 +73,25 @@ export default function Header() {
             >
               Free Assessment
             </Link>
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] -m-2 p-2 text-white/70 hover:text-hp-bright transition-colors duration-150"
-              aria-label="WhatsApp"
-            >
-              <WhatsAppGlyph className="h-5 w-5" />
-            </a>
-            <BookCallButton location="header_desktop" size="default" variant="default">
+            <WhatsAppButton location="header_desktop" size="default" variant="default">
+              Text me
+            </WhatsAppButton>
+            <BookCallButton location="header_desktop" size="default" variant="outline">
               Book a Call
             </BookCallButton>
           </div>
 
           {/* Mobile — compact CTAs always visible, plus hamburger for nav */}
           <div className="lg:hidden flex items-center gap-1">
-            <BookCallButton
+            <WhatsAppButton
               location="header_mobile_compact"
               size="sm"
               variant="default"
               icon="none"
               className="text-xs px-3 h-11 min-h-[44px]"
             >
-              Book
-            </BookCallButton>
+              Text
+            </WhatsAppButton>
             <Sheet>
               <SheetTrigger asChild>
                 <Button
