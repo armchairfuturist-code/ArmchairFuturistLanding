@@ -1,16 +1,11 @@
 import { createSubmissionRoute } from '@/lib/submission-route';
 import type { ContactInput, ContactResult } from '@/lib/submission-pipeline';
-
-const noOpLeadStore = {
-  saveAssessmentLead: async () => {},
-  saveCaptureLead: async () => {},
-  saveAuditCase: async () => {},
-  saveIdentityCase: async () => {},
-};
+import { createFirestoreLeadStore } from '@/lib/lead-store';
+import { getDb } from '@/lib/firebase-admin';
 
 export const POST = createSubmissionRoute<ContactInput>({
   kind: 'contact',
-  leadStore: noOpLeadStore,
+  leadStore: createFirestoreLeadStore(getDb),
   parseBody: (body) => {
     const { name, email, message } = body as {
       name?: string;

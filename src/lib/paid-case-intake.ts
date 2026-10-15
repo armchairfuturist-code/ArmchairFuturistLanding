@@ -215,19 +215,24 @@ export const IDENTITY_PAID_CASE: PaidCaseDefinition<IdentityIntakeInput, ReturnT
       scope: input.scope,
     }),
   }),
-  ownerNotification: (input, _payload, context) => ({
+  ownerNotification: (input, payload, context) => ({
     subject: `New Digital Identity Intake: ${sanitizeEmailHeaderValue(context.name)} <${input.email}>`,
     html: buildIdentityLeadNotificationEmail({
       name: context.name,
       email: input.email,
+      // Read the cleaned, length-capped payload — not the raw request. This
+      // used the raw `input.*` fields, so a 50,000-character notes value was
+      // stored as 1,000 characters but emailed in full: a 53,328-character
+      // message, and the inbox held text the database did not. Audit already
+      // read payload.intake.*; this now matches it.
       intake: {
-        Scope: input.scope,
-        LinkedIn: input.linkedinUrl,
-        Resume: input.resumeUrl,
-        "Social links": input.socialLinks || "(none)",
-        Headline: input.headline,
-        Notes: input.notes || "(none)",
-        "Case ID": context.caseId,
+        Scope: payload.intake.scope,
+        LinkedIn: payload.intake.linkedinUrl,
+        Resume: payload.intake.resumeUrl,
+        "Social links": payload.intake.socialLinks || "(none)",
+        Headline: payload.intake.headline,
+        Notes: payload.intake.notes || "(none)",
+        "Case ID": payload.caseId,
       },
     }),
   }),

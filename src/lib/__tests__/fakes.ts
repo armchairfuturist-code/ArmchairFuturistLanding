@@ -1,5 +1,5 @@
 import type { EmailSender, EmailMessage, EmailSendResult } from '../email-sender';
-import type { LeadStore, AssessmentLeadData, CaptureLeadData, AuditCaseData, IdentityCaseData } from '../lead-store';
+import type { LeadStore, AssessmentLeadData, CaptureLeadData, ContactMessageData, AuditCaseData, IdentityCaseData } from '../lead-store';
 
 export class FakeEmailSender implements EmailSender {
   public sent: EmailMessage[] = [];
@@ -14,6 +14,7 @@ export class FakeEmailSender implements EmailSender {
 export class FakeLeadStore implements LeadStore {
   public assessmentLeads: AssessmentLeadData[] = [];
   public captureLeads: CaptureLeadData[] = [];
+  public contactMessages: ContactMessageData[] = [];
   public auditCases: AuditCaseData[] = [];
   public identityCases: IdentityCaseData[] = [];
 
@@ -23,6 +24,10 @@ export class FakeLeadStore implements LeadStore {
 
   async saveCaptureLead(data: CaptureLeadData): Promise<void> {
     this.captureLeads.push(data);
+  }
+
+  async saveContactMessage(data: ContactMessageData): Promise<void> {
+    this.contactMessages.push(data);
   }
 
   async saveAuditCase(data: AuditCaseData): Promise<void> {

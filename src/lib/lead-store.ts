@@ -45,10 +45,18 @@ export interface AuditCaseData {
   payment: { status: string };
 }
 
+/** A message sent through the contact form. */
+export interface ContactMessageData {
+  name: string;
+  email: string;
+  message: string;
+}
+
 /** The persisted digital identity case payload (Plan 010). */
 export interface LeadStore {
   saveAssessmentLead(data: AssessmentLeadData): Promise<void>;
   saveCaptureLead(data: CaptureLeadData): Promise<void>;
+  saveContactMessage(data: ContactMessageData): Promise<void>;
   saveAuditCase(data: AuditCaseData): Promise<void>;
   saveIdentityCase(data: IdentityCaseData): Promise<void>;
 }
@@ -71,6 +79,19 @@ export function createFirestoreLeadStore(getDb: () => Firestore): LeadStore {
         ...data,
         createdAt: new Date().toISOString(),
         consulted: false,
+      });
+    },
+    async saveContactMessage(data) {
+      // The contact form used a no-op store, so the email was the only copy of
+      // the message and a Resend outage lost it outright. Contact enquiries are
+      // the highest-intent ones, so they get a document like everything else.
+      const db = getDb();
+      const ref = db.collection('contact_messages').doc();
+      await ref.set({
+        ...data,
+        createdAt: new Date().toISOString(),
+        source: 'contact-form',
+        handled: false,
       });
     },
     async saveAuditCase(data) {

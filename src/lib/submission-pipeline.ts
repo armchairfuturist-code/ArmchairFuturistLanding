@@ -106,6 +106,44 @@ export interface PipelineDeps {
   leadStore: LeadStore;
 }
 
+// ── Delivery policy ──────────────────────────────────────────
+
+/**
+ * One rule for every pipeline, because having several was the bug.
+ *
+ * A submission is accepted once its input is validated and (where the
+ * pipeline stores anything) persisted. Email delivery is a separate concern:
+ * a Resend hiccup must not turn a stored, successful submission into a 500,
+ * because the visitor then resubmits and creates a second lead and a second
+ * email — while the owner is never told the notification failed.
+ *
+ * So both sends are attempted, failures are logged, and the request only
+ * errors when the submission left no trace at all: nothing stored AND nothing
+ * sent. That is the one case where retrying is genuinely the right advice.
+ */
+type SendOutcome = { sent: boolean; id: string };
+
+async function attemptSend(
+  emailSender: EmailSender,
+  message: Parameters<EmailSender['send']>[0],
+  label: string,
+): Promise<SendOutcome> {
+  try {
+    const result = await emailSender.send(message);
+    return { sent: true, id: result.id };
+  } catch (err) {
+    console.error(`${label} failed:`, err);
+    return { sent: false, id: '' };
+  }
+}
+
+/** True when the submission has no durable record: nothing stored, nothing sent. */
+function isTotalLoss(storageFailed: boolean, ...sends: SendOutcome[]): boolean {
+  return storageFailed && sends.every((outcome) => !outcome.sent);
+}
+
+const TOTAL_LOSS_ERROR = 'We could not save your submission. Please try again, or reach out directly.';
+
 // ── Pipeline factory ─────────────────────────────────────────
 
 const MAX_MESSAGE_LENGTH = 5000;
@@ -121,7 +159,7 @@ export function createSubmissionPipeline(deps: PipelineDeps) {
       case 'lead-capture':
         return submitLeadCapture(input, emailSender, leadStore);
       case 'contact':
-        return submitContact(input, emailSender);
+        return submitContact(input, emailSender, leadStore);
       case 'audit-intake':
         return submitPaidCaseIntake(input, AUDIT_PAID_CASE, { emailSender, leadStore });
       case 'identity-intake':
@@ -175,24 +213,36 @@ async function submitAssessment(
   const prospectHtml = buildProspectResultEmail({ archetype, scores, email: input.email });
   const ownerHtml = buildAlexNotificationEmail({ archetype, scores, email: input.email });
 
-  const prospectResult = await emailSender.send({
-    from: FROM_EMAIL,
-    to: input.email,
-    subject: `Your AI Readiness Profile: ${archetype.name}`,
-    html: prospectHtml,
-  });
+  const prospectSend = await attemptSend(
+    emailSender,
+    {
+      from: FROM_EMAIL,
+      to: input.email,
+      subject: `Your AI Readiness Profile: ${archetype.name}`,
+      html: prospectHtml,
+    },
+    'Assessment prospect email',
+  );
 
-  await emailSender.send({
-    from: FROM_EMAIL,
-    to: ALEX_EMAIL,
-    subject: `New Assessment Lead: ${archetype.name}`,
-    html: ownerHtml,
-  });
+  const ownerSend = await attemptSend(
+    emailSender,
+    {
+      from: FROM_EMAIL,
+      to: ALEX_EMAIL,
+      subject: `New Assessment Lead: ${archetype.name}`,
+      html: ownerHtml,
+    },
+    'Assessment owner notification',
+  );
+
+  if (isTotalLoss(storageFailed, prospectSend, ownerSend)) {
+    return { ok: false, error: TOTAL_LOSS_ERROR, status: 500 };
+  }
 
   return {
     ok: true,
     data: {
-      emailId: prospectResult.id,
+      emailId: prospectSend.id,
       archetypeSlug,
       scores,
       individualSignals,
@@ -226,19 +276,31 @@ async function submitLeadCapture(
   }
 
   // Send emails
-  await emailSender.send({
-    from: FROM_EMAIL,
-    to: input.email,
-    subject: "Your AI Quick Wins — let's get started",
-    html: buildLeadProspectEmail({ displayName: storedName }),
-  });
+  const visitorSend = await attemptSend(
+    emailSender,
+    {
+      from: FROM_EMAIL,
+      to: input.email,
+      subject: "Your AI Quick Wins — let's get started",
+      html: buildLeadProspectEmail({ displayName: storedName }),
+    },
+    'Lead capture prospect email',
+  );
 
-  await emailSender.send({
-    from: FROM_EMAIL,
-    to: ALEX_EMAIL,
-    subject: `New Lead: ${sanitizeEmailHeaderValue(storedName)} <${input.email}>`,
-    html: buildLeadNotificationEmail({ name: storedName, email: input.email, source: safeSource }),
-  });
+  const ownerSend = await attemptSend(
+    emailSender,
+    {
+      from: FROM_EMAIL,
+      to: ALEX_EMAIL,
+      subject: `New Lead: ${sanitizeEmailHeaderValue(storedName)} <${input.email}>`,
+      html: buildLeadNotificationEmail({ name: storedName, email: input.email, source: safeSource }),
+    },
+    'Lead capture owner notification',
+  );
+
+  if (isTotalLoss(storageFailed, visitorSend, ownerSend)) {
+    return { ok: false, error: TOTAL_LOSS_ERROR, status: 500 };
+  }
 
   return { ok: true, data: { storageFailed } };
 }
@@ -248,6 +310,7 @@ async function submitLeadCapture(
 async function submitContact(
   input: ContactInput,
   emailSender: EmailSender,
+  leadStore: LeadStore,
 ): Promise<SubmissionResult> {
   if (!input.name || !input.email || !input.message) {
     return { ok: false, error: 'Name, email, and message are required.', status: 400 };
@@ -268,25 +331,49 @@ async function submitContact(
     return { ok: false, error: 'Invalid email address.', status: 400 };
   }
 
-  // Send owner notification
-  const ownerResult = await emailSender.send({
-    from: FROM_EMAIL,
-    to: ALEX_EMAIL,
-    subject: `New Contact: ${sanitizeEmailHeaderValue(trimmedName)} - ${input.email}`,
-    html: buildContactNotificationEmail({ name: trimmedName, email: input.email, message: trimmedMessage }),
-  });
+  // Persist first. This path used to write nothing, so the owner email was the
+  // only record and a Resend failure lost the message with no way to recover it.
+  let storageFailed = false;
+  try {
+    await leadStore.saveContactMessage({
+      name: trimmedName,
+      email: input.email,
+      message: trimmedMessage,
+    });
+  } catch (err) {
+    console.warn('Contact storage failed:', err);
+    storageFailed = true;
+  }
+
+  // Owner notification — this is how Alex learns the message exists.
+  const ownerSend = await attemptSend(
+    emailSender,
+    {
+      from: FROM_EMAIL,
+      to: ALEX_EMAIL,
+      subject: `New Contact: ${sanitizeEmailHeaderValue(trimmedName)} - ${input.email}`,
+      html: buildContactNotificationEmail({ name: trimmedName, email: input.email, message: trimmedMessage }),
+    },
+    'Contact owner notification',
+  );
 
   // Auto-reply (best-effort)
-  try {
-    await emailSender.send({
+  const autoReplySend = await attemptSend(
+    emailSender,
+    {
       from: FROM_EMAIL,
       to: input.email,
       subject: 'Thanks for reaching out - Alex will be in touch soon',
       html: buildContactAutoReplyEmail({ name: trimmedName }),
-    });
-  } catch (err) {
-    console.warn('Contact auto-reply failed:', err);
+    },
+    'Contact auto-reply',
+  );
+
+  // The stored document is the record, so one failed send is survivable. Only
+  // losing both the record and the notification means the message is gone.
+  if (isTotalLoss(storageFailed, ownerSend, autoReplySend)) {
+    return { ok: false, error: TOTAL_LOSS_ERROR, status: 500 };
   }
 
-  return { ok: true, data: { emailId: ownerResult.id } };
+  return { ok: true, data: { emailId: ownerSend.id } };
 }

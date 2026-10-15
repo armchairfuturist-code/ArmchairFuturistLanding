@@ -8,6 +8,7 @@ import type { LeadStore } from '@/lib/lead-store';
 const noOpLeadStore: LeadStore = {
   saveAssessmentLead: async () => {},
   saveCaptureLead: async () => {},
+  saveContactMessage: async () => {},
   saveAuditCase: async () => {},
   saveIdentityCase: async () => {},
 };
@@ -70,14 +71,47 @@ describe('createSubmissionRoute envelope', () => {
     expect(await res.json()).toEqual({ error: 'Malformed payload.' });
   });
 
-  it('returns 500 with the spec message when the sender throws', async () => {
+  it('accepts the submission when the sender throws but the message was stored', async () => {
+    // This used to return 500. That was wrong: the message had been saved, so
+    // the visitor saw an error for something that worked, resubmitted, and
+    // created a duplicate. Delivery failure is now logged, not fatal.
     const sender: EmailSender = {
       send: vi.fn().mockRejectedValue(new Error('resend down')),
     };
     const POST = createSubmissionRoute(makeSpec(), { emailSender: sender });
     const res = await POST(post({ name: 'A', email: 'a@b.com', message: 'hi' }, '10.0.0.13'));
+    expect(res.status).toBe(200);
+  });
+
+  it('returns 500 only when nothing was stored and nothing was sent', async () => {
+    // The one case where retrying is the right advice: no durable record.
+    const sender: EmailSender = {
+      send: vi.fn().mockRejectedValue(new Error('resend down')),
+    };
+    const brokenStore = {
+      ...noOpLeadStore,
+      saveContactMessage: async () => {
+        throw new Error('firestore down');
+      },
+    };
+    // The store lives on the spec, not in deps.
+    const POST = createSubmissionRoute(makeSpec({ leadStore: brokenStore }), {
+      emailSender: sender,
+    });
+    const res = await POST(post({ name: 'A', email: 'a@b.com', message: 'hi' }, '10.0.0.14'));
     expect(res.status).toBe(500);
-    expect(await res.json()).toEqual({ error: 'Failed to send message.' });
+  });
+
+  it('still returns the spec message for a parse failure', async () => {
+    const POST = createSubmissionRoute(
+      makeSpec({
+        parseBody: () => ({ error: 'Malformed payload.', status: 422 }),
+      }),
+      { emailSender: okSender },
+    );
+    const res = await POST(post({}, '10.0.0.15'));
+    expect(res.status).toBe(422);
+    expect(await res.json()).toEqual({ error: 'Malformed payload.' });
   });
 
   it('returns 429 once the rate-limit bucket is exhausted', async () => {

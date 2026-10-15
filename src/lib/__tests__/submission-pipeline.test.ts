@@ -351,4 +351,118 @@ describe('createSubmissionPipeline', () => {
       expect(data.emailId).toBe('fake-1');
     });
   });
+
+  // ── Delivery policy ───────────────────────────────────────────
+  //
+  // One rule across every pipeline: a send failure must not turn a stored
+  // submission into an error, because the visitor then resubmits and creates
+  // a duplicate while the owner is never told. Before this, assessment failed
+  // on the first send and lead capture failed on either, while contact treated
+  // the same situation as survivable.
+
+  describe('delivery policy', () => {
+    const validAnswers = Array.from({ length: QUESTION_COUNT }, () => 0);
+
+    function senderFailingOn(callToFail: number): FakeEmailSender {
+      const sender = new FakeEmailSender();
+      let call = 0;
+      sender.send = async (msg) => {
+        call++;
+        if (call === callToFail) throw new Error('resend down');
+        sender.sent.push(msg);
+        return { id: `fake-${call}` };
+      };
+      return sender;
+    }
+
+    it('assessment: a failed visitor email still stores the lead and returns ok', async () => {
+      const sender = senderFailingOn(1);
+      const store = new FakeLeadStore();
+      const run = createSubmissionPipeline({ emailSender: sender, leadStore: store });
+
+      const result = await run({
+        kind: 'assessment',
+        email: 'test@example.com',
+        answerIndices: validAnswers,
+      });
+
+      expect(result.ok).toBe(true);
+      expect(store.assessmentLeads).toHaveLength(1);
+    });
+
+    it('assessment: a failed owner notification still returns ok', async () => {
+      const sender = senderFailingOn(2);
+      const store = new FakeLeadStore();
+      const run = createSubmissionPipeline({ emailSender: sender, leadStore: store });
+
+      const result = await run({
+        kind: 'assessment',
+        email: 'test@example.com',
+        answerIndices: validAnswers,
+      });
+
+      expect(result.ok).toBe(true);
+      if (!result.ok) return;
+      const data = result.data as AssessmentResult;
+      // The visitor email did go out, so its id survives.
+      expect(data.emailId).toBe('fake-1');
+    });
+
+    it('lead capture: a failed first send still stores the lead and returns ok', async () => {
+      const sender = senderFailingOn(1);
+      const store = new FakeLeadStore();
+      const run = createSubmissionPipeline({ emailSender: sender, leadStore: store });
+
+      const result = await run({
+        kind: 'lead-capture',
+        email: 'lead@example.com',
+        name: 'Lead',
+        source: 'hero',
+      });
+
+      expect(result.ok).toBe(true);
+      expect(store.captureLeads).toHaveLength(1);
+    });
+
+    it('returns 500 only when storage failed and every send failed', async () => {
+      const sender = new FakeEmailSender();
+      sender.send = async () => {
+        throw new Error('resend down');
+      };
+      const store = new FakeLeadStore();
+      store.saveAssessmentLead = async () => {
+        throw new Error('firestore down');
+      };
+      const run = createSubmissionPipeline({ emailSender: sender, leadStore: store });
+
+      const result = await run({
+        kind: 'assessment',
+        email: 'test@example.com',
+        answerIndices: validAnswers,
+      });
+
+      expect(result.ok).toBe(false);
+      if (result.ok) return;
+      expect(result.status).toBe(500);
+    });
+
+    it('does not 500 when storage failed but a send got through', async () => {
+      const sender = senderFailingOn(2); // visitor email succeeds
+      const store = new FakeLeadStore();
+      store.saveAssessmentLead = async () => {
+        throw new Error('firestore down');
+      };
+      const run = createSubmissionPipeline({ emailSender: sender, leadStore: store });
+
+      const result = await run({
+        kind: 'assessment',
+        email: 'test@example.com',
+        answerIndices: validAnswers,
+      });
+
+      expect(result.ok).toBe(true);
+      if (!result.ok) return;
+      expect((result.data as AssessmentResult).storageFailed).toBe(true);
+    });
+  });
 });
