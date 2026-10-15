@@ -28,16 +28,6 @@ jobs:
       - name: Build
         run: npm run build
 
-      # The Firebase CLI runs `next build` itself — firebase-tools
-      # lib/frameworks/next/index.js spawns `next build` unconditionally, so the
-      # .next produced above is never what gets deployed. Leaving it in place
-      # makes the CLI's build run on top of existing output, and when that
-      # second build fails the CLI ignores the exit code and reports a
-      # misleading "ENOENT: .next/server/middleware-manifest.json" instead of
-      # the real error. Clearing the output gives the CLI one clean build.
-      - name: Clear build output before deploy
-        run: rm -rf .next
-
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         env:
@@ -47,3 +37,10 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ARMCHAIR_FUTURIST }}
           channelId: live
           projectId: armchair-futurist
+          # The action defaults this to "latest" and runs `npx firebase-tools@latest`,
+          # which installs a fresh CLI on every deploy. In the run of 2026-10-15 that
+          # fresh install was the step that failed: the log shows npx downloading
+          # firebase-tools@15.34.0 and then the CLI dying with an ENOENT before it
+          # built anything, while the action's own retry reused the now-cached CLI
+          # and deployed fine. Pinning keeps one known-good CLI on every run.
+          firebaseToolsVersion: "15.34.0"
