@@ -63,9 +63,12 @@ export default function Header() {
           </nav>
 
           {/* CTAs — right-aligned (USVC-style).
-              WhatsApp is the labelled primary; booking drops to outline so
-              the persistent header CTA matches the hero instead of arguing
-              with it. */}
+              WhatsApp is the labelled primary; booking is a visible secondary.
+              It cannot use variant="outline" here: that variant is
+              `bg-transparent text-ink`, which is near-black text on this
+              near-black header, so the button read as an empty box until hover
+              flipped it to blue. The header is always dark, so the secondary
+              treatment is spelled out for a dark surface. */}
           <div className="hidden lg:flex items-center gap-4">
             <Link
               href="/assessment"
@@ -76,7 +79,11 @@ export default function Header() {
             <WhatsAppButton location="header_desktop" size="default" variant="default">
               Text me
             </WhatsAppButton>
-            <BookCallButton location="header_desktop" size="default" variant="outline">
+            <BookCallButton
+              location="header_desktop"
+              size="default"
+              className="border border-white/30 bg-transparent text-white hover:border-white/60 hover:bg-white/10 hover:text-white"
+            >
               Book a Call
             </BookCallButton>
           </div>

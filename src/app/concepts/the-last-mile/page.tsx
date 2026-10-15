@@ -105,7 +105,7 @@ export default function TheLastMilePage() {
         />
         <Link
           href="/concepts"
-          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+          className="-my-3 inline-flex min-h-[44px] items-center gap-2 py-3 text-sm text-muted-foreground hover:text-primary transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           All Concepts

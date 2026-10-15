@@ -47,7 +47,7 @@ export default function LastMileSection() {
           <div className="mt-8">
             <Link
               href="/concepts/the-last-mile"
-              className="inline-flex items-center gap-2 text-sm md:text-base font-medium text-hp-electric hover:underline transition-colors duration-150"
+              className="-my-3 inline-flex min-h-[44px] items-center gap-2 py-3 text-sm md:text-base font-medium text-hp-electric hover:underline transition-colors duration-150"
             >
               Read the full argument
               <ArrowRight className="h-4 w-4" aria-hidden="true" />

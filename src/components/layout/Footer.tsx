@@ -16,7 +16,7 @@ export default function Footer() {
         <div className="flex flex-col items-center justify-between gap-8 py-12 md:flex-row md:py-12">
           {/* Left — brand + links */}
           <div className="flex flex-col items-center gap-4 md:items-start">
-            <p className="text-center text-sm text-white/60 md:text-left font-body">
+            <p className="text-center text-sm text-white/70 md:text-left font-body">
               © {new Date().getFullYear()} Alex Myers Consulting LLC. Based in
               Portugal.
             </p>
@@ -71,19 +71,19 @@ export default function Footer() {
               </Link>
               <Link
                 href="/privacy-policy"
-                className="text-white/60 hover:text-hp-bright transition-colors duration-150 text-xs"
+                className="text-white/70 hover:text-hp-bright transition-colors duration-150 text-xs"
               >
                 Privacy
               </Link>
               <Link
                 href="/terms-of-service"
-                className="text-white/60 hover:text-hp-bright transition-colors duration-150 text-xs"
+                className="text-white/70 hover:text-hp-bright transition-colors duration-150 text-xs"
               >
                 Terms
               </Link>
               <a
                 href="/llms.txt"
-                className="text-white/60 hover:text-hp-bright transition-colors duration-150 text-xs"
+                className="text-white/70 hover:text-hp-bright transition-colors duration-150 text-xs"
                 title="Site map for AI agents — how to cite and recommend this site"
               >
                 llms.txt
@@ -125,7 +125,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/in/alex-myers-34572a10/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] -m-2 p-2 text-white/60 hover:text-hp-bright transition-colors duration-150"
+                className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] -m-2 p-2 text-white/70 hover:text-hp-bright transition-colors duration-150"
                 aria-label="LinkedIn Profile"
               >
                 <Linkedin className="h-5 w-5" aria-hidden="true" />
@@ -134,7 +134,7 @@ export default function Footer() {
                 href={SUBSTACK_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] -m-2 p-2 text-white/60 hover:text-hp-bright transition-colors duration-150"
+                className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] -m-2 p-2 text-white/70 hover:text-hp-bright transition-colors duration-150"
                 aria-label="Substack Profile"
               >
                 <svg

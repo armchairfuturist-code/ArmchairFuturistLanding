@@ -114,8 +114,16 @@
 .organism-actions { display: flex; gap: 16px; margin-top: 35px; }
 .organism-hero__whatsapp-icon { width: 15px; height: 15px; flex-shrink: 0; }
 .organism-button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 48px; padding: 0 20px; border: 1px solid transparent; border-radius: 4px; /* DESIGN.md: all buttons 4px — the 999px pill was a token violation */ cursor: pointer; transition: transform var(--duration-press) var(--ease-out), background var(--duration-small) var(--ease-out), border-color var(--duration-small) var(--ease-out); }
-.organism-button--primary { color: #fff; background: var(--org-blue); box-shadow: 0 0 26px rgba(41, 110, 249, .25); }
-.organism-button--primary:hover { background: #5b8cff; } /* lighter step of the same hue for on-dark hover */
+/* White on --org-blue (#296ef9) measures 4.48:1, just under the 4.5 WCAG AA
+   needs for text this size, on the hero's most important button. The declared
+   --org-blue is the HOVER step of the signal hue, so the primary was sitting on
+   the lighter of the two blues while every other primary button on the site
+   uses the darker one. The button now uses the same base as the rest of the
+   site (5.99:1) and a hover that still passes (5.19:1) rather than the old
+   #5b8cff, which measured 3.16:1. --org-blue itself is untouched: it is also
+   the kicker colour and several decorative SVG fills. */
+.organism-button--primary { color: #fff; background: #1852f0; box-shadow: 0 0 26px rgba(41, 110, 249, .25); }
+.organism-button--primary:hover { background: #2a63e8; } /* lighter step of the same hue that keeps white legible */
 .organism-button--quiet { color: #d5d9e0; border-color: var(--org-line); background: rgba(8, 13, 23, .22); }
 .organism-button--quiet:hover { border-color: rgba(240, 238, 232, .5); }
 .organism-button--text { min-height: 44px; padding: 0 8px; color: var(--org-muted); font-family: var(--org-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; background: none; }

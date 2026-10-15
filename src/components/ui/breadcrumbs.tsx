@@ -59,7 +59,10 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
           <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
             <Link 
               href="/" 
-              className="flex items-center gap-1 hover:text-primary transition-colors"
+              // The glyph is 16px, which left the touch target 16x16 — under the
+              // 24x24 WCAG 2.2 asks for, and awkward on a phone. The padding
+              // supplies the target while the icon keeps its size.
+              className="-m-2 inline-flex min-h-[44px] min-w-[44px] items-center justify-center gap-1 p-2 hover:text-primary transition-colors"
               itemProp="item"
             >
               <Home className="w-4 h-4" />
@@ -87,7 +90,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
                 // Link to parent pages
                 <Link 
                   href={item.href}
-                  className="hover:text-primary transition-colors"
+                  className="-my-3 inline-flex min-h-[44px] items-center py-3 hover:text-primary transition-colors"
                   itemProp="item"
                 >
                   <span itemProp="name">{item.label}</span>

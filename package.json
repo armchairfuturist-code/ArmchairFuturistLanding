@@ -14,7 +14,8 @@
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",
     "test:responsive": "node audit.mjs",
-    "geo:check": "node scripts/check-llms-freshness.mjs && node scripts/check-geo-maps.mjs"
+    "geo:check": "node scripts/check-llms-freshness.mjs && node scripts/check-geo-maps.mjs",
+    "a11y:check": "node scripts/audit-a11y.mjs"
   },
   "dependencies": {
     "@opentelemetry/api": "^1.9.0",

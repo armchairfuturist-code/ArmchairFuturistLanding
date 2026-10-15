@@ -44,7 +44,10 @@ export default function AboutMeSection() {
                 href="https://www.linkedin.com/in/alex-myers-34572a10/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/50 hover:text-hp-bright transition-colors shrink-0"
+                // An icon-only control needs a 44px touch area; the glyph stays
+                // 20px and the padding supplies the target. It was 50% white,
+                // which reads as decoration rather than a link.
+                className="-m-2 inline-flex min-h-[44px] min-w-[44px] shrink-0 items-center justify-center p-2 text-white/70 transition-colors hover:text-hp-bright"
                 aria-label="Alex Myers LinkedIn Profile"
               >
                 <Linkedin className="h-5 w-5" />
