@@ -10,6 +10,7 @@ import {
   setAdminSessionCookie,
   clearAdminSessionCookie,
 } from '@/lib/admin-session';
+import { constantTimeEqual } from '@/lib/secure-compare';
 
 export async function GET(request: NextRequest) {
   const token = request.cookies.get(ADMIN_SESSION_COOKIE)?.value;
@@ -42,7 +43,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (password === adminPassword) {
+    if (typeof password === 'string' && constantTimeEqual(password, adminPassword)) {
       const response = NextResponse.json({ authenticated: true });
       setAdminSessionCookie(response);
       return response;
