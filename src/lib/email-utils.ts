@@ -1,11 +1,14 @@
 /**
- * Backwards-compatibility shim. Implementations live in focused modules:
+ * Barrel for the email helpers. The implementations live in focused modules:
  * - validation helpers → `./email/validation`
  * - rate limiting → `./email/rate-limit`
  * - brand + wrapper → `./email/brand`
  *
- * Existing `@/lib/email-utils` imports keep working; prefer the focused
- * modules for new code.
+ * This barrel is the established entry point: every production caller imports
+ * `@/lib/email-utils`. The focused modules underneath are currently reached
+ * only by their own tests. Importing them directly works and is not
+ * discouraged, but it is not the pattern the codebase follows, so this comment
+ * does not ask you to prefer them. If that should change, move the callers.
  */
 export {
   isValidEmail,

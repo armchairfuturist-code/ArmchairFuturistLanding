@@ -1,0 +1,39 @@
+# Build context for the Next.js image. The Dockerfile runs `COPY . .` after
+# `npm ci`, so without this file the context drags node_modules, .next and the
+# whole docs tree into the build.
+#
+# Nothing below is needed to build or run the app. Verified: the build reads
+# src/, public/ (llms.txt, which is .txt), the config files and
+# scripts/gen-lastmod.mjs. No code path reads any .md, docs/ or plans/.
+
+# Dependencies and build output are created inside the image.
+node_modules
+.next
+out
+build
+coverage
+*.tsbuildinfo
+
+# Secrets. These must never reach an image layer. NEXT_PUBLIC_* values are
+# inlined at build time, so pass those as build args rather than shipping .env.
+.env
+.env.*
+.cron-secret.txt
+
+# Version control.
+.git
+
+# Documentation and one-off artefacts.
+# Note: public/README.md is Next.js scaffold boilerplate, not an asset. It is
+# unreferenced but is served on the live site today (/README.md returns 200).
+# Excluding it here only affects the Docker image. It should be deleted from
+# public/ separately so the live site stops serving it too.
+**/*.md
+docs
+plans
+_capture
+
+# Deleted from the repo in the same pass as this file. Kept here so they cannot
+# return to the build context if either directory is ever restored.
+mirrors
+graphify-out

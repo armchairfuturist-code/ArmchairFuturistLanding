@@ -14,7 +14,6 @@ export const POST = createSubmissionRoute<IdentityIntakeInput>({
   leadStore: createFirestoreLeadStore(() => getDb()),
   parseBody: (body) => {
     const b = body as Record<string, unknown>;
-    const str = (k: string) => (typeof b[k] === 'string' ? (b[k] as string) : '');
     return {
       kind: 'identity-intake',
       name: b.name as string,
