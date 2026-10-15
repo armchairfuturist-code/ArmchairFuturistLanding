@@ -13,24 +13,28 @@
 /** 3 days in ms — the honest nudge window. */
 export const NUDGE_WINDOW_MS = 3 * 24 * 60 * 60 * 1000;
 
-interface NudgeCheckCase {
+/** The subset of an audit case doc the nudge reads. */
+export interface NudgeCase {
   status?: string;
   createdAt?: string;
-  nudgedAt?: string;
+  nudgedAt?: string | null;
   booking?: { scheduledAt?: string };
+  name?: string;
+  email?: string;
+  archetypeName?: string;
 }
 
 /**
  * Pure predicate: should this case get the day-3 nudge right now?
  * Rules: status must be 'submitted', no booking scheduled, older than the
  * 3-day window, and not already nudged.
+ *
+ * The route claims a case before sending by moving it to `status: 'nudged'`,
+ * which already excludes it from the query. The `status` and `nudgedAt`
+ * checks here stay as belt and braces, and as the guard the transaction
+ * re-runs before it will claim anything.
  */
-export function isOverdueForNudge(c: {
-  status?: string;
-  createdAt?: string;
-  nudgedAt?: string;
-  booking?: { scheduledAt?: string };
-}, nowIso: string): boolean {
+export function isOverdueForNudge(c: NudgeCase, nowIso: string): boolean {
   if (c.status !== 'submitted') return false;
   if (c.booking?.scheduledAt) return false;
   if (c.nudgedAt) return false;
@@ -53,8 +57,8 @@ export function buildOverdueQuery(nowIso: string) {
       { field: 'status', op: '==', value: 'submitted' },
       { field: 'createdAt', op: '<=', value: cutoff },
     ],
-    // nudgedAt missing is enforced in-memory after fetch (Firestore can't
-    // combine "field missing" with range filters portably).
+    // nudgedAt is also enforced in-memory after fetch, as belt and braces
+    // behind the `status: 'nudged'` claim the route writes before sending.
     cutoff,
   };
 }

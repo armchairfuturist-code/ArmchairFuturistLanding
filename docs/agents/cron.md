@@ -49,22 +49,20 @@ curl -s -H "x-cron-secret: $(cat /home/alex/Projects/ArmchairFuturistLanding/.cr
   https://thearmchairfuturist.com/api/cron/nudge
 ```
 
-## Canary cleanup (one time)
+## Canary cleanup (one time, already done)
 
-```bash
-# Download a service account key first (Firebase console → Project settings
-# → Service accounts → Generate new private key), then:
-GOOGLE_APPLICATION_CREDENTIALS=/path/to/key.json node scripts/cleanup-canaries.mjs
-rm /path/to/key.json
-```
-Deletes `audit_mth2c0fr_u0iuul` and `id_mth8en1y_wvtg9z`. Alternatively
-delete them by hand: Firebase console → Firestore → `audit_cases` /
-`identity_cases`.
+Two deploy canaries were created by hand to prove the pipeline end to end:
+`audit_mth2c0fr_u0iuul` in `audit_cases` and `id_mth8en1y_wvtg9z` in
+`identity_cases`. Both are Alex's own address.
 
-## Canary cleanup (one time)
+The two helper scripts that used to do this (`scripts/cleanup-canaries.mjs`
+and `scripts/cleanup-canaries-curl.sh`) were deleted: the job is one time, it
+had already been done, and the two scripts did the same work by two different
+transports.
 
-The deploy canary case `audit_mth2c0fr_u0iuul` sits in `audit_cases` with
-status `submitted`. Either delete it in the Firebase console, or let it be
-— it would receive a nudge email in 3 days (harmless; it was sent to
-Alex's own address). Quickest console path: Firestore → audit_cases →
-`audit_mth2c0fr_u0iuul` → delete document. Or mark it `dead`.
+Delete them by hand in the Firebase console — Firestore → `audit_cases` or
+`identity_cases` → the document above → delete.
+
+If the audit canary is left in place it will receive a nudge email, which is
+harmless here because it goes to Alex. The nudge only selects cases whose
+status is still `submitted`, so marking it any other status also excludes it.

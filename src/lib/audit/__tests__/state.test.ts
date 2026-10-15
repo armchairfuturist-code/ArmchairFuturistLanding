@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+import { canTransitionIn } from '../../paid-case';
 import {
   AUDIT_STATUSES,
   legalTransitions,
@@ -35,6 +36,7 @@ describe('audit state machine', () => {
   it('exposes the full status set', () => {
     expect(AUDIT_STATUSES).toEqual([
       'submitted',
+      'nudged',
       'call_booked',
       'call_done',
       'payment_sent',
@@ -78,6 +80,30 @@ describe('audit state machine', () => {
     expect(canTransition('submitted', 'paid')).toBe(false);
     expect(canTransition('call_booked', 'audited')).toBe(false);
     expect(canTransition('converted', 'paid')).toBe(false);
+  });
+
+  it('nudged cases can still book or die, and cannot skip to paid', () => {
+    expect(canTransition('submitted', 'nudged')).toBe(true);
+    expect(canTransition('nudged', 'call_booked')).toBe(true);
+    expect(canTransition('nudged', 'dead')).toBe(true);
+    expect(canTransition('nudged', 'paid')).toBe(false);
+  });
+
+  it('nextAction: nudged case waits, and never promises a second email', () => {
+    const c = makeCase({ status: 'nudged' });
+    expect(nextAction(c)).toEqual({
+      action: 'await_booking',
+      detail: expect.stringContaining('No second email'),
+    });
+  });
+
+  it('an unknown status is an illegal move, not a crash', () => {
+    // Finding 17: canTransitionIn used to read a missing table row for an
+    // unrecognised `from` and throw a TypeError. Called from the admin PATCH
+    // handler, that would have surfaced as a 500 instead of a 409.
+    expect(canTransition('nudge-ed-typo' as AuditStatus, 'call_booked')).toBe(false);
+    expect(canTransition('submitted', 'nope' as AuditStatus)).toBe(false);
+    expect(canTransitionIn(legalTransitions, 'nudge-ed-typo' as AuditStatus, 'call_booked')).toBe(false);
   });
 
   it('nextAction: fresh case -> await_booking', () => {

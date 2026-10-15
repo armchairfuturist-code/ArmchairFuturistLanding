@@ -5,17 +5,26 @@ export async function GET(request: NextRequest) {
   try {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 5000);
-    const response = await fetch('https://armchairfuturist.substack.com/feed', {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-      },
-      signal: controller.signal,
-    });
-    clearTimeout(timeout);
-    if (!response.ok) {
-      throw new Error('Failed to fetch feed');
+    let text: string;
+    try {
+      const response = await fetch('https://armchairfuturist.substack.com/feed', {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+        },
+        signal: controller.signal,
+      });
+      if (!response.ok) {
+        throw new Error('Failed to fetch feed');
+      }
+      // The abort must stay armed through the body read, not just the
+      // headers. Clearing it here, before the timer fires, used to mean a
+      // server that sent headers and then stalled held this request until the
+      // platform killed it. `finally` guarantees the timer is cleared either
+      // way, so the 5s budget covers the whole exchange.
+      text = await response.text();
+    } finally {
+      clearTimeout(timeout);
     }
-    const text = await response.text();
 
     // Parse XML with fast-xml-parser (works in Node.js)
     const parser = new XMLParser({

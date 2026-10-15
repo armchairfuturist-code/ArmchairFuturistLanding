@@ -16,6 +16,7 @@ import { canTransitionIn, type PaidCaseNextAction } from '../paid-case';
 
 export const AUDIT_STATUSES = [
   'submitted',
+  'nudged',
   'call_booked',
   'call_done',
   'payment_sent',
@@ -40,9 +41,17 @@ export type NextActionName =
 /** Shared next-action shape, narrowed to audit moves. */
 export type NextAction = PaidCaseNextAction<NextActionName>;
 
-/** Legal status transitions. Anything not listed is illegal. */
+/**
+ * Legal status transitions. Anything not listed is illegal.
+ *
+ * `nudged` is the day-3 nudge having been sent. It is a real status rather
+ * than just a `nudgedAt` stamp so the cron query can exclude these cases
+ * instead of re-reading them on every run forever. A nudged case can still
+ * book (`call_booked`) or die.
+ */
 export const legalTransitions: Record<AuditStatus, readonly AuditStatus[]> = {
-  submitted: ['call_booked', 'dead'],
+  submitted: ['nudged', 'call_booked', 'dead'],
+  nudged: ['call_booked', 'dead'],
   call_booked: ['call_done', 'dead'],
   call_done: ['payment_sent', 'paid', 'dead'],
   payment_sent: ['paid', 'dead'],
@@ -111,6 +120,10 @@ export function nextAction(
       }
       return { action: 'await_booking', detail: 'The booking link was sent in the confirmation email. Nothing to do until they book or 3 days pass.' };
     }
+    case 'nudged':
+      // The one nudge has gone out. Honest cadence: no second email, so there
+      // is nothing to do until they book or the case is closed.
+      return { action: 'await_booking', detail: 'Day-3 nudge sent. No second email — wait for a booking or close the case.' };
     case 'call_booked':
       return { action: 'prep_call', detail: 'Run the sales-prep prompt on this case before the fit call.' };
     case 'call_done':
