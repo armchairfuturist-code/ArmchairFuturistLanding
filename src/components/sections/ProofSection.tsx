@@ -62,7 +62,7 @@ export default function ProofSection() {
           {clientExamples.map((example) => (
             <article key={example.client.name} className="border-t border-hairline pt-6">
               <h3 className="font-display text-2xl leading-tight font-medium text-hp-electric">{example.path}</h3>
-              <p className="mt-4 font-display text-[32px] leading-tight font-medium text-ink">{example.title}</p>
+              <p className="mt-4 font-display text-2xl md:text-[32px] leading-tight font-medium text-ink">{example.title}</p>
               <p className="mt-4 max-w-prose text-base leading-relaxed text-charcoal">{example.description}</p>
             </article>
           ))}

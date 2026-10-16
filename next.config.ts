@@ -94,8 +94,15 @@ const nextConfig: NextConfig = {
           },
           {
             key: "Content-Security-Policy",
+            // The dev server's client bundle and React Refresh evaluate strings
+            // as JavaScript. Without 'unsafe-eval' the CSP blocks them, the
+            // bundle never runs, React never hydrates, and every entrance
+            // animation stays at its initial opacity: 0 — the page renders but
+            // looks blank. Production builds do not need it and stay strict.
             value:
-              "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net https://snap.licdn.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.googleapis.com https://*.firebaseio.com https://*.firebase.googleapis.com https://firebaseinstallations.googleapis.com https://www.facebook.com https://px.ads.linkedin.com https://fonts.googleapis.com https://fonts.gstatic.com; img-src 'self' data: https: https://substackcdn.com https://substack-post-media.s3.amazonaws.com https://images.unsplash.com https://www.facebook.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-src https://www.facebook.com; object-src 'none'; base-uri 'none';",
+              `default-src 'self'; script-src 'self' 'unsafe-inline'${
+                process.env.NODE_ENV === "production" ? "" : " 'unsafe-eval'"
+              } https://www.googletagmanager.com https://connect.facebook.net https://snap.licdn.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.googleapis.com https://*.firebaseio.com https://*.firebase.googleapis.com https://firebaseinstallations.googleapis.com https://www.facebook.com https://px.ads.linkedin.com https://fonts.googleapis.com https://fonts.gstatic.com; img-src 'self' data: https: https://substackcdn.com https://substack-post-media.s3.amazonaws.com https://images.unsplash.com https://www.facebook.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-src https://www.facebook.com; object-src 'none'; base-uri 'none';`,
           },
         ],
       },

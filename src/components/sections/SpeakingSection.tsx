@@ -35,13 +35,13 @@ export default function SpeakingSection() {
     >
       <div className="container mx-auto px-4 md:px-6 max-w-6xl">
         <BlurFade inView>
-          <div className="mb-8 md:mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <div className="mb-8 md:mb-10 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
             <div>
               <p className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-3">
                 <Mic className="h-3.5 w-3.5" aria-hidden="true" />
                 On stage
               </p>
-              <h2 className="font-display text-display font-medium tracking-tight text-ink max-w-[18ch]">
+              <h2 className="font-display text-display font-medium tracking-tight text-ink max-w-[26ch]">
                 Also lead rooms that need a decision
               </h2>
             </div>

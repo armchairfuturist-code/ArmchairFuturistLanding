@@ -76,7 +76,7 @@ function Field({
       <label htmlFor={htmlFor} className="block text-sm font-medium text-ink mb-1">
         {label}
       </label>
-      {helper && <p className="text-xs text-graphite font-sans mb-2">{helper}</p>}
+      {helper && <p className="text-base text-graphite font-sans mb-2">{helper}</p>}
       {children}
       {error && (
         <p role="alert" className="text-xs text-bloom-deep mt-1">

@@ -41,7 +41,7 @@ export default function AssessmentPage() {
           </BlurFade>
 
           <BlurFade inView delay={0.35}>
-            <p className="text-sm text-muted-foreground font-sans mb-8 max-w-lg mx-auto">
+            <p className="text-base text-charcoal font-sans mb-8 max-w-lg mx-auto">
               No trick questions, no sales pitch baked into the scoring. Just a
               clear read on your AI clarity, readiness, and urgency, with a
               recommendation that matches where you actually are.
