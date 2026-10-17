@@ -19,6 +19,8 @@ const EPISODE = {
   source:
     "https://content.subvisual.com/talk-roundtable/the-intelligence-series-ep-01/",
   posterSrc: "/intelligence-series-ep01-poster.jpg",
+  /** Playback opens here, 38:29, so the sample lands on its point. */
+  startAt: 2309,
 } as const;
 
 /**
@@ -64,6 +66,7 @@ export default function AboutMeSection() {
               videoId={EPISODE.videoId}
               title={EPISODE.title}
               posterSrc={EPISODE.posterSrc}
+              startAt={EPISODE.startAt}
               analyticsEvent="intelligence_series_play"
             />
             <p className="mt-4 text-sm md:text-base leading-relaxed text-white/80 max-w-prose">
