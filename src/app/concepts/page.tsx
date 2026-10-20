@@ -6,8 +6,8 @@ import Breadcrumbs from '@/components/ui/breadcrumbs';
 import { CONCEPTS } from '@/content/concepts';
 
 export const metadata: Metadata = {
-  title: 'Core Concepts | The Armchair Futurist',
-  description: 'Key concepts in AI adoption and organizational change: The Accountability Gap, Psychology-Led Adoption, and Results Thinkers. Understand the frameworks that drive successful AI implementation.',
+  title: 'AI Adoption Concepts & Frameworks | The Armchair Futurist',
+  description: 'Key concepts in AI adoption and organizational change, including the Accountability Gap, Psychology-Led Adoption, and Results Thinkers.',
   alternates: {
     canonical: '/concepts',
   },

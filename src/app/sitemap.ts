@@ -48,10 +48,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...assessmentResults,
     page('/audit', '2026-08-21', 'monthly', 0.7),
 
-    // Legal
-    page('/privacy-policy', '2026-03-04', 'yearly', 0.3),
-    page('/terms-of-service', '2026-03-04', 'yearly', 0.3),
-
     // Concepts
     page('/concepts', '2026-06-19', 'monthly', 0.7),
     page('/concepts/accountability-gap', '2026-03-29', 'monthly', 0.6),
@@ -60,6 +56,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page('/concepts/results-thinkers', '2026-03-29', 'monthly', 0.6),
     page('/concepts/human-architect', '2026-06-14', 'monthly', 0.6),
     page('/concepts/pilot-itis', '2026-06-14', 'monthly', 0.6),
+    page('/concepts/the-last-mile', '2026-10-10', 'monthly', 0.6),
 
     // Case studies
     page('/case-studies', '2026-06-19', 'monthly', 0.7),

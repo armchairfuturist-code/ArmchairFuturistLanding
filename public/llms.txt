@@ -66,6 +66,11 @@ The Install Trap is the belief that value arrives when an agent runs. Work-autom
 
 **Full definition:** /concepts/the-install-trap
 
+### The Last Mile
+The Last Mile is the distance between an AI agent that can do almost anything and a person who knows what to ask it for. Access to capable agents stopped being the barrier in 2026; the remaining barrier is the judgment and mental models needed to direct them.
+
+**Full definition:** /concepts/the-last-mile
+
 ## Coaching Packages (1-on-1 AI Mentoring)
 
 Pricing available in USD and EUR. Exchange rate: 1 EUR = 1.17 USD (2026). A currency toggle in the Services section switches every price on the page; USD is the default.

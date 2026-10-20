@@ -5,7 +5,7 @@ import { AUDIT_PRICE_LABEL, AUDIT_LIST_LABEL } from '@/lib/pricing';
 export const metadata: Metadata = {
   title: 'AI Roadmap Audit — The Armchair Futurist',
   description:
-    'A 90-minute working session on your actual workflows, scored against current-generation agents and tooling. Written report and video walkthrough, yours to keep. ' +
+    'A 90-minute session on your workflows, scored against current agents. Written report and video walkthrough, yours to keep. ' +
       AUDIT_PRICE_LABEL +
       ' launch pricing.',
   alternates: { canonical: '/audit' },

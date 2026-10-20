@@ -67,20 +67,6 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- Legal pages - Lower priority but included for completeness -->
-  <url>
-    <loc>https://thearmchairfuturist.com/privacy-policy</loc>
-    <lastmod>2026-08-21</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://thearmchairfuturist.com/terms-of-service</loc>
-    <lastmod>2026-08-21</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-
   <!-- Concept Pages - Core concept definitions for LLM citation -->
   <url>
     <loc>https://thearmchairfuturist.com/concepts</loc>
@@ -122,6 +108,13 @@
   </url>
   <url>
     <loc>https://thearmchairfuturist.com/concepts/pilot-itis</loc>
+    <lastmod>2026-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- The Last Mile - newest core concept, homepage feature -->
+  <url>
+    <loc>https://thearmchairfuturist.com/concepts/the-last-mile</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

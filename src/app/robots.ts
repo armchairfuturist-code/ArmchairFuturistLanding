@@ -51,6 +51,10 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
       {
+        userAgent: 'anthropic-ai', // Anthropic's token; aligned with ClaudeBot
+        allow: '/',
+      },
+      {
         userAgent: 'Claude-User', // Claude user-initiated fetches
         allow: '/',
       },
@@ -80,10 +84,6 @@ export default function robots(): MetadataRoute.Robots {
       
       {
         userAgent: 'CCBot', // Common Crawl - used for training data
-        disallow: '/',
-      },
-      {
-        userAgent: 'anthropic-ai', // Anthropic's training crawler
         disallow: '/',
       },
       {

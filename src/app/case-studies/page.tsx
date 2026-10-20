@@ -8,8 +8,8 @@ import { ArrowLeft, ExternalLink, RefreshCw } from 'lucide-react';
 import { CALENDAR_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Case Studies | The Armchair Futurist',
-  description: 'Real results from AI guidance and done-for-you AI implementations. See how Alex Myers helps individuals and teams design, launch, and sell their own AI-powered services.',
+  title: 'AI Case Studies: AI Adoption Results | The Armchair Futurist',
+  description: 'Real results from AI guidance and done-for-you implementations. See how Alex Myers helps individuals and teams design, launch, and sell AI services.',
   alternates: {
     canonical: '/case-studies',
   },

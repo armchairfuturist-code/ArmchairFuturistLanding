@@ -6,7 +6,7 @@ const siteUrl = 'https://thearmchairfuturist.com';
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: 'Blog — AI Strategy, Adoption & The Future of Work',
-  description: 'Weekly insights from Alex Myers on AI adoption, organizational change, and navigating the future of work. Practical guidance for leaders who want results, not hype.',
+  description: 'Weekly insights from Alex Myers on AI adoption, organizational change, and the future of work. Practical guidance for leaders who want results.',
   alternates: {
     canonical: '/blog',
   },

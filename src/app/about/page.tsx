@@ -10,7 +10,7 @@ const siteUrl = 'https://thearmchairfuturist.com';
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: 'About Alex Myers — AI Consultant & Instructor',
-  description: 'Alex Myers is an AI consultant who teaches you to design, launch, and sell your own AI-powered services. With 6 certifications and 40+ AI systems deployed, he builds understanding you keep.',
+  description: 'Alex Myers is an AI consultant who teaches you to design, launch, and sell your own AI services. 6 certifications and 40+ AI systems deployed.',
   alternates: {
     canonical: '/about',
   },
