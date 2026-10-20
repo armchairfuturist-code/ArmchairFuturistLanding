@@ -6,6 +6,7 @@ import Breadcrumbs from "@/components/ui/breadcrumbs";
 import { ArrowRight } from "lucide-react";
 import { AUDIT_PRICE_LABEL } from "@/lib/pricing";
 import { SITE_URL } from "@/lib/constants";
+import ConceptFaq from '@/components/concepts/ConceptFaq';
 import {
   SERVICE_HUB_COLLECTION_DESCRIPTION,
   SERVICE_HUB_CTA,
@@ -162,19 +163,9 @@ export default function ServicesHubPage() {
           }),
         }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: SERVICE_HUB_FAQS.map((faq) => ({
-              "@type": "Question",
-              name: faq.question,
-              acceptedAnswer: { "@type": "Answer", text: faq.answer },
-            })),
-          }),
-        }}
+      <ConceptFaq
+        heading="Frequently asked questions"
+        items={SERVICE_HUB_FAQS.map((faq) => ({ name: faq.question, acceptedAnswer: { text: faq.answer } }))}
       />
     </div>
   );

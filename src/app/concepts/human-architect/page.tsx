@@ -6,10 +6,11 @@ import Breadcrumbs from '@/components/ui/breadcrumbs';
 import LastUpdated from '@/components/ui/last-updated';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { CALENDAR_URL } from '@/lib/constants';
+import ConceptFaq from '@/components/concepts/ConceptFaq';
 
 export const metadata: Metadata = {
-  title: 'The Human Architect Role: Who Closes the AI Accountability Gap',
-  description: 'The Human Architect is the person who translates AI output into business outcome. Without this role, AI investments stall in the Accountability Gap. Here is what the role does, who should fill it, and how to set them up for success.',
+  title: 'The Human Architect: The Role That Closes the AI Gap',
+  description: 'The Human Architect translates AI output into business outcome. Without this role, AI investments stall. What the role does and who should fill it.',
   alternates: {
     canonical: '/concepts/human-architect',
   },
@@ -56,6 +57,57 @@ const statistics = [
   { value: '1 role', label: 'Required to close the Accountability Gap per AI investment' },
   { value: '15–25%', label: 'Of one operator\'s time needed to make AI stick' },
   { value: '6 months', label: 'Typical runway to embed the role before scaling' },
+];
+
+const faqItems = [
+  {
+    "@type": "Question",
+    "name": "Is the Human Architect a new VP or C-suite hire?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. The Human Architect is best filled by an existing operator with cross-functional reach, not a new senior hire."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Is the Human Architect a part-time AI champion?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. A part-time AI champion with no outcome ownership becomes ceremonial fast. The role needs clear ownership over a business outcome."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Is the Human Architect the person who built the AI workflow?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Builders tend to defend the tool rather than close the loop. The Human Architect must evaluate outcomes dispassionately."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Is the Human Architect a consultant or vendor role?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Ownership must live inside the organization to stick. A consultant cannot own the path from AI output to business outcome."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "What is a Human Architect?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A Human Architect is the person who translates AI output into business outcomes. Their job is not to use AI; it is to connect AI outputs to decisions, actions, and measurable results. This role closes the Accountability Gap."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Does every AI deployment need a Human Architect?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Any deployment expected to change a business outcome does. Without an owner connecting output to decisions, AI activity stays activity. 72% of stalled AI projects lack clear ownership of outcomes."
+    }
+  }
 ];
 
 export default function HumanArchitectPage() {
@@ -233,77 +285,9 @@ export default function HumanArchitectPage() {
       />
 
       {/* ponytail: FAQPage schema for What It's NOT section (GEO optimization) */  }
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "Is the Human Architect a new VP or C-suite hire?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "No. The Human Architect is best filled by an existing operator with cross-functional reach, not a new senior hire."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Is the Human Architect a part-time AI champion?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "No. A part-time AI champion with no outcome ownership becomes ceremonial fast. The role needs clear ownership over a business outcome."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Is the Human Architect the person who built the AI workflow?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "No. Builders tend to defend the tool rather than close the loop. The Human Architect must evaluate outcomes dispassionately."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Is the Human Architect a consultant or vendor role?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "No. Ownership must live inside the organization to stick. A consultant cannot own the path from AI output to business outcome."
-                }
-              }
-            ]
-          })
-        }}
-      />
+      <ConceptFaq items={faqItems} />
       {/* FAQPage Schema - answer-first citation block */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "What is a Human Architect?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "A Human Architect is the person who translates AI output into business outcomes. Their job is not to use AI; it is to connect AI outputs to decisions, actions, and measurable results. This role closes the Accountability Gap."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Does every AI deployment need a Human Architect?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Any deployment expected to change a business outcome does. Without an owner connecting output to decisions, AI activity stays activity. 72% of stalled AI projects lack clear ownership of outcomes."
-                }
-              }
-            ]
-          })
-        }}
-      />
+      
     </div>
   );
 }

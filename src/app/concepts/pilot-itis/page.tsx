@@ -6,10 +6,11 @@ import Breadcrumbs from '@/components/ui/breadcrumbs';
 import LastUpdated from '@/components/ui/last-updated';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { CALENDAR_URL } from '@/lib/constants';
+import ConceptFaq from '@/components/concepts/ConceptFaq';
 
 export const metadata: Metadata = {
-  title: 'Pilot-itis: Why AI Pilots Die in Production | The Armchair Futurist',
-  description: 'Pilot-itis is the organizational disease where AI pilots launch with fanfare, demonstrate value in isolation, and never scale to production. 67% of AI initiatives never make it past pilot stage. Here is why, and what breaks the pattern.',
+  title: 'Pilot-itis: Why AI Pilots Die in Production',
+  description: 'Pilot-itis is the organizational pattern where AI pilots show value in isolation and never scale. 67% of AI initiatives never make it past pilot stage.',
   alternates: {
     canonical: '/concepts/pilot-itis',
   },
@@ -57,6 +58,33 @@ const statistics = [
   { value: '67%', label: 'Of AI pilots never scale to production (industry average)' },
   { value: '4–6 wks', label: 'Time to see real value when pilot is designed for production' },
   { value: '14 weeks', label: 'Average time to 80% team adoption after production handoff' },
+];
+
+const faqItems = [
+  {
+    "@type": "Question",
+    "name": "Why do AI pilots fail in production?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "AI pilots fail in production because they launch with volunteers, loose success metrics, and no owner for the outcome. When the pilot ends, the energy ends. Scaling requires the same ownership and workflow redesign a production system demands."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "What is Pilot-itis?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Pilot-itis is the organizational pattern where AI initiatives stay permanently in pilot mode. 67% of pilot-only initiatives never scale. The disease is structural: no decision rights, no workflow change, no one accountable for the result."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "How do you scale an AI pilot into production?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Assign an owner before the pilot starts, redesign the workflow the AI touches, and define success as a business metric rather than a usage metric. Pilots that skip these three steps die at the pilot stage."
+    }
+  }
 ];
 
 export default function PilotItisPage() {
@@ -233,41 +261,7 @@ export default function PilotItisPage() {
         }}
       />
       {/* FAQPage Schema - answer-first citation block */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "Why do AI pilots fail in production?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "AI pilots fail in production because they launch with volunteers, loose success metrics, and no owner for the outcome. When the pilot ends, the energy ends. Scaling requires the same ownership and workflow redesign a production system demands."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What is Pilot-itis?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Pilot-itis is the organizational pattern where AI initiatives stay permanently in pilot mode. 67% of pilot-only initiatives never scale. The disease is structural: no decision rights, no workflow change, no one accountable for the result."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How do you scale an AI pilot into production?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Assign an owner before the pilot starts, redesign the workflow the AI touches, and define success as a business metric rather than a usage metric. Pilots that skip these three steps die at the pilot stage."
-                }
-              }
-            ]
-          })
-        }}
-      />
+      <ConceptFaq items={faqItems} />
     </div>
   );
 }

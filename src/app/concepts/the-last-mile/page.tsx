@@ -6,11 +6,12 @@ import Breadcrumbs from '@/components/ui/breadcrumbs';
 import LastUpdated from '@/components/ui/last-updated';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { CALENDAR_URL } from '@/lib/constants';
+import ConceptFaq from '@/components/concepts/ConceptFaq';
 
 export const metadata: Metadata = {
   title: 'The Last Mile: Why Access to AI Was Never the Hard Part',
   description:
-    'Personal AI agents are now available to everyone. The gap that remains is the last mile: knowing what to ask for, and understanding how a model focuses attention and spends context. Here is why people spin their wheels and quit.',
+    'Personal AI agents are available to everyone. The remaining gap is the last mile: knowing what to ask for, and how a model focuses attention.',
   alternates: {
     canonical: '/concepts/the-last-mile',
   },
@@ -88,6 +89,33 @@ const statistics = [
     value: '3 in 4',
     label: 'people who start using an AI agent for real work give up within 90 days',
   },
+];
+
+const faqItems = [
+  {
+    "@type": "Question",
+    "name": "What is the last mile in AI adoption?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The last mile is the distance between an AI agent that can do almost anything and a person who knows what to ask it for. Access to capable agents stopped being the barrier in 2026. The remaining barrier is the judgment and mental models needed to direct them, which is why capable people still spin their wheels and give up."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Why do people give up on AI when the tools are easy to use?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Because the interface is easy, people assume the work is easy. When they hit the real difficulty — not knowing what to ask for, or how the model focuses attention and spends context — they read it as the tool failing or themselves failing. They rewrite the same request several ways, get plausible but wrong output, and conclude AI does not work for them."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "What mental models do you need to use AI agents well?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "You need a working model of what the system is genuinely good at, where it reliably fails, where its attention goes when instructions get long, why it runs out of room, and why it agrees with you. These are not programming skills. They are literacy, and they are what make the difference between an agent that produces output and one that produces results."
+    }
+  }
 ];
 
 export default function TheLastMilePage() {
@@ -364,41 +392,7 @@ export default function TheLastMilePage() {
         }}
       />
       {/* FAQPage Schema - answer-first citation block */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'FAQPage',
-            mainEntity: [
-              {
-                '@type': 'Question',
-                name: 'What is the last mile in AI adoption?',
-                acceptedAnswer: {
-                  '@type': 'Answer',
-                  text: 'The last mile is the distance between an AI agent that can do almost anything and a person who knows what to ask it for. Access to capable agents stopped being the barrier in 2026. The remaining barrier is the judgment and mental models needed to direct them, which is why capable people still spin their wheels and give up.',
-                },
-              },
-              {
-                '@type': 'Question',
-                name: 'Why do people give up on AI when the tools are easy to use?',
-                acceptedAnswer: {
-                  '@type': 'Answer',
-                  text: 'Because the interface is easy, people assume the work is easy. When they hit the real difficulty — not knowing what to ask for, or how the model focuses attention and spends context — they read it as the tool failing or themselves failing. They rewrite the same request several ways, get plausible but wrong output, and conclude AI does not work for them.',
-                },
-              },
-              {
-                '@type': 'Question',
-                name: 'What mental models do you need to use AI agents well?',
-                acceptedAnswer: {
-                  '@type': 'Answer',
-                  text: 'You need a working model of what the system is genuinely good at, where it reliably fails, where its attention goes when instructions get long, why it runs out of room, and why it agrees with you. These are not programming skills. They are literacy, and they are what make the difference between an agent that produces output and one that produces results.',
-                },
-              },
-            ],
-          }),
-        }}
-      />
+      <ConceptFaq items={faqItems} />
     </div>
   );
 }

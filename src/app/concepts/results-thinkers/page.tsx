@@ -5,10 +5,12 @@ import { BlurFade } from '@/components/ui/blur-fade';
 import Breadcrumbs from '@/components/ui/breadcrumbs';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { CALENDAR_URL } from '@/lib/constants';
+import ConceptFaq from '@/components/concepts/ConceptFaq';
+import LastUpdated from '@/components/ui/last-updated';
 
 export const metadata: Metadata = {
-  title: 'Results Thinkers: The 5% Who Lead AI Change',
-  description: 'Results Thinkers are the top 5% of your organization who naturally embrace uncertainty and drive AI adoption. They ask "What outcome do I need?" instead of "What can AI do?" And they\'re your highest-leverage asset for change.',
+  title: 'Results Thinkers: The 5% Who Lead AI Adoption Change',
+  description: 'Results Thinkers are the top 5% who embrace uncertainty and drive AI adoption. They ask what outcome is needed, not what AI can do.',
   alternates: {
     canonical: '/concepts/results-thinkers',
   },
@@ -65,9 +67,29 @@ const traits = [
   { trait: 'Share wins with peers', not: 'Gatekeep knowledge' },
 ];
 
+const faqItems = [
+  {
+    "@type": "Question",
+    "name": "Who are Results Thinkers?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Results Thinkers are the top 5% of AI adopters in an organization. They reclaim 15–20 hours per week with AI and drive disproportionate adoption success. Identifying and empowering them is the highest-leverage move in any rollout."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "How do you find Results Thinkers in an organization?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Look for people who already chase measurable outcomes, experiment without being told, and share what works. The free AI readiness assessment surfaces them through ten diagnostic questions."
+    }
+  }
+];
+
 export default function ResultsThinkersPage() {
   return (
     <div className="min-h-[100dvh] bg-background">
+      <LastUpdated date="2026-03-29" />
       {/* Navigation */}
       <div className="container mx-auto px-4 md:px-6 py-6">
         <Breadcrumbs items={[
@@ -289,33 +311,7 @@ export default function ResultsThinkersPage() {
         }}
       />
       {/* FAQPage Schema - answer-first citation block */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "Who are Results Thinkers?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Results Thinkers are the top 5% of AI adopters in an organization. They reclaim 15–20 hours per week with AI and drive disproportionate adoption success. Identifying and empowering them is the highest-leverage move in any rollout."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How do you find Results Thinkers in an organization?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Look for people who already chase measurable outcomes, experiment without being told, and share what works. The free AI readiness assessment surfaces them through ten diagnostic questions."
-                }
-              }
-            ]
-          })
-        }}
-      />
+      <ConceptFaq items={faqItems} />
     </div>
   );
 }

@@ -5,10 +5,12 @@ import { BlurFade } from '@/components/ui/blur-fade';
 import Breadcrumbs from '@/components/ui/breadcrumbs';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { CALENDAR_URL } from '@/lib/constants';
+import ConceptFaq from '@/components/concepts/ConceptFaq';
+import LastUpdated from '@/components/ui/last-updated';
 
 export const metadata: Metadata = {
-  title: 'Psychology-Led AI Adoption Strategy',
-  description: 'Psychology-Led Adoption is an organizational service that addresses human barriers to AI adoption through data-driven profiling. It identifies psychological barriers before technical ones, finding the 5% of staff who are naturally wired for uncertainty.',
+  title: 'Psychology-Led AI Adoption: The Human Barrier Strategy',
+  description: 'Psychology-Led Adoption addresses the human barriers to AI adoption through data-driven profiling. It finds the 5% of staff wired for uncertainty.',
   alternates: {
     canonical: '/concepts/psychology-led-adoption',
   },
@@ -78,9 +80,29 @@ const psychologicalProfiles = [
   }
 ];
 
+const faqItems = [
+  {
+    "@type": "Question",
+    "name": "What is Psychology-Led AI Adoption?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Psychology-Led Adoption addresses human barriers before technical ones. Technology adoption stalls on fear, identity, and habit far more often than on capability, so the sequence matters: psychology first, tooling second."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Why do most AI training programs fail?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Most AI training hands people tools without addressing the beliefs that stop them from using the tools. 72% of stalled AI projects cite workflow redesign, not technology, as the top barrier. Training that skips psychology produces prompts, not judgment."
+    }
+  }
+];
+
 export default function PsychologyLedAdoptionPage() {
   return (
     <div className="min-h-[100dvh] bg-background">
+      <LastUpdated date="2026-03-29" />
       {/* Navigation */}
       <div className="container mx-auto px-4 md:px-6 py-6">
         <Breadcrumbs items={[
@@ -290,33 +312,7 @@ export default function PsychologyLedAdoptionPage() {
         }}
       />
       {/* FAQPage Schema - answer-first citation block */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "What is Psychology-Led AI Adoption?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Psychology-Led Adoption addresses human barriers before technical ones. Technology adoption stalls on fear, identity, and habit far more often than on capability, so the sequence matters: psychology first, tooling second."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Why do most AI training programs fail?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Most AI training hands people tools without addressing the beliefs that stop them from using the tools. 72% of stalled AI projects cite workflow redesign, not technology, as the top barrier. Training that skips psychology produces prompts, not judgment."
-                }
-              }
-            ]
-          })
-        }}
-      />
+      <ConceptFaq items={faqItems} />
     </div>
   );
 }

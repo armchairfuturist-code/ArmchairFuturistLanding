@@ -6,10 +6,11 @@ import Breadcrumbs from '@/components/ui/breadcrumbs';
 import LastUpdated from '@/components/ui/last-updated';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { CALENDAR_URL } from '@/lib/constants';
+import ConceptFaq from '@/components/concepts/ConceptFaq';
 
 export const metadata: Metadata = {
-  title: 'The Accountability Gap in AI Adoption',
-  description: 'The Accountability Gap is the space between what an AI system produces and what a business actually needs. Most companies layer AI onto existing processes without rethinking workflows, incentives, or decision rights. The result is that nobody owns the outcome.',
+  title: 'The Accountability Gap in AI Adoption: Causes and Fixes',
+  description: 'The Accountability Gap is the space between what an AI system produces and what a business needs. When nobody owns the outcome, AI adoption stalls.',
   alternates: {
     canonical: '/concepts/accountability-gap',
   },
@@ -58,9 +59,37 @@ const statistics = [
   { value: '14 weeks', label: 'Average time to 80% team adoption with proper ownership' },
 ];
 
+const faqItems = [
+  {
+    "@type": "Question",
+    "name": "What is the Accountability Gap in AI adoption?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The Accountability Gap is the space between what an AI system produces and what a business actually needs. AI outputs exist, but no one owns turning them into business results, so adoption stalls."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Why do AI pilots fail to reach production?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Because nobody owns the outcome. 72% of stalled AI projects cite workflow redesign as the top barrier, and 67% of pilot-only initiatives never scale. The failure is structural, not technical."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "How do you close the Accountability Gap?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Assign a Human Architect: a person whose job is to connect AI outputs to decisions, actions, and measurable results. Ownership of the outcome, not access to the tool, is what closes the gap."
+    }
+  }
+];
+
 export default function AccountabilityGapPage() {
   return (
     <div className="min-h-[100dvh] bg-background">
+      <LastUpdated date="2026-03-29" />
       {/* Navigation */}
       <div className="container mx-auto px-4 md:px-6 py-6">
         <Breadcrumbs items={[
@@ -237,41 +266,7 @@ export default function AccountabilityGapPage() {
         }}
       />
       {/* FAQPage Schema - answer-first citation block */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "What is the Accountability Gap in AI adoption?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "The Accountability Gap is the space between what an AI system produces and what a business actually needs. AI outputs exist, but no one owns turning them into business results, so adoption stalls."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Why do AI pilots fail to reach production?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Because nobody owns the outcome. 72% of stalled AI projects cite workflow redesign as the top barrier, and 67% of pilot-only initiatives never scale. The failure is structural, not technical."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How do you close the Accountability Gap?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Assign a Human Architect: a person whose job is to connect AI outputs to decisions, actions, and measurable results. Ownership of the outcome, not access to the tool, is what closes the gap."
-                }
-              }
-            ]
-          })
-        }}
-      />
+      <ConceptFaq items={faqItems} />
     </div>
   );
 }
