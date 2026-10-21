@@ -48,14 +48,6 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      // Once www resolves to this Hosting site, send every path to the apex so
-      // the site has one host and one canonical URL.
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "www.thearmchairfuturist.com" }],
-        destination: "https://thearmchairfuturist.com/:path*",
-        permanent: true,
-      },
       // 2026-06 slug rename dropped the "the-" prefix; old URLs were published
       // in sitemaps and return soft-404 shells without this redirect.
       ...["stalled-executive", "curious-professional", "ready-builder", "overwhelmed-leader"].map(
