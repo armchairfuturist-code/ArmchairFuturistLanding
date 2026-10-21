@@ -210,7 +210,7 @@ export default function StructuredData() {
             address: {
               "@type": "PostalAddress",
               addressCountry: "PT",
-              addressLocality: "Portugal",
+              addressLocality: "Braga",
             },
             sameAs: [
               "https://www.linkedin.com/in/alex-myers-34572a10/",

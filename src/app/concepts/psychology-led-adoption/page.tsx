@@ -6,6 +6,7 @@ import Breadcrumbs from '@/components/ui/breadcrumbs';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { CALENDAR_URL } from '@/lib/constants';
 import ConceptFaq from '@/components/concepts/ConceptFaq';
+import AuthorByline from '@/components/concepts/AuthorByline';
 import ConceptDeepDive from '@/components/concepts/ConceptDeepDive';
 import { CONCEPT_DEPTH } from '@/content/concept-depth';
 import LastUpdated from '@/components/ui/last-updated';
@@ -105,6 +106,7 @@ export default function PsychologyLedAdoptionPage() {
   return (
     <div className="min-h-[100dvh] bg-background">
       <LastUpdated date="2026-03-29" />
+      <AuthorByline published="2026-03-29" />
       {/* Navigation */}
       <div className="container mx-auto px-4 md:px-6 py-6">
         <Breadcrumbs items={[

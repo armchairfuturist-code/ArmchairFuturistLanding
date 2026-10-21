@@ -120,6 +120,14 @@
     <priority>0.6</priority>
   </url>
 
+  <!-- Glossary - Definition hub for answer engines -->
+  <url>
+    <loc>https://thearmchairfuturist.com/glossary</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Case Studies - Evidence and proof points -->
   <url>
     <loc>https://thearmchairfuturist.com/case-studies</loc>

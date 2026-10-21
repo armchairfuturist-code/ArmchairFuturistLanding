@@ -74,6 +74,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Methodology (E-E-A-T)
     page('/how-i-work', '2026-06-19', 'monthly', 0.7),
 
+    // Reference
+    page('/glossary', '2026-10-21', 'monthly', 0.7),
+
     // Content
     page('/blog', '2026-08-21', 'monthly', 0.6),
   ];

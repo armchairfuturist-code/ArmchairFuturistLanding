@@ -40,6 +40,12 @@ export default function Footer() {
                 Concepts
               </Link>
               <Link
+                href="/glossary"
+                className="text-white/70 hover:text-hp-bright transition-colors duration-150 underline-animate"
+              >
+                Glossary
+              </Link>
+              <Link
                 href="/case-studies"
                 className="text-white/70 hover:text-hp-bright transition-colors duration-150 underline-animate"
               >
