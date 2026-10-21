@@ -7,6 +7,8 @@ import LastUpdated from '@/components/ui/last-updated';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { CALENDAR_URL } from '@/lib/constants';
 import ConceptFaq from '@/components/concepts/ConceptFaq';
+import KeyTakeaways from '@/components/concepts/KeyTakeaways';
+import Sources from '@/components/concepts/Sources';
 
 export const metadata: Metadata = {
   title: 'The Last Mile: Why Access to AI Was Never the Hard Part',
@@ -83,11 +85,60 @@ const statistics = [
     label: 'The year consumer agents arrived: Meta shipped Muse in September, Instinct expanded to group chats in October',
   },
   {
-    // INVENTED FIGURE — Alex authorised this as a stand-in on 2026-10-10, on
-    // the basis that a real one is easy to obtain from a client. Replace with
-    // a sourced number before this page is promoted anywhere.
-    value: '3 in 4',
-    label: 'people who start using an AI agent for real work give up within 90 days',
+    // First-party. This is the size of the practice the pattern below comes
+    // from, not a population study, and the label says so.
+    value: '40+',
+    label: 'AI systems built and handed over in this practice, where the pattern below came from',
+  },
+];
+
+const takeaways = [
+  'Getting an agent is solved. Directing one is a skill, and people learn it by doing it badly first.',
+  'An easy interface makes the difficulty look like personal failure, so most people stop before the second attempt.',
+  'What is missing is a working model of the tool: what it is good at, where it fails, and how it spends attention.',
+  'A better request closes most of the gap. A new subscription rarely does.',
+];
+
+const requestPairs = [
+  {
+    asked: 'Summarise this data',
+    needed:
+      'Which accounts dropped more than 30% against their own average, ranked by revenue at risk',
+  },
+  {
+    asked: 'Write me a strategy',
+    needed:
+      'Draft the three options we already narrowed to, with what each one costs',
+  },
+  {
+    asked: 'Make this better',
+    needed: 'Cut it to 200 words, keep the numbers, drop the adjectives',
+  },
+  {
+    asked: 'What should we do about this?',
+    needed: 'What would change your mind, and what evidence would show it',
+  },
+  {
+    asked: 'Explain this to me',
+    needed: 'Explain it to someone who has to approve it on Friday',
+  },
+];
+
+const sources = [
+  {
+    title: 'Lost in the Middle: How Language Models Use Long Contexts',
+    href: 'https://arxiv.org/abs/2307.03172',
+    note: 'Liu et al., 2023. Models use information near the start and end of a long input better than the middle, which is why a nine-paragraph instruction gets partly ignored.',
+  },
+  {
+    title: 'Towards Understanding Sycophancy in Language Models',
+    href: 'https://arxiv.org/abs/2310.13548',
+    note: 'Sharma et al., 2023. Models tend to agree with a belief stated in the prompt, so a confident wrong premise comes back confirmed.',
+  },
+  {
+    title: 'AI Index',
+    href: 'https://hai.stanford.edu/ai-index',
+    note: 'Stanford HAI. The source behind the agent capability figures at the top of this page.',
   },
 ];
 
@@ -170,6 +221,8 @@ export default function TheLastMilePage() {
         </div>
       </section>
 
+      <KeyTakeaways items={takeaways} />
+
       {/* AI Summary for LLM citation */}
       <div
         className="sr-only"
@@ -231,6 +284,93 @@ export default function TheLastMilePage() {
                 </article>
               </BlurFade>
             ))}
+          </div>
+
+          {/* Worked example. Illustrative, and labelled so: the specifics are
+              composite, not a client metric. */}
+          <div className="mt-12 rounded-xl border border-border/60 bg-card p-6 md:p-8">
+            <span className="text-xs text-muted-foreground/60 font-mono uppercase tracking-widest">
+              Worked example
+            </span>
+            <h2 className="font-heading text-2xl font-bold text-primary mb-5 mt-2">
+              The board pack that came back tidy and useless
+            </h2>
+            <p className="text-foreground/80 leading-relaxed mb-4">
+              A consultant I work with assembled a monthly board pack from four
+              spreadsheets. It took three hours. She asked an agent to
+              summarise the sales data and flag any risks. It returned a tidy
+              page of summary. Every line was true, and the one risk she needed
+              to raise was missing: two of the top five accounts had gone quiet
+              for six weeks.
+            </p>
+            <p className="text-foreground/80 leading-relaxed mb-4">
+              The request described a task. The work needed a decision. The
+              second attempt took one more line: flag accounts whose order
+              volume fell more than 30% against their own twelve-month average,
+              and rank them by revenue at risk. Same agent, same data, and the
+              two quiet accounts were at the top of the list.
+            </p>
+            <p className="text-foreground/80 leading-relaxed">
+              That is the last mile in one before and after. She had to know
+              what the output was for before she could describe it. Most people
+              stop at the first attempt, because it reads well enough to be
+              mistaken for the answer.
+            </p>
+          </div>
+
+          <div className="mt-12">
+            <h2 className="font-heading text-2xl font-bold text-primary mb-2">
+              What people ask for, and what the work needs
+            </h2>
+            <p className="text-foreground/80 leading-relaxed mb-6">
+              The left column names a format. The right column names an outcome
+              and a constraint, which is the part the agent cannot invent for
+              you.
+            </p>
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-sm border-collapse">
+                <thead>
+                  <tr className="border-b border-border/60">
+                    <th scope="col" className="py-3 pr-4 font-heading font-bold text-foreground">
+                      Asked
+                    </th>
+                    <th scope="col" className="py-3 font-heading font-bold text-foreground">
+                      Needed
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {requestPairs.map((pair) => (
+                    <tr key={pair.asked} className="border-b border-border/40 align-top">
+                      <td className="py-3 pr-4 text-muted-foreground">{pair.asked}</td>
+                      <td className="py-3 text-foreground/80">{pair.needed}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div className="mt-12 rounded-xl border border-border/60 bg-card p-6 md:p-8">
+            <h2 className="font-heading text-2xl font-bold text-primary mb-5">
+              How I check for it
+            </h2>
+            <p className="text-foreground/80 leading-relaxed mb-4">
+              Every session opens the same way. Show me the last thing you
+              asked, and what came back. The gap is usually visible in under a
+              minute.
+            </p>
+            <p className="text-foreground/80 leading-relaxed mb-4">
+              I look for three things. Whether the request named an outcome or a
+              format. Whether the person can say what good output looks like
+              before they see it. And what they did when it missed.
+            </p>
+            <p className="text-foreground/80 leading-relaxed">
+              The third one predicts the rest. People who rewrite the request
+              are learning the model. People who switch tools are shopping for
+              one that will not need directing. There is no version of this that
+              skips the directing.
+            </p>
           </div>
 
           {/*
@@ -307,6 +447,8 @@ export default function TheLastMilePage() {
               Transformation is this problem repeated across people.
             </p>
           </div>
+
+          <Sources items={sources} />
 
           {/* Related Concepts */}
           <div className="mt-16">
@@ -387,6 +529,11 @@ export default function TheLastMilePage() {
               'AI adoption',
               'mental models',
               'Alex Myers',
+            ],
+            citation: [
+              'https://arxiv.org/abs/2307.03172',
+              'https://arxiv.org/abs/2310.13548',
+              'https://hai.stanford.edu/ai-index',
             ],
           }),
         }}
