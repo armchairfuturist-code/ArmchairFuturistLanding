@@ -7,6 +7,8 @@ import LastUpdated from '@/components/ui/last-updated';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { CALENDAR_URL } from '@/lib/constants';
 import ConceptFaq from '@/components/concepts/ConceptFaq';
+import ConceptDeepDive from '@/components/concepts/ConceptDeepDive';
+import { CONCEPT_DEPTH } from '@/content/concept-depth';
 
 export const metadata: Metadata = {
   title: 'Pilot-itis: Why AI Pilots Die in Production',
@@ -189,6 +191,8 @@ export default function PilotItisPage() {
               </ul>
             </div>
           </BlurFade>
+
+          <ConceptDeepDive depth={CONCEPT_DEPTH['pilot-itis']} />
 
           {/* Related Concepts */}
           <div className="mt-16">
