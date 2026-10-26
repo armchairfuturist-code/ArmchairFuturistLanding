@@ -17,8 +17,8 @@ const clientExamples = [
   {
     client: byName("Brenda Fonseca"),
     path: "Build with me",
-    title: "From unsure where to start to writing her own code",
-    description: "Brenda came to the sessions unsure what training to ask for. Four months into working together, she was using AI for work and personal tasks, including coding her own productivity tools.",
+    title: "From unsure where to start to building her own AI tools",
+    description: "Brenda came to the sessions unsure what training to ask for. Four months into working together, she was using AI for work and personal tasks, including building her own customized productivity tools with AI.",
     excerpt: "Now I have a foundational understanding of what AI actually is and how I can use it as a tool in my daily productivity for both work and personal - even using it to do my own coding to create customized productivity skills.",
   },
   {
