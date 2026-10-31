@@ -122,3 +122,6 @@ _capture/
 
 # Local-only secret handoff (never commit)
 .cron-secret.txt
+
+# local design-audit tooling output
+.taste-skill/

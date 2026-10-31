@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import { BlurFade } from "@/components/ui/blur-fade";
 
 /**
@@ -20,9 +21,6 @@ export default function LastMileSection() {
     <section className="relative py-16 md:py-24 bg-background scroll-mt-20">
       <div className="container mx-auto px-4 md:px-6 max-w-4xl">
         <BlurFade inView>
-          <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-5">
-            The Last Mile
-          </p>
           <h2 className="font-display text-display font-medium tracking-tight text-ink mb-6 max-w-[20ch]">
             Access to AI was never the hard part.
           </h2>
@@ -42,6 +40,20 @@ export default function LastMileSection() {
             <p className="text-ink font-medium">
               The answer is literacy, and no tool ships with it.
             </p>
+          </div>
+
+          {/* Preview: a real picture in a section that had none. Swap this
+              file for a true photograph of the work (client sessions, build
+              days) before this ships. */}
+          <div className="mt-10">
+            <Image
+              src="/header.webp"
+              alt="The Armchair Futurist at work"
+              width={1255}
+              height={1102}
+              sizes="(max-width: 896px) 100vw, 896px"
+              className="w-full max-w-2xl"
+            />
           </div>
 
           <div className="mt-8">
