@@ -102,10 +102,10 @@
    or the visitor prefers reduced motion. */
 .organism-fallback.is-visible.is-placeholder { opacity: .18; }
 .organism-noise { position: absolute; z-index: -1; inset: 0; pointer-events: none; opacity: .08; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E"); }
-.organism-status { font-family: var(--org-mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; }
+.organism-status { font-size: 14px; letter-spacing: 0; } /* preview: text face, 14px */
 .organism-hero__copy { position: relative; max-width: 1120px; margin: 8vh 0 0 8vw; }
 .organism-hero__copy::before { content: ""; position: absolute; z-index: -1; inset: -56px -72px -72px -8vw; pointer-events: none; background: radial-gradient(ellipse 130% 100% at 22% 40%, rgba(8, 13, 23, .88) 30%, rgba(8, 13, 23, .55) 58%, transparent 78%); }
-.organism-kicker { display: flex; align-items: center; gap: 10px; margin: 0 0 22px; color: var(--org-blue); font-family: var(--org-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
+.organism-kicker { display: flex; align-items: center; gap: 10px; margin: 0 0 22px; color: var(--org-blue); font-size: 14px; letter-spacing: 0; } /* preview: text face, 14px, sentence case */
 .organism-kicker span { width: 28px; height: 1px; background: currentColor; }
 .organism-hero h1 { max-width: 1120px; margin: 0; font-size: clamp(3.5rem, 7.4vw, 8.4rem); font-weight: 500; letter-spacing: -.075em; line-height: .88; color: var(--org-paper); }
 .organism-hero h1 em { color: rgba(240, 238, 232, .1); font-style: normal; -webkit-text-stroke: 2px rgba(240, 238, 232, .92); }
@@ -122,7 +122,7 @@
    site (5.99:1) and a hover that still passes (5.19:1) rather than the old
    #5b8cff, which measured 3.16:1. --org-blue itself is untouched: it is also
    the kicker colour and several decorative SVG fills. */
-.organism-button--primary { color: #fff; background: #1852f0; box-shadow: 0 0 26px rgba(41, 110, 249, .25); }
+.organism-button--primary { color: #fff; background: #1852f0; } /* preview: glow off — flat fill */
 .organism-button--primary:hover { background: #2a63e8; } /* lighter step of the same hue that keeps white legible */
 .organism-button--quiet { color: #d5d9e0; border-color: var(--org-line); background: rgba(8, 13, 23, .22); }
 .organism-button--quiet:hover { border-color: rgba(240, 238, 232, .5); }
@@ -141,7 +141,7 @@
 }
 .organism-status { display: flex; gap: 26px; color: var(--org-muted); }
 .organism-status span { color: #c5cad3; }
-.organism-hero__hint { display: flex; align-items: center; gap: 10px; align-self: center; color: var(--org-muted); font-family: var(--org-mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; animation: drift 2.2s ease-in-out infinite; }
+.organism-hero__hint { display: flex; align-items: center; gap: 10px; align-self: center; color: var(--org-muted); font-size: 14px; letter-spacing: 0; animation: drift 2.2s ease-in-out infinite; } /* preview */
 @keyframes drift { 50% { transform: translateY(5px); opacity: .55; } }
 
 @media (max-width: 800px) {
@@ -151,7 +151,7 @@
   .organism-hero__copy { margin-left: 0; margin-top: 10vh; }
   .organism-hero h1 { font-size: clamp(3.1rem, 15vw, 6rem); }
   .organism-deck { font-size: 16px; line-height: 1.65; }
-  .organism-status { flex-wrap: wrap; gap: 10px 16px; font-size: 10px; }
+  .organism-status { flex-wrap: wrap; gap: 10px 16px; font-size: 14px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -63,13 +63,10 @@ export function OrganismHero() {
         initial="hidden"
         animate="visible"
       >
-        <motion.p className="organism-kicker" variants={copyVariants}>
-          <span /> AI literacy &amp; implementation
-        </motion.p>
         <motion.h1 variants={copyVariants}>
-          The last AI consultant
+          Your Last
           <br />
-          <em>you&apos;ll ever hire.</em>
+          <em>AI Consultant.</em>
         </motion.h1>
         <motion.p className="organism-deck" variants={copyVariants}>
           1:1 AI mastery built on your real work. You leave running systems you

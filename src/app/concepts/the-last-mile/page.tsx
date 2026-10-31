@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { BlurFade } from '@/components/ui/blur-fade';
 import Breadcrumbs from '@/components/ui/breadcrumbs';
@@ -7,13 +8,12 @@ import LastUpdated from '@/components/ui/last-updated';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { CALENDAR_URL } from '@/lib/constants';
 import ConceptFaq from '@/components/concepts/ConceptFaq';
-import KeyTakeaways from '@/components/concepts/KeyTakeaways';
 import Sources from '@/components/concepts/Sources';
 
 export const metadata: Metadata = {
   title: 'The Last Mile: Why Access to AI Was Never the Hard Part',
   description:
-    'Personal AI agents are available to everyone. The remaining gap is the last mile: knowing what to ask for, and how a model focuses attention.',
+    'Personal AI agents are available to everyone. The remaining gap is mental models: what the tool remembers, what it costs, and what it is allowed to touch.',
   alternates: {
     canonical: '/concepts/the-last-mile',
   },
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     images: ['/opengraph-image'],
     title: 'The Last Mile: Why Access to AI Was Never the Hard Part',
     description:
-      'The agents arrived. The last mile did not go away. Why capable people spin their wheels and conclude AI does not work for them.',
+      'The agents arrived. The mental models did not. Why capable people get little from AI and conclude it does not work for them.',
     url: '/concepts/the-last-mile',
     siteName: 'The Armchair Futurist',
     type: 'article',
@@ -52,93 +52,132 @@ const relatedConcepts = [
   },
 ];
 
-const keyPoints = [
-  {
-    title: 'What it is',
-    content:
-      'The last mile is the distance between an agent that can do almost anything and a person who knows what to ask it for. Getting an agent is easy now. Directing one is still a skill you have to learn.',
-  },
-  {
-    title: 'Why it got harder to see',
-    content:
-      'When AI was hard to reach, the difficulty was obvious and expected. Now an agent replies in plain language and sounds certain, so what remains stays invisible until you walk into it. People assume that because the interface is easy, the work is easy.',
-  },
-  {
-    title: 'What it feels like',
-    content:
-      'You rewrite the same request five different ways. The output looks right, then turns out wrong. After asking for something ambitious and getting something generic, you lower your aim rather than try again. Then you decide AI does not work for you.',
-  },
-  {
-    title: 'What is missing',
-    content:
-      'A working model of the thing you are directing. What it is good at, where it fails, how it spends attention on a long instruction, why it agrees with you. That is not programming, and no tool ships with it.',
-  },
-];
 
 const statistics = [
   {
-    value: '77%',
-    label: 'Agent success on real-world computer tasks in 2026, up from 20% a year earlier (Stanford AI Index 2026, as cited by Vellum)',
+    value: '97%',
+    label: 'of workers use AI poorly or not at all (Section, Jan 2026)',
   },
   {
-    value: '2026',
-    label: 'The year consumer agents arrived: Meta shipped Muse in September, Instinct expanded to group chats in October',
+    value: '2%',
+    label: 'of 4,500 logged work use cases were advanced (Section, Jan 2026)',
   },
   {
-    // First-party. This is the size of the practice the pattern below comes
-    // from, not a population study, and the label says so.
-    value: '40+',
-    label: 'AI systems built and handed over in this practice, where the pattern below came from',
+    value: '33%',
+    label: 'lose at least half of the time AI saves them to rework (Workday, Oct 2026)',
+  },
+  {
+    value: '32,813x',
+    label: 'spread between the dearest and cheapest model per million tokens (BenchLM, Oct 2026)',
   },
 ];
 
-const takeaways = [
-  'Getting an agent is solved. Directing one is a skill, and people learn it by doing it badly first.',
-  'An easy interface makes the difficulty look like personal failure, so most people stop before the second attempt.',
-  'What is missing is a working model of the tool: what it is good at, where it fails, and how it spends attention.',
-  'A better request closes most of the gap. A new subscription rarely does.',
-];
-
-const requestPairs = [
+const assumptions = [
   {
-    asked: 'Summarise this data',
-    needed:
-      'Which accounts dropped more than 30% against their own average, ranked by revenue at risk',
+    assume: 'The chat remembers everything',
+    truth:
+      'Context is finite and degrades as it fills. Across 18 models, accuracy fell as inputs grew, and needle-in-haystack tests overstate what long context really does.',
+    action: 'Restate your constraints near the end, and split work that will not fit.',
   },
   {
-    asked: 'Write me a strategy',
-    needed:
-      'Draft the three options we already narrowed to, with what each one costs',
+    assume: 'One model for every job',
+    truth:
+      'Prices per million tokens span 32,813x. Frontier models rose 61% year on year while the mid-tier fell 41%.',
+    action: 'Default to a cheap model. Escalate only where the output must be right.',
   },
   {
-    asked: 'Make this better',
-    needed: 'Cut it to 200 words, keep the numbers, drop the adjectives',
+    assume: 'More thinking is always better',
+    truth:
+      '16,000 reasoning tokens cost 32x more than 500. Stopping near 6,000 cut compute by half for about 6% accuracy loss.',
+    action: 'Match reasoning effort to the task. Sizing that is a skill, not a setting.',
   },
   {
-    asked: 'What should we do about this?',
-    needed: 'What would change your mind, and what evidence would show it',
+    assume: 'More agents, more throughput',
+    truth:
+      'Multi-agent beat single-agent by 90.2% on research and used about 15x the tokens. Parallel writers make conflicting implicit choices.',
+    action: 'Parallelise research. Keep anything that writes in one thread.',
   },
   {
-    asked: 'Explain this to me',
-    needed: 'Explain it to someone who has to approve it on Friday',
+    assume: 'Desktop and web chat are the same tool',
+    truth:
+      'Local steps, the built-in browser and the Agent SDK are desktop or CLI only. Web chat cannot see your files.',
+    action:
+      'Do the work in the harness that can touch the work. Web chat is for questions.',
+  },
+  {
+    assume: 'Guardrails are an enterprise concern',
+    truth:
+      'One GraphQL mutation deleted a production database and every backup in nine seconds. Only 5% of tech leaders are confident they can see what runs in production.',
+    action:
+      'Set permissions and sandboxing before you grant autonomy, not after.',
   },
 ];
 
 const sources = [
   {
-    title: 'Lost in the Middle: How Language Models Use Long Contexts',
-    href: 'https://arxiv.org/abs/2307.03172',
-    note: 'Liu et al., 2023. Models use information near the start and end of a long input better than the middle, which is why a nine-paragraph instruction gets partly ignored.',
+    title: 'The AI Proficiency Report, January 2026',
+    href: 'https://www.sectionai.com/ai/the-ai-proficiency-report-january-2026',
+    note: 'Section. 97% of workers use AI poorly or not at all; 25% have no work use case; of 4,500 use cases, 59% basic and 2% advanced; training received rose 2% while tool access rose 16-17%.',
   },
   {
-    title: 'Towards Understanding Sycophancy in Language Models',
-    href: 'https://arxiv.org/abs/2310.13548',
-    note: 'Sharma et al., 2023. Models tend to agree with a belief stated in the prompt, so a confident wrong premise comes back confirmed.',
+    title: 'The Path to AI Fluency: AI Works for America',
+    href: 'https://www.ipsos.com/sites/default/files/ct/news/documents/2026-02/The%20Path%20to%20AI%20Fluency.%20AI%20Works%20for%20America%20-%20Google-Ipsos.pdf',
+    note: 'Google/Ipsos, February 2026, n=4,464 employees and 1,511 managers. 40% use AI at work, 5% are AI fluent, 14% were offered training.',
   },
   {
-    title: 'AI Index',
-    href: 'https://hai.stanford.edu/ai-index',
-    note: 'Stanford HAI. The source behind the agent capability figures at the top of this page.',
+    title: 'AI@Work, October 2026',
+    href: 'https://www.workday.com/en-us/perspectives/ai/ai-at-work-october.html',
+    note: 'Workday, about 6,000 workers, fieldwork September 2026. 38% can explain what an AI agent is; 33% lose at least half their time savings to rework; 41% conceal their AI use.',
+  },
+  {
+    title: 'Context Rot: How Increasing Input Tokens Impacts LLM Performance',
+    href: 'https://www.trychroma.com/research/context-rot',
+    note: 'Chroma Research, July 2025. Eighteen models degrade as input length grows, non-uniformly; distractors matter and needle-in-haystack tests overstate long-context ability.',
+  },
+  {
+    title: 'LLM pricing statistics',
+    href: 'https://benchlm.ai/stats/llm-pricing',
+    note: 'BenchLM, as of 29 October 2026. Median $0.75 input and $3.00 output per million tokens across 209 models; dearest API about 32,813x the cheapest.',
+  },
+  {
+    title: 'Why Johnny Can\u2019t Use Agents',
+    href: 'https://arxiv.org/abs/2509.14528',
+    note: 'ACM Conference on AI and Agentic Systems, September 2025. Review of 102 commercial agents plus an N=31 study of Operator and Manus: agent capabilities were misaligned with user mental models.',
+  },
+  {
+    title: 'Efficient reasoning and the cost of thinking longer',
+    href: 'https://arxiv.org/abs/2604.10739',
+    note: 'April 2026. 16,000 reasoning tokens cost 32x more than 500; stopping near 6,000 cuts compute about 50% for roughly 6% accuracy loss.',
+  },
+  {
+    title: 'How we built our multi-agent research system',
+    href: 'https://www.anthropic.com/engineering/multi-agent-research-system',
+    note: 'Anthropic Engineering, June 2025. Multi-agent beat single-agent by 90.2% on research tasks; token use explained 80% of the variance; about 15x the tokens of a chat.',
+  },
+  {
+    title: 'Do not build multi-agents',
+    href: 'https://cognition.com/blog/dont-build-multi-agents',
+    note: 'Cognition, June 2025. Parallel agents make implicit conflicting choices; context engineering beats prompt engineering, and writes stay single-threaded.',
+  },
+  {
+    title: 'AI agent deleted a production database in 9 seconds',
+    href: 'https://zenity.io/blog/ai-agent-database-deletion-pocketos',
+    note: 'Zenity, April 2026. One GraphQL mutation wiped the volume and every backup; the most recent recoverable backup was three months old.',
+  },
+  {
+    title: 'AI governance report 2026',
+    href: 'https://retool.com/blog/ai-governance-report-2026',
+    note: 'Retool, 307 CTOs, CIOs and CISOs. Only 5% are confident in their visibility into production AI tools; 93% worry about vibe-coded tools reaching production.',
+  },
+  {
+    title: 'State of AI Architecture 2026',
+    href: 'https://stacklok.com/resources/state-of-ai-architecture-2026/',
+    note: 'Stacklok, 520 leaders surveyed September 2026. 81% agree frontier labs and hyperscalers make moving between vendors difficult; 84% say avoiding lock-in matters.',
+  },
+  {
+    title: 'Permissions and sandboxing',
+    href: 'https://code.claude.com/docs/en/permissions',
+    note: 'Anthropic. The documented permission and sandboxing model for a coding agent, which is the guardrail layer most individual users never configure.',
   },
 ];
 
@@ -148,23 +187,23 @@ const faqItems = [
     "name": "What is the last mile in AI adoption?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "The last mile is the distance between an AI agent that can do almost anything and a person who knows what to ask it for. Access to capable agents stopped being the barrier in 2026. The remaining barrier is the judgment and mental models needed to direct them, which is why capable people still spin their wheels and give up."
+      "text": "The last mile is the distance between an agent that can do almost anything and a person who has a mental model of what it actually does. Access stopped being the barrier in 2026. Section found 97% of workers still use AI poorly or not at all, and only 2% of 4,500 logged use cases were advanced. The gap is models of the tool, not access to it."
     }
   },
   {
     "@type": "Question",
-    "name": "Why do people give up on AI when the tools are easy to use?",
+    "name": "Why do capable people get so little from AI tools?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Because the interface is easy, people assume the work is easy. When they hit the real difficulty — not knowing what to ask for, or how the model focuses attention and spends context — they read it as the tool failing or themselves failing. They rewrite the same request several ways, get plausible but wrong output, and conclude AI does not work for them."
+      "text": "Because the interface is easy, people assume the work is easy. They do not know that context is finite, that models differ in price by more than 30,000 times, that reasoning effort has a cost curve, or that a desktop harness can touch files a web chat cannot see. So they rewrite the same request, get plausible but wrong output, and conclude the tool does not work. Workday found a third of users lose at least half their time savings to rework."
     }
   },
   {
     "@type": "Question",
-    "name": "What mental models do you need to use AI agents well?",
+    "name": "What mental models do I need to use agents well?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "You need a working model of what the system is genuinely good at, where it reliably fails, where its attention goes when instructions get long, why it runs out of room, and why it agrees with you. These are not programming skills. They are literacy, and they are what make the difference between an agent that produces output and one that produces results."
+      "text": "Six cover most of it: context is finite and degrades as it fills; models are priced and capable across a huge range, so routing matters; reasoning effort costs, and sizing it is a skill; parallel agents multiply tokens and conflict, so writes stay single-threaded; desktop harnesses do things web chat cannot; and permissions come before autonomy. None of these are programming skills. They are literacy, and they are trainable in weeks, not years."
     }
   }
 ];
@@ -172,7 +211,7 @@ const faqItems = [
 export default function TheLastMilePage() {
   return (
     <div className="min-h-[100dvh] bg-background">
-      <LastUpdated date="2026-10-10" />
+      <LastUpdated date="2026-10-31" />
 
       {/* Navigation */}
       <div className="container mx-auto px-4 md:px-6 py-6">
@@ -194,34 +233,42 @@ export default function TheLastMilePage() {
       {/* Hero */}
       <section className="py-12 md:py-16 bg-secondary">
         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
-          <BlurFade inView>
-            <div className="mb-4">
-              <span className="text-xs text-muted-foreground/60 font-mono uppercase tracking-widest">
-                Core Concept
-              </span>
-            </div>
-            <h1 className="font-heading text-4xl md:text-5xl font-bold tracking-tight text-primary mb-6">
-              The Last Mile
-            </h1>
-            <p className="text-xl text-foreground/80 font-sans leading-relaxed mb-8">
-              The agents arrived. They are cheap, conversational, and
-              available to anyone with a phone. Getting one was never the
-              hard part. The hard part is the last mile: knowing what to ask
-              for, and understanding how the thing you are asking works.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Button asChild size="lg">
-                <Link href="/#services">Learn the last mile</Link>
-              </Button>
-              <Button asChild variant="outline" size="lg">
-                <Link href="/assessment">Take Free Assessment</Link>
-              </Button>
-            </div>
-          </BlurFade>
+          <div className="flex flex-col md:flex-row md:items-start gap-10">
+            <BlurFade inView className="flex-1">
+              <h1 className="font-heading text-5xl md:text-7xl font-bold tracking-tight text-primary mb-6">
+                The Last Mile
+              </h1>
+              <p className="text-xl md:text-2xl text-foreground/80 font-sans leading-relaxed mb-8 max-w-2xl">
+                Getting an agent was never the hard part. The hard part is that
+                almost nobody has a mental model of what the thing they are
+                asking actually does.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Button asChild size="lg">
+                  <Link href="/#services">Learn the last mile</Link>
+                </Button>
+                <Button asChild variant="outline" size="lg">
+                  <Link href="/assessment">Take Free Assessment</Link>
+                </Button>
+              </div>
+            </BlurFade>
+            <BlurFade inView delay={0.1} className="md:w-64 shrink-0">
+              <Image
+                src="/header.webp"
+                alt="Alex Myers, the Armchair Futurist"
+                width={1255}
+                height={1102}
+                sizes="(max-width: 768px) 60vw, 256px"
+                className="w-full h-auto rounded-2xl object-cover"
+              />
+              <p className="mt-3 text-sm text-muted-foreground">
+                Alex Myers. I build these systems with individuals and small
+                teams, and this page is what I keep having to explain.
+              </p>
+            </BlurFade>
+          </div>
         </div>
       </section>
-
-      <KeyTakeaways items={takeaways} />
 
       {/* AI Summary for LLM citation */}
       <div
@@ -237,14 +284,15 @@ export default function TheLastMilePage() {
         <span itemProp="publisher">The Armchair Futurist</span>
         <span itemProp="datePublished">2026-10-10</span>
         <span itemProp="description">
-          The last mile is the distance between an AI agent that can do almost
-          anything and a person who knows what to ask it for. Personal agents
-          such as Meta&apos;s Muse and Instinct removed the access barrier in
-          2026, which made the remaining difficulty invisible rather than
-          absent. Directing an agent well requires a working model of what it
-          is good at, where its attention goes, and why it fails. Without that
-          model, capable people rewrite the same request, get plausibly wrong
-          output, and conclude AI does not work for them. The fix is literacy,
+          The last mile is the distance between an agent that can do almost
+          anything and a person who has a mental model of what it actually
+          does. Access stopped being the barrier in 2026. Section reports 97%
+          of workers still use AI poorly or not at all, and only 2% of 4,500
+          logged use cases were advanced. Six assumptions account for most of
+          the damage: that context is infinite, that one model fits every job,
+          that more reasoning is always better, that more agents mean more
+          throughput, that desktop and web chat are the same tool, and that
+          guardrails are somebody else&rsquo;s problem. The fix is literacy,
           not another tool.
         </span>
       </div>
@@ -252,17 +300,14 @@ export default function TheLastMilePage() {
       {/* Key Statistics */}
       <section className="py-12 bg-background">
         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {statistics.map((stat) => (
-              <div
-                key={stat.label}
-                className="text-center p-6 rounded-xl bg-card border border-border/60"
-              >
-                <p className="text-3xl md:text-4xl font-black text-primary mb-2">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
+            {statistics.map((stat, i) => (
+              <BlurFade key={stat.label} inView delay={i * 0.08}>
+                <p className="text-4xl md:text-5xl font-black text-primary mb-2">
                   {stat.value}
                 </p>
-                <p className="text-sm text-muted-foreground">{stat.label}</p>
-              </div>
+                <p className="text-sm text-muted-foreground leading-snug">{stat.label}</p>
+              </BlurFade>
             ))}
           </div>
         </div>
@@ -271,183 +316,109 @@ export default function TheLastMilePage() {
       {/* Main Content */}
       <section className="py-12 md:py-16">
         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
-          <div className="grid grid-cols-1 gap-8">
-            {keyPoints.map((point, index) => (
-              <BlurFade inView key={point.title} delay={index * 0.1}>
-                <article className="p-6 rounded-xl border border-border/60 bg-card">
-                  <h2 className="font-heading text-xl font-bold text-primary mb-3">
-                    {point.title}
-                  </h2>
-                  <p className="text-foreground/80 leading-relaxed">
-                    {point.content}
-                  </p>
-                </article>
-              </BlurFade>
-            ))}
-          </div>
+                                        <div className="max-w-3xl space-y-6 text-[17px] leading-relaxed text-foreground/85">
+            <p>
+              I work with individuals and small teams, and the pattern is the
+              same at every skill level. The tools are not the problem, and
+              access is not the problem. What is missing is a mental model of
+              what the machine in front of you actually does.
+            </p>
 
-          {/* Worked example. Illustrative, and labelled so: the specifics are
-              composite, not a client metric. */}
-          <div className="mt-12 rounded-xl border border-border/60 bg-card p-6 md:p-8">
-            <span className="text-xs text-muted-foreground/60 font-mono uppercase tracking-widest">
-              Worked example
-            </span>
-            <h2 className="font-heading text-2xl font-bold text-primary mb-5 mt-2">
-              The board pack that came back tidy and useless
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-primary mt-10 mb-4">
+              The gap is mental models
             </h2>
-            <p className="text-foreground/80 leading-relaxed mb-4">
-              A consultant I work with assembled a monthly board pack from four
-              spreadsheets. It took three hours. She asked an agent to
-              summarise the sales data and flag any risks. It returned a tidy
-              page of summary. Every line was true, and the one risk she needed
-              to raise was missing: two of the top five accounts had gone quiet
-              for six weeks.
+            <p>
+              In January 2026 Section assessed working AI use and found 97% of
+              people using it poorly or not at all. Of 4,500 work use cases they
+              logged, 59% were basic and 2% advanced. A quarter of respondents
+              had no work use case at all. Over the same period access to tools
+              rose 16 to 17 percent, and training rose 2 percent.
             </p>
-            <p className="text-foreground/80 leading-relaxed mb-4">
-              The request described a task. The work needed a decision. The
-              second attempt took one more line: flag accounts whose order
-              volume fell more than 30% against their own twelve-month average,
-              and rank them by revenue at risk. Same agent, same data, and the
-              two quiet accounts were at the top of the list.
+            <p>
+              Google and Ipsos measured the same gap from the other side a month
+              later: 40% of employees use AI at work, 5% are fluent, and 14%
+              were offered training. Workday found in October that only 38% of
+              workers can explain what an AI agent is, and that a third of users
+              lose at least half of the time AI saves them to rework. Rework is
+              what a missing mental model costs, measured in hours.
             </p>
-            <p className="text-foreground/80 leading-relaxed">
-              That is the last mile in one before and after. She had to know
-              what the output was for before she could describe it. Most people
-              stop at the first attempt, because it reads well enough to be
-              mistaken for the answer.
+            <p>
+              This is not a prompting-skill problem. Researchers reviewed 102
+              commercial agents and ran a 31-person study of Operator and Manus,
+              and reported capabilities misaligned with user mental models. You
+              cannot delegate work to a system you cannot picture.
             </p>
-          </div>
 
-          <div className="mt-12">
-            <h2 className="font-heading text-2xl font-bold text-primary mb-2">
-              What people ask for, and what the work needs
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-primary mt-10 mb-4">
+              Six assumptions I keep correcting
             </h2>
-            <p className="text-foreground/80 leading-relaxed mb-6">
-              The left column names a format. The right column names an outcome
-              and a constraint, which is the part the agent cannot invent for
-              you.
+            <p>
+              Almost every failure I see in client work starts as one of these.
+              None of them shows up in the interface, which is why rephrasing a
+              request never fixes them.
             </p>
-            <div className="overflow-x-auto">
-              <table className="w-full text-left text-sm border-collapse">
-                <thead>
-                  <tr className="border-b border-border/60">
-                    <th scope="col" className="py-3 pr-4 font-heading font-bold text-foreground">
-                      Asked
-                    </th>
-                    <th scope="col" className="py-3 font-heading font-bold text-foreground">
-                      Needed
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {requestPairs.map((pair) => (
-                    <tr key={pair.asked} className="border-b border-border/40 align-top">
-                      <td className="py-3 pr-4 text-muted-foreground">{pair.asked}</td>
-                      <td className="py-3 text-foreground/80">{pair.needed}</td>
+            <BlurFade inView>
+              <div className="mt-6 mb-10 overflow-x-auto">
+                <table className="w-full border-collapse text-left text-[15px]">
+                  <caption className="sr-only">
+                    Six common assumptions about AI tools, what is true in 2026,
+                    and what to do about each
+                  </caption>
+                  <thead>
+                    <tr className="border-b-2 border-ink/25">
+                      <th scope="col" className="py-3 pr-4 font-heading text-sm font-bold text-primary">
+                        What people assume
+                      </th>
+                      <th scope="col" className="py-3 pr-4 font-heading text-sm font-bold text-primary">
+                        What is true in 2026
+                      </th>
+                      <th scope="col" className="py-3 font-heading text-sm font-bold text-primary">
+                        What to do
+                      </th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div className="mt-12 rounded-xl border border-border/60 bg-card p-6 md:p-8">
-            <h2 className="font-heading text-2xl font-bold text-primary mb-5">
-              How I check for it
-            </h2>
-            <p className="text-foreground/80 leading-relaxed mb-4">
-              Every session opens the same way. Show me the last thing you
-              asked, and what came back. The gap is usually visible in under a
-              minute.
-            </p>
-            <p className="text-foreground/80 leading-relaxed mb-4">
-              I look for three things. Whether the request named an outcome or a
-              format. Whether the person can say what good output looks like
-              before they see it. And what they did when it missed.
-            </p>
-            <p className="text-foreground/80 leading-relaxed">
-              The third one predicts the rest. People who rewrite the request
-              are learning the model. People who switch tools are shopping for
-              one that will not need directing. There is no version of this that
-              skips the directing.
-            </p>
-          </div>
-
-          {/*
-            The organisational layer. This page is individual-first, so the
-            team version sits underneath rather than at the top — one
-            entrance, one deeper room. Language follows openEXO, the model
-            Alex advises on: immune response, innate vs adaptive, the
-            attributes. MTP is deliberately not used; "a purpose worth
-            joining" carries the same meaning without the jargon.
-          */}
-          <div className="mt-12 rounded-xl border border-border/60 bg-card p-6 md:p-8">
-            <span className="text-xs text-muted-foreground/60 font-mono uppercase tracking-widest">
-              For teams and organisations
-            </span>
-            <h2 className="font-heading text-2xl font-bold text-primary mb-5 mt-2">
-              When it happens across a team
-            </h2>
-
-            <p className="text-foreground/80 leading-relaxed mb-5">
-              One person hitting the last mile is frustrating. Twenty people
-              hitting it at once is an organisational problem, and it does
-              not present itself as one. It looks like inconsistent adoption,
-              quiet reversion to old habits, and a leadership team deciding
-              the tools were overhyped.
-            </p>
-
-            <p className="text-foreground/80 leading-relaxed mb-5">
-              Organisations have an immune system. It recognises an
-              unfamiliar change and reacts the way a body reacts to a foreign
-              organ. It answers in two ways, and they need different
-              handling.
-            </p>
-
-            <div className="grid gap-4 md:grid-cols-2 my-6">
-              <div className="rounded-lg border border-border/60 p-4">
-                <h3 className="font-heading font-bold text-foreground mb-2">
-                  The innate response
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Fast and reflexive. It does not evaluate whether the idea is
-                  good. It sees something that breaks the established rules
-                  and rejects it outright: that is not how we do things here.
-                </p>
+                  </thead>
+                  <tbody>
+                    {assumptions.map((row) => (
+                      <tr key={row.assume} className="border-b border-ink/10 align-top">
+                        <td className="py-3 pr-4 font-medium text-foreground">{row.assume}</td>
+                        <td className="py-3 pr-4 text-muted-foreground">{row.truth}</td>
+                        <td className="py-3 text-foreground/85">{row.action}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
-              <div className="rounded-lg border border-border/60 p-4">
-                <h3 className="font-heading font-bold text-foreground mb-2">
-                  The adaptive response
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Slower, organised, and harder to see. It remembers what it
-                  cost to build the current process and it protects whoever
-                  owns it. This is the one that outlasts a launch, a memo, or
-                  a rollout.
-                </p>
-              </div>
-            </div>
+            </BlurFade>
 
-            <p className="text-foreground/80 leading-relaxed mb-5">
-              AI provokes both at once. It threatens a process someone owns
-              and their sense of competence in the same breath. Nobody wants
-              to admit they do not understand the thing the company
-              bought, so the resistance rarely arrives as an argument. It
-              arrives as delay.
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-primary mt-10 mb-4">
+              What changes when the models are right
+            </h2>
+            <p>
+              A consultant I work with spent three hours a month assembling
+              board packs from all four of her spreadsheets. She asked an agent
+              to summarise the sales data and flag risks, and got a tidy page
+              that missed the two accounts which had gone quiet for six weeks.
+              Her request described a task; her work needed a decision. When she
+              added a line asking it to flag accounts whose order volume fell
+              more than 30 percent against their own twelve-month average,
+              ranked by revenue at risk, the same agent put both on top.
             </p>
-
-            <p className="text-foreground/80 leading-relaxed">
-              Lead with the tool and it gets rejected on sight. Lead with a
-              purpose worth joining and the same people do the same work.
-              Then read the attributes as they are. The ones that exist,
-              community and experiment, are landing zones. The ones that are
-              missing, autonomy and interfaces, are blockers that enthusiasm
-              will not route around. Structure without literacy is a faster
-              way to fail, which is why the last mile is the unit of change.
-              Transformation is this problem repeated across people.
+            <p>
+              That exchange is the whole problem in miniature. She had to know
+              what the output was for, and no model could supply that for her.
+              The six assumptions above are the same thing at a different scale:
+              each one is a fact about the tool you have to hold in your head
+              before you can ask it for anything well.
+            </p>
+            <p>
+              For a one-person shop or a small team this is cheap to fix and
+              expensive to skip. Literacy is not a training day, it is something
+              you keep paying attention to, since the tools move under you. The
+              people I see get value are not the ones with the best access. They
+              are the ones who can say what the model is doing, roughly what it
+              costs, and what it is allowed to touch.
             </p>
           </div>
-
           <Sources items={sources} />
 
           {/* Related Concepts */}
