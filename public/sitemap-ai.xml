@@ -191,4 +191,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
+  <!-- Intake - linked from the service catalog and assessment archetypes -->
+  <url>
+    <loc>https://thearmchairfuturist.com/intake/digital-identity</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
 </urlset>
