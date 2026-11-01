@@ -1,3 +1,13 @@
+/**
+ * The hero artwork used when the WebGL canvas cannot run: the GPU is missing,
+ * the renderer is software, or the visitor prefers reduced motion.
+ *
+ * There is deliberately no placeholder phase. This SVG used to render while
+ * WebGL compiled its first frames, first at full strength and then dimmed to
+ * .18; at both settings its curved strokes read as a stray line across the
+ * hero. It now renders only when it is the real artwork, so the hero shows
+ * nothing but the canvas while that starts.
+ */
 export function StaticOrganismFallback({
   visible,
   permanent = false,
@@ -5,12 +15,12 @@ export function StaticOrganismFallback({
   visible: boolean;
   permanent?: boolean;
 }) {
+  if (!permanent) return null;
+
   return (
     <svg
       className={
-        "organism-fallback" +
-        (visible ? " is-visible" : "") +
-        (visible && !permanent ? " is-placeholder" : "")
+        "organism-fallback" + (visible ? " is-visible" : "")
       }
       viewBox="0 0 1000 600"
       preserveAspectRatio="none"

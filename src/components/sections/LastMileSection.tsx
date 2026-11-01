@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import Image from "next/image";
 import { BlurFade } from "@/components/ui/blur-fade";
+import SameAgentTwice from "./SameAgentTwice";
 
 /**
  * The homepage statement of the core thesis.
@@ -42,19 +42,7 @@ export default function LastMileSection() {
             </p>
           </div>
 
-          {/* Preview: a real picture in a section that had none. Swap this
-              file for a true photograph of the work (client sessions, build
-              days) before this ships. */}
-          <div className="mt-10">
-            <Image
-              src="/header.webp"
-              alt="The Armchair Futurist at work"
-              width={1255}
-              height={1102}
-              sizes="(max-width: 896px) 100vw, 896px"
-              className="w-full max-w-2xl"
-            />
-          </div>
+          <SameAgentTwice />
 
           <div className="mt-8">
             <Link
