@@ -32,10 +32,15 @@ export default function LastMileSection() {
               not to be.
             </p>
             <p>
-              What remains is the last mile: knowing what to ask for, and
-              understanding how a model works. Most people rewrite
-              the same request five times, get something that looks right,
-              and give up, concluding AI does not work for them.
+              What remains is the last mile: work skill, not model
+              access. New models infer well from weak prompts. Most
+              people still paste, retry and trust the first clean answer.
+              Cost climbs, results vary, nothing repeats.
+            </p>
+            <p>
+              Skilled users save the recipe, route cheap checks first,
+              spend strong thought once, run cheap models on triggers,
+              and log each run. The same task costs less and repeats.
             </p>
             <p className="text-ink font-medium">
               The answer is literacy, and no tool ships with it.
