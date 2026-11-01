@@ -41,9 +41,9 @@ export default function SpeakingSection() {
                 <Mic className="h-3.5 w-3.5" aria-hidden="true" />
                 On stage
               </p>
-              <h2 className="font-display text-display font-medium tracking-tight text-ink max-w-[26ch]">
+              <h1 className="font-display text-display font-medium tracking-tight text-ink max-w-[26ch]">
                 Also lead rooms that need a decision
-              </h2>
+              </h1>
             </div>
             <p className="text-charcoal text-base md:text-lg max-w-md md:text-right leading-snug">
               Roundtables, workshops, strategy sessions — structured

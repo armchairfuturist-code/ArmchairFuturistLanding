@@ -79,5 +79,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Content
     page('/blog', '2026-08-21', 'monthly', 0.6),
+
+    // Intake (linked from service catalog and assessment archetypes)
+    page('/intake/digital-identity', '2026-09-04', 'monthly', 0.5),
   ];
 }

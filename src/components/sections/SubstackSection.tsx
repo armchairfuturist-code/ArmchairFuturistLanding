@@ -73,9 +73,9 @@ export default function SubstackSection() {
           <p className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-4">
             Newsletter
           </p>
-          <h2 className="font-heading text-display-sm font-medium tracking-tight text-ink mb-3">
+          <h1 className="font-heading text-display-sm font-medium tracking-tight text-ink mb-3">
             Signal, not hype
-          </h2>
+          </h1>
           <p className="text-charcoal max-w-xl mx-auto text-sm md:text-base leading-relaxed">
             What AI actually does in a working business, once a week, with
             the receipts. That is the Armchair Futurist newsletter.

@@ -20,8 +20,8 @@ export const metadata: Metadata = {
     type: 'website',
   },
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
   },
 };
 
@@ -30,7 +30,9 @@ export default function TermsOfServicePage() {
     <div className="container mx-auto py-12 px-4 md:px-6">
       <Card className="max-w-3xl mx-auto shadow-lg">
         <CardHeader>
-          <CardTitle className="text-3xl font-bold text-primary">Terms of Service</CardTitle>
+          <CardTitle className="text-3xl font-bold text-primary">
+            <h1>Terms of Service</h1>
+          </CardTitle>
         </CardHeader>
         <CardContent className="prose prose-lg max-w-none text-foreground/80">
           <p><em>Last updated: March 1, 2026</em></p>

@@ -37,7 +37,7 @@ export default function Header() {
           <Link href="/" className="flex items-center space-x-3">
             <Image
               src="/img.jpg"
-              alt=""
+              alt="Alex Myers"
               width={32}
               height={32}
               className="rounded-full object-cover outline outline-1 -outline-offset-1 outline-white/10"
@@ -122,7 +122,7 @@ export default function Header() {
                     <div className="flex items-center space-x-3">
                       <Image
                         src="/img.jpg"
-                        alt=""
+                        alt="Alex Myers"
                         width={32}
                         height={32}
                         className="rounded-full object-cover outline outline-1 -outline-offset-1 outline-white/10"

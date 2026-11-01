@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { ArrowRight, Brain } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BlurFade } from "@/components/ui/blur-fade";
@@ -8,6 +9,7 @@ import QuizProgress from "@/components/assessment/QuizProgress";
 import QuizQuestion from "@/components/assessment/QuizQuestion";
 import EmailCapture from "@/components/assessment/EmailCapture";
 import { useAssessmentFlow } from "@/lib/hooks/useAssessmentFlow";
+import { archetypes } from "@/lib/assessment/archetypes";
 
 /**
  * Thin adapter over the Assessment Flow module.
@@ -69,6 +71,26 @@ export default function AssessmentPage() {
             <p className="mt-2 text-xs text-muted-foreground/60 font-mono">
               No signup required to see results.
             </p>
+          </BlurFade>
+
+          <BlurFade inView delay={0.7}>
+            <div className="mt-12">
+              <p className="text-sm text-muted-foreground mb-3">
+                Prefer to read the four profiles first?
+              </p>
+              <ul className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm">
+                {archetypes.map((a) => (
+                  <li key={a.slug}>
+                    <Link
+                      href={`/assessment/result/${a.slug}`}
+                      className="text-primary underline decoration-primary/30 underline-offset-4 hover:decoration-primary"
+                    >
+                      {a.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </BlurFade>
         </div>
       </section>
