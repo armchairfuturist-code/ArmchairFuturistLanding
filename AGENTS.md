@@ -20,6 +20,7 @@
 - `firebase deploy --only hosting` still deploys the SSR Cloud Function (firebase.json uses frameworksBackend for Next.js). This step takes ~200s because Google Cloud Build builds a container image for the 2nd Gen Cloud Function. The deploy is not stuck — it just takes 3-4 minutes. Do not interrupt it.
 - The site URL (thearmchairfuturist.com) uses a custom domain. The Firebase site ID is `armchair-futurist`, not `thearmchairfuturist`.
 - Artifact Registry cleanup policy is configured (1-day retention). No `--force` flag needed.
+- `esbuild` is a devDep on purpose (fixed 2026-11-05): without it, firebase-tools@15.x runs `npm install esbuild@^0.19.2 --no-save` during the deploy step, which ERESOLVEs against vite 8.3.5's peer range (`^0.27.0 || ^0.28.0`) and fails the run. Do not remove it.
 
 ## Project Info
 - Framework: Next.js 16 with App Router
