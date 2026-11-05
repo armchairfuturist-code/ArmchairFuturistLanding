@@ -180,7 +180,7 @@ ArmchairFuturistLanding/
 
 ### Email
 11. Sends **TWO** parallel Resend emails per submission. If Resend is down, the API returns a 500 error.
-12. From address: `Alex Myers <alex@thearmchairfuturist.com>` (env configurable).
+12. From address: `Alex Myers - The Armchair Futurist <armchairfuturist@gmail.com>` (env configurable).
 13. `FIREBASE_SERVICE_ACCOUNT_KEY` JSON parsing failures are **non-blocking** — falls back to `applicationDefault()`. This is by design.
 
 ### Code & Dependencies

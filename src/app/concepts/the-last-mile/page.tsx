@@ -255,7 +255,7 @@ export default function TheLastMilePage() {
             <BlurFade inView delay={0.1} className="md:w-64 shrink-0">
               <Image
                 src="/header.webp"
-                alt="Alex Myers, the Armchair Futurist"
+                alt="Alex Myers, The Armchair Futurist"
                 width={1255}
                 height={1102}
                 sizes="(max-width: 768px) 60vw, 256px"

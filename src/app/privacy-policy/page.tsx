@@ -37,7 +37,7 @@ export default function PrivacyPolicyPage() {
         <CardContent className="prose prose-lg max-w-none text-foreground/80">
           <p><em>Last updated: March 1, 2026</em></p>
           <p>
-            Welcome to Armchair Futurist ("us", "we", or "our"). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about our policy, or our practices with regards to your personal information, please contact us.
+            Welcome to The Armchair Futurist ("us", "we", or "our"). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about our policy, or our practices with regards to your personal information, please contact us.
           </p>
 
           <h2>1. Information We Collect</h2>

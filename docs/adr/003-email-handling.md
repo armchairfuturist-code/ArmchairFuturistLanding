@@ -60,7 +60,13 @@ supply only their spec (kind, lead store, rate-limit bucket, projections).
 
 ### Configuration
 - **Alex Email**: `process.env.ALEX_EMAIL` (default: `armchairfuturist@gmail.com`)
-- **From Email**: `process.env.RESEND_FROM_EMAIL` (default: `Alex Myers <alex@thearmchairfuturist.com>`)
+- **From Email**: `process.env.RESEND_FROM_EMAIL` (default: `Alex Myers - The Armchair Futurist <armchairfuturist@gmail.com>`)
+
+## A note on recipient address (ADR-003 status)
+
+The default email addresses now use the gmail user `armchairfuturist@gmail.com` rather than the
+brand domain name. That avoids bouncing because `thearmchairfuturist.com` has no MX records — any
+lead who replies bounces. Resend handles deliverability from a known-good Gmail envelope.
 - **Calendar URL**: Configured in `EMAIL_BRAND.calendarUrl`
 - **Branding Colors**: Consistent colors for all emails (blue, green, amber)
 

@@ -9,7 +9,7 @@ describe('isValidEmail', () => {
   it('accepts ordinary addresses', () => {
     for (const ok of [
       'a@b.co',
-      'alex@thearmchairfuturist.com',
+      'armchairfuturist@gmail.com',
       'first.last+tag@sub.domain.co.uk',
     ]) {
       expect(isValidEmail(ok)).toBe(true);
