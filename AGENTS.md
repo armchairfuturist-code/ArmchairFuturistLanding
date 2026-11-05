@@ -21,6 +21,7 @@
 - The site URL (thearmchairfuturist.com) uses a custom domain. The Firebase site ID is `armchair-futurist`, not `thearmchairfuturist`.
 - Artifact Registry cleanup policy is configured (1-day retention). No `--force` flag needed.
 - `esbuild` is a devDep on purpose (fixed 2026-11-05): without it, firebase-tools@15.x runs `npm install esbuild@^0.19.2 --no-save` during the deploy step, which ERESOLVEs against vite 8.3.5's peer range (`^0.27.0 || ^0.28.0`) and fails the run. Do not remove it.
+- `.npmrc` sets legacy-peer-deps=true on purpose (fixed 2026-11-05): firebase-tools pairs our firebase-admin v14 with firebase-frameworks ^0.11.0 (peer range ends at ^13; no release supports 14), and both the CLI's generated install and the Cloud Build container install ERESOLVE without it. Do not remove it; revisit when firebase-frameworks ships admin-14 support.
 
 ## Project Info
 - Framework: Next.js 16 with App Router
