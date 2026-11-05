@@ -226,7 +226,7 @@ export default function MentoringSection() {
           <BlurFade inView>
             <div className="mb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
               <div>
-                <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-3">
+                <p className="font-mono text-[11px] text-hp-electric mb-3">
                   Packages
                 </p>
                 <h3 className="font-display text-3xl font-medium text-ink mb-2 tracking-tight leading-tight">

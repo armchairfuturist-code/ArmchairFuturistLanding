@@ -127,7 +127,7 @@ export default function AboutMeSection() {
             </div>
             <Link
               href="/about"
-              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.7px] text-hp-bright hover:text-white transition-colors"
+              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-hp-bright hover:text-white transition-colors"
             >
               Full story, certifications & approach
               <ArrowRight className="h-4 w-4" aria-hidden="true" />

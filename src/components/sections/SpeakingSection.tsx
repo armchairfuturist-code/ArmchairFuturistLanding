@@ -116,7 +116,7 @@ export default function SpeakingSection() {
 export function HostBio({ className = "" }: { className?: string }) {
   return (
     <div className={`border border-ink/10 bg-canvas rounded-hp-xl px-5 py-6 md:px-8 md:py-7 ${className}`}>
-      <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-3">
+      <p className="font-mono text-[11px] text-hp-electric mb-3">
         For podcast &amp; event hosts
       </p>
       <p className="text-charcoal text-sm md:text-base leading-relaxed max-w-3xl">

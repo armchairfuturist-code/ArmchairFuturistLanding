@@ -85,7 +85,7 @@ export function VideoFacade({
             sizes="(max-width: 768px) 100vw, 56vw"
             className="object-cover transition-transform duration-300 ease-out group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
           />
-          <span className="absolute left-3 top-3 inline-flex h-11 w-11 items-center justify-center gap-2 rounded bg-hp-electric text-sm font-semibold uppercase tracking-[0.7px] text-white transition-colors duration-150 group-hover:bg-hp-bright md:left-5 md:top-5 md:w-auto md:px-6">
+          <span className="absolute left-3 top-3 inline-flex h-11 w-11 items-center justify-center gap-2 rounded bg-hp-electric text-sm font-semibold text-white transition-colors duration-150 group-hover:bg-hp-bright md:left-5 md:top-5 md:w-auto md:px-6">
             <Play className="h-4 w-4 shrink-0" aria-hidden="true" />
             {/* Label shows from md up; below that the poster is too narrow to
                 fit it without covering the artwork's own title, so the

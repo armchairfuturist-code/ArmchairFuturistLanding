@@ -70,7 +70,7 @@ export default function ROICalculatorSection() {
             </div>
             <p className="md:col-span-5 text-lg text-charcoal md:text-right max-w-sm md:ml-auto">
               Pick the tasks <span className="font-medium text-ink">each person</span>{" "}
-              does every week. See what automation could give back — per
+              does every week. See what automation could give back: per
               person, and for your whole team.
             </p>
           </div>

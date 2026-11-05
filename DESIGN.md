@@ -147,8 +147,7 @@ typography:
     fontSize: 14px
     fontWeight: 600
     lineHeight: 1.4
-    letterSpacing: 0.7px
-    textTransform: uppercase
+    letterSpacing: 0
   button-sm:
     fontFamily: Manrope
     fontSize: 12.6px
@@ -360,7 +359,7 @@ The aesthetic is **enterprise-credible, consumer-friendly**: a white-paper techn
 - **Soft 16px radii** on cards and photos; tight 4px radii on buttons and inputs.
 - **Dark navy customer-story band** — a contrasting `#1a1a1a` slab for testimonials and closing CTA.
 - **Blue chevron decorations** — angular slashes that nod to the HP wordmark, used sparingly as section dividers.
-- **Uppercase tracked buttons** — every button is 14px Manrope weight 600, uppercase, +0.7px tracking. No exceptions.
+- **Sentence-case buttons** — every button is 14px Manrope weight 600, sentence case. No exceptions.
 - **No gradients, no shadows on text, no decorative frames.** Form carries weight; chrome disappears.
 
 ## Colors
@@ -436,7 +435,7 @@ The typography system uses two geometric sans faces — **Space Grotesk** for di
 | `caption-sm` | 12px | 400 | 1.33 | 0 | Fine print, micro-labels |
 | `caption-bold` | 14px | 700 | 1.3 | 0 | Bold captions, badge text |
 | `link-md` | 16px | 500 | 1.38 | 0 | Inline text link |
-| `button-md` | 14px | 600 | 1.4 | 0.7px (uppercase) | All button labels |
+| `button-md` | 14px | 600 | 1.4 | 0 | All button labels |
 | `button-sm` | 12.6px | 700 | 1.0 | 0.126px | Compact button labels |
 | `price-md` | 24px | 500 | 1.17 | 0 | Pricing tier prices |
 
@@ -448,10 +447,10 @@ The typography system uses two geometric sans faces — **Space Grotesk** for di
 - **Geometric neutrality.** Space Grotesk (display) and Manrope (body/UI) are geometric, modern, and unornamented. No decorative flourishes, no contrasts that distract.
 - **Weight 500 for display.** Headlines sit at 500. Body is 400. Buttons are 600. The 500 weight gives display text a confident-but-not-bold presence.
 - **Line-height 1.0 at display sizes.** Tight, dense, engineered. Display lines pack together with no extra air.
-- **Tight letter-spacing.** The system uses 0 letter-spacing everywhere; uppercase buttons add +0.7px to give each letter breathing room.
-- **Buttons are uppercase + tracked.** Every button is 14px Manrope weight 600, uppercase, +0.7px letter-spacing. This is a non-negotiable brand signature.
+- **Tight letter-spacing.** The system uses 0 letter-spacing everywhere, buttons included.
+- **Buttons are sentence-case.** Every button is 14px Manrope weight 600, sentence case. This is a non-negotiable brand signature.
 - **Tracking calibration.** Manrope tracks slightly tighter than Space Grotesk's defaults; the 0 letter-spacing baseline applies to both faces consistently.
-- **Uppercase is reserved for buttons + section labels.** Only buttons and section markers get `text-transform: uppercase`. Never for body text.
+- **Uppercase is reserved for top-level section markers.** Only page and section lead markers get text-transform: uppercase. Never for buttons or body text.
 
 ## Layout & Spacing
 
@@ -483,7 +482,7 @@ The typography system uses two geometric sans faces — **Space Grotesk** for di
 **1. Button Primary** — Electric Blue, white text
 - Background: `#024ad8`
 - Text: `#ffffff`
-- Typography: 14px Manrope, 600, uppercase, +0.7px tracking
+- Typography: 14px Manrope, 600, sentence case
 - Radius: 4px
 - Padding: 12px 24px
 - Height: 44px
@@ -557,7 +556,7 @@ The typography system uses two geometric sans faces — **Space Grotesk** for di
 - **CSS variables** in `src/app/globals.css` expose the full color system. Tokens are HSL triplets for shadcn/ui compatibility.
 - **Tailwind config** extends the system with `fontFamily.display`, `fontFamily.body`, `fontFamily.mono`, color aliases (e.g. `text-ink`, `bg-canvas`, `border-hairline`), and `borderRadius.hp-md` / `borderRadius.hp-xl`.
 - **Font loading:** Space Grotesk (display) and Manrope (body/UI) are loaded via `next/font/google` in `src/app/layout.tsx` and exposed as `--font-display` and `--font-body` CSS variables. Weights match the token table above.
-- **Button shape is non-negotiable.** 14px, 600 weight, uppercase, +0.7px tracking, 4px radius. All buttons in the system follow this signature.
+- **Button shape is non-negotiable.** 14px, 600 weight, sentence case, 4px radius. All buttons in the system follow this signature.
 - **Color discipline:** Electric Blue is the primary site signal. Bloom Coral is reserved for commerce urgency. Storm blues are reserved for photo frames. Organism Scribble Gray and Organism Warm belong only to the hero organism.
 
 ## Permanent Sections (No Removal)
