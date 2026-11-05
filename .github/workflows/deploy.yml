@@ -5,6 +5,12 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# A newer push to main cancels the in-flight deploy: only the newest
+# commit's deploy matters, and each run takes ~4 min.
+concurrency:
+  group: deploy-main
+  cancel-in-progress: true
+
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
@@ -17,13 +23,30 @@ jobs:
           node-version: 22
           cache: npm
 
+      # The deploy action runs `npx firebase-tools@15.34.0`; without this cache
+      # every run re-extracts 361 packages into ~/.npm/_npx (~46s). setup-node's
+      # own cache never picks _npx up: its lockfile-hash key is a primary-key
+      # hit, so the post step skips saving. Bump this key together with
+      # firebaseToolsVersion below.
+      - name: Cache npx firebase-tools
+        uses: actions/cache@v6
+        with:
+          path: ~/.npm/_npx
+          key: npx-firebase-tools-15.34.0
+
       - run: npm ci
 
-      - name: Lint & typecheck
-        run: npm run lint
-
-      - name: Test
-        run: npx vitest run
+      # tsc and vitest are independent and read-only; in parallel they save
+      # ~8s. Build stays a separate step for clean logs.
+      - name: Lint, typecheck & test
+        run: |
+          set +e
+          npm run lint & P1=$!
+          npx vitest run & P2=$!
+          FAIL=0
+          wait $P1 || { echo "::error::tsc --noEmit failed"; FAIL=1; }
+          wait $P2 || { echo "::error::vitest failed"; FAIL=1; }
+          exit $FAIL
 
       - name: Build
         run: npm run build
