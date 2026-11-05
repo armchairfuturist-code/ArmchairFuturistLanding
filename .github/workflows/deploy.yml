@@ -32,6 +32,15 @@ jobs:
         uses: FirebaseExtended/action-hosting-deploy@v0
         env:
           FIREBASE_CLI_EXPERIMENTS: webframeworks
+          # firebase-tools' frameworks step generates a function package.json that
+          # pairs our firebase-admin (v14) with firebase-frameworks@^0.11.0, whose
+          # peer range stops at ^13 — no firebase-frameworks release supports 14
+          # yet — so the CLI's `npm i --omit dev --no-audit` ERESOLVEs. Let that
+          # one generated install skip peer enforcement; firebase-frameworks only
+          # uses core admin auth APIs (verifyIdToken/createSessionCookie), stable
+          # across 13->14. Scoped to this step: npm ci/build/test still enforce
+          # peers.
+          NPM_CONFIG_LEGACY_PEER_DEPS: "true"
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ARMCHAIR_FUTURIST }}
