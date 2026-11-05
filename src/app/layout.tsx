@@ -10,6 +10,9 @@ import { SmoothScrollProvider } from "@/components/ui/SmoothScrollProvider";
 import StructuredData from "@/components/seo/StructuredData";
 import "./globals.css";
 
+// ISR: revalidate prerendered pages every 60s so deploys propagate at the CDN edge.
+export const revalidate = 60;
+
 // Self-hosted via next/font — no render-blocking Google Fonts @import.
 // Space Grotesk = display, Manrope = body/UI, DM Mono = micro-labels.
 const spaceGrotesk = Space_Grotesk({
