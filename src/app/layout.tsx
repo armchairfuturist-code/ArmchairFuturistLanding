@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Mono, Manrope, Space_Grotesk } from "next/font/google";
+import localFont from "next/font/local";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
@@ -13,23 +13,24 @@ import "./globals.css";
 // ISR: revalidate prerendered pages every 60s so deploys propagate at the CDN edge.
 export const revalidate = 60;
 
-// Self-hosted via next/font — no render-blocking Google Fonts @import.
+// Self-hosted woff2 files — zero font network calls at build time and runtime
+// (the next/font/google fetch flaked intermittently in CI; this removes it).
 // Space Grotesk = display, Manrope = body/UI, DM Mono = micro-labels.
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+const spaceGrotesk = localFont({
+  src: "./fonts/SpaceGrotesk-Variable.woff2",
   variable: "--font-display",
   display: "swap",
 });
-const manrope = Manrope({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+const manrope = localFont({
+  src: "./fonts/Manrope-Variable.woff2",
   variable: "--font-body",
   display: "swap",
 });
-const dmMono = DM_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
+const dmMono = localFont({
+  src: [
+    { path: "./fonts/DMMono-Regular.woff2", weight: "400" },
+    { path: "./fonts/DMMono-Medium.woff2", weight: "500" },
+  ],
   variable: "--font-mono",
   display: "swap",
 });
