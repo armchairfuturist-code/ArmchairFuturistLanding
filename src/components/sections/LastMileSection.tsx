@@ -27,23 +27,19 @@ export default function LastMileSection() {
 
           <div className="max-w-2xl space-y-4 text-base md:text-lg leading-relaxed text-charcoal">
             <p>
-              More capable AI agents are available now than at any point in the
-              last three years, and anyone with a card can get one. That was
-              supposed to be the difficult part of all this, but getting one
-              turned out to be easy.
+              Anyone with a card can get a capable AI agent. That was supposed to
+              be the hard part, and it turned out to be easy.
             </p>
             <p>
-              The last mile asks for skill rather than model access. New models
-              can infer plenty from a weak prompt, which is why most people
-              paste a request, retry it twice, and then trust the first clean
-              answer they get. That habit is expensive in ways you do not notice
-              at first, because the results vary week to week and nothing is
-              repeatable.
+              The last mile is a skill problem. New models infer plenty from a
+              weak prompt, so most people paste a request, retry it twice, and
+              trust the first clean answer. Results vary week to week and
+              nothing repeats.
             </p>
             <p>
-              Skilled users save the recipe, route the cheap checks first,
+              Skilled users save the recipe. They route cheap checks first,
               spend the strong thought once, run cheap models on triggers, and
-              log each run, so the same task costs less and repeats next week
+              log each run. The same task costs less and repeats next week
               without them.
             </p>
             <p className="text-ink font-medium">

@@ -105,12 +105,11 @@ export default function ConnectSection() {
           </motion.div>
           <p className="mt-4 text-sm text-primary-foreground/85">
             I answer these myself, usually within a few hours, and there is no
-            pitch waiting at the other end. Most clients become self-sufficient
-            within eight to ten weeks, so this call is either step one or a
-            pointer to someone better suited.
+            pitch. Most clients are self-sufficient within eight to ten weeks,
+            so this call is step one or a pointer elsewhere.
           </p>
           <p className="mt-4 text-sm text-primary-foreground/85">
-            If you are not sure a call is the right step yet,{" "}
+            If you are not sure yet,{" "}
             <BookCallButton
               location="connect_book_call"
               bare
@@ -120,7 +119,7 @@ export default function ConnectSection() {
             >
               book a 15-minute call
             </BookCallButton>{" "}
-            and we&apos;ll work out the right next step before you commit to
+            and we&apos;ll work out what that step is before you commit to
             anything.
           </p>
         </BlurFade>

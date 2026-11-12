@@ -11,11 +11,11 @@ import { trackEvent } from "@/lib/analytics";
 const fitRows = [
   {
     title: "You want to build it yourself.",
-    body: "We work one-on-one on your own business, and you learn to build AI workflows and to judge whether the result holds up. The eight-to-ten-week program gives you the time to put that into practice with me alongside you.",
+    body: "We work one-on-one on your business. You learn to build AI workflows and judge whether the result holds up, and the eight-to-ten-week program gives you time to practice with me alongside you.",
   },
   {
     title: "You want me to build it for you.",
-    body: "You bring the problem, and my job is to build and ship the system. The build gets delivered without you having to take it on yourself.",
+    body: "You bring the problem. I build and ship the system, so you never take on the build yourself.",
   },
 ];
 
@@ -33,8 +33,8 @@ export default function WhatThisIsNotSection() {
               </h2>
             </div>
             <p className="md:col-span-5 text-lg text-charcoal md:text-right max-w-sm md:ml-auto">
-              Both kinds of people are welcome. The work is the same either
-              way, and you should leave more capable than you arrived.
+              Both kinds of people are welcome. Either way, you should leave
+              more capable than you arrived.
             </p>
           </div>
         </BlurFade>
@@ -91,9 +91,9 @@ export default function WhatThisIsNotSection() {
         <BlurFade inView delay={0.2}>
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 border border-ink/10 bg-cloud rounded-hp-xl px-6 py-8 md:px-10">
             <p className="text-base md:text-lg text-ink font-display font-medium max-w-xl leading-snug">
-              Tell me the problem you are stuck on, and I&apos;ll tell you
-              honestly whether I&apos;m the right fit. If I&apos;m not, I&apos;ll
-              point you toward someone who is.
+              Tell me the problem you&apos;re stuck on and I&apos;ll tell you
+              whether I&apos;m the right fit. If I&apos;m not, I&apos;ll point you
+              to someone who is.
             </p>
             <WhatsAppButton
               location="what_this_is_not"

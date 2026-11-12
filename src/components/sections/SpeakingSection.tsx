@@ -46,9 +46,8 @@ export default function SpeakingSection() {
               </h2>
             </div>
             <p className="text-charcoal text-base md:text-lg max-w-md md:text-right leading-snug">
-              Roundtables, workshops, and strategy sessions, which means
-              structured conversations that end in a decision rather than a
-              keynote with slides.
+              Roundtables, workshops, and strategy sessions: structured
+              conversations that end in a decision, not a keynote with slides.
             </p>
           </div>
         </BlurFade>
@@ -90,8 +89,7 @@ export default function SpeakingSection() {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border border-ink/10 bg-cloud rounded-hp-xl px-5 py-5 md:px-8 md:py-6">
           <p className="text-sm md:text-base text-charcoal max-w-xl leading-relaxed">
             If your leadership team needs someone to lead the AI discussion,
-            bring a real decision into the room and we will work it through
-            together.
+            bring a real decision into the room.
           </p>
           <Button asChild className="shrink-0">
             <a

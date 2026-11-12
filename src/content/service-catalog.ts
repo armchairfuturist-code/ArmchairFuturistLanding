@@ -38,14 +38,14 @@ export const SERVICE_PATHS: ServicePath[] = [
     title: "We Do It Together",
     kicker: "Build the literacy to do it yourself",
     description:
-      "Every path here runs against work you are already doing rather than a demo dataset, so the learning survives the trip back to the office. Session packs exist to build literacy. The Self-Sufficiency Program is where literacy becomes an AI-powered business, which is why people choose it when they want revenue instead of notes.",
+      "We work on work you are already doing, not a demo dataset, so the learning survives the trip back to the office. Session packs build literacy. The Self-Sufficiency Program turns that literacy into an AI-powered business.",
     tiers: [
       {
         name: SERVICES_PRICING.roadmapAudit.name,
         priceKey: "roadmapAudit",
         tag: "90-Minute Working Session",
         description:
-          "A paid deep dive that reads the diagnosis back to you as a scored roadmap for workflows you run today. It answers three questions in the order that pays back first: which tasks to automate, which tools to buy, and which systems to build. You get a written report, a video walkthrough of that report, and a blueprint that stays yours whether you implement it alone or ask me to build it with you.",
+          "A paid deep dive that turns the diagnosis into a scored roadmap for the workflows you run today. You get three answers in the order that pays back first: which tasks to automate, which tools to buy, which systems to build. Plus a written report, a video walkthrough, and a blueprint you keep whether you build it yourself or ask me to.",
         features: [
           "90-minute deep discovery call",
           "Scored roadmap mapped to your actual workflows",
@@ -64,7 +64,7 @@ export const SERVICE_PATHS: ServicePath[] = [
         priceKey: "guidanceRange",
         tag: "5 · 10 · 20 Packs",
         description:
-          "Packs come in three sizes: five sessions, ten, or twenty, and they carry you from a first honest understanding of the tools to working without me in the room. Most people begin at five because that is where the shape of the work becomes visible, and they scale up once their own learning tells them to.",
+          "Three packs: five sessions, ten, or twenty. They carry you from a first understanding of the tools to working without me in the room. Most people start with five and scale up once they know what the work asks.",
         features: [
           "60-minute 1-on-1 video sessions",
           "From understanding to agency to action",
@@ -83,7 +83,7 @@ export const SERVICE_PATHS: ServicePath[] = [
         priceKey: "selfSufficiency",
         tag: "8-Week Build Sprint",
         description:
-          "The 8-week Build Sprint is the AI Self-Sufficiency Program, and its promise is narrow on purpose: to launch an AI-powered service or brand by week eight. You work from a playbook that has already been through this, with 10 to 15 coaching sessions and async support between them, so you finish holding something you can sell rather than notes from sessions.",
+          "The 8-week Build Sprint is the AI Self-Sufficiency Program. You launch an AI-powered service or brand by week eight, working from a proven playbook with 10 to 15 coaching sessions and async support between them, and you finish with something you can sell.",
         features: [
           "Your own AI-powered service, designed & launched by week 8",
           "Structured build playbook (not open coaching)",
@@ -96,7 +96,7 @@ export const SERVICE_PATHS: ServicePath[] = [
         ctaLink: CALENDAR_URL,
         highlighted: true,
         icon: "Target",
-        note: "There's no lock-in, and you leave with a launched service, the playbook, and the skills, all of which stay yours whether or not we keep working together.",
+        note: "No lock-in. You leave with a launched service, the playbook, and the skills, and they stay yours.",
       },
     ],
   },
@@ -106,14 +106,14 @@ export const SERVICE_PATHS: ServicePath[] = [
     title: "I Do It For You",
     kicker: "Production-ready AI, built and shipped",
     description:
-      "This path exists for the week when you need a working system rather than a curriculum. My job is to provision the servers, install the agents, connect the tools, and hand over something you own outright. It is the heavier path on paper and the calmer one in practice.",
+      "For the week when you need a working system, not a curriculum. I provision the servers, install the agents, connect the tools, and hand over a system you own outright.",
     tiers: [
       {
         name: SERVICES_PRICING.digitalIdentity.name,
         priceKey: "digitalIdentity",
         tag: "Delivered in 2–4 Days",
         description:
-          "A digital identity site that is ready to send to an interviewer, because it folds your LinkedIn, resume, and social links into one professional platform you own and control. Think of the Linktree pattern, rebuilt for operators who need to look serious in front of a hiring committee.",
+          "An interview-ready site that folds your LinkedIn, resume, and social links into one platform you own. It is the Linktree pattern, built for operators who need to look serious to a hiring committee.",
         features: [
           "Custom-designed landing page",
           "LinkedIn, resume, and social links",
@@ -131,7 +131,7 @@ export const SERVICE_PATHS: ServicePath[] = [
         priceKey: "customAiProvisioning",
         tag: "1–2 Weeks",
         description:
-          "A done-for-you private AI command center: custom business workflows, agent installation for OpenClaw and Hermes, API integrations, calendar and email sync, and secure infrastructure underneath all of it. Clients tend to reclaim 10 to 20 hours a week once this is running, and the stack is open standard, so nothing holds you hostage later.",
+          "A private AI command center, delivered: custom business workflows, agent installs for OpenClaw and Hermes, API, calendar, and email integrations, and secure infrastructure underneath. Clients reclaim 10 to 20 hours a week, and the stack is open standard, so nothing locks you in.",
         features: [
           "Custom business workflows",
           "Agent installation (OpenClaw, Hermes)",

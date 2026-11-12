@@ -18,14 +18,14 @@ const clientExamples = [
     client: byName("Brenda Fonseca"),
     path: "Build with me",
     title: "From unsure where to start to building her own AI tools",
-    description: "Brenda came to the sessions unsure of what training to ask for, and four months into working together she was using AI for her work and personal tasks, including building her own customized productivity tools.",
+    description: "Brenda came to the sessions unsure what training to ask for. Four months in, she was using AI for work and personal tasks, and building her own productivity tools.",
     excerpt: "Now I have a foundational understanding of what AI actually is and how I can use it as a tool in my daily productivity for both work and personal - even using it to do my own coding to create customized productivity skills.",
   },
   {
     client: byName("Shannon Myers"),
     path: "Built for you",
     title: "A website launch and 20 hours back each week",
-    description: "Shannon credits the work with helping her reclaim 20 hours a week and with launching a website that landed a deal inside an hour, and those are her reported results from that engagement.",
+    description: "Shannon credits the work with 20 hours a week back and a website launch that landed a deal inside an hour. These are her reported results.",
     excerpt: "He helped me reclaim 20 hours per week through AI optimization and launch a website that landed a deal within an hour.",
   },
 ];
@@ -79,7 +79,7 @@ export default function ProofSection() {
               </figure>
             ))}
           </div>
-          <p className="mt-4 text-sm text-graphite">These are excerpts from client reviews, and individual results and timelines vary from one engagement to the next.</p>
+          <p className="mt-4 text-sm text-graphite">Excerpts from client reviews. Individual results and timelines vary.</p>
           <details className="mt-4 border-b border-hairline pb-2">
             <summary className={disclosureClass}>Read more client reviews ({TESTIMONIALS.length} full reviews)</summary>
             <div className="grid gap-x-12 gap-y-8 py-6 md:grid-cols-2">
@@ -120,7 +120,7 @@ export default function ProofSection() {
 
         <details className="mt-6 border-b border-hairline pb-2">
           <summary className={disclosureClass}>See implementation examples</summary>
-          <p className="max-w-prose py-4 text-sm leading-relaxed text-graphite">The examples below are anonymized and composited from several engagements, so they do not describe the named clients above.</p>
+          <p className="max-w-prose py-4 text-sm leading-relaxed text-graphite">Anonymized and composited from several engagements, so they do not describe the named clients above.</p>
           <div className="divide-y divide-hairline">
             {CASE_STUDIES.map((study) => (
               <article key={study.index} className="grid gap-4 py-6 md:grid-cols-3 md:gap-8">

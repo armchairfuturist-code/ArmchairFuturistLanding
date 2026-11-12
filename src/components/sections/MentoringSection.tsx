@@ -157,12 +157,11 @@ export default function MentoringSection() {
             Judgment you own beats judgment you rent.
           </h2>
           <p className="text-white/80 text-lg md:text-xl max-w-2xl leading-relaxed">
-            Most training hands you a set of tools and then leaves the room
-            while you work out what they are for. This is a partnership
-            instead, because the mental models that make AI click are built in
-            conversation and then tested against live work, so what you leave
-            with is judgment you keep and a clearer idea of the business you
-            could end up running.
+            Most training hands you tools and leaves the room while you work out
+            what they are for. This is a partnership: we build the mental models
+            that make AI click, test them on your live work, and you leave with
+            judgment you keep and a bigger idea of what the business could
+            become.
           </p>
         </div>
       </div>
@@ -222,9 +221,9 @@ export default function MentoringSection() {
                   Pick your speed to independence
                 </h3>
                 <p className="text-charcoal mt-3 max-w-md">
-                  Each session runs 60 minutes over video, and you can start
-                  wherever you happen to be. If you want systems built alongside
-                  you instead of guidance alone, start with the{" "}
+                  Sessions run 60 minutes over video, and you can start wherever
+                  you are. If you want systems built alongside you instead of
+                  guidance alone, start with the{" "}
                   <Link href="#services" className="text-hp-electric font-semibold underline underline-offset-4 hover:text-hp-deep transition-colors">
                     Build Sprint
                   </Link>
@@ -251,9 +250,9 @@ export default function MentoringSection() {
 
           <div className="mb-8">
             <p className="text-sm text-charcoal mb-3">
-              Sessions run 60 minutes and you can stop whenever the work stops
-              being useful. If you would rather talk it through before buying a
-              pack, book a call and we will pick the size together.
+              You can stop whenever the work stops being useful. If you would
+              rather talk it through first, book a call and we will pick the
+              size together.
             </p>
             <BookCallButton
               size="default"

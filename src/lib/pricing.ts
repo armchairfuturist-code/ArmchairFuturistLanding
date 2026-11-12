@@ -97,7 +97,7 @@ export const COACHING_PACKAGES: CoachingPackage[] = [
     savings: 0,
     savingsUSD: 0,
     description:
-      "One focused session with nothing attached to it. You bring a specific question, or a scope that has gone mixed, and we work through it together, which is why this is the right door when you are still working out what you need or want a read on whether we fit.",
+      "One session, no commitment. Bring a specific question or a mixed scope and we work through it together. Good for discovery, or when you are still working out what you need.",
     features: [
       'One 60-minute video session',
       'Focused on your specific challenge or question',
@@ -160,7 +160,7 @@ export const COACHING_PACKAGES: CoachingPackage[] = [
     savings: 300,
     savingsUSD: 400,
     description:
-      'Premium long-arc coaching, and the deepest one-to-one track we offer for building independent AI judgment',
+      'The longest track we offer, for building independent AI judgment over a full quarter',
     features: [
       'Everything in 10-Session Pack',
       'Between-session follow-up on session-related topics (WhatsApp)',
@@ -168,7 +168,7 @@ export const COACHING_PACKAGES: CoachingPackage[] = [
       'Priority scheduling & rescheduling',
     ],
     upgradeNote:
-      'If you want hands-on co-building and launch accountability, the 8-Week Build Sprint adds a structured playbook, async build support, and a fixed deliverable by week 8. Amounts paid here credit toward the Program.',
+      'If you want hands-on co-building, the 8-Week Build Sprint adds a structured playbook, async support, and a fixed deliverable by week 8. Amounts paid here credit toward the Program.',
     popular: true,
   },
 ];
