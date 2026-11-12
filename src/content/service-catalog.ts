@@ -205,7 +205,7 @@ export const SERVICE_SYSTEMS: readonly ServiceSystem[] = [
     seo: {
       title: "Data Foundation: Context Layer, Pipelines, Knowledge Base",
       description:
-        "One queryable system for SOPs, sheets, and inbox. AI answers from your source, not memory. Built with you, owned by you.",
+        "One queryable system for SOPs, sheets, and inbox notes. AI answers from your source documents instead of from memory. Built with your team and owned by you.",
       openGraphDescription: "One place your AI tells the truth from.",
     },
     heroTitle: "One place your AI tells the truth from.",
@@ -265,7 +265,7 @@ export const SERVICE_SYSTEMS: readonly ServiceSystem[] = [
     seo: {
       title: "Revenue Operations: Onboarding, Pipeline, Docs, Billing",
       description:
-        "Onboarding, pipeline, documents, reporting, and billing that run without copy-paste. Built with you, owned by you.",
+        "Onboarding, pipeline, documents, reporting, and billing that run without copy-paste. Built with your team, documented, and owned by you after handover.",
       openGraphDescription: "Deals get touched. Reports build themselves.",
     },
     heroTitle: "Money in, money out, nothing stuck.",
@@ -332,7 +332,7 @@ export const SERVICE_SYSTEMS: readonly ServiceSystem[] = [
     seo: {
       title: "Visibility: Reporting and Capacity Tracking",
       description:
-        "Dashboards and capacity views from CRM, ads, and books. See overload and margin before month end.",
+        "Dashboards and capacity views pulled from your CRM, ad accounts, and books. See overload and margin before month end, not weeks after it closes.",
       openGraphDescription: "See overload and margin before month end.",
     },
     heroTitle: "See the week as it is.",
@@ -385,7 +385,7 @@ export const SERVICE_SYSTEMS: readonly ServiceSystem[] = [
     seo: {
       title: "Front-Line Help: Agents, SaaS Cuts, Model Costs",
       description:
-        "Tier-1 agents for intake and support, fewer SaaS seats, lower model spend. Scoped pilots, human handoff, you own the stack.",
+        "Tier-1 agents for intake and support, fewer SaaS seats, lower model spend. Scoped pilots with a human handoff, built so you own the stack at the end.",
       openGraphDescription: "Agents take the repeat work. Humans take the rest.",
     },
     heroTitle: "Agents take the repeat work.",

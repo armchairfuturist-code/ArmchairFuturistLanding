@@ -6,7 +6,7 @@ const siteUrl = "https://thearmchairfuturist.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Speaking & Community — Alex Myers",
+  title: "AI Speaking, Roundtables & Workshops — Alex Myers",
   description:
     "Alex Myers leads executive AI roundtables, workshops, and strategy sessions — and hosts Braga AI Builders, a monthly in-person AI meetup in Braga, Portugal.",
   alternates: { canonical: "/speaking" },
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 export default function SpeakingPage() {
   return (
     <main id="main-content" className="flex flex-col">
-      <SpeakingSection />
+      <SpeakingSection headingLevel="h1" />
       <div className="container mx-auto px-4 md:px-6 max-w-6xl pb-16 md:pb-20">
         <HostBio />
       </div>

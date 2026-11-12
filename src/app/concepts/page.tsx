@@ -6,7 +6,7 @@ import Breadcrumbs from '@/components/ui/breadcrumbs';
 import { CONCEPTS } from '@/content/concepts';
 
 export const metadata: Metadata = {
-  title: 'AI Adoption Concepts & Frameworks | The Armchair Futurist',
+  title: 'AI Adoption Concepts: The Frameworks I Use',
   description: 'Key concepts in AI adoption and organizational change, including the Accountability Gap, Psychology-Led Adoption, and Results Thinkers.',
   alternates: {
     canonical: '/concepts',
@@ -73,6 +73,13 @@ export default function ConceptsIndexPage() {
             <p className="text-xl text-foreground/80 font-sans leading-relaxed mb-8">
               Key frameworks and mental models for understanding AI adoption in organizations. 
               These concepts form the foundation of Alex Myers' advisory approach.
+            </p>
+            <p className="text-base text-foreground/70 font-sans leading-relaxed">
+              Each term also has a one-sentence definition in the
+              <Link href="/glossary" className="mx-1 underline decoration-primary/30 underline-offset-4 hover:decoration-primary">
+                AI adoption glossary
+              </Link>
+              if you need the short version first.
             </p>
           </BlurFade>
         </div>

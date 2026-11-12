@@ -7,7 +7,7 @@ const siteUrl = 'https://thearmchairfuturist.com';
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: 'Terms of Service | The Armchair Futurist',
-  description: 'Terms of service for The Armchair Futurist — legal terms governing your use of thearmchairfuturist.com.',
+  description: 'The terms governing your use of thearmchairfuturist.com: what the site provides, how assessment results may be used, and the limits of the advice given here.',
   alternates: {
     canonical: '/terms-of-service',
   },

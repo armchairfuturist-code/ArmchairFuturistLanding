@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'How I Work | The Armchair Futurist',
+  title: 'How I Work: The Infrastructure Behind This Site',
   description: 'The agent infrastructure behind thearmchairfuturist.com: Hermes agent, DeepSeek models, cron automation, and verifiable public output.',
   // Without these the root layout's canonical and og:url both apply, so this
   // page told search engines it was a duplicate of the homepage. It was the

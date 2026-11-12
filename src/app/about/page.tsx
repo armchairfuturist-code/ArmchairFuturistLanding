@@ -342,6 +342,11 @@ export default function AboutPage() {
               <p className="text-lg text-foreground/80 font-sans mb-8 max-w-2xl mx-auto">
                 Schedule a free 15-minute strategy call to discuss your AI adoption challenges and opportunities.
               </p>
+              <p className="text-sm text-charcoal mb-6 max-w-xl mx-auto">
+                Or read first: <a href="/speaking" className="underline decoration-primary/30 underline-offset-4 hover:decoration-primary">how I run executive roundtables</a>,
+                the <a href="/glossary" className="underline decoration-primary/30 underline-offset-4 hover:decoration-primary">glossary of the terms I use</a>,
+                and <a href="/case-studies" className="underline decoration-primary/30 underline-offset-4 hover:decoration-primary">what the work shipped</a>.
+              </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <BookCallButton
                   location="about_bottom_cta"

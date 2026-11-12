@@ -1,5 +1,4 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { NextRequest } from 'next/server';
 
 import { GET } from '@/app/api/substack/route';
 
@@ -26,10 +25,6 @@ const FEED = `<?xml version="1.0"?><rss><channel>
   <link>https://example.com/2</link><pubDate>Sun, 31 Aug 2026 00:00:00 GMT</pubDate></item>
 </channel></rss>`;
 
-function req() {
-  return new NextRequest('http://localhost:9002/api/substack', { method: 'GET' });
-}
-
 beforeEach(() => {
   vi.restoreAllMocks();
 });
@@ -45,7 +40,7 @@ describe('substack feed route', () => {
       vi.fn().mockResolvedValue({ ok: true, text: async () => FEED }),
     );
 
-    const res = await GET(req());
+    const res = await GET();
     expect(res.status).toBe(200);
     const posts = await res.json();
     expect(posts.map((p: { title: string }) => p.title)).toEqual(['One', 'Two']);
@@ -54,7 +49,7 @@ describe('substack feed route', () => {
 
   it('degrades to 500 when the response is not ok', async () => {
     vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: false, text: async () => '' }));
-    const res = await GET(req());
+    const res = await GET();
     expect(res.status).toBe(500);
   });
 
@@ -77,7 +72,7 @@ describe('substack feed route', () => {
       ),
     );
 
-    const pending = GET(req());
+    const pending = GET();
     await vi.advanceTimersByTimeAsync(5000);
 
     const res = await pending;

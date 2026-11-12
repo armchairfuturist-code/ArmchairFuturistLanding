@@ -95,7 +95,7 @@ const sections: readonly HomepageSection[] = [
       loading: () => (
         <SectionSkeleton minHeight="min-h-[420px]" label="Loading speaking" />
       ),
-    }),
+    }) as React.ComponentType,
   },
   {
     id: SECTION_IDS.substack,
@@ -105,7 +105,7 @@ const sections: readonly HomepageSection[] = [
       loading: () => (
         <SectionSkeleton minHeight="min-h-[600px]" label="Loading newsletter" />
       ),
-    }),
+    }) as React.ComponentType,
   },
   {
     id: SECTION_IDS.faq,

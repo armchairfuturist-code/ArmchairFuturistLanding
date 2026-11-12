@@ -28,7 +28,13 @@ const eventPhotos = [
  * Slim proof band — stage photos + one CTA.
  * Facilitation detail lives here only as proof; primary paths stay in Services/Mentoring.
  */
-export default function SpeakingSection() {
+export default function SpeakingSection({
+  headingLevel = "h2",
+}: {
+  /** h1 on /speaking, h2 on the homepage. */
+  headingLevel?: "h1" | "h2";
+} = {}) {
+  const Heading = headingLevel;
   return (
     <section
       className="scroll-mt-20 bg-background py-16 md:py-20"
@@ -41,9 +47,9 @@ export default function SpeakingSection() {
                 <Mic className="h-3.5 w-3.5" aria-hidden="true" />
                 On stage
               </p>
-              <h2 className="font-display text-display font-medium tracking-tight text-ink max-w-[26ch]">
+              <Heading className="font-display text-display font-medium tracking-tight text-ink max-w-[26ch]">
                 Also lead rooms that need a decision
-              </h2>
+              </Heading>
             </div>
             <p className="text-charcoal text-base md:text-lg max-w-md md:text-right leading-snug">
               Roundtables, workshops, and strategy sessions: structured

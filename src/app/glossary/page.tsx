@@ -7,7 +7,7 @@ import { CONCEPTS } from '@/content/concepts';
 const siteUrl = 'https://thearmchairfuturist.com';
 
 export const metadata: Metadata = {
-  title: 'AI Adoption Glossary: The Terms I Use | The Armchair Futurist',
+  title: 'AI Adoption Glossary: The Terms Behind the Work',
   description:
     'Short definitions of the terms behind AI adoption work: the last mile, the install trap, the accountability gap, pilot-itis, and the roles that close them.',
   alternates: { canonical: '/glossary' },

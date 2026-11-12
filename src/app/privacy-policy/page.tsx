@@ -7,7 +7,7 @@ const siteUrl = 'https://thearmchairfuturist.com';
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: 'Privacy Policy | The Armchair Futurist',
-  description: 'Privacy policy for The Armchair Futurist — how Alex Myers collects, uses, and protects your personal information.',
+  description: 'How The Armchair Futurist collects, uses, and protects personal information: what the assessment and newsletter store, and how to have it deleted.',
   alternates: {
     canonical: '/privacy-policy',
   },

@@ -8,22 +8,32 @@ import { ExternalLink, ArrowRight, RotateCcw } from 'lucide-react';
 import { format } from 'date-fns';
 import { motion } from 'motion/react';
 import { SUBSTACK_URL } from '@/lib/constants';
+import type { SubstackPost } from '@/lib/substack-feed';
 
-interface SubstackPost {
-  title: string;
-  description: string;
-  link: string;
-  pubDate: string;
-  imageUrl: string;
+interface SubstackSectionProps {
+  /** Server-rendered posts, so crawlers see the feed in the HTML. */
+  initialPosts?: SubstackPost[];
+  /** The section heading is h1 on /blog, h2 on the homepage. */
+  headingLevel?: 'h1' | 'h2';
+  /** Show the feed's own summary line on each card. Off on the homepage. */
+  showDescriptions?: boolean;
 }
 
-export default function SubstackSection() {
-  const [posts, setPosts] = useState<SubstackPost[]>([]);
-  const [loading, setLoading] = useState(true);
+export default function SubstackSection({
+  initialPosts = [],
+  headingLevel = 'h2',
+  showDescriptions = false,
+}: SubstackSectionProps) {
+  const Heading = headingLevel;
+  const [posts, setPosts] = useState<SubstackPost[]>(initialPosts);
+  const [loading, setLoading] = useState(initialPosts.length === 0);
   const [error, setError] = useState<string | null>(null);
   const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
+    // Server-rendered content is already on the page; fetch only when the
+    // server gave us nothing, or when the visitor pressed Retry.
+    if (attempt === 0 && initialPosts.length > 0) return;
     let cancelled = false;
     const fetchPosts = async () => {
       setLoading(true);
@@ -44,7 +54,7 @@ export default function SubstackSection() {
     return () => {
       cancelled = true;
     };
-  }, [attempt]);
+  }, [attempt, initialPosts.length]);
 
   const retry = useCallback(() => setAttempt((n) => n + 1), []);
 
@@ -72,9 +82,9 @@ export default function SubstackSection() {
           <p className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-4">
             Newsletter
           </p>
-          <h2 className="font-heading text-display-sm font-medium tracking-tight text-ink mb-3">
+          <Heading className="font-heading text-display-sm font-medium tracking-tight text-ink mb-3">
             Signal, not hype
-          </h2>
+          </Heading>
           <p className="text-charcoal max-w-xl mx-auto text-sm md:text-base leading-relaxed">
             I write every week about how AI behaves inside a working business,
             with the receipts. That is the Armchair Futurist newsletter.
@@ -188,6 +198,11 @@ export default function SubstackSection() {
                         <h4 className="font-medium text-base leading-snug text-ink group-hover:text-hp-electric transition-colors line-clamp-2">
                           {post.title}
                         </h4>
+                        {showDescriptions && post.description ? (
+                          <p className="mt-2 text-sm leading-relaxed text-charcoal line-clamp-3">
+                            {post.description}
+                          </p>
+                        ) : null}
                       </div>
                     </a>
                   </motion.div>

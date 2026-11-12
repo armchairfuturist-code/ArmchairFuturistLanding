@@ -73,6 +73,28 @@ export default function AssessmentPage() {
             </p>
           </BlurFade>
 
+          <BlurFade inView delay={0.65}>
+            <div className="mt-12 max-w-xl mx-auto text-left text-sm text-charcoal leading-relaxed space-y-3">
+              <p>
+                The assessment scores three things. Clarity is how well you can
+                describe what AI should change in your own work. Readiness is
+                whether the people and the data around you can carry that change.
+                Urgency is what the delay costs you each month you wait.
+              </p>
+              <p>
+                Most people arrive overconfident on one axis and blind on another,
+                which is why tool purchases stall six weeks after the invoice. The
+                ten questions are written to separate those axes instead of
+                blending them into one flattering number.
+              </p>
+              <p>
+                You get a profile, the weak axis named in plain words, and one next
+                step sized to it. Every result is one of four profiles, and you can
+                read all four before you start.
+              </p>
+            </div>
+          </BlurFade>
+
           <BlurFade inView delay={0.7}>
             <div className="mt-12">
               <p className="text-sm text-muted-foreground mb-3">

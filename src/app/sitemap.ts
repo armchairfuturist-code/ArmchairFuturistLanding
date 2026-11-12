@@ -82,5 +82,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Intake (linked from service catalog and assessment archetypes)
     page('/intake/digital-identity', '2026-09-04', 'monthly', 0.5),
+
+    // Legal (footer-only, but a crawler that finds them here stops guessing)
+    page('/privacy-policy', '2026-03-04', 'yearly', 0.3),
+    page('/terms-of-service', '2026-03-04', 'yearly', 0.3),
   ];
 }

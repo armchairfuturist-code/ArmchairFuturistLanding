@@ -59,7 +59,7 @@ export const archetypes: Archetype[] = [
 
     ],
     metaTitle: 'AI Readiness: The Stalled Executive',
-    metaDescription: 'Your AI readiness assessment shows high urgency but low organizational readiness. Alex Myers helps executives break through AI adoption paralysis with human-first strategy.',
+    metaDescription: 'High urgency, low organizational readiness. Alex Myers helps executives break through AI adoption paralysis with a human-first strategy.',
   },
   {
     slug: 'curious-professional',
@@ -94,7 +94,7 @@ export const archetypes: Archetype[] = [
       },
     ],
     metaTitle: 'AI Readiness: The Curious Professional',
-    metaDescription: 'Your AI readiness assessment shows curiosity without direction. Alex Myers helps professionals build a personal framework for making sense of AI, with clarity and confidence.',
+    metaDescription: 'Curiosity without direction. Alex Myers helps professionals build a personal framework for making sense of AI, with clarity and confidence.',
   },
   {
     slug: 'ready-builder',
