@@ -127,7 +127,7 @@ export default function AccountabilityGapPage() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Button asChild size="lg">
-                <Link href="/#services">See How Alex Bridges This Gap</Link>
+                <Link href="/services">See How Alex Bridges This Gap</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
                 <Link href="/assessment">Take Free Assessment</Link>

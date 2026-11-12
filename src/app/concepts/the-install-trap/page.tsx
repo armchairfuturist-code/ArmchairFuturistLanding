@@ -126,7 +126,7 @@ export default function TheInstallTrapPage() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Button asChild size="lg">
-                <Link href="/#services">Get Past Installation</Link>
+                <Link href="/services">Get Past Installation</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
                 <Link href="/assessment">Take Free Assessment</Link>

@@ -245,7 +245,7 @@ export default function TheLastMilePage() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button asChild size="lg">
-                  <Link href="/#services">Learn the last mile</Link>
+                  <Link href="/services">Learn the last mile</Link>
                 </Button>
                 <Button asChild variant="outline" size="lg">
                   <Link href="/assessment">Take Free Assessment</Link>

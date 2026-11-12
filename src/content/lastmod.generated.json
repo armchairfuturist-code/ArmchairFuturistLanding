@@ -1,12 +1,12 @@
 {
   "/": "2026-11-12",
-  "/about": "2026-10-20",
+  "/about": "2026-11-12",
   "/assessment": "2026-11-12",
-  "/assessment/result": "2026-10-07",
+  "/assessment/result": "2026-11-12",
   "/audit": "2026-10-20",
-  "/privacy-policy": "2026-11-05",
-  "/terms-of-service": "2026-11-01",
-  "/concepts": "2026-10-20",
+  "/privacy-policy": "2026-11-12",
+  "/terms-of-service": "2026-11-12",
+  "/concepts": "2026-11-12",
   "/concepts/accountability-gap": "2026-10-21",
   "/concepts/the-install-trap": "2026-10-21",
   "/concepts/psychology-led-adoption": "2026-10-21",
@@ -16,6 +16,6 @@
   "/case-studies": "2026-10-20",
   "/services": "2026-11-12",
   "/speaking": "2026-11-12",
-  "/how-i-work": "2026-10-07",
+  "/how-i-work": "2026-11-12",
   "/blog": "2026-11-12"
 }

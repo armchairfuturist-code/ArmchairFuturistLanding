@@ -146,6 +146,27 @@ export default function ServiceSystemPage({ system }: { system: ServiceSystem })
         </div>
       </section>
 
+      <section className="py-12 md:py-16 border-t border-border/60">
+        <div className="container mx-auto px-4 md:px-6 max-w-4xl">
+          <h2 className="font-heading text-2xl font-bold text-foreground mb-6">The other systems</h2>
+          <ul className="grid gap-3 sm:grid-cols-3">
+            {SERVICE_SYSTEMS.filter((other) => other.slug !== system.slug).map((other) => (
+              <li key={other.slug}>
+                <Link
+                  href={other.href}
+                  className="block h-full p-5 rounded-xl border border-border/60 bg-card hover:border-primary/40 transition-colors"
+                >
+                  <span className="font-semibold text-foreground">{other.label}</span>
+                  <span className="mt-1 block text-sm text-foreground/70 leading-relaxed">
+                    {other.seo.openGraphDescription}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       <section className="py-16 bg-secondary">
         <div className="container mx-auto px-4 md:px-6 max-w-3xl text-center">
           <div>

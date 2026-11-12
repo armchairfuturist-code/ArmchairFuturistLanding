@@ -130,7 +130,7 @@ export default function ResultsThinkersPage() {
                 <Link href="/assessment">Am I a Results Thinker?</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="/#services">Find Yours</Link>
+                <Link href="/services">Find Yours</Link>
               </Button>
             </div>
           </BlurFade>

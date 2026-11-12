@@ -140,7 +140,7 @@ export default function PsychologyLedAdoptionPage() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Button asChild size="lg">
-                <Link href="/#services">Find Your 5%</Link>
+                <Link href="/services">Find Your 5%</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
                 <Link href="/assessment">Take Free Assessment</Link>

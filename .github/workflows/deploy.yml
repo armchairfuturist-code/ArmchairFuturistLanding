@@ -71,11 +71,8 @@ jobs:
           # firebase-tools@15.34.0 and then the CLI dying with an ENOENT before it
           # built anything, while the action's own retry reused the now-cached CLI
           # and deployed fine. Pinning keeps one known-good CLI on every run.
-          firebaseToolsVersion: "15.34.0
+          firebaseToolsVersion: "15.34.0"
 
-      # Tell IndexNow's engines (Bing, Yandex, Naver, Seznam) that the
-      # production sitemap changed. The deploy is live by the time this runs;
-      # a failure here must never fail the deploy.
       - name: Ping IndexNow
         continue-on-error: true
-        run: node scripts/indexnow-submit.mjs"
+        run: node scripts/indexnow-submit.mjs
