@@ -4,7 +4,6 @@ import { EASE_OUT } from "@/lib/easing"
 
 import { useState, useEffect, useCallback } from 'react';
 import { Button } from "@/components/ui/button";
-import { MagneticCard } from '@/components/ui/MagneticCard';
 import { ExternalLink, ArrowRight, RotateCcw } from 'lucide-react';
 import { format } from 'date-fns';
 import { motion } from 'motion/react';
@@ -73,12 +72,13 @@ export default function SubstackSection() {
           <p className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-4">
             Newsletter
           </p>
-          <h1 className="font-heading text-display-sm font-medium tracking-tight text-ink mb-3">
+          <h2 className="font-heading text-display-sm font-medium tracking-tight text-ink mb-3">
             Signal, not hype
-          </h1>
+          </h2>
           <p className="text-charcoal max-w-xl mx-auto text-sm md:text-base leading-relaxed">
-            What AI actually does in a working business, once a week, with
-            the receipts. That is the Armchair Futurist newsletter.
+            Every week I write about how AI behaves inside a working business,
+            with the receipts attached. That is the whole of the Armchair
+            Futurist newsletter.
           </p>
         </motion.div>
 
@@ -92,14 +92,12 @@ export default function SubstackSection() {
         >
           {/* Magnetic tilt leans in under the cursor — fine pointers only,
               and skipped entirely under prefers-reduced-motion. */}
-          <MagneticCard className="inline-block" strength={0.22}>
-            <Button asChild size="lg" className="gap-2">
-              <a href={`${SUBSTACK_URL}/subscribe`} target="_blank" rel="noopener noreferrer">
-                Subscribe for Free
-                <ArrowRight className="h-4 w-4" />
-              </a>
-            </Button>
-          </MagneticCard>
+          <Button asChild size="lg" className="gap-2">
+            <a href={`${SUBSTACK_URL}/subscribe`} target="_blank" rel="noopener noreferrer">
+              Subscribe for Free
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </a>
+          </Button>
         </motion.div>
 
         {/* Recent articles */}
@@ -171,7 +169,7 @@ export default function SubstackSection() {
                       href={post.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block group rounded-hp-xl border border-hairline hover:border-hp-electric/50 hover:-translate-y-1 transition-[border-color,transform] duration-300 overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hp-electric"
+                      className="block group rounded-hp-xl border border-hairline transition-colors duration-150 ease-out hover:border-hp-electric/50 overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hp-electric"
                     >
                       <div className="relative h-36 w-full bg-cloud overflow-hidden">
                         {post.imageUrl ? (

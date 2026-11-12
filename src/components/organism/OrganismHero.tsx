@@ -69,15 +69,16 @@ export function OrganismHero() {
           <em>AI Consultant.</em>
         </motion.h1>
         <motion.p className="organism-deck" variants={copyVariants}>
-          1:1 AI mastery built on your real work. You leave running systems you
-          built yourself.
+          One-to-one AI coaching that builds mastery on your real work, so you
+          leave running systems you built yourself.
         </motion.p>
         <motion.p
           className="organism-deck organism-deck--offer"
           variants={copyVariants}
         >
-          Most clients come for the hours back. They stay for what they realize
-          they can build.
+          Most clients come to me for the hours they want back. They stay for
+          the things they discover they can build (usually the project they had
+          been putting off for a year).
         </motion.p>
         <motion.div className="organism-actions" variants={copyVariants}>
           {/* WhatsApp is the primary action. A call is a scheduled event with

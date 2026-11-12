@@ -10,18 +10,18 @@ export const MENTORING_PILLARS: MentoringPillar[] = [
     icon: "Lightbulb",
     title: "Build the mental model",
     description:
-      "AI feels overwhelming until you have a frame for it. We start with how it actually works, in plain terms, mapped to your role. The mental model that lets you evaluate any new tool yourself.",
+      "AI is overwhelming mainly because nobody handed you a frame for it, so we start with how models behave, in plain terms and mapped to the role you hold. What you come away with is a model good enough to judge any new tool on your own, which is the point where you stop asking me first.",
   },
   {
     icon: "FlaskConical",
     title: "Test it live",
     description:
-      "Then we run that model against your real work. The bottleneck you walked in with, the workflow eating your week. You watch it hold up or break, and adjust.",
+      "After that, the model gets tested against live work: the bottleneck you arrived with, and the workflow that has been eating your week. You watch it hold up or fall apart in front of you, and the next move comes from what just happened rather than from theory.",
   },
   {
     icon: "TrendingUp",
     title: "Own the judgment",
     description:
-      "By the end you're making the calls about where AI fits in your work and building from there.",
+      "By the end of a pack you are making the calls about where AI fits in your work, and you build from that judgment rather than from my notes.",
   },
 ];

@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { BlurFade } from "@/components/ui/blur-fade";
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import {
   Accordion,
   AccordionContent,
@@ -42,7 +41,7 @@ export default function FAQSection() {
           </div>
         </BlurFade>
 
-        <ScrollReveal>
+        <BlurFade inView delay={0.1}>
           <Accordion type="single" collapsible className="w-full space-y-0 border-t border-ink/15">
             {faqItems.map((item, index) => (
               <AccordionItem
@@ -70,7 +69,7 @@ export default function FAQSection() {
               </AccordionItem>
             ))}
           </Accordion>
-        </ScrollReveal>
+        </BlurFade>
       </div>
 
       <script

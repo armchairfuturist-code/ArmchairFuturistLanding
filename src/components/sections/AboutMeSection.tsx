@@ -70,10 +70,10 @@ export default function AboutMeSection() {
               analyticsEvent="intelligence_series_play"
             />
             <p className="mt-4 text-sm md:text-base leading-relaxed text-white/80 max-w-prose">
-              The 51-minute conversation: why 80% of the work should be
-              planning before execution, how to structure AI context so a
-              model actually helps, and what changes when a small team
-              adopts AI.
+              In 51 minutes we cover why 80% of the work should go into
+              planning before execution. We also look at how to structure AI
+              context so a model can help, and the changes that follow inside a
+              small team once it adopts AI.
             </p>
             <p className="mt-2 text-sm leading-relaxed text-white/55">
               The Intelligence Series Ep.01, recorded with{" "}
@@ -90,7 +90,7 @@ export default function AboutMeSection() {
           </BlurFade>
 
           <BlurFade inView delay={0.08} className="md:col-span-5">
-            <div className="relative h-28 w-28 md:h-32 md:w-32 overflow-hidden border border-white/10 bg-ink-soft">
+            <div className="relative h-28 w-28 md:h-32 md:w-32 overflow-hidden rounded-hp-xl border border-white/10 bg-ink-soft">
               <Image
                 src="/alexheadshot-nobg.png"
                 alt="Alex Myers"
@@ -100,8 +100,8 @@ export default function AboutMeSection() {
               />
             </div>
             <p className="mt-6 text-white/70 text-base md:text-lg leading-relaxed">
-              CCMP, Agile Coaching, and four more. I teach founders and
-              operators to run AI systems without me.
+              I hold CCMP, Agile Coaching, and four more certifications, and I
+              teach founders and operators to run AI systems without me.
             </p>
             <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/55 font-mono">
               <span>

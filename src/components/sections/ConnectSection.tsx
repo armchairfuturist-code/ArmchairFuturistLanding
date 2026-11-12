@@ -104,20 +104,13 @@ export default function ConnectSection() {
             </WhatsAppButton>
           </motion.div>
           <p className="mt-4 text-sm text-primary-foreground/85">
-            I answer personally, usually within hours. No pitch. Most clients
-            are self-sufficient within 8 to 10 weeks, and this is step one or
-            a pointer elsewhere.
+            I answer these myself, usually within a few hours, and there is no
+            pitch waiting at the other end. Most clients become self-sufficient
+            within eight to ten weeks, so this call is either step one or a
+            pointer to someone better suited.
           </p>
           <p className="mt-4 text-sm text-primary-foreground/85">
-            Not sure if it&apos;s a fit?{" "}
-            <Link
-              href="/assessment"
-              onClick={() => trackEvent("connect_assessment_link")}
-              className="underline underline-offset-4 hover:text-white transition-colors"
-            >
-              Take the free assessment
-            </Link>{" "}
-            · or{" "}
+            If you are not sure a call is the right step yet,{" "}
             <BookCallButton
               location="connect_book_call"
               bare
@@ -125,8 +118,10 @@ export default function ConnectSection() {
               onClick={() => trackEvent("connect_book_call_link")}
               className="inline-flex items-center min-h-[44px] py-2 underline underline-offset-4 hover:text-white transition-colors"
             >
-              book a 15-minute call instead.
-            </BookCallButton>
+              book a 15-minute call
+            </BookCallButton>{" "}
+            and we&apos;ll work out the right next step before you commit to
+            anything.
           </p>
         </BlurFade>
         {/* Contact Form — disclosed so the close offers two doors, not four */}
@@ -156,13 +151,13 @@ export default function ConnectSection() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.3, ease: EASE_OUT }}
-                className="bg-white/10 border border-white/20 rounded-xl p-6 text-center"
+                className="bg-white/10 border border-white/20 rounded-hp-xl p-6 text-center"
               >
                 <CheckCircle2 className="mx-auto h-8 w-8 text-white mb-3" aria-hidden="true" />
                 <p className="text-white font-semibold text-lg">
                   Message received.
                 </p>
-                <p className="mt-1.5 text-sm text-white/80">No pitch attached, just a reply.</p>
+                <p className="mt-1.5 text-sm text-white/80">A reply from me, with no pitch attached to it.</p>
                 <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.3em] text-white/80">Received · I reply to every note</p>
               </motion.div>
             ) : (

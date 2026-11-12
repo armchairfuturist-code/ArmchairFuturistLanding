@@ -131,7 +131,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/in/alex-myers-34572a10/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] -m-2 p-2 text-white/70 hover:text-hp-bright transition-colors duration-150"
+                className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] rounded-hp-lg -m-2 p-2 text-white/70 hover:text-hp-bright transition-colors duration-150"
                 aria-label="LinkedIn Profile"
               >
                 <Linkedin className="h-5 w-5" aria-hidden="true" />
@@ -140,7 +140,7 @@ export default function Footer() {
                 href={SUBSTACK_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] -m-2 p-2 text-white/70 hover:text-hp-bright transition-colors duration-150"
+                className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] rounded-hp-lg -m-2 p-2 text-white/70 hover:text-hp-bright transition-colors duration-150"
                 aria-label="Substack Profile"
               >
                 <svg

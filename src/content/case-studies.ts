@@ -14,9 +14,9 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: "Automated Client Response System",
     client: "Professional Services Firm",
     problem:
-      "Team spent 4–6 hours per day answering repetitive client queries across email and WhatsApp. Response times stretched 8+ hours. Clients complained about slow turnaround. The team was drowning in busywork, watching their real priorities slip.",
+      "The team was spending four to six hours a day answering the same client questions across email and WhatsApp, which pushed response times past eight hours and brought complaints about slow turnaround. Nobody had time to look at why the queue kept filling up, so the work that mattered kept sliding to the next week.",
     solution:
-      "Built an n8n workflow that routes incoming queries, drafts context-aware responses using AI, and sends them through approved channels. Human reviews only edge cases.",
+      "We built an n8n workflow that routes each incoming query, drafts a context-aware response with AI, and sends it through the channels the team had already approved, so a person now only reads the edge cases that the routing rules cannot classify.",
     patterns: [
       "Mapped 14 repetitive query categories across email and WhatsApp",
       "Drafted 6 reusable response templates with human-review escalation rules",
@@ -29,9 +29,9 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: "Frictionless Service Purchase Flow",
     client: "Consulting & Advisory Practice",
     problem:
-      "Potential clients bounced during service booking. The payment backend required multiple steps, no live chat support, and complex queries went unanswered. High abandonment at checkout. Potential revenue walked away while the checkout flow stood in the way.",
+      "People who were ready to buy gave up during booking, because the payment backend demanded several steps, there was no live chat to answer a question, and anything complex went unanswered until the next day. Put simply, revenue walked away while the checkout stood in the way of it.",
     solution:
-      "Redesigned the purchase UX to 2 steps. Added a custom chatbot that handles pricing questions, service comparisons, and booking. Integrated payment backend with one-click checkout.",
+      "We redesigned the purchase flow down to two steps and added a custom chatbot to handle pricing questions, service comparisons, and booking, then connected the payment backend so a buyer can complete the whole thing in one click.",
     patterns: [
       "Redesigned checkout to a 2-step flow with one-click payment",
       "Built a pricing-comparison chatbot covering the top service questions",
@@ -44,9 +44,9 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: "Automated Meeting-to-Action Pipeline",
     client: "Remote Operations Team",
     problem:
-      "Distributed team held many recurring meetings weekly. Action items got lost in notes. Follow-up ate into everyone's week. Critical decisions slipped through gaps between tools. The team was putting in hours but seeing nothing stick.",
+      "The team met on a fixed weekly rhythm and wrote good notes, but the action items inside those notes never became anyone's job, so follow-up quietly ate a slice of every week while decisions fell through the gaps between the tools they already paid for. They were putting in the hours and still watching nothing stick.",
     solution:
-      "Built a pipeline that transcribes meetings, extracts action items, assigns owners, creates calendar reminders, and sends weekly digests. Connected Slack, Calendar, and project management tools.",
+      "We built a pipeline that transcribes each meeting, extracts the action items, assigns an owner, sets the calendar reminder, and sends a weekly digest, with Slack, Calendar, and the project tool all reading from the same record.",
     patterns: [
       "Transcribed and tagged action items from every recurring meeting",
       "Wired owner-assignment, calendar reminders, and a weekly digest to Slack",

@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
 import {
   Lightbulb,
   TrendingUp,
@@ -10,11 +9,9 @@ import {
   Target,
   Users,
   Sparkles,
-  ChevronDown,
 } from "lucide-react";
 import { BookCallButton } from "@/components/ui/BookCallButton";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
-import { Button } from "@/components/ui/button";
 import { trackConversion } from "@/lib/analytics";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { staggerContainer, staggerItem } from "@/lib/animation-variants";
@@ -36,13 +33,11 @@ const pillars = MENTORING_PILLARS.map((pillar) => ({
   icon: ICON_MAP[pillar.icon as keyof typeof ICON_MAP] ?? Lightbulb,
 }));
 
-// All four coaching tracks are shown. They used to be split 2 + 2 behind a
-// "View 5 and 20-session options" disclosure, which meant two of the four
-// price points — including the best-value 20-session track — were invisible
-// until a reader went looking for them. The session ladder is the argument
+// All four coaching tracks are shown, in one ladder. They used to be split
+// 2 + 2 behind a "View 5 and 20-session options" disclosure, which meant two
+// of the four price points — including the best-value 20-session track — were
+// invisible until a reader went looking for them. The ladder is the argument
 // for buying more, and hiding half of it hid the argument.
-const DEFAULT_VISIBLE = ["single", "pack-5", "pack-10", "pack-20"];
-const EXPANDABLE: string[] = [];
 
 function PricingCard({ pkg }: { pkg: (typeof COACHING_PACKAGES)[number] }) {
   const usd = resolvePricing(pkg, "USD");
@@ -51,7 +46,7 @@ function PricingCard({ pkg }: { pkg: (typeof COACHING_PACKAGES)[number] }) {
   return (
     <motion.div
       variants={staggerItem}
-      className="relative bg-canvas border border-ink/10 transition-[border-color,transform] duration-300 hover:border-hp-electric/40 hover:-translate-y-0.5 flex flex-col"
+      className="relative bg-canvas rounded-hp-xl border border-ink/10 transition-colors duration-150 ease-out hover:border-hp-electric/40 flex flex-col"
       data-highlighted={pkg.popular ? "true" : "false"}
     >
       <div className="p-6 flex flex-col flex-1">
@@ -136,14 +131,6 @@ function PricingCard({ pkg }: { pkg: (typeof COACHING_PACKAGES)[number] }) {
 }
 
 export default function MentoringSection() {
-  const [showAll, setShowAll] = useState(false);
-
-  const defaultPackages = COACHING_PACKAGES.filter((p) =>
-    DEFAULT_VISIBLE.includes(p.id),
-  );
-  const expandablePackages = COACHING_PACKAGES.filter((p) =>
-    EXPANDABLE.includes(p.id),
-  );
 
   return (
     <section
@@ -167,13 +154,15 @@ export default function MentoringSection() {
             One-on-one AI guidance
           </p>
           <h2 className="font-display text-display-lg font-medium tracking-tight text-white max-w-[16ch] mb-6">
-            Stop renting AI judgment. Own it.
+            Judgment you own beats judgment you rent.
           </h2>
           <p className="text-white/80 text-lg md:text-xl max-w-2xl leading-relaxed">
-            Most &quot;training&quot; hands you tools and leaves. This is a
-            partnership. We build the mental models that make AI click, then
-            test them live on your real work. You leave with judgment you keep
-            &mdash; and a larger idea of what your business can become.
+            Most training hands you a set of tools and then leaves the room
+            while you work out what they are for. This is a partnership
+            instead, because the mental models that make AI click are built in
+            conversation and then tested against live work, so what you leave
+            with is judgment you keep and a clearer idea of the business you
+            could end up running.
           </p>
         </div>
       </div>
@@ -203,7 +192,7 @@ export default function MentoringSection() {
                   className="relative"
                 >
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="inline-flex items-center justify-center h-10 w-10 font-display text-lg font-bold bg-hp-electric text-white">
+                    <span className="inline-flex items-center justify-center h-10 w-10 rounded-hp-lg font-display text-lg font-bold bg-hp-electric text-white">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <pillar.icon
@@ -233,10 +222,11 @@ export default function MentoringSection() {
                   Pick your speed to independence
                 </h3>
                 <p className="text-charcoal mt-3 max-w-md">
-                  All sessions are 60 minutes, held via video call. Start where
-                  you are. Want systems built alongside you, not just guidance?{" "}
+                  Each session runs 60 minutes over video, and you can start
+                  wherever you happen to be. If you want systems built alongside
+                  you instead of guidance alone, start with the{" "}
                   <Link href="#services" className="text-hp-electric font-semibold underline underline-offset-4 hover:text-hp-deep transition-colors">
-                    Start with the Build Sprint
+                    Build Sprint
                   </Link>
                   .
                 </p>
@@ -254,23 +244,17 @@ export default function MentoringSection() {
             viewport={{ once: true }}
             className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 max-w-3xl"
           >
-            {defaultPackages.map((pkg) => (
+            {COACHING_PACKAGES.map((pkg) => (
               <PricingCard key={pkg.id} pkg={pkg} />
             ))}
           </motion.div>
 
           <div className="mb-8">
             <p className="text-sm text-charcoal mb-3">
-              Not sure which fits? Take the free assessment for a clear next
-              step &mdash; or start with a conversation. Sessions are 60
-              minutes, and you can stop whenever it stops being useful.
+              Sessions run 60 minutes and you can stop whenever the work stops
+              being useful. If you would rather talk it through before buying a
+              pack, book a call and we will pick the size together.
             </p>
-            <div className="flex flex-wrap items-center gap-3">
-              <Button asChild variant="outline">
-                <Link href="#assessment">
-                  Take the free assessment
-                </Link>
-              </Button>
             <BookCallButton
               size="default"
               icon="calendar-days"
@@ -279,35 +263,11 @@ export default function MentoringSection() {
             >
               Book a Call
             </BookCallButton>
-            </div>
           </div>
 
-          {expandablePackages.length > 0 && (
-            <div className="mb-4">
-              <button
-                onClick={() => setShowAll((s) => !s)}
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-hp-electric hover:text-hp-deep transition-colors"
-                aria-expanded={showAll}
-              >
-                {showAll ? "Hide options" : "View more options"}
-                <ChevronDown
-                  className={`h-4 w-4 transition-transform duration-200 ${showAll ? "rotate-180" : ""}`}
-                />
-              </button>
-            </div>
-          )}
-
-          {expandablePackages.length > 0 && showAll && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12 max-w-3xl">
-              {expandablePackages.map((pkg) => (
-                <PricingCard key={pkg.id} pkg={pkg} />
-              ))}
-            </div>
-          )}
-
           <BlurFade inView delay={0.2}>
-            <details className="group mt-2 border border-ink/10 bg-canvas overflow-hidden">
-              <summary className="cursor-pointer list-none flex items-center justify-between gap-4 px-6 py-5 hover:bg-cloud transition-colors">
+            <details className="group mt-2 rounded-hp-xl border border-ink/10 bg-canvas overflow-hidden">
+              <summary className="cursor-pointer list-none flex items-center justify-between gap-4 rounded-hp-xl px-6 py-5 transition-colors duration-150 hover:bg-cloud">
                 <div>
                   <p className="text-[11px] font-mono uppercase tracking-[0.25em] text-graphite mb-1">
                     Compare what&apos;s inside

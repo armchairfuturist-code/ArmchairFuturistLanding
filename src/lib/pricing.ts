@@ -96,7 +96,8 @@ export const COACHING_PACKAGES: CoachingPackage[] = [
     discountPercent: 0,
     savings: 0,
     savingsUSD: 0,
-    description: 'One focused session. No commitment, no package. You bring a specific question or a mixed scope; we work through it together. Ideal for discovery, or when you\'re not sure what you need yet.',
+    description:
+      "One focused session with nothing attached to it. You bring a specific question, or a scope that has gone mixed, and we work through it together, which is why this is the right door when you are still working out what you need or want a read on whether we fit.",
     features: [
       'One 60-minute video session',
       'Focused on your specific challenge or question',
@@ -116,7 +117,8 @@ export const COACHING_PACKAGES: CoachingPackage[] = [
     discountPercent: 5,
     savings: 25,
     savingsUSD: 30,
-    description: 'Five sessions with progress tracking and priority scheduling',
+    description:
+      'Five sessions with progress tracking and priority scheduling, sized for the first month of work',
     features: [
       'Personal AI mindset coaching',
       'Priority scheduling',
@@ -136,7 +138,8 @@ export const COACHING_PACKAGES: CoachingPackage[] = [
     discountPercent: 10,
     savings: 100,
     savingsUSD: 100,
-    description: 'Deep transformation with sustained support and accountability',
+    description:
+      'Ten sessions for the deeper transformation, with sustained support and someone to be accountable to',
     features: [
       'Everything in 5-Session Pack',
       'Custom AI literacy curriculum',
@@ -156,7 +159,8 @@ export const COACHING_PACKAGES: CoachingPackage[] = [
     discountPercent: 15,
     savings: 300,
     savingsUSD: 400,
-    description: 'Premium long-arc coaching — the deepest 1:1 track for building independent AI judgment',
+    description:
+      'Premium long-arc coaching, and the deepest one-to-one track we offer for building independent AI judgment',
     features: [
       'Everything in 10-Session Pack',
       'Between-session follow-up on session-related topics (WhatsApp)',
@@ -164,7 +168,7 @@ export const COACHING_PACKAGES: CoachingPackage[] = [
       'Priority scheduling & rescheduling',
     ],
     upgradeNote:
-      'Want hands-on co-building and launch accountability? The 8-Week Build Sprint adds a structured playbook, async build support, and a fixed deliverable by week 8 — amounts paid here credit toward the Program.',
+      'If you want hands-on co-building and launch accountability, the 8-Week Build Sprint adds a structured playbook, async build support, and a fixed deliverable by week 8. Amounts paid here credit toward the Program.',
     popular: true,
   },
 ];

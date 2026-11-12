@@ -18,7 +18,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "What is the Accountability Gap in AI adoption?",
     answer:
-      "It's the space between what an AI system produces and what a business actually needs. Most companies layer AI onto existing processes without rethinking workflows or decision rights. Nobody owns the outcome. I bridge this gap by teaching the literacy required to design and own the outcome yourself.",
+      "It's the space between what an AI system produces and what a business needs. Most companies layer AI onto existing processes without rethinking workflows or decision rights. Nobody owns the outcome. I bridge this gap by teaching the literacy required to design and own the outcome yourself.",
     hasLink: true,
     linkText: "Learn more about the Accountability Gap →",
     linkHref: "/concepts/accountability-gap",

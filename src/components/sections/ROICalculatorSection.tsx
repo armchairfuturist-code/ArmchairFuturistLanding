@@ -69,9 +69,10 @@ export default function ROICalculatorSection() {
               </h2>
             </div>
             <p className="md:col-span-5 text-lg text-charcoal md:text-right max-w-sm md:ml-auto">
-              Pick the tasks <span className="font-medium text-ink">each person</span>{" "}
-              does every week. See what automation could give back: per
-              person, and for your whole team.
+              Choose the tasks that <span className="font-medium text-ink">each person</span>{" "}
+              handles every week, and the estimator will show the hours
+              automation could give back to that person and to the team around
+              them.
             </p>
           </div>
         </BlurFade>

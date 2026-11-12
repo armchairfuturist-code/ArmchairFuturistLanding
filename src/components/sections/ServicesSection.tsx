@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { motion } from 'motion/react';
 import { AUDIT_PRICE_LABEL, PROGRAM_PRICE_LABEL, GUIDANCE_RANGE_LABEL, DIGITAL_IDENTITY_LABEL, CUSTOM_PROVISIONING_RANGE_LABEL } from '@/lib/pricing';
 import { BlurFade } from '@/components/ui/blur-fade';
-import { MagneticCard } from '@/components/ui/MagneticCard';
 import { staggerContainer, springStaggerItem } from '@/lib/animation-variants';
 import { SERVICE_PATHS, type ServiceTier } from "@/content/service-catalog";
 
@@ -51,45 +50,9 @@ export default function ServicesSection() {
                 </h2>
               </div>
               <p className="md:col-span-5 text-base md:text-lg text-charcoal font-sans leading-relaxed md:text-right">
-                Choose one-on-one guidance if you want to build and run your own AI workflows. If you want me to handle the build, choose done-for-you implementation.
+                Two paths sit side by side, and the choice comes down to who does the building.
               </p>
             </div>
-        </BlurFade>
-
-        <BlurFade inView>
-          <ol className="mb-14 grid gap-3 md:grid-cols-3 max-w-5xl border-y border-hairline py-6">
-            <li className="text-sm text-charcoal font-sans leading-relaxed">
-              <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-hp-electric block mb-1">Unsure</span>
-              <Link
-                href="/assessment"
-                onClick={() => trackEvent("services_ladder_assessment")}
-                className="font-semibold text-hp-electric underline underline-offset-4 hover:text-hp-deep transition-colors"
-              >
-                Take the free assessment
-              </Link>{" "}
-              and get a clear next step.
-            </li>
-            <li className="text-sm text-charcoal font-sans leading-relaxed">
-              <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-hp-electric block mb-1">Know the problem</span>
-              Start with the{" "}
-              <Link
-                href="/audit"
-                onClick={() => trackEvent("services_ladder_audit")}
-                className="font-semibold text-hp-electric underline underline-offset-4 hover:text-hp-deep transition-colors"
-              >
-                Roadmap Audit
-              </Link>
-              .
-            </li>
-            <li className="text-sm text-charcoal font-sans leading-relaxed">
-              <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-hp-electric block mb-1">Want the skill</span>
-              Pick a guidance pack in{" "}
-              <a href="#ai-guidance" className="font-semibold text-hp-electric underline underline-offset-4 hover:text-hp-deep transition-colors">
-                one-on-one guidance (session packs)
-              </a>
-              .
-            </li>
-          </ol>
         </BlurFade>
 
         <div className="space-y-20">
@@ -138,13 +101,10 @@ export default function ServicesSection() {
                 {path.tiers.map((tier) => {
                   const Icon = ICON_MAP[tier.icon];
                   return (
-                    <MagneticCard
-                      key={tier.name}
-                      strength={0.1}
-                    >
                       <motion.div
+                        key={tier.name}
                         variants={springStaggerItem}
-                        className="relative flex flex-col border border-ink/10 bg-canvas overflow-hidden transition-[border-color] duration-300 hover:border-hp-electric/35"
+                        className="relative flex flex-col rounded-hp-xl border border-ink/10 bg-canvas overflow-hidden transition-colors duration-150 ease-out hover:border-hp-electric/35"
                   data-highlighted={tier.highlighted ? "true" : "false"}
                       >
 
@@ -153,18 +113,18 @@ export default function ServicesSection() {
                           <Icon className="w-5 h-5" />
                         </div>
                         {tier.highlighted && (
-                          <span className="absolute top-5 right-5 text-[10px] font-mono uppercase tracking-widest text-hp-electric bg-hp-electric/10 px-2 py-1 rounded-full border border-hp-electric/20">
+                          <span className="absolute top-5 right-5 text-[10px] font-mono uppercase tracking-widest text-hp-electric bg-hp-electric/10 px-2 py-1 rounded-hp-lg border border-hp-electric/20">
                             ★ Build Sprint
                           </span>
                         )}
                         <p className="text-xs font-mono uppercase tracking-widest text-graphite mb-1">
                           {tier.tag}
                         </p>
-                        <h4 className="font-heading text-lg font-medium text-ink mb-1">
+                        <h4 className="font-heading text-lg font-medium text-ink mb-2">
                           {tier.name}
                         </h4>
                         <div className="flex items-baseline gap-1">
-                          <span className="font-medium tabular-nums text-3xl text-hp-electric">
+                          <span className="font-medium tabular-nums text-xl md:text-2xl leading-snug [text-wrap:balance] text-hp-electric">
                             {displayPrice(tier)}
                           </span>
                         </div>
@@ -209,7 +169,6 @@ export default function ServicesSection() {
                         </Button>
                       </CardFooter>
                     </motion.div>
-                    </MagneticCard>
                   );
                 })}
               </motion.div>
@@ -221,11 +180,12 @@ export default function ServicesSection() {
         <BlurFade inView>
           <div className="mt-16 space-y-4 text-center">
             <p className="text-sm text-graphite font-sans">
-              Need systems built, not just guidance?{" "}
+              If you need the systems built instead of guidance on building them,
+              start with the{" "}
               <Link href="/services" className="text-hp-electric font-semibold hover:underline">
-                Open the build catalog
-              </Link>{" "}
-              — data, revenue ops, visibility, front-line help.
+                build catalog
+              </Link>
+              : data, revenue ops, visibility, front-line help.
             </p>
             <p className="text-sm text-charcoal/80 font-sans">
               I also run roundtables and strategy sessions.{" "}

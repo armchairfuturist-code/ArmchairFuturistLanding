@@ -32,7 +32,9 @@ import { CASE_STUDIES } from "@/content/case-studies";
     const { container } = render(<ProofSection />);
     expect(container.querySelector("#testimonials")).not.toBeNull();
     expect(container.querySelector("#stats")).not.toBeNull();
-    expect(screen.getByText(/They do not describe the named clients above/)).toBeInTheDocument();
+    expect(
+      screen.getByText(/they do not describe the named clients above/),
+    ).toBeInTheDocument();
     CASE_STUDIES.forEach((study) => expect(screen.getByText(study.title)).toBeInTheDocument());
     expect(container.querySelector('a[href="/assessment"]')).toBeNull();
   });

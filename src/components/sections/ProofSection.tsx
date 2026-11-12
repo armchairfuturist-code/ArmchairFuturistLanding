@@ -18,14 +18,14 @@ const clientExamples = [
     client: byName("Brenda Fonseca"),
     path: "Build with me",
     title: "From unsure where to start to building her own AI tools",
-    description: "Brenda came to the sessions unsure what training to ask for. Four months into working together, she was using AI for work and personal tasks, including building her own customized productivity tools with AI.",
+    description: "Brenda came to the sessions unsure of what training to ask for, and four months into working together she was using AI for her work and personal tasks, including building her own customized productivity tools.",
     excerpt: "Now I have a foundational understanding of what AI actually is and how I can use it as a tool in my daily productivity for both work and personal - even using it to do my own coding to create customized productivity skills.",
   },
   {
     client: byName("Shannon Myers"),
     path: "Built for you",
     title: "A website launch and 20 hours back each week",
-    description: "Shannon credits the work with helping her reclaim 20 hours a week and launch a website that landed a deal within an hour. These are her reported results from that engagement.",
+    description: "Shannon credits the work with helping her reclaim 20 hours a week and with launching a website that landed a deal inside an hour, and those are her reported results from that engagement.",
     excerpt: "He helped me reclaim 20 hours per week through AI optimization and launch a website that landed a deal within an hour.",
   },
 ];
@@ -79,7 +79,7 @@ export default function ProofSection() {
               </figure>
             ))}
           </div>
-          <p className="mt-4 text-sm text-graphite">Excerpts from client reviews. Individual results and timelines vary.</p>
+          <p className="mt-4 text-sm text-graphite">These are excerpts from client reviews, and individual results and timelines vary from one engagement to the next.</p>
           <details className="mt-4 border-b border-hairline pb-2">
             <summary className={disclosureClass}>Read more client reviews ({TESTIMONIALS.length} full reviews)</summary>
             <div className="grid gap-x-12 gap-y-8 py-6 md:grid-cols-2">
@@ -101,26 +101,26 @@ export default function ProofSection() {
           <h3 className="font-display text-2xl leading-tight font-medium">Across the work</h3>
           <dl className="mt-6 grid gap-6 md:grid-cols-3 md:gap-8">
             <div>
-              <dt className="text-sm text-white">AI systems deployed</dt>
+              <dt className="text-sm text-white/80">AI systems deployed</dt>
               <dd className="mt-2 font-display text-[32px] leading-tight font-medium tabular-nums"><NumberTicker value={40} suffix="+" className="text-white" /></dd>
-              <dd className="mt-2 text-sm leading-relaxed text-white">From response pipelines to meeting-to-action workflows.</dd>
+              <dd className="mt-2 text-sm leading-relaxed text-white/85">From response pipelines to meeting-to-action workflows.</dd>
             </div>
             <div>
-              <dt className="text-sm text-white">Weekly hours saved</dt>
+              <dt className="text-sm text-white/80">Weekly hours saved</dt>
               <dd className="mt-2 font-display text-[32px] leading-tight font-medium tabular-nums"><NumberTicker value={5} suffix="+ hours" className="text-white" /></dd>
-              <dd className="mt-2 text-sm leading-relaxed text-white">Measured on implementation clients after handoff.</dd>
+              <dd className="mt-2 text-sm leading-relaxed text-white/85">Measured on implementation clients after handoff.</dd>
             </div>
             <div>
-              <dt className="text-sm text-white">Time to self-sufficiency</dt>
+              <dt className="text-sm text-white/80">Time to self-sufficiency</dt>
               <dd className="mt-2 font-display text-[32px] leading-tight font-medium tabular-nums">8–10 weeks</dd>
-              <dd className="mt-2 text-sm leading-relaxed text-white">Typical guided program timeline; individual engagements can take longer.</dd>
+              <dd className="mt-2 text-sm leading-relaxed text-white/85">Typical guided program timeline; individual engagements can take longer.</dd>
             </div>
           </dl>
         </div>
 
         <details className="mt-6 border-b border-hairline pb-2">
           <summary className={disclosureClass}>See implementation examples</summary>
-          <p className="max-w-prose py-4 text-sm leading-relaxed text-graphite">These examples are anonymized and composited. They do not describe the named clients above.</p>
+          <p className="max-w-prose py-4 text-sm leading-relaxed text-graphite">The examples below are anonymized and composited from several engagements, so they do not describe the named clients above.</p>
           <div className="divide-y divide-hairline">
             {CASE_STUDIES.map((study) => (
               <article key={study.index} className="grid gap-4 py-6 md:grid-cols-3 md:gap-8">

@@ -23,7 +23,7 @@ export default function AssessmentPage() {
       <section className="min-h-[100dvh] flex items-center justify-center bg-cloud py-20">
         <div className="container mx-auto px-4 md:px-6 max-w-2xl text-center">
           <BlurFade inView delay={0.1}>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-mono mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-hp-lg bg-primary/10 border border-primary/20 text-primary text-xs font-mono mb-6">
               <Brain className="w-3 h-3" />
               <span>Free Assessment</span>
             </div>
@@ -46,7 +46,7 @@ export default function AssessmentPage() {
             <p className="text-base text-charcoal font-sans mb-8 max-w-lg mx-auto">
               No trick questions, no sales pitch baked into the scoring. Just a
               clear read on your AI clarity, readiness, and urgency, with a
-              recommendation that matches where you actually are.
+              recommendation that matches where you are.
             </p>
           </BlurFade>
 

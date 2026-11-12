@@ -38,14 +38,14 @@ export const SERVICE_PATHS: ServicePath[] = [
     title: "We Do It Together",
     kicker: "Build the literacy to do it yourself",
     description:
-      "We build on your live work, from a single session pack to a 3-month executive intensive. Session packs build your AI literacy. The Self-Sufficiency Program builds your AI business.",
+      "Every path here runs against work you are already doing rather than a demo dataset, so the learning survives the trip back to the office. Session packs exist to build literacy. The Self-Sufficiency Program is where literacy becomes an AI-powered business, which is why people choose it when they want revenue instead of notes.",
     tiers: [
       {
         name: SERVICES_PRICING.roadmapAudit.name,
         priceKey: "roadmapAudit",
         tag: "90-Minute Working Session",
         description:
-          "A paid deep dive that turns this diagnosis into a scored roadmap for your actual workflows: what to automate, what to buy, what to build, in what order. You get the report and a video walkthrough. The blueprint is yours to keep — implement it yourself, or with me.",
+          "A paid deep dive that reads the diagnosis back to you as a scored roadmap for workflows you run today. It answers three questions in the order that pays back first: which tasks to automate, which tools to buy, and which systems to build. You get a written report, a video walkthrough of that report, and a blueprint that stays yours whether you implement it alone or ask me to build it with you.",
         features: [
           "90-minute deep discovery call",
           "Scored roadmap mapped to your actual workflows",
@@ -64,7 +64,7 @@ export const SERVICE_PATHS: ServicePath[] = [
         priceKey: "guidanceRange",
         tag: "5 · 10 · 20 Packs",
         description:
-          "Session packs (5, 10, 20) that build your AI literacy, from first understanding to full independence. Start with 5 and scale up. Most clients choose 5 or 10.",
+          "Packs come in three sizes: five sessions, ten, or twenty, and they carry you from a first honest understanding of the tools to working without me in the room. Most people begin at five because that is where the shape of the work becomes visible, and they scale up once their own learning tells them to.",
         features: [
           "60-minute 1-on-1 video sessions",
           "From understanding to agency to action",
@@ -83,7 +83,7 @@ export const SERVICE_PATHS: ServicePath[] = [
         priceKey: "selfSufficiency",
         tag: "8-Week Build Sprint",
         description:
-          "The 8-week Build Sprint (AI Self-Sufficiency Program) ships a launched AI-powered service or brand by week 8. A proven playbook, 10–15 coaching sessions, and async support throughout, so you finish with something real to sell, not just notes from sessions.",
+          "The 8-week Build Sprint is the AI Self-Sufficiency Program, and its promise is narrow on purpose: to launch an AI-powered service or brand by week eight. You work from a playbook that has already been through this, with 10 to 15 coaching sessions and async support between them, so you finish holding something you can sell rather than notes from sessions.",
         features: [
           "Your own AI-powered service, designed & launched by week 8",
           "Structured build playbook (not open coaching)",
@@ -96,7 +96,7 @@ export const SERVICE_PATHS: ServicePath[] = [
         ctaLink: CALENDAR_URL,
         highlighted: true,
         icon: "Target",
-        note: "No lock-in. You leave with a launched service, the playbook, and the skills — they're yours whether or not we keep working together.",
+        note: "There's no lock-in, and you leave with a launched service, the playbook, and the skills, all of which stay yours whether or not we keep working together.",
       },
     ],
   },
@@ -106,14 +106,14 @@ export const SERVICE_PATHS: ServicePath[] = [
     title: "I Do It For You",
     kicker: "Production-ready AI, built and shipped",
     description:
-      "When you need a working AI system this week, not a curriculum. I provision the servers, install the agents, connect the tools, and hand you a system you own.",
+      "This path exists for the week when you need a working system rather than a curriculum. My job is to provision the servers, install the agents, connect the tools, and hand over something you own outright. It is the heavier path on paper and the calmer one in practice.",
     tiers: [
       {
         name: SERVICES_PRICING.digitalIdentity.name,
         priceKey: "digitalIdentity",
         tag: "Delivered in 2–4 Days",
         description:
-          "An interview-ready digital identity site that consolidates your LinkedIn, resume, and social links into one professional platform you own. Like Linktree, but built for serious operators.",
+          "A digital identity site that is ready to send to an interviewer, because it folds your LinkedIn, resume, and social links into one professional platform you own and control. Think of the Linktree pattern, rebuilt for operators who need to look serious in front of a hiring committee.",
         features: [
           "Custom-designed landing page",
           "LinkedIn, resume, and social links",
@@ -131,7 +131,7 @@ export const SERVICE_PATHS: ServicePath[] = [
         priceKey: "customAiProvisioning",
         tag: "1–2 Weeks",
         description:
-          "A done-for-you private AI command center. Custom business workflows, agent installation (OpenClaw, Hermes), API integrations, calendar/email sync, and secure infrastructure. Reclaim 10–20 hours a week.",
+          "A done-for-you private AI command center: custom business workflows, agent installation for OpenClaw and Hermes, API integrations, calendar and email sync, and secure infrastructure underneath all of it. Clients tend to reclaim 10 to 20 hours a week once this is running, and the stack is open standard, so nothing holds you hostage later.",
         features: [
           "Custom business workflows",
           "Agent installation (OpenClaw, Hermes)",

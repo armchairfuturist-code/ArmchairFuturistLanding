@@ -82,7 +82,7 @@ export default function SectionNavigator({
   return (
     <nav
       aria-label="Section navigation"
-      className="flex fixed right-2 top-1/2 -translate-y-1/2 z-50 flex-col gap-2 max-lg:gap-1"
+      className="hidden md:flex fixed right-2 top-1/2 -translate-y-1/2 z-50 flex-col gap-2 max-lg:gap-1"
     >
       {/* Scroll spine — 1px hairline track with electric fill, dot centers to dot centers */}
       <span

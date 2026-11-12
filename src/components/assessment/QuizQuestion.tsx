@@ -96,7 +96,7 @@ export default function QuizQuestion({
               transition={{ duration: 0.3, delay: idx * 0.06, ease: EASE_OUT }}
             >
               <div className="flex items-start gap-3">
-                <span className="flex-shrink-0 w-7 h-7 rounded-lg bg-hp-electric/10 text-hp-electric text-xs font-mono font-bold flex items-center justify-center mt-0.5 group-hover:bg-hp-electric group-hover:text-white transition-colors">
+                <span className="flex-shrink-0 w-7 h-7 rounded-hp-md bg-hp-electric/10 text-hp-electric text-xs font-mono font-bold flex items-center justify-center mt-0.5 group-hover:bg-hp-electric group-hover:text-white transition-colors">
                   {String.fromCharCode(97 + idx)}
                 </span>
                 <span className="text-sm md:text-base text-charcoal leading-relaxed font-sans">

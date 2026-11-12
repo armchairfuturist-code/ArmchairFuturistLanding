@@ -31,7 +31,7 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
       {/* Archetype badge */}
       <BlurFade inView delay={0.1}>
         <div className="text-center mb-8">
-          <span className="inline-flex items-center px-3 py-1 rounded-full bg-hp-electric/10 border border-hp-electric/20 text-hp-electric text-xs font-mono mb-4">
+          <span className="inline-flex items-center px-3 py-1 rounded-hp-lg bg-hp-electric/10 border border-hp-electric/20 text-hp-electric text-xs font-mono mb-4">
             Your AI Readiness Profile
           </span>
           <h1
@@ -178,7 +178,7 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
       <BlurFade inView delay={0.35}>
         <div className="bg-canvas rounded-hp-xl border border-hairline-strong p-6 md:p-8 mb-10">
           <div className="flex items-start gap-4">
-            <span className="mt-1 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-hp-electric/10 border border-hp-electric/20">
+            <span className="mt-1 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-hp-lg bg-hp-electric/10 border border-hp-electric/20">
               <Compass className="h-5 w-5 text-hp-electric" aria-hidden="true" />
             </span>
             <div>

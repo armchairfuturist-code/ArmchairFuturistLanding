@@ -66,18 +66,18 @@ const sections: readonly HomepageSection[] = [
       ),
     }),
   },
-  { id: SECTION_IDS.community, label: "Community", component: dynamic(() => import("@/components/sections/CommunityAnchor")) },
+  {
+    id: SECTION_IDS.services,
+    label: "Services",
+    component: dynamic(() => import("@/components/sections/ServicesSection")),
+  },
   {
     id: SECTION_IDS.roi,
     label: "ROI",
     navigable: false,
     component: dynamic(() => import("@/components/sections/ROICalculatorSection")),
   },
-  {
-    id: SECTION_IDS.services,
-    label: "Services",
-    component: dynamic(() => import("@/components/sections/ServicesSection")),
-  },
+  { id: SECTION_IDS.community, label: "Community", component: dynamic(() => import("@/components/sections/CommunityAnchor")) },
   {
     id: SECTION_IDS.about,
     label: "About",

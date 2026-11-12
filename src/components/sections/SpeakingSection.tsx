@@ -41,13 +41,14 @@ export default function SpeakingSection() {
                 <Mic className="h-3.5 w-3.5" aria-hidden="true" />
                 On stage
               </p>
-              <h1 className="font-display text-display font-medium tracking-tight text-ink max-w-[26ch]">
+              <h2 className="font-display text-display font-medium tracking-tight text-ink max-w-[26ch]">
                 Also lead rooms that need a decision
-              </h1>
+              </h2>
             </div>
             <p className="text-charcoal text-base md:text-lg max-w-md md:text-right leading-snug">
-              Roundtables, workshops, strategy sessions — structured
-              conversations, not keynote fluff.
+              Roundtables, workshops, and strategy sessions, which means
+              structured conversations that end in a decision rather than a
+              keynote with slides.
             </p>
           </div>
         </BlurFade>
@@ -64,7 +65,7 @@ export default function SpeakingSection() {
                 delay: i * 0.06,
                 ease: EASE_OUT,
               }}
-              className="group relative aspect-[16/10] overflow-hidden border border-ink/10"
+              className="group relative aspect-[16/10] overflow-hidden rounded-hp-xl border border-ink/10"
             >
               <div
                 className="absolute left-0 top-0 bottom-0 w-1.5 bg-hp-electric z-10"
@@ -88,8 +89,9 @@ export default function SpeakingSection() {
 
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border border-ink/10 bg-cloud rounded-hp-xl px-5 py-5 md:px-8 md:py-6">
           <p className="text-sm md:text-base text-charcoal max-w-xl leading-relaxed">
-            Need someone to lead an executive AI discussion? Bring a real
-            decision into the room.
+            If your leadership team needs someone to lead the AI discussion,
+            bring a real decision into the room and we will work it through
+            together.
           </p>
           <Button asChild className="shrink-0">
             <a
