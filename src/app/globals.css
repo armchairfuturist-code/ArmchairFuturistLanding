@@ -272,3 +272,25 @@
     animation: none;
   }
 }
+
+/* Route morphs via the View Transition API (Chrome 111+). The root crossfade
+   stays short so the named element carries the motion; reduced motion gets
+   none of it, and browsers without the API navigate as they always did. */
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: 320ms;
+    animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  ::view-transition-group(root) {
+    animation-duration: 220ms;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}

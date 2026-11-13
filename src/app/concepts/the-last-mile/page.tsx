@@ -235,7 +235,7 @@ export default function TheLastMilePage() {
         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
           <div className="flex flex-col md:flex-row md:items-start gap-10">
             <BlurFade inView className="flex-1">
-              <h1 className="font-heading text-5xl md:text-7xl font-bold tracking-tight text-primary mb-6">
+              <h1 className="font-heading text-5xl md:text-7xl font-bold tracking-tight text-primary mb-6" style={{ viewTransitionName: "concept-the-last-mile" }}>
                 The Last Mile
               </h1>
               <p className="text-xl md:text-2xl text-foreground/80 font-sans leading-relaxed mb-8 max-w-2xl">

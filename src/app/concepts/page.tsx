@@ -1,6 +1,7 @@
 import { ArrowLeft } from 'lucide-react'
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { ViewTransitionLink } from '@/components/ui/ViewTransitionLink';
 import { BlurFade } from '@/components/ui/blur-fade';
 import Breadcrumbs from '@/components/ui/breadcrumbs';
 import { CONCEPTS } from '@/content/concepts';
@@ -93,9 +94,10 @@ export default function ConceptsIndexPage() {
               const Icon = concept.icon;
               return (
                 <BlurFade inView key={concept.href} delay={index * 0.1}>
-                  <Link
+                  <ViewTransitionLink
                     href={concept.href}
                     className="group block p-6 rounded-xl border border-border/60 bg-card hover:border-primary/30 hover:shadow-lg transition-[border-color,box-shadow] h-full"
+                    style={{ viewTransitionName: `concept-${concept.slug}` }}
                   >
                     <div className="flex items-start gap-4 mb-4">
                       <div className="p-2 rounded-lg bg-primary/10">
@@ -117,7 +119,7 @@ export default function ConceptsIndexPage() {
                         </p>
                       ))}
                     </div>
-                  </Link>
+                  </ViewTransitionLink>
                 </BlurFade>
               );
             })}

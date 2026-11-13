@@ -116,7 +116,7 @@ export default function TheInstallTrapPage() {
                 Core Concept
               </span>
             </div>
-            <h1 className="font-display text-4xl md:text-5xl font-medium tracking-tight text-hp-electric mb-6">
+            <h1 className="font-display text-4xl md:text-5xl font-medium tracking-tight text-hp-electric mb-6" style={{ viewTransitionName: "concept-the-install-trap" }}>
               The Install Trap
             </h1>
             <p className="text-xl text-charcoal font-body leading-relaxed mb-8">

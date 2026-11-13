@@ -118,7 +118,7 @@ export default function ResultsThinkersPage() {
                 Core Concept
               </span>
             </div>
-            <h1 className="font-heading text-4xl md:text-5xl font-bold tracking-tight text-primary mb-6">
+            <h1 className="font-heading text-4xl md:text-5xl font-bold tracking-tight text-primary mb-6" style={{ viewTransitionName: "concept-results-thinkers" }}>
               Results Thinkers
             </h1>
             <p className="text-xl text-foreground/80 font-sans leading-relaxed mb-8">
