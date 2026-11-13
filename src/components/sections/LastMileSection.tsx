@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { BlurFade } from "@/components/ui/blur-fade";
+import { motion, useReducedMotion } from "motion/react";
 import "blobatar/motion.css";
 import { Blobatar } from "@blobatar/react";
 import { surprised, thinking, unsure } from "blobatar/expression";
@@ -40,6 +41,28 @@ const CONFUSED_AGENTS = [
  * Deliberately short. The concept page carries the depth; this carries the
  * claim and the exit.
  */
+/**
+ * One-shot electric wash behind a phrase, swept once when it enters view.
+ * Composited scaleX, matching ScrollHighlight's reasoning; reduced motion
+ * renders the wash at rest instead of animating it.
+ */
+function Wash({ children }: { children: React.ReactNode }) {
+  const reduce = useReducedMotion();
+  return (
+    <span className="relative inline-block">
+      <motion.span
+        aria-hidden="true"
+        className="absolute inset-0 origin-left rounded-sm bg-hp-electric opacity-25"
+        initial={reduce ? { scaleX: 1 } : { scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        viewport={{ once: true, amount: 0.8 }}
+        transition={reduce ? { duration: 0 } : { duration: 0.7, delay: 0.15, ease: "easeOut" }}
+      />
+      <span className="relative">{children}</span>
+    </span>
+  );
+}
+
 export default function LastMileSection() {
   return (
     <section className="relative py-16 md:py-24 bg-background scroll-mt-20 overflow-hidden">
@@ -79,20 +102,23 @@ export default function LastMileSection() {
             </p>
             <p>
               The last mile is a skill problem. Most people pay for the
-              expensive model and use it badly. A strong model on a bad process
-              burns money.
+              expensive model and use it badly.{" "}
+              <strong className="font-medium text-ink">
+                A strong model on a bad process burns money.
+              </strong>
             </p>
             <p>
               Fancy models cover for weak prompts. So most people type a
               request, retry twice, and trust the first good answer. Results
-              vary week to week. Nothing is ever automated.
+              vary week to week.{" "}
+              <Wash>Nothing is ever automated.</Wash>
             </p>
             <p>
-              Skilled users save the recipe and step back: what here can run
-              without me? They plan on the strong model, route execution to
-              cheap ones, and iterate until the workflow holds. Then it runs on
-              a schedule, while they sleep or see friends. Every run costs
-              less.
+              Skilled users save the recipe and step back:{" "}
+              <em>what here can run without me?</em>{"\u00A0"}They plan on the strong
+              model, route execution to cheap ones, and iterate until the
+              workflow holds. Then it runs on a schedule, while they sleep or
+              see friends. Every run costs less.
             </p>
             <p className="text-ink font-medium">
               The answer is literacy, and no tool ships with it.
