@@ -4,7 +4,17 @@ import Link from "next/link";
 import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
-import { OrganismCanvas } from "@/components/organism/OrganismCanvas";
+import dynamic from "next/dynamic";
+
+/* The WebGL engine is 126KB of three.js, and nothing paints it before
+   hydration: three.js and the particle setup are pulled in after the browser
+   is idle rather than blocking first paint. The hero copy above it is plain
+   HTML, so the LCP element never waits on this chunk. */
+const OrganismCanvas = dynamic(
+  () =>
+    import("@/components/organism/OrganismCanvas").then((m) => m.OrganismCanvas),
+  { ssr: false },
+);
 import { WHATSAPP_URL } from "@/lib/constants";
 
 import WhatsAppGlyph from "@/components/ui/WhatsAppGlyph";
