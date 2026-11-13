@@ -97,7 +97,7 @@ export const COACHING_PACKAGES: CoachingPackage[] = [
     savings: 0,
     savingsUSD: 0,
     description:
-      "One session, no commitment. Bring a specific question or a mixed scope and we work through it together. Good for discovery, or when you are still working out what you need.",
+      "One session, no commitment. Bring a question or a mixed scope and we work it together. Good for discovery, or while you work out what you need.",
     features: [
       'One 60-minute video session',
       'Focused on your specific challenge or question',
@@ -139,7 +139,7 @@ export const COACHING_PACKAGES: CoachingPackage[] = [
     savings: 100,
     savingsUSD: 100,
     description:
-      'Ten sessions for the deeper transformation, with sustained support and someone to be accountable to',
+      'Ten sessions for the deeper work, with sustained support and someone to be accountable to',
     features: [
       'Everything in 5-Session Pack',
       'Custom AI literacy curriculum',

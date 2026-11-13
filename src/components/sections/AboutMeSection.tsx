@@ -70,9 +70,8 @@ export default function AboutMeSection() {
               analyticsEvent="intelligence_series_play"
             />
             <p className="mt-4 text-sm md:text-base leading-relaxed text-white/80 max-w-prose">
-              In 51 minutes we cover why 80% of the work goes into planning
-              before execution, how to structure AI context so a model can help,
-              and what changes in a small team once it adopts AI.
+              In 51 minutes: why 80% of the work is planning, how to structure
+              AI context, and what changes in a small team that adopts AI.
             </p>
             <p className="mt-2 text-sm leading-relaxed text-white/55">
               The Intelligence Series Ep.01, recorded with{" "}

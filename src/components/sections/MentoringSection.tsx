@@ -157,11 +157,10 @@ export default function MentoringSection() {
             Judgment you own beats judgment you rent.
           </h2>
           <p className="text-white/80 text-lg md:text-xl max-w-2xl leading-relaxed">
-            Most training hands you tools and leaves the room while you work out
-            what they are for. This is a partnership: we build the mental models
-            that make AI click, test them on your live work, and you leave with
-            judgment you keep and a bigger idea of what the business could
-            become.
+            Most training hands you tools and leaves the room. This is a
+            partnership: we build the mental models, test them on your live
+            work, and you leave with judgment you keep and a bigger idea of
+            what the business could become.
           </p>
         </div>
       </div>
@@ -250,9 +249,8 @@ export default function MentoringSection() {
 
           <div className="mb-8">
             <p className="text-sm text-charcoal mb-3">
-              You can stop whenever the work stops being useful. If you would
-              rather talk it through first, book a call and we will pick the
-              size together.
+              Stop whenever the work stops being useful. Rather talk it
+              through first? Book a call and we will pick the size together.
             </p>
             <BookCallButton
               size="default"

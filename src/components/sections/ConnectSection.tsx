@@ -79,9 +79,9 @@ export default function ConnectSection() {
         </BlurFade>
         <BlurFade inView delay={0.15}>
           <p className="max-w-2xl mx-auto text-lg text-primary-foreground/90 mb-10 font-sans">
-            You don&apos;t need to have it all figured out. You need one
-            honest conversation about your next step, with someone who&apos;s
-            been here before.
+            You don&apos;t need it all figured out. You need one honest
+            conversation about your next step, with someone who&apos;s been
+            here before.
           </p>
         </BlurFade>
         <BlurFade inView delay={0.2}>
@@ -104,9 +104,9 @@ export default function ConnectSection() {
             </WhatsAppButton>
           </motion.div>
           <p className="mt-4 text-sm text-primary-foreground/85">
-            I answer these myself, usually within a few hours, and there is no
-            pitch. Most clients are self-sufficient within eight to ten weeks,
-            so this call is step one or a pointer elsewhere.
+            I answer these myself, usually within hours. No pitch. Most
+            clients are self-sufficient in eight to ten weeks, so this call is
+            step one or a pointer elsewhere.
           </p>
           <p className="mt-4 text-sm text-primary-foreground/85">
             If you are not sure yet,{" "}

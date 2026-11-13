@@ -40,9 +40,8 @@ export default function CommunityAnchor() {
           >
             Subvisual
           </a>
-          : locals using AI to solve real problems, build useful things, and
-          help each other move faster. Nobody needs to arrive advanced, only
-          curious.
+          : locals using AI to solve real problems and help each other move
+          faster. Nobody needs to arrive advanced, only curious.
         </p>
         <div className="flex flex-col sm:flex-row gap-3">
           <Button asChild>

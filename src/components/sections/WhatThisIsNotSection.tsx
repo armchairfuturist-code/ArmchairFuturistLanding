@@ -11,7 +11,7 @@ import { trackEvent } from "@/lib/analytics";
 const fitRows = [
   {
     title: "You want to build it yourself.",
-    body: "We work one-on-one on your business. You learn to build AI workflows and judge whether the result holds up, and the eight-to-ten-week program gives you time to practice with me alongside you.",
+    body: "We work one-on-one on your business. You build the workflows and judge the results. The eight-to-ten-week program gives you room to practice with me alongside.",
   },
   {
     title: "You want me to build it for you.",
@@ -33,8 +33,7 @@ export default function WhatThisIsNotSection() {
               </h2>
             </div>
             <p className="md:col-span-5 text-lg text-charcoal md:text-right max-w-sm md:ml-auto">
-              Both kinds of people are welcome. Either way, you should leave
-              more capable than you arrived.
+              Either way, you leave more capable than you arrived.
             </p>
           </div>
         </BlurFade>

@@ -16,12 +16,12 @@ export const MENTORING_PILLARS: MentoringPillar[] = [
     icon: "FlaskConical",
     title: "Test it live",
     description:
-      "Then we run that model against live work, starting with the bottleneck you arrived with and the workflow eating your week. You watch it hold up or break, and the next move comes from what just happened.",
+      "Then we run it against live work: the bottleneck you arrived with, the workflow eating your week. You watch it hold or break. The next move comes from what just happened.",
   },
   {
     icon: "TrendingUp",
     title: "Own the judgment",
     description:
-      "By the end of a pack you make the calls about where AI fits in your work, and you build from your judgment, not my notes.",
+      "By the end of a pack you decide where AI fits, and you build from your judgment, not my notes.",
   },
 ];

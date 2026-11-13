@@ -86,8 +86,8 @@ export default function SubstackSection({
             Signal, not hype
           </Heading>
           <p className="text-charcoal max-w-xl mx-auto text-sm md:text-base leading-relaxed">
-            I write every week about how AI behaves inside a working business,
-            with the receipts. That is the Armchair Futurist newsletter.
+            Every week I write about how AI behaves inside a working
+            business, with the receipts.
           </p>
         </motion.div>
 

@@ -45,7 +45,7 @@ export const SERVICE_PATHS: ServicePath[] = [
         priceKey: "roadmapAudit",
         tag: "90-Minute Working Session",
         description:
-          "A paid deep dive that turns the diagnosis into a scored roadmap for the workflows you run today. You get three answers in the order that pays back first: which tasks to automate, which tools to buy, which systems to build. Plus a written report, a video walkthrough, and a blueprint you keep whether you build it yourself or ask me to.",
+          "A paid deep dive that turns the diagnosis into a scored roadmap for the workflows you run today. Three answers, ranked by payback: what to automate, what to buy, what to build. Plus a written report, a video walkthrough, and a blueprint you keep.",
         features: [
           "90-minute deep discovery call",
           "Scored roadmap mapped to your actual workflows",
@@ -83,7 +83,7 @@ export const SERVICE_PATHS: ServicePath[] = [
         priceKey: "selfSufficiency",
         tag: "8-Week Build Sprint",
         description:
-          "The 8-week Build Sprint is the AI Self-Sufficiency Program. You launch an AI-powered service or brand by week eight, working from a proven playbook with 10 to 15 coaching sessions and async support between them, and you finish with something you can sell.",
+          "The 8-week Build Sprint. You launch an AI-powered service or brand by week eight, from a proven playbook, with 10 to 15 coaching sessions and async support between them. You finish with something you can sell.",
         features: [
           "Your own AI-powered service, designed & launched by week 8",
           "Structured build playbook (not open coaching)",
@@ -131,7 +131,7 @@ export const SERVICE_PATHS: ServicePath[] = [
         priceKey: "customAiProvisioning",
         tag: "1–2 Weeks",
         description:
-          "A private AI command center, delivered: custom business workflows, agent installs for OpenClaw and Hermes, API, calendar, and email integrations, and secure infrastructure underneath. Clients reclaim 10 to 20 hours a week, and the stack is open standard, so nothing locks you in.",
+          "A private AI command center, delivered: custom workflows, agent installs (OpenClaw, Hermes), API, calendar, and email integrations, on secure infrastructure. Clients reclaim 10 to 20 hours a week. Open standard, so nothing locks you in.",
         features: [
           "Custom business workflows",
           "Agent installation (OpenClaw, Hermes)",

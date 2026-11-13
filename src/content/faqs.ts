@@ -26,7 +26,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "What qualifications do you have?",
     answer:
-      "I hold six certifications: Certified Futurist and Long-Term Analyst (FLTA), Certified Change Management Professional (CCMP), GenAI Academy Expert, Certified Enterprise Blockchain Professional (CEBP), Professional Scrum Master (PSM), and Professional Agile Leadership (PAL). I've deployed 40+ AI systems and run on evidence-based methodology. My organizational work uses data-driven profiling to segment teams, and my change management practice is grounded in certified CCMP methodology.",
+      "I hold six certifications: Certified Futurist and Long-Term Analyst (FLTA), Certified Change Management Professional (CCMP), GenAI Academy Expert, Certified Enterprise Blockchain Professional (CEBP), Professional Scrum Master (PSM), and Professional Agile Leadership (PAL). I've deployed 40+ AI systems. My organizational work uses data-driven team profiling; my change management is certified CCMP.",
     hasLink: true,
     linkText: "Full bio & certifications →",
     linkHref: "/about",
@@ -34,7 +34,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "How much do services cost?",
     answer:
-      `Two paths. 'We do it together' guidance starts at the 5-session pack (${PACK_5_LABEL}) and scales through 10 and 20-session packs (up to 15% savings). These build your AI literacy at your own pace. The ${PROGRAM_PRICE_LABEL} AI Self-Sufficiency Program is an 8-week build sprint where you launch your own AI-powered service or brand, with 10–15 coaching sessions, a structured playbook, and async support. The Digital Identity Landing Page (${DIGITAL_IDENTITY_LABEL}) is the easiest entry into the 'I do it for you' path. Custom AI Provisioning runs ${CUSTOM_PROVISIONING_RANGE_LABEL} depending on scope.`,
+      `Two paths. Guidance starts at the 5-session pack (${PACK_5_LABEL}) and scales to 20 (up to 15% savings). The ${PROGRAM_PRICE_LABEL} Self-Sufficiency Program is an 8-week build sprint: 10–15 coaching sessions, a playbook, async support. The Digital Identity Landing Page (${DIGITAL_IDENTITY_LABEL}) is the easiest 'I do it for you' entry. Custom AI Provisioning runs ${CUSTOM_PROVISIONING_RANGE_LABEL} by scope.`,
   },
   {
     question: "How does AI guidance work?",
@@ -44,12 +44,12 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "Why the program instead of a session pack?",
     answer:
-      "Session packs build your AI judgment — the mental models and literacy to evaluate and use AI well, at your own pace. The Self-Sufficiency Program builds your AI offering — a shipped system, structured playbook, co-building support, and launch accountability, with a fixed deliverable by week 8 (10–15 sessions plus async support between them). Session packs are coaching; the Program is a build engagement with accountability. If you want to get good with AI, buy a pack. If you want to ship an AI offering, apply for the program.",
+      "Session packs build your AI judgment, at your pace. The Program builds your AI offering: a shipped system, a playbook, co-building, launch accountability, a fixed deliverable by week 8. Buy a pack to get good with AI. Apply to the Program to ship an offering.",
   },
   {
     question: "What happens between sessions?",
     answer:
-      "Session packs include follow-up on session-related topics via WhatsApp — questions, sense-checks, and next-step guidance between calls. Build work is different: configuration, integrations, debugging, and infrastructure support live in the 8-week program, which includes async build support so you're never stuck waiting a week between working sessions.",
+      "Session packs include WhatsApp follow-up on session topics between calls. Build work is different: configuration, integrations, debugging, and infrastructure support live in the 8-week program, with async support so you are never stuck waiting a week.",
   },
   {
     question: "Can you work with organizations outside the US?",
@@ -59,12 +59,12 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "What results can clients expect?",
     answer:
-      "Clients typically reclaim 10–20 hours per week through AI-powered automation. Session clients stop asking whether a tool is safe to trust and start deciding what it should own. By the end of the AI Self-Sufficiency Program, most clients have launched their own AI-powered service or built their personal brand around the work.",
+      "Clients typically reclaim 10–20 hours a week. Session clients stop asking whether a tool is safe and start deciding what it should own. By the end of the Program, most have launched an AI-powered service or built a brand around the work.",
   },
   {
     question: "How are you different from other AI consultants?",
     answer:
-      "Most consultants sell you a tool. I sell you the judgment to outlast the tools. Procedural skill is deflating as AI absorbs it, so I build judgment first, then the systems. I pair that with psychology-led strategy, because adoption fails on the human side first. And I build on open-standard stacks, so you own your data, your logic, and your infrastructure.",
+      "Most consultants sell you a tool. I sell you the judgment to outlast them. Procedural skill is deflating as AI absorbs it, so I build judgment first, then systems. Adoption fails on the human side first, so strategy is psychology-led. Stacks are open standard: you own your data, logic, and infrastructure.",
   },
   {
     question: "What is Custom AI Provisioning?",
@@ -74,12 +74,12 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "Who do you work best with, and who isn't a fit?",
     answer:
-      "Best fit: founders, creators, and independent professionals who want AI literacy and leverage, not another dependency. People willing to touch the tools themselves. Small teams ready to build their own AI-powered services. Not a fit: large enterprises seeking presentation theatre for board meetings. Leaders who want AI 'in theory' without readiness. Anyone expecting AI to solve underlying culture problems. If your team won't touch the tools, I'm not the right consultant.",
+      "Best fit: founders, creators, and independents who want AI leverage, not another dependency. People who touch the tools themselves. Small teams ready to build their own AI services. Not a fit: enterprises that want presentation theatre. Leaders who want AI 'in theory'. Anyone expecting AI to fix a culture problem. If your team won't touch the tools, I'm not your consultant.",
   },
   {
     question: "Do you install AI agents?",
     answer:
-      "Installation is the easy part. Hermes, Grok, and OpenClaw make that a weekend task. The work is deciding what the agent should own, structuring its workflow, and measuring whether it returns time worth having. I build agents with all three: one owned task to start, a defined workflow with human checkpoints, and an eight-week measurement loop. Skip those and you have automated a guess.",
+      "Installation is the easy part; Hermes, Grok, and OpenClaw make it a weekend task. The work is deciding what the agent owns, structuring its workflow, and measuring whether it returns time worth having. I build all three: one owned task, a workflow with human checkpoints, an eight-week measurement loop. Skip those and you automated a guess.",
     hasLink: true,
     linkText: "Read about the Install Trap →",
     linkHref: "/concepts/the-install-trap",

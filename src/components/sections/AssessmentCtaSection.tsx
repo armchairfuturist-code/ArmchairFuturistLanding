@@ -26,8 +26,8 @@ export default function AssessmentCtaSection() {
               Not sure where to start?
             </h2>
             <p className="text-white/80 text-base md:text-lg leading-relaxed">
-              Ten questions take about three minutes. You get a personalized
-              diagnosis and a clear next step, and no email is needed to see it.
+              Ten questions, about three minutes. You get a diagnosis and a
+              clear next step. No email needed to see it.
             </p>
           </div>
           <Button asChild size="lg" className="shrink-0" onClick={() => trackEvent("homepage_assessment_cta")}>
