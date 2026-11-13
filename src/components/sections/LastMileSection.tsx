@@ -3,11 +3,31 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { BlurFade } from "@/components/ui/blur-fade";
+import { useEffect, useRef } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import "blobatar/motion.css";
 import { Blobatar } from "@blobatar/react";
 import { surprised, thinking, unsure } from "blobatar/expression";
 import SameAgentTwice from "./SameAgentTwice";
+
+/**
+ * The three moves the paragraphs above describe, one screenful each, so the
+ * diagram can hold still beside them.
+ */
+const LAST_MILE_STEPS = [
+  {
+    title: "Plan on the strong model.",
+    body: "Pay once for the hard thinking: the task, the inputs, what good looks like.",
+  },
+  {
+    title: "Route execution to cheap models.",
+    body: "Iterate until the workflow holds. Cut the steps that need you.",
+  },
+  {
+    title: "Put it on a schedule.",
+    body: "It runs on a trigger while you sleep. Every run costs less.",
+  },
+] as const;
 
 /**
  * Confused agents in the margins.
@@ -46,6 +66,55 @@ const CONFUSED_AGENTS = [
  * Composited scaleX, matching ScrollHighlight's reasoning; reduced motion
  * renders the wash at rest instead of animating it.
  */
+/**
+ * Layered scroll velocity for the agent field.
+ *
+ * Velocity, not position: a damped delta of scrollY, clamped to +-40px and
+ * written as one CSS variable the agents multiply by their own depth. The
+ * loop parks itself when the section is offscreen, and reduced motion skips
+ * it entirely, so this costs nothing when nobody can see it.
+ */
+function useFieldParallax(ref: React.RefObject<HTMLDivElement | null>) {
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let raf = 0;
+    let last = window.scrollY;
+    let damped = 0;
+    let visible = false;
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        visible = entry.isIntersecting;
+      },
+      { rootMargin: "200px" },
+    );
+    io.observe(el);
+
+    const tick = () => {
+      raf = requestAnimationFrame(tick);
+      if (!visible) {
+        last = window.scrollY;
+        return;
+      }
+      const y = window.scrollY;
+      const velocity = y - last;
+      last = y;
+      damped += (velocity - damped) * 0.12;
+      const clamped = Math.max(-40, Math.min(40, damped * 2));
+      el.style.setProperty("--field-y", `${clamped.toFixed(2)}px`);
+    };
+    raf = requestAnimationFrame(tick);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      io.disconnect();
+    };
+  }, [ref]);
+}
+
 function Wash({ children }: { children: React.ReactNode }) {
   const reduce = useReducedMotion();
   return (
@@ -64,28 +133,37 @@ function Wash({ children }: { children: React.ReactNode }) {
 }
 
 export default function LastMileSection() {
+  const fieldRef = useRef<HTMLDivElement | null>(null);
+  useFieldParallax(fieldRef);
+
   return (
-    <section className="relative py-16 md:py-24 bg-background scroll-mt-20 overflow-hidden">
+    <section className="relative py-16 md:py-24 bg-background scroll-mt-20">
       <div
+        ref={fieldRef}
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 hidden select-none xl:block"
+        className="pointer-events-none absolute inset-0 hidden select-none overflow-hidden xl:block"
       >
-        {CONFUSED_AGENTS.map((agent) => (
+        {CONFUSED_AGENTS.map((agent, i) => (
           <div
             key={agent.name}
-            className="lm-drift absolute opacity-25"
+            className="absolute"
             style={{
               left: `${agent.x}%`,
               top: `${agent.y}%`,
-              animationDelay: `${agent.delay}s`,
+              transform: `translate3d(0, calc(var(--field-y, 0px) * ${(0.5 + (i % 4) * 0.25).toFixed(2)} * -1), 0)`,
             }}
           >
-            <Blobatar
-              name={agent.name}
-              size={agent.size}
-              animate="always"
-              expression={agent.expression}
-            />
+            <div
+              className="lm-drift opacity-25"
+              style={{ animationDelay: `${agent.delay}s` }}
+            >
+              <Blobatar
+                name={agent.name}
+                size={agent.size}
+                animate="always"
+                expression={agent.expression}
+              />
+            </div>
           </div>
         ))}
       </div>
@@ -125,7 +203,34 @@ export default function LastMileSection() {
             </p>
           </div>
 
-          <SameAgentTwice />
+          <div className="mt-16 grid gap-8 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-12">
+            {/* Sticky diagram, stepped copy: the diagram holds still while the
+                three lines that describe it scroll past. On mobile the
+                diagram leads and the steps follow, no pinning. */}
+            <ol className="order-2 lg:order-1">
+              {LAST_MILE_STEPS.map((step, i) => (
+                <motion.li
+                  key={step.title}
+                  className="py-8 lg:flex lg:min-h-[62vh] lg:flex-col lg:justify-center"
+                  initial={false}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ margin: "-40% 0px -40% 0px" }}
+                  style={{ opacity: 0.35 }}
+                >
+                  <span className="text-xs font-medium tabular-nums tracking-wide text-hp-electric">
+                    0{i + 1}
+                  </span>
+                  <h3 className="mt-2 text-lg md:text-xl font-medium text-ink">
+                    {step.title}
+                  </h3>
+                  <p className="mt-2 text-ink-soft">{step.body}</p>
+                </motion.li>
+              ))}
+            </ol>
+            <div className="order-1 lg:order-2 lg:sticky lg:top-24 lg:self-start">
+              <SameAgentTwice />
+            </div>
+          </div>
 
           <div className="mt-8">
             <Link

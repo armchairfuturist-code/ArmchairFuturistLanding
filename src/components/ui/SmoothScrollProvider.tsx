@@ -2,13 +2,17 @@
 
 import { useEffect } from "react";
 import Lenis from "lenis";
+import { setLenis } from "./lenis-instance";
 
 export function SmoothScrollProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const lenis = new Lenis({
-      duration: 1.2,
+      /* lerp, not duration: a fixed 1.2s duration re-eases every wheel tick,
+         so a fast flick and a slow nudge both crawl. lerp tracks the wheel
+         and settles in ~10 frames, and it is refresh-rate independent. */
+      lerp: 0.1,
       smoothWheel: true,
       wheelMultiplier: 1,
       touchMultiplier: 1.5,
@@ -21,6 +25,7 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
       frame = requestAnimationFrame(raf);
     }
     frame = requestAnimationFrame(raf);
+    setLenis(lenis);
 
     /* A hidden tab still runs rAF at a throttled rate, so Lenis kept
        interpolating toward a scroll target nobody could see, for the whole
@@ -38,6 +43,7 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
     return () => {
       cancelAnimationFrame(frame);
       document.removeEventListener("visibilitychange", onVisibility);
+      setLenis(null);
       lenis.destroy();
     };
   }, []);
