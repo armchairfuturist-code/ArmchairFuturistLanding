@@ -78,16 +78,17 @@ export default function LastMileSection() {
               to be the hard part. It turned out easy.
             </p>
             <p>
-              The last mile is a skill problem. New models infer a lot from a
-              weak prompt. Most people paste a request, retry twice, and trust
-              the first clean answer. Results vary week to week. Nothing is
-              automated.
+              The last mile is a skill problem. New models can infer a lot from
+              a weak prompt. Most people type a request, retry twice, and trust
+              the first clean answer that sounds good. Results vary week to
+              week. Nothing is ever automated.
             </p>
             <p>
-              Skilled users save the recipe. They route cheap checks first,
-              spend the strong thought once, run cheap models on triggers, and
-              log each run. The same task costs less and repeats next week
-              without them.
+              Skilled users orchestrate and repeat recipes. They plan with
+              pricier models first, then route to cheap models to execute. They
+              iterate until the whole workflow is perfected, then repeat it for
+              any work they do often. Execution is triggered cheap, and runs on
+              a schedule while they sleep, or spend time with people they love.
             </p>
             <p className="text-ink font-medium">
               The answer is literacy, and no tool ships with it.
