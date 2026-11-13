@@ -105,6 +105,16 @@
 .organism-status { font-size: 14px; letter-spacing: 0; } /* preview: text face, 14px */
 .organism-hero__copy { position: relative; max-width: 1120px; margin: 8vh 0 0 8vw; }
 .organism-hero__copy::before { content: ""; position: absolute; z-index: -1; inset: -56px -72px -72px -8vw; pointer-events: none; background: radial-gradient(ellipse 130% 100% at 22% 40%, rgba(8, 13, 23, .88) 30%, rgba(8, 13, 23, .55) 58%, transparent 78%); }
+/* The copy paints with the HTML and rises in CSS. The H1 keeps full opacity
+   from the first frame (LCP is measured on it); only the lines under it fade. */
+@keyframes hero-rise { from { opacity: .001; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+@keyframes hero-rise-solid { from { transform: translateY(16px); } to { transform: none; } }
+.organism-hero__copy > * { animation: hero-rise .42s cubic-bezier(.23, 1, .32, 1) both; }
+.organism-hero__copy > :first-child { animation-name: hero-rise-solid; }
+.organism-hero__copy > :nth-child(2) { animation-delay: .06s; }
+.organism-hero__copy > :nth-child(3) { animation-delay: .12s; }
+.organism-hero__copy > :nth-child(4) { animation-delay: .18s; }
+@media (prefers-reduced-motion: reduce) { .organism-hero__copy > * { animation: none; } }
 .organism-kicker { display: flex; align-items: center; gap: 10px; margin: 0 0 22px; color: var(--org-blue); font-size: 14px; letter-spacing: 0; } /* preview: text face, 14px, sentence case */
 .organism-kicker span { width: 28px; height: 1px; background: currentColor; }
 .organism-hero h1 { max-width: 1120px; margin: 0; font-size: clamp(3.5rem, 7.4vw, 8.4rem); font-weight: 500; letter-spacing: -.075em; line-height: .88; color: var(--org-paper); }
