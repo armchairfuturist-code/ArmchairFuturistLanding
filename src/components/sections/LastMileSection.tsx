@@ -27,7 +27,7 @@ export default function LastMileSection() {
 
           <div className="max-w-2xl space-y-4 text-base md:text-lg leading-relaxed text-charcoal">
             <p>
-              Anyone with a card can get a capable agent. That was supposed
+              Anyone with a credit card can get a capable agent. That was supposed
               to be the hard part. It turned out easy.
             </p>
             <p>
