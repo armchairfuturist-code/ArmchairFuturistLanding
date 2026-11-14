@@ -190,7 +190,7 @@ export default function ServicesSection() {
             <p className="text-sm text-charcoal/80 font-sans">
               I also run roundtables and strategy sessions.{" "}
               <a
-                href="/#speaking"
+                href="/speaking"
                 className="text-hp-electric font-semibold hover:underline underline-offset-4"
               >
                 See speaking →

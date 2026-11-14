@@ -48,9 +48,19 @@ const sections: readonly HomepageSection[] = [
   {
     id: SECTION_IDS.services,
     label: "Services",
-    // Above-the-fold priority (Option A): offers with visible prices come
-    // right after the hero, then the proof/testimonial strip, then the why.
+    // Conversion funnel (consolidated): offers with prices, then the lane
+    // selector (build-it vs coached), then the coaching offer, then proof.
     component: dynamic(() => import("@/components/sections/ServicesSection")),
+  },
+  {
+    id: SECTION_IDS.whatIsNot,
+    label: "Fit",
+    component: dynamic(() => import("@/components/sections/WhatThisIsNotSection")),
+  },
+  {
+    id: SECTION_IDS.mentoring,
+    label: "Guidance",
+    component: dynamic(() => import("@/components/sections/MentoringSection")),
   },
   {
     id: SECTION_IDS.caseStudies,
@@ -67,9 +77,9 @@ const sections: readonly HomepageSection[] = [
     component: dynamic(() => import("@/components/sections/LastMileSection")),
   },
   {
-    id: SECTION_IDS.whatIsNot,
-    label: "Fit",
-    component: dynamic(() => import("@/components/sections/WhatThisIsNotSection")),
+    id: SECTION_IDS.faq,
+    label: "FAQ",
+    component: dynamic(() => import("@/components/sections/FAQSection")),
   },
   {
     id: SECTION_IDS.assessment,
@@ -84,32 +94,6 @@ const sections: readonly HomepageSection[] = [
     ),
   },
   {
-    id: SECTION_IDS.roi,
-    label: "ROI",
-    navigable: false,
-    component: dynamic(() => import("@/components/sections/ROICalculatorSection")),
-  },
-  { id: SECTION_IDS.community, label: "Community", component: dynamic(() => import("@/components/sections/CommunityAnchor")) },
-  {
-    id: SECTION_IDS.about,
-    label: "About",
-    component: dynamic(() => import("@/components/sections/AboutMeSection")),
-  },
-  {
-    id: SECTION_IDS.mentoring,
-    label: "Guidance",
-    component: dynamic(() => import("@/components/sections/MentoringSection")),
-  },
-  {
-    id: SECTION_IDS.speaking,
-    label: "Speaking",
-    component: dynamic(() => import("@/components/sections/SpeakingSection"), {
-      loading: () => (
-        <SectionSkeleton minHeight="min-h-[420px]" label="Loading speaking" />
-      ),
-    }) as React.ComponentType,
-  },
-  {
     id: SECTION_IDS.substack,
     label: "Newsletter",
     // Permanent section — see DESIGN.md "Permanent Sections (No Removal)".
@@ -120,16 +104,15 @@ const sections: readonly HomepageSection[] = [
     }) as React.ComponentType,
   },
   {
-    id: SECTION_IDS.faq,
-    label: "FAQ",
-    component: dynamic(() => import("@/components/sections/FAQSection")),
-  },
-  {
     id: SECTION_IDS.connect,
     label: "Contact",
     component: dynamic(() => import("@/components/sections/ConnectSection")),
   },
 ];
+
+// Sections consolidated off the homepage into their dedicated routes (all
+// footer-linked): ROI calculator, community, about, speaking. The constants
+// stay exported because pages and links may still reference the ids.
 
 export function getSections(): readonly HomepageSection[] {
   return sections;

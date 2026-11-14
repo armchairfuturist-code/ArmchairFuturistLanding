@@ -584,7 +584,7 @@ shows the scribble, not the blank-hero side effect it used to be.
 
 These sections are load-bearing for positioning and conversion. Removing one — or hiding it with `homepage: false` in `src/lib/homepage-sections.tsx` — is a regression, not a cleanup. `src/lib/__tests__/homepage-sections.test.ts` pins the homepage order and fails on removal.
 
-- **Newsletter feed** (`newsletter` → `SubstackSection`): live Substack feed with subscribe CTA on the homepage, between Speaking and FAQ. It is the list-building surface and the newsletter's only organic funnel on the site. If the feed fetch fails, the section still renders the CTA plus a retry — degraded, never absent.
+- **Newsletter feed** (`newsletter` → `SubstackSection`): live Substack feed with subscribe CTA on the homepage, after the Assessment CTA and before Connect. It is the list-building surface and the newsletter's only organic funnel on the site. If the feed fetch fails, the section still renders the CTA plus a retry — degraded, never absent.
 - **Hero organism** (`hero` → `OrganismHero`): the signature WebGL2 particle moment; see Motion & Interaction.
 
 Deletion policy: motion may be trimmed to the system's rules, but section presence is not a motion decision.
