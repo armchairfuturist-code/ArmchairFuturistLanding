@@ -38,14 +38,16 @@ jobs:
 
       # tsc and vitest are independent and read-only; in parallel they save
       # ~8s. Build stays a separate step for clean logs.
-      - name: Lint, typecheck & test
+      - name: Lint, typecheck, geo & test
         run: |
           set +e
           npm run lint & P1=$!
           npx vitest run & P2=$!
+          npm run geo:check & P3=$!
           FAIL=0
           wait $P1 || { echo "::error::tsc --noEmit failed"; FAIL=1; }
           wait $P2 || { echo "::error::vitest failed"; FAIL=1; }
+          wait $P3 || { echo "::error::geo drift check failed"; FAIL=1; }
           exit $FAIL
 
       - name: Build
