@@ -216,7 +216,7 @@ export default function SubstackSection({
                 transition={{ duration: 0.4, delay: 0.3 }}
                 className="mt-8 flex justify-center"
               >
-                <Button asChild variant="outline" size="sm">
+                <Button asChild variant="outline" size="sm" className="min-h-[44px]">
                   <a href={SUBSTACK_URL} target="_blank" rel="noopener noreferrer">
                     View All Posts
                     <ExternalLink className="ml-2 h-3 w-3" />

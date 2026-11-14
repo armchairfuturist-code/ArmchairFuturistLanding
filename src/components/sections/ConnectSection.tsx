@@ -126,7 +126,7 @@ export default function ConnectSection() {
         {/* Contact Form — disclosed so the close offers two doors, not four */}
         <details className="mt-10 w-full max-w-md mx-auto group">
           <summary
-            className="cursor-pointer list-none inline-flex items-center gap-2 text-sm font-medium text-white underline underline-offset-4 hover:text-white/85 transition-colors [&::-webkit-details-marker]:hidden"
+            className="cursor-pointer list-none inline-flex items-center gap-2 px-2 text-sm font-medium text-white underline underline-offset-4 hover:text-white/85 transition-colors justify-center min-h-[44px] [&::-webkit-details-marker]:hidden"
           >
             Prefer writing? Send a note instead
             <span className="text-[11px] font-mono uppercase tracking-widest text-white/70 group-open:hidden">Expand</span>

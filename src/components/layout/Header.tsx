@@ -72,7 +72,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-4">
             <Link
               href="/assessment"
-              className="text-sm text-white/70 hover:text-hp-bright transition-colors duration-150"
+              className="inline-flex min-h-[44px] items-center text-sm text-white/70 hover:text-hp-bright transition-colors duration-150"
             >
               Free Assessment
             </Link>

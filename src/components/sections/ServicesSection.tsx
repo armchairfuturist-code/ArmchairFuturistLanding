@@ -74,7 +74,7 @@ export default function ServicesSection() {
                       )}
                       <span>{path.label}</span>
                     </p>
-                    <h3 className="font-heading text-2xl md:text-3xl font-medium text-ink">
+                    <h3 className="font-heading text-2xl md:text-3xl font-medium tracking-tight text-ink">
                       {path.title}
                     </h3>
                     <p className="text-sm text-graphite font-mono mt-1">
