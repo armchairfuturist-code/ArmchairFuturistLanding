@@ -283,6 +283,13 @@ Primary page: https://thearmchairfuturist.com/how-i-work
 10. Newsletter - Recent Substack issues and archive
 11. Contact - Contact form and booking CTAs
 
+
+### Dedicated Routes
+- **Community:** Braga AI Builders community and events at /speaking
+- **Speaking:** Executive roundtables and workshops at /speaking
+- **About:** Alex Myers biography and credentials at /about
+- **ROI:** Interactive time-savings estimator at /roi-calculator
+
 ## FAQ Content (AI-Optimized Q&A)
 
 The site contains 15 FAQ items covering:
