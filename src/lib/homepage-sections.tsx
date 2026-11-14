@@ -14,6 +14,7 @@ export interface HomepageSection {
 
 export const SECTION_IDS = {
   hero: "hero",
+  testimonialMarquee: "testimonial-marquee",
   lastMile: "last-mile",
   whatIsNot: "what-this-is-not",
   services: "services",
@@ -34,6 +35,15 @@ const sections: readonly HomepageSection[] = [
     id: SECTION_IDS.hero,
     label: "Hero",
     navigable: false,
+  },
+  {
+    id: SECTION_IDS.testimonialMarquee,
+    label: "Testimonials",
+    navigable: false,
+    homepage: true,
+    component: dynamic(
+      () => import("@/components/sections/TestimonialMarquee"),
+    ) as React.ComponentType,
   },
   {
     id: SECTION_IDS.services,

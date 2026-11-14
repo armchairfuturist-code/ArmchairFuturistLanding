@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { NumberTicker } from "@/components/ui/number-ticker";
+import { OpenOnHash } from "@/components/ui/open-on-hash";
 import { TESTIMONIALS, type Testimonial } from "@/content/testimonials";
 import { CASE_STUDIES } from "@/content/case-studies";
 import { GITHUB_URL } from "@/lib/constants";
@@ -96,7 +97,8 @@ export default function ProofSection() {
             ))}
           </div>
           <p className="mt-4 text-sm text-graphite">Excerpts from client reviews. Individual results and timelines vary.</p>
-          <details className="mt-4 border-b border-hairline pb-2">
+          <OpenOnHash id="full-testimonials" />
+          <details id="full-testimonials" className="mt-4 scroll-mt-20 border-b border-hairline pb-2">
             <summary className={disclosureClass}>Read more client reviews ({TESTIMONIALS.length} full reviews)</summary>
             <div className="grid gap-x-12 gap-y-8 py-6 md:grid-cols-2">
               {TESTIMONIALS.map((client) => (

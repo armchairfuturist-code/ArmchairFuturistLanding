@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
@@ -17,20 +16,6 @@ const OrganismCanvas = dynamic(
   { ssr: false },
 );
 import { WHATSAPP_URL } from "@/lib/constants";
-import { TESTIMONIALS } from "@/content/testimonials";
-
-/* The proof the landing page leads with: one strong numbered result from a
-   named client, above the fold (Option A, DESIGN.md Motion & Interaction).
-   Fails fast on a testimonial rename, like ProofSection. The getter keeps
-   the narrowing inside one typed function, so the JSX sees a Testimonial. */
-function getFeaturedTestimonial() {
-  const found = TESTIMONIALS.find((item) => item.name === "Shannon Myers");
-  if (!found) {
-    throw new Error(`OrganismHero: no featured testimonial "Shannon Myers"`);
-  }
-  return found;
-}
-const featured = getFeaturedTestimonial();
 
 import WhatsAppGlyph from "@/components/ui/WhatsAppGlyph";
 import { getLenis } from "@/components/ui/lenis-instance";
@@ -133,32 +118,6 @@ export function OrganismHero() {
             See if it&apos;s a fit <ArrowDown size={17} aria-hidden="true" />
           </button>
         </div>
-        <figure className="organism-hero__card">
-          <p className="organism-hero__card-kicker">
-            Trusted by founders, leaders, and creative professionals
-          </p>
-          <blockquote>
-            <p>
-              “He has saved me over $10,000 a year. I save 10 to 20 hours a
-              week now.”
-            </p>
-          </blockquote>
-          <figcaption className="organism-hero__card-client">
-            {featured.imageSrc ? (
-              <Image
-                src={featured.imageSrc}
-                alt={`Profile picture of ${featured.name}`}
-                width={44}
-                height={44}
-                className="organism-hero__card-avatar"
-              />
-            ) : null}
-            <span>
-              <span className="organism-hero__card-name">{featured.name}</span>
-              <span className="organism-hero__card-role">{featured.title}</span>
-            </span>
-          </figcaption>
-        </figure>
       </div>
       <div className="organism-status"><span>40+ systems deployed</span><span>Self-sufficient in 8&ndash;10 weeks</span></div>
       <div className="organism-hero__hint"><span>Scroll</span><ArrowDown size={14} aria-hidden="true" /></div>
