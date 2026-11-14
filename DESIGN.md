@@ -544,6 +544,7 @@ The typography system uses two geometric sans faces — **Space Grotesk** for di
 - **Page transitions:** Fade-in on route change. 200ms ease-out. No slide.
 - **Scroll reveals:** Subtle fade-up on section entry (BlurFade / whileInView). ~400ms ease-out. No parallax.
 - **Hero organism:** Particles settle from scatter over 1.8s, breathe at rest, glow near the cursor (fine pointers only), and ripple on click or tap. Off-screen and hidden tabs stop the loop. Context loss falls back to a static SVG scribble. Device tiers: 14,000 desktop / 3,000 touch / 1,200 low-memory.
+- **Proof and price above the fold (Option A):** The hero carries a featured testimonial card (Shannon Myers: "$10,000+ saved, 10–20 hours back a week") beside the copy, and a "See services and pricing" action scrolls to the offers. The offers and the proof/testimonial strip sit directly below the hero; homepage-sections.test.ts pins that priority.
 - **Scramble decode:** Authored moments only — the stats slab header in ProofSection ("Across the work") via ScrambleText. Headlines elsewhere are plain type.
 - **Stats count-up:** The numeric stats (40+, 5+ hours) tick up on scroll-in (NumberTicker spring). "8–10 weeks" stays static — an honest range doesn't animate.
 - **Newsletter feed micro-motion:** Cards enter staggered (0.06s step); hover lifts a card 4px with a 5% image zoom; the Subscribe button carries a magnetic tilt (fine pointers only). See "Permanent Sections (No Removal)".

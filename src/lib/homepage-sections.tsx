@@ -36,6 +36,22 @@ const sections: readonly HomepageSection[] = [
     navigable: false,
   },
   {
+    id: SECTION_IDS.services,
+    label: "Services",
+    // Above-the-fold priority (Option A): offers with visible prices come
+    // right after the hero, then the proof/testimonial strip, then the why.
+    component: dynamic(() => import("@/components/sections/ServicesSection")),
+  },
+  {
+    id: SECTION_IDS.caseStudies,
+    label: "Results",
+    component: dynamic(() => import("@/components/sections/ProofSection"), {
+      loading: () => (
+        <SectionSkeleton minHeight="min-h-[640px]" label="Loading client results" />
+      ),
+    }),
+  },
+  {
     id: SECTION_IDS.lastMile,
     label: "Why",
     component: dynamic(() => import("@/components/sections/LastMileSection")),
@@ -56,20 +72,6 @@ const sections: readonly HomepageSection[] = [
         ),
       },
     ),
-  },
-  {
-    id: SECTION_IDS.caseStudies,
-    label: "Results",
-    component: dynamic(() => import("@/components/sections/ProofSection"), {
-      loading: () => (
-        <SectionSkeleton minHeight="min-h-[640px]" label="Loading client results" />
-      ),
-    }),
-  },
-  {
-    id: SECTION_IDS.services,
-    label: "Services",
-    component: dynamic(() => import("@/components/sections/ServicesSection")),
   },
   {
     id: SECTION_IDS.roi,

@@ -5,11 +5,11 @@ describe("homepage composition data", () => {
   it("keeps the approved order, including the permanent newsletter feed", () => {
     expect(getHomepageSections().map(({ id }) => id)).toEqual([
       SECTION_IDS.hero,
+      SECTION_IDS.services,
+      SECTION_IDS.caseStudies,
       SECTION_IDS.lastMile,
       SECTION_IDS.whatIsNot,
       SECTION_IDS.assessment,
-      SECTION_IDS.caseStudies,
-      SECTION_IDS.services,
       SECTION_IDS.roi,
       SECTION_IDS.community,
       SECTION_IDS.about,
