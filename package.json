@@ -16,7 +16,9 @@
     "test:responsive": "node audit.mjs",
     "geo:check": "node scripts/check-llms-freshness.mjs && node scripts/check-geo-maps.mjs",
     "a11y:check": "node scripts/audit-a11y.mjs",
-    "seo:audit": "node scripts/seo-audit.mjs"
+    "seo:audit": "node scripts/seo-audit.mjs",
+    "rates:check": "node scripts/sync-pricing-rates.mjs",
+    "rates:apply": "node scripts/sync-pricing-rates.mjs --apply"
   },
   "dependencies": {
     "@blobatar/react": "^2.7.0",

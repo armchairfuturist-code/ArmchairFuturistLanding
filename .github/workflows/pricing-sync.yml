@@ -1,0 +1,56 @@
+name: Pricing rate sync
+
+# Minimum-effective EUR/USD updates: fetch the ECB rate weekly (Mon 08:00 UTC),
+# regenerate derived prices only when the rate moved >= 2% from the last
+# published EUR_USD_RATE, and open a PR for human review — never push to main.
+# A human eyeballs the charm values (7-endings, round numbers) before merge.
+
+on:
+  schedule:
+    - cron: '0 8 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: 22
+
+      - name: Regenerate derived prices if the rate drifted
+        id: sync
+        run: |
+          if node scripts/sync-pricing-rates.mjs --apply; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Self-test rounding rules
+        run: node scripts/sync-pricing-rates.mjs --self-test
+
+      - name: Open PR
+        if: steps.sync.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TS=$(date +%Y-%m-%d)
+          BRANCH="pricing/rates-${TS}"
+          git config user.name armchairfuturist-code
+          git config user.email armchairfuturist@gmail.com
+          git checkout -b "$BRANCH"
+          git add src/lib/pricing.ts
+          git commit -m "pricing: sync EUR/USD derived prices (rate moved)"
+          git push -u origin "$BRANCH"
+          gh pr create \
+            --title "Pricing: EUR/USD rate sync ${TS}" \
+            --body "Automated rate sync. Derived currency prices regenerated from the ECB rate; canonical side untouched. Review the charm values before merging." \
+            --base main --head "$BRANCH"
