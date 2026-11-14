@@ -111,9 +111,13 @@
 @keyframes hero-rise-solid { from { transform: translateY(16px); } to { transform: none; } }
 .organism-hero__copy > * { animation: hero-rise .42s cubic-bezier(.23, 1, .32, 1) both; }
 .organism-hero__copy > :first-child { animation-name: hero-rise-solid; }
+/* Stagger per modern-web-guidance: sibling-index() (Baseline 2026-08) is one rule
+   instead of three; the nth-child rules above stay as the fallback for browsers
+   that drop the unsupported declaration (cascade: later same-specificity wins). */
 .organism-hero__copy > :nth-child(2) { animation-delay: .06s; }
 .organism-hero__copy > :nth-child(3) { animation-delay: .12s; }
 .organism-hero__copy > :nth-child(4) { animation-delay: .18s; }
+.organism-hero__copy > :not(:first-child) { animation-delay: calc((sibling-index() - 1) * .06s); }
 @media (prefers-reduced-motion: reduce) { .organism-hero__copy > * { animation: none; } }
 .organism-kicker { display: flex; align-items: center; gap: 10px; margin: 0 0 22px; color: var(--org-blue); font-size: 14px; letter-spacing: 0; } /* preview: text face, 14px, sentence case */
 .organism-kicker span { width: 28px; height: 1px; background: currentColor; }
