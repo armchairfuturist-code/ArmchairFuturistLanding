@@ -7,6 +7,13 @@ import {
   generateAmbientSpreadPoints,
   generateChaosCloudPoints,
 } from "./webgl-engine";
+import {
+  type OrganismEvent,
+  type OrganismPhase,
+  datasetTagFor,
+  staticSvgIsArtwork,
+  transitionPhase,
+} from "./runtime-state";
 
 interface AmbientVisualRuntimeOptions {
   canvasRef: RefObject<HTMLCanvasElement | null>;
@@ -53,14 +60,31 @@ export function useAmbientVisualRuntime({
   canvasRef,
   count = 14000,
 }: AmbientVisualRuntimeOptions) {
-  const [showFallback, setShowFallback] = useState(true);
-  /* The static SVG serves two different jobs. While WebGL is still starting
-     it is a loading placeholder and flashes in front of the hero for a second
-     or two; its curved strokes and scattered circles read as a stray line, so
-     it must not draw the eye. Once WebGL has failed, or the visitor prefers
-     reduced motion, that same SVG is the artwork and belongs at full
-     strength. This tracks which of the two applies. */
-  const [fallbackIsPermanent, setFallbackIsPermanent] = useState(false);
+  /* The runtime is an explicit state machine (runtime-state.ts): one typed
+     phase, and every handler funnels through transitionPhase. The dataset
+     tag and the SVG visibility derive from the phase, so a transition can
+     never fall through — the context-loss path that used to blank the hero
+     is a state now, not a side effect. */
+  const [phase, setPhase] = useState<OrganismPhase>({ kind: "booting" });
+  const dispatch = (event: OrganismEvent) =>
+    setPhase((current) => transitionPhase(current, event));
+
+  /* Mirror the phase onto the canvas for diagnostics and tests. */
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const tag = datasetTagFor(phase);
+    if (tag === "fallback" && phase.kind === "fallback") {
+      canvas.dataset.organism = "fallback";
+      canvas.dataset.organismReason = phase.reason;
+    } else if (tag === "webgl") {
+      canvas.dataset.organism = "webgl";
+      delete canvas.dataset.organismReason;
+    } else {
+      delete canvas.dataset.organism;
+      delete canvas.dataset.organismReason;
+    }
+  }, [phase, canvasRef]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -109,8 +133,11 @@ export function useAmbientVisualRuntime({
       // Every GL object this engine holds died with the context, so drop the
       // instance rather than let step()/render() call into invalid objects.
       organism = null;
-      canvas.dataset.organism = "fallback";
-      canvas.dataset.organismReason = "context-lost";
+      // The static SVG takes over as a machine state, not a dataset write:
+      // the old path flipped the tag to "fallback" but never mounted the SVG
+      // (it mounts only when permanent), so the hero went blank until the
+      // context restored.
+      dispatch({ type: "CONTEXT_LOST" });
     };
 
     const handleContextRestored = () => {
@@ -127,10 +154,11 @@ export function useAmbientVisualRuntime({
     };
 
     const initialize = () => {
-      if (organism || reducedMotion.matches || disposed) {
-        // Reduced motion never starts the canvas, so the static SVG is the
-        // artwork rather than a loading placeholder.
-        if (reducedMotion.matches) setFallbackIsPermanent(true);
+      if (organism || disposed) return;
+      if (reducedMotion.matches) {
+        // Reduced motion never starts the canvas; the static SVG is the
+        // artwork from the first paint.
+        dispatch({ type: "REDUCED" });
         return;
       }
 
@@ -142,13 +170,13 @@ export function useAmbientVisualRuntime({
         organism = new ParticleOrganism(canvas, particleCount, chaos);
       } catch (error) {
         console.warn("WebGL2 hero organism initialization failed:", error);
-        canvas.dataset.organism = "fallback";
-        canvas.dataset.organismReason =
-          error instanceof Error && error.message.includes("WebGL2")
-            ? "no-webgl2"
-            : "init-failed";
-        setFallbackIsPermanent(true);
-        setShowFallback(true);
+        dispatch({
+          type: "INIT_FAILED",
+          reason:
+            error instanceof Error && error.message.includes("WebGL2")
+              ? "no-webgl2"
+              : "init-failed",
+        });
         return;
       }
 
@@ -157,9 +185,8 @@ export function useAmbientVisualRuntime({
       organism.setMorph(0);
       organism.setOpacity(0.32);
       organism.start();
-      canvas.dataset.organism = "webgl";
       canvas.dataset.organismCount = String(particleCount);
-      setShowFallback(false);
+      dispatch({ type: "INIT_SUCCESS" });
 
       // Load-in: scattered particles settle into the calm full-hero field.
       const startedAt = performance.now();
@@ -204,15 +231,18 @@ export function useAmbientVisualRuntime({
       if (event.matches) {
         cancelAnimationFrame(introFrame);
         organism?.stop();
-        setFallbackIsPermanent(true);
-        setShowFallback(true);
-      } else if (organism) {
-        setShowFallback(false);
+        dispatch({ type: "REDUCED" });
+      } else {
+        // The SVG un-mounts; the canvas must take over whether the engine
+        // survived the mute or never existed.
+        dispatch({ type: "UNREDUCED" });
+        if (!organism) {
+          initialize();
+          return;
+        }
         organism.setMorph(1);
         organism.setOpacity(1);
         organism.start();
-      } else {
-        initialize();
       }
     };
 
@@ -287,6 +317,10 @@ export function useAmbientVisualRuntime({
     };
   }, [count]);
 
+  /* Both flags derive from one phase: the SVG mounts and shows exactly when
+     it is the artwork (reduced or fallback), and is absent otherwise. */
+  const showFallback = staticSvgIsArtwork(phase);
+  const fallbackIsPermanent = staticSvgIsArtwork(phase);
   return { showFallback, fallbackIsPermanent };
 }
 

@@ -551,6 +551,26 @@ The typography system uses two geometric sans faces — **Space Grotesk** for di
 - **Cursor effects are hover-only:** Magnetic tilt and section spotlight bind only where `(hover: hover) and (pointer: fine)` matches; touch taps never set or stick them.
 - **Reduced motion:** The WebGL loop stops and the static SVG scribble remains. The global motion kill spares one exception: the submit spinner must still spin.
 
+### Hero organism runtime states
+
+The hero organism is the only motion surface with real state, so it runs as an
+explicit machine — `src/components/organism/runtime-state.ts`, one typed phase
+driving the canvas, the `canvas.dataset.organism` diagnostic tag, and the
+static SVG. Transitions are in the module; the table is the contract:
+
+| Phase | Meaning | Artwork shown |
+|---|---|---|
+| `booting` | canvas mounted, engine not yet decided | nothing (no placeholder) |
+| `webgl` | engine owns the hero | canvas |
+| `reduced` | visitor prefers reduced motion | static SVG |
+| `fallback` | engine unavailable (`no-webgl2`, `init-failed`) or the GPU context was lost | static SVG |
+
+Transitions: `booting → webgl | fallback | reduced`; `webgl → fallback`
+(context loss) `| reduced`; `fallback → booting` (context restored; the engine
+is rebuilt) `| reduced`; `reduced → webgl` (visitor unmutes). Only `reduced`
+and `fallback` mount the static SVG. A context loss is therefore a state that
+shows the scribble, not the blank-hero side effect it used to be.
+
 ## Engineering Notes
 
 - **CSS variables** in `src/app/globals.css` expose the full color system. Tokens are HSL triplets for shadcn/ui compatibility.
