@@ -118,15 +118,6 @@ export function OrganismHero() {
             See if it&apos;s a fit <ArrowDown size={17} aria-hidden="true" />
           </button>
         </div>
-        <div className="organism-partners">
-          <p>Organizations I have worked with</p>
-          <ul>
-            <li>Techstars</li>
-            <li>Launch by NTT DATA</li>
-            <li>Kemin</li>
-            <li>GenAI Academy</li>
-          </ul>
-        </div>
       </div>
       <div className="organism-status"><span>40+ systems deployed</span><span>Self-sufficient in 8&ndash;10 weeks</span></div>
       <div className="organism-hero__hint"><span>Scroll</span><ArrowDown size={14} aria-hidden="true" /></div>
