@@ -24,25 +24,41 @@ const clientExamples = [
   {
     client: byName("Shannon Myers"),
     path: "Built for you",
-    title: "A website launch and 20 hours back each week",
-    description: "Shannon credits the work with 20 hours a week back and a website launch that landed a deal inside an hour. These are her reported results.",
-    excerpt: "He helped me reclaim 20 hours per week through AI optimization and launch a website that landed a deal within an hour.",
+    title: "Over $10k saved and 10–20 hours back each week",
+    description: "Shannon reports more than $10,000 a year saved and 10–20 hours a week returned. Alex found what was actually blocking her, updated her technology training, and built a website that gets seen. These are her reported results.",
+    excerpt: "He found what was blocking me, got me the technology training I was missing, and built a website that gets seen. He has saved me over $10,000 a year.",
   },
 ];
 
 function ClientIdentity({ client }: { client: Testimonial }) {
+  const initials = client.name
+    .split(/\s+/)
+    .map((part) => part[0])
+    .filter(Boolean)
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
   return (
     <figcaption className="mt-6 flex items-center gap-3">
-      <Image
-        src={client.imageSrc}
-        alt={`Profile picture of ${client.name}`}
-        width={56}
-        height={56}
-        className="h-14 w-14 shrink-0 rounded-full object-cover"
-      />
+      {client.imageSrc ? (
+        <Image
+          src={client.imageSrc}
+          alt={`Profile picture of ${client.name}`}
+          width={56}
+          height={56}
+          className="h-14 w-14 shrink-0 rounded-full object-cover"
+        />
+      ) : (
+        <span
+          aria-hidden="true"
+          className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-hp-electric/10 font-display text-lg font-medium text-hp-electric"
+        >
+          {initials || "—"}
+        </span>
+      )}
       <div>
         <p className="font-semibold text-ink">{client.name}</p>
-        <p className="text-sm text-graphite">{client.title}</p>
+        {client.title ? <p className="text-sm text-graphite">{client.title}</p> : null}
       </div>
     </figcaption>
   );
@@ -85,7 +101,7 @@ export default function ProofSection() {
             <div className="grid gap-x-12 gap-y-8 py-6 md:grid-cols-2">
               {TESTIMONIALS.map((client) => (
                 <figure key={client.name} className="m-0 border-t border-hairline pt-6">
-                  <blockquote className="text-base leading-relaxed text-charcoal"><p>&ldquo;{client.text}&rdquo;</p></blockquote>
+                  <blockquote className="text-base leading-relaxed text-charcoal"><p>&ldquo;{client.fullText || client.text}&rdquo;</p></blockquote>
                   <ClientIdentity client={client} />
                 </figure>
               ))}

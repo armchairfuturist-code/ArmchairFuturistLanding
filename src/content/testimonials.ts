@@ -3,7 +3,8 @@ export interface Testimonial {
   name: string;
   title: string;
   text: string;
-  imageSrc: string;
+  fullText?: string;
+  imageSrc?: string;
   dataAiHint?: string;
 }
 
@@ -19,7 +20,16 @@ export const TESTIMONIALS: Testimonial[] = [
     imageSrc: "/shannon-myers.jpg",
     name: "Shannon Myers",
     title: "Founder of The Integrative Practitioner",
-    text: "I knew Alex was brilliant, but working with him transformed my business. He helped me reclaim 20 hours per week through AI optimization and launch a website that landed a deal within an hour. Beyond the metrics, Alex provides balance. In a world of AI noise, he helps entrepreneurs use tech with a soul-led focus. If your digital presence doesn't feel like your Authentic Self, you don't need a developer—you need a Tech Sherpa.",
+    text: "I'm a solo small business owner. I do it all, and I love what I do - but there are pieces of running a small business that I don't like doing. Alex is multi-talented. A patient consultant who understands workflows, efficiency, and how to keep things human-centric. He found what was blocking me, got me the technology training I was missing, and built a website that gets seen. He has saved me over $10,000 a year. I save 10 to 20 hours a week now. The technology was the bridge to getting unstuck and more aligned in my life and work. Now I do more of the work I love.",
+    fullText: "I'm a solo small business owner. I do it all. I love what I do - but there are pieces of running a small business that I don't like doing. I didn't know what I could outsource. I didn't have updated technology training. I did not know all the tools I could use and for what. And the boring work was the thing keeping me stuck. Alex is multi-talented. A patient consultant who understands workflows, efficiency, and how to keep things human-centric. He looked at what was actually blocking me, taught me the tools, and built a website that felt like me - a digital presence that gets seen. He has saved me over $10,000 a year in small business costs. I save 10 to 20 hours a week now. The technology was the bridge to getting unstuck and more aligned in my life and work. And now I do more of the work I love.",
+    dataAiHint: "profile person",
+  },
+  {
+    name: "Maria Fonseca",
+    title: "",
+    // No portrait yet — the initials avatar renders until a photo lands in
+    // public/ (see ProofSection).
+    text: "I met Alex at a Braga AI builders meeting, a group inside the Braga expats community that he created. I was impressed by his knowledge and teaching skills: he was able to explain all this new concepts and tools in a way that even I, a neophyte, could follow even if, of course, part of it was too complex for my needs. I then asked him to give my husband and me classes to help us starting using some of those tools. Alex has been very organized and obliging us to focus just on what we really needed making a point of giving us the tools in order not to need him around and that is something rare so he is helping us not to be dependent on him in the future! I couldn't advise someone better to guide you in your AI journey.",
     dataAiHint: "profile person",
   },
   {

@@ -23,8 +23,18 @@ import { CASE_STUDIES } from "@/content/case-studies";
     expect(reviews.hasAttribute("open")).toBe(false);
     expect(reviews.querySelectorAll("figure")).toHaveLength(TESTIMONIALS.length);
     for (const client of TESTIMONIALS) {
-      expect(reviews.textContent).toContain(client.text);
-      expect(reviews.querySelector(`img[alt="Profile picture of ${client.name}"]`)).not.toBeNull();
+      // The disclosure shows the long form when one exists, else the short.
+      const figure = [...reviews.querySelectorAll("figure")].find((f) =>
+        f.textContent!.includes(client.name),
+      )!;
+      expect(figure.textContent).toContain(client.fullText || client.text);
+      if (client.imageSrc) {
+        expect(figure.querySelector(`img[alt="Profile picture of ${client.name}"]`)).not.toBeNull();
+      } else {
+        // No portrait yet: an initials avatar renders instead of an <img>.
+        expect(figure.querySelector("img")).toBeNull();
+        expect(figure.querySelector("figcaption span")).not.toBeNull();
+      }
     }
   });
 
