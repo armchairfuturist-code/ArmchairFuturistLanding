@@ -106,14 +106,14 @@ export const SERVICE_PATHS: ServicePath[] = [
     title: "I Do It For You",
     kicker: "Production-ready AI, built and shipped",
     description:
-      "For the week when you need a working system, not a curriculum. I provision the servers, install the agents, connect the tools, and hand over a system you own outright.",
+      "When you need a working system, I provision the servers, install the agents, connect the tools, and hand over a system you own.",
     tiers: [
       {
         name: SERVICES_PRICING.digitalIdentity.name,
         priceKey: "digitalIdentity",
         tag: "Delivered in 2–4 Days",
         description:
-          "An interview-ready site that folds your LinkedIn, resume, and social links into one platform you own. It is the Linktree pattern, built for operators who need to look serious to a hiring committee.",
+          "An interview-ready site that brings your LinkedIn, resume, and social links together in one place you own. Give hiring committees one link to your work, experience, and contact details.",
         features: [
           "Custom-designed landing page",
           "LinkedIn, resume, and social links",
