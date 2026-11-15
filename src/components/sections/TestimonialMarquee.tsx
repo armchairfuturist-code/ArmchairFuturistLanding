@@ -17,6 +17,7 @@ function pickSnippets(testimonials: readonly Testimonial[]): MarqueeSnippet[] {
   const snippets: MarqueeSnippet[] = [];
 
   const byName: Record<string, string | undefined> = {
+    "Manny Toribio": "A few sessions into my training package with Alex and I'm already working differently. Worth every penny.",
     "Shannon Myers": "He has saved me over $10,000 a year. I save 10 to 20 hours a week now.",
     "Brenda Fonseca": "the sessions with him have been a game changer for me.",
     "Stephan Kerby": "Alex is a fantastic communicator who made the website redesign process effortless.",

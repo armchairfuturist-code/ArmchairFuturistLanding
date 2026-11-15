@@ -10,6 +10,13 @@ export interface Testimonial {
 
 export const TESTIMONIALS: Testimonial[] = [
   {
+    imageSrc: "/manny-toribio.png",
+    name: "Manny Toribio",
+    title: "MPA, VP of Business Development",
+    text: "A few sessions into my training package with Alex and I'm already working differently. I'd been 'chatting' with AI for over a year - and only now have I fully connected the dots on what I was missing. We set up Claude with history from ALL my other chatbots, connected cloud storage, and skills that handle repetitive work for me. He helped me clean and import hundreds of companies and thousands of contacts into HubSpot - automating outreach in my own voice that I approve from my phone. The best part: Alex teaches you to run and understand the tools yourself instead of depending on him. Worth every penny.",
+    dataAiHint: "profile person",
+  },
+  {
     imageSrc: "/brenda-fonseca.png",
     name: "Brenda Fonseca",
     title: "PhD",
