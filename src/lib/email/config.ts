@@ -7,4 +7,5 @@ export const ALEX_EMAIL =
   process.env.ALEX_EMAIL || "armchairfuturist@gmail.com";
 
 export const FROM_EMAIL =
-  process.env.RESEND_FROM_EMAIL || "Alex Myers - The Armchair Futurist <armchairfuturist@gmail.com>";
+  process.env.RESEND_FROM_EMAIL ||
+  "Alex Myers - The Armchair Futurist <hello@thearmchairfuturist.com>";
