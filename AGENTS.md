@@ -19,6 +19,11 @@
 - Cron Trigger `0 9 * * *` calls /api/cron/nudge via the WORKER_SELF_REFERENCE service binding.
 - Cloudflare env types are gitignored (`cloudflare-env.d.ts`) because `wrangler types` pollutes globals; `src/lib/d1.ts` carries the local decl instead.
 - Firebase is fully gone (2026-11-17): hosting disabled, App Hosting backend deleted, `firebase.json`/`apphosting.yaml`/`.npmrc`/esbuild-devDep removed, `firebase` npm dep dropped (analytics pushes to the GA4 dataLayer only; no gtag/GTM script loads it yet). armchair-futurist.web.app returns 404 by design.
+- Google Cloud leftovers (measured 2026-11-17, project `armchair-futurist`, no gcloud installed; read via the firebase-tools OAuth token on `run.googleapis.com`, `cloudfunctions.googleapis.com`, `firestore.googleapis.com`, `storage.googleapis.com`): Cloud Run `ssrarmchairfuturist` + Cloud Function v2 of the same name, the `(default)` Firestore database, three buckets (`gcf-v2-sources-*`, `gcf-v2-uploads-*`, `run-sources-armchair-futurist-us-west1`), the Firebase Hosting site record, one Firebase web app record. Nothing on the live site reads any of them.
+- The same GCP project also runs `nervous-system-quiz` (Cloud Run, us-west1, image `us-west1-docker.pkg.dev/armchair-futurist/cloud-run-source-deploy/nervous-system-quiz`). An unrelated app. Do not delete the project without moving or accepting the loss of it.
+- Leftover App Hosting rollouts fired a failing Cloud Build for every push to `main` (substitution `_SERVICE_NAME=studio`) until the backend was deleted. Check `gcloud builds list` after any Firebase teardown.
+- Billing: zone plan is `Free Website`; Workers + D1 sit on the free tier (100k req/day, 10 ms CPU, D1 500 MB/db). Measured SSR CPU is p50 6.5 ms, p99 284 ms, so the free 10 ms cap is the binding constraint. Workers Paid is $5/month and needs a payment method at dash.cloudflare.com -> Manage Account -> Billing.
+- Migration pitfalls and the exact fixes live in `~/.agents/skills/cloudflare-workers-deploy/SKILL.md`; reuse it for rooted-leader-site.
 
 
 ## Project Info
