@@ -1,7 +1,6 @@
 import { createSubmissionRoute } from '@/lib/submission-route';
-import { createFirestoreLeadStore } from '@/lib/lead-store';
+import { createD1LeadStore } from '@/lib/lead-store';
 import { getResend } from '@/lib/resend';
-import { getDb } from '@/lib/firebase-admin';
 import { RATE_LIMIT_ASSESSMENT } from '@/lib/email-utils';
 import type { AuditIntakeInput, AuditIntakeResult } from '@/lib/submission-pipeline';
 
@@ -13,7 +12,7 @@ import type { AuditIntakeInput, AuditIntakeResult } from '@/lib/submission-pipel
 export const POST = createSubmissionRoute<AuditIntakeInput>({
   kind: 'audit-intake',
   rateLimit: RATE_LIMIT_ASSESSMENT,
-  leadStore: createFirestoreLeadStore(() => getDb()),
+  leadStore: createD1LeadStore(),
   parseBody: (body) => {
     const b = body as Record<string, unknown>;
     return {

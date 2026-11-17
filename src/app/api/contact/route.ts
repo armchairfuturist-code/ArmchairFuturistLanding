@@ -1,11 +1,10 @@
 import { createSubmissionRoute } from '@/lib/submission-route';
 import type { ContactInput, ContactResult } from '@/lib/submission-pipeline';
-import { createFirestoreLeadStore } from '@/lib/lead-store';
-import { getDb } from '@/lib/firebase-admin';
+import { createD1LeadStore } from '@/lib/lead-store';
 
 export const POST = createSubmissionRoute<ContactInput>({
   kind: 'contact',
-  leadStore: createFirestoreLeadStore(getDb),
+  leadStore: createD1LeadStore(),
   parseBody: (body) => {
     const { name, email, message } = body as {
       name?: string;

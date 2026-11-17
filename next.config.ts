@@ -1,4 +1,10 @@
 import type { NextConfig } from "next";
+import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
+
+// `next dev` runs in Node, where there is no D1 binding unless the adapter
+// loads the wrangler config. Without this every API route that stores a lead
+// throws in local development.
+initOpenNextCloudflareForDev();
 
 const nextConfig: NextConfig = {
   output: "standalone",

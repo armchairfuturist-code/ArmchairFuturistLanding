@@ -10,16 +10,21 @@ import { NextRequest, NextResponse } from 'next/server';
  * DELETE, validated collection and id, a real ISO timestamp, and the status
  * moved through the audit state machine rather than set arbitrarily.
  *
- * The cookie is produced by calling the real `setAdminSessionCookie`, not by
- * recomputing the HMAC here, so the test keeps working if the token scheme
- * changes.
- *
- * Kept in its own file because another worker is editing
- * `admin-cases.test.ts` for the GET/DELETE paths.
+ * Storage moved to D1 on 2026-11-17, so the route is mocked at the case-store
+ * seam rather than at a Firestore client.
  */
 
-const fakeGetDb = vi.fn();
-vi.mock('@/lib/firebase-admin', () => ({ getDb: () => fakeGetDb() }));
+const fakeGetCase = vi.fn();
+const fakeBookCase = vi.fn();
+
+vi.mock('@/lib/case-store', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@/lib/case-store')>();
+  return {
+    ...actual,
+    getCase: (...args: unknown[]) => fakeGetCase(...args),
+    bookCase: (...args: unknown[]) => fakeBookCase(...args),
+  };
+});
 
 import { PATCH } from '@/app/api/admin/cases/route';
 import {
@@ -36,36 +41,33 @@ function validToken(): string {
   return match ? decodeURIComponent(match[1]) : '';
 }
 
-interface FakeDoc {
+interface FakeCase {
   data: Record<string, unknown>;
   updates: Record<string, unknown>[];
 }
 
-function makeFakeDb(initial: Record<string, Record<string, unknown>>) {
-  const docs = new Map<string, FakeDoc>(
-    Object.entries(initial).map(([id, data]) => [
-      id,
-      { data: { ...data }, updates: [] },
-    ]),
+/** A stand-in for the D1 case table. */
+function makeCases(initial: Record<string, Record<string, unknown>>) {
+  const docs = new Map<string, FakeCase>(
+    Object.entries(initial).map(([id, data]) => [id, { data: { ...data }, updates: [] }]),
   );
 
-  return {
-    docs,
-    collection: () => ({
-      doc: (id: string) => ({
-        async get() {
-          const doc = docs.get(id);
-          return { exists: !!doc, data: () => (doc ? { ...doc.data } : undefined) };
-        },
-        async update(patch: Record<string, unknown>) {
-          const doc = docs.get(id);
-          if (!doc) throw new Error('missing doc');
-          doc.updates.push(patch);
-          Object.assign(doc.data, patch);
-        },
-      }),
-    }),
-  };
+  fakeGetCase.mockImplementation(async (_collection: string, id: string) => {
+    const doc = docs.get(id);
+    return doc ? { ...doc.data } : null;
+  });
+
+  fakeBookCase.mockImplementation(
+    async (id: string, scheduledAt: string, status: string) => {
+      const doc = docs.get(id);
+      if (!doc) throw new Error('missing case');
+      const patch = { status, 'booking.scheduledAt': scheduledAt };
+      doc.updates.push(patch);
+      Object.assign(doc.data, patch);
+    },
+  );
+
+  return { docs };
 }
 
 function req(opts: {
@@ -104,8 +106,7 @@ beforeEach(() => {
 
 describe('admin cases PATCH (record a booking)', () => {
   it('401s without a valid session', async () => {
-    const db = makeFakeDb({ audit_abc123: { status: 'submitted' } });
-    fakeGetDb.mockReturnValue(db);
+    const db = makeCases({ audit_abc123: { status: 'submitted' } });
 
     const noCookie = await PATCH(
       req({ collection: 'audit_cases', id: 'audit_abc123', body: { scheduledAt: ISO }, token: null }),
@@ -149,8 +150,7 @@ describe('admin cases PATCH (record a booking)', () => {
   });
 
   it('400s for identity_cases, which have no call to book', async () => {
-    const db = makeFakeDb({ id_abc123: { status: 'submitted' } });
-    fakeGetDb.mockReturnValue(db);
+    const db = makeCases({ id_abc123: { status: 'submitted' } });
 
     const res = await PATCH(req({ collection: 'identity_cases', id: 'id_abc123', body: { scheduledAt: ISO } }));
     expect(res.status).toBe(400);
@@ -158,16 +158,15 @@ describe('admin cases PATCH (record a booking)', () => {
   });
 
   it('404s when the case does not exist', async () => {
-    fakeGetDb.mockReturnValue(makeFakeDb({}));
+    makeCases({});
     const res = await PATCH(req({ collection: 'audit_cases', id: 'audit_missing1', body: { scheduledAt: ISO } }));
     expect(res.status).toBe(404);
   });
 
-  it('books a submitted case: sets the dot path and moves to call_booked', async () => {
-    const db = makeFakeDb({
+  it('books a submitted case and moves it to call_booked', async () => {
+    const db = makeCases({
       audit_abc123: { status: 'submitted', booking: { url: 'https://cal.example/x' } },
     });
-    fakeGetDb.mockReturnValue(db);
 
     const res = await PATCH(req({ collection: 'audit_cases', id: 'audit_abc123', body: { scheduledAt: ISO } }));
     expect(res.status).toBe(200);
@@ -179,14 +178,16 @@ describe('admin cases PATCH (record a booking)', () => {
       scheduledAt: ISO,
     });
 
-    const patch = db.docs.get('audit_abc123')!.updates[0];
-    // Dot path, not a whole-map write, so booking.url survives.
-    expect(patch).toEqual({ status: 'call_booked', 'booking.scheduledAt': ISO });
+    // bookCase writes one JSON key, so a stored booking.url survives.
+    expect(fakeBookCase).toHaveBeenCalledWith('audit_abc123', ISO, 'call_booked');
+    expect(db.docs.get('audit_abc123')!.updates[0]).toEqual({
+      status: 'call_booked',
+      'booking.scheduledAt': ISO,
+    });
   });
 
   it('books a nudged case (the day-3 email already went out)', async () => {
-    const db = makeFakeDb({ audit_abc123: { status: 'nudged', nudgedAt: '2026-08-29T00:00:00Z' } });
-    fakeGetDb.mockReturnValue(db);
+    const db = makeCases({ audit_abc123: { status: 'nudged', nudgedAt: '2026-08-29T00:00:00Z' } });
 
     const res = await PATCH(req({ collection: 'audit_cases', id: 'audit_abc123', body: { scheduledAt: ISO } }));
     expect(res.status).toBe(200);
@@ -194,10 +195,9 @@ describe('admin cases PATCH (record a booking)', () => {
   });
 
   it('allows rescheduling an already-booked case', async () => {
-    const db = makeFakeDb({
+    const db = makeCases({
       audit_abc123: { status: 'call_booked', booking: { scheduledAt: '2026-08-30T09:00:00Z' } },
     });
-    fakeGetDb.mockReturnValue(db);
 
     const res = await PATCH(req({ collection: 'audit_cases', id: 'audit_abc123', body: { scheduledAt: ISO } }));
     expect(res.status).toBe(200);
@@ -205,8 +205,7 @@ describe('admin cases PATCH (record a booking)', () => {
   });
 
   it('409s on an illegal transition (a paid case cannot become call_booked)', async () => {
-    const db = makeFakeDb({ audit_abc123: { status: 'paid' } });
-    fakeGetDb.mockReturnValue(db);
+    const db = makeCases({ audit_abc123: { status: 'paid' } });
 
     const res = await PATCH(req({ collection: 'audit_cases', id: 'audit_abc123', body: { scheduledAt: ISO } }));
     expect(res.status).toBe(409);
@@ -217,8 +216,7 @@ describe('admin cases PATCH (record a booking)', () => {
     // The latent bug from finding 17: an unrecognised `from` used to make
     // canTransitionIn read a missing table row and throw a TypeError, which
     // the route's catch turns into a 500.
-    const db = makeFakeDb({ audit_abc123: { status: 'nudge-ed-typo' } });
-    fakeGetDb.mockReturnValue(db);
+    const db = makeCases({ audit_abc123: { status: 'nudge-ed-typo' } });
 
     const res = await PATCH(req({ collection: 'audit_cases', id: 'audit_abc123', body: { scheduledAt: ISO } }));
     expect(res.status).toBe(409);
@@ -226,8 +224,7 @@ describe('admin cases PATCH (record a booking)', () => {
   });
 
   it('409s when the case has no status at all', async () => {
-    const db = makeFakeDb({ audit_abc123: { name: 'Dana' } });
-    fakeGetDb.mockReturnValue(db);
+    makeCases({ audit_abc123: { name: 'Dana' } });
 
     const res = await PATCH(req({ collection: 'audit_cases', id: 'audit_abc123', body: { scheduledAt: ISO } }));
     expect(res.status).toBe(409);
