@@ -1,16 +1,13 @@
 /**
- * Firebase Analytics + GA4 dataLayer utilities.
+ * Analytics utilities (GA4 dataLayer).
  *
  * Cross-site convention: see `analytics-contract.md` at the workspace root
  * for the shared `trackEvent` / `trackConversion` shape used across all
- * three projects. This file is the armchair-specific implementation —
- * the universal API is the same; the backend (Firebase + GA4) is what
- * differs from `rooted-leader-site` (Firebase only) and `mindscape-site`
- * (GA4 + Meta Pixel + Google Ads, no Firebase).
+ * three projects. This file is the armchair-specific implementation.
  *
- * This module provides utilities for tracking custom events in Firebase
- * Analytics AND sending them to the gtag (GA4) dataLayer for Google
- * Analytics conversion tracking.
+ * The site no longer ships the Firebase JS SDK (removed 2026-11-17 with the
+ * move to Cloudflare Workers). Events go to the GA4 dataLayer, which
+ * Google Tag Manager or gtag.js consumes when present.
  *
  * Example usage:
  * ```tsx
@@ -21,15 +18,14 @@
  * ```
  */
 
-import { logEvent } from 'firebase/analytics';
-import { getAnalyticsInstance } from './firebase';
+type EventParams = Record<string, string | number | boolean | undefined>;
 
 /**
- * Send event to GA4 dataLayer (if available)
+ * Send an event to the GA4 dataLayer (if available)
  */
-function sendToGA4(eventName: string, params?: Record<string, string | number | boolean | undefined>) {
+function sendToGA4(eventName: string, params?: EventParams) {
   if (typeof window === 'undefined') return;
-  const dataLayer = (window as any).dataLayer;
+  const dataLayer = (window as unknown as { dataLayer?: unknown[] }).dataLayer;
   if (dataLayer && Array.isArray(dataLayer)) {
     dataLayer.push({
       event: eventName,
@@ -39,51 +35,40 @@ function sendToGA4(eventName: string, params?: Record<string, string | number | 
 }
 
 /**
- * Track a custom event in Firebase Analytics AND GA4
- * 
+ * Track a custom event in GA4.
+ *
  * @param eventName - Name of the event (e.g., 'button_click', 'form_submit')
  * @param eventParams - Optional parameters to include with the event
  */
-export function trackEvent(eventName: string, eventParams?: Record<string, string | number | boolean | undefined>) {
-    const analytics = getAnalyticsInstance();
-
-    if (analytics) {
-        logEvent(analytics, eventName, eventParams);
-    }
-
-    // Also send to GA4 dataLayer for Google Analytics conversion tracking
-    sendToGA4(eventName, eventParams);
+export function trackEvent(eventName: string, eventParams?: EventParams) {
+  sendToGA4(eventName, eventParams);
 }
 
 /**
- * Track a conversion event in Firebase Analytics and GA4.
+ * Track a conversion event in GA4.
  *
- * NOTE: `trackEvent` already sends to GA4 via dataLayer, so we only need
- * the additional generic 'conversion' wrapper event for GA4 conversion tracking.
- * The conversion name is sent as both the primary event (via trackEvent) and
- * nested inside a 'conversion' event for GA4's conversion-marking system.
+ * `trackEvent` already sends the named event; this adds the generic
+ * 'conversion' wrapper event that GA4 uses for conversion marking.
  *
  * @param conversionName - Name of the conversion (e.g., 'newsletter_signup', 'purchase')
  * @param value - Optional monetary value
  * @param currency - Optional currency code (default: 'USD')
  */
 export function trackConversion(
-    conversionName: string,
-    value?: number,
-    currency: string = 'USD'
+  conversionName: string,
+  value?: number,
+  currency: string = 'USD'
 ) {
-    const params = {
-        value,
-        currency,
-        timestamp: new Date().toISOString(),
-    };
+  const params = {
+    value,
+    currency,
+    timestamp: new Date().toISOString(),
+  };
 
-    // Firebase Analytics + GA4 (single sendToGA4 via trackEvent)
-    trackEvent(conversionName, params);
+  trackEvent(conversionName, params);
 
-    // Also send a generic 'conversion' event wrapper for GA4
-    sendToGA4('conversion', {
-        conversion_name: conversionName,
-        ...params,
-    });
+  sendToGA4('conversion', {
+    conversion_name: conversionName,
+    ...params,
+  });
 }

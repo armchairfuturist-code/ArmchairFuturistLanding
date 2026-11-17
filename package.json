@@ -35,7 +35,6 @@
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
     "fast-xml-parser": "^5.12.0",
-    "firebase": "^11.10.0",
     "lenis": "^1.3.25",
     "lucide-react": "^0.475.0",
     "motion": "^12.34.3",
@@ -55,8 +54,7 @@
     "@types/react-dom": "^18",
     "@vitejs/plugin-react": "^6.0.2",
     "@vitest/mocker": "^4.1.12",
-    "@vitest/ui": "^4.1.7",
-    "esbuild": "^0.28.2",
+    "@vitest/ui": "^4.1.12",
     "jsdom": "^29.1.1",
     "postcss": "^8",
     "puppeteer-core": "^25.3.0",
@@ -66,6 +64,7 @@
     "wrangler": "^4.163.0"
   },
   "overrides": {
-    "@grpc/grpc-js": "^1.13.6"
+    "glob": "^14.0.6",
+    "minimatch": "^11.0.9"
   }
 }
