@@ -5,6 +5,19 @@ export { DOQueueHandler, DOShardedTagCache, BucketCachePurge } from '../.open-ne
 // The API used to be proxied back to Firebase App Hosting, because
 // firebase-admin cannot run in workerd. Storage is D1 now, so the whole site
 // runs in this Worker and the proxy seam is gone.
+
+/** Call a cron route through the self binding; log failures, never throw. */
+async function callCron(self, name, headers) {
+  try {
+    const res = await self.fetch(new Request(`https://armchair-futurist.internal/api/cron/${name}`, { headers }));
+    if (!res.ok) {
+      console.error(`${name} cron failed`, res.status, await res.text().catch(() => ''));
+    }
+  } catch (err) {
+    console.error(`${name} cron threw`, err);
+  }
+}
+
 export default {
   fetch(request, env, ctx) {
     // Sampled request counter for the daily usage check: one D1 write per
@@ -21,30 +34,21 @@ export default {
     return openNext.fetch(request, env, ctx);
   },
 
-  // Day-3 nudge cron. Firebase never scheduled this endpoint, so nudges never
-  // fired; the Cron Trigger does. It calls the route through the self binding,
-  // which is the same path a request takes, secret and all.
+  // Cron Trigger entry. Two jobs run in order and each one is isolated: a
+  // throw from either logs and the next still runs. Both call their route
+  // through the self binding, so the request takes the same path as a real
+  // visit, secret header and all.
   async scheduled(_event, env, ctx) {
-    const secret = env.CRON_SECRET ?? '';
+    const headers = { 'x-cron-secret': env.CRON_SECRET ?? '' };
     const self = env.WORKER_SELF_REFERENCE;
-    const headers = { 'x-cron-secret': secret };
 
     // Day-3 nudge first: a missed prospect nudge is more urgent than a
-    // usage heads-up. A failure here logs but does not stop the usage check.
-    const nudge = await self.fetch(
-      new Request('https://armchair-futurist.internal/api/cron/nudge', { headers }),
-    );
-    if (!nudge.ok) {
-      console.error('nudge cron failed', nudge.status, await nudge.text().catch(() => ''));
-    }
+    // usage heads-up.
+    await callCron(self, 'nudge', headers);
 
     // Daily Workers usage check: emails the operator past 50% of the free
-    // 100k/day request cap. The route reads analytics with CF_ANALYTICS_TOKEN.
-    const usage = await self.fetch(
-      new Request('https://armchair-futurist.internal/api/cron/usage-check', { headers }),
-    );
-    if (!usage.ok) {
-      console.error('usage cron failed', usage.status, await usage.text().catch(() => ''));
-    }
+    // 100k/day request cap, read from the sampled `daily_requests` counter
+    // this Worker fills in `fetch`. No analytics token is involved.
+    await callCron(self, 'usage-check', headers);
   },
 };
