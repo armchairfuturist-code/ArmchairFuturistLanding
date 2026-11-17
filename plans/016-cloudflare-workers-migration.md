@@ -5,10 +5,13 @@ not deployed. The site is untouched on Firebase.
 
 ## Why
 
-Cloudflare serves prerendered pages from Workers Static Assets, so a page view
-costs no Worker invocation and no egress. At 3-4 visitors a day the site fits
-the Workers free plan, and the CDN answers `s-maxage` where Firebase App
-Hosting answers `no-store`.
+Cloudflare serves site pages while Firebase continues to handle every `/api`
+request. `cloudflare/api-proxy.mjs` forwards the path, query, method, headers,
+and body to the direct Firebase App Hosting origin. This avoids a loop when
+the public domain moves. The existing Firebase deployment must stay active.
+
+Static assets can bypass the Worker; dynamic requests and API proxy requests
+use Worker invocations. Check actual usage and caching after deployment.
 
 ## Verified locally
 
@@ -34,22 +37,24 @@ The image optimizer needs the Cloudflare Images binding, a paid add-on, so
 `next.config.ts` sets `images.unoptimized`. Originals are served instead of
 width variants.
 
-## Deployment gates
+## Hybrid deployment gates
 
-1. Cloudflare account auth (`wrangler login` or `CLOUDFLARE_API_TOKEN`).
-2. Worker secrets: `RESEND_API_KEY`, `CRON_SECRET`, `ADMIN_PASSWORD`,
-   `FIREBASE_SERVICE_ACCOUNT_KEY` (or the REST client's credentials).
-3. A Cron Trigger for `/api/cron/nudge` to replace the external pinger.
-4. DNS: the domain sits on Namecheap nameservers. Moving to Cloudflare is
-   the step that also buys the caching.
-5. `.github/workflows/deploy.yml` deploys with `wrangler deploy` instead of
-   the Firebase action.
+1. Authenticate Wrangler to the intended Cloudflare account and verify its plan.
+2. Deploy a preview with `npm run cf:build` and `npx wrangler deploy`; check
+   pages, security headers, cache behavior and API responses on its Worker URL.
+3. Keep Firebase App Hosting, its secrets, deployment workflow, and existing
+   cron caller active. The Cloudflare proxy does not need Firebase secrets.
+4. Set up a Cloudflare deployment workflow alongside Firebase. Confirm both
+   deploy the same commit before changing production traffic.
+5. Plan and verify the domain and DNS cutover; retain Firebase for rollback.
 
-## Fork to settle
+Local hybrid checks: `/` returned 200, an invalid contact POST returned 400,
+unauthorized cron returned 401, and `/api/substack` returned 200. These do not
+prove authenticated writes, email delivery, cron execution, or production DNS.
 
-A. Replace `firebase-admin` with a Firestore REST client built on `fetch` and
-   a WebCrypto-signed service-account JWT. Removes the dependency, shrinks the
-   bundle, and lets the Worker own every route.
+## Later: migrate APIs
 
-B. Keep the API routes on Firebase and move only the front door to
-   Cloudflare. No data layer rewrite, keeps the Cloud Run bill.
+Replace Firebase Admin with a workerd-compatible data layer, then move API
+routes incrementally. Update the proxy routing and tests for each route.
+Migrate secrets and cron only when their routes move. Verify writes and email
+delivery before retiring Firebase.
