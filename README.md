@@ -26,9 +26,8 @@ This is a high-conversion marketing platform that:
 - **class-variance-authority** - Conditional styling utilities
 
 ### Backend & Infrastructure
-- **Firebase App Hosting** (Cloud Run) - Serverless deployment platform for the Next.js app (auto-deploys on push to `main`)
-- **Firebase Firestore** - NoSQL database for storing assessment leads
-- **Firebase Analytics** - Built-in analytics for conversion tracking
+- **Cloudflare Workers** (OpenNext) - Serverless deployment for the Next.js app (auto-deploys on push to `main`)
+- **Cloudflare D1** - SQLite database for assessment leads and operational data
 - **Resend** - Transactional email service API
 - **OpenTelemetry** - Observability framework for advanced analytics
 
@@ -75,7 +74,7 @@ Landing Phase → Quiz Phase → Email Capture → Redirecting → Results Page
 
 **Backend Processing:**
 - Assessment Submission API (`/api/assessment/submit`)
-- Lead storage in Firestore (`assessment_leads` collection)
+- Lead storage in D1 (`assessment_leads` collection)
 - Email automation via Resend API (prospect and owner notifications)
 
 **Client-Side State Management:**
@@ -99,7 +98,7 @@ Landing Phase → Quiz Phase → Email Capture → Redirecting → Results Page
 
 #### Analytics & Optimization
 - OpenTelemetry event tracking at each user action
-- Firebase Analytics integration for conversion tracking
+- GA4 dataLayer for conversion tracking (no SDK)
 - A/B testing framework for continuous optimization
 - Performance monitoring and error tracking
 
@@ -133,7 +132,7 @@ npm run test:coverage # Run tests with coverage report
 ### Current Test Coverage
 - **8 tests** covering both UI components and page flows
 - Tests verify component rendering, user interactions, and state transitions
-- Mocked dependencies for external services (Firebase, Resend, Analytics)
+- Mocked dependencies for external services (Resend, Analytics)
 
 ### Test Configuration
 - **Environment**: jsdom for DOM simulation
@@ -152,7 +151,6 @@ npm run test:coverage # Run tests with coverage report
 ### Additional Documentation
 - [docs/IMPLEMENTATION-COMPLETE.md](docs/IMPLEMENTATION-COMPLETE.md) - Implementation completion status
 - [docs/INTEGRATION-GUIDE.md](docs/INTEGRATION-GUIDE.md) - Integration and deployment guide
-- [docs/FIREBASE_ANALYTICS_SETUP.md](docs/FIREBASE_ANALYTICS_SETUP.md) - Firebase Analytics configuration
 - [docs/blueprint.md](docs/blueprint.md) - System blueprint and architecture overview
 
 ## 🚀 Quick Start
@@ -160,8 +158,7 @@ npm run test:coverage # Run tests with coverage report
 ### Prerequisites
 - Node.js 18+ installed
 - npm or yarn package manager
-- Firebase CLI installed (`npm install -g firebase-tools`)
-- Firebase project configured
+- Cloudflare account configured
 
 ### Installation
 
@@ -179,7 +176,7 @@ npm run test:coverage # Run tests with coverage report
 3. **Configure environment variables**
    ```bash
    cp .env.example .env.local
-   # Edit .env.local with your Firebase and Resend API keys
+   # Edit .env.local with your Resend API key and Cloudflare secrets
    ```
 
 4. **Run development server**
@@ -208,9 +205,9 @@ The build output will be in the `.next` directory.
 
 ## 🚢 Deployment
 
-### Firebase App Hosting (auto-deploy on push)
+### Cloudflare Workers (OpenNext) — auto-deploy on push to `main`
 
-This project uses **Firebase App Hosting** (Cloud Run-based) — not the legacy "Firebase Hosting" CDN product. The Firebase App Hosting GitHub App is installed on this repo and watches the `main` branch. A push to `main` automatically triggers a container build and deploy — no manual `firebase deploy` command is needed.
+This project uses **Cloudflare Workers** with **OpenNext** and **D1** (SQLite). The `.github/workflows/deploy-cloudflare.yml` workflow triggers on every push to `main`: builds with `npm run cf:build`, applies D1 migrations, and runs `wrangler deploy`.
 
 1. **Make your changes and push to `main`**
    ```bash
@@ -219,7 +216,7 @@ This project uses **Firebase App Hosting** (Cloud Run-based) — not the legacy 
    git push origin main
    ```
 
-2. **Watch the deploy** — the App Hosting build runs as a `event: dynamic` "Push on main" GitHub Actions run. It is not a workflow you maintain; it is the App Hosting GitHub App's pipeline. A build typically takes 2-3 minutes.
+2. **Watch the deploy** — the workflow runs in GitHub Actions. A build typically takes ~3 minutes.
 
 3. **Post-Deploy Health Check**
    ```bash
@@ -228,29 +225,18 @@ This project uses **Firebase App Hosting** (Cloud Run-based) — not the legacy 
 
 **Deployment Details:**
 - **Production URL**: https://thearmchairfuturist.com
-- **Platform**: Firebase App Hosting (Cloud Run, `us-central1`)
-- **Build source**: `Dockerfile` (Next.js standalone output)
-- **Config files**: `apphosting.yaml` (env vars) + `firebase.json` (the `hosting` block with `frameworksBackend` for the Next.js runtime)
-- **Estimated Deploy Time**: 2-3 minutes (build + container push + traffic shift)
-
-**Do NOT** add a `firebase-hosting-merge.yml` workflow — that deploys to the legacy Firebase Hosting product, not App Hosting, and would conflict with the auto-deploy pipeline.
-
-### Custom Domain Configuration
-
-The production URL (`thearmchairfuturist.com`) is a custom domain mapped to the App Hosting backend in the Firebase console.
+- **Platform**: Cloudflare Workers (OpenNext, `npm run cf:build` + `wrangler deploy`)
+- **Database**: Cloudflare D1 (`armchair-futurist`, bound as `DB`)
+- **Worker**: `armchair-futurist` (account `86a92d3f5ed4b3313381515ca4208ae7`)
+- **Estimated Deploy Time**: ~3 minutes
 
 ### Environment Variables
 
-Required `.env.local` variables:
+Required `.env.local` and `wrangler secret` variables:
 ```env
-NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
-NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
-NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
-NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
-NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
-NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
-
 RESEND_API_KEY=your_resend_api_key
+CRON_SECRET=generate-a-long-random-string
+ADMIN_PASSWORD=your-admin-password
 
 # Optional: OpenTelemetry configuration
 NEXT_PUBLIC_OTEL_EXPORTER_OTLP_ENDPOINT=
@@ -301,8 +287,6 @@ ArmchairFuturistLanding/
 │   │   │   ├── scoring.ts
 │   │   │   ├── archetypes.ts
 │   │   │   └── email-templates.ts
-│   │   ├── firebase.ts         # Firebase client config
-│   │   ├── firebase-admin.ts   # Firebase admin config
 │   │   ├── resend.ts           # Resend API integration
 │   │   ├── analytics.ts        # OpenTelemetry analytics
 │   │   ├── ab-testing.ts       # A/B testing utilities
@@ -320,11 +304,8 @@ ArmchairFuturistLanding/
 │   ├── GLOSSARY.md             # Domain glossary
 │   ├── IMPLEMENTATION-COMPLETE.md
 │   ├── INTEGRATION-GUIDE.md
-│   ├── FIREBASE_ANALYTICS_SETUP.md
 │   └── blueprint.md
 ├── public/                     # Static assets
-├── firebase.json               # Firebase configuration
-├── apphosting.yaml             # Firebase App Hosting configuration
 ├── next.config.ts              # Next.js configuration
 ├── tailwind.config.ts          # Tailwind CSS configuration
 ├── vitest.config.ts            # Vitest configuration
@@ -372,7 +353,7 @@ The application tracks the following events:
 
 ### Performance Monitoring
 - OpenTelemetry for distributed tracing
-- Firebase Performance Monitoring
+
 - Custom metrics and user flows
 
 ## 🔧 Development Tools

@@ -249,7 +249,7 @@ ship verifiable work while he sleeps.
 **Shipped (proof, not slides):**
 - Daily AI Digest published every day
 - GitHub pull requests, issues, and commits at https://github.com/armchairfuturist-code
-- mindscape-site (Next.js 16, Cloud Run), rooted-leader-site (React 19, Firebase), Investment-Engine (Python MCP server)
+- mindscape-site (Next.js 16, Cloud Run), Investment-Engine (Python MCP server)
 
 **Cost:** Single-digit dollars per day; digest + LinkedIn ~$1-2 in API credits; search free (Brave).
 

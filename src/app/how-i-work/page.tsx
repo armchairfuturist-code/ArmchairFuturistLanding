@@ -129,7 +129,6 @@ export default function HowIWorkPage() {
           <li><strong>Daily AI Digest</strong> every day at 11:00. Delivered to <a href="/blog" className="text-blue-600 underline">the blog</a> and Substack.</li>
           <li><strong>GitHub</strong> pull requests, issues, and commits on public repos at <a href="https://github.com/armchairfuturist-code" className="text-blue-600 underline">armchairfuturist-code</a>.</li>
           <li><strong>mindscape-site</strong> Next.js 16, Cloud Run. Full-stack client project.</li>
-          <li><strong>rooted-leader-site</strong> React 19, Firebase. Substack integration.</li>
           <li><strong>Investment-Engine</strong> Python MCP server for portfolio analysis.</li>
         </ul>
       </section>
