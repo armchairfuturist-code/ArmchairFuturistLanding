@@ -54,7 +54,7 @@
     "@types/react-dom": "^18",
     "@vitejs/plugin-react": "^6.0.2",
     "@vitest/mocker": "^4.1.12",
-    "@vitest/ui": "^4.1.12",
+    "@vitest/ui": "^5.1.0",
     "jsdom": "^29.1.1",
     "postcss": "^8",
     "puppeteer-core": "^25.3.0",
