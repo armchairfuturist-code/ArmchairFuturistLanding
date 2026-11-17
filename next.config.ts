@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
   output: "standalone",
   // src/app/llms-full.txt/route.ts reads public/llms.txt at build time. The
   // output file tracer then copies that single file into
-  // .next/standalone/public/, and Firebase serves that directory as the
+  // .next/standalone/public/, and the Worker serves that directory as the
   // static root — which hides every other file in public/ (images, favicon,
   // sitemap-ai.xml). The route is force-static, so nothing needs it at
   // runtime. Keep public/ out of the trace so the real public/ is served.
@@ -113,7 +113,7 @@ const nextConfig: NextConfig = {
             value:
               `default-src 'self'; script-src 'self' 'unsafe-inline'${
                 process.env.NODE_ENV === "production" ? "" : " 'unsafe-eval'"
-              } https://www.googletagmanager.com https://connect.facebook.net https://snap.licdn.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.googleapis.com https://*.firebaseio.com https://*.firebase.googleapis.com https://firebaseinstallations.googleapis.com https://www.facebook.com https://px.ads.linkedin.com https://fonts.googleapis.com https://fonts.gstatic.com; img-src 'self' data: https: https://substackcdn.com https://substack-post-media.s3.amazonaws.com https://images.unsplash.com https://www.facebook.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-src https://www.facebook.com https://www.youtube-nocookie.com https://www.youtube.com; object-src 'none'; base-uri 'none';`,
+              } https://www.googletagmanager.com https://connect.facebook.net https://snap.licdn.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.googleapis.com https://www.facebook.com https://px.ads.linkedin.com https://fonts.googleapis.com https://fonts.gstatic.com; img-src 'self' data: https: https://substackcdn.com https://substack-post-media.s3.amazonaws.com https://images.unsplash.com https://www.facebook.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-src https://www.facebook.com https://www.youtube-nocookie.com https://www.youtube.com; object-src 'none'; base-uri 'none';`,
           },
         ],
       },

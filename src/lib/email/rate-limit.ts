@@ -76,7 +76,7 @@ export function checkRateLimit(
  * limit of 5 were all allowed.
  *
  * This assumes the platform's proxy appends (Google Cloud Load Balancing and
- * Firebase Hosting do). If that ever changes, the rightmost entry stops being
+ * Cloudflare Workers do). If that ever changes, the rightmost entry stops being
  * trustworthy and this needs a platform-provided client-IP header instead.
  */
 export function getRateLimitKey(request: Request): string {

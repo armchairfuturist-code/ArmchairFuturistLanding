@@ -90,7 +90,7 @@ export default function HowIWorkPage() {
           <li><strong>Search:</strong> Brave Search API (10k queries/mo free tier)</li>
           <li><strong>Memory:</strong> Plain-text POLICIES.md, MEMORY.md, USER.md. No vector DBs</li>
           <li><strong>Skills:</strong> 40+ Hermes skill packs loaded on demand, ~8 operational cron jobs</li>
-          <li><strong>Stack:</strong> Python 3.11, Next.js 16, Tailwind, Firebase</li>
+          <li><strong>Stack:</strong> Python 3.11, Next.js 16, Tailwind, Cloudflare Workers</li>
         </ul>
       </section>
 
