@@ -1,28 +1,24 @@
 # The Armchair Futurist - Landing Page
 
-## Deploy Configuration (configured by /setup-deploy)
-- Platform: Firebase Hosting
+## Deploy Configuration
+- Platform: Cloudflare Workers (OpenNext), D1 (SQLite) for data
 - Production URL: https://thearmchairfuturist.com
-- Deploy workflow: push to `main` (`.github/workflows/deploy.yml`) — auto-deploy, ~3-4 min
-
+- Deploy workflow: push to `main` (`.github/workflows/deploy-cloudflare.yml`) — auto-deploy, ~3 min
 - Deploy status command: curl -sf https://thearmchairfuturist.com
 - Merge method: merge
 - Project type: web app (Next.js)
 - Post-deploy health check: https://thearmchairfuturist.com
 
-### Custom deploy hooks
-- Pre-merge: npm run build
-- Deploy trigger: firebase deploy --only hosting
-- Deploy status: curl -sf https://thearmchairfuturist.com
-- Health check: https://thearmchairfuturist.com
-
-### Deploy Notes
-- `firebase deploy --only hosting` still deploys the SSR Cloud Function (firebase.json uses frameworksBackend for Next.js). This step takes ~200s because Google Cloud Build builds a container image for the 2nd Gen Cloud Function. The deploy is not stuck — it just takes 3-4 minutes. Do not interrupt it.
-- The site URL (thearmchairfuturist.com) uses a custom domain. The Firebase site ID is `armchair-futurist`, not `thearmchairfuturist`.
-- Artifact Registry cleanup policy is configured (1-day retention). No `--force` flag needed.
-- `esbuild` is a devDep on purpose (fixed 2026-11-05): without it, firebase-tools@15.x runs `npm install esbuild@^0.19.2 --no-save` during the deploy step, which ERESOLVEs against the vite 8 dependency tree (vite is a peer of `@vitejs/plugin-react` and vitest, not a direct dependency) and fails the run. Do not remove it.
-- `.npmrc` sets legacy-peer-deps=true on purpose (fixed 2026-11-05): firebase-tools pairs our firebase-admin v14 with firebase-frameworks ^0.11.0 (peer range ends at ^13; no release supports 14), and both the CLI's generated install and the Cloud Build container install ERESOLVE without it. Do not remove it; revisit when firebase-frameworks ships admin-14 support.
-- Two front doors serve this site (measured 2026-11-16). The custom domain `thearmchairfuturist.com` resolves to 35.219.200.14, a Firebase App Hosting backend (`x-fah-adapter`, `server: envoy`); `armchair-futurist.web.app` is classic Hosting over the SSR Cloud Function. Both serve the same commits, so a push builds and ships twice. The App Hosting front door answers `cache-control: no-store` for every HTML route and `private` for static assets, so its CDN caches nothing and each navigation pays a full function round trip (~300-900ms TTFB); the Hosting front door answers `s-maxage=60, stale-while-revalidate` for HTML and public immutable assets. Moving the custom domain's DNS to Hosting is the single largest speed lever left and needs console access, not a code change.
+### Deploy Notes (Cloudflare, migrated 2026-11-17)
+- `npm run cf:build` (OpenNext) then `wrangler deploy`; routes on thearmchairfuturist.com and www via the zone's Worker routes.
+- Worker: `armchair-futurist`, account `86a92d3f5ed4b3313381515ca4208ae7` (wrangler needs `CLOUDFLARE_ACCOUNT_ID` set — the login has two accounts).
+- D1 database `armchair-futurist` (b029b47e-c4e3-4f3d-acd0-57a45ecf8e3b), binding `DB`. Migrations in `cloudflare/migrations/`.
+- D1 migrations are NOT in the deploy workflow: the CI token (CLOUDFLARE_API_TOKEN) has only Workers Scripts + Routes. Apply manually after schema changes: `npx wrangler d1 migrations apply armchair-futurist --remote` (or the `d1-migrations.yml` workflow, which needs a CLOUDFLARE_D1_TOKEN secret with Workers D1:Edit — not yet created).
+- Worker secrets (RESEND_API_KEY, CRON_SECRET, ADMIN_PASSWORD) are set via `wrangler secret put`.
+- Cron Trigger `0 9 * * *` calls /api/cron/nudge via the WORKER_SELF_REFERENCE service binding.
+- Cloudflare env types are gitignored (`cloudflare-env.d.ts`) because `wrangler types` pollutes globals; `src/lib/d1.ts` carries the local decl instead.
+- The `firebase` npm dep remains only for client analytics (FirebaseAnalytics); firebase-admin is gone. armchair-futurist.web.app still serves a stale Firebase copy — ignore it.
+- History: the site ran on Firebase Hosting/App Hosting until 2026-11-17. esbuild-devDep and .npmrc legacy-peer-deps were Firebase-deploy workarounds; keep them until firebase is dropped from deps.
 
 ## Project Info
 - Framework: Next.js 16 with App Router
@@ -33,13 +29,12 @@
 
 ## Deploy
 
-- **Platform**: Firebase Hosting with App Hosting (SSR Cloud Function, `us-central1`)
-- **Trigger**: Push to `main` (via `.github/workflows/deploy.yml`)
+- **Platform**: Cloudflare Workers (OpenNext) + D1
+- **Trigger**: Push to `main` (via `.github/workflows/deploy-cloudflare.yml`)
 - **Domain**: thearmchairfuturist.com
-- **Firebase project**: `armchair-futurist`
-- **Secrets**: Firebase service account (`FIREBASE_SERVICE_ACCOUNT_ARMCHAIR_FUTURIST`), `RESEND_API_KEY` (via `apphosting.yaml`)
-- **Deploy time**: ~3-4 min (Google Cloud Build builds a container image for the 2nd Gen Cloud Function — do not interrupt)
-- **PR previews**: built-in via `FirebaseExtended/action-hosting-deploy@v0`
+- **Secrets**: wrangler secrets (RESEND_API_KEY, CRON_SECRET, ADMIN_PASSWORD); GitHub secret CLOUDFLARE_API_TOKEN (Workers Scripts + Routes only)
+- **Deploy time**: ~3 min
+- **PR previews**: none (CI runs lint/test/build only)
 
 
 ## Agent skills
