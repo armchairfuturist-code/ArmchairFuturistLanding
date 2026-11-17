@@ -3,6 +3,14 @@
 ## Endpoint
 `GET /api/cron/nudge` — header `x-cron-secret: $CRON_SECRET`.
 
+Same guard on `GET /api/cron/usage-check` (daily free-tier usage warning;
+`?force=1` sends the email whatever the count). Both run from the Worker's
+`scheduled` handler. `CRON_SECRET` is a Worker secret and cannot be read back:
+if it is lost, rotate it with
+`printf '%s' "$(openssl rand -hex 32)" | wrangler secret put CRON_SECRET`
+and the value in `.cron-secret.txt`. The scheduled handler reads it from the
+binding, so rotation breaks nothing but an outside caller.
+
 Finds audit cases: `status == 'submitted'`, no `booking.scheduledAt`,
 `createdAt` older than 3 days, `nudgedAt` not set. Sends one honest reminder
 email each and stamps `nudgedAt`. Idempotent — safe to run on any schedule.
