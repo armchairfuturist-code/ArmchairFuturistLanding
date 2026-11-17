@@ -11,6 +11,18 @@ import {
 } from '../paid-case';
 import { FakeEmailSender } from './fakes';
 
+/** Email sender whose listed deliveries reject, to model a Resend rejection. */
+class RejectingSender {
+  public attempts: string[] = [];
+  constructor(private readonly failing: ('prospect' | 'owner')[]) {}
+  async send(): Promise<{ id: string }> {
+    const which = this.attempts.length === 0 ? 'prospect' : 'owner';
+    this.attempts.push(which);
+    if (this.failing.includes(which)) throw new Error(`Resend rejected ${which}`);
+    return { id: `sent-${which}` };
+  }
+}
+
 describe('paid-case engine', () => {
   it('generateCaseId prefixes and stays unique-ish', () => {
     expect(generateCaseId('audit')).toMatch(/^audit_[a-z0-9]+_[a-z0-9]+$/);
@@ -58,15 +70,47 @@ describe('paid-case engine', () => {
 
   it('sendCaseNotificationPair: prospect first, Alex second, returns confirm id', async () => {
     const sender = new FakeEmailSender();
-    const id = await sendCaseNotificationPair(
+    const outcome = await sendCaseNotificationPair(
       sender,
       { to: 'client@example.com', subject: 'Confirm', html: '<p>hi</p>' },
       { subject: 'Owner note', html: '<p>lead</p>' },
     );
-    expect(id).toBe('fake-1');
+    expect(outcome).toEqual({ confirmationId: 'fake-1', delivered: true });
     expect(sender.sent).toHaveLength(2);
     expect(sender.sent[0].to).toBe('client@example.com');
     expect(sender.sent[1].to).toBe('armchairfuturist@gmail.com');
+  });
+
+  it('sendCaseNotificationPair: a rejected confirmation does not throw, owner still sends', async () => {
+    const sender = new RejectingSender(['prospect']);
+    const error = vi.spyOn(console, 'error').mockImplementation(() => {});
+    try {
+      const outcome = await sendCaseNotificationPair(
+        sender,
+        { to: 'nope@example.com', subject: 'Confirm', html: '<p>hi</p>' },
+        { subject: 'Owner note', html: '<p>lead</p>' },
+      );
+      expect(outcome).toEqual({ confirmationId: '', delivered: true });
+      expect(sender.attempts).toEqual(['prospect', 'owner']);
+    } finally {
+      error.mockRestore();
+    }
+  });
+
+  it('sendCaseNotificationPair: both sends failing reports delivered:false', async () => {
+    const sender = new RejectingSender(['prospect', 'owner']);
+    const error = vi.spyOn(console, 'error').mockImplementation(() => {});
+    try {
+      await expect(
+        sendCaseNotificationPair(
+          sender,
+          { to: 'nope@example.com', subject: 'Confirm', html: '<p>hi</p>' },
+          { subject: 'Owner note', html: '<p>lead</p>' },
+        ),
+      ).resolves.toEqual({ confirmationId: '', delivered: false });
+    } finally {
+      error.mockRestore();
+    }
   });
 
   it('basePaidCase stamps the shared envelope', () => {

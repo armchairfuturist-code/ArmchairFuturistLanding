@@ -1,6 +1,14 @@
 import { describe, expect, it, vi } from "vitest";
-import { AUDIT_PAID_CASE, IDENTITY_PAID_CASE } from "../paid-case-intake";
+import { AUDIT_PAID_CASE, IDENTITY_PAID_CASE, submitPaidCaseIntake } from "../paid-case-intake";
 import { checkPaidIntakeContact } from "../paid-case";
+import { FakeEmailSender, FakeLeadStore } from "./fakes";
+
+/** Sender that always rejects, to model a Resend outage. */
+class DeadSender {
+  async send(): Promise<never> {
+    throw new Error("Resend is down");
+  }
+}
 
 const validAudit = {
   kind: "audit-intake" as const,
@@ -56,5 +64,46 @@ describe("Paid Case intake seam", () => {
     expect(
       AUDIT_PAID_CASE.persist({ saveAuditCase: persist } as never, {} as never),
     ).toBeInstanceOf(Promise);
+  });
+
+  it("returns ok when mail fails but the case is stored", async () => {
+    const error = vi.spyOn(console, "error").mockImplementation(() => {});
+    try {
+      const store = new FakeLeadStore();
+      const result = await submitPaidCaseIntake(
+        validAudit,
+        AUDIT_PAID_CASE,
+        { emailSender: new DeadSender() as never, leadStore: store },
+      );
+      expect(result.ok).toBe(true);
+      if (result.ok) {
+        expect(result.data.emailId).toBe("");
+        expect(result.data.storageFailed).toBe(false);
+      }
+      expect(store.auditCases).toHaveLength(1);
+    } finally {
+      error.mockRestore();
+    }
+  });
+
+  it("returns a 500 only when storage and mail both fail", async () => {
+    const error = vi.spyOn(console, "error").mockImplementation(() => {});
+    const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
+    try {
+      const store = new FakeLeadStore();
+      store.saveAuditCase = async () => {
+        throw new Error("D1 down");
+      };
+      const result = await submitPaidCaseIntake(
+        validAudit,
+        AUDIT_PAID_CASE,
+        { emailSender: new DeadSender() as never, leadStore: store },
+      );
+      expect(result.ok).toBe(false);
+      if (!result.ok) expect(result.status).toBe(500);
+    } finally {
+      error.mockRestore();
+      warn.mockRestore();
+    }
   });
 });

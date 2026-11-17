@@ -95,26 +95,54 @@ export interface CaseOwnerNotification {
 
 /**
  * Prospect confirmation first (its id is the pipeline result), then the
- * Alex notification. Returns the confirmation email id.
+ * Alex notification. Returns the confirmation email id, or '' when the
+ * confirmation send failed.
+ *
+ * Delivery failures are logged, never thrown. The paid-case row is already
+ * persisted by the time this runs, so a Resend rejection must not become a
+ * 500: the visitor would resubmit, creating a second case and a second
+ * notification. The 500 path is reserved for "nothing stored AND nothing
+ * sent", which `submitPaidCaseIntake` decides.
  */
+export interface CaseNotificationOutcome {
+  /** Id of the prospect confirmation, or '' when that send failed. */
+  confirmationId: string;
+  /** True when at least one of the two sends landed. */
+  delivered: boolean;
+}
+
 export async function sendCaseNotificationPair(
   emailSender: EmailSender,
   confirmation: CaseConfirmation,
   ownerNotification: CaseOwnerNotification,
-): Promise<string> {
-  const sent = await emailSender.send({
-    from: FROM_EMAIL,
-    to: confirmation.to,
-    subject: confirmation.subject,
-    html: confirmation.html,
-  });
-  await emailSender.send({
-    from: FROM_EMAIL,
-    to: ALEX_EMAIL,
-    subject: ownerNotification.subject,
-    html: ownerNotification.html,
-  });
-  return sent.id;
+): Promise<CaseNotificationOutcome> {
+  let confirmationId = '';
+  let ownerDelivered = false;
+  try {
+    const sent = await emailSender.send({
+      from: FROM_EMAIL,
+      to: confirmation.to,
+      subject: confirmation.subject,
+      html: confirmation.html,
+    });
+    confirmationId = sent.id;
+  } catch (err) {
+    console.error('Case confirmation email failed:', err);
+  }
+
+  try {
+    await emailSender.send({
+      from: FROM_EMAIL,
+      to: ALEX_EMAIL,
+      subject: ownerNotification.subject,
+      html: ownerNotification.html,
+    });
+    ownerDelivered = true;
+  } catch (err) {
+    console.error('Case owner notification failed:', err);
+  }
+
+  return { confirmationId, delivered: confirmationId !== '' || ownerDelivered };
 }
 
 // ── Base document envelope ──────────────────────────────────────

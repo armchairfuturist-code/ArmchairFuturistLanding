@@ -34,8 +34,12 @@ export interface PaidCaseIntakeSuccess {
 export interface PaidCaseIntakeFailure {
   ok: false;
   error: string;
-  status: 400;
+  status: 400 | 500;
 }
+
+/** Mirrors the deep pipeline's total-loss wording: nothing stored, nothing sent. */
+const TOTAL_LOSS_ERROR =
+  'We could not save your submission. Please try again, or reach out directly.';
 
 export type PaidCaseIntakeResponse = PaidCaseIntakeSuccess | PaidCaseIntakeFailure;
 
@@ -83,13 +87,27 @@ export async function submitPaidCaseIntake<TInput, TPayload>(
     () => definition.persist(deps.leadStore, payload),
     definition.storageWarning,
   );
-  const emailId = await sendCaseNotificationPair(
-    deps.emailSender,
-    definition.confirmation(input, payload, context),
-    definition.ownerNotification(input, payload, context),
-  );
+  // Building the documents or sending them must not throw past this point: the
+  // case is already stored, so a mail failure would 500 a saved submission.
+  let confirmationId = '';
+  let delivered = false;
+  try {
+    const outcome = await sendCaseNotificationPair(
+      deps.emailSender,
+      definition.confirmation(input, payload, context),
+      definition.ownerNotification(input, payload, context),
+    );
+    confirmationId = outcome.confirmationId;
+    delivered = outcome.delivered;
+  } catch (err) {
+    console.error('Case notification build failed:', err);
+  }
 
-  return { ok: true, data: { emailId, caseId, storageFailed } };
+  if (storageFailed && !delivered) {
+    return { ok: false, error: TOTAL_LOSS_ERROR, status: 500 };
+  }
+
+  return { ok: true, data: { emailId: confirmationId, caseId, storageFailed } };
 }
 
 const AUDIT_REQUIRED_FIELDS = [
