@@ -1,0 +1,4 @@
+# Workers Static Assets serves the Worker's static files without the Worker.
+# Next.js emits content-hashed files under /_next/static; cache them forever.
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable

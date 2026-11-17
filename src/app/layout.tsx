@@ -10,8 +10,6 @@ import { SmoothScrollProvider } from "@/components/ui/SmoothScrollProvider";
 import StructuredData from "@/components/seo/StructuredData";
 import "./globals.css";
 
-// ISR: revalidate prerendered pages every 60s so deploys propagate at the CDN edge.
-export const revalidate = 60;
 
 // Self-hosted woff2 files — zero font network calls at build time and runtime
 // (the next/font/google fetch flaked intermittently in CI; this removes it).

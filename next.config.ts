@@ -18,6 +18,12 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ["lucide-react", "date-fns"],
   },
   images: {
+    // Cloudflare Workers has no image optimizer. The adapter's /_next/image
+    // endpoint needs the Cloudflare Images binding, which is a paid add-on, so
+    // next/image serves the original files from Workers Static Assets instead.
+    // The tradeoff is no width variants: revisit with pre-generated responsive
+    // files if image weight ever shows up in the LCP numbers.
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",

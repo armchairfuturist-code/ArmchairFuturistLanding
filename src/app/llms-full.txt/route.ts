@@ -1,6 +1,5 @@
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
 import { FAQ_ITEMS } from '@/content/faqs';
+import { LLMS_TXT_SOURCE } from '@/content/llms-source.generated';
 
 /**
  * /llms-full.txt, generated at build time from the same sources as the site:
@@ -13,7 +12,7 @@ export const dynamic = 'force-static';
 const SITE = 'https://thearmchairfuturist.com';
 
 export function GET() {
-  const llms = readFileSync(join(process.cwd(), 'public', 'llms.txt'), 'utf8').trimEnd();
+  const llms = LLMS_TXT_SOURCE.trimEnd();
   const faq = FAQ_ITEMS.map((item) => {
     const link = item.hasLink && item.linkHref ? `\nMore: ${SITE}${item.linkHref}` : '';
     return `### ${item.question}\n${item.answer}${link}`;
