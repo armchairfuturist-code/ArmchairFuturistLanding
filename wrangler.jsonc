@@ -15,12 +15,23 @@
     { "pattern": "thearmchairfuturist.com/*", "zone_name": "thearmchairfuturist.com" },
     { "pattern": "www.thearmchairfuturist.com/*", "zone_name": "thearmchairfuturist.com" }
   ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "armchair-futurist",
+      "database_id": "b029b47e-c4e3-4f3d-acd0-57a45ecf8e3b",
+      "migrations_dir": "cloudflare/migrations"
+    }
+  ],
   "services": [
     {
       "binding": "WORKER_SELF_REFERENCE",
       "service": "armchair-futurist"
     }
   ],
+  "triggers": {
+    "crons": ["0 9 * * *"]
+  },
   "observability": {
     "enabled": true
   }

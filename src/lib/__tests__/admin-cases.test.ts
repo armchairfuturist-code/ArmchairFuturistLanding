@@ -1,8 +1,21 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { NextRequest } from 'next/server';
 
-const fakeGetDb = vi.fn();
-vi.mock('@/lib/firebase-admin', () => ({ getDb: () => fakeGetDb() }));
+// Storage moved to D1 (2026-11-17); the route is mocked at the case-store seam.
+const fakeListCases = vi.fn();
+const fakeDeleteCase = vi.fn();
+const fakeGetCase = vi.fn();
+
+vi.mock('@/lib/case-store', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@/lib/case-store')>();
+  return {
+    ...actual,
+    listCases: (...args: unknown[]) => fakeListCases(...args),
+    getCase: (...args: unknown[]) => fakeGetCase(...args),
+    deleteCase: (...args: unknown[]) => fakeDeleteCase(...args),
+  };
+});
+
 // Use the real admin-session logic with a known password, and mint the cookie
 // with the same function setAdminSessionCookie uses. Computing it by hand here
 // once let the accept path go unasserted while the format drifted underneath.
@@ -39,13 +52,10 @@ describe('admin cases route', () => {
   });
 
   it('accepts a freshly minted session', async () => {
-    fakeGetDb.mockReturnValue({
-      collection: () => ({
-        orderBy: () => ({ limit: () => ({ get: async () => ({ docs: [] }) }) }),
-      }),
-    });
+    fakeListCases.mockResolvedValue([]);
     const res = await GET(req2('GET', '?collection=audit_cases', VALID_TOKEN()));
     expect(res.status).toBe(200);
+    expect(fakeListCases).toHaveBeenCalledWith('audit_cases', 25);
   });
 
   it('400s on a disallowed collection', async () => {
@@ -92,7 +102,7 @@ describe('admin session token expiry', () => {
   });
 
   it('rejects malformed tokens without throwing', () => {
-    for (const bad of ['', '.', 'abc', '.abc', '123.', '9999999999999999.x']) {
+    for (const bad of ['', '.', 'abc', '.abc', '123.', '9999999999999999999.x']) {
       expect(isValidAdminSessionToken(bad)).toBe(false);
     }
   });

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getDb } from '@/lib/firebase-admin';
+import { bookCase, deleteCase, getCase, isCaseCollection, listCases } from '@/lib/case-store';
 import {
   ADMIN_SESSION_COOKIE,
   isValidAdminSessionToken,
@@ -28,7 +28,7 @@ type AllowedCollection = (typeof ALLOWED_COLLECTIONS)[number];
 const BOOKED_STATUS: AuditStatus = 'call_booked';
 
 function isAllowed(c: string | null): c is AllowedCollection {
-  return c === 'audit_cases' || c === 'identity_cases';
+  return isCaseCollection(c);
 }
 
 function unauthorized(): NextResponse {
@@ -48,31 +48,10 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    const db = getDb();
     const limitParam = Number(request.nextUrl.searchParams.get('limit') ?? 25);
     const limit = Number.isFinite(limitParam) ? Math.min(Math.max(limitParam, 1), 100) : 25;
 
-    const snap = await db
-      .collection(collection)
-      .orderBy('createdAt', 'desc')
-      .limit(limit)
-      .get();
-
-    const cases = snap.docs.map((doc) => {
-      const d = doc.data();
-      return {
-        id: doc.id,
-        caseId: d.caseId,
-        offer: d.offer,
-        status: d.status,
-        name: d.name,
-        email: d.email,
-        archetypeName: d.archetypeName,
-        createdAt: d.createdAt,
-        booking: d.booking ?? null,
-        nudgedAt: d.nudgedAt ?? null,
-      };
-    });
+    const cases = await listCases(collection, limit);
 
     return NextResponse.json({ ok: true, collection, cases });
   } catch (err) {
@@ -129,14 +108,12 @@ export async function PATCH(request: NextRequest) {
   }
 
   try {
-    const db = getDb();
-    const ref = db.collection(collection).doc(caseId);
-    const doc = await ref.get();
-    if (!doc.exists) {
+    const doc = await getCase(collection, caseId);
+    if (!doc) {
       return NextResponse.json({ error: 'Case not found.' }, { status: 404 });
     }
 
-    const from = (doc.data() as { status?: unknown } | undefined)?.status;
+    const from = doc.status;
     if (typeof from !== 'string') {
       return NextResponse.json({ error: 'Case has no status.' }, { status: 409 });
     }
@@ -147,12 +124,8 @@ export async function PATCH(request: NextRequest) {
       );
     }
 
-    // Dot path, not `booking: {...}` — a whole-map write would drop any
-    // booking.url already stored on the case.
-    await ref.update({
-      status: BOOKED_STATUS,
-      'booking.scheduledAt': scheduledAt,
-    });
+    // json_set writes the one key, so a booking.url already on the case stays.
+    await bookCase(caseId, scheduledAt, BOOKED_STATUS);
 
     return NextResponse.json({
       ok: true,
@@ -184,13 +157,11 @@ export async function DELETE(request: NextRequest) {
   }
 
   try {
-    const db = getDb();
-    const ref = db.collection(collection).doc(caseId);
-    const doc = await ref.get();
-    if (!doc.exists) {
+    const doc = await getCase(collection, caseId);
+    if (!doc) {
       return NextResponse.json({ error: 'Case not found.' }, { status: 404 });
     }
-    await ref.delete();
+    await deleteCase(collection, caseId);
     return NextResponse.json({ ok: true, deleted: caseId, collection });
   } catch (err) {
     console.error('Admin case delete error:', err);

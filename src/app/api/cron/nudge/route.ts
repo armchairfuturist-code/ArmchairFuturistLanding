@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 import { getResend } from '@/lib/resend';
-import { getDb } from '@/lib/firebase-admin';
+import { claimNudge, listOverdueCases, releaseNudge } from '@/lib/case-store';
 import { buildOverdueQuery, isOverdueForNudge, type NudgeCase } from '@/lib/cron/nudge-overdue';
 import { buildNudgeEmail } from '@/lib/email/templates';
 import { ALEX_EMAIL, FROM_EMAIL } from '@/lib/email/config';
@@ -29,43 +29,33 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    const db = getDb();
     const resend = getResend();
     const nowIso = new Date().toISOString();
     const query = buildOverdueQuery(nowIso);
 
-    const snap = await db
-      .collection('audit_cases')
-      .where('status', '==', 'submitted')
-      .where('createdAt', '<=', query.cutoff)
-      .get();
+    const overdue = await listOverdueCases(query.cutoff);
 
     let nudged = 0;
     let skipped = 0;
     let failed = 0;
 
-    for (const doc of snap.docs) {
+    for (const { caseId, doc } of overdue) {
       try {
-        // Claim first, send second. The transaction re-reads the doc, so a
-        // concurrent run that already claimed it sees `nudged` and backs off.
-        const claimed = await db.runTransaction(async (tx) => {
-          const fresh = await tx.get(doc.ref);
-          const data = fresh.data() as NudgeCase | undefined;
-          if (!fresh.exists || !isOverdueForNudge(data ?? {}, nowIso)) {
-            return false;
-          }
-          tx.update(doc.ref, { status: 'nudged', nudgedAt: nowIso });
-          return true;
-        });
+        const c = doc as NudgeCase;
+        if (!isOverdueForNudge(c, nowIso)) {
+          skipped++;
+          continue;
+        }
 
+        // Claim first, send second. The claim is one conditional UPDATE, so a
+        // concurrent run that already claimed the case gets no changed row.
+        const claimed = await claimNudge(caseId, nowIso);
         if (!claimed) {
           skipped++;
           continue;
         }
 
-        let c: NudgeCase = {};
         try {
-          c = (doc.data() as NudgeCase) ?? {};
           await resend.emails.send({
             from: FROM_EMAIL,
             to: c.email ?? ALEX_EMAIL,
@@ -80,7 +70,7 @@ export async function GET(req: NextRequest) {
           // Hand the case back so a later run retries it. Releasing must not
           // abort the run — the remaining cases still deserve their email.
           console.error('Nudge send failed:', sendErr);
-          await doc.ref.update({ status: 'submitted', nudgedAt: null });
+          await releaseNudge(caseId);
           failed++;
         }
       } catch (caseErr) {

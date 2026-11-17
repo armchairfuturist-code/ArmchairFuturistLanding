@@ -1,4 +1,4 @@
-import type { Firestore } from 'firebase-admin/firestore';
+import { getD1, newId } from './d1';
 import type { AuditIntake } from './audit/case';
 import type { IdentityIntake } from './identity/case';
 
@@ -61,54 +61,109 @@ export interface LeadStore {
   saveIdentityCase(data: IdentityCaseData): Promise<void>;
 }
 
-export function createFirestoreLeadStore(getDb: () => Firestore): LeadStore {
+/** A case payload is written whole into the `doc` column and queried by its columns. */
+function caseColumns(data: Record<string, unknown>, nowIso: string) {
+  const str = (v: unknown) => (typeof v === 'string' ? v : '');
+  return {
+    caseId: str(data.caseId),
+    status: str(data.status),
+    createdAt: str(data.createdAt) || nowIso,
+    updatedAt: str(data.updatedAt) || nowIso,
+    name: str(data.name),
+    email: str(data.email),
+    archetypeName: str(data.archetypeName),
+  };
+}
+
+/**
+ * D1-backed intake store (replaced Firestore on 2026-11-17).
+ *
+ * Same interface as before, so the submission pipeline is untouched. Each write
+ * is a single INSERT, which is atomic in D1 without a transaction.
+ */
+export function createD1LeadStore(): LeadStore {
   return {
     async saveAssessmentLead(data) {
-      const db = getDb();
-      const ref = db.collection('assessment_leads').doc();
-      await ref.set({
-        ...data,
-        createdAt: new Date().toISOString(),
-        source: 'assessment',
-      });
+      await getD1()
+        .prepare(
+          `INSERT INTO assessment_leads
+             (id, email, archetypeSlug, archetypeName, scores, individualSignals, createdAt, source)
+           VALUES (?, ?, ?, ?, ?, ?, ?, 'assessment')`,
+        )
+        .bind(
+          newId(),
+          data.email,
+          data.archetypeSlug,
+          data.archetypeName,
+          JSON.stringify(data.scores),
+          data.individualSignals,
+          new Date().toISOString(),
+        )
+        .run();
     },
     async saveCaptureLead(data) {
-      const db = getDb();
-      const ref = db.collection('leads').doc();
-      await ref.set({
-        ...data,
-        createdAt: new Date().toISOString(),
-        consulted: false,
-      });
+      await getD1()
+        .prepare(
+          `INSERT INTO leads (id, name, email, source, createdAt, consulted)
+           VALUES (?, ?, ?, ?, ?, 0)`,
+        )
+        .bind(newId(), data.name, data.email, data.source, new Date().toISOString())
+        .run();
     },
     async saveContactMessage(data) {
       // The contact form used a no-op store, so the email was the only copy of
       // the message and a Resend outage lost it outright. Contact enquiries are
-      // the highest-intent ones, so they get a document like everything else.
-      const db = getDb();
-      const ref = db.collection('contact_messages').doc();
-      await ref.set({
-        ...data,
-        createdAt: new Date().toISOString(),
-        source: 'contact-form',
-        handled: false,
-      });
+      // the highest-intent ones, so they get a row like everything else.
+      await getD1()
+        .prepare(
+          `INSERT INTO contact_messages (id, name, email, message, createdAt, source, handled)
+           VALUES (?, ?, ?, ?, ?, 'contact-form', 0)`,
+        )
+        .bind(newId(), data.name, data.email, data.message, new Date().toISOString())
+        .run();
     },
     async saveAuditCase(data) {
-      const db = getDb();
-      const ref = db.collection('audit_cases').doc(data.caseId);
-      await ref.set({
-        ...data,
-        source: 'audit-form',
-      });
+      await insertCase('audit_cases', data as unknown as Record<string, unknown>, 'audit-form');
     },
     async saveIdentityCase(data) {
-      const db = getDb();
-      const ref = db.collection('identity_cases').doc(data.caseId);
-      await ref.set({
-        ...data,
-        source: 'identity-form',
-      });
+      await insertCase(
+        'identity_cases',
+        data as unknown as Record<string, unknown>,
+        'identity-form',
+      );
     },
   };
+}
+
+async function insertCase(
+  table: 'audit_cases' | 'identity_cases',
+  data: Record<string, unknown>,
+  source: string,
+): Promise<void> {
+  const nowIso = new Date().toISOString();
+  const cols = caseColumns(data, nowIso);
+  if (!cols.caseId) throw new Error('Case payload has no caseId.');
+  await getD1()
+    .prepare(
+      `INSERT INTO ${table} (caseId, status, createdAt, updatedAt, name, email, archetypeName, doc)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+       ON CONFLICT(caseId) DO UPDATE SET
+         status = excluded.status,
+         updatedAt = excluded.updatedAt,
+         name = excluded.name,
+         email = excluded.email,
+         archetypeName = excluded.archetypeName,
+         doc = excluded.doc`,
+    )
+    .bind(
+      cols.caseId,
+      cols.status,
+      cols.createdAt,
+      cols.updatedAt,
+      cols.name,
+      cols.email,
+      cols.archetypeName,
+      JSON.stringify({ ...data, source }),
+    )
+    .run();
 }

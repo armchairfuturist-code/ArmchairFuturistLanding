@@ -1,14 +1,13 @@
 import { createSubmissionRoute } from '@/lib/submission-route';
-import { createFirestoreLeadStore } from '@/lib/lead-store';
+import { createD1LeadStore } from '@/lib/lead-store';
 import { getResend } from '@/lib/resend';
-import { getDb } from '@/lib/firebase-admin';
 import { RATE_LIMIT_ASSESSMENT } from '@/lib/email-utils';
 import type { AssessmentInput, AssessmentResult } from '@/lib/submission-pipeline';
 
 export const POST = createSubmissionRoute<AssessmentInput>({
   kind: 'assessment',
   rateLimit: RATE_LIMIT_ASSESSMENT,
-  leadStore: createFirestoreLeadStore(() => getDb()),
+  leadStore: createD1LeadStore(),
   parseBody: (body) => {
     const { email, answerIndices } = body as { email?: string; answerIndices?: unknown };
     return { kind: 'assessment', email, answerIndices } as AssessmentInput;
