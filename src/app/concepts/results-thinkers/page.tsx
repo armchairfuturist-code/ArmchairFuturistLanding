@@ -1,3 +1,4 @@
+export const revalidate = 3600; // Edge cache: serve stale while revalidating from origin
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
