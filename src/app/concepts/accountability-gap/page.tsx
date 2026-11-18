@@ -138,6 +138,19 @@ export default function AccountabilityGapPage() {
         </div>
       </section>
 
+<section className="py-8 bg-background">
+          <div className="container mx-auto px-4 md:px-6 max-w-4xl">
+            <div className="rounded-xl border-2 border-hp-electric bg-surface p-5">
+              <span className="font-mono text-[10px] uppercase tracking-widest text-hp-electric mb-2 block">Quick Answer</span>
+              <p className="text-ink text-base md:text-lg leading-relaxed">
+                The Accountability Gap is the space between what an AI system produces and what a business needs. It opens when companies layer AI onto existing processes without rethinking workflows, incentives, or decision rights — nobody owns the outcome.
+              </p>
+            </div>
+          </div>
+        </section>
+
+      {/* AI Summary
+
       {/* AI Summary for LLM citation */}
       <div className="sr-only" aria-hidden="true" itemScope itemType="https://schema.org/Article">
         <span itemProp="headline">The Accountability Gap in AI Adoption</span>

@@ -42,6 +42,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Core
     page('', '2026-06-19', 'weekly', 1),
     page('/about', '2026-06-19', 'monthly', 0.9),
+    page('/research', '2026-11-18', 'monthly', 0.8),
+    page('/blog/ai-consultant-vs-ai-agency', '2026-11-18', 'monthly', 0.8),
 
     // Assessment funnel
     page('/assessment', '2026-03-04', 'monthly', 0.8),

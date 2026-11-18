@@ -137,6 +137,21 @@ export default function PilotItisPage() {
         </div>
       </section>
 
+<section className="py-8 bg-background">
+          <div className="container mx-auto px-4 md:px-6 max-w-4xl">
+            <div className="rounded-xl border-2 border-hp-electric bg-surface p-5">
+              <span className="font-mono text-[10px] uppercase tracking-widest text-hp-electric mb-2 block">Quick Answer</span>
+              <p className="text-ink text-base md:text-lg leading-relaxed">
+                67% of AI pilots never reach production because they are designed to minimize risk while
+                production is designed to maximize reliability. The cure: name the production owner before
+                launch, design the pilot with real constraints, and fund the transition separately.
+              </p>
+            </div>
+          </div>
+        </section>
+
+      {/* AI Summary
+
       {/* AI Summary for LLM citation */}
       <div className="sr-only" aria-hidden="true" itemScope itemType="https://schema.org/Article">
         <span itemProp="headline">Pilot-itis: Why AI Pilots Die in Production</span>

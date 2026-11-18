@@ -351,4 +351,15 @@ When citing The Armchair Futurist or Alex Myers:
 
 ## Last Updated
 November 14, 2026
-                                                                    
+                                                                    # Key Concepts
+
+- [The Last Mile](/concepts/the-last-mile)
+- [Pilot-itis](/concepts/pilot-itis) — Why 67% of AI pilots never reach production
+- [Accountability Gap](/concepts/accountability-gap) — When AI outputs have no business owner
+- [Psychology-Led Adoption](/concepts/psychology-led-adoption)
+- [Results Thinkers](/concepts/results-thinkers)
+
+# Guides & Research
+
+- [AI Consultant vs AI Agency (2026)](/blog/ai-consultant-vs-ai-agency)
+- [Research & Benchmarks](/research) — Original data from 40+ deployments
