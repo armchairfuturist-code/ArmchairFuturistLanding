@@ -54,3 +54,6 @@ jobs:
 
       - name: Deploy Worker
         run: npx wrangler deploy
+
+      - name: Submit sitemap URLs to IndexNow
+        run: node scripts/indexnow-submit.mjs || echo "::warning::IndexNow submission failed (non-blocking)"

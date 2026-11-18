@@ -3,12 +3,36 @@
 import Script from "next/script";
 
 /**
- * Retargeting and analytics pixels — Meta Pixel, LinkedIn Insight Tag.
+ * Retargeting and analytics pixels — GA4 (gtag.js), Meta Pixel, LinkedIn Insight Tag.
  * Extracted from layout.tsx to keep the layout focused on composition.
+ * Only loads scripts when their corresponding NEXT_PUBLIC_* env var is set.
  */
 export default function TrackingPixels() {
+  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+
   return (
     <>
+      {/* Google Analytics 4 (consumes window.dataLayer from src/lib/analytics.ts) */}
+      {gaId && gaId !== "G-XXXXXXXXXX" && (
+        <>
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+            strategy="afterInteractive"
+          />
+          <Script
+            id="ga4-init"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${gaId}');
+              `,
+            }}
+          />
+        </>
+      )}
       {/* Meta Pixel */}
       {process.env.NEXT_PUBLIC_META_PIXEL_ID && (
         <>

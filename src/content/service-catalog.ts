@@ -218,7 +218,7 @@ export const SERVICE_SYSTEMS: readonly ServiceSystem[] = [
       {
         title: "Context Layer",
         content:
-          "One place for data, SOPs, and workflows. It replaces 20 disconnected tools as the reference point. Staff checks here first.",
+          "One place for data, SOPs, and workflows. It replaces 20 disconnected tools as the reference point. Staff checks here first. The system becomes the single truth for every process decision — when a question arises, the team searches the knowledge base before asking a person or guessing from memory.",
       },
       {
         title: "Data Consolidation",
@@ -228,7 +228,7 @@ export const SERVICE_SYSTEMS: readonly ServiceSystem[] = [
       {
         title: "Internal Knowledge Base",
         content:
-          "AI answers from your SOPs and cites the source per answer. The team stops asking the same questions twice.",
+          "AI reads your SOPs directly and attaches a source link to every answer. Your team stops asking the same question twice because the answer is always available, up-to-date, and verified against the latest version of your procedures. New hires ramp three times faster than with scattered drive folders.",
       },
     ],
     keep:
@@ -298,7 +298,7 @@ export const SERVICE_SYSTEMS: readonly ServiceSystem[] = [
       {
         title: "Billing Reconciliation",
         content:
-          "We catch scope creep and invoice errors before they leak. You see what to bill and why.",
+          "The system matches actual work delivered against contracted scope before invoices go out. You see exactly what to bill and why, line by line. This catches scope creep and duplicate charges before they leak revenue, and produces a reconciliation report that clients can audited against their own records.",
       },
     ],
     keep:
@@ -398,7 +398,7 @@ export const SERVICE_SYSTEMS: readonly ServiceSystem[] = [
       {
         title: "Tier-1 AI Agents",
         content:
-          "Agents take scheduling, intake, and repeat support questions. Scoped pilots handle 60–70% of inbound volume. Humans take the rest. Every answer links its source.",
+          "Tier-1 agents take scheduling, routine intake forms, and repeat customer questions around the clock. They handle about 60–70% of inbound volume using your knowledge base so humans only touch exceptions. Every response links back to its source document. When an agent hits its limit it hands the full conversation to a human with one click and zero context loss.",
       },
       {
         title: "SaaS Consolidation",
@@ -408,7 +408,7 @@ export const SERVICE_SYSTEMS: readonly ServiceSystem[] = [
       {
         title: "AI Cost Reduction",
         content:
-          "Calls route to the cheapest model that clears your bar. Spend drops. Output holds. Monthly report shows both.",
+          "Every query is routed to the cheapest language model that still meets your quality threshold. Complex tasks go to strong models; simple ones use fast, cheap ones. Monthly reports show cost-per-query and output volume side by side so you can verify spend without sacrificing accuracy.",
       },
     ],
     keep:

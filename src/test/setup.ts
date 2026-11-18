@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { cleanup } from '@testing-library/react';
-import { afterEach } from 'vitest';
+import { afterEach, vi } from 'vitest';
 
 // Cleanup after each test to prevent state leakage
 afterEach(() => {
@@ -40,3 +40,6 @@ global.matchMedia = Object.assign(() => ({
 
 // Polyfill for HTMLMediaElement
 global.HTMLMediaElement.prototype.play = () => new Promise(() => {});
+
+// Mock GA4 env var so TrackingPixels renders without undefined errors
+vi.stubEnv('NEXT_PUBLIC_GA_MEASUREMENT_ID', '');

@@ -8,6 +8,7 @@ import ScrollProgress from "@/components/ui/ScrollProgress";
 import ScrollToHash from "@/components/ui/ScrollToHash";
 import { SmoothScrollProvider } from "@/components/ui/SmoothScrollProvider";
 import StructuredData from "@/components/seo/StructuredData";
+import TrackingPixels from "@/components/analytics/TrackingPixels";
 import "./globals.css";
 
 
@@ -93,6 +94,7 @@ export default function RootLayout({
           <SmoothScrollProvider>
             <MotionProvider>
               <StructuredData />
+              <TrackingPixels />
               <ScrollProgress />
               <ScrollToHash />
               <Header />
