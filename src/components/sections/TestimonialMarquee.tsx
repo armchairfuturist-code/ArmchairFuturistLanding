@@ -13,27 +13,28 @@ interface MarqueeSnippet {
   imageSrc?: string;
 }
 
+/** Names we keep in the header marquee; everything else stays in ProofSection. */
+const MARQUEE_NAMES = new Set([
+  "Manny Toribio", "Shannon Myers", "Brenda Fonseca",
+  "Maria Fonseca", "Stephan Kerby", "Karrie S.",
+]);
+
+/** Excerpt for each marquee testimonial. */
+const BY_NAME: Record<string, string> = {
+  "Manny Toribio": "A few sessions into my training package with Alex and I'm already working differently. Worth every penny.",
+  "Shannon Myers": "He has saved me over $10,000 a year. I save 10 to 20 hours a week now.",
+  "Brenda Fonseca": "the sessions with him have been a game changer for me.",
+  "Maria Fonseca": "I couldn't advise someone better to guide you in your AI journey.",
+  "Stephan Kerby": "Alex is a fantastic communicator who made the website redesign process effortless.",
+  "Karrie S.": "one of the best change and program management professionals I've run across in transformation.",
+};
+
 function pickSnippets(testimonials: readonly Testimonial[]): MarqueeSnippet[] {
   const snippets: MarqueeSnippet[] = [];
 
-  const byName: Record<string, string | undefined> = {
-    "Manny Toribio": "A few sessions into my training package with Alex and I'm already working differently. Worth every penny.",
-    "Shannon Myers": "He has saved me over $10,000 a year. I save 10 to 20 hours a week now.",
-    "Brenda Fonseca": "the sessions with him have been a game changer for me.",
-    "Stephan Kerby": "Alex is a fantastic communicator who made the website redesign process effortless.",
-    "Alex A.": "Alex has a strong work ethic and real attention to detail.",
-    "Karrie S.": "one of the best change and program management professionals I've run across in transformation.",
-    "Marco": "He pushed our team toward continuous improvement without making it feel forced.",
-    "Evan H.": "He is extraordinarily proactive, doesn't wait to be told what to do",
-    "Lia S.": "ensuring every member of the team felt heard and seen",
-    "Tessa M.": "Alex is calm, patient, and is very generous with his knowledge.",
-    "Sepehr S.": "The whole team runs better when he's involved.",
-    "Jasper": "Alex is the best SCRUM master I've worked with.",
-    "Maria Fonseca": "I couldn't advise someone better to guide you in your AI journey.",
-  };
-
   for (const t of testimonials) {
-    const quote = byName[t.name];
+    if (!MARQUEE_NAMES.has(t.name)) continue;
+    const quote = BY_NAME[t.name];
     if (quote) {
       snippets.push({
         quote,
@@ -108,10 +109,6 @@ export default function TestimonialMarquee() {
         <MarqueeItems />
         <div className="testimonial-marquee__duplicate" aria-hidden="true"><MarqueeItems /></div>
       </div>
-      <p className="testimonial-marquee__note">
-        * Short excerpts.{" "}
-        <a href="#proof-heading">Read the full testimonials below</a>
-      </p>
     </section>
   );
 }

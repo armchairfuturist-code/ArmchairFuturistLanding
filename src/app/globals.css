@@ -127,7 +127,7 @@
 .organism-deck--offer { margin-top: 14px; color: #e3e7ee; }
 .organism-actions { display: flex; gap: 16px; margin-top: 35px; }
 .organism-hero__whatsapp-icon { width: 15px; height: 15px; flex-shrink: 0; }
-.organism-button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 48px; padding: 0 20px; border: 1px solid transparent; border-radius: 4px; /* DESIGN.md: all buttons 4px — the 999px pill was a token violation */ cursor: pointer; transition: transform var(--duration-press) var(--ease-out), background var(--duration-small) var(--ease-out), border-color var(--duration-small) var(--ease-out); }
+.organism-button { display: inline-flex; align-items: center; justify-content: center; gap: 16px; min-height: 48px; padding: 0 20px; border: 1px solid transparent; border-radius: 4px; /* DESIGN.md: all buttons 4px — the 999px pill was a token violation */ cursor: pointer; transition: transform var(--duration-press) var(--ease-out), background var(--duration-small) var(--ease-out), border-color var(--duration-small) var(--ease-out); }
 /* White on --org-blue (#296ef9) measures 4.48:1, just under the 4.5 WCAG AA
    needs for text this size, on the hero's most important button. The declared
    --org-blue is the HOVER step of the signal hue, so the primary was sitting on
@@ -164,10 +164,8 @@
 .testimonial-marquee {
   position: relative;
   overflow: hidden;
-  padding: 32px 0;
-  background: linear-gradient(180deg, #080d17 0%, #0b1425 100%);
-  border-top: 1px solid rgba(240, 238, 232, .06);
-  border-bottom: 1px solid rgba(240, 238, 232, .06);
+  padding: 24px 0;
+  background: rgba(240, 238, 232, .02);
 }
 
 .testimonial-marquee::before,
@@ -177,32 +175,26 @@
   z-index: 2;
   top: 0;
   bottom: 0;
-  width: 80px;
+  width: 60px;
   pointer-events: none;
 }
 
 .testimonial-marquee::before {
   left: 0;
-  background: linear-gradient(90deg, #080d17 0%, transparent 100%);
+  background: linear-gradient(90deg, rgba(240, 238, 232, .04), transparent 100%);
 }
 
 .testimonial-marquee::after {
   right: 0;
-  background: linear-gradient(270deg, #080d17 0%, transparent 100%);
+  background: linear-gradient(270deg, rgba(240, 238, 232, .04), transparent 100%);
 }
 
-.testimonial-marquee__note { margin: 16px 6vw 0; color: #b9c3d4; font-size: 13px; }
-.testimonial-marquee__note a { display: inline-block; padding: 13px 2px; color: inherit; text-decoration: underline; text-underline-offset: 3px; transition: color 150ms var(--ease-out), transform 150ms var(--ease-out); }
-.testimonial-marquee__note a:hover { color: #fff; }
-.testimonial-marquee__note a:active { transform: scale(0.97); }
-.testimonial-marquee__note a:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
 .testimonial-marquee__duplicate { display: contents; }
 .testimonial-marquee__track {
   display: flex;
-  gap: 24px;
+  gap: 16px;
   width: max-content;
   animation: marquee-scroll 120s linear infinite;
-  padding: 0 12px;
   will-change: transform;
 }
 
@@ -218,10 +210,18 @@
 }
 
 /* Snippet card */
+/* Smooth hover interaction */
+@media (hover: hover) {
+  .marquee-snippet { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+  .testimonial-marquee:hover .marquee-snippet {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+}
 .marquee-snippet {
   flex-shrink: 0;
-  width: 320px;
-  padding: 18px 20px;
+  width: 260px;
+  padding: 20px 24px;
   border: 1px solid rgba(240, 238, 232, .12);
   border-radius: 12px;
   background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.01));
@@ -288,7 +288,7 @@
 
 /* Mobile: faster scroll, narrower cards */
 @media (max-width: 800px) {
-  .testimonial-marquee { padding: 24px 0; }
+  .testimonial-marquee { padding: 20px 0; };
   .testimonial-marquee::before,
   .testimonial-marquee::after { width: 40px; }
   .testimonial-marquee__track {
@@ -296,7 +296,7 @@
     animation-duration: 100s;
   }
   .marquee-snippet {
-    width: 280px;
+    width: 240px;
     padding: 14px 16px;
   }
   .marquee-snippet__quote { font-size: 13px; }
