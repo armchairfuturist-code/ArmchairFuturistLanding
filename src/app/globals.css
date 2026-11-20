@@ -104,6 +104,21 @@
 .organism-noise { position: absolute; z-index: -1; inset: 0; pointer-events: none; opacity: .08; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E"); }
 .organism-status { font-size: 14px; letter-spacing: 0; } /* preview: text face, 14px */
 .organism-hero__copy { position: relative; max-width: 1120px; margin: 8vh 0 0 8vw; }
+
+@media (min-width: 801px) {
+  .organism-hero {
+    min-height: 88svh;
+    justify-content: center;
+  }
+  .organism-hero__copy { margin: 0 0 0 8vw; }
+  .organism-status { position: absolute; left: 4vw; bottom: 28px; }
+  .organism-hero__hint {
+    position: absolute;
+    left: 50%;
+    bottom: 28px;
+    transform: translateX(-50%);
+  }
+}
 .organism-hero__copy::before { content: ""; position: absolute; z-index: -1; inset: -56px -72px -72px -8vw; pointer-events: none; background: radial-gradient(ellipse 130% 100% at 22% 40%, rgba(8, 13, 23, .88) 30%, rgba(8, 13, 23, .55) 58%, transparent 78%); }
 /* The copy paints with the HTML and rises in CSS. The H1 keeps full opacity
    from the first frame (LCP is measured on it); only the lines under it fade. */
@@ -164,8 +179,8 @@
 .testimonial-marquee {
   position: relative;
   overflow: hidden;
-  padding: 24px 0;
-  background: rgba(240, 238, 232, .02);
+  padding: 32px 0;
+  background: var(--org-ink);
 }
 
 .testimonial-marquee::before,
@@ -181,12 +196,12 @@
 
 .testimonial-marquee::before {
   left: 0;
-  background: linear-gradient(90deg, rgba(240, 238, 232, .04), transparent 100%);
+  background: linear-gradient(90deg, var(--org-ink) 0%, transparent 100%);
 }
 
 .testimonial-marquee::after {
   right: 0;
-  background: linear-gradient(270deg, rgba(240, 238, 232, .04), transparent 100%);
+  background: linear-gradient(270deg, var(--org-ink) 0%, transparent 100%);
 }
 
 .testimonial-marquee__duplicate { display: contents; }
@@ -194,7 +209,9 @@
   display: flex;
   gap: 16px;
   width: max-content;
-  animation: marquee-scroll 120s linear infinite;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
   will-change: transform;
 }
 
@@ -204,10 +221,6 @@
   }
 }
 
-@keyframes marquee-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
 
 /* Snippet card */
 /* Smooth hover interaction */
@@ -215,16 +228,16 @@
   .marquee-snippet { transition: transform 0.2s ease, box-shadow 0.2s ease; }
   .testimonial-marquee:hover .marquee-snippet {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
   }
 }
 .marquee-snippet {
   flex-shrink: 0;
   width: 260px;
   padding: 20px 24px;
-  border: 1px solid rgba(240, 238, 232, .12);
+  border: 1px solid rgba(240, 238, 232, .2);
   border-radius: 12px;
-  background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.01));
+  background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
 }
 
 .marquee-snippet__mark {
@@ -238,7 +251,7 @@
 
 .marquee-snippet__quote {
   margin: 0;
-  color: #d8dce4;
+  color: #e4e8ef;
   font-size: 14px;
   line-height: 1.6;
   font-style: italic;
@@ -286,15 +299,43 @@
   content: "· ";
 }
 
+.testimonial-marquee__toggle {
+  position: absolute;
+  right: 16px;
+  bottom: 12px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border: 1px solid rgba(240, 238, 232, .28);
+  border-radius: 999px;
+  background: rgba(8, 13, 23, .72);
+  color: var(--org-paper);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: border-color .2s ease, background .2s ease;
+}
+.testimonial-marquee__toggle:hover {
+  border-color: rgba(240, 238, 232, .5);
+  background: rgba(8, 13, 23, .9);
+}
+.testimonial-marquee__toggle:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
 /* Mobile: faster scroll, narrower cards */
 @media (max-width: 800px) {
-  .testimonial-marquee { padding: 20px 0; };
+  .testimonial-marquee { padding: 24px 0; }
   .testimonial-marquee::before,
-  .testimonial-marquee::after { width: 40px; }
-  .testimonial-marquee__track {
-    gap: 16px;
-    animation-duration: 100s;
-  }
+  .testimonial-marquee::after { width: 32px; }
+  .testimonial-marquee__track { gap: 14px; }
   .marquee-snippet {
     width: 240px;
     padding: 14px 16px;
@@ -306,6 +347,8 @@
 @media (prefers-reduced-motion: reduce) {
   .testimonial-marquee__track {
     animation: none;
+    transform: none !important;
+    cursor: default;
     width: 100%;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -373,6 +416,10 @@
   .homepage-section {
     content-visibility: auto;
     contain-intrinsic-size: auto 1200px;
+  }
+
+  #testimonial-marquee.homepage-section {
+    contain-intrinsic-size: auto 220px;
   }
 
   /* A deep-linked visit needs real heights before it can aim at the anchor:
