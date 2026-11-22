@@ -62,6 +62,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Case studies
     page('/case-studies', '2026-06-19', 'monthly', 0.7),
+    page('/testimonials', '2026-11-22', 'monthly', 0.7),
 
     // Services hub + spokes
     page('/services', '2026-09-04', 'monthly', 0.8),

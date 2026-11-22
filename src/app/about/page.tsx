@@ -4,7 +4,9 @@ import { Button } from '@/components/ui/button';
 import { BookCallButton } from '@/components/ui/BookCallButton';
 import { Card, CardContent } from '@/components/ui/card';
 import { BlurFade } from '@/components/ui/blur-fade';
-import { CheckCircle2, Linkedin, Trophy } from 'lucide-react';
+import PhotoCarousel from '@/components/about/PhotoCarousel';
+import { LINKEDIN_URL } from '@/lib/constants';
+import { ArrowRight, ArrowUpRight, CheckCircle2, Linkedin, MessageSquareQuote, Trophy } from 'lucide-react';
 
 const siteUrl = 'https://thearmchairfuturist.com';
 export const metadata: Metadata = {
@@ -92,31 +94,36 @@ const expertiseAreas = [
   "Complexity Thinking",
 ];
 
-const timelineEvents = [
+const inTheRoom = [
   {
-    year: "2026",
-    title: "40+ AI Systems Deployed",
-    description: "Production AI systems live across diverse organizations"
+    src: "/session-table.jpg",
+    alt: "Alex working through a build session with a client at a table",
+    caption: "1-on-1 build session — turning a stuck workflow into a working system",
   },
   {
-    year: "2025",
-    title: "GenAI Academy Expert Certification",
-    description: "Earned expert certification in generative AI implementation and service design"
+    src: "/session-room.jpg",
+    alt: "Alex coaching a client one-on-one in a session room",
+    caption: "Coaching a solo founder through their first AI workflow",
   },
   {
-    year: "2024",
-    title: "The Armchair Futurist Practice Launch",
-    description: "Launched advisory practice focused on bridging the Accountability Gap in AI adoption"
+    src: "/session-workshop.jpg",
+    alt: "Alex running a hands-on AI workshop",
+    caption: "Hands-on workshop — everyone leaves with something running",
   },
   {
-    year: "2023",
-    title: "Certified Change Management Professional",
-    description: "Earned CCMP certification for organizational change expertise"
+    src: "/marketing3.jpeg",
+    alt: "Alex presenting at Sunsetpreneurs on AI strategy",
+    caption: "Sunsetpreneurs — AI strategy for founders",
   },
   {
-    year: "2022",
-    title: "Certified Futurist & Long-Term Analyst",
-    description: "Completed FLTA certification in futures thinking and scenario planning"
+    src: "/marketing4.jpeg",
+    alt: "Alex leading a session at Startup Braga on AI adoption",
+    caption: "Startup Braga — AI adoption, room by room",
+  },
+  {
+    src: "/marketing1.webp",
+    alt: "Alex working with a group on AI strategy",
+    caption: "Group strategy session — ending in a decision, not a deck",
   },
 ];
 
@@ -164,7 +171,7 @@ export default function AboutPage() {
                     Book Free Strategy Call
                   </BookCallButton>
                   <Button asChild size="lg" variant="outline" className="h-12 px-6">
-                    <a href="https://www.linkedin.com/in/alex-myers-34572a10/" target="_blank" rel="noopener noreferrer">
+                    <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
                       <Linkedin className="mr-2 h-4 w-4" />
                       Connect on LinkedIn
                     </a>
@@ -256,80 +263,96 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Gallery — every photo of Alex in the room lives here, nowhere else */}
-      <section className="py-20 md:py-28 bg-[#f3f3f3] border-y border-border/60">
-        <div className="container mx-auto px-4 md:px-6 max-w-5xl">
-          <div className="mb-10 grid md:grid-cols-12 gap-6 items-end">
+      {/* In the room — every photo of Alex working lives here, nowhere else */}
+      <section className="border-y border-border/60 bg-[#f3f3f3] py-20 md:py-28">
+        <div className="container mx-auto max-w-5xl px-4 md:px-6">
+          <div className="mb-8 grid items-end gap-6 md:grid-cols-12">
             <div className="md:col-span-7">
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary">
+              <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric">
+                The work, not the deck
+              </p>
+              <h2 className="font-display text-3xl font-medium text-ink md:text-4xl">
                 In the room
               </h2>
             </div>
-            <p className="md:col-span-5 text-charcoal md:text-right">
+            <p className="text-charcoal md:col-span-5 md:text-right">
               Workshops, strategy sessions, and build sprints — the work looks like this.
             </p>
           </div>
 
-          {/* Editorial strip: one tall, one wide, rest filled; each row keeps its own aspect, no uniform grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-12 gap-4">
-            <div className="relative w-full sm:col-span-7 aspect-[4/3] rounded-xl overflow-hidden border border-border/60 bg-card">
-              <Image src="/session-table.jpg" alt="Alex working through a build session with a client at a table" fill className="object-cover" sizes="(max-width: 640px) 100vw, 58vw" />
-            </div>
-            <div className="relative w-full sm:col-span-5 aspect-[4/3] rounded-xl overflow-hidden border border-border/60 bg-card">
-              <Image src="/session-room.jpg" alt="Alex coaching a client one-on-one in a session room" fill className="object-cover" sizes="(max-width: 640px) 100vw, 42vw" />
-            </div>
-            <div className="relative w-full sm:col-span-4 aspect-[4/3] rounded-xl overflow-hidden border border-border/60 bg-card">
-              <Image src="/marketing3.jpeg" alt="Alex presenting at a conference" fill className="object-cover" sizes="(max-width: 640px) 100vw, 33vw" />
-            </div>
-            <div className="relative w-full sm:col-span-4 aspect-[4/3] rounded-xl overflow-hidden border border-border/60 bg-card">
-              <Image src="/marketing4.jpeg" alt="Alex in a consulting session" fill className="object-cover" sizes="(max-width: 640px) 100vw, 33vw" />
-            </div>
-            <div className="relative w-full sm:col-span-4 aspect-[4/3] rounded-xl overflow-hidden border border-border/60 bg-card">
-              <Image src="/session-workshop.jpg" alt="Alex running a hands-on AI workshop" fill className="object-cover" sizes="(max-width: 640px) 100vw, 33vw" />
-            </div>
-            <div className="relative w-full sm:col-span-12 aspect-[16/7] rounded-xl overflow-hidden border border-border/60 bg-card">
-              <Image src="/marketing1.webp" alt="Alex working with a group on AI strategy" fill className="object-cover" sizes="100vw" />
-            </div>
-          </div>
+          <BlurFade inView>
+            <PhotoCarousel photos={inTheRoom} />
+          </BlurFade>
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="py-16 md:py-24 bg-secondary">
-        <div className="container mx-auto px-4 md:px-6 max-w-4xl">
+      {/* The career, in one paragraph — then the two places worth going next */}
+      <section className="bg-secondary py-16 md:py-24">
+        <div className="container mx-auto max-w-5xl px-4 md:px-6">
           <BlurFade inView>
-            <div className="text-center mb-12">
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mb-4">
-                Career Highlights
-              </h2>
+            <div className="grid items-start gap-10 md:grid-cols-12">
+              <div className="md:col-span-6">
+                <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric">
+                  The short version
+                </p>
+                <h2 className="font-display text-3xl font-medium text-ink md:text-4xl">
+                  Certified across futures, change, and generative AI.
+                </h2>
+                <p className="mt-5 text-base leading-relaxed text-charcoal md:text-lg">
+                  Six certifications, including Certified Futurist (FLTA), Change
+                  Management Professional (CCMP), and GenAI Academy Expert. 40+ AI
+                  systems in production since. The practice opened in 2024 and has
+                  run on one rule since: you leave able to do the work without me.
+                </p>
+              </div>
+
+              <div className="grid gap-4 md:col-span-6">
+                <a
+                  href={LINKEDIN_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-start gap-4 rounded-2xl border border-border/60 bg-card p-6 transition-colors duration-200 hover:border-hp-electric/50"
+                >
+                  <Linkedin className="mt-0.5 h-5 w-5 shrink-0 text-hp-electric" aria-hidden="true" />
+                  <span>
+                    <span className="flex items-center gap-1.5 font-display text-lg font-medium text-ink">
+                      Connect on LinkedIn
+                      <ArrowUpRight
+                        className="h-4 w-4 text-charcoal transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                        aria-hidden="true"
+                      />
+                    </span>
+                    <span className="mt-1 block text-sm leading-relaxed text-charcoal">
+                      Client wins, objections, and the messy middle of adoption — posted
+                      as they happen, not polished into case studies.
+                    </span>
+                  </span>
+                </a>
+
+                <a
+                  href="/testimonials"
+                  className="group flex items-start gap-4 rounded-2xl border border-border/60 bg-card p-6 transition-colors duration-200 hover:border-hp-electric/50"
+                >
+                  <MessageSquareQuote className="mt-0.5 h-5 w-5 shrink-0 text-hp-electric" aria-hidden="true" />
+                  <span>
+                    <span className="flex items-center gap-1.5 font-display text-lg font-medium text-ink">
+                      Read what clients wrote
+                      <ArrowRight
+                        className="h-4 w-4 text-charcoal transition-transform duration-200 group-hover:translate-x-0.5"
+                        aria-hidden="true"
+                      />
+                    </span>
+                    <span className="mt-1 block text-sm leading-relaxed text-charcoal">
+                      Every client quote, at full length — including the parts too long
+                      for a homepage.
+                    </span>
+                  </span>
+                </a>
+              </div>
             </div>
           </BlurFade>
-
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-primary/30" />
-
-            {timelineEvents.map((event, i) => (
-              <BlurFade inView key={event.year} delay={i * 0.1}>
-                <div className={`relative flex items-start gap-8 mb-8 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-                  {/* Timeline dot */}
-                  <div className="absolute left-4 md:left-1/2 w-3 h-3 bg-primary rounded-full -translate-x-1/2 mt-1.5 ring-4 ring-primary/20" />
-                  
-                  {/* Content */}
-                  <div className={`ml-12 md:ml-0 md:w-1/2 ${i % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12'}`}>
-                    <div className="p-6 rounded-xl bg-card border border-border/60">
-                      <p className="text-sm font-bold text-primary mb-1">{event.year}</p>
-                      <h3 className="font-heading font-bold text-foreground mb-2">{event.title}</h3>
-                      <p className="text-sm text-foreground/80">{event.description}</p>
-                    </div>
-                  </div>
-                </div>
-              </BlurFade>
-            ))}
-          </div>
         </div>
       </section>
-
       {/* CTA Section */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 md:px-6">
