@@ -64,7 +64,7 @@ export const SERVICE_PATHS: ServicePath[] = [
         priceKey: "guidanceRange",
         tag: "5 · 10 · 20 Packs",
         description:
-          "Three packs: five sessions, ten, or twenty. They carry you from a first understanding of the tools to working without me in the room. Most people start with five and scale up once they know what the work asks.",
+          "Three packs: five sessions, ten, or twenty. They carry you from a first understanding of the tools to working without me in the room; most clients get there in eight to ten weeks. Most people start with five and scale up once they know what the work asks.",
         features: [
           "60-minute 1-on-1 video sessions",
           "From understanding to agency to action",

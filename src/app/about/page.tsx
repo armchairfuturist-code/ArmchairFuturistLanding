@@ -256,32 +256,40 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Marketing gallery — photos of Alex in action */}
+      {/* Gallery — every photo of Alex in the room lives here, nowhere else */}
       <section className="py-20 md:py-28 bg-[#f3f3f3] border-y border-border/60">
         <div className="container mx-auto px-4 md:px-6 max-w-5xl">
-          <div className="text-center mb-10">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mb-3">
-              Photos
-            </h2>
+          <div className="mb-10 grid md:grid-cols-12 gap-6 items-end">
+            <div className="md:col-span-7">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary">
+                In the room
+              </h2>
+            </div>
+            <p className="md:col-span-5 text-charcoal md:text-right">
+              Workshops, strategy sessions, and build sprints — the work looks like this.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {[
-              { src: "/marketing1.webp", alt: "Alex working with a group on AI strategy" },
-              { src: "/marketing2.webp", alt: "Alex speaking to an audience about AI adoption" },
-              { src: "/marketing3.jpeg", alt: "Alex presenting at a conference" },
-              { src: "/marketing4.jpeg", alt: "Alex in a consulting session" },
-            ].map((img) => (
-              <div key={img.src} className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-border/60 bg-card">
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 640px) 100vw, 50vw"
-                />
-              </div>
-            ))}
+          {/* Editorial strip: one tall, one wide, rest filled; each row keeps its own aspect, no uniform grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-12 gap-4">
+            <div className="relative w-full sm:col-span-7 aspect-[4/3] rounded-xl overflow-hidden border border-border/60 bg-card">
+              <Image src="/session-table.jpg" alt="Alex working through a build session with a client at a table" fill className="object-cover" sizes="(max-width: 640px) 100vw, 58vw" />
+            </div>
+            <div className="relative w-full sm:col-span-5 aspect-[4/3] rounded-xl overflow-hidden border border-border/60 bg-card">
+              <Image src="/session-room.jpg" alt="Alex coaching a client one-on-one in a session room" fill className="object-cover" sizes="(max-width: 640px) 100vw, 42vw" />
+            </div>
+            <div className="relative w-full sm:col-span-4 aspect-[4/3] rounded-xl overflow-hidden border border-border/60 bg-card">
+              <Image src="/marketing3.jpeg" alt="Alex presenting at a conference" fill className="object-cover" sizes="(max-width: 640px) 100vw, 33vw" />
+            </div>
+            <div className="relative w-full sm:col-span-4 aspect-[4/3] rounded-xl overflow-hidden border border-border/60 bg-card">
+              <Image src="/marketing4.jpeg" alt="Alex in a consulting session" fill className="object-cover" sizes="(max-width: 640px) 100vw, 33vw" />
+            </div>
+            <div className="relative w-full sm:col-span-4 aspect-[4/3] rounded-xl overflow-hidden border border-border/60 bg-card">
+              <Image src="/session-workshop.jpg" alt="Alex running a hands-on AI workshop" fill className="object-cover" sizes="(max-width: 640px) 100vw, 33vw" />
+            </div>
+            <div className="relative w-full sm:col-span-12 aspect-[16/7] rounded-xl overflow-hidden border border-border/60 bg-card">
+              <Image src="/marketing1.webp" alt="Alex working with a group on AI strategy" fill className="object-cover" sizes="100vw" />
+            </div>
           </div>
         </div>
       </section>

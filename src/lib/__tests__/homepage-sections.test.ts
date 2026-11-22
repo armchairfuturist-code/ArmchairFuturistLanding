@@ -7,7 +7,6 @@ describe("homepage composition data", () => {
       SECTION_IDS.hero,
       SECTION_IDS.testimonialMarquee,
       SECTION_IDS.services,
-      SECTION_IDS.whatIsNot,
       SECTION_IDS.mentoring,
       SECTION_IDS.caseStudies,
       SECTION_IDS.lastMile,

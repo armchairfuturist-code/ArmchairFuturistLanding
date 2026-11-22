@@ -53,11 +53,6 @@ const sections: readonly HomepageSection[] = [
     component: dynamic(() => import("@/components/sections/ServicesSection")),
   },
   {
-    id: SECTION_IDS.whatIsNot,
-    label: "Fit",
-    component: dynamic(() => import("@/components/sections/WhatThisIsNotSection")),
-  },
-  {
     id: SECTION_IDS.mentoring,
     label: "Guidance",
     component: dynamic(() => import("@/components/sections/MentoringSection")),

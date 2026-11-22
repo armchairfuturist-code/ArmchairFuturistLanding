@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from 'motion/react';
 import { AUDIT_PRICE_LABEL, PROGRAM_PRICE_LABEL, GUIDANCE_RANGE_LABEL, DIGITAL_IDENTITY_LABEL, CUSTOM_PROVISIONING_RANGE_LABEL } from '@/lib/pricing';
 import { BlurFade } from '@/components/ui/blur-fade';
+import { WhatsAppButton } from '@/components/ui/WhatsAppButton';
 import { staggerContainer, springStaggerItem } from '@/lib/animation-variants';
 import { SERVICE_PATHS, type ServiceTier } from "@/content/service-catalog";
 
@@ -157,6 +158,27 @@ export default function ServicesSection() {
           );
           })}
         </div>
+
+        {/* Honest-fit band, moved here when the old Fit section folded.
+            The page's only moment of refusing work: it earns its place. */}
+        <BlurFade inView>
+          <div className="mt-16 flex flex-col md:flex-row md:items-center md:justify-between gap-6 border border-ink/10 bg-cloud rounded-hp-xl px-6 py-8 md:px-10 text-left">
+            <p className="text-base md:text-lg text-ink font-display font-medium max-w-xl leading-snug">
+              Tell me the problem you&apos;re stuck on and I&apos;ll tell you
+              whether I&apos;m the right fit. If I&apos;m not, I&apos;ll point you
+              to someone who is.
+            </p>
+            <WhatsAppButton
+              location="what_this_is_not"
+              size="lg"
+              className="font-bold shrink-0"
+              trackOnClick={false}
+              onClick={() => trackEvent("what_this_is_not_cta_click")}
+            >
+              Text me what you need
+            </WhatsAppButton>
+          </div>
+        </BlurFade>
 
         <BlurFade inView>
           <div className="mt-16 space-y-4 text-center">
