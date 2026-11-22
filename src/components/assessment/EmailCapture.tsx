@@ -60,7 +60,7 @@ export default function EmailCapture({
              mount. */
           ref={(el) => { el?.focus(); }}
           tabIndex={-1}
-          className="font-heading text-2xl md:text-3xl font-medium tracking-tight text-ink mb-3 focus:outline-none"
+          className="font-heading text-2xl md:text-3xl font-medium text-ink mb-3 focus:outline-none"
         >
           Want your results by email?
         </h2>

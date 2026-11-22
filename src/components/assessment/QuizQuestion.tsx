@@ -57,7 +57,7 @@ export default function QuizQuestion({
         <h2
           ref={focusOnMount}
           tabIndex={-1}
-          className="font-heading text-xl md:text-2xl font-bold tracking-tight text-ink mb-8 text-center leading-snug focus:outline-none"
+          className="font-heading text-xl md:text-2xl font-bold text-ink mb-8 text-center leading-snug focus:outline-none"
         >
           {question.text}
         </h2>

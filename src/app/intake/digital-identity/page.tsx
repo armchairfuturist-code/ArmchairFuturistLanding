@@ -16,7 +16,7 @@ export default function DigitalIdentityIntakePage() {
         <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-4">
           Digital Identity Landing Page
         </p>
-        <h1 className="font-display text-[clamp(2.25rem,5vw,3.25rem)] font-medium tracking-tight leading-[1.02] text-ink mb-6">
+        <h1 className="font-display text-[clamp(2.25rem,5vw,3.25rem)] font-medium leading-[1.02] text-ink mb-6">
           One link that says exactly who you are.
         </h1>
         <p className="text-lg text-charcoal font-sans leading-relaxed mb-4">

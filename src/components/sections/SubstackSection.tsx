@@ -79,10 +79,7 @@ export default function SubstackSection({
           transition={{ duration: 0.5, ease: EASE_OUT }}
           className="text-center mb-12"
         >
-          <p className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-4">
-            Newsletter
-          </p>
-          <Heading className="font-heading text-display-sm font-medium tracking-tight text-ink mb-3">
+          <Heading className="font-heading text-display-sm font-medium text-ink mb-3">
             Signal, not hype
           </Heading>
           <p className="text-charcoal max-w-xl mx-auto text-sm md:text-base leading-relaxed">
@@ -134,7 +131,7 @@ export default function SubstackSection({
           )}
 
           {error && (
-            <div className="flex flex-col items-start gap-3 border border-hairline rounded-hp-xl p-6">
+            <div className="type-card flex flex-col items-start gap-3 border border-hairline rounded-hp-xl p-6">
               <p className="text-charcoal text-sm">{error}. The essays are all on Substack.</p>
               <div className="flex gap-3">
                 <Button variant="outline" size="sm" onClick={retry} className="gap-2">
@@ -152,7 +149,7 @@ export default function SubstackSection({
           )}
 
           {!loading && !error && displayedPosts.length === 0 && (
-            <div className="border border-hairline rounded-hp-xl p-8 text-center">
+            <div className="type-card border border-hairline rounded-hp-xl p-8 text-center">
               <p className="text-charcoal text-sm mb-4">No issues to show here yet. The archive lives on Substack.</p>
               <Button asChild variant="outline" size="sm">
                 <a href={SUBSTACK_URL} target="_blank" rel="noopener noreferrer">
@@ -178,7 +175,7 @@ export default function SubstackSection({
                       href={post.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block group rounded-hp-xl border border-hairline transition-colors duration-150 ease-out hover:border-hp-electric/50 overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hp-electric"
+                      className="type-card block group rounded-hp-xl border border-hairline transition-colors duration-150 ease-out hover:border-hp-electric/50 overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hp-electric"
                     >
                       <div className="relative h-36 w-full bg-cloud overflow-hidden">
                         {post.imageUrl ? (

@@ -138,18 +138,13 @@ export default function AboutPage() {
                     priority
                   />
                 </div>
-                {/* Floating badge */}
-                <div className="absolute -bottom-4 -right-4 bg-primary text-primary-foreground px-6 py-3 rounded-lg shadow-lg">
-                  <p className="text-sm font-bold">6 Certifications</p>
-                  <p className="text-xs opacity-90">Verified Expert</p>
-                </div>
               </div>
             </BlurFade>
 
             <BlurFade inView delay={0.2}>
               <div>
                 <p className="text-xs text-muted-foreground/60 font-mono mb-2">About Alex Myers</p>
-                <h1 className="font-heading text-4xl md:text-5xl font-bold tracking-tight text-primary mb-6">
+                <h1 className="font-heading text-4xl md:text-5xl font-bold text-primary mb-6">
                   AI Guide
                 </h1>
                 <p className="text-lg text-foreground/80 font-sans leading-relaxed mb-6">
@@ -193,7 +188,7 @@ export default function AboutPage() {
             ].map((stat, i) => (
               <BlurFade inView key={stat.label} delay={i * 0.1}>
                 <div className="text-center p-6 rounded-xl bg-card border border-border/60">
-                  <p className="text-3xl md:text-4xl font-black text-primary mb-2">{stat.value}</p>
+                  <p className="type-value text-primary mb-2">{stat.value}</p>
                   <p className="text-sm text-muted-foreground font-medium">{stat.label}</p>
                 </div>
               </BlurFade>
@@ -207,8 +202,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 md:px-6 max-w-6xl">
           <BlurFade inView>
             <div className="text-center mb-12">
-              <p className="text-xs text-muted-foreground/60 font-mono mb-2">Credentials</p>
-              <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary mb-4">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mb-4">
                 Professional Certifications
               </h2>
               <p className="text-lg text-foreground/80 font-sans max-w-2xl mx-auto">
@@ -243,8 +237,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 md:px-6 max-w-6xl">
           <BlurFade inView>
             <div className="text-center mb-12">
-              <p className="text-xs text-muted-foreground/60 font-mono mb-2">Expertise</p>
-              <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary mb-4">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mb-4">
                 Areas of Expertise
               </h2>
             </div>
@@ -253,9 +246,9 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
             {expertiseAreas.map((area, i) => (
               <BlurFade inView key={area} delay={i * 0.05}>
-                <div className="flex items-center gap-2 p-4 rounded-lg bg-card border border-border/60">
+                <div className="flex items-center gap-2 p-4 rounded-lg bg-card border border-border/60 min-w-0">
                   <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0" />
-                  <span className="text-sm font-medium text-foreground">{area}</span>
+                  <span className="text-sm font-medium text-foreground break-words min-w-0">{area}</span>
                 </div>
               </BlurFade>
             ))}
@@ -267,8 +260,7 @@ export default function AboutPage() {
       <section className="py-20 md:py-28 bg-[#f3f3f3] border-y border-border/60">
         <div className="container mx-auto px-4 md:px-6 max-w-5xl">
           <div className="text-center mb-10">
-            <p className="text-xs text-muted-foreground/60 font-mono mb-2">In Practice</p>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary mb-3">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mb-3">
               Photos
             </h2>
           </div>
@@ -299,8 +291,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
           <BlurFade inView>
             <div className="text-center mb-12">
-              <p className="text-xs text-muted-foreground/60 font-mono mb-2">Timeline</p>
-              <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary mb-4">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mb-4">
                 Career Highlights
               </h2>
             </div>
@@ -336,7 +327,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 md:px-6">
           <BlurFade inView>
             <div className="max-w-4xl mx-auto text-center">
-              <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary mb-6">
+              <h2 className="about-cta-title font-heading text-3xl md:text-4xl font-bold text-primary mb-6">
                 Ready to Bridge Your Accountability Gap?
               </h2>
               <p className="text-lg text-foreground/80 font-sans mb-8 max-w-2xl mx-auto">

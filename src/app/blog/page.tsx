@@ -35,10 +35,7 @@ export default async function BlogPage() {
     <main id="main-content" className="flex flex-col">
       <section className="bg-canvas pt-16 md:pt-24 pb-2">
         <div className="max-w-3xl mx-auto px-4 md:px-6">
-          <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-4">
-            Newsletter
-          </p>
-          <h1 className="font-heading text-display font-medium tracking-tight text-ink mb-4 max-w-[30ch]">
+          <h1 className="font-heading text-display font-medium text-ink mb-4 max-w-[30ch]">
             AI adoption, written down while it happens
           </h1>
           <p className="text-charcoal text-base md:text-lg leading-relaxed">

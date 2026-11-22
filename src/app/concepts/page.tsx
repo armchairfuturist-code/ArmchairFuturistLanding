@@ -68,7 +68,7 @@ export default function ConceptsIndexPage() {
                 Knowledge Base
               </span>
             </div>
-            <h1 className="font-heading text-4xl md:text-5xl font-bold tracking-tight text-primary mb-6">
+            <h1 className="font-heading text-4xl md:text-5xl font-bold text-primary mb-6">
               Core Concepts
             </h1>
             <p className="text-xl text-foreground/80 font-sans leading-relaxed mb-8">
@@ -96,7 +96,7 @@ export default function ConceptsIndexPage() {
                 <BlurFade inView key={concept.href} delay={index * 0.1}>
                   <ViewTransitionLink
                     href={concept.href}
-                    className="group block p-6 rounded-xl border border-border/60 bg-card hover:border-primary/30 hover:shadow-lg transition-[border-color,box-shadow] h-full"
+                    className="type-card group block p-6 rounded-xl border border-border/60 bg-card hover:border-primary/30 hover:shadow-lg transition-[border-color,box-shadow] h-full"
                     style={{ viewTransitionName: `concept-${concept.slug}` }}
                   >
                     <div className="flex items-start gap-4 mb-4">
@@ -104,7 +104,7 @@ export default function ConceptsIndexPage() {
                         <Icon className="w-5 h-5 text-primary" />
                       </div>
                       <div>
-                        <h2 className="font-heading text-lg font-bold text-primary group-hover:underline">
+                        <h2 className="type-card-title text-primary group-hover:underline">
                           {concept.title}
                         </h2>
                       </div>

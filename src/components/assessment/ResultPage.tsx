@@ -41,7 +41,7 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
                focus on it so a screen reader reads the archetype name. */
             ref={(el) => { el?.focus(); }}
             tabIndex={-1}
-            className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-hp-electric mb-3 focus:outline-none"
+            className="archetype-title font-heading text-3xl md:text-4xl font-bold text-hp-electric mb-3 focus:outline-none"
           >
             {archetype.name}
           </h1>
@@ -75,7 +75,7 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
           consistent promise of what the call is. */}
       <BlurFade inView delay={0.3}>
         <div className="bg-hp-electric text-white rounded-hp-xl p-6 md:p-8 mb-10">
-          <h2 className="font-heading text-xl md:text-2xl font-bold tracking-tight mb-2">
+          <h2 className="font-heading text-xl md:text-2xl font-bold mb-2">
             Your next step
           </h2>
           <p className="text-sm md:text-base text-white/80 font-sans leading-relaxed mb-6 max-w-xl">
@@ -181,11 +181,11 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
             <span className="mt-1 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-hp-lg bg-hp-electric/10 border border-hp-electric/20">
               <Compass className="h-5 w-5 text-hp-electric" aria-hidden="true" />
             </span>
-            <div>
+            <div className="min-w-0">
               <p className="font-mono text-[11px] text-hp-electric mb-2">
                 Go deeper
               </p>
-              <h2 className="font-heading text-xl md:text-2xl font-bold text-ink mb-2">
+              <h2 className="roadmap-title font-heading text-lg sm:text-xl md:text-2xl font-bold text-ink mb-2">
                 The AI Roadmap Audit
               </h2>
               <p className="text-base text-charcoal font-sans leading-relaxed mb-4">

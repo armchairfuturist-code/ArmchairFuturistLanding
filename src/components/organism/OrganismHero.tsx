@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
-import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import dynamic from "next/dynamic";
 
 /* The WebGL engine is 126KB of three.js, and nothing paints it before
@@ -18,21 +18,7 @@ const OrganismCanvas = dynamic(
 import { WHATSAPP_URL } from "@/lib/constants";
 
 import WhatsAppGlyph from "@/components/ui/WhatsAppGlyph";
-import { getLenis } from "@/components/ui/lenis-instance";
 
-function scrollToId(id: string) {
-  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const el = document.getElementById(id);
-  if (!el) return;
-  /* Lenis owns its own easing; scrollIntoView would jump outside it. */
-  const lenis = reduce ? null : getLenis();
-  if (lenis) lenis.scrollTo(el, { offset: -80 });
-  else el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
-  // Move keyboard focus along with the viewport so screen-reader and
-  // keyboard users land where sighted users land.
-  if (!el.hasAttribute("tabindex")) el.setAttribute("tabindex", "-1");
-  el.focus({ preventScroll: true });
-}
 
 /**
  * The entrance is CSS (.organism-hero__copy in globals.css), not variants.
@@ -103,24 +89,10 @@ export function OrganismHero() {
             Take the free assessment{" "}
             <ArrowUpRight size={16} aria-hidden="true" />
           </Link>
-          <button
-            type="button"
-            className="organism-button organism-button--price"
-            onClick={() => scrollToId("services")}
-          >
-            See services and pricing <ArrowDown size={17} aria-hidden="true" />
-          </button>
-          <button
-            type="button"
-            className="organism-button organism-button--quiet"
-            onClick={() => scrollToId("what-this-is-not")}
-          >
-            See if it&apos;s a fit <ArrowDown size={17} aria-hidden="true" />
-          </button>
         </div>
       </div>
       <div className="organism-status"><span>40+ systems deployed</span><span>Self-sufficient in 8&ndash;10 weeks</span></div>
-      <div className="organism-hero__hint"><span>Scroll</span><ArrowDown size={14} aria-hidden="true" /></div>
+
     </motion.section>
   );
 }

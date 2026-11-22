@@ -38,7 +38,7 @@
     --org-warm: #f2a66e;
     --org-line: rgba(240, 238, 232, 0.16);
     --org-mono: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-    --org-sans: "Space Grotesk", Inter, ui-sans-serif, system-ui, sans-serif;
+    --org-sans: var(--font-body), "Manrope", system-ui, sans-serif;
 
     /* Motion easings. Keep in step with src/lib/easing.ts — the built-in
        `ease` / `ease-out` are symmetric and read as slow next to these. */
@@ -54,7 +54,7 @@
   html { scroll-behavior: auto; }
   html.lenis, html.lenis body { height: auto; }
   .lenis.lenis-smooth { scroll-behavior: auto !important; }
-  body { margin: 0; background: hsl(var(--background)); color: hsl(var(--foreground)); }
+  body { margin: 0; background: hsl(var(--background)); color: hsl(var(--foreground)); font-family: var(--font-body), "Manrope", system-ui, sans-serif; font-size: 16px; font-weight: 400; line-height: 1.65; }
   /* Keyboard focus. The button rule below covered only <button>, but most of
      the site's calls to action are <a> (the hero CTA, every "Book a Call",
      the assessement entry). Anchors therefore fell back to the browser's
@@ -136,8 +136,8 @@
 @media (prefers-reduced-motion: reduce) { .organism-hero__copy > * { animation: none; } }
 .organism-kicker { display: flex; align-items: center; gap: 10px; margin: 0 0 22px; color: var(--org-blue); font-size: 14px; letter-spacing: 0; } /* preview: text face, 14px, sentence case */
 .organism-kicker span { width: 28px; height: 1px; background: currentColor; }
-.organism-hero h1 { max-width: 1120px; margin: 0; font-size: clamp(3.5rem, 7.4vw, 8.4rem); font-weight: 500; letter-spacing: -.075em; line-height: .88; color: var(--org-paper); }
-.organism-hero h1 em { color: rgba(240, 238, 232, .1); font-style: normal; -webkit-text-stroke: 2px rgba(240, 238, 232, .92); }
+.organism-hero h1 { max-width: 1000px; margin: 0; font-size: clamp(3rem, 6.5vw, 6rem); font-weight: 500; letter-spacing: -.045em; line-height: 1.02; color: var(--org-paper); }
+.organism-hero h1 em { color: var(--org-paper); font-style: normal; }
 .organism-deck { max-width: 450px; margin: 24px 0 0; color: #c9ced8; font-size: 16px; line-height: 1.6; }
 .organism-deck--offer { margin-top: 14px; color: #e3e7ee; }
 .organism-actions { display: flex; gap: 16px; margin-top: 35px; }
@@ -368,7 +368,7 @@
   .organism-actions { flex-wrap: wrap; }
   .organism-actions .organism-button { flex: 1 1 180px; }
   .organism-hero__copy { margin-left: 0; margin-top: 10vh; }
-  .organism-hero h1 { font-size: clamp(3.1rem, 15vw, 6rem); }
+  .organism-hero h1 { font-size: clamp(2.5rem, 10vw, 5rem); }
   .organism-deck { font-size: 16px; line-height: 1.65; }
   .organism-status { flex-wrap: wrap; gap: 10px 16px; font-size: 14px; }
 }
@@ -494,6 +494,51 @@
   .lm-drift {
     animation: none;
   }
+}
+
+/* One shared hierarchy. :root gives semantic rules enough specificity to
+   beat local Tailwind utilities without !important. Code keeps its own face. */
+:root body :is(p, li, blockquote) {
+  font-weight: 400;
+  font-style: normal;
+}
+:root body :is(h1, h2, h3, h4, h5, h6), :root body .type-card-title {
+  font-family: var(--font-display), "Space Grotesk", system-ui, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  text-wrap: balance;
+  /* No explicit tracking here: letter-spacing defeats text-wrap: balance
+     in Chrome (measured — 'Accountability Gap?' stranded alone with it,
+     balanced without it), and Space Grotesk needs no help at display sizes. */
+}
+:root body :is(h1, h2, h3, h4, h5, h6) :is(em, i) { font-style: normal; }
+:root body h1 { font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.05; }
+:root body h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; }
+:root body h3 { font-size: 22px; line-height: 1.25; }
+:root body :is(h4, h5, h6), :root body .type-card-title { font-size: 18px; line-height: 1.3; }
+:root body .organism-hero h1 { font-size: clamp(3rem, 6.5vw, 6rem); line-height: 1.02; }
+:root body .type-card { font-family: var(--font-body), "Manrope", system-ui, sans-serif; font-size: 15px; font-weight: 400; }
+:root body .type-card :is(p, li, blockquote) { font-size: 15px; }
+:root body .type-card :is(h2, h3, h4, h5, h6) { font-size: 18px; letter-spacing: -.01em; line-height: 1.3; }
+:root body .type-value { font-family: var(--font-display), "Space Grotesk", system-ui, sans-serif; font-size: 32px; font-weight: 500; line-height: 1.1; }
+:root body :is(button, [data-variant], .organism-button) { font-family: var(--font-body), "Manrope", system-ui, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0; }
+:root body .organism-button--text { font-family: var(--org-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; }
+:root body .type-card :is(button, [data-variant]) { font-size: 14px; }
+/* Accordion triggers are headings, not calls to action. */
+:root body :is(h1, h2, h3, h4, h5, h6) > :is(button, [data-variant]) { font: inherit; letter-spacing: inherit; text-wrap: balance; }
+.homepage-section > section { padding-block: clamp(64px, 7vw, 112px); }
+@media (max-width: 800px) {
+  :root body .organism-hero h1 { font-size: clamp(2.5rem, 10vw, 5rem); letter-spacing: -.04em; }
+}
+
+/* The archetype H1 is a two-word name on a narrow card: the shared clamp
+   would orphan it at 320px, so the mobile step steps down. */
+@media (max-width: 480px) {
+  :root body .archetype-title { font-size: 1.75rem; }
+  /* The Audit card's title shares its row with a 40px icon on phones. */
+  :root body .roadmap-title { font-size: 1.125rem; }
+  /* 'Accountability Gap?' only balances two full lines at 28px on phones. */
+  :root body .about-cta-title { font-size: 1.75rem; }
 }
 
 /* Route morphs via the View Transition API (Chrome 111+). The root crossfade

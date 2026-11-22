@@ -64,7 +64,7 @@ export default function ROICalculatorSection() {
               <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-4">
                 Time savings estimator
               </p>
-              <h2 className="font-display text-display font-medium tracking-tight text-ink">
+              <h2 className="font-display text-display font-medium text-ink">
                 How many hours could you save?
               </h2>
             </div>

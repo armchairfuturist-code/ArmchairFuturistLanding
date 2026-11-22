@@ -62,7 +62,7 @@ function MarqueeItems() {
   return (
     <>
       {MARQUEE_SNIPPETS.map((snippet, i) => (
-        <article key={`a-${i}`} className="marquee-snippet">
+        <article key={`a-${i}`} className="type-card marquee-snippet">
           <p className="marquee-snippet__quote">
             <span className="marquee-snippet__mark">“</span>
             {snippet.quote}

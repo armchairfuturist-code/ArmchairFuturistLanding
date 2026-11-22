@@ -28,7 +28,7 @@ export default function WhatThisIsNotSection() {
         <BlurFade inView>
           <div className="mb-12 md:mb-16 grid md:grid-cols-12 gap-6 items-end">
             <div className="md:col-span-7">
-              <h2 className="font-display text-display-lg font-medium tracking-tight text-ink max-w-[14ch]">
+              <h2 className="font-display text-display-lg font-medium text-ink max-w-[14ch]">
                 Who this is for
               </h2>
             </div>
@@ -75,9 +75,9 @@ export default function WhatThisIsNotSection() {
               </span>
               <div className="md:col-span-11 space-y-2">
                 <ScrollHighlight highlightColor="hsl(220 96% 43% / 0.14)">
-                  <strong className="font-display text-lg md:text-xl text-ink tracking-tight">
+                  <span className="type-card-title text-ink">
                     {row.title}
-                  </strong>
+                  </span>
                 </ScrollHighlight>
                 <p className="text-charcoal leading-relaxed max-w-3xl">
                   {row.body}

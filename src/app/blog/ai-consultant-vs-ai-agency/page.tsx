@@ -41,7 +41,7 @@ export default function AiConsultantVsAgencyPage() {
           <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-3">
             Buyer Guide · 2026
           </p>
-          <h1 className="font-heading text-display font-medium tracking-tight text-ink mb-4">
+          <h1 className="font-heading text-display font-medium text-ink mb-4">
             AI Consultant vs AI Agency: Which Should a Small Business Hire?
           </h1>
           <LastUpdated date="2026-11-18" />

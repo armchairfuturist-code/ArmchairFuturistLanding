@@ -49,7 +49,7 @@ export default function ServicesHubPage() {
       <section className="py-12 md:py-16 bg-secondary">
         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
           <BlurFade inView>
-            <h1 className="font-heading text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-6">
+            <h1 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6">
               {SERVICE_HUB_HERO.title}
             </h1>
             <p className="text-xl text-foreground/80 font-sans leading-relaxed mb-4">
@@ -93,9 +93,9 @@ export default function ServicesHubPage() {
               <div key={system.href}>
                 <Link
                   href={system.href}
-                  className="group block p-6 rounded-xl border border-border/60 bg-card hover:border-primary/30 hover:shadow-lg transition-[border-color,box-shadow] h-full"
+                  className="type-card group block p-6 rounded-xl border border-border/60 bg-card hover:border-primary/30 hover:shadow-lg transition-[border-color,box-shadow] h-full"
                 >
-                  <h2 className="font-heading text-xl font-bold text-foreground group-hover:underline mb-2">
+                  <h2 className="type-card-title text-foreground group-hover:underline mb-2">
                     {system.label}
                   </h2>
                   <p className="text-foreground/80 mb-4 text-sm leading-relaxed">{system.hubDescription}</p>
@@ -108,8 +108,8 @@ export default function ServicesHubPage() {
             ))}
           </div>
 
-          <div className="mt-8 p-6 rounded-xl border border-border/60 bg-card">
-            <h2 className="font-heading text-xl font-bold text-foreground mb-2">
+          <div className="type-card mt-8 p-6 rounded-xl border border-border/60 bg-card">
+            <h2 className="type-card-title text-foreground mb-2">
               {SERVICE_HUB_TRAINING.title}
             </h2>
             <p className="text-foreground/80 text-sm leading-relaxed mb-3">
@@ -127,7 +127,7 @@ export default function ServicesHubPage() {
           <h2 className="font-heading text-2xl font-bold text-foreground mb-6">How we start</h2>
           <ol className="grid gap-4 md:grid-cols-3">
             {SERVICE_HUB_STEPS.map((step) => (
-              <li key={step.title} className="p-5 rounded-xl border border-border/60 bg-card">
+              <li key={step.title} className="type-card p-5 rounded-xl border border-border/60 bg-card">
                 <h3 className="font-heading font-bold text-foreground mb-1">{step.title}</h3>
                 <p className="text-sm text-foreground/80 leading-relaxed">{step.description}</p>
               </li>

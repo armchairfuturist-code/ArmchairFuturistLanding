@@ -46,24 +46,14 @@ function PricingCard({ pkg }: { pkg: (typeof COACHING_PACKAGES)[number] }) {
   return (
     <motion.div
       variants={staggerItem}
-      className="relative bg-canvas rounded-hp-xl border border-ink/10 transition-colors duration-150 ease-out hover:border-hp-electric/40 flex flex-col"
+      className="type-card relative bg-canvas rounded-hp-xl border border-ink/10 transition-colors duration-150 ease-out hover:border-hp-electric/40 flex flex-col"
       data-highlighted={pkg.popular ? "true" : "false"}
     >
       <div className="p-6 flex flex-col flex-1">
-        {/* 11px mono micro-label, identical in styling to the "best value"
-            badge below it. Not a heading — an H4 here put an illegible entry
-            in the document outline for screen-reader navigation. */}
-        <p className="text-[11px] font-mono text-graphite uppercase tracking-[0.25em] mb-2">
-          {pkg.name}
-        </p>
-        {pkg.id === "pack-10" && (
-          <p className="text-[11px] font-mono uppercase tracking-[0.25em] text-hp-electric mb-2">
-            Most start here
-          </p>
-        )}
+        <h4 className="text-ink mb-3">{pkg.name}</h4>
 
         <div className="flex flex-wrap items-baseline gap-1 mb-1">
-          <span className="text-3xl font-display font-bold text-ink tabular-nums tracking-tight">
+          <span className="type-value text-ink tabular-nums">
             ${usd.total.toLocaleString()}
           </span>
           <span className="text-lg text-graphite tabular-nums">
@@ -150,10 +140,7 @@ export default function MentoringSection() {
         </div>
 
         <div className="container max-w-5xl mx-auto relative z-10">
-          <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-bright mb-5">
-            One-on-one AI guidance
-          </p>
-          <h2 className="font-display text-display-lg font-medium tracking-tight text-white max-w-[16ch] mb-6">
+          <h2 className="font-display text-display-lg font-medium text-white max-w-[16ch] mb-6">
             Judgment you own beats judgment you rent.
           </h2>
           <p className="text-white/80 text-lg md:text-xl max-w-2xl leading-relaxed">
@@ -198,7 +185,7 @@ export default function MentoringSection() {
                       aria-hidden="true"
                     />
                   </div>
-                  <h3 className="text-xl font-display font-medium text-ink mb-2 tracking-tight leading-snug">
+                  <h3 className="text-xl font-display font-medium text-ink mb-2 leading-snug">
                     {pillar.title}
                   </h3>
                   <p className="text-charcoal text-sm leading-relaxed">
@@ -213,10 +200,7 @@ export default function MentoringSection() {
           <BlurFade inView>
             <div className="mb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
               <div>
-                <p className="font-mono text-[11px] text-hp-electric mb-3">
-                  Packages
-                </p>
-                <h3 className="font-display text-3xl font-medium text-ink mb-2 tracking-tight leading-tight">
+                <h3 className="font-display text-3xl font-medium text-ink mb-2 leading-tight">
                   Pick your speed to independence
                 </h3>
                 <p className="text-charcoal mt-3 max-w-md">
@@ -266,9 +250,6 @@ export default function MentoringSection() {
             <details className="group mt-2 rounded-hp-xl border border-ink/10 bg-canvas overflow-hidden">
               <summary className="cursor-pointer list-none flex items-center justify-between gap-4 rounded-hp-xl px-6 py-5 transition-colors duration-150 hover:bg-cloud">
                 <div>
-                  <p className="text-[11px] font-mono uppercase tracking-[0.25em] text-graphite mb-1">
-                    Compare what&apos;s inside
-                  </p>
                   <p className="text-base font-display font-semibold text-ink">
                     Side-by-side feature comparison
                   </p>

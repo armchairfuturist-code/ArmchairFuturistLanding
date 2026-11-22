@@ -140,7 +140,7 @@ export default function AuditIntakeForm() {
           <div className="inline-flex items-center justify-center w-14 h-14 rounded-hp-xl bg-hp-electric/10 mb-6">
             <CheckCircle2 className="w-6 h-6 text-hp-electric" />
           </div>
-          <h2 className="font-heading text-2xl md:text-3xl font-medium tracking-tight text-ink mb-3">
+          <h2 className="font-heading text-2xl md:text-3xl font-medium text-ink mb-3">
             You&apos;re in the queue.
           </h2>
           <p className="text-base text-charcoal font-sans leading-relaxed mb-6">

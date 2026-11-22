@@ -42,7 +42,7 @@ export default function Header() {
               height={32}
               className="rounded-full object-cover outline outline-1 -outline-offset-1 outline-white/10"
             />
-            <span className="font-medium text-sm tracking-tight text-white font-display">
+            <span className="font-medium text-sm text-white font-display">
               The Armchair Futurist
             </span>
           </Link>
@@ -127,7 +127,7 @@ export default function Header() {
                         height={32}
                         className="rounded-full object-cover outline outline-1 -outline-offset-1 outline-white/10"
                       />
-                      <span className="font-medium text-sm tracking-tight text-white font-display">
+                      <span className="font-medium text-sm text-white font-display">
                         The Armchair Futurist
                       </span>
                     </div>

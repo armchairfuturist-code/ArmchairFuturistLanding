@@ -71,7 +71,7 @@ export default function GlossaryPage() {
           <span className="text-xs text-muted-foreground/60 font-mono uppercase tracking-widest">
             Reference
           </span>
-          <h1 className="font-heading text-4xl md:text-5xl font-bold tracking-tight text-primary mb-6 mt-2">
+          <h1 className="font-heading text-4xl md:text-5xl font-bold text-primary mb-6 mt-2">
             AI adoption glossary
           </h1>
           <p className="text-xl text-foreground/80 leading-relaxed">

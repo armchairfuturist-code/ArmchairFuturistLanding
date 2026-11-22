@@ -45,7 +45,7 @@ export default function ServicesSection() {
         <BlurFade inView>
           <div className="mb-16 grid md:grid-cols-12 gap-6 items-end">
               <div className="md:col-span-7">
-                <h2 className="font-display text-display-lg font-medium tracking-tight text-ink">
+                <h2 className="font-display text-display-lg font-medium text-ink">
                   Build with me, or have me build it for you
                 </h2>
               </div>
@@ -66,20 +66,9 @@ export default function ServicesSection() {
               <BlurFade inView>
                 <div className="mb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-4 border-b border-hairline pb-6">
                   <div>
-                    <p className="text-xs font-mono uppercase tracking-widest text-graphite mb-2 flex items-center gap-2">
-                      {path.id === "together" ? (
-                        <Sparkles className="h-3.5 w-3.5 text-hp-electric" aria-hidden="true" />
-                      ) : (
-                        <Wrench className="h-3.5 w-3.5 text-hp-electric" aria-hidden="true" />
-                      )}
-                      <span>{path.label}</span>
-                    </p>
-                    <h3 className="font-heading text-2xl md:text-3xl font-medium tracking-tight text-ink">
+                    <h3 className="font-heading text-2xl md:text-3xl font-medium text-ink">
                       {path.title}
                     </h3>
-                    <p className="text-sm text-graphite font-mono mt-1">
-                      {path.kicker}
-                    </p>
                   </div>
                   <p className="text-sm md:text-base text-charcoal font-sans leading-relaxed md:max-w-md md:text-right">
                     {path.description}
@@ -104,7 +93,7 @@ export default function ServicesSection() {
                       <motion.div
                         key={tier.name}
                         variants={springStaggerItem}
-                        className="relative flex flex-col rounded-hp-xl border border-ink/10 bg-canvas overflow-hidden transition-colors duration-150 ease-out hover:border-hp-electric/35"
+                        className="type-card relative flex flex-col rounded-hp-xl border border-ink/10 bg-canvas overflow-hidden transition-colors duration-150 ease-out hover:border-hp-electric/35"
                   data-highlighted={tier.highlighted ? "true" : "false"}
                       >
 
@@ -112,14 +101,6 @@ export default function ServicesSection() {
                         <div className="w-10 h-10 rounded-hp-lg flex items-center justify-center mb-3 bg-hp-electric/10 text-hp-electric">
                           <Icon className="w-5 h-5" />
                         </div>
-                        {tier.highlighted && (
-                          <span className="absolute top-5 right-5 text-[10px] font-mono uppercase tracking-widest text-hp-electric bg-hp-electric/10 px-2 py-1 rounded-hp-lg border border-hp-electric/20">
-                            ★ Build Sprint
-                          </span>
-                        )}
-                        <p className="text-xs font-mono uppercase tracking-widest text-graphite mb-1">
-                          {tier.tag}
-                        </p>
                         <h4 className="font-heading text-lg font-medium text-ink mb-2">
                           {tier.name}
                         </h4>

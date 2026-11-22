@@ -19,7 +19,7 @@ export default function AuditPage() {
         <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-4">
           AI Roadmap Audit
         </p>
-        <h1 className="font-display text-[clamp(2.25rem,5vw,3.25rem)] font-medium tracking-tight leading-[1.02] text-ink mb-6">
+        <h1 className="font-display text-[clamp(2.25rem,5vw,3.25rem)] font-medium leading-[1.02] text-ink mb-6">
           Your roadmap, mapped.
         </h1>
         <p className="text-lg text-charcoal font-sans leading-relaxed mb-4">

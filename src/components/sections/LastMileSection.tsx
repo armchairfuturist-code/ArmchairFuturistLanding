@@ -169,7 +169,7 @@ export default function LastMileSection() {
       </div>
       <div className="relative container mx-auto px-4 md:px-6 max-w-4xl">
         <BlurFade inView>
-          <h2 className="font-display text-display font-medium tracking-tight text-ink mb-6 max-w-[20ch]">
+          <h2 className="font-display text-display font-medium text-ink mb-6 max-w-[20ch]">
             Access to AI was never the hard part.
           </h2>
 

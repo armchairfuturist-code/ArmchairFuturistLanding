@@ -30,7 +30,7 @@ export default function AssessmentPage() {
           </BlurFade>
 
           <BlurFade inView delay={0.2}>
-            <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-primary mb-5">
+            <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-5">
               How Ready Are You for AI?
             </h1>
           </BlurFade>

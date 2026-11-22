@@ -85,7 +85,7 @@ export default function ServiceSystemPage({ system }: { system: ServiceSystem })
       <section className="py-12 md:py-16 bg-secondary">
         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
           <BlurFade inView>
-            <h1 className="font-heading text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-6">
+            <h1 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6">
               {system.heroTitle}
             </h1>
             <p className="text-xl text-foreground/80 font-sans leading-relaxed mb-8">

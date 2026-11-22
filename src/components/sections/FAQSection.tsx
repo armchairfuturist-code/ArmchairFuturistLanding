@@ -27,10 +27,7 @@ export default function FAQSection() {
         <BlurFade inView>
           <div className="mb-12 grid md:grid-cols-12 gap-6 items-end">
             <div className="md:col-span-7">
-              <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-4">
-                FAQ
-              </p>
-              <h2 className="font-display text-display font-medium tracking-tight text-ink">
+              <h2 className="font-display text-display font-medium text-ink">
                 Real questions people ask me
               </h2>
             </div>

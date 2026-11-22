@@ -71,15 +71,14 @@ export default function ProofSection() {
   return (
     <section aria-labelledby="proof-heading" className="bg-canvas py-16 md:py-20">
       <div className="container mx-auto max-w-6xl px-4 md:px-6">
-        <h2 id="proof-heading" className="max-w-3xl font-display text-display-lg font-medium tracking-tight text-ink">
+        <h2 id="proof-heading" className="max-w-3xl font-display text-display-lg font-medium text-ink">
           What clients build and get back
         </h2>
 
         <div className="mt-10 grid gap-8 md:grid-cols-2 md:gap-12">
           {clientExamples.map((example) => (
             <article key={example.client.name} className="border-t border-hairline pt-6">
-              <h3 className="font-display text-2xl leading-tight font-medium text-hp-electric">{example.path}</h3>
-              <p className="mt-4 font-display text-2xl md:text-[32px] leading-tight font-medium text-ink">{example.title}</p>
+              <h3 className="font-display leading-tight font-medium text-ink">{example.title}</h3>
               <p className="mt-4 max-w-prose text-base leading-relaxed text-charcoal">{example.description}</p>
             </article>
           ))}
@@ -88,8 +87,8 @@ export default function ProofSection() {
         <div id="testimonials" className="mt-8 scroll-mt-20">
           <div className="grid gap-8 md:grid-cols-2 md:gap-12">
             {clientExamples.map(({ client, excerpt }) => (
-              <figure key={client.name} className="m-0 rounded-hp-xl bg-cloud p-6 md:p-8">
-                <blockquote className="font-display text-lg leading-relaxed text-ink">
+              <figure key={client.name} className="type-card m-0 rounded-hp-xl bg-cloud p-6 md:p-8">
+                <blockquote className="text-ink">
                   <p>&ldquo;{excerpt}&rdquo;</p>
                 </blockquote>
                 <ClientIdentity client={client} />

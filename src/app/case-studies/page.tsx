@@ -174,7 +174,7 @@ export default function CaseStudiesPage() {
                 Results & Evidence
               </span>
             </div>
-            <h1 className="font-heading text-4xl md:text-5xl font-bold tracking-tight text-primary mb-6">
+            <h1 className="font-heading text-4xl md:text-5xl font-bold text-primary mb-6">
               Case Studies
             </h1>
             <p className="text-xl text-foreground/80 font-sans leading-relaxed mb-8">

@@ -38,11 +38,8 @@ export default function AboutMeSection() {
 
       <div className="container mx-auto px-4 md:px-6 max-w-6xl relative z-10">
         <BlurFade inView>
-          <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-bright mb-4">
-            About
-          </p>
           <div className="flex items-center gap-3 mb-8">
-            <h2 className="font-display text-display font-medium tracking-tight text-white">
+            <h2 className="font-display text-display font-medium text-white">
               Partner in learning
             </h2>
             <a
