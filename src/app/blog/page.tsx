@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description: 'Weekly notes on AI adoption and the last mile between a demo and a system people use.',
     url: '/blog',
     siteName: 'The Armchair Futurist',
-    images: ['/opengraph-image'],
+    images: ['/og-card.png'],
     type: 'website',
   },
   twitter: {

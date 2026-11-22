@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     canonical: '/privacy-policy',
   },
   openGraph: {
-  images: ['/opengraph-image'],
+  images: ['/og-card.png'],
   title: 'Privacy Policy',
     description: 'Privacy policy for The Armchair Futurist.',
     url: '/privacy-policy',

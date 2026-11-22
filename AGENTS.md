@@ -29,6 +29,7 @@
 
 
 ## Project Info
+- Link preview: `public/og-card.png` (1200x630), named by `src/app/layout.tsx` and guarded by `src/app/__tests__/og-card.test.ts`; regenerate with `npm run og:card` (see `scripts/og-card/README.md`). `/opengraph-image` 308s to it.
 - Framework: Next.js 16 with App Router
 - Build command: npm run build
 - Dev server: npm run dev (port 9002)

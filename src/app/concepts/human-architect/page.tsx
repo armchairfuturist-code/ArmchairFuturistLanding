@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     canonical: '/concepts/human-architect',
   },
   openGraph: {
-    images: ['/opengraph-image'],
+    images: ['/og-card.png'],
     title: 'The Human Architect: Closing the AI Accountability Gap',
     description: 'The role that bridges AI output and business outcome. Without it, AI investments stall.',
     url: '/concepts/human-architect',
@@ -275,7 +275,7 @@ export default function HumanArchitectPage() {
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "The Human Architect Role: Who Closes the AI Accountability Gap",
-            "image": "https://thearmchairfuturist.com/opengraph-image",
+            "image": "https://thearmchairfuturist.com/og-card.png",
             "author": { "@id": "https://thearmchairfuturist.com/#person" },
             "publisher": { "@id": "https://thearmchairfuturist.com/#organization" },
             "datePublished": "2026-06-14",

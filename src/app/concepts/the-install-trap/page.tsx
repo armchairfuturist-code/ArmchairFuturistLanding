@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     canonical: '/concepts/the-install-trap',
   },
   openGraph: {
-    images: ['/opengraph-image'],
+    images: ['/og-card.png'],
     title: 'The Install Trap: Why Running an Agent Is Not the Win',
     description:
       'Work-automation agents made installation a weekend task. Deciding what they own, how they are structured, and whether they pay off is still the work.',
@@ -254,7 +254,7 @@ export default function TheInstallTrapPage() {
             '@context': 'https://schema.org',
             '@type': 'Article',
             headline: 'The Install Trap: Why Running an Agent Is Not the Win',
-            "image": "https://thearmchairfuturist.com/opengraph-image",
+            "image": "https://thearmchairfuturist.com/og-card.png",
             author: { '@id': 'https://thearmchairfuturist.com/#person' },
             publisher: { '@id': 'https://thearmchairfuturist.com/#organization' },
             datePublished: '2026-08-21',

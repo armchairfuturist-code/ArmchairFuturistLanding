@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     'Short definitions of the terms behind AI adoption work: the last mile, the install trap, the accountability gap, pilot-itis, and the roles that close them.',
   alternates: { canonical: '/glossary' },
   openGraph: {
-    images: ['/opengraph-image'],
+    images: ['/og-card.png'],
     title: 'AI Adoption Glossary',
     description:
       'Short definitions of the terms behind AI adoption work, written for people who have to make a decision with them.',

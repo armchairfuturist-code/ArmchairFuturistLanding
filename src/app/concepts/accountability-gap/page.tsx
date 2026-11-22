@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     canonical: '/concepts/accountability-gap',
   },
   openGraph: {
-    images: ['/opengraph-image'],
+    images: ['/og-card.png'],
     title: 'The Accountability Gap in AI Adoption',
     description: 'The space between AI outputs and business results, where AI adoption stalls because no one owns the outcome.',
     url: '/concepts/accountability-gap',
@@ -270,7 +270,7 @@ export default function AccountabilityGapPage() {
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "The Accountability Gap in AI Adoption",
-            "image": "https://thearmchairfuturist.com/opengraph-image",
+            "image": "https://thearmchairfuturist.com/og-card.png",
             "author": { "@id": "https://thearmchairfuturist.com/#person" },
             "publisher": { "@id": "https://thearmchairfuturist.com/#organization" },
             "datePublished": "2026-03-29",

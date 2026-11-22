@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>og-card</title>
+<style>
+  @font-face { font-family: "OG Display"; src: url("fonts/display-500.ttf"); font-weight: 500; }
+  @font-face { font-family: "OG Body"; src: url("fonts/body-400.ttf"); font-weight: 400; }
+  @font-face { font-family: "OG Mono"; src: url("fonts/mono-500.ttf"); font-weight: 500; }
+  @font-face { font-family: "OG Mono"; src: url("fonts/mono-400.ttf"); font-weight: 400; }
+
+  html, body { margin: 0; padding: 0; }
+  body { width: 1200px; height: 630px; overflow: hidden; background: #080d17; }
+
+  .card { position: relative; width: 1200px; height: 630px; overflow: hidden;
+          background: #080d17; color: #f0eee8; }
+
+  /* The hero wash: electric blue top-right, navy bottom-left over ink. */
+  .wash { position: absolute; inset: 0; z-index: 0;
+    background:
+      radial-gradient(circle at 74% 36%, rgba(22,72,180,.34), transparent 28%),
+      radial-gradient(circle at 18% 82%, rgba(21,39,75,.34), transparent 28%),
+      linear-gradient(120deg, #080d17, #0b1425 60%, #080d17); }
+
+  .organism { position: absolute; z-index: 1; top: 60px; right: 0; width: 560px; height: 560px;
+              mix-blend-mode: screen; }
+  .scrim { position: absolute; z-index: 2; inset: 0;
+           background: radial-gradient(ellipse 640px 430px at 30% 44%, rgba(8,13,23,.86), rgba(8,13,23,.46) 55%, transparent 80%); }
+  .noise { position: absolute; inset: 0; z-index: 3; opacity: .05; pointer-events: none;
+           background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E"); }
+
+  .content { position: absolute; z-index: 4; inset: 0; padding: 64px 72px 56px; box-sizing: border-box;
+             display: flex; flex-direction: column; }
+
+  .masthead { display: flex; align-items: center; gap: 12px;
+              font-family: "OG Display"; font-weight: 500; font-size: 16px; color: #f0eee8; }
+  .masthead img { width: 30px; height: 30px; border-radius: 999px; object-fit: cover;
+                  box-shadow: 0 0 0 1px rgba(255,255,255,.12); }
+
+  .copy { margin-top: 58px; }
+  .kicker { display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
+            font-family: "OG Mono"; font-weight: 500; font-size: 14px; letter-spacing: .17em;
+            text-transform: uppercase; color: #296ef9; }
+  .kicker i { display: block; width: 30px; height: 1px; background: currentColor; }
+
+  h1 { margin: 0; font-family: "OG Display"; font-weight: 500; font-size: 92px; line-height: 1.03;
+       letter-spacing: -.045em; color: #f0eee8; }
+  h1 em { font-style: normal; }
+
+  .deck { margin: 26px 0 0; max-width: 560px; font-family: "OG Body"; font-weight: 400;
+          font-size: 23px; line-height: 1.55; color: #c9ced8; letter-spacing: -.005em; }
+
+  .foot { margin-top: auto; display: flex; align-items: baseline; justify-content: space-between;
+          border-top: 1px solid rgba(240,238,232,.14); padding-top: 20px;
+          font-family: "OG Mono"; font-weight: 400; font-size: 14px; letter-spacing: .12em;
+          text-transform: uppercase; color: #9ba2b1; }
+  .foot .stats { display: flex; gap: 26px; }
+  .foot .stats span { color: #c5cad3; }
+  .foot .domain { color: #9ba2b1; text-transform: none; letter-spacing: .04em; }
+</style>
+</head>
+<body>
+<div class="card" id="card">
+  <div class="wash"></div>
+  <svg class="organism" id="organism" viewBox="0 0 560 560" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"></svg>
+  <div class="scrim"></div>
+  <div class="noise"></div>
+
+  <div class="content">
+    <div class="masthead">
+      <img src="../../public/img.jpg" alt="" />
+      The Armchair Futurist
+    </div>
+
+    <div class="copy">
+      <div class="kicker"><i></i>AI literacy &amp; implementation</div>
+      <h1><span>Your Last</span><br /><span><em>AI Consultant.</em></span></h1>
+      <p class="deck">One-to-one AI coaching on your real work. You leave running systems you built yourself.</p>
+    </div>
+
+    <div class="foot">
+      <div class="stats"><span>40+ systems deployed</span><span>Self-sufficient in 8&ndash;10 weeks</span></div>
+      <div class="domain">thearmchairfuturist.com</div>
+    </div>
+  </div>
+</div>
+
+<script src="organism.js"></script>
+<script>
+  // Report measured geometry so a headless run can prove nothing overflows.
+  window.addEventListener('load', function () {
+    document.fonts.ready.then(function () {
+      var r = function (s) { var b = document.querySelector(s).getBoundingClientRect();
+        return [Math.round(b.left), Math.round(b.top), Math.round(b.width), Math.round(b.height)]; };
+      var lines = [].map.call(document.querySelectorAll('h1 span'), function (s) {
+        var b = s.getBoundingClientRect();
+        return [Math.round(b.left), Math.round(b.top), Math.round(b.width), Math.round(b.height)];
+      });
+      var deck = document.querySelector('.deck').getBoundingClientRect();
+      var foot = document.querySelector('.foot').getBoundingClientRect();
+      var right = Math.max.apply(null, lines.map(function (l) { return l[0] + l[2]; }));
+      document.title = 'MEASURE ' + JSON.stringify({
+        lines: lines, deck: r('.deck'), foot: r('.foot'), kicker: r('.kicker'),
+        deckToFoot: Math.round(foot.top - deck.bottom), widestLine: Math.round(right),
+        fitsPage: right <= 1128
+      });
+    });
+  });
+</script>
+</body>
+</html>

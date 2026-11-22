@@ -20,7 +20,7 @@ export const metadata: Metadata = {
       'Empirical benchmarks from 40+ organizational AI deployments by Alex Myers (The Armchair Futurist).',
     url: '/research',
     siteName: 'The Armchair Futurist',
-    images: ['/opengraph-image'],
+    images: ['/og-card.png'],
     type: 'article',
   },
 };

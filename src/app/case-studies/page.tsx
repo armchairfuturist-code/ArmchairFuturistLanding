@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     canonical: '/case-studies',
   },
   openGraph: {
-    images: ['/opengraph-image'],
+    images: ['/og-card.png'],
     title: 'Case Studies | The Armchair Futurist',
     description: 'Real results from AI adoption implementations. See measurable success stories from organizations that partnered with Alex Myers.',
     url: '/case-studies',
@@ -143,7 +143,7 @@ export default function CaseStudiesPage() {
                 "item": {
                   "@type": "Article",
                   "headline": cs.title,
-                  "image": "https://thearmchairfuturist.com/opengraph-image",
+                  "image": "https://thearmchairfuturist.com/og-card.png",
                   "description": cs.summary,
                   "author": { "@id": "https://thearmchairfuturist.com/#person" },
                 }

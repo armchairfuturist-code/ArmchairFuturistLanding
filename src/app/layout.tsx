@@ -41,6 +41,19 @@ const title = "The Armchair Futurist — AI literacy & implementation";
 const description =
   "Alex Myers, AI Technical Literacy & Workflow Strategy Consultant. 40+ AI systems deployed. 1:1 coaching that makes you self-sufficient in 8–10 weeks.";
 
+// The link preview leads with the hero, not the SEO title: a card that repeats
+// the H1 reads as one idea, where a tagline under a different headline reads as
+// two. The document title stays keyword-led for search.
+const ogTitle = "Your Last AI Consultant.";
+const ogDescription =
+  "One-to-one AI coaching on your real work. You leave running systems you built yourself.";
+const ogImage = {
+  url: "/og-card.png",
+  width: 1200,
+  height: 630,
+  alt: "Your Last AI Consultant — The Armchair Futurist",
+} as const;
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title,
@@ -57,19 +70,19 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title,
-    description,
+    title: ogTitle,
+    description: ogDescription,
     url: "/",
     siteName: "The Armchair Futurist",
     locale: "en_US",
     type: "website",
-    images: ["/opengraph-image"],
+    images: [ogImage],
   },
   twitter: {
     card: "summary_large_image",
-    title,
-    description,
-    images: ["/opengraph-image"],
+    title: ogTitle,
+    description: ogDescription,
+    images: [ogImage],
   },
   robots: {
     index: true,

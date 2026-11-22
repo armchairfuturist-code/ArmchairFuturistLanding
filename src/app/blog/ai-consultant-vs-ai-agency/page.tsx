@@ -20,7 +20,7 @@ export const metadata: Metadata = {
       'A practical 2026 comparison of cost, ownership, retainers, and outcomes for founders and small teams.',
     url: '/blog/ai-consultant-vs-ai-agency',
     siteName: 'The Armchair Futurist',
-    images: ['/opengraph-image'],
+    images: ['/og-card.png'],
     type: 'article',
   },
 };

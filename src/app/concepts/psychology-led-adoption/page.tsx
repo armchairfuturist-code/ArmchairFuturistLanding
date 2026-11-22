@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     canonical: '/concepts/psychology-led-adoption',
   },
   openGraph: {
-    images: ['/opengraph-image'],
+    images: ['/og-card.png'],
     title: 'Psychology-Led AI Adoption Strategy',
     description: 'Address human barriers to AI adoption before technical ones. Find the 5% who lead change.',
     url: '/concepts/psychology-led-adoption',
@@ -303,7 +303,7 @@ export default function PsychologyLedAdoptionPage() {
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "Psychology-Led AI Adoption Strategy",
-            "image": "https://thearmchairfuturist.com/opengraph-image",
+            "image": "https://thearmchairfuturist.com/og-card.png",
             "author": { "@id": "https://thearmchairfuturist.com/#person" },
             "publisher": { "@id": "https://thearmchairfuturist.com/#organization" },
             "datePublished": "2026-03-29",

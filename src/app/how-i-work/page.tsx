@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     description: 'The agent infrastructure behind thearmchairfuturist.com: Hermes agent, DeepSeek models, cron automation, and verifiable public output.',
     url: '/how-i-work',
     siteName: 'The Armchair Futurist',
-    images: ['/opengraph-image'],
+    images: ['/og-card.png'],
     type: 'article',
   },
 };
@@ -30,7 +30,7 @@ export default function HowIWorkPage() {
             '@context': 'https://schema.org',
             '@type': 'Article',
             headline: 'How I Work — Agent Infrastructure & Methodology',
-            image: 'https://thearmchairfuturist.com/opengraph-image',
+            image: 'https://thearmchairfuturist.com/og-card.png',
             description:
               'The agent infrastructure behind The Armchair Futurist: Hermes v0.19, DeepSeek V4 Pro/Flash, cron automation, plain-text memory, and guardrails that keep autonomous work honest.',
             author: {

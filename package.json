@@ -7,6 +7,7 @@
     "build": "next build",
     "prebuild": "node scripts/gen-lastmod.mjs && node scripts/gen-llms-source.mjs",
     "lastmod": "node scripts/gen-lastmod.mjs",
+    "og:card": "python3 scripts/og-card/fonts.py && node scripts/og-card/render.mjs",
     "start": "next start",
     "lint": "tsc --noEmit",
     "typecheck": "tsc --noEmit",

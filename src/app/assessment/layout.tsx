@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     canonical: '/assessment',
   },
   openGraph: {
-    images: ['/opengraph-image'],
+    images: ['/og-card.png'],
     title: 'AI Readiness Assessment',
     description:
       'How ready are you for AI? 10 honest questions. 3 minutes. A personalized diagnosis and action plan from Alex Myers.',

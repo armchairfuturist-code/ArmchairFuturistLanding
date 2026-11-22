@@ -59,6 +59,9 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // The Open Graph card moved from a generated route to a designed static
+      // PNG. Social platforms cached the old URL, so keep it resolving.
+      { source: "/opengraph-image", destination: "/og-card.png", permanent: true },
       // 2026-06 slug rename dropped the "the-" prefix; old URLs were published
       // in sitemaps and return soft-404 shells without this redirect.
       ...["stalled-executive", "curious-professional", "ready-builder", "overwhelmed-leader"].map(

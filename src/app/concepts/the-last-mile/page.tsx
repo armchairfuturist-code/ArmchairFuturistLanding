@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     canonical: '/concepts/the-last-mile',
   },
   openGraph: {
-    images: ['/opengraph-image'],
+    images: ['/og-card.png'],
     title: 'The Last Mile: Why Access to AI Was Never the Hard Part',
     description:
       'The agents arrived. The mental models did not. Why capable people get little from AI and conclude it does not work for them.',
@@ -480,7 +480,7 @@ export default function TheLastMilePage() {
             '@context': 'https://schema.org',
             '@type': 'Article',
             headline: 'The Last Mile: Why Access to AI Was Never the Hard Part',
-            image: 'https://thearmchairfuturist.com/opengraph-image',
+            image: 'https://thearmchairfuturist.com/og-card.png',
             author: { '@id': 'https://thearmchairfuturist.com/#person' },
             publisher: { '@id': 'https://thearmchairfuturist.com/#organization' },
             datePublished: '2026-10-10',

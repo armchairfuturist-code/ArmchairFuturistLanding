@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     canonical: '/concepts/results-thinkers',
   },
   openGraph: {
-    images: ['/opengraph-image'],
+    images: ['/og-card.png'],
     title: 'Results Thinkers: The 5% Who Lead AI Change',
     description: 'The top 5% who ask "What outcome do I need?" instead of "What can AI do?" Your highest-leverage asset for change.',
     url: '/concepts/results-thinkers',
@@ -302,7 +302,7 @@ export default function ResultsThinkersPage() {
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "Results Thinkers: The 5% Who Lead AI Change",
-            "image": "https://thearmchairfuturist.com/opengraph-image",
+            "image": "https://thearmchairfuturist.com/og-card.png",
             "author": { "@id": "https://thearmchairfuturist.com/#person" },
             "publisher": { "@id": "https://thearmchairfuturist.com/#organization" },
             "datePublished": "2026-03-29",
