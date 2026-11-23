@@ -42,7 +42,7 @@ export const FAQ_ITEMS: FaqItem[] = [
       `One-on-one coaching over video, 60 minutes per session. Each session builds on your real work: we pick a bottleneck, work it live, and you leave with something running. A single session is ${SINGLE_SESSION_LABEL}; most clients start with a 5 or 10-session pack.`,
   },
   {
-    question: "Why the program instead of a session pack?",
+    question: "Why the program over a session pack?",
     answer:
       "Session packs build your AI judgment, at your pace. The Program builds your AI offering: a shipped system, a playbook, co-building, launch accountability, a fixed deliverable by week 8. Buy a pack to get good with AI. Apply to the Program to ship an offering.",
   },
@@ -74,7 +74,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "Who do you work best with, and who isn't a fit?",
     answer:
-      "Best fit: founders, creators, and independents who want AI leverage, not another dependency. People who touch the tools themselves. Small teams ready to build their own AI services. Not a fit: enterprises that want presentation theatre. Leaders who want AI 'in theory'. Anyone expecting AI to fix a culture problem. If your team won't touch the tools, I'm not your consultant.",
+      "Best fit: founders, creators, and independents who want AI leverage they own. People who touch the tools themselves. Small teams ready to build their own AI services. Not a fit: enterprises that want presentation theatre. Leaders who want AI 'in theory'. Anyone expecting AI to fix a culture problem. If your team won't touch the tools, I'm not your consultant.",
   },
   {
     question: "Do you install AI agents?",

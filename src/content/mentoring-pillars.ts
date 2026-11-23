@@ -22,6 +22,6 @@ export const MENTORING_PILLARS: MentoringPillar[] = [
     icon: "TrendingUp",
     title: "Own the judgment",
     description:
-      "By the end of a pack you decide where AI fits, and you build from your judgment, not my notes.",
+      "By the end of a pack you decide where AI fits, and you build from your own judgment.",
   },
 ];

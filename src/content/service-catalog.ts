@@ -38,7 +38,7 @@ export const SERVICE_PATHS: ServicePath[] = [
     title: "We Do It Together",
     kicker: "Build the literacy to do it yourself",
     description:
-      "We work on work you are already doing, not a demo dataset, so the learning survives the trip back to the office. Session packs build literacy. The Self-Sufficiency Program turns that literacy into an AI-powered business.",
+      "We work on the live work already on your desk, so the learning survives the trip back to the office. Session packs build literacy. The Self-Sufficiency Program turns that literacy into an AI-powered business.",
     tiers: [
       {
         name: SERVICES_PRICING.roadmapAudit.name,

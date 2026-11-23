@@ -183,7 +183,7 @@ export default function ServicesSection() {
         <BlurFade inView>
           <div className="mt-16 space-y-4 text-center">
             <p className="text-sm text-graphite font-sans">
-              If you need the systems built instead of guidance on building them,
+              If you need the systems built for you,
               start with the{" "}
               <Link href="/services" className="text-hp-electric font-semibold hover:underline">
                 build catalog

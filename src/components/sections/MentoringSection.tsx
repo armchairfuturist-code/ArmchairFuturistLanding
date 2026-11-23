@@ -205,8 +205,8 @@ export default function MentoringSection() {
                 </h3>
                 <p className="text-charcoal mt-3 max-w-md">
                   Sessions run 60 minutes over video, and you can start wherever
-                  you are. If you want systems built alongside you instead of
-                  guidance alone, start with the{" "}
+                  you are. If you want systems built alongside the
+                  guidance, start with the{" "}
                   <Link href="#services" className="text-hp-electric font-semibold underline underline-offset-4 hover:text-hp-deep transition-colors">
                     Build Sprint
                   </Link>
@@ -376,7 +376,7 @@ export default function MentoringSection() {
                 <Link href="#services" className="text-hp-electric underline underline-offset-2">
                   Build Sprint
                 </Link>
-                , not with any session pack:
+                , beyond any session pack:
               </p>
               <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-1.5">
                 {[
