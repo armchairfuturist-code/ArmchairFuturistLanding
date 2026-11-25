@@ -4,13 +4,13 @@
  * The nudge is a QUERY, not a task: any scheduler (Cloud Scheduler, Hermes
  * cron, CI) hits GET /api/cron/nudge with the shared secret and this module
  * decides which cases need a nudge. Idempotent via `nudgedAt` on the case
- * doc — a case is nudged at most once until it books.
+ * doc, a case is nudged at most once until it books.
  *
  * Honest cadence: one nudge, then silence. No drip campaign (design
  * principle 4: no dark patterns).
  */
 
-/** 3 days in ms — the honest nudge window. */
+/** 3 days in ms, the honest nudge window. */
 export const NUDGE_WINDOW_MS = 3 * 24 * 60 * 60 * 1000;
 
 /** The subset of an audit case doc the nudge reads. */

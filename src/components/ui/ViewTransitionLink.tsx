@@ -12,7 +12,7 @@ import { useEffect, useRef, type CSSProperties, type MouseEvent, type ReactNode 
  * until the new route has actually painted (pathname change), so the browser
  * snapshots the destination rather than the old page again. Browsers without
  * startViewTransition, and readers who ask for reduced motion, get a plain
- * Link — the interception never runs.
+ * Link, the interception never runs.
  */
 export function ViewTransitionLink({
   href,

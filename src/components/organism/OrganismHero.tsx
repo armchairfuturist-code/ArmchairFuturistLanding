@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
@@ -56,18 +55,14 @@ export function OrganismHero() {
           <em>AI Consultant.</em>
         </h1>
         <p className="organism-deck">
-          One-to-one AI coaching on your real work. You leave running systems
+          One-to-one AI coaching on your real work. You leave running the systems
           you built yourself.
-        </p>
-        <p className="organism-deck organism-deck--offer">
-          Most clients come for the hours back. They stay for what they
-          discover they can build, usually the project they put off for a year.
         </p>
         <div className="organism-actions">
           {/* WhatsApp is the primary action. A call is a scheduled event with
               a stranger; a text is a thought you can send in ten seconds.
               Most of Alex's bookings arrive by referral, so the visitor is
-              often already warm — the shortest path matters more than the
+              often already warm: the shortest path matters more than the
               most formal one. */}
           <a
             href={WHATSAPP_URL}
@@ -82,17 +77,8 @@ export function OrganismHero() {
             Text me on WhatsApp{" "}
             <ArrowUpRight size={16} aria-hidden="true" />
           </a>
-          <Link
-            href="/assessment"
-            className="organism-button organism-button--quiet"
-          >
-            Take the Free Assessment{" "}
-            <ArrowUpRight size={16} aria-hidden="true" />
-          </Link>
         </div>
       </div>
-      <div className="organism-status"><span>40+ systems deployed</span><span>Self-sufficient in 8&ndash;10 weeks</span></div>
-
     </motion.section>
   );
 }

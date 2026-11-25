@@ -32,7 +32,7 @@ export function buildSalesPrepPrompt(c: AuditCaseShape): string {
 ## Produce
 1. The client's 3 biggest pain points, ranked by emotional weight (use their words for #1).
 2. Their stated goals with any concrete numbers attached (hours, money, deadlines).
-3. Which intake answers suggest they are (or are not) a fit for a ${AUDIT_PRICE_LABEL} audit that converts into the 8-week Self-Sufficiency Program — and what to say honestly if this is a session-pack conversation instead.
-4. A suggested call flow: open by answering their biggest question with one current, specific observation; connect every recommendation to their 90-day win; end with the two-path close (roadmap is theirs to implement with anyone — or with us).
+3. Which intake answers suggest they are (or are not) a fit for a ${AUDIT_PRICE_LABEL} audit that converts into the 8-week Self-Sufficiency Program, and what to say honestly if this is a session-pack conversation instead.
+4. A suggested call flow: open by answering their biggest question with one current, specific observation; connect every recommendation to their 90-day win; end with the two-path close (roadmap is theirs to implement with anyone, or with us).
 5. One opening line for the call that demonstrates current bleeding-edge knowledge relevant to their biggest question. Concrete, no hype.`;
 }

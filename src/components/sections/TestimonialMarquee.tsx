@@ -6,7 +6,7 @@ import { Pause, Play } from "lucide-react";
 import { TESTIMONIALS, type Testimonial } from "@/content/testimonials";
 
 /* Short, punchy snippets pulled from the full testimonials. Each entry maps
-   a testimonial to its marquee snippet — no more than ~20 words. */
+   a testimonial to its marquee snippet, no more than ~20 words. */
 interface MarqueeSnippet {
   quote: string;
   name: string;

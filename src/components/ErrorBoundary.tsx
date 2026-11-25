@@ -41,7 +41,7 @@ class ErrorBoundary extends Component<Props, State> {
               If it does not, the rest of the site still works.
             </p>
             {/* This boundary wraps the header and footer as well as the page,
-                so when it triggers the visitor has no navigation at all — and
+                so when it triggers the visitor has no navigation at all, and
                 if the error is deterministic, "Refresh" loops them straight
                 back here. A plain anchor to "/" is deliberate: it forces a
                 full document load instead of a client-side route change,

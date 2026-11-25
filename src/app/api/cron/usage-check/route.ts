@@ -12,7 +12,7 @@ import { getD1 } from '@/lib/d1';
  * request cap. Fires at 09:00 UTC alongside the day-3 nudge.
  *
  * Query parameter `?force=1` sends the warning email regardless of the
- * threshold — secret-guarded, for a one-off "is it wired up" check.
+ * threshold, secret-guarded, for a one-off "is it wired up" check.
  */
 export async function GET(req: NextRequest) {
   const secret = req.headers.get('x-cron-secret');

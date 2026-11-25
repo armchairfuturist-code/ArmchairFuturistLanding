@@ -54,7 +54,7 @@ function ClientIdentity({ client }: { client: Testimonial }) {
           aria-hidden="true"
           className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-hp-electric/10 font-display text-lg font-medium text-hp-electric"
         >
-          {initials || "—"}
+          {initials || ", "}
         </span>
       )}
       <div>
@@ -111,7 +111,7 @@ export default function ProofSection() {
         </div>
 
         <div id="stats" className="mt-10 scroll-mt-20 rounded-hp-xl bg-hp-electric p-6 text-white md:p-8">
-          {/* Was a ScrambleText. A heading is read, not admired — scrambling
+          {/* Was a ScrambleText. A heading is read, not admired, scrambling
               the characters makes it unreadable on first pass, which is the
               opposite of what a section title is for. The NumberTicker
               count-ups below are explanation and stay. */}

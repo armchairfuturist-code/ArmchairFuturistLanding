@@ -29,7 +29,7 @@ ${callTranscript}
 1. Open with the single biggest outcome in hours-per-week or money, stated as an estimate (honest numbers; label all projections as estimates).
 2. Map their workflows to current-generation tooling: name specific models, agent runtimes, and frameworks where relevant. This report must demonstrate bleeding-edge knowledge, not generic AI advice.
 3. Every recommendation is scored on impact (time saved / revenue) and effort, then ranked. First we'll do X, second Y, third Z.
-4. Flag the open-weights vs frontier tradeoff, runtime pinning, and skill-lift testing where relevant — judgment, not tool tutorials.
+4. Flag the open-weights vs frontier tradeoff, runtime pinning, and skill-lift testing where relevant, judgment, not tool tutorials.
 5. End with the two-path close in writing: the roadmap is theirs to keep; implement it yourself, hand it to anyone, or do it with us.
 6. Plain English. No hype. Label every estimate as an estimate.`;
 }

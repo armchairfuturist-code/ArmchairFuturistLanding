@@ -7,7 +7,7 @@ import { setLenis } from "./lenis-instance";
  * Smooth scrolling, split out of the initial bundle. Lenis is ~58KB that does
  * nothing until the visitor's first wheel or touch event, and every request
  * on this domain is uncached, so it is fetched on the first scroll intent
- * instead of on load. Until it arrives the page scrolls natively — which is
+ * instead of on load. Until it arrives the page scrolls natively, which is
  * also what a reader with reduced motion gets forever.
  */
 export function SmoothScrollProvider({ children }: { children: React.ReactNode }) {

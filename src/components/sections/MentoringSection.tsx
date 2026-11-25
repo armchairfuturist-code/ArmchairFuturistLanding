@@ -35,7 +35,7 @@ const pillars = MENTORING_PILLARS.map((pillar) => ({
 
 // All four coaching tracks are shown, in one ladder. They used to be split
 // 2 + 2 behind a "View 5 and 20-session options" disclosure, which meant two
-// of the four price points — including the best-value 20-session track — were
+// of the four price points, including the best-value 20-session track, were
 // invisible until a reader went looking for them. The ladder is the argument
 // for buying more, and hiding half of it hid the argument.
 
@@ -66,7 +66,7 @@ function PricingCard({ pkg }: { pkg: (typeof COACHING_PACKAGES)[number] }) {
           </span>
         </div>
 
-        <p className="text-xs text-graphite mb-3 tabular-nums font-mono uppercase tracking-wider">
+        <p className="text-xs text-graphite mb-3 tabular-nums font-mono ">
           {pkg.sessions} {pkg.sessions === 1 ? "session" : "sessions"} · 60 min
           each
         </p>
@@ -101,7 +101,7 @@ function PricingCard({ pkg }: { pkg: (typeof COACHING_PACKAGES)[number] }) {
 
         {/* Per-package intent, lowest-friction action. The pre-filled message
             names the package, so the click arrives with the same signal the
-            calendar's utm_campaign used to carry — without asking a warm
+            calendar's utm_campaign used to carry, without asking a warm
             reader to commit to a time slot first. */}
         <WhatsAppButton
           size="sm"
@@ -143,7 +143,7 @@ export default function MentoringSection() {
           <h2 className="font-display text-display-lg font-medium text-white max-w-[16ch] mb-6">
             Judgment you own beats judgment you rent.
           </h2>
-          <p className="text-white/80 text-lg md:text-xl max-w-2xl leading-relaxed">
+          <p className="text-white/80 text-base md:text-lg max-w-2xl leading-relaxed">
             Most training hands you tools and leaves the room. This is a
             partnership: we build the mental models, test them on your live
             work, and you leave with judgment you keep and a bigger idea of
@@ -253,10 +253,10 @@ export default function MentoringSection() {
                     Side-by-side feature comparison
                   </p>
                 </div>
-                <span className="text-[12px] font-mono uppercase tracking-widest text-hp-electric group-open:hidden">
+                <span className="text-sm font-mono  text-hp-electric group-open:hidden">
                   Expand
                 </span>
-                <span className="text-[12px] font-mono uppercase tracking-widest text-hp-electric hidden group-open:inline">
+                <span className="text-sm font-mono  text-hp-electric hidden group-open:inline">
                   Collapse
                 </span>
               </summary>
@@ -266,7 +266,7 @@ export default function MentoringSection() {
                   has to be reachable by keyboard (WCAG 2.1.1), and the
                   overflow has to be signposted or the column is simply
                   invisible on a phone with no cue that it exists. */}
-              <p className="md:hidden px-6 pb-2 text-[12px] font-mono uppercase tracking-widest text-graphite">
+              <p className="md:hidden px-6 pb-2 text-sm font-mono  text-graphite">
                 Scroll to compare →
               </p>
               <div
@@ -278,19 +278,19 @@ export default function MentoringSection() {
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="text-left">
-                      <th scope="col" className="px-6 py-3 font-mono text-[12px] uppercase tracking-widest text-graphite">
+                      <th scope="col" className="px-6 py-3 font-mono text-sm  text-graphite">
                         What you get
                       </th>
-                      <th scope="col" className="px-4 py-3 font-mono text-[12px] uppercase tracking-widest text-graphite text-center">
+                      <th scope="col" className="px-4 py-3 font-mono text-sm  text-graphite text-center">
                         Single
                       </th>
-                      <th scope="col" className="px-4 py-3 font-mono text-[12px] uppercase tracking-widest text-graphite text-center">
+                      <th scope="col" className="px-4 py-3 font-mono text-sm  text-graphite text-center">
                         5-pack
                       </th>
-                      <th scope="col" className="px-4 py-3 font-mono text-[12px] uppercase tracking-widest text-graphite text-center">
+                      <th scope="col" className="px-4 py-3 font-mono text-sm  text-graphite text-center">
                         10-pack
                       </th>
-                      <th scope="col" className="px-4 py-3 font-mono text-[12px] uppercase tracking-widest text-graphite text-center">
+                      <th scope="col" className="px-4 py-3 font-mono text-sm  text-graphite text-center">
                         20-pack
                       </th>
                     </tr>
@@ -367,7 +367,7 @@ export default function MentoringSection() {
                 </table>
               </div>
             <div className="border-t border-ink/10 px-6 py-5 bg-hp-electric/[0.04]">
-              <p className="text-[12px] font-mono uppercase tracking-widest text-hp-electric mb-2">
+              <p className="text-sm font-mono  text-hp-electric mb-2">
                 Only in the 8-Week Build Sprint
               </p>
               <p className="text-sm text-charcoal leading-relaxed mb-3">

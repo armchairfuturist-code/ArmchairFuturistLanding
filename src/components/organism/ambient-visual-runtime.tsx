@@ -37,7 +37,7 @@ export function isSoftwareRenderer(renderer: string): boolean {
   return /swiftshader|llvmpipe|software|basic render|generic renderer/i.test(renderer);
 }
 
-/** Probes on a throwaway canvas — the real canvas must keep its own attributes. */
+/** Probes on a throwaway canvas, the real canvas must keep its own attributes. */
 function detectSoftwareRenderer(): boolean {
   try {
     const probe = document.createElement("canvas");
@@ -47,7 +47,7 @@ function detectSoftwareRenderer(): boolean {
     const renderer = ext
       ? String(gl.getParameter(ext.UNMASKED_RENDERER_WEBGL))
       : "";
-    // Free the probe context immediately rather than waiting on GC — browsers
+    // Free the probe context immediately rather than waiting on GC, browsers
     // cap live WebGL contexts per page.
     gl.getExtension("WEBGL_lose_context")?.loseContext();
     return isSoftwareRenderer(renderer);
@@ -63,7 +63,7 @@ export function useAmbientVisualRuntime({
   /* The runtime is an explicit state machine (runtime-state.ts): one typed
      phase, and every handler funnels through transitionPhase. The dataset
      tag and the SVG visibility derive from the phase, so a transition can
-     never fall through — the context-loss path that used to blank the hero
+     never fall through, the context-loss path that used to blank the hero
      is a state now, not a side effect. */
   const [phase, setPhase] = useState<OrganismPhase>({ kind: "booting" });
   const dispatch = (event: OrganismEvent) =>

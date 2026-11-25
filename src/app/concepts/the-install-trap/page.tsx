@@ -56,7 +56,7 @@ const keyPoints = [
   {
     title: 'The Root Cause',
     content:
-      "Installation answers a tooling question: how do I get this running? Adoption answers three different questions: what should this agent own, what workflow does it live inside, and who measures whether it returns time worth having. Skip those three and you have automated a guess. Coding agents came with a natural spec — the code either runs or it doesn't. Work agents need you to define done before they can hit it.",
+      "Installation answers a tooling question: how do I get this running? Adoption answers three different questions: what should this agent own, what workflow does it live inside, and who measures whether it returns time worth having. Skip those three and you have automated a guess. Coding agents came with a natural spec, the code either runs or it doesn't. Work agents need you to define done before they can hit it.",
   },
   {
     title: 'The Cure',
@@ -66,7 +66,7 @@ const keyPoints = [
 ];
 
 const statistics = [
-  { value: '67%', label: 'Of AI pilots never scale to production — the same pattern, one agent at a time' },
+  { value: '67%', label: 'Of AI pilots never scale to production; the same pattern, one agent at a time' },
   { value: '72%', label: 'Cite workflow redesign, not technology, as the top barrier to AI value' },
   { value: '10–20 hrs', label: 'Reclaimed per week when agents are given owned, structured workflows' },
 ];
@@ -113,7 +113,7 @@ export default function TheInstallTrapPage() {
         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
           <BlurFade inView>
             <div className="mb-4">
-              <span className="text-xs text-graphite/70 font-mono uppercase tracking-widest">
+              <span className="text-xs text-graphite/70 font-mono ">
                 Core Concept
               </span>
             </div>

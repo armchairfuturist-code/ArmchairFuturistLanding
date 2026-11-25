@@ -13,7 +13,7 @@ export interface CarouselPhoto {
 }
 
 /**
- * Photo carousel — one slide at a time, driven by arrows, dots, keyboard,
+ * Photo carousel, one slide at a time, driven by arrows, dots, keyboard,
  * or swipe. No autoplay: the reader moves it. Motion is a single expo-out
  * translate; reduced motion snaps instead of gliding.
  */
@@ -142,7 +142,7 @@ export default function PhotoCarousel({ photos }: { photos: CarouselPhoto[] }) {
             </button>
           ))}
         </div>
-        <p className="font-mono text-[12px] uppercase tracking-[0.25em] text-charcoal">
+        <p className="font-mono text-sm  text-charcoal">
           <span aria-live="polite">
             {String(index + 1).padStart(2, "0")} / {String(photos.length).padStart(2, "0")}
           </span>

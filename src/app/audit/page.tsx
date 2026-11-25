@@ -3,7 +3,7 @@ import AuditIntakeForm from '@/components/audit/AuditIntakeForm';
 import { AUDIT_PRICE_LABEL, AUDIT_LIST_LABEL } from '@/lib/pricing';
 
 export const metadata: Metadata = {
-  title: 'AI Roadmap Audit — The Armchair Futurist',
+  title: 'AI Roadmap Audit | The Armchair Futurist',
   description:
     'A 90-minute session on your workflows, scored against current agents. Written report and video walkthrough, yours to keep. ' +
       AUDIT_PRICE_LABEL +
@@ -16,7 +16,7 @@ export default function AuditPage() {
     <main id="main-content" className="min-h-[100dvh] bg-canvas">
       <div className="max-w-2xl mx-auto px-4 md:px-6 py-16 md:py-24">
         {/* Pitch header */}
-        <p className="font-mono text-[12px] uppercase tracking-[0.35em] text-hp-electric mb-4">
+        <p className="font-mono text-sm  text-hp-electric mb-4">
           AI Roadmap Audit
         </p>
         <h1 className="font-display text-[clamp(2.25rem,5vw,3.25rem)] font-medium leading-[1.02] text-ink mb-6">

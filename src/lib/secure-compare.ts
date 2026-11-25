@@ -7,7 +7,7 @@ import { createHash, timingSafeEqual } from "crypto";
  * That matters: `timingSafeEqual` throws when the lengths differ, and a
  * length check before it would itself leak the expected length.
  *
- * Use this for every secret comparison — passwords, session tokens, cron
+ * Use this for every secret comparison, passwords, session tokens, cron
  * secrets. `===` stops at the first differing byte, so response time grows
  * with the length of the matching prefix and the value can be recovered one
  * byte at a time.

@@ -3,7 +3,7 @@
 import Script from "next/script";
 
 /**
- * GA4 gtag.js — loads on interactive when NEXT_PUBLIC_GA_MEASUREMENT_ID is set.
+ * GA4 gtag.js, loads on interactive when NEXT_PUBLIC_GA_MEASUREMENT_ID is set.
  * Removed: Meta Pixel & LinkedIn Insight Tag (env vars unpopulated; no retargeting).
  */
 export default function TrackingPixels() {

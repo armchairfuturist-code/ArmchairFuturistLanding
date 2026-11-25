@@ -1,7 +1,7 @@
 /**
  * Digital Identity case state machine (Plan 010): enum values, transition
  * table, and nextAction branching. Machine mechanics (`canTransitionIn`,
- * the next-action shape) live in the shared paid-case engine — same
+ * the next-action shape) live in the shared paid-case engine, same
  * contract as the audit machine.
  *
  * Pure, deterministic, one `nextAction` entry point so any driver (Alex,
@@ -73,10 +73,10 @@ export function nextAction(
     case 'submitted':
       return { action: 'review_intake', detail: `Review the intake: is this a fit for the ${DIGITAL_IDENTITY_LABEL} product? Set in_review or dead.` };
     case 'in_review':
-      return { action: 'send_payment_request', detail: 'Fit confirmed — send the Venmo request, then move to building.' };
+      return { action: 'send_payment_request', detail: 'Fit confirmed, send the Venmo request, then move to building.' };
     case 'building': {
       if (c.deliverable?.pageUrl) {
-        return { action: 'deliver_page', detail: 'Page is built — send the delivery email with the handoff doc.' };
+        return { action: 'deliver_page', detail: 'Page is built, send the delivery email with the handoff doc.' };
       }
       return { action: 'build_page', detail: 'Build the landing page from the intake assets (2–4 day window).' };
     }

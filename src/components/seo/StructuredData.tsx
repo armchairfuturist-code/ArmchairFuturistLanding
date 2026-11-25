@@ -274,7 +274,7 @@ export default function StructuredData() {
         }}
       />
 
-      {/* BreadcrumbList Schema — page-specific breadcrumbs are managed by the Breadcrumbs component */}
+      {/* BreadcrumbList Schema, page-specific breadcrumbs are managed by the Breadcrumbs component */}
     </>
   );
 }

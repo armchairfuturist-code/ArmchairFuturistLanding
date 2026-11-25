@@ -37,7 +37,7 @@
     --org-blue: #296ef9; /* alias of hp-bright — the on-dark primary step of the one signal hue */
     --org-warm: #f2a66e;
     --org-line: rgba(240, 238, 232, 0.16);
-    --org-mono: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --org-mono: var(--font-body), "Manrope", system-ui, sans-serif; /* two families: labels reuse the body face */
     --org-sans: var(--font-body), "Manrope", system-ui, sans-serif;
 
     /* Motion easings. Keep in step with src/lib/easing.ts — the built-in
@@ -160,7 +160,7 @@
 .organism-button--quiet:hover { border-color: rgba(240, 238, 232, .5); }
 .organism-button--price { color: var(--org-paper); border-color: rgba(240, 238, 232, .42); background: rgba(8, 13, 23, .38); }
 .organism-button--price:hover { border-color: var(--org-paper); background: rgba(8, 13, 23, .6); }
-.organism-button--text { min-height: 44px; padding: 0 8px; color: var(--org-muted); font-family: var(--org-mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; background: none; }
+.organism-button--text { min-height: 44px; padding: 0 8px; color: var(--org-muted); font-family: var(--org-mono); font-size: 14px; letter-spacing: 0; background: none; }
 
 /* Press feedback. The hero CTAs are the most-repeated interaction on the
    site; without a scale the press reads as nothing happening. */
@@ -245,7 +245,7 @@
 
 .marquee-snippet__mark {
   color: var(--org-blue);
-  font-family: var(--org-serif, Georgia, serif);
+  font-family: var(--font-display), "Space Grotesk", system-ui, sans-serif;
   font-size: 28px;
   line-height: .6;
   margin-right: 2px;
@@ -521,12 +521,12 @@
 :root body h3 { font-size: 22px; line-height: 1.25; }
 :root body :is(h4, h5, h6), :root body .type-card-title { font-size: 18px; line-height: 1.3; }
 :root body .organism-hero h1 { font-size: clamp(3rem, 6.5vw, 6rem); line-height: 1.02; }
-:root body .type-card { font-family: var(--font-body), "Manrope", system-ui, sans-serif; font-size: 15px; font-weight: 400; }
-:root body .type-card :is(p, li, blockquote) { font-size: 15px; }
+:root body .type-card { font-family: var(--font-body), "Manrope", system-ui, sans-serif; font-size: 16px; font-weight: 400; }
+:root body .type-card :is(p, li, blockquote) { font-size: 16px; }
 :root body .type-card :is(h2, h3, h4, h5, h6) { font-size: 18px; letter-spacing: -.01em; line-height: 1.3; }
 :root body .type-value { font-family: var(--font-display), "Space Grotesk", system-ui, sans-serif; font-size: 32px; font-weight: 500; line-height: 1.1; }
 :root body :is(button, [data-variant], .organism-button) { font-family: var(--font-body), "Manrope", system-ui, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0; }
-:root body .organism-button--text { font-family: var(--org-mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; }
+:root body .organism-button--text { font-family: var(--org-mono); font-size: 14px; letter-spacing: 0; }
 :root body .type-card :is(button, [data-variant]) { font-size: 14px; }
 /* Accordion triggers are headings, not calls to action. */
 :root body :is(h1, h2, h3, h4, h5, h6) > :is(button, [data-variant]) { font: inherit; letter-spacing: inherit; text-wrap: balance; }

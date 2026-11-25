@@ -25,7 +25,7 @@ const ICON_MAP: Record<string, LucideIcon> = {
 
 export default function ServicesSection() {
   // Adapter over the priceKey seam: pricing.ts owns the labels (locality),
-  // this module only maps the interface key to a label. Exhaustive — no fallback.
+  // this module only maps the interface key to a label. Exhaustive, no fallback.
   const displayPrice = (tier: ServiceTier): string => {
     switch (tier.priceKey) {
       case "roadmapAudit": return AUDIT_PRICE_LABEL;
@@ -60,7 +60,7 @@ export default function ServicesSection() {
           {SERVICE_PATHS.map((path) => {
             // All tiers render on mount: both paths show their full option set.
             // (Tiers mounted after a toggle were left at opacity 0 by the
-            // whileInView/once stagger — the removed-disclosure bug of 2026-09.)
+            // whileInView/once stagger, the removed-disclosure bug of 2026-09.)
 
             return (
             <div key={path.id}>

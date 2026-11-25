@@ -26,7 +26,7 @@ interface BreadcrumbsProps {
  * ]} />
  */
 export default function Breadcrumbs({ items }: BreadcrumbsProps) {
-  // Build JSON-LD for breadcrumbs — always start with Home
+  // Build JSON-LD for breadcrumbs, always start with Home
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -59,7 +59,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
           <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
             <Link 
               href="/" 
-              // The glyph is 16px, which left the touch target 16x16 — under the
+              // The glyph is 16px, which left the touch target 16x16, under the
               // 24x24 WCAG 2.2 asks for, and awkward on a phone. The padding
               // supplies the target while the icon keeps its size.
               className="-m-2 inline-flex min-h-[44px] min-w-[44px] items-center justify-center gap-1 p-2 hover:text-primary transition-colors"

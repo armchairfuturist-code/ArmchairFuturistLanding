@@ -186,7 +186,7 @@ export default function IdentityIntakeForm() {
 
       <div>
         <label htmlFor="di-resume" className="block text-sm font-medium text-ink mb-1">Resume link</label>
-        <p className="text-xs text-graphite font-sans mb-2">A shareable link — Google Docs, Drive, Dropbox, or your site.</p>
+        <p className="text-xs text-graphite font-sans mb-2">A shareable link, Google Docs, Drive, Dropbox, or your site.</p>
         <input
           id="di-resume"
           name="resumeUrl"

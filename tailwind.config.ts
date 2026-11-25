@@ -30,13 +30,13 @@ export default {
       fontFamily: {
         // Display: Space Grotesk (next/font, --font-display) — geometric sans
         // Body/UI: Manrope (next/font, --font-body) — neutral, high readability
-        // Mono: DM Mono (next/font, --font-mono) — micro-labels, technical text
+        // Labels: Manrope with tabular-nums, never a third face for numbers
         display: ['var(--font-display)', '"Space Grotesk"', '"Manrope"', "system-ui", "sans-serif"],
         sans: ['var(--font-body)', '"Manrope"', "system-ui", "sans-serif"],
         heading: ['var(--font-display)', '"Space Grotesk"', '"Manrope"', "system-ui", "sans-serif"],
         body: ['var(--font-body)', '"Manrope"', "system-ui", "sans-serif"],
         ui: ['var(--font-body)', '"Manrope"', "system-ui", "sans-serif"],
-        mono: ['var(--font-mono)', '"DM Mono"', '"Courier New"', "Courier", "monospace"],
+        mono: ['var(--font-body)', '"Manrope"', "system-ui", "sans-serif"],
       },
       letterSpacing: {
         // HP button signature: uppercase +0.7px tracking
@@ -59,6 +59,8 @@ export default {
         "display-lg": ["clamp(2.25rem, 5vw, 3.75rem)", { lineHeight: "0.98" }],
         display: ["clamp(1.75rem, 4vw, 2.75rem)", { lineHeight: "1.05" }],
         "display-sm": ["clamp(1.5rem, 3vw, 2.25rem)", { lineHeight: "1.05" }],
+        // The small step is 13px: the floor for label text, one step below prose.
+        xs: ["0.8125rem", { lineHeight: "1.5" }],
       },
       colors: {
         // === HP COLOR SYSTEM ===

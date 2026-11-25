@@ -9,7 +9,7 @@ import type { AuditCaseShape } from './state';
  * Pure: builds the canonical `audit_cases` document payload from validated
  * intake input + the assessment context. Envelope (ids, timestamps,
  * submitted status, contact) comes from `basePaidCase`; money comes from
- * pricing.ts — never hardcoded here. Firestore write lives in lead-store.ts.
+ * pricing.ts, never hardcoded here. Firestore write lives in lead-store.ts.
  *
  * name + email live at the document top level (not inside intake) so the
  * case list is queryable without opening nested objects.

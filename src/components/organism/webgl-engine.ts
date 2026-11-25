@@ -1,6 +1,6 @@
 /**
  * WebGL2 Particle Swarm Engine
- * Inspired by Da7em (CC BY 4.0 Da7_Tech — https://da7tech.com)
+ * Inspired by Da7em (CC BY 4.0 Da7_Tech, https://da7tech.com)
  * Adapted for The Armchair Futurist (HP-inspired palette, high performance, modular).
  */
 

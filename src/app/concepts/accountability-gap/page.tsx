@@ -115,7 +115,7 @@ export default function AccountabilityGapPage() {
         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
           <BlurFade inView>
             <div className="mb-4">
-              <span className="text-xs text-muted-foreground font-mono uppercase tracking-widest">
+              <span className="text-xs text-muted-foreground font-mono ">
                 Core Concept
               </span>
             </div>
@@ -141,9 +141,9 @@ export default function AccountabilityGapPage() {
 <section className="py-8 bg-background">
           <div className="container mx-auto px-4 md:px-6 max-w-4xl">
             <div className="rounded-xl border-2 border-hp-electric bg-surface p-5">
-              <span className="font-mono text-[12px] uppercase tracking-widest text-hp-electric mb-2 block">Quick Answer</span>
+              <span className="font-mono text-sm  text-hp-electric mb-2 block">Quick Answer</span>
               <p className="text-ink text-base md:text-lg leading-relaxed">
-                The Accountability Gap is the space between what an AI system produces and what a business needs. It opens when companies layer AI onto existing processes without rethinking workflows, incentives, or decision rights — nobody owns the outcome.
+                The Accountability Gap is the space between what an AI system produces and what a business needs. It opens when companies layer AI onto existing processes without rethinking workflows, incentives, or decision rights, nobody owns the outcome.
               </p>
             </div>
           </div>

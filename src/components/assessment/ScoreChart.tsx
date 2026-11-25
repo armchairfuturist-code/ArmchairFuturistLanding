@@ -34,7 +34,7 @@ export default function ScoreChart({ clarity, readiness, urgency }: ScoreChartPr
             </span>
           </div>
           <div className="h-2.5 w-full rounded-full bg-muted overflow-hidden">
-            {/* scaleX on a full-width bar, not width — see QuizProgress. */}
+            {/* scaleX on a full-width bar, not width, see QuizProgress. */}
             <motion.div
               className={`h-full w-full origin-left rounded-full ${dim.color}`}
               initial={{ scaleX: 0 }}

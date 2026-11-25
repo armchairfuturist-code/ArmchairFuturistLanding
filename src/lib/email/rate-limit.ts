@@ -70,7 +70,7 @@ export function checkRateLimit(
  * `x-forwarded-for` is a list, and the caller can send their own value for it.
  * Each proxy on the path appends the address it saw. So the LEFTMOST entry is
  * whatever the client claimed, and only the RIGHTMOST entry was written by a
- * party we control. Reading the leftmost entry — as this did — let any caller
+ * party we control. Reading the leftmost entry, as this did, let any caller
  * pick their own bucket and bypass the limit entirely by sending one forged
  * header per request. Measured: 500 requests with 500 forged values against a
  * limit of 5 were all allowed.

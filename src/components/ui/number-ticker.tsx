@@ -22,7 +22,7 @@ function useFormatter(decimalPlaces: number) {
  *
  * NumberTicker below counts up once when it scrolls into view. This one
  * re-animates every time `value` changes, which is what a live calculation
- * needs — a reader stepping a counter up and down should see the number
+ * needs, a reader stepping a counter up and down should see the number
  * move, not teleport.
  *
  * The motion value is initialised to `value`, never to zero, so the first

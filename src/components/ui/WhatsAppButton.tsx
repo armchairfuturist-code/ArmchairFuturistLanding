@@ -11,7 +11,7 @@ import { trackConversion, trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 /**
- * <WhatsAppButton /> — the single seam between every "text me" CTA and the
+ * <WhatsAppButton />, the single seam between every "text me" CTA and the
  * wa.me URL. Mirrors BookCallButton deliberately: same props, same tracking
  * shape, so a call site can switch between the two by changing the component
  * name and nothing else.
@@ -34,7 +34,7 @@ export interface WhatsAppButtonProps
   children?: React.ReactNode;
   /**
    * Logical location on the page. Used as the `location` param on the
-   * `whatsapp_click` analytics event. Pick something stable — it is the
+   * `whatsapp_click` analytics event. Pick something stable, it is the
    * dimension you will segment on later.
    */
   location: string;

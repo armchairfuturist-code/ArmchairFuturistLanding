@@ -7,14 +7,14 @@ const siteUrl = 'https://thearmchairfuturist.com';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Client Testimonials — Alex Myers, The Armchair Futurist',
+  title: 'Client Testimonials | Alex Myers | The Armchair Futurist',
   description:
-    'What clients say about working with Alex Myers: AI coaching, build sprints, and websites — in their own words, at full length.',
+    'What clients say about working with Alex Myers. AI coaching, build sprints, and websites: in their own words, at full length.',
   alternates: { canonical: '/testimonials' },
   openGraph: {
     title: 'Client Testimonials | The Armchair Futurist',
     description:
-      'AI coaching, build sprints, and websites — what clients report, in their own words.',
+      'AI coaching, build sprints, and websites: what clients report, in their own words.',
     url: '/testimonials',
     siteName: 'The Armchair Futurist',
     type: 'website',
@@ -31,13 +31,13 @@ function initialsOf(name: string) {
     .toUpperCase();
 }
 
-/** /testimonials — the long-form proof, one card per client. */
+/** /testimonials, the long-form proof, one card per client. */
 export default function TestimonialsPage() {
   return (
     <main id="main-content" className="flex flex-col bg-background">
       <section className="bg-ink py-16 md:py-24">
         <div className="container mx-auto max-w-5xl px-4 md:px-6">
-          <p className="mb-3 font-mono text-[12px] uppercase tracking-[0.35em] text-hp-electric">
+          <p className="mb-3 font-mono text-sm  text-hp-electric">
             In their words
           </p>
           <h1 className="max-w-[24ch] font-display text-4xl font-medium text-white md:text-5xl">
@@ -73,7 +73,7 @@ export default function TestimonialsPage() {
                         aria-hidden="true"
                         className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-hp-electric/10 font-display text-sm font-medium text-hp-electric"
                       >
-                        {initialsOf(client.name) || '—'}
+                        {initialsOf(client.name)}
                       </span>
                     )}
                     <span>

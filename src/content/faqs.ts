@@ -1,6 +1,6 @@
 import { PROGRAM_PRICE_LABEL, DIGITAL_IDENTITY_LABEL, CUSTOM_PROVISIONING_RANGE_LABEL, PACK_5_LABEL, SINGLE_SESSION_LABEL } from "@/lib/pricing";
 
-/** FAQ Item content — presentation-free. */
+/** FAQ Item content, presentation-free. */
 export interface FaqItem {
   question: string;
   answer: string;

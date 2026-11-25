@@ -2,7 +2,7 @@
  * Explainer-video prompt builder (ADR-004 prompt bank).
  *
  * Dino's Notebook LM pattern: a ~7-minute animated walkthrough of the
- * client's own report — their pain points in their words, the plan as
+ * client's own report, their pain points in their words, the plan as
  * "first X, second Y, third Z", the projected impact up front. The video
  * sells in rooms Alex is not in.
  */

@@ -87,7 +87,7 @@ export default function ConnectSection() {
         <BlurFade inView delay={0.2}>
           <motion.div
             // `hoverOnlyWhenSupported` gates Tailwind's `hover:` utilities in
-            // CSS, but it cannot gate a `whileHover` prop — that runs in JS
+            // CSS, but it cannot gate a `whileHover` prop, that runs in JS
             // and fires on the emulated hover a tap produces, sticking the
             // card 2px up after the finger lifts. Gate it here to match.
             whileHover={fineHover ? { y: -2 } : undefined}
@@ -123,14 +123,14 @@ export default function ConnectSection() {
             anything.
           </p>
         </BlurFade>
-        {/* Contact Form — disclosed so the close offers two doors, not four */}
+        {/* Contact Form, disclosed so the close offers two doors, not four */}
         <details className="mt-10 w-full max-w-md mx-auto group">
           <summary
             className="cursor-pointer list-none inline-flex items-center gap-2 px-2 text-sm font-medium text-white underline underline-offset-4 hover:text-white/85 transition-colors justify-center min-h-[44px] [&::-webkit-details-marker]:hidden"
           >
             Prefer writing? Send a note instead
-            <span className="text-[12px] font-mono uppercase tracking-widest text-white/90 group-open:hidden">Expand</span>
-            <span className="text-[12px] font-mono uppercase tracking-widest text-white/70 hidden group-open:inline">Collapse</span>
+            <span className="text-sm font-mono  text-white/90 group-open:hidden">Expand</span>
+            <span className="text-sm font-mono  text-white/70 hidden group-open:inline">Collapse</span>
           </summary>
         <motion.div
           className="mt-6 w-full"
@@ -139,7 +139,7 @@ export default function ConnectSection() {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
         {/* Persistent live region. It must exist in the DOM *before* its
-            content changes or the announcement is unreliable — a live region
+            content changes or the announcement is unreliable, a live region
             inserted together with its text is often missed entirely. */}
         <div role="status" aria-live="polite">
           <AnimatePresence mode="wait" initial={false}>
@@ -157,7 +157,7 @@ export default function ConnectSection() {
                   Message received.
                 </p>
                 <p className="mt-1.5 text-sm text-white/80">A reply from me, with no pitch attached to it.</p>
-                <p className="mt-4 font-mono text-[12px] uppercase tracking-[0.3em] text-white/80">Received · I reply to every note</p>
+                <p className="mt-4 font-mono text-sm  text-white/80">Received · I reply to every note</p>
               </motion.div>
             ) : (
               <motion.form
@@ -238,7 +238,7 @@ export default function ConnectSection() {
               {error && (
                 <div role="alert" className="text-white text-sm font-medium space-y-1">
                   <p>{error}</p>
-                  <p className="text-white/85 text-xs">Your message is still here — press Send again, or book a call above.</p>
+                  <p className="text-white/85 text-xs">Your message is still here. Press Send again, or book a call above.</p>
                 </div>
               )}
               <Button

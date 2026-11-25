@@ -3,7 +3,7 @@ import IdentityIntakeForm from '@/components/identity/IdentityIntakeForm';
 import { DIGITAL_IDENTITY_LABEL } from '@/lib/pricing';
 
 export const metadata: Metadata = {
-  title: 'Digital Identity Landing Page — The Armchair Futurist',
+  title: 'Digital Identity Landing Page | The Armchair Futurist',
   description:
     `An interview-ready digital identity site consolidating your LinkedIn, resume, and social links. Delivered in 2–4 days. You own the code and content. ${DIGITAL_IDENTITY_LABEL}.`,
   alternates: { canonical: '/intake/digital-identity' },
@@ -13,7 +13,7 @@ export default function DigitalIdentityIntakePage() {
   return (
     <main id="main-content" className="min-h-[100dvh] bg-canvas">
       <div className="max-w-2xl mx-auto px-4 md:px-6 py-16 md:py-24">
-        <p className="font-mono text-[12px] uppercase tracking-[0.35em] text-hp-electric mb-4">
+        <p className="font-mono text-sm  text-hp-electric mb-4">
           Digital Identity Landing Page
         </p>
         <h1 className="font-display text-[clamp(2.25rem,5vw,3.25rem)] font-medium leading-[1.02] text-ink mb-6">
@@ -26,7 +26,7 @@ export default function DigitalIdentityIntakePage() {
         </p>
         <p className="text-base text-charcoal font-sans leading-relaxed mb-8">
           <span className="font-bold text-ink">{DIGITAL_IDENTITY_LABEL}</span>, one-time.
-          Delivered in 2–4 days. No payment now — you get a payment request
+          Delivered in 2–4 days. No payment now: you get a payment request
           after Alex confirms the fit.
         </p>
 

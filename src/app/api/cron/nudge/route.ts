@@ -15,7 +15,7 @@ import { ALEX_EMAIL, FROM_EMAIL } from '@/lib/email/config';
  * Idempotent, and safe against overlapping runs. Each case is CLAIMED in a
  * transaction before its email is sent, so two runs racing the same case
  * cannot both send. The claim also moves `status` to `nudged`, which takes
- * the case out of the query — previously a nudged case matched every future
+ * the case out of the query, previously a nudged case matched every future
  * run forever and was filtered in memory afterwards. If the send throws the
  * claim is released so a later run retries, and the loop continues to the
  * other cases rather than abandoning the run.
@@ -68,7 +68,7 @@ export async function GET(req: NextRequest) {
           nudged++;
         } catch (sendErr) {
           // Hand the case back so a later run retries it. Releasing must not
-          // abort the run — the remaining cases still deserve their email.
+          // abort the run, the remaining cases still deserve their email.
           console.error('Nudge send failed:', sendErr);
           await releaseNudge(caseId);
           failed++;

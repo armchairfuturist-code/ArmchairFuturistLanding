@@ -25,7 +25,7 @@ const eventPhotos = [
 ];
 
 /**
- * Slim proof band — stage photos + one CTA.
+ * Slim proof band, stage photos + one CTA.
  * Facilitation detail lives here only as proof; primary paths stay in Services/Mentoring.
  */
 export default function SpeakingSection({
@@ -43,7 +43,7 @@ export default function SpeakingSection({
         <BlurFade inView>
           <div className="mb-8 md:mb-10 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
             <div>
-              <p className="inline-flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.35em] text-hp-electric mb-3">
+              <p className="inline-flex items-center gap-2 font-mono text-sm  text-hp-electric mb-3">
                 <Mic className="h-3.5 w-3.5" aria-hidden="true" />
                 On stage
               </p>
@@ -87,7 +87,7 @@ export default function SpeakingSection({
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
               <figcaption className="absolute bottom-0 inset-x-0 z-10 p-4 md:p-5 bg-ink/70">
-                <span className="font-mono text-[12px] uppercase tracking-[0.25em] text-white/90">
+                <span className="font-mono text-sm  text-white/90">
                   {photo.label}
                 </span>
               </figcaption>
@@ -119,13 +119,13 @@ export default function SpeakingSection({
 
 /**
  * Show-notes bio for podcast & event hosts.
- * Rendered on /speaking only (see src/app/speaking/page.tsx) — moved off the
+ * Rendered on /speaking only (see src/app/speaking/page.tsx), moved off the
  * homepage per critique 2026-09-23: off-audience content sitting mid-persuasion.
  */
 export function HostBio({ className = "" }: { className?: string }) {
   return (
     <div className={`border border-ink/10 bg-canvas rounded-hp-xl px-5 py-6 md:px-8 md:py-7 ${className}`}>
-      <p className="font-mono text-[12px] text-hp-electric mb-3">
+      <p className="font-mono text-sm text-hp-electric mb-3">
         For podcast &amp; event hosts
       </p>
       <p className="text-charcoal text-sm md:text-base leading-relaxed max-w-3xl">

@@ -2,7 +2,7 @@
 import { useEffect, useRef, useCallback } from "react";
 
 const CHARS =
-	"!<>-_\\/[]{}—=+*^?#_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+	"!<>-_\\/[]{}, =+*^?#_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
 export function useTextScramble(
 	text: string,

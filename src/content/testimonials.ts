@@ -1,4 +1,4 @@
-/** Testimonial content — presentation-free. */
+/** Testimonial content, presentation-free. */
 export interface Testimonial {
   name: string;
   title: string;
@@ -34,7 +34,7 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     name: "Maria Fonseca",
     title: "",
-    // No portrait yet — the initials avatar renders until a photo lands in
+    // No portrait yet, the initials avatar renders until a photo lands in
     // public/ (see ProofSection).
     text: "I met Alex at a Braga AI builders meeting, a group inside the Braga expats community that he created. I was impressed by his knowledge and teaching skills: he was able to explain all this new concepts and tools in a way that even I, a neophyte, could follow even if, of course, part of it was too complex for my needs. I then asked him to give my husband and me classes to help us starting using some of those tools. Alex has been very organized and obliging us to focus just on what we really needed making a point of giving us the tools in order not to need him around and that is something rare so he is helping us not to be dependent on him in the future! I couldn't advise someone better to guide you in your AI journey.",
     dataAiHint: "profile person",

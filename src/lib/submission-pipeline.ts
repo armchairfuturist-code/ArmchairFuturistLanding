@@ -115,7 +115,7 @@ export interface PipelineDeps {
  * pipeline stores anything) persisted. Email delivery is a separate concern:
  * a Resend hiccup must not turn a stored, successful submission into a 500,
  * because the visitor then resubmits and creates a second lead and a second
- * email — while the owner is never told the notification failed.
+ * email, while the owner is never told the notification failed.
  *
  * So both sends are attempted, failures are logged, and the request only
  * errors when the submission left no trace at all: nothing stored AND nothing
@@ -281,7 +281,7 @@ async function submitLeadCapture(
     {
       from: FROM_EMAIL,
       to: input.email,
-      subject: "Your AI Quick Wins — let's get started",
+      subject: "Your AI Quick Wins, let's get started",
       html: buildLeadProspectEmail({ displayName: storedName }),
     },
     'Lead capture prospect email',
@@ -345,7 +345,7 @@ async function submitContact(
     storageFailed = true;
   }
 
-  // Owner notification — this is how Alex learns the message exists.
+  // Owner notification, this is how Alex learns the message exists.
   const ownerSend = await attemptSend(
     emailSender,
     {

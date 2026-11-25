@@ -1,5 +1,5 @@
 /**
- * The hero organism's runtime states — the one place on this site with real
+ * The hero organism's runtime states, the one place on this site with real
  * motion state, made explicit.
  *
  * The runtime used to be two booleans (showFallback, fallbackIsPermanent)
@@ -7,7 +7,7 @@
  * transition fall through: on `webglcontextlost` the dataset flipped to
  * "fallback" but the static SVG never mounted (it mounts only when
  * "permanent"), so a GPU hiccup blanked the hero until the context came
- * back — against the spec's "context loss falls back to a static SVG".
+ * back, against the spec's "context loss falls back to a static SVG".
  *
  * This is that transition table, typed, with one source of truth:
  *
@@ -22,7 +22,7 @@
  *   fallback ─REDUCED────────────▶ reduced
  *
  * "reduced" and "fallback" are the two states where the static SVG is the
- * artwork. No other state may mount it — the old loading-placeholder phase
+ * artwork. No other state may mount it, the old loading-placeholder phase
  * is gone on purpose.
  */
 

@@ -9,9 +9,9 @@ const buttonVariants = cva(
 	{
 		variants: {
 			variant: {
-				// Primary — HP Electric Blue, 4px radius
+				// Primary, HP Electric Blue, 4px radius
 				default: "bg-hp-electric text-white hover:bg-hp-bright rounded",
-				// Deep-blue utility — for secondary / dark-surface CTAs
+				// Deep-blue utility, for secondary / dark-surface CTAs
 				navy: "bg-hp-deep text-white hover:bg-hp-electric rounded",
 				// Ghost blue with 1px border
 				pillGhost:

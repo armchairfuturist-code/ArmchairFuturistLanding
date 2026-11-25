@@ -29,7 +29,7 @@ export interface IdentityCaseData {
   intake: IdentityIntake;
 }
 
-/** The persisted audit case payload (ADR-004) — written by the audit intake route. */
+/** The persisted audit case payload (ADR-004), written by the audit intake route. */
 export interface AuditCaseData {
   caseId: string;
   createdAt: string;

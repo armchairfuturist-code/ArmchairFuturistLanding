@@ -4,7 +4,7 @@
  * rather than pulled from lucide: no WhatsApp glyph ships with the icon set.
  *
  * The same component used to be copy-pasted into Header, Footer, Connect and
- * OrganismHero — this is the single copy.
+ * OrganismHero, this is the single copy.
  *
  * `tone="inherit"` renders the glyph in currentColor. Use it on a coloured
  * button, where brand green on brand blue reads as a clash rather than as

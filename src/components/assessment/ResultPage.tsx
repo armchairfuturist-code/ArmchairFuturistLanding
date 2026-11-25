@@ -37,7 +37,7 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
           <h1
             /* Reached by a client-side route change from the email gate, so
                nothing announces it and focus sits on <body>. This is the
-               payoff the visitor worked through ten questions for — put
+               payoff the visitor worked through ten questions for, put
                focus on it so a screen reader reads the archetype name. */
             ref={(el) => { el?.focus(); }}
             tabIndex={-1}
@@ -65,7 +65,7 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
         </div>
       </BlurFade>
 
-      {/* CTAs — moved above the diagnosis so the highest-intent action
+      {/* CTAs, moved above the diagnosis so the highest-intent action
           appears right after the score chart. The card uses the brand
           HP Electric Blue so it reads as "the next step is a call" rather
           than a soft suggestion. The Calendar icon replaces the previous
@@ -148,7 +148,7 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
             )}
           </div>
           {/* Booking fallback: archetypes whose recommended next step isn't a call
-            still get one visible way to book — this is the highest-intent
+            still get one visible way to book, this is the highest-intent
             moment on the site (user just completed the assessment). */}
           {archetype.primaryCta.href !== CALENDAR_URL &&
             archetype.secondaryCta.href !== CALENDAR_URL && (
@@ -170,7 +170,7 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
         </div>
       </BlurFade>
 
-      {/* AI Roadmap Audit offer — the paid rung between this free result and
+      {/* AI Roadmap Audit offer, the paid rung between this free result and
           the Self-Sufficiency Program. Sits after the primary CTA block so it
           never competes with the highest-intent action. No countdown, no fake
           urgency (design principle 4): the price is honest launch pricing with
@@ -182,7 +182,7 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
               <Compass className="h-5 w-5 text-hp-electric" aria-hidden="true" />
             </span>
             <div className="min-w-0">
-              <p className="font-mono text-[12px] text-hp-electric mb-2">
+              <p className="font-mono text-sm text-hp-electric mb-2">
                 Go deeper
               </p>
               <h2 className="roadmap-title font-heading text-lg sm:text-xl md:text-2xl font-bold text-ink mb-2">
@@ -217,7 +217,7 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
         </div>
       </BlurFade>
 
-      {/* Diagnosis — moved below the CTA so depth is opt-in, not a gate. */}
+      {/* Diagnosis, moved below the CTA so depth is opt-in, not a gate. */}
       <BlurFade inView delay={0.4}>
         <div className="space-y-5 mb-10">
           <h2 className="font-heading text-xl md:text-2xl font-bold text-ink">

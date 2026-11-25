@@ -14,9 +14,9 @@ import { useLeadCapture } from "@/lib/hooks/useLeadCapture";
 import { validateEmailField } from "@/lib/lead-capture";
 
 const AI_MATURITY_OPTIONS = [
-  { value: "chat", label: "Mostly chat — I ask, copy, paste" },
-  { value: "automations", label: "Automations — scheduled workflows run without me" },
-  { value: "agents", label: "Agents — tools that take a goal and come back with finished work" },
+  { value: "chat", label: "Mostly chat, I ask, copy, paste" },
+  { value: "automations", label: "Automations, scheduled workflows run without me" },
+  { value: "agents", label: "Agents, tools that take a goal and come back with finished work" },
   { value: "unsure", label: "I honestly can't tell what's real yet" },
 ] as const;
 
@@ -116,12 +116,12 @@ export default function AuditIntakeForm() {
         if (!v.name.trim()) errs.name = "Name is required";
         const emailError = validateEmailField(v.email);
         if (emailError) errs.email = emailError;
-        if (!v.role.trim()) errs.role = "Tell me what you do — one sentence is enough";
-        if (!v.scope) errs.scope = "Pick one — the roadmap differs";
+        if (!v.role.trim()) errs.role = "Tell me what you do, one sentence is enough";
+        if (!v.scope) errs.scope = "Pick one, the roadmap differs";
         if (!v.aiMaturity) errs.aiMaturity = "Pick the closest one";
         if (!v.paidTools.trim()) errs.paidTools = "Rough is fine, but I need something";
         if (!v.weekEaters.trim()) errs.weekEaters = "This is the raw material of your roadmap";
-        if (!v.win90d.trim()) errs.win90d = "Hours or money — what would a win look like?";
+        if (!v.win90d.trim()) errs.win90d = "Hours or money, what would a win look like?";
         if (!v.biggestQuestion.trim()) errs.biggestQuestion = "Alex answers this first on the call";
         if (!v.availability.trim()) errs.availability = "Timezone plus rough windows";
         return Object.keys(errs).length ? errs : null;
@@ -188,12 +188,12 @@ export default function AuditIntakeForm() {
       data-testid="audit-form"
     >
       {archetypeName && (
-        <p className="text-xs font-mono uppercase tracking-widest text-hp-electric">
+        <p className="text-xs font-mono  text-hp-electric">
           Continuing from your assessment profile
         </p>
       )}
 
-      {/* Honeypot — hidden from humans, catnip for bots */}
+      {/* Honeypot, hidden from humans, catnip for bots */}
       <div className="absolute -left-[9999px]" aria-hidden="true">
         <label htmlFor="audit-website">Website</label>
         <input

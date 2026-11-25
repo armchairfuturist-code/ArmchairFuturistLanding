@@ -1,9 +1,9 @@
 /**
- * Shared pricing — single source of truth across UI components and structured data.
+ * Shared pricing, single source of truth across UI components and structured data.
  * Update here and both UI and SEO schema stay in sync.
  *
  * Previously split across constants.ts (COACHING_PACKAGES for UI) and
- * pricing.ts (PRICING for SEO) — now consolidated.
+ * pricing.ts (PRICING for SEO), now consolidated.
  */
 
 export type CurrencyCode = 'EUR' | 'USD';
@@ -20,7 +20,7 @@ export const SERVICES_PRICING = {
     listPriceEUR: 417,
     currency: "USD" as const,
     description:
-      "A 90-minute working session that maps what to automate, buy, or build — scored against current-generation agents and tooling. Written report and video walkthrough, yours to keep.",
+      "A 90-minute working session that maps what to automate, buy, or build, scored against current-generation agents and tooling. Written report and video walkthrough, yours to keep.",
   },
   selfSufficiency: {
     name: "AI Self-Sufficiency Program",
@@ -241,7 +241,7 @@ export function formatServicePrice(
 
 /**
  * Canonical dual-label price strings. Policy (2026-08-31 critique): every
- * price on every surface shows both currencies — "$297 · €247" — so no
+ * price on every surface shows both currencies, "$297 · €247", so no
  * surface depends on a toggle and no visitor sees a currency they didn't
  * choose. Format helpers here are the single source of truth for UI,
  * emails, FAQs, and schema.
@@ -308,16 +308,16 @@ export function packLabel(id: string): string {
   return formatDualPrice(pack.totalPriceUSD, pack.totalPrice);
 }
 
-/** Single Session price, dual label — reads from COACHING_PACKAGES. */
+/** Single Session price, dual label, reads from COACHING_PACKAGES. */
 export const SINGLE_SESSION_LABEL = packLabel('single');
 
-/** 5-Session Pack price, dual label — reads from COACHING_PACKAGES. */
+/** 5-Session Pack price, dual label, reads from COACHING_PACKAGES. */
 export const PACK_5_LABEL = packLabel('pack-5');
 
-/** 10-Session Pack price, dual label — reads from COACHING_PACKAGES. */
+/** 10-Session Pack price, dual label, reads from COACHING_PACKAGES. */
 export const PACK_10_LABEL = packLabel('pack-10');
 
-/** 20-Session Pack price, dual label — reads from COACHING_PACKAGES. */
+/** 20-Session Pack price, dual label, reads from COACHING_PACKAGES. */
 export const PACK_20_LABEL = packLabel('pack-20');
 
 /**
@@ -338,7 +338,7 @@ export function formatSchemaPriceRange(): string {
 /**
  * Pick the default display currency for a visitor. A stored preference
  * wins; otherwise the locale's region is matched against the eurozone;
- * otherwise USD. Pure — no DOM access.
+ * otherwise USD. Pure, no DOM access.
  */
 export function resolveDefaultCurrency(
   locale: string | undefined,

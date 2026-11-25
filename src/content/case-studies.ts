@@ -1,4 +1,4 @@
-/** Case Study content — presentation-free. */
+/** Case Study content, presentation-free. */
 export interface CaseStudy {
   title: string;
   client: string;

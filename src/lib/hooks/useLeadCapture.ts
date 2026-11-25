@@ -40,7 +40,7 @@ export interface UseLeadCaptureReturn<T extends Record<string, string>> {
 }
 
 /**
- * Client Lead Capture adapter — one seam over form state + POST.
+ * Client Lead Capture adapter, one seam over form state + POST.
  * Connect, EmailCapture, and future forms bind layout only.
  * Server Lead Intake (submission-pipeline) stays behind the API route.
  */

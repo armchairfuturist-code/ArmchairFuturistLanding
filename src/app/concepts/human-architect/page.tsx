@@ -137,7 +137,7 @@ export default function HumanArchitectPage() {
         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
           <BlurFade inView>
             <div className="mb-4">
-              <span className="text-xs text-muted-foreground font-mono uppercase tracking-widest">
+              <span className="text-xs text-muted-foreground font-mono ">
                 Core Concept
               </span>
             </div>

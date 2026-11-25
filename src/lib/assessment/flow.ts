@@ -1,5 +1,5 @@
 /**
- * Assessment Flow — deep domain module.
+ * Assessment Flow, deep domain module.
  *
  * Single seam for answer representation, scoring, session precedence, and
  * canonicalization. The module owns the phase machine interface; React
@@ -167,7 +167,7 @@ export function saveQuizDraft(draft: QuizDraft): void {
   try {
     sessionStorage.setItem(ASSESSMENT_QUIZ_DRAFT_KEY, JSON.stringify(draft));
   } catch {
-    // sessionStorage unavailable (private mode, quota) — quiz still works.
+    // sessionStorage unavailable (private mode, quota), quiz still works.
   }
 }
 
@@ -188,7 +188,7 @@ export function clearQuizDraft(): void {
   try {
     sessionStorage.removeItem(ASSESSMENT_QUIZ_DRAFT_KEY);
   } catch {
-    // ignore — nothing to clean up.
+    // ignore, nothing to clean up.
   }
 }
 
@@ -256,7 +256,7 @@ export function buildResultQueryParams(scores: {
 }
 
 // ---------------------------------------------------------------------------
-// Phase machine (ADR-002 — unchanged)
+// Phase machine (ADR-002, unchanged)
 // ---------------------------------------------------------------------------
 
 export type AssessmentPhase = "landing" | "quiz" | "email" | "redirecting";
@@ -271,7 +271,7 @@ export interface AssessmentScores {
 export interface AssessmentFlowState {
   phase: AssessmentPhase;
   currentQuestion: number;
-  /** Source of truth — option indices only. */
+  /** Source of truth, option indices only. */
   answerIndices: number[];
   resultSlug: string;
   resultScores: AssessmentScores | null;

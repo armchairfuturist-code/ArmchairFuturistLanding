@@ -1,7 +1,7 @@
 import { BookOpen, Brain, Users } from "lucide-react";
 
 /**
- * The concept cluster — single source of truth.
+ * The concept cluster, single source of truth.
  *
  * This list used to live inline in the /concepts hub only. The six concept
  * pages had no links between them at all, so the cluster was a one-way star:
@@ -48,7 +48,7 @@ export const CONCEPTS: Concept[] = [
       "The belief that value arrives when an agent runs. Work-automation agents made installation a weekend task; deciding what they own and whether they pay off is still the work.",
     icon: Brain,
     stats: [
-      "67% of pilots never scale — same pattern",
+      "67% of pilots never scale, same pattern",
       "72% cite workflow redesign as the barrier",
       "10–20 hrs/week when structured right",
     ],
@@ -71,7 +71,7 @@ export const CONCEPTS: Concept[] = [
     slug: "human-architect",
     href: "/concepts/human-architect",
     title: "The Human Architect",
-    summary: "The role that closes the gap — and how to find who fills it.",
+    summary: "The role that closes the gap, and how to find who fills it.",
     description:
       "The role that closes the Accountability Gap. Translates AI output into business outcome. Found through Psychology-Led Adoption profiling, not job title.",
     icon: Brain,

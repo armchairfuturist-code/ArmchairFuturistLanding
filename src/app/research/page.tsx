@@ -38,7 +38,7 @@ const benchmarks = [
   },
   {
     metric: '72% cite workflow redesign as top barrier',
-    finding: 'Stalled AI projects fail on process, incentives, and messy data—not model intelligence.',
+    finding: 'Stalled AI projects fail on process, incentives, and messy data, not model intelligence.',
     source: '/concepts/accountability-gap',
   },
   {
@@ -65,7 +65,7 @@ export default function ResearchPage() {
         />
 
         <header className="mt-6 mb-10">
-          <p className="font-mono text-[12px] uppercase tracking-[0.35em] text-hp-electric mb-3">
+          <p className="font-mono text-sm  text-hp-electric mb-3">
             Original Research · 2022–2026
           </p>
           <h1 className="font-heading text-display font-medium text-ink mb-4">
@@ -78,7 +78,7 @@ export default function ResearchPage() {
           aria-label="Quick answer"
           className="mb-10 rounded-xl border border-hp-electric/30 bg-surface p-6"
         >
-          <p className="font-mono text-xs uppercase tracking-widest text-hp-electric mb-2">
+          <p className="font-mono text-xs  text-hp-electric mb-2">
             Quick Summary
           </p>
           <p className="text-ink text-base md:text-lg leading-relaxed">
@@ -130,7 +130,7 @@ export default function ResearchPage() {
             Just as early factories bolted electric motors onto steam-era floor plans for decades
             before redesigning the factory floor, most teams bolt frontier LLMs onto broken
             approval chains and messy folders. The limiting factor for enterprise AI is rarely model
-            intelligence—it is authority, clean data, and outcome ownership.
+            intelligence: it is authority, clean data, and outcome ownership.
           </p>
         </section>
 

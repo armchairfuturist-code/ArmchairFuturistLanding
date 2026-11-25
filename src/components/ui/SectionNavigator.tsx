@@ -25,7 +25,7 @@ export default function SectionNavigator({
   const [visible, setVisible] = useState(false);
 
   // Spine fill: document scroll progress, spring-smoothed. Reduced motion
-  // reads the raw progress value directly — height tracks scroll 1:1, no animation.
+  // reads the raw progress value directly, height tracks scroll 1:1, no animation.
   const reducedMotion = useReducedMotion();
   const { scrollYProgress } = useScroll();
   const springProgress = useSpring(scrollYProgress, {
@@ -84,7 +84,7 @@ export default function SectionNavigator({
       aria-label="Section navigation"
       className="hidden md:flex fixed right-2 top-1/2 -translate-y-1/2 z-50 flex-col gap-2 max-lg:gap-1"
     >
-      {/* Scroll spine — 1px hairline track with electric fill, dot centers to dot centers */}
+      {/* Scroll spine, 1px hairline track with electric fill, dot centers to dot centers */}
       <span
         aria-hidden
         className="absolute left-1/2 -translate-x-1/2 top-5 bottom-5 w-px bg-hairline"
@@ -104,7 +104,7 @@ export default function SectionNavigator({
             className="group relative flex items-center justify-center h-10 w-10 min-h-[44px] min-w-[44px] max-lg:h-11 max-lg:w-11 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:rounded"
             aria-label={`Scroll to ${section.label}`}
           >
-            {/* Dot — visible marker, button itself is a 40x40 hit area */}
+            {/* Dot, visible marker, button itself is a 40x40 hit area */}
             <span
               /* Fixed box, grown with transform. The old h-1.5→h-2 / w-1.5→w-2
                  change was NOT in the transition-property list, so the dot

@@ -13,9 +13,9 @@ import TrackingPixels from "@/components/analytics/TrackingPixels";
 import "./globals.css";
 
 
-// Self-hosted woff2 files — zero font network calls at build time and runtime
+// Self-hosted woff2 files, zero font network calls at build time and runtime
 // (the next/font/google fetch flaked intermittently in CI; this removes it).
-// Space Grotesk = display, Manrope = body/UI, DM Mono = micro-labels.
+// Space Grotesk = display, Manrope = body/UI and small labels: two families.
 const spaceGrotesk = localFont({
   src: "./fonts/SpaceGrotesk-Variable.woff2",
   variable: "--font-display",
@@ -26,18 +26,10 @@ const manrope = localFont({
   variable: "--font-body",
   display: "swap",
 });
-const dmMono = localFont({
-  src: [
-    { path: "./fonts/DMMono-Regular.woff2", weight: "400" },
-    { path: "./fonts/DMMono-Medium.woff2", weight: "500" },
-  ],
-  variable: "--font-mono",
-  display: "swap",
-});
 
 const siteUrl = "https://thearmchairfuturist.com";
 
-const title = "The Armchair Futurist — AI literacy & implementation";
+const title = "The Armchair Futurist | AI literacy & implementation";
 const description =
   "Alex Myers, consultant in AI Technical Literacy and Workflow Strategy. 40+ AI systems deployed. 1:1 coaching that makes you self-sufficient in 8–10 weeks.";
 
@@ -51,7 +43,7 @@ const ogImage = {
   url: "/og-card.png",
   width: 1200,
   height: 630,
-  alt: "Your Last AI Consultant — The Armchair Futurist",
+  alt: "Your Last AI Consultant | The Armchair Futurist",
 } as const;
 
 export const metadata: Metadata = {
@@ -106,7 +98,7 @@ export default function RootLayout({
       </Head>
       <html
         lang="en"
-        className={`${spaceGrotesk.variable} ${manrope.variable} ${dmMono.variable}`}
+        className={`${spaceGrotesk.variable} ${manrope.variable}`}
       >
         <body>
         <ErrorBoundary>

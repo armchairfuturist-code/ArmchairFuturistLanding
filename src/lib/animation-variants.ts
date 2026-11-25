@@ -26,5 +26,5 @@ export const diagonalWipe: Variants = {
   },
 };
 
-// Spring-driven stagger — weightier, premium feel on card grids
+// Spring-driven stagger, weightier, premium feel on card grids
 export const springStaggerItem: Variants = { hidden: { opacity: 0, y: 36, filter: "blur(2px)" }, visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { type: "spring", stiffness: 120, damping: 18, mass: 0.8 }, }, };

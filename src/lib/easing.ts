@@ -1,11 +1,11 @@
 /**
- * Shared motion easings — the single source of truth.
+ * Shared motion easings, the single source of truth.
  *
  * The built-in CSS easings (`ease`, `ease-out`, `ease-in-out`) are symmetric
  * and soft, which makes UI motion feel unhurried and therefore disconnected
  * from the pointer. Everything here decelerates hard: near-instant response,
  * long settle. CSS consumers read the same values from `--ease-out` /
- * `--ease-in-out` in globals.css — keep the two in step.
+ * `--ease-in-out` in globals.css, keep the two in step.
  *
  * motion/react needs raw arrays because it interpolates numerically.
  */

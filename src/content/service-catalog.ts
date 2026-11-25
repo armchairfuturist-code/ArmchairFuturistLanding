@@ -88,7 +88,7 @@ export const SERVICE_PATHS: ServicePath[] = [
           "Your own AI-powered service, designed & launched by week 8",
           "Structured build playbook (not open coaching)",
           "Coaching that guides each phase of your build",
-          "Async support between sessions — never stuck waiting a week",
+          "Async support between sessions, never stuck waiting a week",
           "Personal brand & service framework",
           "Lifetime alumni access",
         ],
@@ -137,7 +137,7 @@ export const SERVICE_PATHS: ServicePath[] = [
           "Agent installation (OpenClaw, Hermes)",
           "Private AI command center",
           "Calendar, email, and tool integrations",
-          "Open-standard stack — no lock-in",
+          "Open-standard stack, no lock-in",
           "You own the infrastructure",
         ],
         cta: "Request a Build",
@@ -218,7 +218,7 @@ export const SERVICE_SYSTEMS: readonly ServiceSystem[] = [
       {
         title: "Context Layer",
         content:
-          "One place for data, SOPs, and workflows. It replaces 20 disconnected tools as the reference point. Staff checks here first. The system becomes the single truth for every process decision — when a question arises, the team searches the knowledge base before asking a person or guessing from memory.",
+          "One place for data, SOPs, and workflows. It replaces 20 disconnected tools as the reference point. Staff checks here first. The system becomes the single truth for every process decision, when a question arises, the team searches the knowledge base before asking a person or guessing from memory.",
       },
       {
         title: "Data Consolidation",

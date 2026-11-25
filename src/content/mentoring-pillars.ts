@@ -1,4 +1,4 @@
-/** Mentoring pillar content — icon keys mapped in section adapter. */
+/** Mentoring pillar content, icon keys mapped in section adapter. */
 export interface MentoringPillar {
   icon: string;
   title: string;

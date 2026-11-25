@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { BlurFade } from '@/components/ui/blur-fade';
 import Breadcrumbs from '@/components/ui/breadcrumbs';
-import { ArrowLeft, ExternalLink, RefreshCw } from 'lucide-react';
+import { ArrowLeft, RefreshCw } from 'lucide-react';
 import { CALENDAR_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -169,11 +169,6 @@ export default function CaseStudiesPage() {
       <section className="py-12 md:py-16 bg-secondary">
         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
           <BlurFade inView>
-            <div className="mb-4">
-              <span className="text-xs text-muted-foreground font-mono uppercase tracking-widest">
-                Results & Evidence
-              </span>
-            </div>
             <h1 className="font-heading text-4xl md:text-5xl font-bold text-primary mb-6">
               Case Studies
             </h1>
@@ -251,17 +246,11 @@ export default function CaseStudiesPage() {
                       </div>
                     </div>
 
-                    {/* Call to Action */}
+                    {/* Methodology note */}
                     <div className="mt-6 pt-6 border-t border-border/60">
                       <p className="text-sm text-muted-foreground mb-3">
                         Metrics reflect representative results from client implementations. Contact for detailed case study methodology and reference clients.
                       </p>
-                      <Button asChild variant="outline" size="sm" className="w-full sm:w-auto min-h-[44px] whitespace-normal sm:whitespace-nowrap">
-                        <Link href="/#services">
-                          Discuss Your Implementation
-                          <ExternalLink className="ml-2 w-4 h-4" />
-                        </Link>
-                      </Button>
                     </div>
                   </CardContent>
                 </Card>

@@ -28,7 +28,7 @@ export interface UseAssessmentFlow extends AssessmentFlowState {
 
 /**
  * React adapter over the pure Assessment Flow module.
- * Side effects (analytics, session, navigation) live here — not in the reducer.
+ * Side effects (analytics, session, navigation) live here, not in the reducer.
  */
 export function useAssessmentFlow(): UseAssessmentFlow {
   const router = useRouter();

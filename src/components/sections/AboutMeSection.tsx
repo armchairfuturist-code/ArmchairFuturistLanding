@@ -8,7 +8,7 @@ import { VideoFacade } from "@/components/ui/VideoFacade";
 import { SITE_URL } from "@/lib/constants";
 
 /**
- * The Subvisual episode — real footage of how Alex works, published by a
+ * The Subvisual episode, real footage of how Alex works, published by a
  * third party. It is the only asset on the site where the product (his
  * judgment, live) can be sampled instead of described, so it leads the
  * section and the bio copy supports it.
@@ -24,7 +24,7 @@ const EPISODE = {
 } as const;
 
 /**
- * Homepage teaser — full bio, certs, and story live on /about.
+ * Homepage teaser, full bio, certs, and story live on /about.
  */
 export default function AboutMeSection() {
   return (

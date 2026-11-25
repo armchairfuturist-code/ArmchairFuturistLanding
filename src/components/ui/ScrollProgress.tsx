@@ -5,7 +5,7 @@ import { motion, useReducedMotion, useScroll, useSpring } from "motion/react";
  * Top scroll-progress rule.
  *
  * The homepage runs ~14,000px across 15 sections. Without a position
- * indicator a reader cannot tell section three from section eleven — the
+ * indicator a reader cannot tell section three from section eleven, the
  * page reads as endless rather than as a document with a shape.
  *
  * Constant motion (progress tracking) is the one case that genuinely wants

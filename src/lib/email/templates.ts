@@ -53,7 +53,7 @@ export function buildProspectResultEmail(data: AssessmentResultData): string {
     <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
       <tr>
         <td style="padding:0 0 16px;">
-          <p style="margin:0 0 4px;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:${EMAIL_BRAND.accentColor};font-weight:600;">Your Profile</p>
+          <p style="margin:0 0 4px;font-size:12px;letter-spacing:1px;text-transform:;color:${EMAIL_BRAND.accentColor};font-weight:600;">Your Profile</p>
           <h2 style="margin:0 0 8px;font-size:22px;font-weight:700;color:${EMAIL_BRAND.textColor};">${escapeHtml(archetype.name)}</h2>
           <p style="margin:0;font-size:16px;color:${EMAIL_BRAND.mutedColor};line-height:1.5;">${escapeHtml(archetype.headline)}</p>
         </td>
@@ -69,7 +69,7 @@ export function buildProspectResultEmail(data: AssessmentResultData): string {
       </tr>
       <tr>
         <td style="padding:0 0 24px;">
-          <p style="margin:0 0 4px;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:${EMAIL_BRAND.accentColor};font-weight:600;">What this means</p>
+          <p style="margin:0 0 4px;font-size:12px;letter-spacing:1px;text-transform:;color:${EMAIL_BRAND.accentColor};font-weight:600;">What this means</p>
           ${archetype.diagnosis.map(p => `<p style="margin:8px 0;font-size:15px;line-height:1.6;color:${EMAIL_BRAND.textColor};">${p}</p>`).join('')}
         </td>
       </tr>
@@ -107,7 +107,7 @@ export function buildAlexNotificationEmail(data: AssessmentResultData): string {
     <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="margin-top:24px;">
       <tr>
         <td style="padding:0;">
-          <p style="margin:0 0 4px;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:${EMAIL_BRAND.accentColor};font-weight:600;">Pre-call context</p>
+          <p style="margin:0 0 4px;font-size:12px;letter-spacing:1px;text-transform:;color:${EMAIL_BRAND.accentColor};font-weight:600;">Pre-call context</p>
           <p style="margin:8px 0;font-size:14px;line-height:1.6;color:${EMAIL_BRAND.textColor};">${escapeHtml(archetype.diagnosis[0] || '')}</p>
         </td>
       </tr>
@@ -141,7 +141,7 @@ export function buildLeadProspectEmail(data: LeadProspectData): string {
       <tr>
         <td style="padding:16px;background:#f0f7ff;border-radius:8px;">
           <p style="margin:0;font-weight:700;font-size:16px;">Step 1: Take the Free AI Readiness Assessment</p>
-          <p style="margin:8px 0 0;font-size:14px;color:${EMAIL_BRAND.mutedColor};line-height:1.5;">3 minutes. You'll get your personalized profile, clarity score, and a recommended next step — no pitch.</p>
+          <p style="margin:8px 0 0;font-size:14px;color:${EMAIL_BRAND.mutedColor};line-height:1.5;">3 minutes. You'll get your personalized profile, clarity score, and a recommended next step, no pitch.</p>
         </td>
       </tr>
     </table>
@@ -156,7 +156,7 @@ export function buildLeadProspectEmail(data: LeadProspectData): string {
     </table>
     <a href="${EMAIL_BRAND.calendarUrl}" style="display:inline-block;padding:14px 32px;background:${EMAIL_BRAND.accentColor};color:#ffffff;font-size:16px;font-weight:700;text-decoration:none;border-radius:6px;">Book Your Free Call →</a>
     <hr style="margin:32px 0;border:none;border-top:1px solid #e5e7eb;" />
-    <p style="margin:0;font-size:14px;color:${EMAIL_BRAND.mutedColor};line-height:1.6;">Quick question: what's the biggest AI challenge you're facing right now? Hit reply and tell me — I read every response personally.</p>`;
+    <p style="margin:0;font-size:14px;color:${EMAIL_BRAND.mutedColor};line-height:1.6;">Quick question: what's the biggest AI challenge you're facing right now? Hit reply and tell me, I read every response personally.</p>`;
 
   return buildEmailWrapper({
     headerTitle: `Thanks for signing up, ${displayNameHtml}`,
@@ -225,7 +225,7 @@ export function buildContactAutoReplyEmail(data: ContactAutoReplyData): string {
 
   const bodyHtml = `
     <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
-      Thanks for reaching out, ${nameHtml}! I've received your message and will get back to you as soon as possible — usually within 24 hours.
+      Thanks for reaching out, ${nameHtml}! I've received your message and will get back to you as soon as possible, usually within 24 hours.
     </p>
     <p style="margin:0 0 24px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
       In the meantime, feel free to book a free strategy call if you'd like to speed things up:
@@ -241,7 +241,7 @@ export function buildContactAutoReplyEmail(data: ContactAutoReplyData): string {
 // ── Assessment nurture ladder (Plan 008) ──────────────────────────────
 // Day 0 = buildProspectResultEmail (sent by the submit route).
 // Day 2 / Day 6 templates below are sent from a scheduled job (cron or
-// Resend Broadcasts — key setup owned by Alex, see plans/008 Phase A3).
+// Resend Broadcasts, key setup owned by Alex, see plans/008 Phase A3).
 
 export function buildAuditOfferEmail(data: { archetypeName: string }): string {
   const archetypeHtml = escapeHtml(data.archetypeName);
@@ -251,13 +251,13 @@ export function buildAuditOfferEmail(data: { archetypeName: string }): string {
     </p>
     <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
       The AI Roadmap Audit is a 90-minute working session on your actual workflows: what to automate,
-      what to buy, what to build, in what order — scored against current-generation agents and tooling.
+      what to buy, what to build, in what order, scored against current-generation agents and tooling.
       You leave with a written report and a video walkthrough, ranked by time saved and revenue impact.
     </p>
     <p style="margin:0 0 24px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
       The blueprint is yours to keep. Implement it yourself, hand it to anyone you trust, or do it with me.
     </p>
-    <a href="${SITE_URL}/audit" style="display:inline-block;padding:14px 32px;background:${EMAIL_BRAND.brandColor};color:#ffffff;font-size:16px;font-weight:700;text-decoration:none;border-radius:6px;">Start the Roadmap Audit — ${AUDIT_PRICE_LABEL}</a>
+    <a href="${SITE_URL}/audit" style="display:inline-block;padding:14px 32px;background:${EMAIL_BRAND.brandColor};color:#ffffff;font-size:16px;font-weight:700;text-decoration:none;border-radius:6px;">Start the Roadmap Audit, ${AUDIT_PRICE_LABEL}</a>
     <p style="margin:16px 0 0;font-size:13px;color:${EMAIL_BRAND.mutedColor};">
       Launch pricing (normally ${AUDIT_LIST_LABEL}) while the format is new.
     </p>`;
@@ -277,8 +277,7 @@ export function buildProgramInvitationEmail(data: { archetypeName: string }): st
     <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
       If the audit showed you a blueprint worth executing, the AI Self-Sufficiency Program is where it
       gets built. Eight weeks. You ship a launched AI-powered service or brand, with 10–15 coaching
-      sessions and async support the whole way. Most clients are self-sufficient by week 8 —
-      by the time we're done, my job no longer exists.
+      sessions and async support the whole way. Most clients are self-sufficient by week 8, by the time we're done, my job no longer exists.
     </p>
     <p style="margin:0 0 24px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
       If you'd rather talk it through first, book a 15-minute call. No pitch. Just clarity.
@@ -321,7 +320,7 @@ export function buildAuditConfirmationEmail(data: AuditConfirmationEmailData): s
     </p>
     ${archetypeLine}
     <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
-      You asked: "${questionHtml}". Alex will come to the call with a current read on it — specifics, not a generic answer.
+      You asked: "${questionHtml}". Alex will come to the call with a current read on it, specifics, not a generic answer.
     </p>
     ${screener}
     <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
@@ -398,7 +397,7 @@ export function buildIdentityConfirmationEmail(data: IdentityConfirmationEmailDa
       ${scopeLine}
     </p>
     <p style="margin:0;font-size:14px;color:${EMAIL_BRAND.mutedColor};">
-      Questions in the meantime? Reply to this email — it goes straight to Alex.
+      Questions in the meantime? Reply to this email, it goes straight to Alex.
     </p>`;
 
   return buildEmailWrapper({
@@ -434,14 +433,14 @@ export function buildNudgeEmail(data: { name: string; archetypeName: string }): 
   const nameHtml = escapeHtml(data.name);
   const bodyHtml = `
     <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
-      ${nameHtml} — you submitted your AI Roadmap Audit briefing a few days ago and the calendar is still open.
+      ${nameHtml}, you submitted your AI Roadmap Audit briefing a few days ago and the calendar is still open.
     </p>
     <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:${EMAIL_BRAND.textColor};">
-      No pressure either way. If the timing changed, no action needed — this is the only reminder you'll get. If you're still in, grab a slot that works:
+      No pressure either way. If the timing changed, no action needed, this is the only reminder you'll get. If you're still in, grab a slot that works:
     </p>
     <a href="${EMAIL_BRAND.calendarUrl}" style="display:inline-block;padding:14px 32px;background:${EMAIL_BRAND.brandColor};color:#ffffff;font-size:16px;font-weight:700;text-decoration:none;border-radius:6px;">Book the 15-minute fit call</a>
     <p style="margin:16px 0 0;font-size:14px;color:${EMAIL_BRAND.mutedColor};">
-      Your briefing and answers are saved — nothing to redo. (${escapeHtml(data.archetypeName)} profile)
+      Your briefing and answers are saved, nothing to redo. (${escapeHtml(data.archetypeName)} profile)
     </p>`;
 
   return buildEmailWrapper({

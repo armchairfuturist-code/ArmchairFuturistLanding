@@ -1,5 +1,5 @@
 /**
- * ROI Calculator — deep module.
+ * ROI Calculator, deep module.
  * Pure assumptions + projection. Section is a thin UI adapter.
  */
 
@@ -85,7 +85,7 @@ export const ROI_DEFAULTS = {
 
 /**
  * Project time savings from selected automation tasks.
- * Pure — no React, no DOM. Safe to unit test.
+ * Pure, no React, no DOM. Safe to unit test.
  */
 export function calculateROI(input: ROIInput): ROIProjection {
   const catalog = input.catalog ?? COMMON_AUTOMATIONS;

@@ -13,7 +13,7 @@ import { archetypes } from "@/lib/assessment/archetypes";
 
 /**
  * Thin adapter over the Assessment Flow module.
- * Presentation only — phase/answers/scoring live in useAssessmentFlow.
+ * Presentation only, phase/answers/scoring live in useAssessmentFlow.
  */
 export default function AssessmentPage() {
   const flow = useAssessmentFlow();

@@ -11,7 +11,7 @@ import { ArrowRight, ArrowUpRight, CheckCircle2, Linkedin, MessageSquareQuote, T
 const siteUrl = 'https://thearmchairfuturist.com';
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'About Alex Myers — AI Consultant & Instructor',
+  title: 'About Alex Myers | AI Consultant & Instructor',
   description: 'Alex Myers is an AI consultant who teaches you to design, launch, and sell your own AI services. 6 certifications and 40+ AI systems deployed.',
   alternates: {
     canonical: '/about',
@@ -98,7 +98,7 @@ const inTheRoom = [
   {
     src: "/session-table.jpg",
     alt: "Alex working through a build session with a client at a table",
-    caption: "1-on-1 build session — turning a stuck workflow into a working system",
+    caption: "1-on-1 build session: turning a stuck workflow into a working system",
   },
   {
     src: "/session-room.jpg",
@@ -108,22 +108,22 @@ const inTheRoom = [
   {
     src: "/session-workshop.jpg",
     alt: "Alex running a hands-on AI workshop",
-    caption: "Hands-on workshop — everyone leaves with something running",
+    caption: "Hands-on workshop: everyone leaves with something running",
   },
   {
     src: "/marketing3.jpeg",
     alt: "Alex presenting at Sunsetpreneurs on AI strategy",
-    caption: "Sunsetpreneurs — AI strategy for founders",
+    caption: "Sunsetpreneurs: AI strategy for founders",
   },
   {
     src: "/marketing4.jpeg",
     alt: "Alex leading a session at Startup Braga on AI adoption",
-    caption: "Startup Braga — AI adoption, room by room",
+    caption: "Startup Braga: AI adoption, room by room",
   },
   {
     src: "/marketing1.webp",
     alt: "Alex working with a group on AI strategy",
-    caption: "Group strategy session — ending in a decision, not a deck",
+    caption: "Group strategy session: ending in a decision, not a deck",
   },
 ];
 
@@ -150,7 +150,6 @@ export default function AboutPage() {
 
             <BlurFade inView delay={0.2}>
               <div>
-                <p className="text-xs text-muted-foreground font-mono mb-2">About Alex Myers</p>
                 <h1 className="font-heading text-4xl md:text-5xl font-bold text-primary mb-6">
                   AI Guide
                 </h1>
@@ -263,20 +262,17 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* In the room — every photo of Alex working lives here, nowhere else */}
+      {/* In the room, every photo of Alex working lives here, nowhere else */}
       <section className="border-y border-border/60 bg-[#f3f3f3] py-20 md:py-28">
         <div className="container mx-auto max-w-5xl px-4 md:px-6">
           <div className="mb-8 grid items-end gap-6 md:grid-cols-12">
             <div className="md:col-span-7">
-              <p className="mb-3 font-mono text-[12px] uppercase tracking-[0.35em] text-hp-electric">
-                The work, not the deck
-              </p>
               <h2 className="font-display text-3xl font-medium text-ink md:text-4xl">
                 In the room
               </h2>
             </div>
             <p className="text-charcoal md:col-span-5 md:text-right">
-              Workshops, strategy sessions, and build sprints — the work looks like this.
+              Workshops, strategy sessions, and build sprints are the work. This is what it looks like.
             </p>
           </div>
 
@@ -286,15 +282,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* The career, in one paragraph — then the two places worth going next */}
+      {/* The career, in one paragraph, then the two places worth going next */}
       <section className="bg-secondary py-16 md:py-24">
         <div className="container mx-auto max-w-5xl px-4 md:px-6">
           <BlurFade inView>
             <div className="grid items-start gap-10 md:grid-cols-12">
               <div className="md:col-span-6">
-                <p className="mb-3 font-mono text-[12px] uppercase tracking-[0.35em] text-hp-electric">
-                  The short version
-                </p>
                 <h2 className="font-display text-3xl font-medium text-ink md:text-4xl">
                   Certified across futures, change, and generative AI.
                 </h2>
@@ -323,7 +316,7 @@ export default function AboutPage() {
                       />
                     </span>
                     <span className="mt-1 block text-sm leading-relaxed text-charcoal">
-                      Client wins, objections, and the messy middle of adoption — posted
+                      Client wins, objections, and the messy middle of adoption: posted
                       as they happen, not polished into case studies.
                     </span>
                   </span>
@@ -343,7 +336,7 @@ export default function AboutPage() {
                       />
                     </span>
                     <span className="mt-1 block text-sm leading-relaxed text-charcoal">
-                      Every client quote, at full length — including the parts too long
+                      Every client quote, at full length, including the parts too long
                       for a homepage.
                     </span>
                   </span>

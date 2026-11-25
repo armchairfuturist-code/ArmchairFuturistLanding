@@ -24,7 +24,7 @@ export default function QuizProgress({ current, total }: QuizProgressProps) {
       <div className="h-1.5 w-full rounded-hp-lg bg-hp-electric/10 overflow-hidden">
         {/* scaleX on a full-width bar, not width: the inner must be w-full or
             the scale no longer maps to the percentage. width is a layout
-            property — it re-runs layout every frame of the 400ms. */}
+            property, it re-runs layout every frame of the 400ms. */}
         <motion.div
           className="h-full w-full origin-left rounded-hp-lg bg-hp-electric"
           initial={{ scaleX: 0 }}

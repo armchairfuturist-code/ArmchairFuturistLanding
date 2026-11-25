@@ -10,7 +10,7 @@
  *
  * Sampling keeps the hot path cheap: one D1 write per ten requests. At the
  * 50k-warning threshold the sampled count is ~5,000, so the estimate's
- * relative error is about 1.4% — plenty for a heads-up.
+ * relative error is about 1.4%, plenty for a heads-up.
  */
 
 export const FREE_REQUEST_LIMIT = 100_000;

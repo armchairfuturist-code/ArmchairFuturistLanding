@@ -114,7 +114,7 @@ export default function PilotItisPage() {
         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
           <BlurFade inView>
             <div className="mb-4">
-              <span className="text-xs text-muted-foreground font-mono uppercase tracking-widest">
+              <span className="text-xs text-muted-foreground font-mono ">
                 Core Concept
               </span>
             </div>
@@ -140,7 +140,7 @@ export default function PilotItisPage() {
 <section className="py-8 bg-background">
           <div className="container mx-auto px-4 md:px-6 max-w-4xl">
             <div className="rounded-xl border-2 border-hp-electric bg-surface p-5">
-              <span className="font-mono text-[12px] uppercase tracking-widest text-hp-electric mb-2 block">Quick Answer</span>
+              <span className="font-mono text-sm  text-hp-electric mb-2 block">Quick Answer</span>
               <p className="text-ink text-base md:text-lg leading-relaxed">
                 67% of AI pilots never reach production because they are designed to minimize risk while
                 production is designed to maximize reliability. The cure: name the production owner before

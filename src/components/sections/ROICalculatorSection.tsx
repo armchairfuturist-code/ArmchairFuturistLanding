@@ -21,15 +21,14 @@ import {
  */
 export default function ROICalculatorSection() {
   const [selected, setSelected] = useState<Set<string>>(new Set());
-  // ROI_DEFAULTS is `as const`, so minTeamSize is the literal type 1 —
-  // annotate explicitly or the setter refuses any other number.
+  // ROI_DEFAULTS is `as const`, so minTeamSize is the literal type 1, // annotate explicitly or the setter refuses any other number.
   const [teamSize, setTeamSize] = useState<number>(ROI_DEFAULTS.minTeamSize);
   // The field is controlled by a string, not by `teamSize`. Binding it
   // straight to the number makes it impossible to clear the box to retype,
   // because every keystroke is clamped to a valid minimum and pushed back.
   const [teamSizeText, setTeamSizeText] = useState(String(ROI_DEFAULTS.minTeamSize));
 
-  /** Apply a numeric team size everywhere at once — value and the field. */
+  /** Apply a numeric team size everywhere at once, value and the field. */
   const applyTeamSize = (next: number) => {
     const clamped = clampTeamSize(next);
     setTeamSize(clamped);
@@ -61,7 +60,7 @@ export default function ROICalculatorSection() {
         <BlurFade inView>
           <div className="mb-12 grid md:grid-cols-12 gap-6 items-end">
             <div className="md:col-span-7">
-              <p className="font-mono text-[12px] uppercase tracking-[0.35em] text-hp-electric mb-4">
+              <p className="font-mono text-sm  text-hp-electric mb-4">
                 Time savings estimator
               </p>
               <h2 className="font-display text-display font-medium text-ink">
@@ -175,7 +174,7 @@ export default function ROICalculatorSection() {
                     aria-label="Team size"
                     onChange={(e) => {
                       const raw = e.target.value;
-                      // Show exactly what was typed while typing — clamping
+                      // Show exactly what was typed while typing, clamping
                       // here would fight the cursor mid-edit.
                       setTeamSizeText(raw);
                       const n = Number(raw);
@@ -184,8 +183,7 @@ export default function ROICalculatorSection() {
                       }
                     }}
                     // Normalise on the way out. A cleared field restores the
-                    // last valid size rather than snapping to the minimum —
-                    // losing your 7 to a stray backspace is worse than the
+                    // last valid size rather than snapping to the minimum, // losing your 7 to a stray backspace is worse than the
                     // field looking momentarily blank.
                     onBlur={() => applyTeamSize(teamSize)}
                     className="w-16 text-2xl font-medium text-hp-electric text-center tabular-nums bg-transparent border-b border-hp-electric/30 focus:border-hp-electric focus:outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"

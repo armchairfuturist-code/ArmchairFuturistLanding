@@ -186,7 +186,7 @@ export function canTransitionIn<TStatus extends string>(
   from: TStatus,
   to: TStatus,
 ): boolean {
-  // An unknown `from` has no row in the table — a status written by an older
+  // An unknown `from` has no row in the table, a status written by an older
   // deploy, or a typo. Treat that as an illegal move, not a crash: this is
   // now called from a request handler, where a TypeError would be a 500.
   const allowed: readonly TStatus[] | undefined = table[from];

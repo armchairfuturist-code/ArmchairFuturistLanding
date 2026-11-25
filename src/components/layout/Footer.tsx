@@ -14,7 +14,7 @@ export default function Footer() {
       </div>
       <div className="container mx-auto px-4 md:px-6 max-w-screen-2xl">
         <div className="flex flex-col items-center justify-between gap-8 py-12 md:flex-row md:py-12">
-          {/* Left — brand + links */}
+          {/* Left, brand + links */}
           <div className="flex flex-col items-center gap-4 md:items-start">
             <p className="text-center text-sm text-white/70 md:text-left font-body">
               © {new Date().getFullYear()} Alex Myers Consulting LLC. Based in
@@ -90,7 +90,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Right — CTAs + social */}
+          {/* Right, CTAs + social */}
           <div className="flex flex-col items-center gap-3 md:items-end">
             <BookCallButton
               location="footer"

@@ -38,7 +38,7 @@ export default function AiConsultantVsAgencyPage() {
         />
 
         <header className="mt-6 mb-10">
-          <p className="font-mono text-[12px] uppercase tracking-[0.35em] text-hp-electric mb-3">
+          <p className="font-mono text-sm  text-hp-electric mb-3">
             Buyer Guide · 2026
           </p>
           <h1 className="font-heading text-display font-medium text-ink mb-4">
@@ -51,7 +51,7 @@ export default function AiConsultantVsAgencyPage() {
           aria-label="Quick answer"
           className="mb-10 rounded-xl border border-hp-electric/30 bg-surface p-6"
         >
-          <p className="font-mono text-xs uppercase tracking-widest text-hp-electric mb-2">
+          <p className="font-mono text-xs  text-hp-electric mb-2">
             Quick Answer
           </p>
           <p className="text-ink text-base md:text-lg leading-relaxed">
@@ -112,10 +112,10 @@ export default function AiConsultantVsAgencyPage() {
             self-sufficient.
           </p>
           <p>
-            Across 40+ deployments, most small teams carry 30%+ wasted AI spend—paying frontier
+            Across 40+ deployments, most small teams carry 30%+ wasted AI spend: paying frontier
             model prices for unfinished thoughts or running automations on messy folders. Fixing
-            the foundation first—planning on a strong model and routing execution to fast,
-            inexpensive models—delivers results in 4–6 weeks without a permanent vendor bill.
+            the foundation first (planning on a strong model and routing execution to fast,
+            inexpensive models) delivers results in 4–6 weeks without a permanent vendor bill.
           </p>
         </section>
 

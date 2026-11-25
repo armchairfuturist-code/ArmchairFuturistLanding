@@ -33,7 +33,7 @@ function AssessmentResultContent() {
   );
   const archetype = getArchetypeBySlug(scores.archetypeSlug);
 
-  // Canonicalize URL when session data disagrees with path — navigate only.
+  // Canonicalize URL when session data disagrees with path, navigate only.
   useEffect(() => {
     if (scores.archetypeSlug === slug) return;
     router.replace(buildResultPath(scores.archetypeSlug, scores));

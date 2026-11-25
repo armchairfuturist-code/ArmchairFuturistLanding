@@ -30,10 +30,10 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full bg-ink text-white">
       {/* Merged PlayStation + USVC navigation */}
-      {/* Black backdrop at every scroll position — PlayStation convention */}
+      {/* Black backdrop at every scroll position, PlayStation convention */}
       <div className="bg-ink border-b border-[#b2d5ff]/10">
         <div className="container max-w-screen-2xl mx-auto px-4 h-16 flex items-center justify-between">
-          {/* Logo — left-aligned (USVC-style) */}
+          {/* Logo, left-aligned (USVC-style) */}
           <Link href="/" className="flex min-h-[44px] items-center space-x-3">
             <Image
               src="/img.jpg"
@@ -47,7 +47,7 @@ export default function Header() {
             </span>
           </Link>
 
-          {/* Nav links — center (USVC-style layout). /services carries a
+          {/* Nav links, center (USVC-style layout). /services carries a
               second nav for the breadcrumb, so this one needs a name or a
               screen reader announces two anonymous "navigation" landmarks. */}
           <nav aria-label="Primary" className="hidden lg:flex items-center gap-8">
@@ -62,7 +62,7 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* CTAs — right-aligned (USVC-style).
+          {/* CTAs, right-aligned (USVC-style).
               WhatsApp is the labelled primary; booking is a visible secondary.
               It cannot use variant="outline" here: that variant is
               `bg-transparent text-ink`, which is near-black text on this
@@ -88,7 +88,7 @@ export default function Header() {
             </BookCallButton>
           </div>
 
-          {/* Mobile — compact CTAs always visible, plus hamburger for nav */}
+          {/* Mobile, compact CTAs always visible, plus hamburger for nav */}
           <div className="lg:hidden flex items-center gap-1">
             <WhatsAppButton
               location="header_mobile_compact"

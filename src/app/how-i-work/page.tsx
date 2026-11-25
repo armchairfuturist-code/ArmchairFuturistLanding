@@ -29,7 +29,7 @@ export default function HowIWorkPage() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'Article',
-            headline: 'How I Work — Agent Infrastructure & Methodology',
+            headline: 'How I Work | Agent Infrastructure & Methodology',
             image: 'https://thearmchairfuturist.com/og-card.png',
             description:
               'The agent infrastructure behind The Armchair Futurist: Hermes v0.19, DeepSeek V4 Pro/Flash, cron automation, plain-text memory, and guardrails that keep autonomous work honest.',

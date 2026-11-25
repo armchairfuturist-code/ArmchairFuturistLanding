@@ -55,7 +55,7 @@ export default function EmailCapture({
       <BlurFade inView delay={0.2}>
         <h2
           /* The quiz's last answer swaps this screen in, which drops focus to
-             <body> — so a keyboard visitor loses their place at the step that
+             <body>, so a keyboard visitor loses their place at the step that
              decides whether they get their results. Focus the heading on
              mount. */
           ref={(el) => { el?.focus(); }}
@@ -76,7 +76,7 @@ export default function EmailCapture({
       {isSuccess ? (
         <BlurFade inView>
           <div className="p-4 rounded-hp-lg bg-hp-electric/10 border border-hp-electric/20 text-hp-electric text-sm font-medium">
-            Check your inbox — results on the way.
+            Check your inbox. Results are on the way.
           </div>
         </BlurFade>
       ) : (
@@ -141,7 +141,7 @@ export default function EmailCapture({
             onClick={onSkip}
             className="mt-4 inline-flex items-center min-h-11 text-xs text-graphite hover:text-ink transition-[color,transform] duration-150 active:scale-[0.97] underline-offset-2 hover:underline"
           >
-            Skip — show results without email
+            Skip and show results without email
           </button>
         </BlurFade>
       )}

@@ -29,7 +29,7 @@ function signatureFor(issuedAt: number, secret: string): string {
  * Builds a session token of the form `<issuedAt>.<hmac>`.
  *
  * The issue time is inside the signed payload and is verified on every
- * request. The previous token was a constant — HMAC(secret, password) — so it
+ * request. The previous token was a constant, HMAC(secret, password), so it
  * never expired on the server, and a cookie copied today still worked months
  * later. The cookie's `maxAge` is only a hint to the browser and cannot be
  * relied on for this.

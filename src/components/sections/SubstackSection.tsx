@@ -71,7 +71,7 @@ export default function SubstackSection({
   return (
     <section className="py-16 md:py-24 bg-canvas scroll-mt-20">
       <div className="max-w-6xl mx-auto px-4 md:px-6">
-        {/* Section header — mono kicker on the HP pattern, not a pill badge */}
+        {/* Section header, mono kicker on the HP pattern, not a pill badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -88,7 +88,7 @@ export default function SubstackSection({
           </p>
         </motion.div>
 
-        {/* Subscribe CTA — the one signal color action */}
+        {/* Subscribe CTA, the one signal color action */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -96,7 +96,7 @@ export default function SubstackSection({
           transition={{ duration: 0.4, delay: 0.1 }}
           className="flex justify-center mb-14"
         >
-          {/* Magnetic tilt leans in under the cursor — fine pointers only,
+          {/* Magnetic tilt leans in under the cursor, fine pointers only,
               and skipped entirely under prefers-reduced-motion. */}
           <Button asChild size="lg" className="gap-2">
             <a href={`${SUBSTACK_URL}/subscribe`} target="_blank" rel="noopener noreferrer">
@@ -189,7 +189,7 @@ export default function SubstackSection({
                         ) : null}
                       </div>
                       <div className="p-4">
-                        <p className="font-mono text-[12px] uppercase tracking-[0.16em] text-graphite mb-2">
+                        <p className="font-mono text-sm  text-graphite mb-2">
                           {formatDate(post.pubDate)}
                         </p>
                         <h4 className="font-medium text-base leading-snug text-ink group-hover:text-hp-electric transition-colors line-clamp-2">

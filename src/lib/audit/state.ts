@@ -4,8 +4,8 @@
  * next-action shape) live in the shared paid-case engine.
  *
  * Pure: no Firestore, no clocks except the optional `nowIso` argument to
- * `nextAction`. The machine answers ONE question — "what is the single
- * highest-impact next move for this case?" — so any driver (Alex, an
+ * `nextAction`. The machine answers ONE question, "what is the single
+ * highest-impact next move for this case?", so any driver (Alex, an
  * admin page, or a cron agent) gets the same answer for the same data.
  *
  * Legal transitions live in one map; `nextAction` never invents state.
@@ -94,7 +94,7 @@ export interface AuditCaseShape {
   outcome?: { programPitched?: boolean; notes?: string };
 }
 
-/** 3 days in ms — the honest nudge window (no dark-pattern urgency). */
+/** 3 days in ms, the honest nudge window (no dark-pattern urgency). */
 const NUDGE_WINDOW_MS = 3 * 24 * 60 * 60 * 1000;
 
 /**
@@ -109,13 +109,13 @@ export function nextAction(
   switch (c.status) {
     case 'submitted': {
       if (c.booking?.scheduledAt) {
-        return { action: 'prep_call', detail: 'Call scheduled — run the sales-prep prompt on this case before the call.' };
+        return { action: 'prep_call', detail: 'Call scheduled, run the sales-prep prompt on this case before the call.' };
       }
       const created = Date.parse(c.createdAt);
       if (Number.isFinite(created) && nowIso) {
         const age = Date.parse(nowIso) - created;
         if (Number.isFinite(age) && age > NUDGE_WINDOW_MS) {
-          return { action: 'nudge_booking', detail: 'No booking after 3 days — send the day-3 nudge email.' };
+          return { action: 'nudge_booking', detail: 'No booking after 3 days, send the day-3 nudge email.' };
         }
       }
       return { action: 'await_booking', detail: 'The booking link was sent in the confirmation email. Nothing to do until they book or 3 days pass.' };
@@ -123,7 +123,7 @@ export function nextAction(
     case 'nudged':
       // The one nudge has gone out. Honest cadence: no second email, so there
       // is nothing to do until they book or the case is closed.
-      return { action: 'await_booking', detail: 'Day-3 nudge sent. No second email — wait for a booking or close the case.' };
+      return { action: 'await_booking', detail: 'Day-3 nudge sent. No second email, wait for a booking or close the case.' };
     case 'call_booked':
       return { action: 'prep_call', detail: 'Run the sales-prep prompt on this case before the fit call.' };
     case 'call_done':
@@ -131,7 +131,7 @@ export function nextAction(
     case 'payment_sent':
       return { action: 'await_payment', detail: 'Payment link sent. Follow up if unpaid after a few days.' };
     case 'paid':
-      return { action: 'schedule_session', detail: 'Payment received — schedule the 90-minute audit session.' };
+      return { action: 'schedule_session', detail: 'Payment received, schedule the 90-minute audit session.' };
     case 'audited':
       return nextActionAfterAudited(c);
     case 'converted':
@@ -142,7 +142,7 @@ export function nextAction(
 
 function nextActionAfterCallDone(c: AuditCaseShape): NextAction {
   if (c.payment?.status === 'waived' || c.payment?.status === 'paid') {
-    return { action: 'schedule_session', detail: 'Payment handled — schedule the 90-minute audit session.' };
+    return { action: 'schedule_session', detail: 'Payment handled, schedule the 90-minute audit session.' };
   }
   return {
     action: 'send_payment',
@@ -153,6 +153,6 @@ function nextActionAfterCallDone(c: AuditCaseShape): NextAction {
 function nextActionAfterAudited(c: AuditCaseShape): NextAction | null {
   const delivered = c.deliverable?.reportUrl && c.deliverable?.deliveredAt;
   return delivered
-    ? { action: 'convert_or_close', detail: 'Deliverable sent — run the two-path close conversation.' }
+    ? { action: 'convert_or_close', detail: 'Deliverable sent, run the two-path close conversation.' }
     : { action: 'deliver_report', detail: 'Generate the roadmap report and explainer video from the case doc.' };
 }

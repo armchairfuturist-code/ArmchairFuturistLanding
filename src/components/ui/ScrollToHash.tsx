@@ -10,7 +10,7 @@ import { useEffect } from "react";
  * short of the section it named.
  *
  * The correction runs once, after layout has settled, and only when the URL
- * actually carries a hash — an ordinary visit does nothing.
+ * actually carries a hash, an ordinary visit does nothing.
  */
 export default function ScrollToHash() {
   useEffect(() => {
@@ -19,7 +19,7 @@ export default function ScrollToHash() {
 
     /* Sections are skipped with content-visibility while off-screen, so the
        heights above the target are estimates until they render. Scrolling to
-       a deep link then drifts — #roi-calculator landed 436px above the
+       a deep link then drifts, #roi-calculator landed 436px above the
        viewport. Force a full layout for this page load so the anchor has
        real heights to aim at, then align. */
     document.documentElement.dataset.hashNav = "1";

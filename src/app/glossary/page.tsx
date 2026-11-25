@@ -68,7 +68,7 @@ export default function GlossaryPage() {
 
       <section className="bg-secondary py-12 md:py-16">
         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
-          <span className="text-xs text-muted-foreground font-mono uppercase tracking-widest">
+          <span className="text-xs text-muted-foreground font-mono ">
             Reference
           </span>
           <h1 className="font-heading text-4xl md:text-5xl font-bold text-primary mb-6 mt-2">

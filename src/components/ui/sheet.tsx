@@ -32,7 +32,7 @@ SheetOverlay.displayName = SheetPrimitive.Overlay.displayName
 
 const sheetVariants = cva(
   // This sheet is the mobile navigation, so it opens every time a reader
-  // wants to go somewhere — a high-frequency action that does not deserve
+  // wants to go somewhere, a high-frequency action that does not deserve
   // 500ms. Asymmetric: enter settles at 260ms, exit snaps at 180ms, because
   // a dismissal the reader already asked for should feel instant.
   "fixed z-50 gap-4 bg-background p-6 shadow-lg transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-200 data-[state=open]:duration-300",

@@ -8,7 +8,7 @@ import { trackConversion, trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 /**
- * <BookCallButton /> — the single seam between every "Book Free Strategy Call" CTA on the
+ * <BookCallButton />, the single seam between every "Book Free Strategy Call" CTA on the
  * site and the Calendly URL. Encapsulates the URL, the icon, the analytics
  * event, and the visual variant. Sections compose it instead of importing
  * `CALENDAR_URL` directly.
@@ -19,7 +19,7 @@ import { cn } from "@/lib/utils";
  * 9 file edits.
  *
  * After: one component owns the URL, the icon, the tracking, and the styling.
- * Call sites pass only the data that varies — label, location, value, icon.
+ * Call sites pass only the data that varies, label, location, value, icon.
  */
 
 export type BookCallIcon = "calendar" | "calendar-days" | "arrow" | "none";
@@ -30,7 +30,7 @@ export interface BookCallButtonProps
   children?: React.ReactNode;
   /**
    * Logical location on the page. Used as the `location` param on the
-   * `book_call_click` analytics event. Pick something stable — it's the
+   * `book_call_click` analytics event. Pick something stable, it's the
    * dimension you'll segment on later.
    */
   location: string;

@@ -157,7 +157,7 @@ export const AUDIT_PAID_CASE: PaidCaseDefinition<AuditIntakeInput, ReturnType<ty
   persist: (store, payload) => store.saveAuditCase(payload as AuditCaseData),
   confirmation: (input, payload, context) => ({
     to: input.email,
-    subject: "Your audit briefing is in — book the fit call",
+    subject: "Your audit briefing is in, book the fit call",
     html: buildAuditConfirmationEmail({
       name: context.name,
       archetypeName: input.archetype?.name,
@@ -226,7 +226,7 @@ export const IDENTITY_PAID_CASE: PaidCaseDefinition<IdentityIntakeInput, ReturnT
   persist: (store, payload) => store.saveIdentityCase(payload),
   confirmation: (input, _payload, context) => ({
     to: input.email,
-    subject: "Your digital identity intake is in — next steps",
+    subject: "Your digital identity intake is in, next steps",
     html: buildIdentityConfirmationEmail({
       name: context.name,
       headline: cleanField(input.headline, 200),
@@ -238,7 +238,7 @@ export const IDENTITY_PAID_CASE: PaidCaseDefinition<IdentityIntakeInput, ReturnT
     html: buildIdentityLeadNotificationEmail({
       name: context.name,
       email: input.email,
-      // Read the cleaned, length-capped payload — not the raw request. This
+      // Read the cleaned, length-capped payload, not the raw request. This
       // used the raw `input.*` fields, so a 50,000-character notes value was
       // stored as 1,000 characters but emailed in full: a 53,328-character
       // message, and the inbox held text the database did not. Audit already
