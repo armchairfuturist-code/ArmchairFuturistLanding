@@ -37,7 +37,8 @@ export default function SameAgentTwice() {
           .sat .g1 { opacity: .5; }
         }
       `}</style>
-      <svg className="sat w-full h-auto" viewBox="0 0 760 430" role="img">
+      <svg className="sat w-full h-auto" viewBox="0 0 760 430" role="img" aria-labelledby="sat-title">
+        <title id="sat-title">The same AI agent, run two ways: by hand with pasted prompts and nothing logged, or as a saved recipe that runs on a trigger and logs every run.</title>
         {/* lane one: ad-hoc, frontier model for everything */}
         <rect x="8" y="16" width="210" height="132" rx="12" fill="currentColor" fillOpacity=".05" className="text-ink" />
         <text x="26" y="46" fontSize="14" fill="currentColor" className="text-charcoal">Paste CSV, type a prompt,</text>

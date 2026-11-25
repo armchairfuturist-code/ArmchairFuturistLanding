@@ -20,7 +20,7 @@ export default function AuthorByline({ published, updated }: AuthorBylineProps) 
         <Link href="/about" className="text-foreground underline underline-offset-2 hover:text-primary">
           Alex Myers
         </Link>
-        , AI Technical Literacy and Workflow Strategy Consultant. 40+ AI systems
+        , consultant in AI Technical Literacy and Workflow Strategy. 40+ AI systems
         deployed, 6 certifications. Published {published}
         {updated ? `\u00a0\u00b7 Updated ${updated}` : ''}
       </p>

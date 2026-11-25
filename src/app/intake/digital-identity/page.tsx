@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 
 export default function DigitalIdentityIntakePage() {
   return (
-    <main className="min-h-[100dvh] bg-canvas">
+    <main id="main-content" className="min-h-[100dvh] bg-canvas">
       <div className="max-w-2xl mx-auto px-4 md:px-6 py-16 md:py-24">
-        <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-4">
+        <p className="font-mono text-[12px] uppercase tracking-[0.35em] text-hp-electric mb-4">
           Digital Identity Landing Page
         </p>
         <h1 className="font-display text-[clamp(2.25rem,5vw,3.25rem)] font-medium leading-[1.02] text-ink mb-6">

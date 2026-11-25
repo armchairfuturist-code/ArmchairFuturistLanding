@@ -92,7 +92,7 @@ export default function IdentityIntakeForm() {
     );
   }
 
-  const inputCls = "flex w-full rounded-md border border-input bg-transparent px-3 py-2 text-base shadow-xs placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-hp-electric md:text-sm";
+  const inputCls = "flex w-full min-h-[44px] rounded-md border border-input bg-transparent px-3 py-2 text-base shadow-xs placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-hp-electric md:text-sm";
 
   return (
     <form
@@ -191,7 +191,7 @@ export default function IdentityIntakeForm() {
           id="di-resume"
           name="resumeUrl"
           type="url"
-          placeholder="https://..."
+          placeholder="https://…"
           value={values.resumeUrl}
           onChange={(e) => setField("resumeUrl", e.target.value)}
           aria-invalid={!!errors.resumeUrl}

@@ -80,7 +80,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
               itemScope 
               itemType="https://schema.org/ListItem"
             >
-              <ChevronRight className="w-4 h-4 text-muted-foreground/50" />
+              <ChevronRight className="w-4 h-4 text-muted-foreground" />
               {index === items.length - 1 ? (
                 // Last item - current page (not a link)
                 <span className="text-foreground font-medium" itemProp="name">
@@ -90,7 +90,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
                 // Link to parent pages
                 <Link 
                   href={item.href}
-                  className="-my-3 inline-flex min-h-[44px] items-center py-3 hover:text-primary transition-colors"
+                  className="-my-3 inline-flex min-h-[44px] items-center px-2 py-3 hover:text-primary transition-colors"
                   itemProp="item"
                 >
                   <span itemProp="name">{item.label}</span>

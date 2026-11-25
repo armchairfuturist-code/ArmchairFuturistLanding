@@ -28,7 +28,7 @@ export default function AssessmentCtaSection() {
           </div>
           <Button asChild size="lg" className="shrink-0" onClick={() => trackEvent("homepage_assessment_cta")}>
             <Link href="/assessment">
-              Take the free assessment
+              Take the Free Assessment
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </Button>

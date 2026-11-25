@@ -44,7 +44,7 @@ export default function AssessmentPage() {
 
           <BlurFade inView delay={0.35}>
             <p className="text-base text-charcoal font-sans mb-8 max-w-lg mx-auto">
-              No trick questions, no sales pitch baked into the scoring. Just a
+              No trick questions, no sales pitch baked into the scoring. A
               clear read on your AI clarity, readiness, and urgency, with a
               recommendation that matches where you are.
             </p>
@@ -63,13 +63,7 @@ export default function AssessmentPage() {
 
           <BlurFade inView delay={0.5}>
             <p className="mt-4 text-xs text-muted-foreground font-mono">
-              Free. No credit card. Email used only to send your results.
-            </p>
-          </BlurFade>
-
-          <BlurFade inView delay={0.6}>
-            <p className="mt-2 text-xs text-muted-foreground/60 font-mono">
-              No signup required to see results.
+              Free. No account. Results show on screen; an email is optional.
             </p>
           </BlurFade>
 
@@ -105,7 +99,7 @@ export default function AssessmentPage() {
                   <li key={a.slug}>
                     <Link
                       href={`/assessment/result/${a.slug}`}
-                      className="text-primary underline decoration-primary/30 underline-offset-4 hover:decoration-primary"
+                      className="inline-flex min-h-[44px] items-center text-primary underline decoration-primary/30 underline-offset-4 hover:decoration-primary"
                     >
                       {a.name}
                     </Link>

@@ -5,7 +5,7 @@
  *
  * Pure: no Firestore, no clocks except the optional `nowIso` argument to
  * `nextAction`. The machine answers ONE question — "what is the single
- * highest-leverage next move for this case?" — so any driver (Alex, an
+ * highest-impact next move for this case?" — so any driver (Alex, an
  * admin page, or a cron agent) gets the same answer for the same data.
  *
  * Legal transitions live in one map; `nextAction` never invents state.
@@ -98,7 +98,7 @@ export interface AuditCaseShape {
 const NUDGE_WINDOW_MS = 3 * 24 * 60 * 60 * 1000;
 
 /**
- * The single highest-leverage next move for a case, or null when the case
+ * The single highest-impact next move for a case, or null when the case
  * needs nothing (terminal states). This is the one function an agent or a
  * cron asks to drive the pipeline; it never guesses from history.
  */

@@ -118,17 +118,17 @@ export default function ProofSection() {
           <h3 className="font-display text-2xl leading-tight font-medium">Across the work</h3>
           <dl className="mt-6 grid gap-6 md:grid-cols-3 md:gap-8">
             <div>
-              <dt className="text-sm text-white/80">AI systems deployed</dt>
+              <dt className="text-sm text-white/90">AI systems deployed</dt>
               <dd className="mt-2 font-display text-[32px] leading-tight font-medium tabular-nums"><NumberTicker value={40} suffix="+" className="text-white" /></dd>
               <dd className="mt-2 text-sm leading-relaxed text-white/85">From response pipelines to meeting-to-action workflows.</dd>
             </div>
             <div>
-              <dt className="text-sm text-white/80">Weekly hours saved</dt>
+              <dt className="text-sm text-white/90">Weekly hours saved</dt>
               <dd className="mt-2 font-display text-[32px] leading-tight font-medium tabular-nums"><NumberTicker value={5} suffix="+ hours" className="text-white" /></dd>
               <dd className="mt-2 text-sm leading-relaxed text-white/85">Measured on implementation clients after handoff.</dd>
             </div>
             <div>
-              <dt className="text-sm text-white/80">Time to self-sufficiency</dt>
+              <dt className="text-sm text-white/90">Time to self-sufficiency</dt>
               <dd className="mt-2 font-display text-[32px] leading-tight font-medium tabular-nums">8–10 weeks</dd>
               <dd className="mt-2 text-sm leading-relaxed text-white/85">Typical guided program timeline; individual engagements can take longer.</dd>
             </div>

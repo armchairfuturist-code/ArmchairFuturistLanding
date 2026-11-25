@@ -8,7 +8,7 @@ import { trackConversion, trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 /**
- * <BookCallButton /> — the single seam between every "Book a Call" CTA on the
+ * <BookCallButton /> — the single seam between every "Book Free Strategy Call" CTA on the
  * site and the Calendly URL. Encapsulates the URL, the icon, the analytics
  * event, and the visual variant. Sections compose it instead of importing
  * `CALENDAR_URL` directly.
@@ -26,7 +26,7 @@ export type BookCallIcon = "calendar" | "calendar-days" | "arrow" | "none";
 
 export interface BookCallButtonProps
   extends Omit<ButtonProps, "onClick" | "asChild"> {
-  /** Label inside the button. Defaults to "Book a Call". */
+  /** Label inside the button. Defaults to "Book Free Strategy Call". */
   children?: React.ReactNode;
   /**
    * Logical location on the page. Used as the `location` param on the
@@ -115,7 +115,7 @@ export const BookCallButton = React.forwardRef<
   BookCallButtonProps
 >(function BookCallButton(
   {
-    children = "Book a Call",
+    children = "Book Free Strategy Call",
     location,
     value,
     currency = "USD",
@@ -145,7 +145,7 @@ export const BookCallButton = React.forwardRef<
   };
 
   const ariaLabel =
-    typeof children === "string" ? children : "Book a Call";
+    typeof children === "string" ? children : "Book Free Strategy Call";
 
   if (bare) {
     return (

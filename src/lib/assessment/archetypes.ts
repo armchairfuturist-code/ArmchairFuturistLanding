@@ -35,7 +35,7 @@ export const archetypes: Archetype[] = [
       'You need someone who speaks both languages: organizational design and AI logic. Not a vendor pitch. Not another strategy deck. A working session that ends with decisions, not recommendations.',
     ],
     primaryCta: {
-      label: 'Book a Strategy Call',
+      label: 'Book Free Strategy Call',
       href: CALENDAR_URL,
       external: true,
     },
@@ -102,7 +102,7 @@ export const archetypes: Archetype[] = [
     headline: 'You know what you need. You need someone to build it.',
     diagnosis: [
       'You\'ve done the thinking. You have a vision for how AI fits into your work or your business. What\'s missing isn\'t more strategy sessions or another course. It\'s execution capacity: someone who can take your vision and turn it into a specific, working deliverable.',
-      'Maybe it\'s a professional identity that matches where you\'re headed. Maybe it\'s a custom AI workflow that automates the parts of your job that don\'t need you. Either way, you\'re past the exploration phase. You know what you want; you just need the right partner to build it.',
+      'Maybe it\'s a professional identity that matches where you\'re headed. Maybe it\'s a custom AI workflow that automates the parts of your job that don\'t need you. Either way, you\'re past the exploration phase. You know what you want; you need the right partner to build it.',
       'The good news: you\'re the easiest person to help, because you\'ve already done the hard part. You\'ve made the decision. Now it\'s about execution.',
     ],
     primaryCta: {
@@ -140,7 +140,7 @@ export const archetypes: Archetype[] = [
       'This is transformation work, not tool selection. It requires someone who understands group dynamics, organizational inertia, and how to create the conditions where committed action becomes possible.',
     ],
     primaryCta: {
-      label: 'Book a Strategy Call',
+      label: 'Book Free Strategy Call',
       href: CALENDAR_URL,
       external: true,
     },

@@ -38,7 +38,7 @@ export default function AiConsultantVsAgencyPage() {
         />
 
         <header className="mt-6 mb-10">
-          <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-3">
+          <p className="font-mono text-[12px] uppercase tracking-[0.35em] text-hp-electric mb-3">
             Buyer Guide · 2026
           </p>
           <h1 className="font-heading text-display font-medium text-ink mb-4">
@@ -131,7 +131,7 @@ export default function AiConsultantVsAgencyPage() {
           <div className="flex flex-wrap gap-3">
             <Button asChild>
               <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer">
-                Book 15-min Call <ExternalLink className="ml-2 h-4 w-4" />
+                Book Free Strategy Call <ExternalLink className="ml-2 h-4 w-4" />
               </a>
             </Button>
             <Button variant="outline" asChild>

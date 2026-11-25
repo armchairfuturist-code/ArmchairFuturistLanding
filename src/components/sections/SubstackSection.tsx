@@ -83,7 +83,7 @@ export default function SubstackSection({
             Signal, not hype
           </Heading>
           <p className="text-charcoal max-w-xl mx-auto text-sm md:text-base leading-relaxed">
-            Every week I write about how AI behaves inside a working
+            I write about how AI behaves inside a working
             business, with the receipts.
           </p>
         </motion.div>
@@ -189,7 +189,7 @@ export default function SubstackSection({
                         ) : null}
                       </div>
                       <div className="p-4">
-                        <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-graphite mb-2">
+                        <p className="font-mono text-[12px] uppercase tracking-[0.16em] text-graphite mb-2">
                           {formatDate(post.pubDate)}
                         </p>
                         <h4 className="font-medium text-base leading-snug text-ink group-hover:text-hp-electric transition-colors line-clamp-2">

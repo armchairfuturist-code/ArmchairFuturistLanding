@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
 export default function HowIWorkPage() {
   return (
-    <main className="max-w-3xl mx-auto px-6 py-16">
+    <main id="main-content" className="max-w-3xl mx-auto px-6 py-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

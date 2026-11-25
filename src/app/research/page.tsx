@@ -43,7 +43,7 @@ const benchmarks = [
   },
   {
     metric: '14 weeks to 80% team adoption',
-    finding: 'Organizations that profile and empower their top 5% Results Thinkers reach 80% voluntary adoption 3x faster.',
+    finding: 'Organizations that identify and support their top 5% Results Thinkers reach 80% voluntary adoption 3x faster.',
     source: '/concepts/psychology-led-adoption',
   },
   {
@@ -65,7 +65,7 @@ export default function ResearchPage() {
         />
 
         <header className="mt-6 mb-10">
-          <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-3">
+          <p className="font-mono text-[12px] uppercase tracking-[0.35em] text-hp-electric mb-3">
             Original Research · 2022–2026
           </p>
           <h1 className="font-heading text-display font-medium text-ink mb-4">
@@ -146,12 +146,12 @@ export default function ResearchPage() {
           <div className="flex flex-wrap gap-3">
             <Button asChild>
               <Link href="/assessment">
-                Free Assessment <ArrowRight className="ml-2 h-4 w-4" />
+                Take the Free Assessment <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
             <Button variant="outline" asChild>
               <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer">
-                Book 15-min Call <ExternalLink className="ml-2 h-4 w-4" />
+                Book Free Strategy Call <ExternalLink className="ml-2 h-4 w-4" />
               </a>
             </Button>
           </div>

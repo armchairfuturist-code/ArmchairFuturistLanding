@@ -28,5 +28,9 @@ export default function AssessmentLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <main id="main-content" tabIndex={-1} className="focus:outline-none">
+      {children}
+    </main>
+  );
 }

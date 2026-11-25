@@ -123,7 +123,7 @@ const caseStudies = [
 
 export default function CaseStudiesPage() {
   return (
-    <div className="min-h-[100dvh] bg-background">
+    <main id="main-content" className="min-h-[100dvh] bg-background">
       {/* Schema for Case Studies */}
       <script
         type="application/ld+json"
@@ -170,7 +170,7 @@ export default function CaseStudiesPage() {
         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
           <BlurFade inView>
             <div className="mb-4">
-              <span className="text-xs text-muted-foreground/60 font-mono uppercase tracking-widest">
+              <span className="text-xs text-muted-foreground font-mono uppercase tracking-widest">
                 Results & Evidence
               </span>
             </div>
@@ -256,7 +256,7 @@ export default function CaseStudiesPage() {
                       <p className="text-sm text-muted-foreground mb-3">
                         Metrics reflect representative results from client implementations. Contact for detailed case study methodology and reference clients.
                       </p>
-                      <Button asChild variant="outline" size="sm" className="w-full sm:w-auto whitespace-normal sm:whitespace-nowrap">
+                      <Button asChild variant="outline" size="sm" className="w-full sm:w-auto min-h-[44px] whitespace-normal sm:whitespace-nowrap">
                         <Link href="/#services">
                           Discuss Your Implementation
                           <ExternalLink className="ml-2 w-4 h-4" />
@@ -276,7 +276,7 @@ export default function CaseStudiesPage() {
         <div className="container mx-auto px-4 md:px-6 max-w-3xl text-center">
           <BlurFade inView>
             <h2 className="font-heading text-3xl font-bold text-primary mb-4">
-              Ready to Write Your Case Study?
+              Your Case Study Starts With a Call
             </h2>
             <p className="text-lg text-foreground/80 mb-8">
               Book a free 15-minute strategy call. Alex will identify where your AI systems 
@@ -334,8 +334,25 @@ export default function CaseStudiesPage() {
               <p className="text-sm text-muted-foreground">Why 67% of AI pilots never scale to production</p>
             </Link>
           </div>
+          <p className="mt-6 text-sm text-muted-foreground">
+            The research behind this work is on the{" "}
+            <Link
+              href="/research"
+              className="mr-1 underline decoration-primary/30 underline-offset-4 hover:decoration-primary"
+            >
+              research page
+            </Link>
+            , and more client words are on the{" "}
+            <Link
+              href="/testimonials"
+              className="mr-1 underline decoration-primary/30 underline-offset-4 hover:decoration-primary"
+            >
+              testimonials page
+            </Link>
+            .
+          </p>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

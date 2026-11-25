@@ -1,11 +1,11 @@
 {
-  "/": "2026-11-22",
+  "/": "2026-11-23",
   "/about": "2026-11-22",
   "/assessment": "2026-11-22",
   "/assessment/result": "2026-11-12",
   "/audit": "2026-11-22",
-  "/privacy-policy": "2026-11-12",
-  "/terms-of-service": "2026-11-12",
+  "/privacy-policy": "2026-11-22",
+  "/terms-of-service": "2026-11-22",
   "/concepts": "2026-11-22",
   "/concepts/accountability-gap": "2026-11-22",
   "/concepts/the-install-trap": "2026-11-22",
@@ -14,8 +14,8 @@
   "/concepts/human-architect": "2026-11-22",
   "/concepts/pilot-itis": "2026-11-22",
   "/case-studies": "2026-11-22",
-  "/services": "2026-11-22",
+  "/services": "2026-11-23",
   "/speaking": "2026-11-22",
-  "/how-i-work": "2026-11-17",
+  "/how-i-work": "2026-11-22",
   "/blog": "2026-11-22"
 }

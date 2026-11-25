@@ -59,7 +59,7 @@ const TERMS = [
 
 export default function GlossaryPage() {
   return (
-    <main className="min-h-[100dvh] bg-background">
+    <main id="main-content" className="min-h-[100dvh] bg-background">
       <div className="container mx-auto px-4 md:px-6 py-6">
         <Breadcrumbs items={[{ label: 'Glossary', href: '/glossary' }]} />
       </div>
@@ -68,7 +68,7 @@ export default function GlossaryPage() {
 
       <section className="bg-secondary py-12 md:py-16">
         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
-          <span className="text-xs text-muted-foreground/60 font-mono uppercase tracking-widest">
+          <span className="text-xs text-muted-foreground font-mono uppercase tracking-widest">
             Reference
           </span>
           <h1 className="font-heading text-4xl md:text-5xl font-bold text-primary mb-6 mt-2">
@@ -95,7 +95,7 @@ export default function GlossaryPage() {
                   {term.href && (
                     <Link
                       href={term.href}
-                      className="block mt-2 text-sm font-semibold text-primary underline underline-offset-2 hover:text-primary/80"
+                      className="inline-flex min-h-[44px] items-center mt-2 text-sm font-semibold text-primary underline underline-offset-2 hover:text-primary/80"
                     >
                       Read the full definition
                     </Link>

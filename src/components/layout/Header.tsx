@@ -34,7 +34,7 @@ export default function Header() {
       <div className="bg-ink border-b border-[#b2d5ff]/10">
         <div className="container max-w-screen-2xl mx-auto px-4 h-16 flex items-center justify-between">
           {/* Logo — left-aligned (USVC-style) */}
-          <Link href="/" className="flex items-center space-x-3">
+          <Link href="/" className="flex min-h-[44px] items-center space-x-3">
             <Image
               src="/img.jpg"
               alt="Alex Myers"
@@ -74,7 +74,7 @@ export default function Header() {
               href="/assessment"
               className="inline-flex min-h-[44px] items-center text-sm text-white/70 hover:text-hp-bright transition-colors duration-150"
             >
-              Free Assessment
+              Take the Free Assessment
             </Link>
             <WhatsAppButton location="header_desktop" size="default" variant="default">
               Text me
@@ -84,7 +84,7 @@ export default function Header() {
               size="default"
               className="border border-white/30 bg-transparent text-white hover:border-white/60 hover:bg-white/10 hover:text-white"
             >
-              Book a Call
+              Book Free Strategy Call
             </BookCallButton>
           </div>
 
@@ -145,7 +145,7 @@ export default function Header() {
                     href="/assessment"
                     className="inline-flex items-center gap-2 text-sm font-medium text-hp-bright hover:text-white transition-colors mt-2"
                   >
-                    Free AI Assessment
+                    Take the Free Assessment
                   </Link>
                   <a
                     href={WHATSAPP_URL}
@@ -162,7 +162,7 @@ export default function Header() {
                     variant="default"
                     className="w-full mt-2"
                   >
-                    Book a Call
+                    Book Free Strategy Call
                   </BookCallButton>
                 </div>
               </SheetContent>

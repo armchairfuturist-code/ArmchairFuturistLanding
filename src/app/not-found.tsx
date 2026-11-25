@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function NotFound() {
   return (
-    <section className="min-h-[80vh] flex items-center justify-center bg-cloud px-4 py-20">
+    <main id="main-content" className="min-h-[80vh] flex items-center justify-center bg-cloud px-4 py-20">
       <div className="max-w-2xl w-full text-center">
         <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground mb-4">
           404 Error
@@ -27,7 +27,7 @@ export default function NotFound() {
             className="inline-flex items-center justify-center min-h-[48px] px-6 rounded-md bg-primary text-primary-foreground font-bold text-base hover:bg-primary/90 transition-colors"
           >
             <Brain className="mr-2 h-4 w-4" />
-            Take the Free AI Assessment
+            Take the Free Assessment
           </Link>
           <Link
             href="/"
@@ -92,6 +92,6 @@ export default function NotFound() {
           </Link>
         </div>
       </div>
-    </section>
+    </main>
   );
 }

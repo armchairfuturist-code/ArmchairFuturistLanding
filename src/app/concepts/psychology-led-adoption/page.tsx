@@ -105,7 +105,7 @@ const faqItems = [
 
 export default function PsychologyLedAdoptionPage() {
   return (
-    <div className="min-h-[100dvh] bg-background">
+    <main id="main-content" className="min-h-[100dvh] bg-background">
       <LastUpdated date="2026-03-29" />
       <AuthorByline published="2026-03-29" />
       {/* Navigation */}
@@ -128,7 +128,7 @@ export default function PsychologyLedAdoptionPage() {
         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
           <BlurFade inView>
             <div className="mb-4">
-              <span className="text-xs text-muted-foreground/60 font-mono uppercase tracking-widest">
+              <span className="text-xs text-muted-foreground font-mono uppercase tracking-widest">
                 Core Concept
               </span>
             </div>
@@ -144,7 +144,7 @@ export default function PsychologyLedAdoptionPage() {
                 <Link href="/services">Find Your 5%</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="/assessment">Take Free Assessment</Link>
+                <Link href="/assessment">Take the Free Assessment</Link>
               </Button>
             </div>
           </BlurFade>
@@ -320,6 +320,6 @@ export default function PsychologyLedAdoptionPage() {
       />
       {/* FAQPage Schema - answer-first citation block */}
       <ConceptFaq items={faqItems} />
-    </div>
+    </main>
   );
 }

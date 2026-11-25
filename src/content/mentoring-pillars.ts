@@ -16,7 +16,7 @@ export const MENTORING_PILLARS: MentoringPillar[] = [
     icon: "FlaskConical",
     title: "Test it live",
     description:
-      "Then we run it against live work: the bottleneck you arrived with, the workflow eating your week. You watch it hold or break. The next move comes from what just happened.",
+      "Then we run it against live work: the bottleneck you arrived with, the workflow eating your week. You watch it hold or break. The next move comes from what happened.",
   },
   {
     icon: "TrendingUp",

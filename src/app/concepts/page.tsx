@@ -31,7 +31,7 @@ const concepts = CONCEPTS;
 
 export default function ConceptsIndexPage() {
   return (
-    <div className="min-h-[100dvh] bg-background">
+    <main id="main-content" className="min-h-[100dvh] bg-background">
       {/* Schema */}
       <script
         type="application/ld+json"
@@ -64,7 +64,7 @@ export default function ConceptsIndexPage() {
         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
           <BlurFade inView>
             <div className="mb-4">
-              <span className="text-xs text-muted-foreground/60 font-mono uppercase tracking-widest">
+              <span className="text-xs text-muted-foreground font-mono uppercase tracking-widest">
                 Knowledge Base
               </span>
             </div>
@@ -80,7 +80,15 @@ export default function ConceptsIndexPage() {
               <Link href="/glossary" className="mx-1 underline decoration-primary/30 underline-offset-4 hover:decoration-primary">
                 AI adoption glossary
               </Link>
-              if you need the short version first.
+              if you need the short version first. The research behind these
+              frameworks is on the{" "}
+              <Link
+                href="/research"
+                className="mr-1 underline decoration-primary/30 underline-offset-4 hover:decoration-primary"
+              >
+                research page
+              </Link>
+              .
             </p>
           </BlurFade>
         </div>
@@ -132,10 +140,10 @@ export default function ConceptsIndexPage() {
         <div className="container mx-auto px-4 md:px-6 max-w-3xl text-center">
           <BlurFade inView>
             <h2 className="font-heading text-3xl font-bold text-primary mb-4">
-              Ready to Apply These Concepts?
+              Put These Concepts to Work
             </h2>
             <p className="text-lg text-foreground/80 mb-8">
-              Book a free strategy call to discuss how these frameworks apply to your organization.
+              See how these frameworks show up in each service.
             </p>
             <Link
               href="/#services"
@@ -146,6 +154,6 @@ export default function ConceptsIndexPage() {
           </BlurFade>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

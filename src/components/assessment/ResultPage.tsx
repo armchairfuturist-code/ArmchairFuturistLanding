@@ -182,7 +182,7 @@ export default function ResultPage({ archetype, scores }: ResultPageProps) {
               <Compass className="h-5 w-5 text-hp-electric" aria-hidden="true" />
             </span>
             <div className="min-w-0">
-              <p className="font-mono text-[11px] text-hp-electric mb-2">
+              <p className="font-mono text-[12px] text-hp-electric mb-2">
                 Go deeper
               </p>
               <h2 className="roadmap-title font-heading text-lg sm:text-xl md:text-2xl font-bold text-ink mb-2">

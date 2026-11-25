@@ -37,7 +37,7 @@ export default function TestimonialsPage() {
     <main id="main-content" className="flex flex-col bg-background">
       <section className="bg-ink py-16 md:py-24">
         <div className="container mx-auto max-w-5xl px-4 md:px-6">
-          <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric">
+          <p className="mb-3 font-mono text-[12px] uppercase tracking-[0.35em] text-hp-electric">
             In their words
           </p>
           <h1 className="max-w-[24ch] font-display text-4xl font-medium text-white md:text-5xl">

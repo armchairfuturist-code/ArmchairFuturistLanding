@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 
 export default function ServicesHubPage() {
   return (
-    <div className="min-h-[100dvh] bg-background">
+    <main id="main-content" className="min-h-[100dvh] bg-background">
       <div className="container mx-auto px-4 md:px-6 py-6">
         <Breadcrumbs items={[{ label: "Services", href: "/services" }]} />
       </div>
@@ -167,6 +167,6 @@ export default function ServicesHubPage() {
         heading="Frequently asked questions"
         items={SERVICE_HUB_FAQS.map((faq) => ({ name: faq.question, acceptedAnswer: { text: faq.answer } }))}
       />
-    </div>
+    </main>
   );
 }

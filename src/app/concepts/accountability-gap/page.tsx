@@ -53,7 +53,7 @@ const keyPoints = [
   },
   {
     title: 'The Fix',
-    content: 'Assign a Human Architect, someone who bridges AI outputs to business outcomes. Their job isn\'t to use AI; it\'s to ensure AI output connects to decisions, actions, and measurable results. This is the highest-leverage intervention in AI adoption.'
+    content: 'Assign a Human Architect, someone who bridges AI outputs to business outcomes. Their job isn\'t to use AI; it\'s to ensure AI output connects to decisions, actions, and measurable results. This is the highest-impact intervention in AI adoption.'
   }
 ];
 
@@ -92,7 +92,7 @@ const faqItems = [
 
 export default function AccountabilityGapPage() {
   return (
-    <div className="min-h-[100dvh] bg-background">
+    <main id="main-content" className="min-h-[100dvh] bg-background">
       <LastUpdated date="2026-03-29" />
       <AuthorByline published="2026-03-29" />
       {/* Navigation */}
@@ -115,7 +115,7 @@ export default function AccountabilityGapPage() {
         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
           <BlurFade inView>
             <div className="mb-4">
-              <span className="text-xs text-muted-foreground/60 font-mono uppercase tracking-widest">
+              <span className="text-xs text-muted-foreground font-mono uppercase tracking-widest">
                 Core Concept
               </span>
             </div>
@@ -131,7 +131,7 @@ export default function AccountabilityGapPage() {
                 <Link href="/services">See How Alex Bridges This Gap</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="/assessment">Take Free Assessment</Link>
+                <Link href="/assessment">Take the Free Assessment</Link>
               </Button>
             </div>
           </BlurFade>
@@ -141,7 +141,7 @@ export default function AccountabilityGapPage() {
 <section className="py-8 bg-background">
           <div className="container mx-auto px-4 md:px-6 max-w-4xl">
             <div className="rounded-xl border-2 border-hp-electric bg-surface p-5">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-hp-electric mb-2 block">Quick Answer</span>
+              <span className="font-mono text-[12px] uppercase tracking-widest text-hp-electric mb-2 block">Quick Answer</span>
               <p className="text-ink text-base md:text-lg leading-relaxed">
                 The Accountability Gap is the space between what an AI system produces and what a business needs. It opens when companies layer AI onto existing processes without rethinking workflows, incentives, or decision rights — nobody owns the outcome.
               </p>
@@ -247,7 +247,7 @@ export default function AccountabilityGapPage() {
         <div className="container mx-auto px-4 md:px-6 max-w-3xl text-center">
           <BlurFade inView>
             <h2 className="font-heading text-3xl font-bold text-primary mb-4">
-              Ready to Bridge Your Accountability Gap?
+              Bridge Your Accountability Gap
             </h2>
             <p className="text-lg text-foreground/80 mb-8">
               Start with a free 15-minute strategy call. Alex will identify where your AI systems 
@@ -287,6 +287,6 @@ export default function AccountabilityGapPage() {
       />
       {/* FAQPage Schema - answer-first citation block */}
       <ConceptFaq items={faqItems} />
-    </div>
+    </main>
   );
 }

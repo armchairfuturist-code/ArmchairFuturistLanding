@@ -16,7 +16,7 @@ export default function ConceptDeepDive({ depth }: ConceptDeepDiveProps) {
     <>
       {depth.worked && (
         <div className="mt-12 rounded-xl border border-border/60 bg-card p-6 md:p-8">
-          <span className="text-xs text-muted-foreground/60 font-mono uppercase tracking-widest">
+          <span className="text-xs text-muted-foreground font-mono uppercase tracking-widest">
             Worked example
           </span>
           <h2 className="font-heading text-2xl font-bold text-primary mb-5 mt-2">

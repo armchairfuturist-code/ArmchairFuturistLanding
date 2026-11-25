@@ -122,23 +122,27 @@ export default function PhotoCarousel({ photos }: { photos: CarouselPhoto[] }) {
       </div>
 
       <div className="mt-4 flex items-center justify-between gap-4">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1">
           {photos.map((photo, i) => (
+            /* 44px hit box; the visible pill is the span inside it. */
             <button
               key={photo.src}
               type="button"
               onClick={() => go(i)}
               aria-label={`Go to photo ${i + 1}`}
               aria-current={i === index}
-              className={`h-1.5 rounded-full transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hp-electric focus-visible:ring-offset-2 ${
-                i === index
-                  ? "w-8 bg-hp-electric"
-                  : "w-1.5 bg-charcoal/30 hover:bg-charcoal/50"
-              }`}
-            />
+              className="group flex h-11 w-11 shrink-0 items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hp-electric"
+            >
+              <span
+                aria-hidden="true"
+                className={`block h-1.5 rounded-full transition-all duration-300 ease-out ${
+                  i === index ? "w-8 bg-hp-electric" : "w-1.5 bg-charcoal/30 group-hover:bg-charcoal/50"
+                }`}
+              />
+            </button>
           ))}
         </div>
-        <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-charcoal">
+        <p className="font-mono text-[12px] uppercase tracking-[0.25em] text-charcoal">
           <span aria-live="polite">
             {String(index + 1).padStart(2, "0")} / {String(photos.length).padStart(2, "0")}
           </span>

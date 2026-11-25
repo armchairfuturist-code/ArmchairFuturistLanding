@@ -56,7 +56,7 @@ function faqSchema(system: ServiceSystem) {
 /** Shared adapter for the four Service System spoke pages. */
 export default function ServiceSystemPage({ system }: { system: ServiceSystem }) {
   return (
-    <div className="min-h-[100dvh] bg-background">
+    <main id="main-content" className="min-h-[100dvh] bg-background">
       <div className="container mx-auto px-4 md:px-6 py-6">
         <Breadcrumbs
           items={[
@@ -190,6 +190,6 @@ export default function ServiceSystemPage({ system }: { system: ServiceSystem })
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(system)) }}
       />
-    </div>
+    </main>
   );
 }

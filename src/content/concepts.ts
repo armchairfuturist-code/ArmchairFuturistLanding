@@ -111,7 +111,7 @@ export const CONCEPTS: Concept[] = [
     title: "Results Thinkers",
     summary: "The 5% who ask what outcome is needed, not what AI can do.",
     description:
-      'The top 5% who ask "What outcome do I need?" instead of "What can AI do?" Your highest-leverage asset for driving organizational change.',
+      'The top 5% who ask "What outcome do I need?" instead of "What can AI do?" Your highest-impact asset for driving organizational change.',
     icon: BookOpen,
     stats: [
       "5% drive disproportionate success",

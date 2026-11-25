@@ -117,7 +117,7 @@ export default function ConnectSection() {
               onClick={() => trackEvent("connect_book_call_link")}
               className="inline-flex items-center min-h-[44px] py-2 underline underline-offset-4 hover:text-white transition-colors"
             >
-              book a 15-minute call
+              book a free strategy call
             </BookCallButton>{" "}
             and we&apos;ll work out what that step is before you commit to
             anything.
@@ -129,8 +129,8 @@ export default function ConnectSection() {
             className="cursor-pointer list-none inline-flex items-center gap-2 px-2 text-sm font-medium text-white underline underline-offset-4 hover:text-white/85 transition-colors justify-center min-h-[44px] [&::-webkit-details-marker]:hidden"
           >
             Prefer writing? Send a note instead
-            <span className="text-[11px] font-mono uppercase tracking-widest text-white/70 group-open:hidden">Expand</span>
-            <span className="text-[11px] font-mono uppercase tracking-widest text-white/70 hidden group-open:inline">Collapse</span>
+            <span className="text-[12px] font-mono uppercase tracking-widest text-white/90 group-open:hidden">Expand</span>
+            <span className="text-[12px] font-mono uppercase tracking-widest text-white/70 hidden group-open:inline">Collapse</span>
           </summary>
         <motion.div
           className="mt-6 w-full"
@@ -157,7 +157,7 @@ export default function ConnectSection() {
                   Message received.
                 </p>
                 <p className="mt-1.5 text-sm text-white/80">A reply from me, with no pitch attached to it.</p>
-                <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.3em] text-white/80">Received · I reply to every note</p>
+                <p className="mt-4 font-mono text-[12px] uppercase tracking-[0.3em] text-white/80">Received · I reply to every note</p>
               </motion.div>
             ) : (
               <motion.form

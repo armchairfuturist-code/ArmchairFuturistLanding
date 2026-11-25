@@ -43,12 +43,15 @@ export default function SpeakingSection({
         <BlurFade inView>
           <div className="mb-8 md:mb-10 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
             <div>
-              <p className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-3">
+              <p className="inline-flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.35em] text-hp-electric mb-3">
                 <Mic className="h-3.5 w-3.5" aria-hidden="true" />
                 On stage
               </p>
               <Heading className="font-display text-display font-medium text-ink max-w-[26ch]">
-                Also lead rooms that need a decision
+                {headingLevel === "h1"
+                  ? "I lead rooms that need a decision"
+                  : "Also lead rooms that need a decision"
+                }
               </Heading>
             </div>
             <p className="text-charcoal text-base md:text-lg max-w-md md:text-right leading-snug">
@@ -84,7 +87,7 @@ export default function SpeakingSection({
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
               <figcaption className="absolute bottom-0 inset-x-0 z-10 p-4 md:p-5 bg-ink/70">
-                <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-white/90">
+                <span className="font-mono text-[12px] uppercase tracking-[0.25em] text-white/90">
                   {photo.label}
                 </span>
               </figcaption>
@@ -122,12 +125,12 @@ export default function SpeakingSection({
 export function HostBio({ className = "" }: { className?: string }) {
   return (
     <div className={`border border-ink/10 bg-canvas rounded-hp-xl px-5 py-6 md:px-8 md:py-7 ${className}`}>
-      <p className="font-mono text-[11px] text-hp-electric mb-3">
+      <p className="font-mono text-[12px] text-hp-electric mb-3">
         For podcast &amp; event hosts
       </p>
       <p className="text-charcoal text-sm md:text-base leading-relaxed max-w-3xl">
-        Alex Myers is an AI Technical Literacy &amp; Workflow Strategy
-        Consultant and founder of The Armchair Futurist. He has deployed
+        Alex Myers is a consultant in AI Technical Literacy and Workflow
+        Strategy, and the founder of The Armchair Futurist. He has deployed
         40+ AI systems since 2022 and helps professionals build AI skills
         they own instead of rent. Most clients are self-sufficient in 8
         to 10 weeks.

@@ -61,7 +61,7 @@ export default function ROICalculatorSection() {
         <BlurFade inView>
           <div className="mb-12 grid md:grid-cols-12 gap-6 items-end">
             <div className="md:col-span-7">
-              <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric mb-4">
+              <p className="font-mono text-[12px] uppercase tracking-[0.35em] text-hp-electric mb-4">
                 Time savings estimator
               </p>
               <h2 className="font-display text-display font-medium text-ink">

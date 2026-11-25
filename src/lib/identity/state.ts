@@ -63,7 +63,7 @@ export interface IdentityCaseShape {
 }
 
 /**
- * The single highest-leverage next move for an identity case, or null when
+ * The single highest-impact next move for an identity case, or null when
  * the case needs nothing.
  */
 export function nextAction(

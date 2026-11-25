@@ -63,18 +63,23 @@ function Field({
   helper,
   htmlFor,
   error,
+  optional = false,
   children,
 }: {
   label: string;
   helper?: string;
   htmlFor: string;
   error?: string | null;
+  /* Said in the label, not only the helper: "can I skip this?" is asked
+     before the helper is read. */
+  optional?: boolean;
   children: React.ReactNode;
 }) {
   return (
     <div>
       <label htmlFor={htmlFor} className="block text-sm font-medium text-ink mb-1">
         {label}
+        {optional && <span className="font-normal text-graphite"> (optional)</span>}
       </label>
       {helper && <p className="text-base text-graphite font-sans mb-2">{helper}</p>}
       {children}
@@ -209,7 +214,6 @@ export default function AuditIntakeForm() {
             name="name"
             value={values.name}
             onChange={(e) => setField("name", e.target.value)}
-            placeholder="Your name"
             aria-invalid={!!errors.name}
             autoComplete="name"
           />
@@ -369,7 +373,8 @@ export default function AuditIntakeForm() {
 
       <Field
         label="What have you tried that didn't stick?"
-        helper="Optional. Courses, tools, consultants."
+        optional
+        helper="Courses, tools, consultants."
         htmlFor="audit-triedFailed"
         error={errors.triedFailed}
       >

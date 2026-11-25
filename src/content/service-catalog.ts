@@ -92,7 +92,7 @@ export const SERVICE_PATHS: ServicePath[] = [
           "Personal brand & service framework",
           "Lifetime alumni access",
         ],
-        cta: "Book a Fit Call",
+        cta: "Book Free Strategy Call",
         ctaLink: CALENDAR_URL,
         highlighted: true,
         icon: "Target",
@@ -232,7 +232,7 @@ export const SERVICE_SYSTEMS: readonly ServiceSystem[] = [
       },
     ],
     keep:
-      "Repo, pipeline configs, vector store, access keys, 2-page runbook. Running cost is typically $20–80 per month plus model use. One named owner and one hour per week keeps it clean.",
+      "Repo, pipeline configs, vector store, access keys, 2-page runbook. Running cost runs $20–80 per month plus model use. One named owner and one hour per week keeps it clean.",
     notFor: [
       "No one can own it. The system needs one named owner and one hour a week.",
       "You want a migration project. This wires the tools you already have.",
@@ -457,7 +457,7 @@ export const SERVICE_HUB_FAQS: readonly ServiceFaq[] = [
   },
   {
     question: "What does it cost to run?",
-    answer: "Typically $20–80 per month in infra plus model use. Builds reuse your data layer to cut seat spend.",
+    answer: "Expect $20–80 per month in infra plus model use. Builds reuse your data layer to cut seat spend.",
   },
 ];
 
@@ -467,7 +467,7 @@ export const SERVICE_HUB_HERO = {
     "I install the system with you. You run it after. Every build starts with the ROI Blueprint. You keep the code, the docs, and the keys.",
   support:
     "Four build groups. One starting audit. Team training closes every handoff, so logins turn into daily use.",
-  assessmentCta: "Take Free Assessment",
+  assessmentCta: "Take the Free Assessment",
 } as const;
 
 export const SERVICE_HUB_STATS = {

@@ -196,7 +196,7 @@ const faqItems = [
     "name": "Why do capable people get so little from AI tools?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Because the interface is easy, people assume the work is easy. They do not know that context is finite, that models differ in price by more than 30,000 times, that reasoning effort has a cost curve, or that a desktop harness can touch files a web chat cannot see. So they rewrite the same request, get plausible but wrong output, and conclude the tool does not work. Workday found a third of users lose at least half their time savings to rework."
+      "text": "The interface hides the work. People do not know that context is finite, that models differ in price by more than 30,000 times, that reasoning effort has a cost curve, or that a desktop harness can touch files a web chat cannot see. So they rewrite the same request, get plausible but wrong output, and conclude the tool does not work. Workday found a third of users lose at least half their time savings to rework."
     }
   },
   {
@@ -211,7 +211,7 @@ const faqItems = [
 
 export default function TheLastMilePage() {
   return (
-    <div className="min-h-[100dvh] bg-background">
+    <main id="main-content" className="min-h-[100dvh] bg-background">
       <LastUpdated date="2026-10-31" />
 
       {/* Navigation */}
@@ -249,7 +249,7 @@ export default function TheLastMilePage() {
                   <Link href="/services">Learn the last mile</Link>
                 </Button>
                 <Button asChild variant="outline" size="lg">
-                  <Link href="/assessment">Take Free Assessment</Link>
+                  <Link href="/assessment">Take the Free Assessment</Link>
                 </Button>
               </div>
             </BlurFade>
@@ -512,6 +512,6 @@ export default function TheLastMilePage() {
       />
       {/* FAQPage Schema - answer-first citation block */}
       <ConceptFaq items={faqItems} />
-    </div>
+    </main>
   );
 }

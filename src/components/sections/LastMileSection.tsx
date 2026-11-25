@@ -176,7 +176,7 @@ export default function LastMileSection() {
           <div className="max-w-2xl space-y-4 text-base md:text-lg leading-relaxed text-charcoal">
             <p>
               Anyone with a credit card can get a capable agent. That was supposed
-              to be the hard part. It turned out easy.
+              to be the hard part. It is not.
             </p>
             <p>
               The last mile is a skill problem. Most people pay for the

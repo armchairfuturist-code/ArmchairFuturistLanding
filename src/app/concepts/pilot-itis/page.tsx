@@ -93,7 +93,7 @@ const faqItems = [
 
 export default function PilotItisPage() {
   return (
-    <div className="min-h-[100dvh] bg-background">
+    <main id="main-content" className="min-h-[100dvh] bg-background">
       <LastUpdated date="2026-06-14" />
       <AuthorByline published="2026-06-14" />
 
@@ -114,7 +114,7 @@ export default function PilotItisPage() {
         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
           <BlurFade inView>
             <div className="mb-4">
-              <span className="text-xs text-muted-foreground/60 font-mono uppercase tracking-widest">
+              <span className="text-xs text-muted-foreground font-mono uppercase tracking-widest">
                 Core Concept
               </span>
             </div>
@@ -130,7 +130,7 @@ export default function PilotItisPage() {
                 <Link href="/services">Break the Pilot Pattern</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="/assessment">Take Free Assessment</Link>
+                <Link href="/assessment">Take the Free Assessment</Link>
               </Button>
             </div>
           </BlurFade>
@@ -140,7 +140,7 @@ export default function PilotItisPage() {
 <section className="py-8 bg-background">
           <div className="container mx-auto px-4 md:px-6 max-w-4xl">
             <div className="rounded-xl border-2 border-hp-electric bg-surface p-5">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-hp-electric mb-2 block">Quick Answer</span>
+              <span className="font-mono text-[12px] uppercase tracking-widest text-hp-electric mb-2 block">Quick Answer</span>
               <p className="text-ink text-base md:text-lg leading-relaxed">
                 67% of AI pilots never reach production because they are designed to minimize risk while
                 production is designed to maximize reliability. The cure: name the production owner before
@@ -202,7 +202,7 @@ export default function PilotItisPage() {
                 What It&apos;s NOT
               </h3>
               <ul className="space-y-2 text-foreground/80">
-                <li>• A failure of the AI tool: the pilot typically proved the tool works</li>
+                <li>• A failure of the AI tool: the pilot proved the tool works</li>
                 <li>• A budget problem: most stalled pilots had funding; they lacked an owner</li>
                 <li>• A technical integration issue: integration is solvable with the right Human Architect</li>
                 <li>• A unique problem: 67% of organizations hit this same pattern with the same cause</li>
@@ -284,6 +284,6 @@ export default function PilotItisPage() {
       />
       {/* FAQPage Schema - answer-first citation block */}
       <ConceptFaq items={faqItems} />
-    </div>
+    </main>
   );
 }

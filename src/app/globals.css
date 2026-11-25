@@ -82,6 +82,9 @@
      sent boundary taps to the neighbouring link. */
   footer a[href] {
     min-height: 44px;
+    /* Width too: short labels need a 44px box on both axes. */
+    min-width: 44px;
+    justify-content: center;
     display: inline-flex;
     align-items: center;
   }
@@ -157,7 +160,7 @@
 .organism-button--quiet:hover { border-color: rgba(240, 238, 232, .5); }
 .organism-button--price { color: var(--org-paper); border-color: rgba(240, 238, 232, .42); background: rgba(8, 13, 23, .38); }
 .organism-button--price:hover { border-color: var(--org-paper); background: rgba(8, 13, 23, .6); }
-.organism-button--text { min-height: 44px; padding: 0 8px; color: var(--org-muted); font-family: var(--org-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; background: none; }
+.organism-button--text { min-height: 44px; padding: 0 8px; color: var(--org-muted); font-family: var(--org-mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; background: none; }
 
 /* Press feedback. The hero CTAs are the most-repeated interaction on the
    site; without a scale the press reads as nothing happening. */
@@ -279,7 +282,7 @@
   justify-content: center;
   background: rgba(240, 238, 232, .12);
   color: var(--org-muted);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: .04em;
 }
@@ -308,12 +311,13 @@
   align-items: center;
   gap: 6px;
   padding: 7px 12px;
+  min-height: 44px;
   border: 1px solid rgba(240, 238, 232, .28);
   border-radius: 999px;
   background: rgba(8, 13, 23, .72);
   color: var(--org-paper);
   font: inherit;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: .06em;
   text-transform: uppercase;
@@ -522,7 +526,7 @@
 :root body .type-card :is(h2, h3, h4, h5, h6) { font-size: 18px; letter-spacing: -.01em; line-height: 1.3; }
 :root body .type-value { font-family: var(--font-display), "Space Grotesk", system-ui, sans-serif; font-size: 32px; font-weight: 500; line-height: 1.1; }
 :root body :is(button, [data-variant], .organism-button) { font-family: var(--font-body), "Manrope", system-ui, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0; }
-:root body .organism-button--text { font-family: var(--org-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; }
+:root body .organism-button--text { font-family: var(--org-mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; }
 :root body .type-card :is(button, [data-variant]) { font-size: 14px; }
 /* Accordion triggers are headings, not calls to action. */
 :root body :is(h1, h2, h3, h4, h5, h6) > :is(button, [data-variant]) { font: inherit; letter-spacing: inherit; text-wrap: balance; }

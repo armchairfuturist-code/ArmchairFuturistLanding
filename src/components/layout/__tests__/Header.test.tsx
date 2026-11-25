@@ -52,10 +52,10 @@ describe("Header responsive layout", () => {
     // The mobile menu must expose the primary navigation actions
     // (scoped to the dialog so the desktop duplicates are ignored)
     expect(
-      within(dialog).getByRole("link", { name: /free ai assessment/i }),
+      within(dialog).getByRole("link", { name: /free assessment/i }),
     ).toBeInTheDocument();
     expect(
-      within(dialog).getByRole("link", { name: /book a call/i }),
+      within(dialog).getByRole("link", { name: /book free strategy call/i }),
     ).toBeInTheDocument();
   });
 });

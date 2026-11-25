@@ -74,7 +74,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "Who do you work best with, and who isn't a fit?",
     answer:
-      "Best fit: founders, creators, and independents who want AI leverage they own. People who touch the tools themselves. Small teams ready to build their own AI services. Not a fit: enterprises that want presentation theatre. Leaders who want AI 'in theory'. Anyone expecting AI to fix a culture problem. If your team won't touch the tools, I'm not your consultant.",
+      "Best fit: founders, creators, and independents who want AI skills they own. People who touch the tools themselves. Small teams ready to build their own AI services. Not a fit: enterprises that want presentation theatre. Leaders who want AI 'in theory'. Anyone expecting AI to fix a culture problem. If your team won't touch the tools, I'm not your consultant.",
   },
   {
     question: "Do you install AI agents?",
@@ -87,6 +87,6 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "How do I get started?",
     answer:
-      `Three ways, depending on where you are. The Digital Identity Landing Page (${DIGITAL_IDENTITY_LABEL}) requires no call. Just submit the intake. For guidance, browse session packs starting at ${SINGLE_SESSION_LABEL} or apply for the AI Self-Sufficiency Program. For done-for-you builds, request a 30-minute fit call and I'll scope the work.`,
+      `Three ways, depending on where you are. The Digital Identity Landing Page (${DIGITAL_IDENTITY_LABEL}) requires no call. Submit the intake. For guidance, browse session packs starting at ${SINGLE_SESSION_LABEL} or apply for the AI Self-Sufficiency Program. For done-for-you builds, request a 30-minute fit call and I'll scope the work.`,
   },
 ];

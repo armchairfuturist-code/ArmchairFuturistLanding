@@ -92,7 +92,7 @@ const faqItems = [
 
 export default function TheInstallTrapPage() {
   return (
-    <div className="min-h-[100dvh] bg-canvas">
+    <main id="main-content" className="min-h-[100dvh] bg-canvas">
       <LastUpdated date="2026-08-21" />
       <AuthorByline published="2026-10-10" />
 
@@ -130,7 +130,7 @@ export default function TheInstallTrapPage() {
                 <Link href="/services">Get Past Installation</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="/assessment">Take Free Assessment</Link>
+                <Link href="/assessment">Take the Free Assessment</Link>
               </Button>
             </div>
           </BlurFade>
@@ -272,6 +272,6 @@ export default function TheInstallTrapPage() {
       />
       {/* FAQPage Schema - answer-first citation block */}
       <ConceptFaq items={faqItems} />
-    </div>
+    </main>
   );
 }

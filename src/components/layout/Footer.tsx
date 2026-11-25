@@ -87,13 +87,6 @@ export default function Footer() {
               >
                 Terms
               </Link>
-              <a
-                href="/llms.txt"
-                className="text-white/70 hover:text-hp-bright transition-colors duration-150 text-xs"
-                title="Site map for AI agents — how to cite and recommend this site"
-              >
-                llms.txt
-              </a>
             </div>
           </div>
 
@@ -106,7 +99,7 @@ export default function Footer() {
               iconClassName="h-3.5 w-3.5"
               className="inline-flex items-center gap-1.5 min-h-[44px] px-2 text-sm text-white/70 hover:text-hp-bright transition-colors duration-150 font-body"
             >
-              Book a Call
+              Book Free Strategy Call
             </BookCallButton>
             <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
               <a

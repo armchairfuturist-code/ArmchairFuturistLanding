@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import SubstackSection from '@/components/sections/SubstackSection';
 import { fetchSubstackPosts } from '@/lib/substack-feed';
 
@@ -8,13 +9,13 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: 'AI Adoption Blog: Notes From the Last Mile',
   description:
-    'Weekly notes on AI adoption, the last mile between a demo and a system people use, and what changes when a team owns the tooling. Written by Alex Myers.',
+    'Notes on AI adoption, the last mile between a demo and a system people use, and what changes when a team owns the tooling. Written by Alex Myers.',
   alternates: {
     canonical: '/blog',
   },
   openGraph: {
     title: 'AI Adoption Blog | The Armchair Futurist',
-    description: 'Weekly notes on AI adoption and the last mile between a demo and a system people use.',
+    description: 'Notes on AI adoption and the last mile between a demo and a system people use.',
     url: '/blog',
     siteName: 'The Armchair Futurist',
     images: ['/og-card.png'],
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'AI Adoption Blog | The Armchair Futurist',
-    description: 'Weekly notes on AI adoption and the last mile between a demo and a system people use.',
+    description: 'Notes on AI adoption and the last mile between a demo and a system people use.',
   },
 };
 
@@ -39,10 +40,18 @@ export default async function BlogPage() {
             AI adoption, written down while it happens
           </h1>
           <p className="text-charcoal text-base md:text-lg leading-relaxed">
-            Every week I write one note about AI inside a working business: what
-            shipped, what stalled, and the part nobody puts in the launch post.
+            I write about AI inside a working business: what shipped, what
+            stalled, and the part nobody puts in the launch post.
             The archive below is the newsletter itself, published on Substack and
-            listed here so you can read it without an account.
+            listed here so you can read it without an account. One standalone
+            post also lives on this site:{" "}
+            <Link
+              href="/blog/ai-consultant-vs-ai-agency"
+              className="underline decoration-primary/30 underline-offset-4 hover:decoration-primary"
+            >
+              AI Consultant vs AI Agency
+            </Link>
+            .
           </p>
         </div>
       </section>

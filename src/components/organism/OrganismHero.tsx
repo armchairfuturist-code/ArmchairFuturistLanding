@@ -86,7 +86,7 @@ export function OrganismHero() {
             href="/assessment"
             className="organism-button organism-button--quiet"
           >
-            Take the free assessment{" "}
+            Take the Free Assessment{" "}
             <ArrowUpRight size={16} aria-hidden="true" />
           </Link>
         </div>

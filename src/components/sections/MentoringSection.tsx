@@ -233,8 +233,7 @@ export default function MentoringSection() {
 
           <div className="mb-8">
             <p className="text-sm text-charcoal mb-3">
-              Stop whenever the work stops being useful. Rather talk it
-              through first? Book a call and we will pick the size together.
+              Stop whenever the work stops being useful. If you would rather talk it through first, book a free strategy call and we will pick the size together.
             </p>
             <BookCallButton
               size="default"
@@ -242,7 +241,7 @@ export default function MentoringSection() {
               iconClassName="mr-1.5 h-4 w-4"
               location="guidance_clarity_call"
             >
-              Book a Call
+              Book Free Strategy Call
             </BookCallButton>
           </div>
 
@@ -254,10 +253,10 @@ export default function MentoringSection() {
                     Side-by-side feature comparison
                   </p>
                 </div>
-                <span className="text-[11px] font-mono uppercase tracking-widest text-hp-electric group-open:hidden">
+                <span className="text-[12px] font-mono uppercase tracking-widest text-hp-electric group-open:hidden">
                   Expand
                 </span>
-                <span className="text-[11px] font-mono uppercase tracking-widest text-hp-electric hidden group-open:inline">
+                <span className="text-[12px] font-mono uppercase tracking-widest text-hp-electric hidden group-open:inline">
                   Collapse
                 </span>
               </summary>
@@ -267,7 +266,7 @@ export default function MentoringSection() {
                   has to be reachable by keyboard (WCAG 2.1.1), and the
                   overflow has to be signposted or the column is simply
                   invisible on a phone with no cue that it exists. */}
-              <p className="md:hidden px-6 pb-2 text-[11px] font-mono uppercase tracking-widest text-graphite">
+              <p className="md:hidden px-6 pb-2 text-[12px] font-mono uppercase tracking-widest text-graphite">
                 Scroll to compare →
               </p>
               <div
@@ -279,19 +278,19 @@ export default function MentoringSection() {
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="text-left">
-                      <th scope="col" className="px-6 py-3 font-mono text-[11px] uppercase tracking-widest text-graphite">
+                      <th scope="col" className="px-6 py-3 font-mono text-[12px] uppercase tracking-widest text-graphite">
                         What you get
                       </th>
-                      <th scope="col" className="px-4 py-3 font-mono text-[11px] uppercase tracking-widest text-graphite text-center">
+                      <th scope="col" className="px-4 py-3 font-mono text-[12px] uppercase tracking-widest text-graphite text-center">
                         Single
                       </th>
-                      <th scope="col" className="px-4 py-3 font-mono text-[11px] uppercase tracking-widest text-graphite text-center">
+                      <th scope="col" className="px-4 py-3 font-mono text-[12px] uppercase tracking-widest text-graphite text-center">
                         5-pack
                       </th>
-                      <th scope="col" className="px-4 py-3 font-mono text-[11px] uppercase tracking-widest text-graphite text-center">
+                      <th scope="col" className="px-4 py-3 font-mono text-[12px] uppercase tracking-widest text-graphite text-center">
                         10-pack
                       </th>
-                      <th scope="col" className="px-4 py-3 font-mono text-[11px] uppercase tracking-widest text-graphite text-center">
+                      <th scope="col" className="px-4 py-3 font-mono text-[12px] uppercase tracking-widest text-graphite text-center">
                         20-pack
                       </th>
                     </tr>
@@ -368,7 +367,7 @@ export default function MentoringSection() {
                 </table>
               </div>
             <div className="border-t border-ink/10 px-6 py-5 bg-hp-electric/[0.04]">
-              <p className="text-[11px] font-mono uppercase tracking-widest text-hp-electric mb-2">
+              <p className="text-[12px] font-mono uppercase tracking-widest text-hp-electric mb-2">
                 Only in the 8-Week Build Sprint
               </p>
               <p className="text-sm text-charcoal leading-relaxed mb-3">

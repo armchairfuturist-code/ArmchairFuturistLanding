@@ -129,7 +129,7 @@ const inTheRoom = [
 
 export default function AboutPage() {
   return (
-    <div className="min-h-[100dvh] bg-background">
+    <main id="main-content" className="min-h-[100dvh] bg-background">
       {/* Hero Section */}
       <section className="py-16 md:py-24 bg-secondary">
         <div className="container mx-auto px-4 md:px-6">
@@ -150,12 +150,12 @@ export default function AboutPage() {
 
             <BlurFade inView delay={0.2}>
               <div>
-                <p className="text-xs text-muted-foreground/60 font-mono mb-2">About Alex Myers</p>
+                <p className="text-xs text-muted-foreground font-mono mb-2">About Alex Myers</p>
                 <h1 className="font-heading text-4xl md:text-5xl font-bold text-primary mb-6">
                   AI Guide
                 </h1>
                 <p className="text-lg text-foreground/80 font-sans leading-relaxed mb-6">
-                  Alex Myers teaches you to design, launch, and sell your own AI-powered services. No dependency. No retainer. Just understanding so deep you never need another expert.
+                  Alex Myers teaches you to design, launch, and sell your own AI-powered services. No dependency. No retainer. The understanding runs deep enough that you never need another expert.
                 </p>
                 <p className="text-lg text-foreground/80 font-sans leading-relaxed mb-8">
                   Certified Futurist &amp; AI Guide with <strong className="text-primary">6 professional certifications</strong> and <strong className="text-primary">40+ AI systems deployed</strong>. Based in <strong className="text-primary">Portugal</strong>, serving clients <strong className="text-primary">worldwide</strong>.
@@ -268,7 +268,7 @@ export default function AboutPage() {
         <div className="container mx-auto max-w-5xl px-4 md:px-6">
           <div className="mb-8 grid items-end gap-6 md:grid-cols-12">
             <div className="md:col-span-7">
-              <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric">
+              <p className="mb-3 font-mono text-[12px] uppercase tracking-[0.35em] text-hp-electric">
                 The work, not the deck
               </p>
               <h2 className="font-display text-3xl font-medium text-ink md:text-4xl">
@@ -292,7 +292,7 @@ export default function AboutPage() {
           <BlurFade inView>
             <div className="grid items-start gap-10 md:grid-cols-12">
               <div className="md:col-span-6">
-                <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.35em] text-hp-electric">
+                <p className="mb-3 font-mono text-[12px] uppercase tracking-[0.35em] text-hp-electric">
                   The short version
                 </p>
                 <h2 className="font-display text-3xl font-medium text-ink md:text-4xl">
@@ -359,7 +359,7 @@ export default function AboutPage() {
           <BlurFade inView>
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="about-cta-title font-heading text-3xl md:text-4xl font-bold text-primary mb-6">
-                Ready to Bridge Your Accountability Gap?
+                Bring Your AI Adoption Questions
               </h2>
               <p className="text-lg text-foreground/80 font-sans mb-8 max-w-2xl mx-auto">
                 Schedule a free 15-minute strategy call to discuss your AI adoption challenges and opportunities.
@@ -382,7 +382,7 @@ export default function AboutPage() {
                 <Button asChild size="lg" variant="outline" className="h-12 px-8">
                   <a href="/assessment">
                     <Trophy className="mr-2 h-4 w-4" />
-                    Take Free Assessment
+                    Take the Free Assessment
                   </a>
                 </Button>
               </div>
@@ -391,6 +391,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-    </div>
+    </main>
   );
 }

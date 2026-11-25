@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: ['/og-card.png'],
     title: 'Results Thinkers: The 5% Who Lead AI Change',
-    description: 'The top 5% who ask "What outcome do I need?" instead of "What can AI do?" Your highest-leverage asset for change.',
+    description: 'The top 5% who ask "What outcome do I need?" instead of "What can AI do?" Your highest-impact asset for change.',
     url: '/concepts/results-thinkers',
     siteName: 'The Armchair Futurist',
     type: 'article',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Results Thinkers: The 5% Who Lead AI Change',
-    description: 'The top 5% who ask "What outcome do I need?" instead of "What can AI do?" Your highest-leverage asset for change.',
+    description: 'The top 5% who ask "What outcome do I need?" instead of "What can AI do?" Your highest-impact asset for change.',
   },
 };
 
@@ -77,7 +77,7 @@ const faqItems = [
     "name": "Who are Results Thinkers?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Results Thinkers are the top 5% of AI adopters in an organization. They reclaim 15–20 hours per week with AI and drive disproportionate adoption success. Identifying and empowering them is the highest-leverage move in any rollout."
+      "text": "Results Thinkers are the top 5% of AI adopters in an organization. They reclaim 15–20 hours per week with AI and drive disproportionate adoption success. Finding them and giving them room to work is the highest-impact move in any rollout."
     }
   },
   {
@@ -92,7 +92,7 @@ const faqItems = [
 
 export default function ResultsThinkersPage() {
   return (
-    <div className="min-h-[100dvh] bg-background">
+    <main id="main-content" className="min-h-[100dvh] bg-background">
       <LastUpdated date="2026-03-29" />
       <AuthorByline published="2026-03-29" />
       {/* Navigation */}
@@ -115,7 +115,7 @@ export default function ResultsThinkersPage() {
         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
           <BlurFade inView>
             <div className="mb-4">
-              <span className="text-xs text-muted-foreground/60 font-mono uppercase tracking-widest">
+              <span className="text-xs text-muted-foreground font-mono uppercase tracking-widest">
                 Core Concept
               </span>
             </div>
@@ -124,11 +124,11 @@ export default function ResultsThinkersPage() {
             </h1>
             <p className="text-xl text-foreground/80 font-sans leading-relaxed mb-8">
               The top 5% of your organization who naturally embrace uncertainty.
-              Your highest-leverage asset for driving AI adoption, because they don't wait for permission.
+              Your highest-impact asset for driving AI adoption, because they don't wait for permission.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button asChild size="lg">
-                <Link href="/assessment">Am I a Results Thinker?</Link>
+                <Link href="/assessment">Take the Free Assessment</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
                 <Link href="/services">Find Yours</Link>
@@ -319,6 +319,6 @@ export default function ResultsThinkersPage() {
       />
       {/* FAQPage Schema - answer-first citation block */}
       <ConceptFaq items={faqItems} />
-    </div>
+    </main>
   );
 }

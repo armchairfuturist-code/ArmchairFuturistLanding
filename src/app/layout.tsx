@@ -39,7 +39,7 @@ const siteUrl = "https://thearmchairfuturist.com";
 
 const title = "The Armchair Futurist — AI literacy & implementation";
 const description =
-  "Alex Myers, AI Technical Literacy & Workflow Strategy Consultant. 40+ AI systems deployed. 1:1 coaching that makes you self-sufficient in 8–10 weeks.";
+  "Alex Myers, consultant in AI Technical Literacy and Workflow Strategy. 40+ AI systems deployed. 1:1 coaching that makes you self-sufficient in 8–10 weeks.";
 
 // The link preview leads with the hero, not the SEO title: a card that repeats
 // the H1 reads as one idea, where a tagline under a different headline reads as
@@ -116,6 +116,12 @@ export default function RootLayout({
               <TrackingPixels />
               <ScrollProgress />
               <ScrollToHash />
+              <a
+                href="#main-content"
+                className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded focus:bg-background focus:px-4 focus:py-2 focus:text-sm focus:text-foreground focus:outline-none"
+              >
+                Skip to content
+              </a>
               <Header />
               {children}
               <Footer />
