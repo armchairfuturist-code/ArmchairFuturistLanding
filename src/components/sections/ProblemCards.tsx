@@ -15,17 +15,17 @@ import {
 import WhatsAppGlyph from "@/components/ui/WhatsAppGlyph";
 
 /**
- * The two problems a stranger arrives with, named in the words clients used.
+ * Three problems strangers arrive with, named in the words clients used.
  *
  * Why this replaced the testimonial marquee: the marquee sat second on the
  * homepage, so a visitor read praise before knowing what was for sale, and
  * the strip moved, so a reader who lost their place started the same card
- * again. Six quotes is one memory slot. Here each quote sits under the problem
- * it answers, so the same sentence argues instead of decorating.
+ * again. Six quotes is one memory slot. Here each quote sits under the
+ * problem it answers, so the same sentence argues instead of decorating.
  *
- * Proof is still pulled from TESTIMONIALS by name and never typed twice: the
- * quote text and the portrait come from the single source, so a client who
- * rewrites their line updates this section and ProofSection together.
+ * Proof is still pulled from TESTIMONIALS by name and never typed twice:
+ * the quote text and the portrait come from the single source, so a client
+ * who rewrites their line updates this section and ProofSection together.
  */
 
 /** Fail at module load, not mid-render, if a featured name drifts. */
@@ -85,6 +85,23 @@ const CARDS: readonly ProblemCard[] = [
     client: byName("Shannon Myers"),
     excerpt: "He has saved me over $10,000 a year. I save 10 to 20 hours a week now.",
   },
+  {
+    id: "broke",
+    problem: "You broke something. Now nothing comes back right, and you don't know which model to pick.",
+    fixed: "You know what each setting does and how to revert. You pick the model on purpose and can say why.",
+    steps: [
+      "Send me the screen that changed.",
+      "I trace what moved: a setting, a file, or an instruction.",
+      "We put it back to the last version you liked.",
+      "I name the model for each job you do, and the reason.",
+      "You keep the one-page map.",
+    ],
+    terms: `Fix and model map: one session, ${SINGLE_SESSION_LABEL}. Written setup doc: ${AUDIT_PRICE_LABEL}. A build with the right model wired in: ${CUSTOM_PROVISIONING_RANGE_LABEL}.`,
+    client: byName("Maria Fonseca"),
+    // "all this" mirrors Maria's original grammar; we preserve it verbatim.
+    excerpt:
+      "…he was able to explain all this new concepts and tools in a way that even I, a neophyte, could follow … Alex has been very organized and obliging us to focus just on what we really needed.",
+  },
 ];
 
 function Client({ client }: { client: Testimonial }) {
@@ -137,7 +154,7 @@ export default function ProblemCards() {
           </h2>
         </BlurFade>
 
-        <div className="mt-10 grid gap-8 md:grid-cols-2 md:gap-12">
+        <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {CARDS.map((card) => (
             <BlurFade inView key={card.id}>
               <article className="flex h-full flex-col border-t-2 border-hp-electric pt-6">

@@ -1,4 +1,4 @@
-import { PROGRAM_PRICE_LABEL, DIGITAL_IDENTITY_LABEL, CUSTOM_PROVISIONING_RANGE_LABEL, PACK_5_LABEL, SINGLE_SESSION_LABEL } from "@/lib/pricing";
+import { AUDIT_PRICE_LABEL, CUSTOM_PROVISIONING_RANGE_LABEL, DIGITAL_IDENTITY_LABEL, PACK_5_LABEL, PROGRAM_PRICE_LABEL, SINGLE_SESSION_LABEL } from "@/lib/pricing";
 
 /** FAQ Item content, presentation-free. */
 export interface FaqItem {
@@ -142,6 +142,16 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "What does it cost to fix these?",
     answer:
-      "A 20-minute call or a WhatsApp message costs nothing. One session is $120 / €100. The roadmap audit is $297 / €247, with a written plan you keep. A full build runs $1,000 to $5,000 / €850 to €4,250 over one to two weeks.",
+      `A 20-minute call or a WhatsApp message costs nothing. ${SINGLE_SESSION_LABEL}. The roadmap audit is ${AUDIT_PRICE_LABEL}, with a written plan you keep. A full build runs ${CUSTOM_PROVISIONING_RANGE_LABEL} over one to two weeks.`,
+  },
+  {
+    question: "I broke something in my AI. Can it be fixed?",
+    answer:
+      "Usually, yes, because the damage is reversible. A setting can go back, a deleted file can come back from cloud storage, and a bad instruction can be removed. The hard part is knowing what changed. Send me the screen and I trace it back. If it cannot be undone, I tell you before we start.",
+  },
+  {
+    question: "Which AI model should I be using?",
+    answer:
+      "The cheapest one that finishes the job. Small and fast models handle rewording, sorting, and short answers. Long reasoning pays off for planning, code, and maths. Big models warrant their price when the work is hard and the output is checked by you. I map your weekly jobs to models, so you stop guessing.",
   },
 ];
