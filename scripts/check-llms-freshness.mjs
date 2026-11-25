@@ -73,7 +73,10 @@ for (const [key, name] of expectedNames) {
 }
 
 console.log('faq:');
-const faqCount = (faqs.match(/question:/g) || []).length;
+// Count real items only. `/question:/g` also matched the `question: string;`
+// field in the FaqItem interface, so the check was happy with a number one
+// higher than the site actually renders.
+const faqCount = (faqs.match(/^\s+question:\s*["'`]/gm) || []).length;
 const fm = llms.match(/contains (\d+) FAQ items/);
 ok(
   'FAQ count matches',

@@ -1,6 +1,6 @@
 # Ten-second copy and placement plan (v3)
 
-> **Status: shipped.** Built 2026-11-18. Problem cards replaced the marquee, the hero deck and button carry the two lines, the ten researched FAQs are in `src/content/faqs.ts` (FAQ count is 25, not 24), and the pricing rule is a comment in `src/lib/pricing.ts`. Tests: `src/components/sections/__tests__/ProblemCards.test.tsx`.
+> **Status: shipped.** Built 2026-11-18. Problem cards replaced the marquee, the hero deck and button carry the two lines, the ten researched FAQs are in `src/content/faqs.ts` (FAQ count is 24; the freshness script used to over-count by one), and the pricing rule is a comment in `src/lib/pricing.ts`. Tests: `src/components/sections/__tests__/ProblemCards.test.tsx`.
 
 ## The three lines, tightened
 
@@ -51,7 +51,7 @@ If you keep the marquee anyway, cap it at three quotes and slow it to about 0.3p
 4. Guidance
 5. Results (`ProofSection`): all clients, full text
 6. Why (`LastMileSection`)
-7. FAQ: now 25 entries
+7. FAQ: now 24 entries
 8. Assessment
 9. Newsletter
 10. Contact

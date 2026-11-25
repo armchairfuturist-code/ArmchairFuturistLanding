@@ -292,7 +292,7 @@ Primary page: https://thearmchairfuturist.com/how-i-work
 
 ## FAQ Content (AI-Optimized Q&A)
 
-The site contains 25 FAQ items covering:
+The site contains 24 FAQ items covering:
 - What is the Armchair Futurist
 - What is the Accountability Gap in AI adoption
 - Alex Myers qualifications (6 certifications)
