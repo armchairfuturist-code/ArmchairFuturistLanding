@@ -51,7 +51,7 @@ If you keep the marquee anyway, cap it at three quotes and slow it to about 0.3p
 4. Guidance
 5. Results (`ProofSection`): all clients, full text
 6. Why (`LastMileSection`)
-7. FAQ: now 24 entries
+7. FAQ: now 26 entries
 8. Assessment
 9. Newsletter
 10. Contact
@@ -70,6 +70,32 @@ Ten sections still. Nothing is added to the page's length.
 | Result | Brenda Fonseca, PhD (real quote, full text in `TESTIMONIALS`). |
 
 ## Card 2: the money
+
+## Card 3: broke it / which model
+
+| Field | Copy |
+|---|---|
+| Problem | You broke something. Now nothing comes back right, you don't know which model to pick. |
+| Client words | "he was able to explain all this new concepts and tools in a way that even I, a neophyte, could follow." |
+| Fixed | You know what each setting does and how to revert. You pick the model on purpose. |
+| Steps | Send me the screen that changed. I trace what moved: setting, file, or instruction. We put it back to the last version you liked. I name the model for each job, and why. You keep the one-page map. |
+| Time and cost | Fix/map: one session. Setup doc: `AUDIT_PRICE_LABEL`. Full build wired in: `CUSTOM_PROVISIONING_RANGE_LABEL`. |
+| Proof | Maria Fonseca (real review in TESTIMONIALS; covers teaching clarity). |
+
+## New FAQ entries
+
+Two entries added to `src/content/faqs.ts` and `public/llms.txt`:
+- "I broke something in my AI. Can it be fixed?" (repair flow)
+- "Which AI model should I be using?" (model-selection rationale)
+FAQ count updated from 24 to 26.
+
+## Price label drift fix
+
+The old "What does it cost to fix these?" answer hard-coded dollar amounts
+with "/" separators, diverging from labels that use "·" and the range dash.
+Converted to template literals pulling `${SINGLE_SESSION_LABEL}`,
+`${AUDIT_PRICE_LABEL}`, and `${CUSTOM_PROVISIONING_RANGE_LABEL}`.
+
 
 | Field | Copy |
 |---|---|
