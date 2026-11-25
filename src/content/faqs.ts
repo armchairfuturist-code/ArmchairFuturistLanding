@@ -89,4 +89,59 @@ export const FAQ_ITEMS: FaqItem[] = [
     answer:
       `Three ways, depending on where you are. The Digital Identity Landing Page (${DIGITAL_IDENTITY_LABEL}) requires no call. Submit the intake. For guidance, browse session packs starting at ${SINGLE_SESSION_LABEL} or apply for the AI Self-Sufficiency Program. For done-for-you builds, request a 30-minute fit call and I'll scope the work.`,
   },
+  /* Novice questions. Researched from what first-time AI users actually ask
+     (plans/research/novice-faq-candidates.json), not invented: each one is a
+     question type that recurred across forums before the visitor ever reaches
+     a consultant. Answers avoid prices on purpose, because the labels live in
+     src/lib/pricing.ts. */
+  {
+    question: "I hear what AI can do. Why can't I make it work?",
+    answer:
+      "The tools are real. What is missing is the base: how the model reads your instructions, what it can see, and where it stops. Without that, every attempt looks random. With it, the same tool does the job. I teach the base on your own work, so you test it on something you actually need.",
+  },
+  {
+    question: "Why am I paying twice for AI?",
+    answer:
+      "Most people end up with two tools that do the same job, because each new app asked for a card before it would work. I list every AI bill you have, mark what each one does, cancel the overlap, and move the work to the cheaper tool that still does it. You keep the list.",
+  },
+  {
+    question: "Why do I run out of AI usage so fast?",
+    answer:
+      "Usage drains from three places: long chats that never get restarted, the biggest model answering small questions, and the same document pasted in again and again. I check those three, move small jobs to the smaller model, and store your documents once. Most people cut their usage without losing the work they care about.",
+  },
+  {
+    question: "Why does my AI make things up?",
+    answer:
+      "It invents when it does not have the facts and still has to answer. The fix is to give it your real documents and one rule: quote the source, or say you do not know. Then test it on ten questions where you already know the answer.",
+  },
+  {
+    question: "Why does my AI forget what I told it?",
+    answer:
+      "A chat only remembers the text still inside it. When the window fills, the oldest lines drop out. Long projects need a file or a saved memory, not a longer chat. I set that up once, so each session starts with the facts already loaded.",
+  },
+  {
+    question: "Why is my AI so slow?",
+    answer:
+      "The tool is either thinking at length, searching the web, or queued behind other users. You can switch thinking off for simple questions, stop it searching when you did not ask for fresh facts, and keep one chat per task. Each change is a setting, not a new subscription.",
+  },
+  {
+    question: "Which thinking mode should I set?",
+    answer:
+      "The smallest one that gets the job done. Quick edits, rewording, and drafting need no extra thinking. Planning, code, and maths need the long mode. When unsure, run the question in the small mode first, and switch up only if the answer misses.",
+  },
+  {
+    question: "What is the difference between web chat and AI installed on my computer?",
+    answer:
+      "Web chat lives in a browser tab. Nothing to install, and it forgets when you close the tab. Installed AI runs on your machine, reads your files and folders, and keeps the work there. Start with web chat. Move to an installed tool when the work needs your own files, or a job that runs without you.",
+  },
+  {
+    question: "How do I get AI to do more of my work?",
+    answer:
+      "Write down the five jobs you repeat each week. Pick the one with the same steps every time. Automate that one first, keep a person on the exceptions, and measure the hours saved before you touch the next. Most people start with the biggest job and quit, because it has too many exceptions.",
+  },
+  {
+    question: "What does it cost to fix these?",
+    answer:
+      "A 20-minute call or a WhatsApp message costs nothing. One session is $120 / €100. The roadmap audit is $297 / €247, with a written plan you keep. A full build runs $1,000 to $5,000 / €850 to €4,250 over one to two weeks.",
+  },
 ];

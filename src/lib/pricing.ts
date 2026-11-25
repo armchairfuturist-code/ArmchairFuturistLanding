@@ -8,6 +8,14 @@
 
 export type CurrencyCode = 'EUR' | 'USD';
 
+/**
+ * Prices are set in EUR, and every USD figure on the site is a conversion at
+ * EUR_USD_RATE. So the EUR numbers are stable and the USD numbers move when
+ * the euro does: re-derive them here and the labels, the structured data and
+ * llms.txt all follow. Update EUR_USD_RATE before quoting a USD price to a
+ * client whose invoice is in dollars.
+ */
+
 // ── Service pricing (used by StructuredData + ServicesSection) ──
 
 export const SERVICES_PRICING = {

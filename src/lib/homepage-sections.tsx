@@ -14,7 +14,9 @@ export interface HomepageSection {
 
 export const SECTION_IDS = {
   hero: "hero",
-  testimonialMarquee: "testimonial-marquee",
+  /** Replaced the testimonial marquee: two problem cards, each with one
+      client quote. Proof in full stays in ProofSection. */
+  problemCards: "problem-cards",
   lastMile: "last-mile",
   whatIsNot: "what-this-is-not",
   services: "services",
@@ -37,12 +39,12 @@ const sections: readonly HomepageSection[] = [
     navigable: false,
   },
   {
-    id: SECTION_IDS.testimonialMarquee,
-    label: "Testimonials",
+    id: SECTION_IDS.problemCards,
+    label: "Problems",
     navigable: false,
     homepage: true,
     component: dynamic(
-      () => import("@/components/sections/TestimonialMarquee"),
+      () => import("@/components/sections/ProblemCards"),
     ) as React.ComponentType,
   },
   {

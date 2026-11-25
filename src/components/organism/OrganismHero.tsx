@@ -54,9 +54,16 @@ export function OrganismHero() {
           <br />
           <em>AI Consultant.</em>
         </h1>
+        {/* The deck states the problem the visitor arrived with, in the
+            order they hit it: something looked powerful, they tried it, it
+            did not click, and the missing piece was never them. The old deck
+            sold the method ("coaching", "systems you built yourself"); this
+            one names the failure first and the method second. See
+            plans/homepage-10-second-copy.md. */}
         <p className="organism-deck">
-          One-to-one AI coaching on your real work. You leave running the systems
-          you built yourself.
+          You hear what AI can do. You try it. It doesn&rsquo;t click. The
+          missing piece is mental models, not you. I connect the dots with you,
+          on your own work, one to one.
         </p>
         <div className="organism-actions">
           {/* WhatsApp is the primary action. A call is a scheduled event with
@@ -74,7 +81,7 @@ export function OrganismHero() {
               className="organism-hero__whatsapp-icon"
               tone="inherit"
             />
-            Text me on WhatsApp{" "}
+            Text me on WhatsApp. Free to ask.{" "}
             <ArrowUpRight size={16} aria-hidden="true" />
           </a>
         </div>
