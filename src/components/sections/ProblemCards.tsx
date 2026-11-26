@@ -52,59 +52,53 @@ interface ProblemCard {
 
 const CARDS: readonly ProblemCard[] = [
   {
-    id: "click",
-    problem: "You hear what AI can do. You try it. It doesn't click.",
-    fixed: "You know what the model is doing and why. You run the job alone.",
+    id: "memory",
+    problem: "The model knows everything about the world, but nothing about your business. You paste the same files into every new chat.",
+    fixed: "Your documents load before you type. The model remembers your work on day two.",
     steps: [
-      "Show me what you tried.",
-      "I explain what the tool was actually doing.",
-      "We run the same job together on your screen.",
-      "You run it again alone. I watch.",
-      "You keep the notes.",
+      "Show me where your work documents live.",
+      "I connect those folders to the model's memory.",
+      "We test a question only your team could answer.",
+      "You stop pasting the same background twice.",
+      "Open a new chat and confirm the model remembers.",
     ],
     terms: `${SINGLE_SESSION_LABEL} for one session. Packs of five to twenty: ${GUIDANCE_RANGE_LABEL}. Eight-week build program: ${PROGRAM_PRICE_LABEL}.`,
     client: byName("Brenda Fonseca"),
-    // Elided with an ellipsis, never retyped: a quote with the middle
-    // dropped is still the client's words, a quote with a word changed is
-    // not. The test checks each side of the ellipsis against the source.
     excerpt:
       "When I first reached out to him, I wasn't even sure what type of training to ask for. … Now I have a foundational understanding of what AI actually is and how I can use it.",
   },
   {
-    id: "money",
-    problem: "Two subscriptions, one job. Or a month's usage gone by Wednesday.",
-    fixed: "One bill. The plan fits the work. Nothing overlaps.",
+    id: "recipes",
+    problem: "You built a workflow last month. Now the chat is lost, and the new model update broke the steps anyway.",
+    fixed: "A saved recipe that runs the same way on every model version. One file, repeatable output.",
     steps: [
-      "Send me your last two AI bills.",
-      "I list every bill and what each one does.",
-      "We cancel the overlap.",
-      "The work moves to the cheaper tool that still does it.",
-      "You keep the list.",
+      "Send me the workflow you keep repeating.",
+      "I write it down as a reusable skill file.",
+      "We run it on three different inputs.",
+      "The model follows the file, not its own guess.",
+      "Deploy the recipe again tomorrow without retyping.",
+    ],
+    terms: `Fix and model map: one session, ${SINGLE_SESSION_LABEL}. Written setup doc: ${AUDIT_PRICE_LABEL}. A build with the right model wired in: ${CUSTOM_PROVISIONING_RANGE_LABEL}.`,
+    client: byName("Maria Fonseca"),
+    excerpt:
+      "…he was able to explain all this new concepts and tools in a way that even I, a neophyte, could follow … Alex has been very organized and obliging us to focus just on what we really needed.",
+  },
+  {
+    id: "tools",
+    problem: "Your team uses five different AI tabs. No one agrees which one has the latest file, and the bills add up.",
+    fixed: "One shared context layer. Every model reads the same source of truth.",
+    steps: [
+      "List the AI tools your team opens daily.",
+      "I connect them to one shared folder.",
+      "We delete the duplicate subscriptions.",
+      "Two different models answer one question identically.",
+      "Lock the shared folder so nothing drifts.",
     ],
     terms: `The list is one session: ${SINGLE_SESSION_LABEL}. Written roadmap: ${AUDIT_PRICE_LABEL}. Full build: ${CUSTOM_PROVISIONING_RANGE_LABEL}.`,
     client: byName("Shannon Myers"),
     excerpt: "He has saved me over $10,000 a year. I save 10 to 20 hours a week now.",
   },
-  {
-    id: "broke",
-    problem: "You broke something. Now nothing comes back right, and you don't know which model to pick.",
-    fixed: "You know what each setting does and how to revert. You pick the model on purpose and can say why.",
-    steps: [
-      "Send me the screen that changed.",
-      "I trace what moved: a setting, a file, or an instruction.",
-      "We put it back to the last version you liked.",
-      "I name the model for each job you do, and the reason.",
-      "You keep the one-page map.",
-    ],
-    terms: `Fix and model map: one session, ${SINGLE_SESSION_LABEL}. Written setup doc: ${AUDIT_PRICE_LABEL}. A build with the right model wired in: ${CUSTOM_PROVISIONING_RANGE_LABEL}.`,
-    client: byName("Maria Fonseca"),
-    // "all this" mirrors Maria's original grammar; we preserve it verbatim.
-    excerpt:
-      "…he was able to explain all this new concepts and tools in a way that even I, a neophyte, could follow … Alex has been very organized and obliging us to focus just on what we really needed.",
-  },
-];
-
-function Client({ client }: { client: Testimonial }) {
+];function Client({ client }: { client: Testimonial }) {
   const initials = client.name
     .split(/\s+/)
     .map((part) => part[0])
