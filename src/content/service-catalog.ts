@@ -223,7 +223,12 @@ export const SERVICE_SYSTEMS: readonly ServiceSystem[] = [
       {
         title: "Data Consolidation",
         content:
-          "Pipelines pull scattered sheets and inbox threads into one system you can query. Nightly sync. Dedupe rules you can read.",
+          "Pipelines pull scattered sheets and inbox threads into one system you can query. Nightly sync. Dedupe rules you can read. We map your existing Drive folders and Sheets so nothing is migrated — only connected.",
+      },
+      {
+        title: "Company Rollout",
+        content:
+          "Once the foundation is live, we connect it to your CRM, shared drives, and internal SOPs so every team member works from the same source. Staff stop putting client data into personal accounts because the company account has what they need and the guardrails to keep it safe. This is where most companies stall: they build a great pilot but can't get their team to adopt it consistently. We handle both — the tech and the change management.",
       },
       {
         title: "Internal Knowledge Base",
@@ -256,7 +261,7 @@ export const SERVICE_SYSTEMS: readonly ServiceSystem[] = [
     hubSummary: "One source of truth for the workflows your team and AI share.",
     hubDescription:
       "One place for data, SOPs, and workflows. Pipelines pull scattered sheets and inbox threads into one system you can query. AI answers from your SOPs and cites the source.",
-    covers: "Context Layer · Data Consolidation · Internal Knowledge Base",
+    covers: "Context Layer · Data Consolidation · Company Rollout · Internal Knowledge Base",
   },
   {
     slug: "revenue-operations",
@@ -288,7 +293,12 @@ export const SERVICE_SYSTEMS: readonly ServiceSystem[] = [
       {
         title: "Document Generation",
         content:
-          "Proposals, contracts, and memos draft from structured data. You approve before anything sends.",
+          "Proposals, quotes, contracts, and memos draft from structured data and past projects. Pricing knowledge gets extracted from the owner's head so drawings and specs turn into accurate quotes the same day. You approve before anything sends.",
+      },
+      {
+        title: "Client Portal",
+        content:
+          "One login where clients see project status, files, invoices, and reports instead of emailing the team for updates. They get what they need without interrupting your staff. The portal pulls from your CRM, project tools, and accounting system — no manual updates required.",
       },
       {
         title: "Automated Reporting",
@@ -323,7 +333,7 @@ export const SERVICE_SYSTEMS: readonly ServiceSystem[] = [
     hubSummary: "The handoffs, documents, and reporting between sale and renewal.",
     hubDescription:
       "Onboarding, pipeline, documents, reporting, and billing that run without copy-paste. Deals get touched. Reports build themselves. Invoices match the work.",
-    covers: "Onboarding · Pipeline · Documents · Reporting · Billing",
+    covers: "Onboarding · Pipeline · Quoting · Client Portal · Reporting · Billing",
   },
   {
     slug: "visibility",
@@ -352,6 +362,11 @@ export const SERVICE_SYSTEMS: readonly ServiceSystem[] = [
         content:
           "Live view of who holds too much and who has room. Assignments move before burnout. History stays for planning.",
       },
+      {
+        title: "ROI Observability",
+        content:
+          "Baselines measured before the build, live dashboard after. Leadership sees what each AI dollar returns with source-traced numbers from CRM, ERP, and accounting. No guesswork — just proof that travels up the org chart.",
+      },
     ],
     keep:
       "Sources, refresh times, and field map, plus keys and a 2-page runbook. You see where every number comes from.",
@@ -376,7 +391,7 @@ export const SERVICE_SYSTEMS: readonly ServiceSystem[] = [
     hubSummary: "The source-traceable view of performance, workload, and margin.",
     hubDescription:
       "Dashboards and capacity views pull from CRM, ad platforms, and books. You see who holds too much and what pays before month end.",
-    covers: "Automated Reporting · Capacity Tracking",
+    covers: "Automated Reporting · Capacity Tracking · ROI Observability",
   },
   {
     slug: "frontline-help",
@@ -396,9 +411,14 @@ export const SERVICE_SYSTEMS: readonly ServiceSystem[] = [
       "Tier-1 agents, SaaS consolidation, and model routing. Scoped pilots with human handoff. Client owns the stack.",
     blocks: [
       {
-        title: "Tier-1 AI Agents",
+        title: "Inbound Voice & Chat Agents",
         content:
-          "Tier-1 agents take scheduling, routine intake forms, and repeat customer questions around the clock. They handle about 60–70% of inbound volume using your knowledge base so humans only touch exceptions. Every response links back to its source document. When an agent hits its limit it hands the full conversation to a human with one click and zero context loss.",
+          "Tier-1 agents take inbound calls, texts, forms, and repeat customer questions around the clock. They handle about 60–70% of inbound volume using your knowledge base so humans only touch exceptions. Every response links back to its source document. When an agent hits its limit it hands the full conversation to a human with one click and zero context loss.",
+      },
+      {
+        title: "Ops Agents",
+        content:
+          "Agents working inside email, Slack, and your CRM triage requests, chase updates, and keep records current without waiting for a person. Outbound follow-ups, status checks, and data entry happen on rails while your team focuses on decisions that need judgment.",
       },
       {
         title: "SaaS Consolidation",
@@ -433,7 +453,7 @@ export const SERVICE_SYSTEMS: readonly ServiceSystem[] = [
     hubSummary: "Repeat intake and support with a clean human handoff.",
     hubDescription:
       "Agents take scheduling, intake, and repeat support questions. Overlapping seats go. Model spend drops while output holds.",
-    covers: "Tier-1 Agents · SaaS Consolidation · Cost Reduction",
+    covers: "Inbound Voice & Chat Agents · Ops Agents · SaaS Consolidation · Cost Reduction",
   },
 ] as const;
 
