@@ -114,6 +114,88 @@ All sessions are 60 minutes, held via video call. Book at https://thearmchairfut
 - **/services/frontline-help** - Repeat intake and support with a clean human handoff.
 - **Ownership:** client keeps repo, configs, keys, 2-page runbook. Training closes each handoff.
 
+## Service Capabilities — All Offerings
+### AI Enablement Training
+Workshops, hackathons, and recorded training libraries built around your own technology. Trains the whole team to become AI-native so you own the skills internally. Covers AI literacy, hands-on exercises, and ongoing video resources.
+**Route:** /how-i-work (team adoption)
+
+### AI ROI Blueprint Audit
+Interview every department, map workflows, rank automation opportunities by projected ROI, and deliver a phased build plan before development spending begins. Includes scored recommendations ranked by hours saved and revenue impact.
+**Route:** /audit · $297 / €247
+
+### Context Layer & Knowledge Base
+SOPs, pricing documents, client history, and past decisions stored in one queryable system where every AI tool and agent pulls from. Replaces disconnected Drive folders and spreadsheet silos as the single truth for process decisions.
+**Route:** /services/data-foundation
+
+### Company-Wide Enterprise Rollout
+Enterprise-scale AI deployment across CRM, shared drives, and SOPs. Staff stop using personal AI accounts because the company account has everything they need with guardrails to keep data safe. Handles both the technical integration and change management.
+**Route:** /services/data-foundation
+
+### AI Policy and Governance Framework
+Acceptable-use rules, approved tool list, data handling standards, and review process for every AI agent and connector before going live. Designed for regulated environments where data cannot pass through public tools.
+**Route:** /services/governance
+
+### Private AI Infrastructure
+Open-source or private models running in your own cloud or on-premises hardware for regulated data. No data exposure to public platforms. Includes setup, configuration, and operational monitoring.
+**Route:** Custom provisioned via WhatsApp
+
+### Custom Software Over SaaS Consolidation
+Replace overlapping subscriptions with one custom application built on your own data layer. Reduces seat counts, eliminates duplicate charges, and produces monthly cost reports showing savings side-by-side. CRMs and internal admin tools replaced first.
+**Route:** /services/frontline-help
+
+### Client Portals
+Single login dashboard where clients see project status, files, invoices, and reports instead of emailing the team. Pulls from CRM, project tools, and accounting systems automatically. Zero manual updates required from staff.
+**Route:** /services/revenue-operations
+
+### Quoting and Estimating Automation
+Extract pricing knowledge from the owner's head so drawings and specifications turn into accurate quotes the same day. Proposals, quotes, contracts draft from structured pricing data and historical projects. You approve before anything sends.
+**Route:** /services/revenue-operations
+
+### Voice and Chat Agents
+Inbound calls, texts, and web forms answered instantly. Qualifies leads and books appointments automatically. Handles 60-70% of inbound call volume without human intervention. Every response links back to its source document.
+**Route:** /services/frontline-help
+
+### Operations Agents
+Internal agents working inside email, Slack, and your CRM to triage requests, chase follow-ups, and keep records current. Outbound status checks and data entry happens on rails while your team focuses on decisions that require judgment.
+**Route:** /services/frontline-help
+
+### Back-Office Finance Automation
+Invoices read and matched automatically. Weekly reconciliation runs off the team's schedule. Unbilled work flagged before month-end closes. System matches actual work delivered against contracted scope before invoices go out, catching scope creep.
+**Route:** /services/revenue-operations
+
+### Client Onboarding Automation
+Signed contract to kickoff workflow including intake forms, document collection, and account setup running without manual handoff. Account creation, welcome routing, and task assignment execute automatically when a new client enters the pipeline.
+**Route:** /services/revenue-operations
+
+### Automated Reporting Dashboards
+Dashboards and weekly reports pulled automatically from CRM, ERP, and accounting systems with zero manual input. Sources listed on each page. Refresh times stamped next to numbers so stale data shows its age.
+**Route:** /services/visibility
+
+### Data Cleanup & Consolidation
+Scattered spreadsheets, inbox archives, and legacy systems consolidated into one clean, queryable data layer. Bad data is where most AI projects stall — this fixes the foundation first before automation builds. Nightly sync and dedupe rules included.
+**Route:** /services/data-foundation
+
+### AI ROI Observability Tracking
+Baselines measured before any build begins, then a live dashboard tracks return after launch. Leadership sees exactly what each AI dollar returns with source-traced numbers from CRM, ERP, and financial systems. Proof that travels up the org chart.
+**Route:** /services/visibility
+
+### AI Search Visibility & Citation SEO
+Getting your company cited when buyers ask LLMs like Claude, ChatGPT, and Perplexity. Optimized content structure, structured data markup, and FAQPage schema designed for GEO crawler discovery. Increases visibility when searchers ask natural-language questions about your category.
+**Route:** /research · /blog
+
+### Digital Identity Landing Page
+Interview-ready professional website consolidating LinkedIn, resume, portfolio, and social links into one platform you own. Delivered in 2-4 days. Conversion-focused layout, mobile-optimized, full code ownership transferred.
+**Route:** /intake/digital-identity · $233 / €199
+
+### AI Self-Sufficiency Program
+8-week structured program where you ship a launched AI-powered service or brand. Includes 10-15 coaching sessions, async support between meetings, structured build playbook, and lifetime alumni access. You finish with something you can sell.
+**Route:** #ai-guidance · $2,497
+
+### Executive Roundtables & Workshops
+Facilitated AI strategy sessions for leadership teams. Strategy facilitation designed to move organizations from AI discussions to AI decisions and measurable action plans.
+**Route:** /speaking
+
+
 ## Case Studies
 
 ### AI Adoption for Consulting Firm (2025)
