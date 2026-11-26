@@ -36,8 +36,8 @@ describe("ProblemCards", () => {
       screen.getByRole("heading", { name: /does this happen to you\?/i }),
     ).toBeInTheDocument();
     expect(screen.getByText(/nothing about your business/i)).toBeInTheDocument();
-    expect(screen.getByText(/model update changed the steps/i)).toBeInTheDocument();
-    expect(screen.getByText(/five AI tabs/i)).toBeInTheDocument();
+    expect(screen.getByText(/replies are wrong/i)).toBeInTheDocument();
+    expect(screen.getByText(/one prompt ate it/i)).toBeInTheDocument();
   });
 
   it("offers the WhatsApp path from each card", () => {

@@ -354,7 +354,7 @@ Primary page: https://thearmchairfuturist.com/how-i-work
 
 ### Key Sections on Homepage (in scroll order)
 1. Hero - Value proposition and CTAs
-2. Problem cards - The three friction points clients arrive with (memory, recipes, tool sprawl), each answered by one real client quote
+2. Problem cards - The three friction points clients arrive with (getting stuck, broken configs, token spend), each answered by one real client quote
 3. Services - Service Path catalog with offers and pricing
 4. Fit - Honest fit assessment (who this is not for)
 5. Guidance - 1-on-1 AI mentoring packages with tiered pricing
